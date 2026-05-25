@@ -514,11 +514,35 @@ abstract class AppLocalizations {
   /// **'Recent BIPs'**
   String get recentBips;
 
+  /// No description provided for @allBipsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'All BIPs'**
+  String get allBipsTitle;
+
+  /// No description provided for @allBipsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse Bitcoin Improvement Proposals by status and number.'**
+  String get allBipsSubtitle;
+
   /// No description provided for @noBipsMatchFilter.
   ///
   /// In en, this message translates to:
   /// **'No BIPs match this filter.'**
   String get noBipsMatchFilter;
+
+  /// No description provided for @bipNumberDescending.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest BIP #'**
+  String get bipNumberDescending;
+
+  /// No description provided for @bipNumberAscending.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest BIP #'**
+  String get bipNumberAscending;
 
   /// No description provided for @bipTracker.
   ///

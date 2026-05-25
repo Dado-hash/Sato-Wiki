@@ -9,30 +9,20 @@ import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/status_badge.dart';
 
-class CodeDashboardScreen extends StatefulWidget {
+class CodeDashboardScreen extends StatelessWidget {
   const CodeDashboardScreen({required this.store, super.key});
 
   final ContentStore store;
-
-  @override
-  State<CodeDashboardScreen> createState() => _CodeDashboardScreenState();
-}
-
-class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
-  BipStatus? _selectedFilter;
-
-  List<Bip> get _filteredBips {
-    final bips = widget.store.bundle.bips;
-    if (_selectedFilter == null) return bips;
-    return bips.where((b) => b.status == _selectedFilter).toList();
-  }
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
-    final bips = _filteredBips;
+    final recentBips = _sortBips(
+      store.bundle.bips,
+      _BipSortOrder.descending,
+    ).take(3);
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
@@ -49,22 +39,15 @@ class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
           ),
         ),
         const SizedBox(height: 24),
-        _StatusFilters(
-          selected: _selectedFilter,
-          onSelected: (f) => setState(() => _selectedFilter = f),
-        ),
-        const SizedBox(height: 28),
-        _BipTrackerCard(store: widget.store),
-        const SizedBox(height: 16),
-        _ChangelogSummaryCard(store: widget.store),
+        _BipTrackerCard(store: store),
         const SizedBox(height: 28),
         SectionTitle(
           title: l10n.recentBips,
-          actionLabel: l10n.filter,
-          onAction: null,
+          actionLabel: l10n.all,
+          onAction: () => Navigator.of(context).pushNamed(AppRoutes.codeBips),
         ),
         const SizedBox(height: 16),
-        if (bips.isEmpty)
+        if (recentBips.isEmpty)
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: Center(
@@ -77,7 +60,7 @@ class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
             ),
           )
         else
-          for (final bip in bips) ...[
+          for (final bip in recentBips) ...[
             _BipCard(
               bip: bip,
               onTap: () => Navigator.of(
@@ -86,9 +69,110 @@ class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
             ),
             const SizedBox(height: 10),
           ],
+        const SizedBox(height: 18),
+        _ChangelogSummaryCard(store: store),
       ],
     );
   }
+}
+
+class BipListScreen extends StatefulWidget {
+  const BipListScreen({required this.store, super.key});
+
+  final ContentStore store;
+
+  @override
+  State<BipListScreen> createState() => _BipListScreenState();
+}
+
+class _BipListScreenState extends State<BipListScreen> {
+  BipStatus? _selectedStatus;
+  _BipSortOrder _sortOrder = _BipSortOrder.descending;
+
+  List<Bip> get _bips {
+    final filtered = _selectedStatus == null
+        ? widget.store.bundle.bips
+        : widget.store.bundle.bips
+              .where((bip) => bip.status == _selectedStatus)
+              .toList(growable: false);
+
+    return _sortBips(filtered, _sortOrder);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final bips = _bips;
+
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        title: Text(l10n.allBipsTitle),
+      ),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+          children: [
+            Text(
+              l10n.allBipsTitle,
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              l10n.allBipsSubtitle,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 20),
+            _StatusFilters(
+              selected: _selectedStatus,
+              onSelected: (status) {
+                setState(() {
+                  _selectedStatus = status == _selectedStatus ? null : status;
+                });
+              },
+            ),
+            const SizedBox(height: 16),
+            _BipSortControl(
+              selected: _sortOrder,
+              onSelected: (order) => setState(() => _sortOrder = order),
+            ),
+            const SizedBox(height: 24),
+            if (bips.isEmpty)
+              Center(child: Text(l10n.noBipsMatchFilter))
+            else
+              for (final bip in bips) ...[
+                _BipCard(
+                  bip: bip,
+                  onTap: () => Navigator.of(
+                    context,
+                  ).pushNamed(AppRoutes.codeBip(bip.number)),
+                ),
+                const SizedBox(height: 10),
+              ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+enum _BipSortOrder { descending, ascending }
+
+List<Bip> _sortBips(Iterable<Bip> bips, _BipSortOrder order) {
+  final sorted = bips.toList(growable: false);
+  sorted.sort((a, b) {
+    return switch (order) {
+      _BipSortOrder.descending => b.number.compareTo(a.number),
+      _BipSortOrder.ascending => a.number.compareTo(b.number),
+    };
+  });
+
+  return sorted;
 }
 
 class _StatusFilters extends StatelessWidget {
@@ -101,13 +185,7 @@ class _StatusFilters extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
-    const filters = [
-      null,
-      BipStatus.active,
-      BipStatus.draft,
-      BipStatus.proposed,
-      BipStatus.rejected,
-    ];
+    const filters = [BipStatus.active, BipStatus.draft, BipStatus.rejected];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -117,7 +195,7 @@ class _StatusFilters extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: FilterChip(
-                label: Text(filter?.label(l10n) ?? l10n.all),
+                label: Text(filter.label(l10n)),
                 selected: filter == selected,
                 showCheckmark: false,
                 onSelected: (_) => onSelected(filter),
@@ -135,6 +213,54 @@ class _StatusFilters extends StatelessWidget {
               ),
             ),
         ],
+      ),
+    );
+  }
+}
+
+class _BipSortControl extends StatelessWidget {
+  const _BipSortControl({required this.selected, required this.onSelected});
+
+  final _BipSortOrder selected;
+  final ValueChanged<_BipSortOrder> onSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: colorScheme.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: colorScheme.outlineVariant),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(4),
+        child: SegmentedButton<_BipSortOrder>(
+          selected: {selected},
+          showSelectedIcon: false,
+          style: ButtonStyle(
+            minimumSize: const WidgetStatePropertyAll(Size(120, 44)),
+            side: const WidgetStatePropertyAll(BorderSide.none),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+            ),
+          ),
+          onSelectionChanged: (orders) => onSelected(orders.first),
+          segments: [
+            ButtonSegment<_BipSortOrder>(
+              value: _BipSortOrder.descending,
+              icon: const Icon(Icons.south, size: 16),
+              label: Text(l10n.bipNumberDescending),
+            ),
+            ButtonSegment<_BipSortOrder>(
+              value: _BipSortOrder.ascending,
+              icon: const Icon(Icons.north, size: 16),
+              label: Text(l10n.bipNumberAscending),
+            ),
+          ],
+        ),
       ),
     );
   }

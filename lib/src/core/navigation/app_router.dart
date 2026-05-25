@@ -123,6 +123,12 @@ abstract final class AppRouter {
       return HistoryEventScreen(store: appContent.store, slug: segments[2]);
     }
 
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'bips') {
+      return BipListScreen(store: appContent.store);
+    }
+
     if (segments.length == 3 &&
         segments[0] == 'code' &&
         segments[1] == 'bips') {
@@ -202,6 +208,17 @@ final class DeepLinkTarget {
         tab: SatoWikiTab.history,
         title: 'History event',
         metadata: segments[2],
+        routeName: routeName,
+      );
+    }
+
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'bips') {
+      return DeepLinkTarget(
+        tab: SatoWikiTab.code,
+        title: 'BIP list',
+        metadata: 'All BIPs',
         routeName: routeName,
       );
     }
@@ -326,7 +343,7 @@ String _localizedTargetTitle(DeepLinkTarget target, AppLocalizations l10n) {
     return l10n.historyEventTitle;
   }
   if (segments.length >= 2 && segments[0] == 'code' && segments[1] == 'bips') {
-    return l10n.bipDetailTitle;
+    return segments.length == 2 ? l10n.allBipsTitle : l10n.bipDetailTitle;
   }
   if (segments.length >= 2 &&
       segments[0] == 'code' &&

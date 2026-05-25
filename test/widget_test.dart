@@ -127,11 +127,69 @@ void main() {
       const AppLocalePreference.language('en'),
     );
   });
+
+  testWidgets(
+    'Code dashboard links to full BIP list with filters and sorting',
+    (tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repository = InMemoryAppSettingsRepository(
+        lastTab: SatoWikiTab.code,
+      );
+      final settingsController = await AppSettingsController.load(repository);
+      final contentController = await _testContentController(
+        _bipListFixtureJson,
+      );
+
+      await tester.pumpWidget(
+        SatoWikiApp(
+          settingsController: settingsController,
+          contentController: contentController,
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('BIP 400'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('BIP 342'), 300);
+      expect(find.text('BIP 342'), findsOneWidget);
+      expect(find.text('BIP 1'), findsNothing);
+
+      await tester.scrollUntilVisible(find.text('All'), -300);
+      await tester.tap(find.text('All'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('All BIPs'), findsWidgets);
+      expect(
+        tester.getTopLeft(find.text('BIP 400')).dy,
+        lessThan(tester.getTopLeft(find.text('BIP 1')).dy),
+      );
+
+      await tester.tap(find.text('Rejected'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('BIP 400'), findsNothing);
+      expect(find.text('BIP 399'), findsOneWidget);
+      expect(find.text('BIP 1'), findsOneWidget);
+
+      await tester.tap(find.text('Lowest BIP #'));
+      await tester.pumpAndSettle();
+
+      expect(
+        tester.getTopLeft(find.text('BIP 1')).dy,
+        lessThan(tester.getTopLeft(find.text('BIP 399')).dy),
+      );
+    },
+  );
 }
 
-Future<AppContentController> _testContentController() {
+Future<AppContentController> _testContentController([
+  String json = _fixtureJson,
+]) {
   return AppContentController.load(
-    repository: _TestContentBundleRepository(_fixtureJson),
+    repository: _TestContentBundleRepository(json),
     languageCode: 'en',
   );
 }
@@ -214,6 +272,97 @@ const _fixtureJson = '''
       "sources": [],
       "related": [],
       "statusHistory": [{"date": "2021-11-14", "status": "active", "note": "Activated."}],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    }
+  ],
+  "changelogs": []
+}
+''';
+
+const _bipListFixtureJson = '''
+{
+  "schemaVersion": 1,
+  "version": "test",
+  "language": "en",
+  "generatedAt": "2026-05-25T00:00:00Z",
+  "wiki": [],
+  "news": [],
+  "history": [],
+  "bips": [
+    {
+      "id": "code.bip.400",
+      "number": 400,
+      "language": "en",
+      "title": "Newest Active",
+      "summary": "Newest active BIP.",
+      "status": "active",
+      "category": "consensus",
+      "authors": ["Author"],
+      "createdAt": "2026-01-01",
+      "summaryMarkdown": "Summary.",
+      "impactMarkdown": "Impact.",
+      "officialUrl": "https://github.com/bitcoin/bips",
+      "tags": ["Consensus"],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "code.bip.399",
+      "number": 399,
+      "language": "en",
+      "title": "Recent Rejected",
+      "summary": "Rejected BIP.",
+      "status": "rejected",
+      "category": "consensus",
+      "authors": ["Author"],
+      "createdAt": "2025-01-01",
+      "summaryMarkdown": "Summary.",
+      "impactMarkdown": "Impact.",
+      "officialUrl": "https://github.com/bitcoin/bips",
+      "tags": ["Consensus"],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "code.bip.342",
+      "number": 342,
+      "language": "en",
+      "title": "Recent Draft",
+      "summary": "Draft BIP.",
+      "status": "draft",
+      "category": "consensus",
+      "authors": ["Author"],
+      "createdAt": "2024-01-01",
+      "summaryMarkdown": "Summary.",
+      "impactMarkdown": "Impact.",
+      "officialUrl": "https://github.com/bitcoin/bips",
+      "tags": ["Consensus"],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    },
+    {
+      "id": "code.bip.1",
+      "number": 1,
+      "language": "en",
+      "title": "Old Rejected",
+      "summary": "Old rejected BIP.",
+      "status": "rejected",
+      "category": "process",
+      "authors": ["Author"],
+      "createdAt": "2011-01-01",
+      "summaryMarkdown": "Summary.",
+      "impactMarkdown": "Impact.",
+      "officialUrl": "https://github.com/bitcoin/bips",
+      "tags": ["Process"],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
       "updatedAt": "2026-05-25T00:00:00Z"
     }
   ],

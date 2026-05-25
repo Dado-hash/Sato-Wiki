@@ -13,6 +13,7 @@ abstract final class AppRoutes {
   static const wikiEntryPattern = '/wiki/entries/:entryId';
   static const newsArticlePattern = '/news/articles/:articleId';
   static const historyEventPattern = '/history/events/:eventId';
+  static const codeBips = '/code/bips';
   static const codeBipPattern = '/code/bips/:bipNumber';
   static const codeChangelogPattern = '/code/changelogs/:project/:version';
 

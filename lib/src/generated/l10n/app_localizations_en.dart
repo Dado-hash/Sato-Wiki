@@ -235,7 +235,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get recentBips => 'Recent BIPs';
 
   @override
+  String get allBipsTitle => 'All BIPs';
+
+  @override
+  String get allBipsSubtitle =>
+      'Browse Bitcoin Improvement Proposals by status and number.';
+
+  @override
   String get noBipsMatchFilter => 'No BIPs match this filter.';
+
+  @override
+  String get bipNumberDescending => 'Highest BIP #';
+
+  @override
+  String get bipNumberAscending => 'Lowest BIP #';
 
   @override
   String get bipTracker => 'BIP Tracker';
