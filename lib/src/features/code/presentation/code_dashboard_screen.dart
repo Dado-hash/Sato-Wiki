@@ -135,11 +135,15 @@ class _BipListScreenState extends State<BipListScreen> {
                   _selectedStatus = status == _selectedStatus ? null : status;
                 });
               },
-            ),
-            const SizedBox(height: 16),
-            _BipSortControl(
-              selected: _sortOrder,
-              onSelected: (order) => setState(() => _sortOrder = order),
+              sortOrder: _sortOrder,
+              onSortToggle: () {
+                setState(() {
+                  _sortOrder = switch (_sortOrder) {
+                    _BipSortOrder.descending => _BipSortOrder.ascending,
+                    _BipSortOrder.ascending => _BipSortOrder.descending,
+                  };
+                });
+              },
             ),
             const SizedBox(height: 24),
             if (bips.isEmpty)
@@ -176,10 +180,17 @@ List<Bip> _sortBips(Iterable<Bip> bips, _BipSortOrder order) {
 }
 
 class _StatusFilters extends StatelessWidget {
-  const _StatusFilters({required this.selected, required this.onSelected});
+  const _StatusFilters({
+    required this.selected,
+    required this.onSelected,
+    required this.sortOrder,
+    required this.onSortToggle,
+  });
 
   final BipStatus? selected;
   final ValueChanged<BipStatus?> onSelected;
+  final _BipSortOrder sortOrder;
+  final VoidCallback onSortToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -212,59 +223,28 @@ class _StatusFilters extends StatelessWidget {
                 ),
               ),
             ),
+          const SizedBox(width: 4),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              border: Border.all(color: colorScheme.outlineVariant),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.swap_vert),
+              onPressed: onSortToggle,
+              tooltip: switch (sortOrder) {
+                _BipSortOrder.descending => l10n.bipNumberAscending,
+                _BipSortOrder.ascending => l10n.bipNumberDescending,
+              },
+              visualDensity: VisualDensity.compact,
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
-class _BipSortControl extends StatelessWidget {
-  const _BipSortControl({required this.selected, required this.onSelected});
-
-  final _BipSortOrder selected;
-  final ValueChanged<_BipSortOrder> onSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final l10n = AppLocalizations.of(context);
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: colorScheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: colorScheme.outlineVariant),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(4),
-        child: SegmentedButton<_BipSortOrder>(
-          selected: {selected},
-          showSelectedIcon: false,
-          style: ButtonStyle(
-            minimumSize: const WidgetStatePropertyAll(Size(120, 44)),
-            side: const WidgetStatePropertyAll(BorderSide.none),
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-            ),
-          ),
-          onSelectionChanged: (orders) => onSelected(orders.first),
-          segments: [
-            ButtonSegment<_BipSortOrder>(
-              value: _BipSortOrder.descending,
-              icon: const Icon(Icons.south, size: 16),
-              label: Text(l10n.bipNumberDescending),
-            ),
-            ButtonSegment<_BipSortOrder>(
-              value: _BipSortOrder.ascending,
-              icon: const Icon(Icons.north, size: 16),
-              label: Text(l10n.bipNumberAscending),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class _BipTrackerCard extends StatelessWidget {
   const _BipTrackerCard({required this.store});
