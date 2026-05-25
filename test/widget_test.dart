@@ -82,7 +82,12 @@ void main() {
       ),
     );
 
-    expect(find.text('BIP 341: Taproot'), findsOneWidget);
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Taproot: SegWit version 1 spending rules.'),
+      findsOneWidget,
+    );
     expect(find.text('Status History'), findsOneWidget);
   });
 }

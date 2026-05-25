@@ -301,54 +301,56 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
         title: Text(widget.category),
         actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 24),
-            child: Text(
-              _subtitleFor(widget.category),
-              style: textTheme.bodyMedium?.copyWith(
-                color: colorScheme.onSurfaceVariant,
-              ),
-            ),
-          ),
-          if (_tags.length > 1)
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 24),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    for (final tag in _tags)
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8),
-                        child: _FilterChip(
-                          label: tag,
-                          selected: tag == _selectedTag,
-                          onSelected: (selected) {
-                            if (selected) {
-                              setState(() => _selectedTag = tag);
-                            }
-                          },
-                        ),
-                      ),
-                  ],
+              child: Text(
+                _subtitleFor(widget.category),
+                style: textTheme.bodyMedium?.copyWith(
+                  color: colorScheme.onSurfaceVariant,
                 ),
               ),
             ),
-          for (final entry in entries)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: _CategoryEntryCard(
-                entry: entry,
-                highlighted: entry == entries.first,
-                onTap: () => Navigator.of(
-                  context,
-                ).pushNamed(AppRoutes.wikiEntry(entry.slug)),
+            if (_tags.length > 1)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      for (final tag in _tags)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: _FilterChip(
+                            label: tag,
+                            selected: tag == _selectedTag,
+                            onSelected: (selected) {
+                              if (selected) {
+                                setState(() => _selectedTag = tag);
+                              }
+                            },
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-        ],
+            for (final entry in entries)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: _CategoryEntryCard(
+                  entry: entry,
+                  highlighted: entry == entries.first,
+                  onTap: () => Navigator.of(
+                    context,
+                  ).pushNamed(AppRoutes.wikiEntry(entry.slug)),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -642,89 +644,96 @@ class WikiEntryScreen extends StatelessWidget {
         ),
         title: const Text('Wiki'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-        children: [
-          Text(
-            entry.title,
-            style: textTheme.displayLarge?.copyWith(fontSize: 42, height: 1.08),
-          ),
-          const SizedBox(height: 20),
-          ReadingLevelSelector(
-            selectedLevel: selectedLevel,
-            onLevelChanged: onLevelChanged,
-          ),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              for (final tag in entry.tags)
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: colorScheme.surfaceContainerHighest,
-                    borderRadius: BorderRadius.circular(999),
-                    border: Border.all(
-                      color: colorScheme.outlineVariant.withValues(alpha: 0.5),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 4,
-                    ),
-                    child: Text(
-                      '#$tag',
-                      style: textTheme.labelMedium?.copyWith(
-                        color: colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.schedule_outlined,
-                      size: 16,
-                      color: colorScheme.onSurfaceVariant,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${entry.readTimeMinutes} min read',
-                      style: textTheme.labelSmall?.copyWith(
-                        color: colorScheme.onSurfaceVariant,
-                        fontFamily: 'JetBrains Mono',
-                      ),
-                    ),
-                  ],
-                ),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+          children: [
+            Text(
+              entry.title,
+              style: textTheme.displayLarge?.copyWith(
+                fontSize: 42,
+                height: 1.08,
               ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          HeroMedia(
-            icon: _iconForEntry(entry),
-            label: '${entry.title} conceptual visual',
-          ),
-          const SizedBox(height: 24),
-          Text(
-            entry.contentFor(selectedLevel).bodyMarkdown,
-            style: textTheme.bodyLarge?.copyWith(height: 1.6),
-          ),
-          if (entry.related.isNotEmpty) ...[
-            const SizedBox(height: 32),
-            const SectionTitle(title: 'Related Concepts'),
-            const SizedBox(height: 12),
-            RelatedLinksGrid(links: relatedLinks(entry.related)),
-          ],
-          if (entry.sources.isNotEmpty) ...[
+            ),
+            const SizedBox(height: 20),
+            ReadingLevelSelector(
+              selectedLevel: selectedLevel,
+              onLevelChanged: onLevelChanged,
+            ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final tag in entry.tags)
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: colorScheme.surfaceContainerHighest,
+                      borderRadius: BorderRadius.circular(999),
+                      border: Border.all(
+                        color: colorScheme.outlineVariant.withValues(
+                          alpha: 0.5,
+                        ),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 4,
+                      ),
+                      child: Text(
+                        '#$tag',
+                        style: textTheme.labelMedium?.copyWith(
+                          color: colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.schedule_outlined,
+                        size: 16,
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        '${entry.readTimeMinutes} min read',
+                        style: textTheme.labelSmall?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
+                          fontFamily: 'JetBrains Mono',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 24),
-            SourcesDisclosure(sources: sourceReferences(entry.sources)),
+            HeroMedia(
+              icon: _iconForEntry(entry),
+              label: '${entry.title} conceptual visual',
+            ),
+            const SizedBox(height: 24),
+            Text(
+              entry.contentFor(selectedLevel).bodyMarkdown,
+              style: textTheme.bodyLarge?.copyWith(height: 1.6),
+            ),
+            if (entry.related.isNotEmpty) ...[
+              const SizedBox(height: 32),
+              const SectionTitle(title: 'Related Concepts'),
+              const SizedBox(height: 12),
+              RelatedLinksGrid(links: relatedLinks(entry.related)),
+            ],
+            if (entry.sources.isNotEmpty) ...[
+              const SizedBox(height: 24),
+              SourcesDisclosure(sources: sourceReferences(entry.sources)),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
