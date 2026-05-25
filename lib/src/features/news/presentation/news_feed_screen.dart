@@ -77,86 +77,88 @@ class NewsArticleScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.newsTitle)),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          ReaderHeader(
-            title: article.title,
-            subtitle: article.summary,
-            metadata: [
-              ...tagMetadata(article.tags),
-              MetadataItem(
-                label: l10n.minRead(article.readTimeMinutes),
-                icon: Icons.schedule_outlined,
-              ),
-            ],
-          ),
-          const SizedBox(height: 18),
-          MetadataRow(
-            items: [
-              MetadataItem(
-                label: article.author.displayName,
-                icon: Icons.person_outline,
-              ),
-              MetadataItem(
-                label: article.publishedAt.toIso8601String().split('T').first,
-                icon: Icons.calendar_today_outlined,
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          MarkdownText(article.bodyMarkdown),
-          const SizedBox(height: 24),
-          ContentCard(
-            child: Column(
-              children: [
-                Icon(
-                  Icons.bolt,
-                  color: Theme.of(context).colorScheme.primary,
-                  size: 36,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  l10n.lightningTip,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  l10n.lightningTipDescription,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 12),
-                FilledButton.icon(
-                  onPressed: () {
-                    showDialog<void>(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text(l10n.lightningTipMockTitle),
-                        content: Text(
-                          article.author.lightningAddress ??
-                              l10n.noLightningAddress,
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: Text(l10n.close),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  icon: const Icon(Icons.payments_outlined),
-                  label: Text(l10n.sendTip),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            ReaderHeader(
+              title: article.title,
+              subtitle: article.summary,
+              metadata: [
+                ...tagMetadata(article.tags),
+                MetadataItem(
+                  label: l10n.minRead(article.readTimeMinutes),
+                  icon: Icons.schedule_outlined,
                 ),
               ],
             ),
-          ),
-          const SizedBox(height: 24),
-          RelatedLinksGrid(links: relatedLinks(article.related)),
-          const SizedBox(height: 24),
-          SourcesDisclosure(sources: sourceReferences(article.sources)),
-        ],
+            const SizedBox(height: 18),
+            MetadataRow(
+              items: [
+                MetadataItem(
+                  label: article.author.displayName,
+                  icon: Icons.person_outline,
+                ),
+                MetadataItem(
+                  label: article.publishedAt.toIso8601String().split('T').first,
+                  icon: Icons.calendar_today_outlined,
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            MarkdownText(article.bodyMarkdown),
+            const SizedBox(height: 24),
+            ContentCard(
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.bolt,
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 36,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    l10n.lightningTip,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    l10n.lightningTipDescription,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 12),
+                  FilledButton.icon(
+                    onPressed: () {
+                      showDialog<void>(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(l10n.lightningTipMockTitle),
+                          content: Text(
+                            article.author.lightningAddress ??
+                                l10n.noLightningAddress,
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: Text(l10n.close),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.payments_outlined),
+                    label: Text(l10n.sendTip),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
+            RelatedLinksGrid(links: relatedLinks(article.related)),
+            const SizedBox(height: 24),
+            SourcesDisclosure(sources: sourceReferences(article.sources)),
+          ],
+        ),
       ),
     );
   }

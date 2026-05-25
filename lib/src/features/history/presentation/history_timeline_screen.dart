@@ -216,27 +216,29 @@ class HistoryEventScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.historyTitle)),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          ReaderHeader(
-            title: event.title,
-            subtitle: event.summary,
-            metadata: [
-              MetadataItem(
-                label: event.date.toIso8601String().split('T').first,
-                icon: Icons.calendar_today_outlined,
-              ),
-              ...tagMetadata(event.tags),
-            ],
-          ),
-          const SizedBox(height: 24),
-          MarkdownText(event.bodyMarkdown),
-          const SizedBox(height: 24),
-          RelatedLinksGrid(links: relatedLinks(event.related)),
-          const SizedBox(height: 24),
-          SourcesDisclosure(sources: sourceReferences(event.sources)),
-        ],
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            ReaderHeader(
+              title: event.title,
+              subtitle: event.summary,
+              metadata: [
+                MetadataItem(
+                  label: event.date.toIso8601String().split('T').first,
+                  icon: Icons.calendar_today_outlined,
+                ),
+                ...tagMetadata(event.tags),
+              ],
+            ),
+            const SizedBox(height: 24),
+            MarkdownText(event.bodyMarkdown),
+            const SizedBox(height: 24),
+            RelatedLinksGrid(links: relatedLinks(event.related)),
+            const SizedBox(height: 24),
+            SourcesDisclosure(sources: sourceReferences(event.sources)),
+          ],
+        ),
       ),
     );
   }
