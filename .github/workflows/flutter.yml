@@ -67,7 +67,7 @@ jobs:
         run: flutter pub get
 
       - name: Generate Pages content
-        run: dart run tool/generate_bundle.dart assets/content/seed_bundle_en.json build/pages/content
+        run: dart run tool/generate_bundle.dart assets/content/seed_bundle_en.json build/pages
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
