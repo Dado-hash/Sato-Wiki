@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatoWiki - History Timeline</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#e2e0fc",
+                      "on-primary": "#4b2800",
+                      "secondary-container": "#47475d",
+                      "on-secondary-fixed": "#1a1a2e",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#f7931a",
+                      "secondary-fixed-dim": "#c6c4df",
+                      "surface": "#131313",
+                      "surface-container-highest": "#353534",
+                      "on-tertiary-fixed-variant": "#00531c",
+                      "background": "#131313",
+                      "surface-variant": "#353534",
+                      "surface-container-low": "#1c1b1b",
+                      "on-surface": "#e5e2e1",
+                      "on-primary-container": "#603500",
+                      "inverse-primary": "#8c4f00",
+                      "surface-dim": "#131313",
+                      "on-primary-fixed-variant": "#6b3b00",
+                      "on-background": "#e5e2e1",
+                      "surface-container-high": "#2a2a2a",
+                      "primary": "#ffb874",
+                      "secondary": "#c6c4df",
+                      "outline": "#a38d7b",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#b8b6d0",
+                      "inverse-surface": "#e5e2e1",
+                      "on-secondary-fixed-variant": "#45455b",
+                      "on-primary-fixed": "#2d1600",
+                      "on-tertiary-container": "#004a19",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary": "#53e16f",
+                      "primary-fixed": "#ffdcbf",
+                      "surface-bright": "#393939",
+                      "surface-container": "#201f1f",
+                      "tertiary-container": "#30c456",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#2f2e43",
+                      "on-tertiary-fixed": "#002107",
+                      "on-tertiary": "#003911",
+                      "primary-fixed-dim": "#ffb874",
+                      "on-surface-variant": "#dbc2ae",
+                      "surface-tint": "#ffb874",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#72fe88",
+                      "outline-variant": "#554335",
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed-dim": "#53e16f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "base": "8px",
+                      "margin-desktop": "64px",
+                      "max-width-content": "800px"
+              },
+              "fontFamily": {
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "code-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "title-lg": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "57px",
+                              {
+                                      "lineHeight": "64px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { background-color: #f8fafc; color: #0f172a; }
+        .timeline-line {
+            width: 2px;
+            background-color: #e2e8f0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-white border-b border-slate-200 docked full-width top-0 z-40 sticky">
+<div class="flex justify-between items-center w-full px-margin-mobile h-16">
+<button class="text-orange-600 hover:bg-slate-100 scale-98 transition-transform duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-title-lg text-title-lg text-orange-600 tracking-tight">SatoWiki</h1>
+<button class="text-orange-600 hover:bg-slate-100 scale-98 transition-transform duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-[800px] mx-auto px-margin-mobile md:px-gutter pt-8">
+<!-- On this day widget -->
+<section class="mb-8">
+<div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-orange-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="flex items-center gap-4 mb-2">
+<span class="material-symbols-outlined text-orange-600" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<h2 class="font-title-lg text-title-lg text-slate-900">On this day</h2>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<div class="font-label-md text-label-md text-orange-600 mb-1">May 22, 2010</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-slate-900 mb-2">Bitcoin Pizza Day</h3>
+<p class="font-body-md text-body-md text-slate-600" data-stitch-orig-opacity="0">Laszlo Hanyecz made the first documented commercial transaction using Bitcoin, purchasing two Papa John's pizzas for 10,000 BTC.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Filters -->
+<section class="mb-12 overflow-x-auto pb-4 hide-scrollbar">
+<div class="flex gap-3">
+<button class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">All Events</button>
+<button class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">Protocol</button>
+<button class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">Economics</button>
+<button class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-full font-label-md text-label-md whitespace-nowrap transition-colors">Community</button>
+</div>
+</section>
+<!-- Timeline -->
+<section class="relative flex flex-col gap-4">
+<div class="timeline-line"></div>
+<!-- Event 1 -->
+<div class="relative flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 md:w-5/12 hidden md:block text-right pr-8">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Protocol</span>
+</div>
+<div class="z-10 flex items-center justify-center w-8 h-8 bg-white border-2 border-orange-500 rounded-full absolute left-[20px] md:left-1/2 transform -translate-x-1/2">
+<div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+</div>
+<div class="order-1 border border-slate-200 rounded-xl p-6 md:w-5/12 w-full ml-[40px] md:ml-0 shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col gap-4">
+<div class="md:hidden mb-3">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Protocol</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-slate-900">Genesis Block</h3>
+<div class="font-label-md text-label-md text-slate-500">Jan 3, 2009</div>
+<p class="font-body-md text-body-md text-slate-700">The first block of the Bitcoin blockchain was mined by Satoshi Nakamoto, containing the message: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 border border-slate-200 rounded-xl p-6 md:w-5/12 w-full ml-[40px] md:ml-0 md:mr-auto shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col gap-4">
+<div class="md:hidden mb-3">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Protocol</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-slate-900">First Halving</h3>
+<div class="font-label-md text-label-md text-slate-500">Nov 28, 2012</div>
+<p class="font-body-md text-body-md text-slate-700">The block reward was reduced from 50 BTC to 25 BTC, marking the first programmatic reduction in Bitcoin's inflation rate.</p>
+</div>
+<div class="z-10 flex items-center justify-center w-8 h-8 bg-white border-2 border-slate-300 rounded-full absolute left-[20px] md:left-1/2 transform -translate-x-1/2">
+<div class="w-3 h-3 bg-slate-300 rounded-full"></div>
+</div>
+<div class="order-1 md:w-5/12 hidden md:block text-left pl-8">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Economics</span>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 md:w-5/12 hidden md:block text-right pr-8">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Community</span>
+</div>
+<div class="z-10 flex items-center justify-center w-8 h-8 bg-white border-2 border-slate-300 rounded-full absolute left-[20px] md:left-1/2 transform -translate-x-1/2">
+<div class="w-3 h-3 bg-slate-300 rounded-full"></div>
+</div>
+<div class="order-1 border border-slate-200 rounded-xl p-6 md:w-5/12 w-full ml-[40px] md:ml-0 shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col gap-4">
+<div class="md:hidden mb-3">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Community</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-slate-900">Mt. Gox Hack</h3>
+<div class="font-label-md text-label-md text-slate-500">Feb 2014</div>
+<p class="font-body-md text-body-md text-slate-700">The largest Bitcoin exchange at the time halted trading and filed for bankruptcy after losing approximately 850,000 bitcoins.</p>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="relative flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 border border-slate-200 rounded-xl p-6 md:w-5/12 w-full ml-[40px] md:ml-0 md:mr-auto shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col gap-4">
+<div class="md:hidden mb-3">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Protocol</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-slate-900">Fourth Halving</h3>
+<div class="font-label-md text-label-md text-slate-500">Apr 19, 2024</div>
+<p class="font-body-md text-body-md text-slate-700">The block reward was reduced from 6.25 BTC to 3.125 BTC, further decreasing the issuance rate of new bitcoins.</p>
+</div>
+<div class="z-10 flex items-center justify-center w-8 h-8 bg-white border-2 border-slate-300 rounded-full absolute left-[20px] md:left-1/2 transform -translate-x-1/2">
+<div class="w-3 h-3 bg-slate-300 rounded-full"></div>
+</div>
+<div class="order-1 md:w-5/12 hidden md:block text-left pl-8">
+<span class="font-label-md text-label-md text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Protocol</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white border-t border-slate-200 fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-3 pb-6 px-4 md:hidden rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-slate-900 scale-95 transition-all duration-150 rounded-lg px-5 py-1">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Wiki</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-slate-900 scale-95 transition-all duration-150 rounded-lg px-5 py-1">
+<span class="material-symbols-outlined mb-1" data-icon="newspaper">newspaper</span>
+<span class="font-label-md text-label-md">News</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-orange-100 text-orange-800 rounded-full px-5 py-1 hover:bg-orange-200 scale-95 transition-all duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="history_edu">history_edu</span>
+<span class="font-label-md text-label-md">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-slate-900 scale-95 transition-all duration-150 rounded-lg px-5 py-1">
+<span class="material-symbols-outlined mb-1" data-icon="terminal">terminal</span>
+<span class="font-label-md text-label-md">Code</span>
+</button>
+</nav>
+</body></html>

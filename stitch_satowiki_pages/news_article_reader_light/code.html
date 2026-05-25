@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SatoWiki - The Activation of Taproot: A Retrospective</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#e0e7ff",
+                      "inverse-primary": "#ffb874",
+                      "error": "#dc2626",
+                      "surface-container-highest": "#e5e7eb",
+                      "on-surface": "#111827",
+                      "on-error-container": "#7f1d1d",
+                      "on-surface-variant": "#4b5563",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#ffdcbf",
+                      "surface-container-high": "#f3f4f6",
+                      "surface-container": "#f9fafb",
+                      "on-tertiary-fixed": "#002107",
+                      "on-primary-fixed": "#2d1600",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#f7931a",
+                      "inverse-surface": "#374151",
+                      "surface-tint": "#f7931a",
+                      "secondary": "#6366f1",
+                      "primary-fixed-dim": "#f7931a",
+                      "outline-variant": "#e5e7eb",
+                      "outline": "#d1d5db",
+                      "surface-bright": "#ffffff",
+                      "surface-variant": "#f3f4f6",
+                      "tertiary-fixed-dim": "#53e16f",
+                      "on-tertiary-fixed-variant": "#00531c",
+                      "secondary-fixed": "#e0e7ff",
+                      "surface": "#ffffff",
+                      "inverse-on-surface": "#f9fafb",
+                      "on-background": "#111827",
+                      "on-primary-fixed-variant": "#9a3412",
+                      "background": "#ffffff",
+                      "tertiary": "#16a34a",
+                      "secondary-fixed-dim": "#818cf8",
+                      "tertiary-fixed": "#86efac",
+                      "on-secondary-fixed-variant": "#3730a3",
+                      "surface-container-low": "#ffffff",
+                      "on-primary-container": "#9a3412",
+                      "on-error": "#ffffff",
+                      "primary-container": "#fff7ed",
+                      "tertiary-container": "#dcfce7",
+                      "on-secondary-fixed": "#312e81",
+                      "surface-dim": "#f3f4f6",
+                      "on-tertiary-container": "#14532d",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#fee2e2",
+                      "on-secondary-container": "#312e81",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "max-width-content": "800px",
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "code-sm": ["JetBrains Mono"],
+                      "display-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "label-md": ["JetBrains Mono"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "code-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bip-link {
+            @apply inline-flex items-center gap-1 bg-surface-container text-primary font-code-sm text-code-sm px-2 py-0.5 rounded border border-outline-variant hover:bg-surface-variant transition-colors;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="hidden md:flex flex-row justify-between items-center w-full px-margin-desktop h-16 bg-surface border-b border-outline-variant fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-transform duration-200 hover:scale-98">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-title-lg text-title-lg text-primary tracking-tight">SatoWiki</span>
+</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Wiki</a>
+<a class="text-primary font-label-md text-label-md border-b-2 border-primary pb-1" href="#">News</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">History</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Code</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-transform duration-200 hover:scale-98">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<!-- Mobile TopAppBar -->
+<header class="flex md:hidden justify-between items-center w-full px-margin-mobile h-16 bg-surface border-b border-outline-variant sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-transform duration-200 hover:scale-98">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-title-lg text-title-lg-mobile text-primary tracking-tight">SatoWiki</span>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-transform duration-200 hover:scale-98">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<main class="w-full max-w-[800px] mx-auto pt-8 md:pt-24 px-margin-mobile md:px-0">
+<!-- Article Header -->
+<article>
+<header class="mb-8 md:mb-12">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full">#Taproot</span>
+<span class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full">#Upgrades</span>
+<span class="bg-surface-container text-on-surface-variant font-code-sm text-code-sm px-3 py-1 rounded-full border border-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 12 min read
+                    </span>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">The Activation of Taproot: A Retrospective</h1>
+<div class="flex items-center gap-4 border-t border-b border-outline-variant py-4 mb-8">
+<img alt="Andreas M." class="w-12 h-12 rounded-full object-cover border border-outline" data-alt="A professional headshot of a middle-aged man with short hair and a beard, wearing a dark turtleneck. He has a serious, intellectual expression. The lighting is dramatic, with strong shadows and a dark background. The overall tone is sophisticated, serious, and tech-focused, fitting for a financial technology publication. Color palette is muted earth tones with deep blacks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiB1hYrlHJ5gFTqUcdEydJGUn8n-oAsRoC3g8qyG9mBGTtjg1rOzV53xv1IZg9XV9IMobMu5erSS3JPdX4ZeaXF-rFh0Q-PQvTNIBZS8ItjwRiSdDLXZFD30gcQiLaQcWjraFjishKwmhtWZJT4Ka-BziXAswWs3EUHVcYSmZyyP5QgXEZ8k8PHUoPFAdNGCgmNTt81tluvgvj-SrZun-hLuOLUzBlBSH7aShLKFQR7N1l6bBgPWqMARc5t5LfeUygyM_pROPDVYk"/>
+<div class="flex-1">
+<p class="font-title-lg text-title-lg text-on-surface text-sm md:text-base">Andreas M.</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Protocol Researcher • Nov 14, 2023</p>
+</div>
+</div>
+<div class="w-full h-64 md:h-[400px] rounded-xl overflow-hidden mb-12 border border-outline-variant bg-surface-container">
+<img alt="Abstract cryptographic visualization" class="w-full h-full object-cover opacity-80" data-alt="A highly abstract and technical digital artwork representing cryptography and blockchain data structures. It features complex, glowing golden orange lines and geometric nodes interconnecting on a deep midnight black background. The style is modern, technical, and precise, resembling complex network diagrams or circuit boards. The lighting emphasizes the glowing orange elements against the stark, dark background, conveying a sense of secure, high-tech financial infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9hyExoWANKPfUZMfbt1SK_yiUS31SPRA6Am47UcQENEWZBM4vyE_RtChSmQwWT4k-6bim0k8QfzwwaeSj4gMjXqws180CAggPvXkt4NPxf5pSToYwyvqq5tWZulSpJg8olTTlNjbg82P0MGim-yQ6rk_gUAjAMEAe8eLqT-Pe5KpuXLepJ7t3hPWEFu9nbAlgnU8UYoNyM9VKxw2xpFSL76tbze-KkmMjsLXBYMQJBvUxsfIlESmKesgflZgSdszCdmewA0FJzE4"/>
+</div>
+</header>
+<!-- Article Body -->
+<div class="font-body-lg text-body-lg text-on-surface space-y-6 md:space-y-8 pb-16">
+<p class="text-xl md:text-2xl leading-relaxed text-on-surface-variant font-medium">It has been several years since block 709,632, the moment the Taproot upgrade officially activated on the main network. This represented the most significant protocol upgrade since Segregated Witness (SegWit) in 2017.</p>
+<p>The journey to Taproot was marked by extensive technical review, community consensus-building, and a novel activation mechanism known as Speedy Trial. This retrospective examines the technical underpinnings, the activation process, and the long-term implications for script complexity and privacy.</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-12 mb-4">The Technical Trifecta</h2>
+<p>Taproot is not a single feature, but a bundle of three distinct yet interconnected technical proposals, defined in <a class="bip-link" href="#">BIP-340</a>, <a class="bip-link" href="#">BIP-341</a>, and <a class="bip-link" href="#">BIP-342</a>.</p>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 md:p-8 my-8 shadow-sm">
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0" data-icon="key">key</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Schnorr Signatures (BIP-340)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Replaces ECDSA, offering linearity. This allows for signature aggregation, where multiple signatures in a complex transaction can be combined into a single signature, saving space and improving privacy.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0" data-icon="account_tree">account_tree</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Taproot (BIP-341)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Integrates Merkelized Alternative Script Trees (MAST) with Schnorr. It allows smart contracts to look like standard pay-to-public-key-hash (P2PKH) transactions on-chain, revealing only the executed conditions.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0" data-icon="code">code</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Tapscript (BIP-342)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Updates the scripting language to support Schnorr and Taproot, ensuring future upgradability by removing certain op-code limits and redefining others.</p>
+</div>
+</li>
+</ul>
+</div>
+<p>The combination of these elements dramatically shifted the paradigm of complex transactions. Prior to Taproot, multi-signature setups or time-locked contracts exposed their entire logic upon execution. This was inefficient in terms of block space and detrimental to privacy.</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-12 mb-4">Activation: The Speedy Trial</h2>
+<p>Learning from the contentious block size wars of 2017, the community opted for a different approach to activation. The chosen path, "Speedy Trial," provided a three-month window for miners to signal their readiness. If 90% of blocks in a difficulty adjustment period (2016 blocks) signaled support, the upgrade would lock in.</p>
+<blockquote class="border-l-4 border-primary pl-6 py-2 my-8 italic text-on-surface-variant bg-surface-container-lowest">
+                    "Speedy Trial decoupled the technical readiness from the political debate. It gave developers a clear signal without enforcing a hard mandate on users prematurely."
+                </blockquote>
+<p>The threshold was met surprisingly quickly, locking in during June 2021, and activating in November. This smooth process demonstrated a maturation in the network's governance and upgrade mechanisms.</p>
+<!-- Support Author Section -->
+<div class="mt-16 bg-surface-container border border-outline-variant rounded-xl p-8 text-center flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="bolt">bolt</span>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Value for Value</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-md">If you found this retrospective valuable, consider sending a Lightning tip directly to the author.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="payments">payments</span>
+                        Send Lightning Tip
+                    </button>
+</div>
+</div>
+</article>
+</main>
+<!-- BottomNavBar -->
+<nav class="flex md:hidden fixed bottom-0 left-0 w-full z-50 justify-around items-center pt-3 pb-6 px-4 bg-surface-container border-t border-outline-variant rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-variant scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-[10px]">Wiki</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="newspaper">newspaper</span>
+<span class="font-label-md text-[10px]">News</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-variant scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history_edu">history_edu</span>
+<span class="font-label-md text-[10px]">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:bg-surface-variant scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="terminal">terminal</span>
+<span class="font-label-md text-[10px]">Code</span>
+</a>
+</nav>
+</body></html>
