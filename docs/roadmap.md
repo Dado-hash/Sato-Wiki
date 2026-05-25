@@ -23,12 +23,12 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 
 ## 3. Content Domain
 
-1. Definire modelli Dart per `WikiEntry`, `NewsArticle`, `HistoryEvent`, `Bip`, `ReleaseNote`.
-2. Definire repository interfaces per ogni sezione.
-3. Creare fixture JSON locali.
-4. Implementare parser e validazione bundle.
-5. Gestire versioning e migrazione bundle.
-6. Documentare errori recuperabili e fallback.
+1. [x] Definire modelli Dart per `WikiEntry`, `NewsArticle`, `HistoryEvent`, `Bip`, `ReleaseNote`.
+2. [x] Definire repository interfaces per ogni sezione.
+3. [x] Creare fixture JSON locali.
+4. [x] Implementare parser e validazione bundle.
+5. [x] Gestire versioning e migrazione bundle.
+6. [x] Documentare errori recuperabili e fallback.
 
 ## 4. Offline e Search
 

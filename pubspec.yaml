@@ -58,6 +58,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/content/seed_bundle.json
+
   fonts:
     - family: Inter
       fonts:

@@ -6,6 +6,7 @@ Questo documento descrive il contratto dati target tra repo contenuti, pipeline 
 
 ```json
 {
+  "schemaVersion": 1,
   "version": "2026.05.25",
   "language": "en",
   "generatedAt": "2026-05-25T00:00:00Z",
@@ -16,6 +17,10 @@ Questo documento descrive il contratto dati target tra repo contenuti, pipeline 
   "changelogs": []
 }
 ```
+
+`schemaVersion` governa compatibilita parser/migrazioni. La versione corrente e
+`1`; bundle futuri con schema maggiore della app sono fatal error e non devono
+sostituire il bundle locale valido.
 
 Ogni record deve includere:
 
@@ -50,6 +55,37 @@ Ogni record deve includere:
   "sources": []
 }
 ```
+
+## Fixture Seed
+
+La fixture locale iniziale vive in `assets/content/seed_bundle.json` ed e
+registrata come asset Flutter. Serve per parser test, vertical slice e futuro
+bootstrap offline.
+
+## Parser, Validazione E Fallback
+
+Implementazione:
+
+- modelli: `lib/src/core/content/domain/content_models.dart`;
+- parser: `lib/src/core/content/data/content_bundle_parser.dart`;
+- migrazione schema: `lib/src/core/content/data/content_bundle_migrator.dart`;
+- repository interfaces: `lib/src/features/*/domain/repositories`.
+
+Regole:
+
+- JSON malformato, root non-oggetto o `schemaVersion` futuro sono errori fatali.
+- Collezioni mancanti o non-lista diventano lista vuota con warning.
+- Record non-oggetto o record con campi richiesti invalidi vengono saltati con warning.
+- `language` del record puo mancare e ricade su `bundle.language`.
+- `sources` e `related` possono essere vuoti.
+- `related` accetta string ID o oggetto `{ "id": "...", "title": "..." }`.
+
+Fallback runtime previsto:
+
+1. provare il bundle aggiornato locale;
+2. se fatal error, mantenere ultimo bundle valido;
+3. se non esiste ultimo bundle valido, caricare `assets/content/seed_bundle.json`;
+4. mostrare warning recuperabili in diagnostica/log non invasivi.
 
 ## NewsArticle
 
