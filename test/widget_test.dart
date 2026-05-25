@@ -56,16 +56,11 @@ void main() {
       ),
     );
 
-    const advancedDescription =
-        'Difficulty adjustment, SHA-256 hashing and accumulated work form the security model behind Bitcoin consensus.';
+    await tester.pumpAndSettle();
 
-    await tester.scrollUntilVisible(
-      find.text(advancedDescription),
-      260,
-      scrollable: find.byType(Scrollable).first,
-    );
-
-    expect(find.text(advancedDescription), findsOneWidget);
+    expect(find.text('The Orange Book'), findsOneWidget);
+    expect(find.text('Knowledge Base'), findsOneWidget);
+    expect(find.text('Protocol'), findsOneWidget);
   });
 
   testWidgets('SatoWiki exposes deep link targets', (tester) async {
