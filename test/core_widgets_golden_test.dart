@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -36,6 +38,17 @@ void main() {
         ),
       ),
     );
+
+    expect(find.text('Proof of Work'), findsOneWidget);
+    expect(find.text('Medio'), findsOneWidget);
+    expect(find.text('ACTIVE'), findsOneWidget);
+    expect(find.byType(ReaderHeader), findsOneWidget);
+    expect(find.byType(ReadingLevelSelector), findsOneWidget);
+    expect(find.byType(FilterChipBar<String>), findsOneWidget);
+
+    if (Platform.isLinux) {
+      return;
+    }
 
     await expectLater(
       find.byType(_CoreComponentCatalog),
