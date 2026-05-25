@@ -14,21 +14,36 @@ import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/sources_disclosure.dart';
 
-class HistoryTimelineScreen extends StatelessWidget {
+class HistoryTimelineScreen extends StatefulWidget {
   const HistoryTimelineScreen({required this.store, super.key});
 
   final ContentStore store;
 
   @override
+  State<HistoryTimelineScreen> createState() => _HistoryTimelineScreenState();
+}
+
+class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
+  String? _selectedCategory;
+
+  List<HistoryEvent> get _events {
+    final sorted = [...widget.store.bundle.history]
+      ..sort((a, b) => a.date.compareTo(b.date));
+    if (_selectedCategory == null) return sorted;
+    return sorted
+        .where((e) => e.category == _selectedCategory)
+        .toList(growable: false);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-    final onThisDay = store.bundle.history
+    final onThisDay = widget.store.bundle.history
         .where(
           (event) => event.date.month == now.month && event.date.day == now.day,
         )
         .toList(growable: false);
-    final events = [...store.bundle.history]
-      ..sort((a, b) => a.date.compareTo(b.date));
+    final events = _events;
     final l10n = AppLocalizations.of(context);
 
     return ListView(
@@ -47,7 +62,11 @@ class HistoryTimelineScreen extends StatelessWidget {
         const SizedBox(height: 24),
         _OnThisDayCard(event: onThisDay.firstOrNull),
         const SizedBox(height: 28),
-        const _HistoryFilters(),
+        _HistoryFilters(
+          selected: _selectedCategory,
+          onSelected: (category) =>
+              setState(() => _selectedCategory = category),
+        ),
         const SizedBox(height: 28),
         SectionTitle(title: l10n.timelineMetadata),
         const SizedBox(height: 12),
@@ -66,22 +85,26 @@ class HistoryTimelineScreen extends StatelessWidget {
 }
 
 class _HistoryFilters extends StatelessWidget {
-  const _HistoryFilters();
+  const _HistoryFilters({required this.selected, required this.onSelected});
+
+  final String? selected;
+  final ValueChanged<String?> onSelected;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
-    return FilterChipBar<String>(
-      items: [
-        l10n.allEvents,
-        l10n.categoryProtocol,
-        l10n.categoryEconomics,
-        l10n.community,
-      ],
-      selectedItem: l10n.allEvents,
-      labelFor: (item) => item,
-      onSelected: (_) {},
+    return FilterChipBar<String?>(
+      items: const [null, 'protocol', 'economics', 'community'],
+      selectedItem: selected,
+      labelFor: (item) => switch (item) {
+        null => l10n.allEvents,
+        'protocol' => l10n.categoryProtocol,
+        'economics' => l10n.categoryEconomics,
+        'community' => l10n.community,
+        _ => item,
+      },
+      onSelected: onSelected,
     );
   }
 }

@@ -14,14 +14,29 @@ import '../../../core/widgets/related_links_grid.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/sources_disclosure.dart';
 
-class NewsFeedScreen extends StatelessWidget {
+class NewsFeedScreen extends StatefulWidget {
   const NewsFeedScreen({required this.store, super.key});
 
   final ContentStore store;
 
   @override
+  State<NewsFeedScreen> createState() => _NewsFeedScreenState();
+}
+
+class _NewsFeedScreenState extends State<NewsFeedScreen> {
+  String? _selectedCategory;
+
+  List<NewsArticle> get _articles {
+    if (_selectedCategory == null) return widget.store.bundle.news;
+    return widget.store.bundle.news
+        .where((a) => a.category == _selectedCategory)
+        .toList(growable: false);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final articles = _articles;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
@@ -34,11 +49,15 @@ class NewsFeedScreen extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 24),
-        _CategoryFilters(),
+        _CategoryFilters(
+          selected: _selectedCategory,
+          onSelected: (category) =>
+              setState(() => _selectedCategory = category),
+        ),
         const SizedBox(height: 24),
         SectionTitle(title: l10n.latestAnalysis),
         const SizedBox(height: 12),
-        for (final article in store.bundle.news) ...[
+        for (final article in articles) ...[
           _ArticleCard(
             article: article,
             onTap: () {
@@ -214,24 +233,35 @@ class _ArticleCard extends StatelessWidget {
 }
 
 class _CategoryFilters extends StatelessWidget {
-  const _CategoryFilters();
+  const _CategoryFilters({required this.selected, required this.onSelected});
+
+  final String? selected;
+  final ValueChanged<String?> onSelected;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
-    return FilterChipBar<String>(
-      items: [
-        l10n.all,
-        l10n.categoryProtocol,
-        l10n.market,
-        l10n.regulatory,
-        l10n.culture,
-        l10n.development,
+    return FilterChipBar<String?>(
+      items: const [
+        null,
+        'protocol',
+        'market',
+        'regulatory',
+        'culture',
+        'development',
       ],
-      selectedItem: l10n.all,
-      labelFor: (item) => item,
-      onSelected: (_) {},
+      selectedItem: selected,
+      labelFor: (item) => switch (item) {
+        null => l10n.all,
+        'protocol' => l10n.categoryProtocol,
+        'market' => l10n.market,
+        'regulatory' => l10n.regulatory,
+        'culture' => l10n.culture,
+        'development' => l10n.development,
+        _ => item,
+      },
+      onSelected: onSelected,
     );
   }
 }

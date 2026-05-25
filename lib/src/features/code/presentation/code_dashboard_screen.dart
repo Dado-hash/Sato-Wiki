@@ -245,7 +245,6 @@ class _StatusFilters extends StatelessWidget {
   }
 }
 
-
 class _BipTrackerCard extends StatelessWidget {
   const _BipTrackerCard({required this.store});
 

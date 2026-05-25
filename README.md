@@ -32,6 +32,11 @@ root di GitHub Pages.
 
 ## Workflow contenuti
 
+I contenuti sono **bilingue**: ogni voce deve essere creata sia in inglese che
+in italiano. L'inglese e la lingua source; l'italiano e la lingua target. I
+bundle JSON vivono in `assets/content/seed_bundle_en.json` e
+`assets/content/seed_bundle_it.json`.
+
 I contenuti editoriali partono dai template Markdown/YAML in
 `content/templates/`. Oggi la pipeline inclusa nella repo valida e pubblica il
 bundle JSON seed; i template servono come contratto sorgente per la futura repo
