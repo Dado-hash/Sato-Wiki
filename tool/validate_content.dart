@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 
 void main(List<String> args) {
-  final path = args.isEmpty ? 'assets/content/seed_bundle.json' : args.single;
+  final path = args.isEmpty
+      ? 'assets/content/seed_bundle_en.json'
+      : args.single;
   final file = File(path);
 
   if (!file.existsSync()) {
@@ -19,6 +21,7 @@ void main(List<String> args) {
 
   stdout.writeln(
     'valid ${result.bundle.version} '
+    'language=${result.bundle.language} '
     'wiki=${result.bundle.wiki.length} '
     'news=${result.bundle.news.length} '
     'history=${result.bundle.history.length} '

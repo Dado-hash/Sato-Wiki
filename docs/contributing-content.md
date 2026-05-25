@@ -9,7 +9,7 @@ Flow:
 3. Validate JSON with:
 
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle.json
+/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
 ```
 
 4. Open PR with generated bundle and source Markdown.
@@ -24,6 +24,13 @@ PR checks must run:
 Publishing target: static JSON bundle on CDN plus immutable versioned path:
 
 ```text
-content/{version}/bundle.json
-content/latest/manifest.json
+content/{language}/{version}/bundle.json
+content/{language}/latest/manifest.json
+```
+
+Current GitHub Pages target:
+
+```text
+https://dado-hash.github.io/Sato-Wiki/content/en/latest/manifest.json
+https://dado-hash.github.io/Sato-Wiki/content/en/{version}/bundle.json
 ```

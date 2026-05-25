@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n/app_localizations.dart';
 import '../content/reading_level.dart';
+import '../localization/localized_labels.dart';
 
 class ReadingLevelSelector extends StatelessWidget {
   const ReadingLevelSelector({
@@ -15,6 +17,7 @@ class ReadingLevelSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -60,7 +63,7 @@ class ReadingLevelSelector extends StatelessWidget {
               .map(
                 (level) => ButtonSegment<ReadingLevel>(
                   value: level,
-                  label: Text(level.label),
+                  label: Text(level.label(l10n)),
                 ),
               )
               .toList(growable: false),

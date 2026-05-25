@@ -12,7 +12,7 @@ void main() {
   late SearchIndex index;
 
   setUpAll(() {
-    final json = File('assets/content/seed_bundle.json').readAsStringSync();
+    final json = File('assets/content/seed_bundle_en.json').readAsStringSync();
     final bundle = ContentBundleParser.parseJson(json).bundle;
     store = ContentStore(bundle);
     index = SearchIndex.fromBundle(bundle);

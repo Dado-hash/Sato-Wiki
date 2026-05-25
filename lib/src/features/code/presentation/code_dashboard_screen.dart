@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
+import '../../../core/localization/localized_labels.dart';
 import '../../../core/navigation/app_routes.dart';
 import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/section_title.dart';
@@ -17,32 +19,31 @@ class CodeDashboardScreen extends StatefulWidget {
 }
 
 class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
-  String _selectedFilter = 'All';
+  BipStatus? _selectedFilter;
 
   List<Bip> get _filteredBips {
     final bips = widget.store.bundle.bips;
-    if (_selectedFilter == 'All') return bips;
-    return bips
-        .where((b) => _statusLabel(b.status) == _selectedFilter)
-        .toList();
+    if (_selectedFilter == null) return bips;
+    return bips.where((b) => b.status == _selectedFilter).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     final bips = _filteredBips;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: [
         Text(
-          'Code Dashboard',
+          l10n.codeDashboardTitle,
           style: textTheme.displayLarge?.copyWith(fontSize: 42, height: 1.08),
         ),
         const SizedBox(height: 8),
         Text(
-          'Track Bitcoin Improvement Proposals (BIPs) and recent core changes.',
+          l10n.codeDashboardSubtitle,
           style: textTheme.bodyLarge?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
@@ -58,8 +59,8 @@ class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
         _ChangelogSummaryCard(store: widget.store),
         const SizedBox(height: 28),
         SectionTitle(
-          title: 'Recent BIPs',
-          actionLabel: 'Filter',
+          title: l10n.recentBips,
+          actionLabel: l10n.filter,
           onAction: null,
         ),
         const SizedBox(height: 16),
@@ -68,7 +69,7 @@ class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: Center(
               child: Text(
-                'No BIPs match this filter.',
+                l10n.noBipsMatchFilter,
                 style: textTheme.bodyMedium?.copyWith(
                   color: colorScheme.onSurfaceVariant,
                 ),
@@ -90,27 +91,23 @@ class _CodeDashboardScreenState extends State<CodeDashboardScreen> {
   }
 }
 
-String _statusLabel(BipStatus status) {
-  return switch (status) {
-    BipStatus.active => 'Active',
-    BipStatus.finalStatus => 'Final',
-    BipStatus.draft => 'Draft',
-    BipStatus.proposed => 'Proposed',
-    BipStatus.withdrawn => 'Withdrawn',
-    BipStatus.rejected => 'Rejected',
-  };
-}
-
 class _StatusFilters extends StatelessWidget {
   const _StatusFilters({required this.selected, required this.onSelected});
 
-  final String selected;
-  final ValueChanged<String> onSelected;
+  final BipStatus? selected;
+  final ValueChanged<BipStatus?> onSelected;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    const filters = ['All', 'Active', 'Draft', 'Proposed', 'Rejected'];
+    final l10n = AppLocalizations.of(context);
+    const filters = [
+      null,
+      BipStatus.active,
+      BipStatus.draft,
+      BipStatus.proposed,
+      BipStatus.rejected,
+    ];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -120,7 +117,7 @@ class _StatusFilters extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: FilterChip(
-                label: Text(filter),
+                label: Text(filter?.label(l10n) ?? l10n.all),
                 selected: filter == selected,
                 showCheckmark: false,
                 onSelected: (_) => onSelected(filter),
@@ -152,12 +149,14 @@ class _BipTrackerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     final bips = store.bundle.bips;
 
     final activeCount = bips.where((b) => b.status == BipStatus.active).length;
     final draftCount = bips.where((b) => b.status == BipStatus.draft).length;
-    final rejectedCount =
-        bips.where((b) => b.status == BipStatus.rejected).length;
+    final rejectedCount = bips
+        .where((b) => b.status == BipStatus.rejected)
+        .length;
 
     return Container(
       decoration: BoxDecoration(
@@ -174,7 +173,7 @@ class _BipTrackerCard extends StatelessWidget {
               Icon(Icons.analytics_outlined, color: colorScheme.primary),
               const SizedBox(width: 12),
               Text(
-                'BIP Tracker',
+                l10n.bipTracker,
                 style: textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
@@ -186,7 +185,7 @@ class _BipTrackerCard extends StatelessWidget {
             children: [
               Expanded(
                 child: _CountBox(
-                  label: 'ACTIVE',
+                  label: l10n.activeUpper,
                   count: activeCount,
                   color: colorScheme.tertiary,
                 ),
@@ -194,7 +193,7 @@ class _BipTrackerCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: _CountBox(
-                  label: 'DRAFT',
+                  label: l10n.draftUpper,
                   count: draftCount,
                   color: colorScheme.primary,
                 ),
@@ -202,7 +201,7 @@ class _BipTrackerCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: _CountBox(
-                  label: 'REJECTED',
+                  label: l10n.rejectedUpper,
                   count: rejectedCount,
                   color: colorScheme.error,
                 ),
@@ -271,6 +270,7 @@ class _ChangelogSummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     const maxItems = 3;
 
     return Container(
@@ -288,7 +288,7 @@ class _ChangelogSummaryCard extends StatelessWidget {
               Icon(Icons.commit_outlined, color: colorScheme.primary),
               const SizedBox(width: 12),
               Text(
-                'Changelog',
+                l10n.changelog,
                 style: textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
@@ -298,7 +298,7 @@ class _ChangelogSummaryCard extends StatelessWidget {
           const SizedBox(height: 16),
           if (store.bundle.changelogs.isEmpty)
             Text(
-              'No recent releases.',
+              l10n.noRecentReleases,
               style: textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -382,6 +382,7 @@ class _BipCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     final categoryTag = bip.tags.isNotEmpty ? bip.tags.first : bip.category;
     final dotColor = _statusDotColor(bip.status, colorScheme);
 
@@ -492,7 +493,7 @@ class _BipCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       Text(
-                        _statusLabel(bip.status).toUpperCase(),
+                        bip.status.label(l10n).toUpperCase(),
                         style: textTheme.labelSmall?.copyWith(
                           color: dotColor,
                           fontWeight: FontWeight.w700,
@@ -540,14 +541,16 @@ class BipDetailScreen extends StatelessWidget {
         .firstOrNull;
 
     if (bip == null) {
+      final l10n = AppLocalizations.of(context);
       return Scaffold(
-        appBar: AppBar(title: const Text('Code')),
-        body: const Center(child: Text('BIP not found')),
+        appBar: AppBar(title: Text(l10n.codeTab)),
+        body: Center(child: Text(l10n.bipNotFound)),
       );
     }
 
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -555,7 +558,7 @@ class BipDetailScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('SatoWiki'),
+        title: Text(l10n.appTitle),
       ),
       body: SafeArea(
         child: ListView(
@@ -597,17 +600,17 @@ class BipDetailScreen extends StatelessWidget {
                 runSpacing: 12,
                 children: [
                   _MetaColumn(
-                    label: 'Authors',
+                    label: l10n.authors,
                     value: bip.authors.join(', '),
                     useMono: false,
                   ),
                   _MetaColumn(
-                    label: 'Created',
+                    label: l10n.created,
                     value: bip.createdAt.toIso8601String().split('T').first,
                     useMono: true,
                   ),
                   _MetaColumn(
-                    label: 'Layer',
+                    label: l10n.layer,
                     value: _capitalize(bip.category),
                     useMono: false,
                   ),
@@ -634,7 +637,7 @@ class BipDetailScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'Plain English Summary',
+                        l10n.plainEnglishSummary,
                         style: textTheme.titleMedium?.copyWith(
                           color: colorScheme.primary,
                           fontWeight: FontWeight.w600,
@@ -648,7 +651,7 @@ class BipDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            const SectionTitle(title: 'Practical Impact'),
+            SectionTitle(title: l10n.practicalImpact),
             const SizedBox(height: 12),
             Container(
               padding: const EdgeInsets.all(24),
@@ -660,7 +663,7 @@ class BipDetailScreen extends StatelessWidget {
               child: MarkdownText(bip.impactMarkdown),
             ),
             const SizedBox(height: 24),
-            const SectionTitle(title: 'Status History'),
+            SectionTitle(title: l10n.statusHistory),
             const SizedBox(height: 12),
             _StatusTimeline(history: bip.statusHistory),
             const SizedBox(height: 24),
@@ -670,7 +673,7 @@ class BipDetailScreen extends StatelessWidget {
               children: [
                 _FooterLink(
                   icon: Icons.terminal_outlined,
-                  label: 'View Official Text on GitHub',
+                  label: l10n.viewOfficialTextOnGitHub,
                   url: bip.officialUrl.toString(),
                 ),
               ],
@@ -695,6 +698,7 @@ class _StatusPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     final color = switch (status) {
       BipStatus.active ||
       BipStatus.finalStatus => colorScheme.tertiaryContainer,
@@ -717,7 +721,7 @@ class _StatusPill extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
       ),
       child: Text(
-        _statusLabel(status),
+        status.label(l10n),
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
           color: textColor,
           fontWeight: FontWeight.w700,
@@ -914,20 +918,21 @@ class ReleaseNoteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final release = store.bundle.changelogs
         .where(
-          (release) =>
-              release.project == project && release.version == version,
+          (release) => release.project == project && release.version == version,
         )
         .firstOrNull;
 
     if (release == null) {
+      final l10n = AppLocalizations.of(context);
       return Scaffold(
-        appBar: AppBar(title: const Text('Code')),
-        body: const Center(child: Text('Release not found')),
+        appBar: AppBar(title: Text(l10n.codeTab)),
+        body: Center(child: Text(l10n.releaseNotFound)),
       );
     }
 
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -935,7 +940,7 @@ class ReleaseNoteScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('SatoWiki'),
+        title: Text(l10n.appTitle),
       ),
       body: SafeArea(
         child: ListView(
@@ -961,11 +966,11 @@ class ReleaseNoteScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            const SectionTitle(title: 'User Impact'),
+            SectionTitle(title: l10n.userImpact),
             const SizedBox(height: 8),
             MarkdownText(release.userImpactMarkdown),
             const SizedBox(height: 24),
-            const SectionTitle(title: 'Technical Changes'),
+            SectionTitle(title: l10n.technicalChanges),
             const SizedBox(height: 8),
             MarkdownText(release.technicalChangesMarkdown),
           ],

@@ -58,9 +58,10 @@ Ogni record deve includere:
 
 ## Fixture Seed
 
-La fixture locale iniziale vive in `assets/content/seed_bundle.json` ed e
-registrata come asset Flutter. Serve per parser test, vertical slice e futuro
-bootstrap offline.
+La fixture locale iniziale inglese vive in `assets/content/seed_bundle_en.json`
+ed e registrata come asset Flutter. I bundle sono separati per lingua:
+`seed_bundle_{language}.json` per seed locali e `content/{language}/...` per CDN.
+Serve per parser test, vertical slice e futuro bootstrap offline.
 
 ## Parser, Validazione E Fallback
 
@@ -84,7 +85,8 @@ Fallback runtime previsto:
 
 1. provare il bundle aggiornato locale;
 2. se fatal error, mantenere ultimo bundle valido;
-3. se non esiste ultimo bundle valido, caricare `assets/content/seed_bundle.json`;
+3. se non esiste ultimo bundle valido, caricare `assets/content/seed_bundle_en.json`
+   come fallback inglese;
 4. mostrare warning recuperabili in diagnostica/log non invasivi.
 
 ## NewsArticle

@@ -7,7 +7,9 @@ import '../../features/search/presentation/search_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
 import '../../features/wiki/presentation/wiki_overview_screen.dart';
 import '../content/app_content.dart';
+import '../content/application/app_content_controller.dart';
 import '../settings/app_settings_controller.dart';
+import '../../generated/l10n/app_localizations.dart';
 import 'app_routes.dart';
 import 'sato_wiki_tab.dart';
 
@@ -15,10 +17,14 @@ abstract final class AppRouter {
   static Route<dynamic> generateRoute(
     RouteSettings settings,
     AppSettingsController settingsController,
-    AppContent appContent,
+    AppContentController contentController,
   ) {
     final routeName = settings.name ?? AppRoutes.root;
-    final tabRoute = _tabRouteFor(routeName, settingsController, appContent);
+    final tabRoute = _tabRouteFor(
+      routeName,
+      settingsController,
+      contentController,
+    );
     if (tabRoute != null) {
       return tabRoute;
     }
@@ -26,7 +32,11 @@ abstract final class AppRouter {
     if (routeName == AppRoutes.search) {
       return MaterialPageRoute<void>(
         settings: settings,
-        builder: (_) => SearchScreen(searchIndex: appContent.searchIndex),
+        builder: (_) => AnimatedBuilder(
+          animation: contentController,
+          builder: (_, _) =>
+              SearchScreen(searchIndex: contentController.content.searchIndex),
+        ),
       );
     }
 
@@ -36,8 +46,14 @@ abstract final class AppRouter {
 
       return MaterialPageRoute<void>(
         settings: settings,
-        builder: (_) =>
-            _screenForTarget(target, settingsController, appContent),
+        builder: (_) => AnimatedBuilder(
+          animation: contentController,
+          builder: (_, _) => _screenForTarget(
+            target,
+            settingsController,
+            contentController.content,
+          ),
+        ),
       );
     }
 
@@ -50,7 +66,7 @@ abstract final class AppRouter {
   static MaterialPageRoute<void>? _tabRouteFor(
     String routeName,
     AppSettingsController settingsController,
-    AppContent appContent,
+    AppContentController contentController,
   ) {
     final tab = routeName == AppRoutes.root
         ? settingsController.lastTab
@@ -66,7 +82,7 @@ abstract final class AppRouter {
       settings: RouteSettings(name: tab.routePath),
       builder: (_) => SatoWikiShell(
         settingsController: settingsController,
-        appContent: appContent,
+        contentController: contentController,
       ),
     );
   }
@@ -225,9 +241,10 @@ class DeepLinkPlaceholderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('SatoWiki')),
+      appBar: AppBar(title: Text(l10n.appTitle)),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 800),
@@ -246,7 +263,7 @@ class DeepLinkPlaceholderScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      target.title,
+                      _localizedTargetTitle(target, l10n),
                       style: textTheme.headlineLarge?.copyWith(
                         color: colorScheme.primary,
                       ),
@@ -274,16 +291,17 @@ class UnknownRouteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('SatoWiki')),
+      appBar: AppBar(title: Text(l10n.appTitle)),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Route not found', style: textTheme.headlineLarge),
+              Text(l10n.routeNotFound, style: textTheme.headlineLarge),
               const SizedBox(height: 8),
               Text(routeName, style: textTheme.labelLarge),
             ],
@@ -292,4 +310,29 @@ class UnknownRouteScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+String _localizedTargetTitle(DeepLinkTarget target, AppLocalizations l10n) {
+  final segments = Uri.parse(target.routeName).pathSegments;
+  if (segments.length >= 2 && segments[0] == 'wiki') {
+    return segments[1] == 'categories'
+        ? l10n.wikiCategoryTitle
+        : l10n.wikiEntryTitle;
+  }
+  if (segments.length >= 2 && segments[0] == 'news') {
+    return l10n.newsArticleTitle;
+  }
+  if (segments.length >= 2 && segments[0] == 'history') {
+    return l10n.historyEventTitle;
+  }
+  if (segments.length >= 2 && segments[0] == 'code' && segments[1] == 'bips') {
+    return l10n.bipDetailTitle;
+  }
+  if (segments.length >= 2 &&
+      segments[0] == 'code' &&
+      segments[1] == 'changelogs') {
+    return l10n.changelogTitle;
+  }
+
+  return target.title;
 }

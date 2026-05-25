@@ -1,0 +1,139 @@
+{
+  "@@locale": "en",
+  "appTitle": "SatoWiki",
+  "wikiTab": "Wiki",
+  "newsTab": "News",
+  "historyTab": "History",
+  "codeTab": "Code",
+  "languageSelectorTooltip": "Language",
+  "searchTooltip": "Search",
+  "languageTitle": "Language",
+  "languageSystemDefault": "System Default",
+  "languageEnglish": "English",
+  "orangeBookTitle": "The Orange Book",
+  "wikiOverviewSubtitle": "A technical encyclopedia for Bitcoin readers.",
+  "knowledgeBase": "Knowledge Base",
+  "categoryProtocol": "Protocol",
+  "categoryProtocolDescription": "Core consensus rules, node architecture, and network topography.",
+  "categoryCryptography": "Cryptography",
+  "categoryCryptographyDescription": "Elliptic curve mathematics, hash functions, and signature schemes.",
+  "categoryLightningNetwork": "Lightning Network",
+  "categoryLightningNetworkDescription": "Layer 2 scaling, payment channels, and routing mechanisms.",
+  "categoryEconomics": "Economics",
+  "categoryEconomicsDescription": "Game theory, incentives, difficulty adjustment, and supply issuance.",
+  "categoryBips": "BIPs",
+  "categoryConsensus": "Consensus",
+  "categorySecp256k1": "Secp256k1",
+  "categorySha256": "SHA-256",
+  "categoryBolts": "BOLTs",
+  "categoryChannels": "Channels",
+  "categoryHalving": "Halving",
+  "categoryDifficulty": "Difficulty",
+  "wikiEntriesInCategory": "Wiki entries in {category}.",
+  "@wikiEntriesInCategory": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "wikiEntriesInThisCategory": "Wiki entries in this category.",
+  "all": "All",
+  "coreConcept": "Core Concept",
+  "minRead": "{minutes} min read",
+  "@minRead": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "shortMin": "{minutes} min",
+  "@shortMin": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "entryConceptualVisual": "{title} conceptual visual",
+  "@entryConceptualVisual": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "relatedConcepts": "Related Concepts",
+  "wikiEntryNotFound": "Wiki entry not found",
+  "readingLevelBase": "Base",
+  "readingLevelMedium": "Medio",
+  "readingLevelAdvanced": "Avanzato",
+  "sourcesAndReferences": "Sources & References",
+  "newsTitle": "News",
+  "newsSubtitle": "Long-form Bitcoin analysis from the community.",
+  "editorial": "Editorial",
+  "latestAnalysis": "Latest analysis",
+  "articleNotFound": "Article not found",
+  "lightningTip": "Lightning Tip",
+  "lightningTipDescription": "Mock only. Payment wiring waits for privacy and UX definition.",
+  "lightningTipMockTitle": "Lightning Tip mock",
+  "noLightningAddress": "No Lightning address configured.",
+  "close": "Close",
+  "sendTip": "Send Tip",
+  "market": "Market",
+  "regulatory": "Regulatory",
+  "culture": "Culture",
+  "development": "Development",
+  "historyTitle": "History",
+  "historySubtitle": "Milestones and context from Bitcoin time.",
+  "timelineMetadata": "Timeline",
+  "onThisDay": "On this day",
+  "noEventToday": "No event today",
+  "noEventTodayDescription": "Historic events connected to the current date will be surfaced here.",
+  "allEvents": "All Events",
+  "community": "Community",
+  "historyEventNotFound": "History event not found",
+  "codeDashboardTitle": "Code Dashboard",
+  "codeDashboardSubtitle": "Track Bitcoin Improvement Proposals (BIPs) and recent core changes.",
+  "filter": "Filter",
+  "recentBips": "Recent BIPs",
+  "noBipsMatchFilter": "No BIPs match this filter.",
+  "bipTracker": "BIP Tracker",
+  "activeUpper": "ACTIVE",
+  "draftUpper": "DRAFT",
+  "rejectedUpper": "REJECTED",
+  "changelog": "Changelog",
+  "noRecentReleases": "No recent releases.",
+  "bipNotFound": "BIP not found",
+  "releaseNotFound": "Release not found",
+  "statusActive": "Active",
+  "statusFinal": "Final",
+  "statusDraft": "Draft",
+  "statusProposed": "Proposed",
+  "statusWithdrawn": "Withdrawn",
+  "statusRejected": "Rejected",
+  "statusMajor": "Major",
+  "statusMinor": "Minor",
+  "authors": "Authors",
+  "created": "Created",
+  "layer": "Layer",
+  "plainEnglishSummary": "Plain English Summary",
+  "practicalImpact": "Practical Impact",
+  "statusHistory": "Status History",
+  "viewOfficialTextOnGitHub": "View Official Text on GitHub",
+  "userImpact": "User Impact",
+  "technicalChanges": "Technical Changes",
+  "searchTitle": "Search",
+  "searchSubtitle": "Find local content by title, tag and summary.",
+  "searchHint": "Search Bitcoin knowledge",
+  "noLocalResultFound": "No local result found.",
+  "trySearchExamples": "Try: Proof of Work, Taproot, Pizza Day",
+  "routeNotFound": "Route not found",
+  "wikiCategoryTitle": "Wiki category",
+  "wikiEntryTitle": "Wiki entry",
+  "newsArticleTitle": "News article",
+  "historyEventTitle": "History event",
+  "bipDetailTitle": "BIP detail",
+  "changelogTitle": "Changelog"
+}

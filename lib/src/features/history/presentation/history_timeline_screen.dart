@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/navigation/app_routes.dart';
@@ -28,15 +29,19 @@ class HistoryTimelineScreen extends StatelessWidget {
         .toList(growable: false);
     final events = [...store.bundle.history]
       ..sort((a, b) => a.date.compareTo(b.date));
+    final l10n = AppLocalizations.of(context);
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: [
-        const ReaderHeader(
-          title: 'History',
-          subtitle: 'Milestones and context from Bitcoin time.',
+        ReaderHeader(
+          title: l10n.historyTitle,
+          subtitle: l10n.historySubtitle,
           metadata: [
-            MetadataItem(label: 'Timeline', icon: Icons.history_edu_outlined),
+            MetadataItem(
+              label: l10n.timelineMetadata,
+              icon: Icons.history_edu_outlined,
+            ),
           ],
         ),
         const SizedBox(height: 24),
@@ -44,7 +49,7 @@ class HistoryTimelineScreen extends StatelessWidget {
         const SizedBox(height: 28),
         const _HistoryFilters(),
         const SizedBox(height: 28),
-        const SectionTitle(title: 'Timeline'),
+        SectionTitle(title: l10n.timelineMetadata),
         const SizedBox(height: 12),
         for (final event in events)
           _TimelineEvent(
@@ -65,9 +70,16 @@ class _HistoryFilters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return FilterChipBar<String>(
-      items: const ['All Events', 'Protocol', 'Economics', 'Community'],
-      selectedItem: 'All Events',
+      items: [
+        l10n.allEvents,
+        l10n.categoryProtocol,
+        l10n.categoryEconomics,
+        l10n.community,
+      ],
+      selectedItem: l10n.allEvents,
       labelFor: (item) => item,
       onSelected: (_) {},
     );
@@ -82,24 +94,24 @@ class _OnThisDayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return ContentCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'On this day',
+            l10n.onThisDay,
             style: textTheme.labelLarge?.copyWith(
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 8),
-          Text(event?.title ?? 'No event today', style: textTheme.titleLarge),
+          Text(event?.title ?? l10n.noEventToday, style: textTheme.titleLarge),
           const SizedBox(height: 6),
           Text(
-            event?.summary ??
-                'Historic events connected to the current date will be surfaced here.',
+            event?.summary ?? l10n.noEventTodayDescription,
             style: textTheme.bodyMedium,
           ),
         ],
@@ -194,14 +206,16 @@ class HistoryEventScreen extends StatelessWidget {
         .firstOrNull;
 
     if (event == null) {
+      final l10n = AppLocalizations.of(context);
       return Scaffold(
-        appBar: AppBar(title: const Text('History')),
-        body: const Center(child: Text('History event not found')),
+        appBar: AppBar(title: Text(l10n.historyTitle)),
+        body: Center(child: Text(l10n.historyEventNotFound)),
       );
     }
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('History')),
+      appBar: AppBar(title: Text(l10n.historyTitle)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

@@ -1,12 +1,11 @@
 enum ReadingLevel {
-  base('base', 'Base'),
-  medium('medium', 'Medio'),
-  advanced('advanced', 'Avanzato');
+  base('base'),
+  medium('medium'),
+  advanced('advanced');
 
-  const ReadingLevel(this.storageValue, this.label);
+  const ReadingLevel(this.storageValue);
 
   final String storageValue;
-  final String label;
 
   static ReadingLevel? fromStorageValue(String? value) {
     for (final level in ReadingLevel.values) {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:sato_wiki/src/core/content/reading_level.dart';
+import 'package:sato_wiki/src/core/localization/app_locale.dart';
 import 'package:sato_wiki/src/core/widgets/content_card.dart';
 import 'package:sato_wiki/src/core/widgets/filter_chip_bar.dart';
 import 'package:sato_wiki/src/core/widgets/hero_media.dart';
@@ -12,12 +14,20 @@ import 'package:sato_wiki/src/core/widgets/related_links_grid.dart';
 import 'package:sato_wiki/src/core/widgets/sources_disclosure.dart';
 import 'package:sato_wiki/src/core/widgets/status_badge.dart';
 import 'package:sato_wiki/src/core/theme/app_theme.dart';
+import 'package:sato_wiki/src/generated/l10n/app_localizations.dart';
 
 void main() {
   testWidgets('core editorial components match golden', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: AppLocale.supportedLocales,
         theme: AppTheme.dark(),
         home: const Scaffold(
           body: Center(

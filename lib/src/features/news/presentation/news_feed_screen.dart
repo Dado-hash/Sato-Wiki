@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/navigation/app_routes.dart';
@@ -20,20 +21,22 @@ class NewsFeedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: [
-        const ReaderHeader(
-          title: 'News',
-          subtitle: 'Long-form Bitcoin analysis from the community.',
+        ReaderHeader(
+          title: l10n.newsTitle,
+          subtitle: l10n.newsSubtitle,
           metadata: [
-            MetadataItem(label: 'Editorial', icon: Icons.newspaper_outlined),
+            MetadataItem(label: l10n.editorial, icon: Icons.newspaper_outlined),
           ],
         ),
-        SizedBox(height: 24),
-        const _CategoryFilters(),
         const SizedBox(height: 24),
-        const SectionTitle(title: 'Latest analysis'),
+        _CategoryFilters(),
+        const SizedBox(height: 24),
+        SectionTitle(title: l10n.latestAnalysis),
         const SizedBox(height: 12),
         for (final article in store.bundle.news) ...[
           _ArticleCard(
@@ -64,14 +67,16 @@ class NewsArticleScreen extends StatelessWidget {
         .firstOrNull;
 
     if (article == null) {
+      final l10n = AppLocalizations.of(context);
       return Scaffold(
-        appBar: AppBar(title: const Text('News')),
-        body: const Center(child: Text('Article not found')),
+        appBar: AppBar(title: Text(l10n.newsTitle)),
+        body: Center(child: Text(l10n.articleNotFound)),
       );
     }
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('News')),
+      appBar: AppBar(title: Text(l10n.newsTitle)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -81,7 +86,7 @@ class NewsArticleScreen extends StatelessWidget {
             metadata: [
               ...tagMetadata(article.tags),
               MetadataItem(
-                label: '${article.readTimeMinutes} min read',
+                label: l10n.minRead(article.readTimeMinutes),
                 icon: Icons.schedule_outlined,
               ),
             ],
@@ -112,12 +117,12 @@ class NewsArticleScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Lightning Tip',
+                  l10n.lightningTip,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Mock only. Payment wiring waits for privacy and UX definition.',
+                  l10n.lightningTipDescription,
                   style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
@@ -127,22 +132,22 @@ class NewsArticleScreen extends StatelessWidget {
                     showDialog<void>(
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: const Text('Lightning Tip mock'),
+                        title: Text(l10n.lightningTipMockTitle),
                         content: Text(
                           article.author.lightningAddress ??
-                              'No Lightning address configured.',
+                              l10n.noLightningAddress,
                         ),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.of(context).pop(),
-                            child: const Text('Close'),
+                            child: Text(l10n.close),
                           ),
                         ],
                       ),
                     );
                   },
                   icon: const Icon(Icons.payments_outlined),
-                  label: const Text('Send Tip'),
+                  label: Text(l10n.sendTip),
                 ),
               ],
             ),
@@ -167,6 +172,7 @@ class _ArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return ContentCard(
       onTap: onTap,
@@ -194,7 +200,7 @@ class _ArticleCard extends StatelessWidget {
                 icon: Icons.person_outline,
               ),
               MetadataItem(
-                label: '${article.readTimeMinutes} min',
+                label: l10n.shortMin(article.readTimeMinutes),
                 icon: Icons.schedule_outlined,
               ),
             ],
@@ -210,16 +216,18 @@ class _CategoryFilters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return FilterChipBar<String>(
-      items: const [
-        'All',
-        'Protocol',
-        'Market',
-        'Regulatory',
-        'Culture',
-        'Development',
+      items: [
+        l10n.all,
+        l10n.categoryProtocol,
+        l10n.market,
+        l10n.regulatory,
+        l10n.culture,
+        l10n.development,
       ],
-      selectedItem: 'All',
+      selectedItem: l10n.all,
       labelFor: (item) => item,
       onSelected: (_) {},
     );

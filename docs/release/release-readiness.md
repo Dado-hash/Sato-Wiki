@@ -18,12 +18,16 @@
 
 - App loads updated bundle from local storage first.
 - Bad updated bundle falls back to seed asset.
-- Validator covers malformed and future schema cases.
+- Updated bundle storage is keyed by language.
+- Background updates fetch the language manifest from GitHub Pages, verify
+  sha256, validate schema and install atomically.
+- Validator and tests cover malformed JSON, future schema, bad hash, missing
+  manifest, wrong language and fallback cases.
 
 ## Splash And Icons
 
-- Current platform icons/splash exist from Flutter scaffold.
-- Definitive branded artwork must replace scaffold assets before store beta.
+- Branded dark/editorial orange launcher icons and splash images replace the
+  Flutter scaffold defaults on Android and iOS.
 
 ## Beta
 

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
-class SourcesDisclosure extends StatelessWidget {
-  const SourcesDisclosure({
-    required this.sources,
-    this.title = 'Sources & References',
-    super.key,
-  });
+import '../../generated/l10n/app_localizations.dart';
 
-  final String title;
+class SourcesDisclosure extends StatelessWidget {
+  const SourcesDisclosure({required this.sources, this.title, super.key});
+
+  final String? title;
   final List<SourceReference> sources;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -26,7 +25,7 @@ class SourcesDisclosure extends StatelessWidget {
         childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         leading: Icon(Icons.menu_book_outlined, color: colorScheme.primary),
         title: Text(
-          title,
+          title ?? l10n.sourcesAndReferences,
           style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         ),
         children: [

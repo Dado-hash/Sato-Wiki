@@ -1,13 +1,12 @@
 enum SatoWikiTab {
-  wiki('/wiki', 'Wiki'),
-  news('/news', 'News'),
-  history('/history', 'History'),
-  code('/code', 'Code');
+  wiki('/wiki'),
+  news('/news'),
+  history('/history'),
+  code('/code');
 
-  const SatoWikiTab(this.routePath, this.label);
+  const SatoWikiTab(this.routePath);
 
   final String routePath;
-  final String label;
 
   static SatoWikiTab fromIndex(int index) {
     return SatoWikiTab.values[index];

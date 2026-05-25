@@ -35,7 +35,7 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 1. [x] Caricare bundle seed da asset.
 2. [x] Salvare bundle aggiornato in storage locale.
 3. [x] Implementare manifest remoto.
-4. Scaricare update in background.
+4. [x] Scaricare update in background.
 5. [x] Costruire indice search locale.
 6. [x] Implementare ricerca per titolo, tag e summary.
 7. [x] Aggiungere filtri per sezione.
@@ -84,14 +84,14 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 2. [x] Creare validatore schema.
 3. [x] Creare generatore JSON statico.
 4. [x] Aggiungere check obbligatori in PR contenuti.
-5. Pubblicare bundle su CDN.
+5. [x] Pubblicare bundle su CDN.
 6. [x] Aggiornare docs contributor.
 
 ## 10. Release Readiness
 
 1. Pass accessibilita completa.
 2. Pass performance su device low-end.
-3. Test install/update bundle.
-4. Preparare splash e icone definitive.
+3. [x] Test install/update bundle.
+4. [x] Preparare splash e icone definitive.
 5. [x] Preparare privacy policy.
 6. Preparare beta TestFlight/Play Internal.

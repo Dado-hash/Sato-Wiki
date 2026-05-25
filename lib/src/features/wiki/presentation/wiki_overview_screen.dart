@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/content/reading_level.dart';
@@ -31,24 +33,25 @@ class WikiOverviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    final categories = _deriveCategories(store);
+    final l10n = AppLocalizations.of(context);
+    final categories = _deriveCategories(store, l10n);
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: [
         Text(
-          'The Orange Book',
+          l10n.orangeBookTitle,
           style: textTheme.displayLarge?.copyWith(fontSize: 42, height: 1.08),
         ),
         const SizedBox(height: 8),
         Text(
-          'A technical encyclopedia for Bitcoin readers.',
+          l10n.wikiOverviewSubtitle,
           style: textTheme.bodyLarge?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
         ),
         const SizedBox(height: 32),
-        const SectionTitle(title: 'Knowledge Base'),
+        SectionTitle(title: l10n.knowledgeBase),
         const SizedBox(height: 16),
         for (final cat in categories)
           Padding(
@@ -60,19 +63,22 @@ class WikiOverviewScreen extends StatelessWidget {
               tags: cat.tags,
               onTap: () => Navigator.of(
                 context,
-              ).pushNamed(AppRoutes.wikiCategory(cat.title)),
+              ).pushNamed(AppRoutes.wikiCategory(cat.routeCategory)),
             ),
           ),
       ],
     );
   }
 
-  List<_CategoryMeta> _deriveCategories(ContentStore store) {
+  List<_CategoryMeta> _deriveCategories(
+    ContentStore store,
+    AppLocalizations l10n,
+  ) {
     final curated = <_CategoryMeta>[
-      _categoryMetaFor('Protocol'),
-      _categoryMetaFor('Cryptography'),
-      _categoryMetaFor('Lightning Network'),
-      _categoryMetaFor('Economics'),
+      _categoryMetaFor('Protocol', l10n),
+      _categoryMetaFor('Cryptography', l10n),
+      _categoryMetaFor('Lightning Network', l10n),
+      _categoryMetaFor('Economics', l10n),
     ];
     final seen = <String>{
       'protocol',
@@ -83,7 +89,7 @@ class WikiOverviewScreen extends StatelessWidget {
     for (final entry in store.bundle.wiki) {
       final key = entry.category.toLowerCase();
       if (seen.add(key)) {
-        curated.add(_categoryMetaFor(entry.category));
+        curated.add(_categoryMetaFor(entry.category, l10n));
       }
     }
     curated.sort((a, b) => a.title.compareTo(b.title));
@@ -94,58 +100,61 @@ class WikiOverviewScreen extends StatelessWidget {
 final class _CategoryMeta {
   const _CategoryMeta({
     required this.icon,
+    required this.routeCategory,
     required this.title,
     required this.description,
     required this.tags,
   });
 
   final IconData icon;
+  final String routeCategory;
   final String title;
   final String description;
   final List<String> tags;
 }
 
-_CategoryMeta _categoryMetaFor(String category) {
+_CategoryMeta _categoryMetaFor(String category, AppLocalizations l10n) {
   final key = category.toLowerCase();
   // Curated mapping — extend as new categories are added to the content.
   switch (key) {
     case 'protocol':
       return _CategoryMeta(
         icon: Icons.code,
-        title: 'Protocol',
-        description:
-            'Core consensus rules, node architecture, and network topography.',
-        tags: const ['BIPs', 'Consensus'],
+        routeCategory: 'Protocol',
+        title: l10n.categoryProtocol,
+        description: l10n.categoryProtocolDescription,
+        tags: [l10n.categoryBips, l10n.categoryConsensus],
       );
     case 'cryptography':
       return _CategoryMeta(
         icon: Icons.vpn_key,
-        title: 'Cryptography',
-        description:
-            'Elliptic curve mathematics, hash functions, and signature schemes.',
-        tags: const ['Secp256k1', 'SHA-256'],
+        routeCategory: 'Cryptography',
+        title: l10n.categoryCryptography,
+        description: l10n.categoryCryptographyDescription,
+        tags: [l10n.categorySecp256k1, l10n.categorySha256],
       );
     case 'lightning network':
       return _CategoryMeta(
         icon: Icons.bolt,
-        title: 'Lightning Network',
-        description:
-            'Layer 2 scaling, payment channels, and routing mechanisms.',
-        tags: const ['BOLTs', 'Channels'],
+        routeCategory: 'Lightning Network',
+        title: l10n.categoryLightningNetwork,
+        description: l10n.categoryLightningNetworkDescription,
+        tags: [l10n.categoryBolts, l10n.categoryChannels],
       );
     case 'economics':
       return _CategoryMeta(
         icon: Icons.trending_up,
-        title: 'Economics',
-        description:
-            'Game theory, incentives, difficulty adjustment, and supply issuance.',
-        tags: const ['Halving', 'Difficulty'],
+        routeCategory: 'Economics',
+        title: l10n.categoryEconomics,
+        description: l10n.categoryEconomicsDescription,
+        tags: [l10n.categoryHalving, l10n.categoryDifficulty],
       );
     default:
       return _CategoryMeta(
         icon: Icons.menu_book,
+        routeCategory: category,
         title: category,
-        description: 'Wiki entries in $category.',
+        description: l10n.wikiEntriesInCategory(category),
         tags: const [],
       );
   }
@@ -268,7 +277,7 @@ class WikiCategoryScreen extends StatefulWidget {
 }
 
 class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
-  String _selectedTag = 'All';
+  String? _selectedTag;
 
   List<String> get _tags {
     final entries = _allEntries;
@@ -277,7 +286,7 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
       tags.addAll(entry.tags);
     }
     final sorted = tags.toList()..sort();
-    return ['All', ...sorted];
+    return sorted;
   }
 
   List<WikiEntry> get _allEntries {
@@ -290,7 +299,7 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
   }
 
   List<WikiEntry> get _filteredEntries {
-    if (_selectedTag == 'All') return _allEntries;
+    if (_selectedTag == null) return _allEntries;
     return _allEntries
         .where((entry) => entry.tags.contains(_selectedTag))
         .toList(growable: false);
@@ -300,7 +309,9 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
     final entries = _filteredEntries;
+    final tags = [l10n.all, ..._tags];
 
     return Scaffold(
       appBar: AppBar(
@@ -309,7 +320,6 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(widget.category),
-        actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
       ),
       body: SafeArea(
         child: ListView(
@@ -318,28 +328,32 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 24),
               child: Text(
-                _subtitleFor(widget.category),
+                _subtitleFor(widget.category, l10n),
                 style: textTheme.bodyMedium?.copyWith(
                   color: colorScheme.onSurfaceVariant,
                 ),
               ),
             ),
-            if (_tags.length > 1)
+            if (tags.length > 1)
               Padding(
                 padding: const EdgeInsets.only(bottom: 24),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      for (final tag in _tags)
+                      for (final tag in tags)
                         Padding(
                           padding: const EdgeInsets.only(right: 8),
                           child: _FilterChip(
                             label: tag,
-                            selected: tag == _selectedTag,
+                            selected:
+                                _selectedTag == null && tag == l10n.all ||
+                                tag == _selectedTag,
                             onSelected: (selected) {
                               if (selected) {
-                                setState(() => _selectedTag = tag);
+                                setState(() {
+                                  _selectedTag = tag == l10n.all ? null : tag;
+                                });
                               }
                             },
                           ),
@@ -365,17 +379,13 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
     );
   }
 
-  String _subtitleFor(String category) {
+  String _subtitleFor(String category, AppLocalizations l10n) {
     return switch (category) {
-      'Protocol' =>
-        'Core consensus rules, node architecture, and network topography.',
-      'Cryptography' =>
-        'Elliptic curve mathematics, hash functions, and signature schemes.',
-      'Lightning Network' =>
-        'Layer 2 scaling, payment channels, and routing mechanisms.',
-      'Economics' =>
-        'Game theory, incentives, difficulty adjustment, and supply issuance.',
-      _ => 'Wiki entries in this category.',
+      'Protocol' => l10n.categoryProtocolDescription,
+      'Cryptography' => l10n.categoryCryptographyDescription,
+      'Lightning Network' => l10n.categoryLightningNetworkDescription,
+      'Economics' => l10n.categoryEconomicsDescription,
+      _ => l10n.wikiEntriesInThisCategory,
     };
   }
 }
@@ -468,6 +478,7 @@ class _CategoryEntryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return Material(
       color: highlighted
@@ -506,7 +517,7 @@ class _CategoryEntryCard extends StatelessWidget {
                         vertical: 3,
                       ),
                       child: Text(
-                        'Core Concept',
+                        l10n.coreConcept,
                         style: textTheme.labelSmall?.copyWith(
                           color: colorScheme.onPrimary,
                           fontWeight: FontWeight.w700,
@@ -545,12 +556,12 @@ class _CategoryEntryCard extends StatelessWidget {
                     children: [
                       _MetaLabel(
                         icon: Icons.schedule_outlined,
-                        label: '${entry.readTimeMinutes} min read',
+                        label: l10n.minRead(entry.readTimeMinutes),
                       ),
                       const SizedBox(width: 16),
                       _MetaLabel(
                         icon: Icons.update,
-                        label: _formatDate(entry.updatedAt),
+                        label: _formatDate(entry.updatedAt, l10n),
                       ),
                       const Spacer(),
                       _DifficultyIndicator(level: entry.difficulty),
@@ -565,22 +576,8 @@ class _CategoryEntryCard extends StatelessWidget {
     );
   }
 
-  String _formatDate(DateTime date) {
-    const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-    return '${months[date.month - 1]} ${date.year}';
+  String _formatDate(DateTime date, AppLocalizations l10n) {
+    return DateFormat.yMMM(l10n.localeName).format(date);
   }
 }
 
@@ -637,14 +634,16 @@ class WikiEntryScreen extends StatelessWidget {
         .firstOrNull;
 
     if (entry == null) {
+      final l10n = AppLocalizations.of(context);
       return Scaffold(
-        appBar: AppBar(title: const Text('Wiki')),
-        body: const Center(child: Text('Wiki entry not found')),
+        appBar: AppBar(title: Text(l10n.wikiTab)),
+        body: Center(child: Text(l10n.wikiEntryNotFound)),
       );
     }
 
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -652,7 +651,7 @@ class WikiEntryScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('Wiki'),
+        title: Text(l10n.wikiTab),
       ),
       body: SafeArea(
         child: ListView(
@@ -711,7 +710,7 @@ class WikiEntryScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        '${entry.readTimeMinutes} min read',
+                        l10n.minRead(entry.readTimeMinutes),
                         style: textTheme.labelSmall?.copyWith(
                           color: colorScheme.onSurfaceVariant,
                           fontFamily: 'JetBrains Mono',
@@ -725,7 +724,7 @@ class WikiEntryScreen extends StatelessWidget {
             const SizedBox(height: 24),
             HeroMedia(
               icon: _iconForEntry(entry),
-              label: '${entry.title} conceptual visual',
+              label: l10n.entryConceptualVisual(entry.title),
             ),
             const SizedBox(height: 24),
             Text(
@@ -734,7 +733,7 @@ class WikiEntryScreen extends StatelessWidget {
             ),
             if (entry.related.isNotEmpty) ...[
               const SizedBox(height: 32),
-              const SectionTitle(title: 'Related Concepts'),
+              SectionTitle(title: l10n.relatedConcepts),
               const SizedBox(height: 12),
               RelatedLinksGrid(links: relatedLinks(entry.related)),
             ],

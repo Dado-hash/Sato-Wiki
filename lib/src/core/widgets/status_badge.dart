@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n/app_localizations.dart';
 import '../theme/app_colors.dart';
 
 enum ContentStatus {
-  active('ACTIVE', AppColors.success),
-  finalStatus('FINAL', AppColors.success),
-  draft('DRAFT', AppColors.warning),
-  proposed('PROPOSED', AppColors.warning),
-  withdrawn('WITHDRAWN', AppColors.error),
-  rejected('REJECTED', AppColors.error),
-  major('MAJOR', AppColors.warning),
-  minor('MINOR', AppColors.success);
+  active(AppColors.success),
+  finalStatus(AppColors.success),
+  draft(AppColors.warning),
+  proposed(AppColors.warning),
+  withdrawn(AppColors.error),
+  rejected(AppColors.error),
+  major(AppColors.warning),
+  minor(AppColors.success);
 
-  const ContentStatus(this.label, this.color);
+  const ContentStatus(this.color);
 
-  final String label;
   final Color color;
 }
 
@@ -27,6 +27,7 @@ class StatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -51,7 +52,7 @@ class StatusBadge extends StatelessWidget {
               const SizedBox(width: 6),
             ],
             Text(
-              status.label,
+              _statusLabel(status, l10n),
               style: textTheme.labelSmall?.copyWith(
                 color: status.color,
                 fontWeight: FontWeight.w700,
@@ -62,4 +63,17 @@ class StatusBadge extends StatelessWidget {
       ),
     );
   }
+}
+
+String _statusLabel(ContentStatus status, AppLocalizations l10n) {
+  return switch (status) {
+    ContentStatus.active => l10n.statusActive.toUpperCase(),
+    ContentStatus.finalStatus => l10n.statusFinal.toUpperCase(),
+    ContentStatus.draft => l10n.statusDraft.toUpperCase(),
+    ContentStatus.proposed => l10n.statusProposed.toUpperCase(),
+    ContentStatus.withdrawn => l10n.statusWithdrawn.toUpperCase(),
+    ContentStatus.rejected => l10n.statusRejected.toUpperCase(),
+    ContentStatus.major => l10n.statusMajor.toUpperCase(),
+    ContentStatus.minor => l10n.statusMinor.toUpperCase(),
+  };
 }

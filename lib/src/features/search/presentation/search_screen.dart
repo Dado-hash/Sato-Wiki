@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n/app_localizations.dart';
+import '../../../core/localization/localized_labels.dart';
 import '../../../core/navigation/app_routes.dart';
 import '../../../core/search/search_index.dart';
 import '../../../core/widgets/content_card.dart';
@@ -26,19 +28,17 @@ class _SearchScreenState extends State<SearchScreen> {
       _query,
       sections: _section == null ? null : {_section!},
     );
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Search')),
+      appBar: AppBar(title: Text(l10n.searchTitle)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const ReaderHeader(
-            title: 'Search',
-            subtitle: 'Find local content by title, tag and summary.',
-          ),
+          ReaderHeader(title: l10n.searchTitle, subtitle: l10n.searchSubtitle),
           const SizedBox(height: 16),
           SearchBar(
-            hintText: 'Search Bitcoin knowledge',
+            hintText: l10n.searchHint,
             leading: const Icon(Icons.search),
             onChanged: (value) => setState(() => _query = value),
           ),
@@ -52,12 +52,13 @@ class _SearchScreenState extends State<SearchScreen> {
               SearchSection.code,
             ],
             selectedItem: _section,
-            labelFor: (section) => section == null ? 'All' : section.name,
+            labelFor: (section) =>
+                section == null ? l10n.all : section.label(l10n),
             onSelected: (section) => setState(() => _section = section),
           ),
           const SizedBox(height: 16),
           if (_query.isNotEmpty && results.isEmpty)
-            const ContentCard(child: Text('No local result found.')),
+            ContentCard(child: Text(l10n.noLocalResultFound)),
           for (final result in results) ...[
             ContentCard(
               onTap: () => Navigator.of(context).pushNamed(result.route),
@@ -74,7 +75,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   const SizedBox(height: 10),
                   MetadataRow(
                     items: [
-                      MetadataItem(label: result.section.name),
+                      MetadataItem(label: result.section.label(l10n)),
                       for (final tag in result.tags)
                         MetadataItem(label: '#$tag', isTag: true),
                     ],
@@ -91,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   context,
                 ).pushNamed(AppRoutes.wikiEntry('proof-of-work'));
               },
-              child: const Text('Try: Proof of Work, Taproot, Pizza Day'),
+              child: Text(l10n.trySearchExamples),
             ),
         ],
       ),

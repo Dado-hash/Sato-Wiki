@@ -75,7 +75,7 @@ Persistenza locale minima:
 
 - ultima tab visitata;
 - reading level preferito;
-- lingua contenuti;
+- preferenza lingua UI/contenuti (`system` oppure codice lingua supportato);
 - versione bundle contenuti installata;
 - BIP seguiti per notifiche future.
 
@@ -115,15 +115,17 @@ Flusso:
 
 Implementazione corrente:
 
-- `assets/content/seed_bundle.json` e caricato all'avvio.
+- `assets/content/seed_bundle_en.json` e caricato all'avvio come seed inglese.
 - `LocalFirstContentBundleRepository` prova prima il bundle aggiornato in
-  `shared_preferences`, poi torna al seed asset se il bundle aggiornato non e
-  valido.
+  `shared_preferences` con chiave per lingua, poi torna al seed asset se il
+  bundle aggiornato non e valido.
 - `ContentManifest`, `RemoteContentManifestRepository` e
-  `BackgroundContentUpdater` definiscono il contratto per manifest remoto e
-  update background.
+  `VerifiedBackgroundContentUpdater` definiscono manifest remoto, download
+  bundle, verifica sha256, validazione schema e update background.
 - `ContentStore` espone il bundle locale alle repository interface delle
   feature.
+- La lingua contenuto risolta usa la preferenza app e le locale del sistema;
+  nella v1 e attivo solo `en`, con fallback inglese per locale non supportate.
 
 ## Search
 

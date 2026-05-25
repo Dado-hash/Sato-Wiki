@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:sato_wiki/src/app.dart';
-import 'package:sato_wiki/src/core/content/app_content.dart';
+import 'package:sato_wiki/src/core/content/application/app_content_controller.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
-import 'package:sato_wiki/src/core/content/domain/content_store.dart';
+import 'package:sato_wiki/src/core/content/data/content_bundle_repository.dart';
 import 'package:sato_wiki/src/core/content/reading_level.dart';
+import 'package:sato_wiki/src/core/localization/app_locale.dart';
 import 'package:sato_wiki/src/core/navigation/app_router.dart';
 import 'package:sato_wiki/src/core/navigation/app_routes.dart';
-import 'package:sato_wiki/src/core/search/search_index.dart';
 import 'package:sato_wiki/src/core/navigation/sato_wiki_tab.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_controller.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_repository.dart';
 import 'package:sato_wiki/src/core/theme/app_theme.dart';
+import 'package:sato_wiki/src/generated/l10n/app_localizations.dart';
 
 void main() {
   testWidgets('SatoWiki shell renders primary tabs', (tester) async {
     final repository = InMemoryAppSettingsRepository();
     final settingsController = await AppSettingsController.load(repository);
-    final appContent = _testContent();
+    final contentController = await _testContentController();
 
     await tester.pumpWidget(
       SatoWikiApp(
         settingsController: settingsController,
-        appContent: appContent,
+        contentController: contentController,
       ),
     );
 
@@ -47,12 +49,12 @@ void main() {
       readingLevel: ReadingLevel.advanced,
     );
     final settingsController = await AppSettingsController.load(repository);
-    final appContent = _testContent();
+    final contentController = await _testContentController();
 
     await tester.pumpWidget(
       SatoWikiApp(
         settingsController: settingsController,
-        appContent: appContent,
+        contentController: contentController,
       ),
     );
 
@@ -60,23 +62,31 @@ void main() {
 
     expect(find.text('The Orange Book'), findsOneWidget);
     expect(find.text('Knowledge Base'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Protocol'), 300);
     expect(find.text('Protocol'), findsOneWidget);
   });
 
   testWidgets('SatoWiki exposes deep link targets', (tester) async {
     final repository = InMemoryAppSettingsRepository();
     final settingsController = await AppSettingsController.load(repository);
-    final appContent = _testContent();
+    final contentController = await _testContentController();
 
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.dark(),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: AppLocale.supportedLocales,
         initialRoute: AppRoutes.codeBip(341),
         onGenerateRoute: (settings) {
           return AppRouter.generateRoute(
             settings,
             settingsController,
-            appContent,
+            contentController,
           );
         },
       ),
@@ -88,19 +98,56 @@ void main() {
       find.text('Taproot: SegWit version 1 spending rules.'),
       findsOneWidget,
     );
+    await tester.scrollUntilVisible(find.text('Status History'), 300);
     expect(find.text('Status History'), findsOneWidget);
+  });
+
+  testWidgets('SatoWiki persists locale preference from language sheet', (
+    tester,
+  ) async {
+    final repository = InMemoryAppSettingsRepository();
+    final settingsController = await AppSettingsController.load(repository);
+    final contentController = await _testContentController();
+
+    await tester.pumpWidget(
+      SatoWikiApp(
+        settingsController: settingsController,
+        contentController: contentController,
+      ),
+    );
+
+    await tester.tap(find.byIcon(Icons.language));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('English'));
+    await tester.pumpAndSettle();
+
+    expect(
+      await repository.loadLocalePreference(),
+      const AppLocalePreference.language('en'),
+    );
   });
 }
 
-AppContent _testContent() {
-  final result = ContentBundleParser.parseJson(_fixtureJson);
-  final store = ContentStore(result.bundle);
-
-  return AppContent(
-    store: store,
-    searchIndex: SearchIndex.fromBundle(result.bundle),
-    warnings: result.warnings,
+Future<AppContentController> _testContentController() {
+  return AppContentController.load(
+    repository: _TestContentBundleRepository(_fixtureJson),
+    languageCode: 'en',
   );
+}
+
+final class _TestContentBundleRepository implements ContentBundleRepository {
+  const _TestContentBundleRepository(this.json);
+
+  final String json;
+
+  @override
+  Future<ContentBundleParseResult> load(String languageCode) async {
+    return ContentBundleParser.parseJson(json);
+  }
+
+  @override
+  Future<void> saveUpdatedBundleJson(String languageCode, String json) async {}
 }
 
 const _fixtureJson = '''

@@ -9,7 +9,7 @@ import 'package:sato_wiki/src/core/content/reading_level.dart';
 
 void main() {
   test('parses seed content bundle fixture', () {
-    final json = File('assets/content/seed_bundle.json').readAsStringSync();
+    final json = File('assets/content/seed_bundle_en.json').readAsStringSync();
 
     final result = ContentBundleParser.parseJson(json);
     final bundle = result.bundle;
