@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../core/content/reading_level.dart';
 import '../../../core/widgets/content_card.dart';
+import '../../../core/widgets/hero_media.dart';
+import '../../../core/widgets/metadata_row.dart';
+import '../../../core/widgets/reader_header.dart';
+import '../../../core/widgets/reading_level_selector.dart';
+import '../../../core/widgets/related_links_grid.dart';
 import '../../../core/widgets/section_title.dart';
-import 'reading_level_selector.dart';
+import '../../../core/widgets/sources_disclosure.dart';
 
 class WikiOverviewScreen extends StatelessWidget {
   const WikiOverviewScreen({
@@ -23,9 +28,14 @@ class WikiOverviewScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: [
-        Text(
-          'The Orange Book',
-          style: textTheme.displayLarge?.copyWith(fontSize: 42, height: 1.05),
+        ReaderHeader(
+          title: 'The Orange Book',
+          subtitle: 'A technical encyclopedia for Bitcoin readers.',
+          metadata: const [
+            MetadataItem(label: '#Mining', isTag: true),
+            MetadataItem(label: '#Consensus', isTag: true),
+            MetadataItem(label: '5 min read', icon: Icons.schedule_outlined),
+          ],
         ),
         const SizedBox(height: 24),
         const SectionTitle(title: 'Knowledge Base'),
@@ -46,6 +56,11 @@ class WikiOverviewScreen extends StatelessWidget {
         const SizedBox(height: 28),
         const SectionTitle(title: 'Featured concept'),
         const SizedBox(height: 12),
+        const HeroMedia(
+          icon: Icons.memory,
+          label: 'Proof of Work conceptual visual',
+        ),
+        const SizedBox(height: 12),
         ContentCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,17 +80,37 @@ class WikiOverviewScreen extends StatelessWidget {
                 onLevelChanged: onLevelChanged,
               ),
               const SizedBox(height: 18),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: const [
-                  _TagChip(label: '#Mining'),
-                  _TagChip(label: '#Consensus'),
-                  _TagChip(label: '#Cryptography'),
+              const MetadataRow(
+                items: [
+                  MetadataItem(label: '#Mining', isTag: true),
+                  MetadataItem(label: '#Consensus', isTag: true),
+                  MetadataItem(label: '#Cryptography', isTag: true),
                 ],
               ),
             ],
           ),
+        ),
+        const SizedBox(height: 28),
+        const SectionTitle(title: 'Related Concepts'),
+        const SizedBox(height: 12),
+        RelatedLinksGrid(
+          links: const [
+            RelatedLink(title: 'SHA-256 Algorithm', icon: Icons.link),
+            RelatedLink(title: 'Difficulty Adjustment', icon: Icons.speed),
+          ],
+        ),
+        const SizedBox(height: 28),
+        const SourcesDisclosure(
+          sources: [
+            SourceReference(
+              title: 'Bitcoin: A Peer-to-Peer Electronic Cash System',
+              author: 'Satoshi Nakamoto (2008)',
+            ),
+            SourceReference(
+              title: 'Hashcash - A Denial of Service Counter-Measure',
+              author: 'Adam Back (2002)',
+            ),
+          ],
         ),
         const SizedBox(height: 28),
         ContentCard(
@@ -123,24 +158,6 @@ class _CategoryChip extends StatelessWidget {
       avatar: Icon(icon, size: 18),
       label: Text(label),
       onPressed: () {},
-    );
-  }
-}
-
-class _TagChip extends StatelessWidget {
-  const _TagChip({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
-    return Chip(
-      label: Text(label),
-      backgroundColor: colorScheme.surfaceContainerHighest,
-      labelStyle: TextStyle(color: colorScheme.primary),
-      side: BorderSide(color: colorScheme.outlineVariant),
     );
   }
 }

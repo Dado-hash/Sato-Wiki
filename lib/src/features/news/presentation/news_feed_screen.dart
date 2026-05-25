@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/content_card.dart';
+import '../../../core/widgets/filter_chip_bar.dart';
+import '../../../core/widgets/metadata_row.dart';
+import '../../../core/widgets/reader_header.dart';
 import '../../../core/widgets/section_title.dart';
 
 class NewsFeedScreen extends StatelessWidget {
@@ -11,7 +14,13 @@ class NewsFeedScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: const [
-        _NewsHeader(),
+        ReaderHeader(
+          title: 'News',
+          subtitle: 'Long-form Bitcoin analysis from the community.',
+          metadata: [
+            MetadataItem(label: 'Editorial', icon: Icons.newspaper_outlined),
+          ],
+        ),
         SizedBox(height: 24),
         _CategoryFilters(),
         SizedBox(height: 24),
@@ -35,63 +44,23 @@ class NewsFeedScreen extends StatelessWidget {
   }
 }
 
-class _NewsHeader extends StatelessWidget {
-  const _NewsHeader();
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('News', style: textTheme.headlineLarge),
-        const SizedBox(height: 8),
-        Text(
-          'Long-form Bitcoin analysis from the community.',
-          style: textTheme.bodyMedium,
-        ),
-      ],
-    );
-  }
-}
-
 class _CategoryFilters extends StatelessWidget {
   const _CategoryFilters();
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: const [
-          _FilterChip(label: 'All', selected: true),
-          _FilterChip(label: 'Protocol'),
-          _FilterChip(label: 'Market'),
-          _FilterChip(label: 'Regulatory'),
-          _FilterChip(label: 'Culture'),
-          _FilterChip(label: 'Development'),
-        ],
-      ),
-    );
-  }
-}
-
-class _FilterChip extends StatelessWidget {
-  const _FilterChip({required this.label, this.selected = false});
-
-  final String label;
-  final bool selected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8),
-      child: FilterChip(
-        label: Text(label),
-        selected: selected,
-        onSelected: (_) {},
-      ),
+    return FilterChipBar<String>(
+      items: const [
+        'All',
+        'Protocol',
+        'Market',
+        'Regulatory',
+        'Culture',
+        'Development',
+      ],
+      selectedItem: 'All',
+      labelFor: (item) => item,
+      onSelected: (_) {},
     );
   }
 }
@@ -131,11 +100,10 @@ class _ArticleCard extends StatelessWidget {
             style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
           ),
           const SizedBox(height: 12),
-          Row(
-            children: [
-              const Icon(Icons.person_outline, size: 18),
-              const SizedBox(width: 6),
-              Text('$author · $readingTime'),
+          MetadataRow(
+            items: [
+              MetadataItem(label: author, icon: Icons.person_outline),
+              MetadataItem(label: readingTime, icon: Icons.schedule_outlined),
             ],
           ),
         ],

@@ -114,6 +114,17 @@ Reading level selector:
 - Stato attivo in primary container.
 - La preferenza utente deve essere persistita.
 
+Implementazione Flutter:
+
+- `SatoScaffold`: app bar, bottom navigation e shell tab.
+- `ContentCard`: card tonale con bordo sottile e padding configurabile.
+- `FilterChipBar`: filtri orizzontali compatti.
+- `MetadataRow`: tag, read time, autore e metadati mono.
+- `ReadingLevelSelector`: selettore Base / Medio / Avanzato.
+- `StatusBadge`: stati BIP e release con label e dot, non solo colore.
+- `ReaderHeader`, `HeroMedia`, `SourcesDisclosure`, `RelatedLinksGrid`: blocchi reader riusabili.
+- Golden test componenti critici: `test/core_widgets_golden_test.dart`.
+
 ## Regole di qualita UI
 
 - Dark e light vanno disegnate insieme, non invertite automaticamente.

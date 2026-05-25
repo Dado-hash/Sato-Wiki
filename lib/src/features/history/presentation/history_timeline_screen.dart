@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/content_card.dart';
+import '../../../core/widgets/filter_chip_bar.dart';
+import '../../../core/widgets/metadata_row.dart';
+import '../../../core/widgets/reader_header.dart';
 import '../../../core/widgets/section_title.dart';
 
 class HistoryTimelineScreen extends StatelessWidget {
@@ -12,6 +15,14 @@ class HistoryTimelineScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: const [
+        ReaderHeader(
+          title: 'History',
+          subtitle: 'Milestones and context from Bitcoin time.',
+          metadata: [
+            MetadataItem(label: 'Timeline', icon: Icons.history_edu_outlined),
+          ],
+        ),
+        SizedBox(height: 24),
         _OnThisDayCard(),
         SizedBox(height: 28),
         _HistoryFilters(),
@@ -46,35 +57,11 @@ class _HistoryFilters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: const [
-          _HistoryFilter(label: 'All Events', selected: true),
-          _HistoryFilter(label: 'Protocol'),
-          _HistoryFilter(label: 'Economics'),
-          _HistoryFilter(label: 'Community'),
-        ],
-      ),
-    );
-  }
-}
-
-class _HistoryFilter extends StatelessWidget {
-  const _HistoryFilter({required this.label, this.selected = false});
-
-  final String label;
-  final bool selected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: FilterChip(
-        selected: selected,
-        label: Text(label),
-        onSelected: (_) {},
-      ),
+    return FilterChipBar<String>(
+      items: const ['All Events', 'Protocol', 'Economics', 'Community'],
+      selectedItem: 'All Events',
+      labelFor: (item) => item,
+      onSelected: (_) {},
     );
   }
 }

@@ -13,13 +13,13 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 
 ## 2. Design System e Componenti
 
-1. Estrarre `SatoScaffold` con top app bar e bottom nav.
-2. Creare `ContentCard`, `FilterChipBar`, `MetadataRow`.
-3. Creare `ReadingLevelSelector` definitivo.
-4. Creare `StatusBadge` per BIP e release.
-5. Creare `ReaderHeader`, `HeroMedia`, `SourcesDisclosure`.
-6. Creare `RelatedLinksGrid`.
-7. Aggiungere golden test per componenti critici.
+1. [x] Estrarre `SatoScaffold` con top app bar e bottom nav.
+2. [x] Creare `ContentCard`, `FilterChipBar`, `MetadataRow`.
+3. [x] Creare `ReadingLevelSelector` definitivo.
+4. [x] Creare `StatusBadge` per BIP e release.
+5. [x] Creare `ReaderHeader`, `HeroMedia`, `SourcesDisclosure`.
+6. [x] Creare `RelatedLinksGrid`.
+7. [x] Aggiungere golden test per componenti critici.
 
 ## 3. Content Domain
 

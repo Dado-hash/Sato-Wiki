@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/content_card.dart';
+import '../../../core/widgets/filter_chip_bar.dart';
+import '../../../core/widgets/metadata_row.dart';
+import '../../../core/widgets/reader_header.dart';
 import '../../../core/widgets/section_title.dart';
+import '../../../core/widgets/status_badge.dart';
 
 class CodeDashboardScreen extends StatelessWidget {
   const CodeDashboardScreen({super.key});
@@ -12,7 +15,14 @@ class CodeDashboardScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
       children: const [
-        _CodeHeader(),
+        ReaderHeader(
+          title: 'Code Dashboard',
+          subtitle:
+              'Track Bitcoin Improvement Proposals and core implementation changes.',
+          metadata: [
+            MetadataItem(label: 'BIP tracker', icon: Icons.terminal_outlined),
+          ],
+        ),
         SizedBox(height: 24),
         _StatusFilters(),
         SizedBox(height: 28),
@@ -36,43 +46,19 @@ class CodeDashboardScreen extends StatelessWidget {
         _BipRow(
           number: 'BIP 341',
           title: 'Taproot',
-          status: 'ACTIVE',
-          color: AppColors.success,
+          status: ContentStatus.active,
         ),
         SizedBox(height: 10),
         _BipRow(
           number: 'BIP 324',
           title: 'V2 Transport',
-          status: 'DRAFT',
-          color: AppColors.warning,
+          status: ContentStatus.draft,
         ),
         SizedBox(height: 10),
         _BipRow(
           number: 'BIP 352',
           title: 'Silent Payments',
-          status: 'DRAFT',
-          color: AppColors.warning,
-        ),
-      ],
-    );
-  }
-}
-
-class _CodeHeader extends StatelessWidget {
-  const _CodeHeader();
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Code Dashboard', style: textTheme.headlineLarge),
-        const SizedBox(height: 8),
-        Text(
-          'Track Bitcoin Improvement Proposals and core implementation changes.',
-          style: textTheme.bodyMedium,
+          status: ContentStatus.draft,
         ),
       ],
     );
@@ -84,35 +70,11 @@ class _StatusFilters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: const [
-          _StatusFilter(label: 'All', selected: true),
-          _StatusFilter(label: 'Active'),
-          _StatusFilter(label: 'Draft'),
-          _StatusFilter(label: 'Proposed'),
-        ],
-      ),
-    );
-  }
-}
-
-class _StatusFilter extends StatelessWidget {
-  const _StatusFilter({required this.label, this.selected = false});
-
-  final String label;
-  final bool selected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: FilterChip(
-        selected: selected,
-        label: Text(label),
-        onSelected: (_) {},
-      ),
+    return FilterChipBar<String>(
+      items: const ['All', 'Active', 'Draft', 'Proposed', 'Rejected'],
+      selectedItem: 'All',
+      labelFor: (item) => item,
+      onSelected: (_) {},
     );
   }
 }
@@ -164,13 +126,11 @@ class _BipRow extends StatelessWidget {
     required this.number,
     required this.title,
     required this.status,
-    required this.color,
   });
 
   final String number;
   final String title;
-  final String status;
-  final Color color;
+  final ContentStatus status;
 
   @override
   Widget build(BuildContext context) {
@@ -189,20 +149,7 @@ class _BipRow extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(999),
-                  color: color.withValues(alpha: 0.18),
-                ),
-                child: Text(
-                  status,
-                  style: textTheme.labelSmall?.copyWith(color: color),
-                ),
-              ),
+              StatusBadge(status: status),
             ],
           ),
           const SizedBox(height: 8),

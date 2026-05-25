@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/navigation/sato_wiki_tab.dart';
 import '../../../core/settings/app_settings_controller.dart';
+import '../../../core/widgets/sato_scaffold.dart';
 import '../../code/presentation/code_dashboard_screen.dart';
 import '../../history/presentation/history_timeline_screen.dart';
 import '../../news/presentation/news_feed_screen.dart';
@@ -40,7 +41,6 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final selectedTab = widget.settingsController.lastTab;
     final screens = [
       WikiOverviewScreen(
@@ -54,63 +54,10 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
       const CodeDashboardScreen(),
     ];
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          tooltip: 'Menu',
-          onPressed: () {},
-        ),
-        title: const Text('SatoWiki'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: () {},
-          ),
-        ],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Divider(height: 1, color: colorScheme.outlineVariant),
-        ),
-      ),
+    return SatoScaffold(
+      selectedTab: selectedTab,
+      onTabSelected: (tab) => _handleDestinationSelected(context, tab),
       body: IndexedStack(index: selectedTab.index, children: screens),
-      bottomNavigationBar: DecoratedBox(
-        decoration: BoxDecoration(
-          color: colorScheme.surfaceContainer,
-          border: Border(top: BorderSide(color: colorScheme.outlineVariant)),
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-        ),
-        child: NavigationBar(
-          selectedIndex: selectedTab.index,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-          onDestinationSelected: (index) {
-            _handleDestinationSelected(context, SatoWikiTab.fromIndex(index));
-          },
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.menu_book_outlined),
-              selectedIcon: Icon(Icons.menu_book),
-              label: 'Wiki',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.newspaper_outlined),
-              selectedIcon: Icon(Icons.newspaper),
-              label: 'News',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.history_edu_outlined),
-              selectedIcon: Icon(Icons.history_edu),
-              label: 'History',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.terminal_outlined),
-              selectedIcon: Icon(Icons.terminal),
-              label: 'Code',
-            ),
-          ],
-        ),
-      ),
     );
   }
 
