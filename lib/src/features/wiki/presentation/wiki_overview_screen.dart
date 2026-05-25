@@ -68,16 +68,26 @@ class WikiOverviewScreen extends StatelessWidget {
   }
 
   List<_CategoryMeta> _deriveCategories(ContentStore store) {
-    final seen = <String>{};
-    final result = <_CategoryMeta>[];
+    final curated = <_CategoryMeta>[
+      _categoryMetaFor('Protocol'),
+      _categoryMetaFor('Cryptography'),
+      _categoryMetaFor('Lightning Network'),
+      _categoryMetaFor('Economics'),
+    ];
+    final seen = <String>{
+      'protocol',
+      'cryptography',
+      'lightning network',
+      'economics',
+    };
     for (final entry in store.bundle.wiki) {
       final key = entry.category.toLowerCase();
       if (seen.add(key)) {
-        result.add(_categoryMetaFor(entry.category));
+        curated.add(_categoryMetaFor(entry.category));
       }
     }
-    result.sort((a, b) => a.title.compareTo(b.title));
-    return result;
+    curated.sort((a, b) => a.title.compareTo(b.title));
+    return curated;
   }
 }
 
