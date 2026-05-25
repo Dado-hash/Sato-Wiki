@@ -5,7 +5,11 @@ import '../../../features/wiki/domain/repositories/wiki_repository.dart';
 import 'content_models.dart';
 
 final class ContentStore
-    implements WikiRepository, NewsRepository, HistoryRepository, CodeRepository {
+    implements
+        WikiRepository,
+        NewsRepository,
+        HistoryRepository,
+        CodeRepository {
   const ContentStore(this.bundle);
 
   final ContentBundle bundle;
@@ -64,7 +68,8 @@ final class ContentStore
 
   @override
   Future<List<HistoryEvent>> listEvents() async {
-    final events = [...bundle.history]..sort((a, b) => a.date.compareTo(b.date));
+    final events = [...bundle.history]
+      ..sort((a, b) => a.date.compareTo(b.date));
 
     return events;
   }

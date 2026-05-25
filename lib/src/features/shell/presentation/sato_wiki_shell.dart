@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/content/app_content.dart';
 import '../../../core/navigation/sato_wiki_tab.dart';
 import '../../../core/settings/app_settings_controller.dart';
 import '../../../core/widgets/sato_scaffold.dart';
@@ -9,9 +10,14 @@ import '../../news/presentation/news_feed_screen.dart';
 import '../../wiki/presentation/wiki_overview_screen.dart';
 
 class SatoWikiShell extends StatefulWidget {
-  const SatoWikiShell({required this.settingsController, super.key});
+  const SatoWikiShell({
+    required this.settingsController,
+    required this.appContent,
+    super.key,
+  });
 
   final AppSettingsController settingsController;
+  final AppContent appContent;
 
   @override
   State<SatoWikiShell> createState() => _SatoWikiShellState();
@@ -44,14 +50,15 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
     final selectedTab = widget.settingsController.lastTab;
     final screens = [
       WikiOverviewScreen(
+        store: widget.appContent.store,
         selectedLevel: widget.settingsController.readingLevel,
         onLevelChanged: (level) {
           widget.settingsController.setReadingLevel(level);
         },
       ),
-      const NewsFeedScreen(),
-      const HistoryTimelineScreen(),
-      const CodeDashboardScreen(),
+      NewsFeedScreen(store: widget.appContent.store),
+      HistoryTimelineScreen(store: widget.appContent.store),
+      CodeDashboardScreen(store: widget.appContent.store),
     ];
 
     return SatoScaffold(

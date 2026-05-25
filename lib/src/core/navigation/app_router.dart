@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../features/code/presentation/code_dashboard_screen.dart';
+import '../../features/history/presentation/history_timeline_screen.dart';
+import '../../features/news/presentation/news_feed_screen.dart';
+import '../../features/search/presentation/search_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
+import '../../features/wiki/presentation/wiki_overview_screen.dart';
+import '../content/app_content.dart';
 import '../settings/app_settings_controller.dart';
 import 'app_routes.dart';
 import 'sato_wiki_tab.dart';
@@ -9,11 +15,19 @@ abstract final class AppRouter {
   static Route<dynamic> generateRoute(
     RouteSettings settings,
     AppSettingsController settingsController,
+    AppContent appContent,
   ) {
     final routeName = settings.name ?? AppRoutes.root;
-    final tabRoute = _tabRouteFor(routeName, settingsController);
+    final tabRoute = _tabRouteFor(routeName, settingsController, appContent);
     if (tabRoute != null) {
       return tabRoute;
+    }
+
+    if (routeName == AppRoutes.search) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => SearchScreen(searchIndex: appContent.searchIndex),
+      );
     }
 
     final target = DeepLinkTarget.tryParse(routeName);
@@ -22,7 +36,8 @@ abstract final class AppRouter {
 
       return MaterialPageRoute<void>(
         settings: settings,
-        builder: (_) => DeepLinkPlaceholderScreen(target: target),
+        builder: (_) =>
+            _screenForTarget(target, settingsController, appContent),
       );
     }
 
@@ -35,6 +50,7 @@ abstract final class AppRouter {
   static MaterialPageRoute<void>? _tabRouteFor(
     String routeName,
     AppSettingsController settingsController,
+    AppContent appContent,
   ) {
     final tab = routeName == AppRoutes.root
         ? settingsController.lastTab
@@ -48,8 +64,69 @@ abstract final class AppRouter {
 
     return MaterialPageRoute<void>(
       settings: RouteSettings(name: tab.routePath),
-      builder: (_) => SatoWikiShell(settingsController: settingsController),
+      builder: (_) => SatoWikiShell(
+        settingsController: settingsController,
+        appContent: appContent,
+      ),
     );
+  }
+
+  static Widget _screenForTarget(
+    DeepLinkTarget target,
+    AppSettingsController settingsController,
+    AppContent appContent,
+  ) {
+    final segments = Uri.parse(target.routeName).pathSegments;
+
+    if (segments.length == 3 &&
+        segments[0] == 'wiki' &&
+        segments[1] == 'categories') {
+      return WikiCategoryScreen(store: appContent.store, category: segments[2]);
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'wiki' &&
+        segments[1] == 'entries') {
+      return WikiEntryScreen(
+        store: appContent.store,
+        slug: segments[2],
+        selectedLevel: settingsController.readingLevel,
+        onLevelChanged: settingsController.setReadingLevel,
+      );
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'news' &&
+        segments[1] == 'articles') {
+      return NewsArticleScreen(store: appContent.store, slug: segments[2]);
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'history' &&
+        segments[1] == 'events') {
+      return HistoryEventScreen(store: appContent.store, slug: segments[2]);
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'code' &&
+        segments[1] == 'bips') {
+      return BipDetailScreen(
+        store: appContent.store,
+        number: int.tryParse(segments[2]) ?? -1,
+      );
+    }
+
+    if (segments.length == 4 &&
+        segments[0] == 'code' &&
+        segments[1] == 'changelogs') {
+      return ReleaseNoteScreen(
+        store: appContent.store,
+        project: segments[2],
+        version: segments[3],
+      );
+    }
+
+    return DeepLinkPlaceholderScreen(target: target);
   }
 }
 

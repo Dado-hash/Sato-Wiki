@@ -113,6 +113,18 @@ Flusso:
 5. Verifica integrita e migra atomically.
 6. Continua a servire contenuti locali se rete o CDN falliscono.
 
+Implementazione corrente:
+
+- `assets/content/seed_bundle.json` e caricato all'avvio.
+- `LocalFirstContentBundleRepository` prova prima il bundle aggiornato in
+  `shared_preferences`, poi torna al seed asset se il bundle aggiornato non e
+  valido.
+- `ContentManifest`, `RemoteContentManifestRepository` e
+  `BackgroundContentUpdater` definiscono il contratto per manifest remoto e
+  update background.
+- `ContentStore` espone il bundle locale alle repository interface delle
+  feature.
+
 ## Search
 
 La ricerca deve coprire Wiki, News, History e Code. Fase iniziale:
@@ -120,6 +132,10 @@ La ricerca deve coprire Wiki, News, History e Code. Fase iniziale:
 - indice locale generato dal bundle;
 - ricerca titolo/tag/summary;
 - ranking semplice per sezione, match titolo e freschezza.
+
+Implementazione corrente: `SearchIndex.fromBundle` genera un indice in memoria
+per Wiki, News, History, BIP e release. `SearchScreen` permette filtro per
+sezione e naviga alle route deep link locali.
 
 Fase successiva:
 

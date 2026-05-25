@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../navigation/sato_wiki_tab.dart';
+import '../navigation/app_routes.dart';
 
 class SatoScaffold extends StatelessWidget {
   const SatoScaffold({
@@ -32,7 +33,9 @@ class SatoScaffold extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             tooltip: 'Search',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.search);
+            },
           ),
         ],
         bottom: PreferredSize(

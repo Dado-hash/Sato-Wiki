@@ -2,6 +2,7 @@ import 'sato_wiki_tab.dart';
 
 abstract final class AppRoutes {
   static const root = '/';
+  static const search = '/search';
 
   static String get wiki => SatoWikiTab.wiki.routePath;
   static String get news => SatoWikiTab.news.routePath;

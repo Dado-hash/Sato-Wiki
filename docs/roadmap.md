@@ -32,60 +32,60 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 
 ## 4. Offline e Search
 
-1. Caricare bundle seed da asset.
-2. Salvare bundle aggiornato in storage locale.
-3. Implementare manifest remoto.
+1. [x] Caricare bundle seed da asset.
+2. [x] Salvare bundle aggiornato in storage locale.
+3. [x] Implementare manifest remoto.
 4. Scaricare update in background.
-5. Costruire indice search locale.
-6. Implementare ricerca per titolo, tag e summary.
-7. Aggiungere filtri per sezione.
+5. [x] Costruire indice search locale.
+6. [x] Implementare ricerca per titolo, tag e summary.
+7. [x] Aggiungere filtri per sezione.
 
 ## 5. Wiki Vertical Slice
 
-1. Ricostruire `Wiki Explore` da Stitch.
-2. Implementare lista categoria Protocol.
-3. Implementare detail `Proof of Work`.
-4. Collegare selector Base/Medio/Avanzato a contenuto reale.
-5. Aggiungere related concepts.
-6. Aggiungere sources disclosure.
-7. Testare offline, text scale e screen reader.
+1. [x] Ricostruire `Wiki Explore` da Stitch.
+2. [x] Implementare lista categoria Protocol.
+3. [x] Implementare detail `Proof of Work`.
+4. [x] Collegare selector Base/Medio/Avanzato a contenuto reale.
+5. [x] Aggiungere related concepts.
+6. [x] Aggiungere sources disclosure.
+7. [x] Testare offline, text scale e screen reader.
 
 ## 6. History Vertical Slice
 
-1. Implementare widget `On this day`.
-2. Implementare timeline mobile.
-3. Aggiungere filtri categoria.
-4. Implementare detail `Bitcoin Pizza Day`.
-5. Collegare evento a Wiki/News related.
-6. Aggiungere test per ordinamento e range date.
+1. [x] Implementare widget `On this day`.
+2. [x] Implementare timeline mobile.
+3. [x] Aggiungere filtri categoria.
+4. [x] Implementare detail `Bitcoin Pizza Day`.
+5. [x] Collegare evento a Wiki/News related.
+6. [x] Aggiungere test per ordinamento e range date.
 
 ## 7. Code Vertical Slice
 
-1. Implementare dashboard BIP/changelog.
-2. Implementare lista BIP con filtri status/category.
-3. Implementare detail BIP 341.
-4. Aggiungere impact cards e status history.
-5. Implementare lista release per progetto.
-6. Implementare detail changelog leggibile.
-7. Preparare notifiche future su BIP seguiti.
+1. [x] Implementare dashboard BIP/changelog.
+2. [x] Implementare lista BIP con filtri status/category.
+3. [x] Implementare detail BIP 341.
+4. [x] Aggiungere impact cards e status history.
+5. [x] Implementare lista release per progetto.
+6. [x] Implementare detail changelog leggibile.
+7. [x] Preparare notifiche future su BIP seguiti.
 
 ## 8. News Vertical Slice
 
-1. Implementare feed con categorie.
-2. Implementare article reader.
-3. Supportare autore GitHub e metadata.
-4. Collegare inline link a Wiki/BIP.
-5. Implementare Lightning Tip modal mock.
-6. Collegare BTCPay/Lightning solo dopo definizione privacy e UX.
+1. [x] Implementare feed con categorie.
+2. [x] Implementare article reader.
+3. [x] Supportare autore GitHub e metadata.
+4. [x] Collegare inline link a Wiki/BIP.
+5. [x] Implementare Lightning Tip modal mock.
+6. [x] Collegare BTCPay/Lightning solo dopo definizione privacy e UX.
 
 ## 9. Content Pipeline
 
-1. Definire template Markdown/YAML per ogni contenuto.
-2. Creare validatore schema.
-3. Creare generatore JSON statico.
-4. Aggiungere check obbligatori in PR contenuti.
+1. [x] Definire template Markdown/YAML per ogni contenuto.
+2. [x] Creare validatore schema.
+3. [x] Creare generatore JSON statico.
+4. [x] Aggiungere check obbligatori in PR contenuti.
 5. Pubblicare bundle su CDN.
-6. Aggiornare docs contributor.
+6. [x] Aggiornare docs contributor.
 
 ## 10. Release Readiness
 
@@ -93,5 +93,5 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 2. Pass performance su device low-end.
 3. Test install/update bundle.
 4. Preparare splash e icone definitive.
-5. Preparare privacy policy.
+5. [x] Preparare privacy policy.
 6. Preparare beta TestFlight/Play Internal.

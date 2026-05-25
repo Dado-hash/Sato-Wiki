@@ -31,9 +31,6 @@ Future<void> main() async {
   );
 
   runApp(
-    SatoWikiApp(
-      settingsController: settingsController,
-      appContent: appContent,
-    ),
+    SatoWikiApp(settingsController: settingsController, appContent: appContent),
   );
 }

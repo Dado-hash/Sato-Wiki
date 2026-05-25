@@ -1,7 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../domain/content_models.dart';
 import 'content_bundle_parser.dart';
 
 abstract interface class ContentBundleRepository {
@@ -12,7 +11,7 @@ abstract interface class ContentBundleRepository {
 
 final class LocalFirstContentBundleRepository
     implements ContentBundleRepository {
-  const LocalFirstContentBundleRepository({
+  LocalFirstContentBundleRepository({
     required SharedPreferences preferences,
     AssetBundle? assetBundle,
   }) : _preferences = preferences,
