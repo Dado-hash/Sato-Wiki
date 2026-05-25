@@ -1,30 +1,58 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/navigation/sato_wiki_tab.dart';
+import '../../../core/settings/app_settings_controller.dart';
 import '../../code/presentation/code_dashboard_screen.dart';
 import '../../history/presentation/history_timeline_screen.dart';
 import '../../news/presentation/news_feed_screen.dart';
 import '../../wiki/presentation/wiki_overview_screen.dart';
 
 class SatoWikiShell extends StatefulWidget {
-  const SatoWikiShell({super.key});
+  const SatoWikiShell({required this.settingsController, super.key});
+
+  final AppSettingsController settingsController;
 
   @override
   State<SatoWikiShell> createState() => _SatoWikiShellState();
 }
 
 class _SatoWikiShellState extends State<SatoWikiShell> {
-  int _selectedIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    widget.settingsController.addListener(_handleSettingsChanged);
+  }
 
-  static const _screens = [
-    WikiOverviewScreen(),
-    NewsFeedScreen(),
-    HistoryTimelineScreen(),
-    CodeDashboardScreen(),
-  ];
+  @override
+  void didUpdateWidget(SatoWikiShell oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.settingsController != widget.settingsController) {
+      oldWidget.settingsController.removeListener(_handleSettingsChanged);
+      widget.settingsController.addListener(_handleSettingsChanged);
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.settingsController.removeListener(_handleSettingsChanged);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final selectedTab = widget.settingsController.lastTab;
+    final screens = [
+      WikiOverviewScreen(
+        selectedLevel: widget.settingsController.readingLevel,
+        onLevelChanged: (level) {
+          widget.settingsController.setReadingLevel(level);
+        },
+      ),
+      const NewsFeedScreen(),
+      const HistoryTimelineScreen(),
+      const CodeDashboardScreen(),
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +74,7 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
           child: Divider(height: 1, color: colorScheme.outlineVariant),
         ),
       ),
-      body: IndexedStack(index: _selectedIndex, children: _screens),
+      body: IndexedStack(index: selectedTab.index, children: screens),
       bottomNavigationBar: DecoratedBox(
         decoration: BoxDecoration(
           color: colorScheme.surfaceContainer,
@@ -54,10 +82,10 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
           borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
         ),
         child: NavigationBar(
-          selectedIndex: _selectedIndex,
+          selectedIndex: selectedTab.index,
           labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
           onDestinationSelected: (index) {
-            setState(() => _selectedIndex = index);
+            _handleDestinationSelected(context, SatoWikiTab.fromIndex(index));
           },
           destinations: const [
             NavigationDestination(
@@ -84,5 +112,20 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
         ),
       ),
     );
+  }
+
+  void _handleDestinationSelected(BuildContext context, SatoWikiTab tab) {
+    widget.settingsController.setLastTab(tab);
+
+    final currentRoute = ModalRoute.of(context)?.settings.name;
+    if (currentRoute != tab.routePath) {
+      Navigator.of(context).pushReplacementNamed(tab.routePath);
+    }
+  }
+
+  void _handleSettingsChanged() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 }

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'core/navigation/app_router.dart';
 import 'core/theme/app_theme.dart';
-import 'features/shell/presentation/sato_wiki_shell.dart';
+import 'core/settings/app_settings_controller.dart';
 
 class SatoWikiApp extends StatelessWidget {
-  const SatoWikiApp({super.key});
+  const SatoWikiApp({required this.settingsController, super.key});
+
+  final AppSettingsController settingsController;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,10 @@ class SatoWikiApp extends StatelessWidget {
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.dark,
-      home: const SatoWikiShell(),
+      initialRoute: settingsController.lastTab.routePath,
+      onGenerateRoute: (settings) {
+        return AppRouter.generateRoute(settings, settingsController);
+      },
     );
   }
 }

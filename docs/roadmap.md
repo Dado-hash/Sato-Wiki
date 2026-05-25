@@ -4,12 +4,12 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 
 ## 1. Foundation
 
-1. Confermare licenza codice e contenuti.
-2. Stabilizzare tema Flutter da `docs/design-system.md`.
-3. Aggiungere font Inter e JetBrains Mono come asset locali.
-4. Introdurre route names e deep link target.
-5. Persistire ultima tab visitata e reading level.
-6. Preparare CI base con `flutter analyze` e `flutter test`.
+1. [x] Confermare licenza codice e contenuti.
+2. [x] Stabilizzare tema Flutter da `docs/design-system.md`.
+3. [x] Aggiungere font Inter e JetBrains Mono come asset locali.
+4. [x] Introdurre route names e deep link target.
+5. [x] Persistire ultima tab visitata e reading level.
+6. [x] Preparare CI base con `flutter analyze` e `flutter test`.
 
 ## 2. Design System e Componenti
 

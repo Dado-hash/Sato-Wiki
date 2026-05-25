@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum ReadingLevel {
-  base('Base'),
-  medium('Medio'),
-  advanced('Avanzato');
-
-  const ReadingLevel(this.label);
-
-  final String label;
-}
+import '../../../core/content/reading_level.dart';
 
 class ReadingLevelSelector extends StatelessWidget {
   const ReadingLevelSelector({

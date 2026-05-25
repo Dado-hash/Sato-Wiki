@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/content/reading_level.dart';
 import '../../../core/widgets/content_card.dart';
 import '../../../core/widgets/section_title.dart';
 import 'reading_level_selector.dart';
 
-class WikiOverviewScreen extends StatefulWidget {
-  const WikiOverviewScreen({super.key});
+class WikiOverviewScreen extends StatelessWidget {
+  const WikiOverviewScreen({
+    required this.selectedLevel,
+    required this.onLevelChanged,
+    super.key,
+  });
 
-  @override
-  State<WikiOverviewScreen> createState() => _WikiOverviewScreenState();
-}
-
-class _WikiOverviewScreenState extends State<WikiOverviewScreen> {
-  ReadingLevel _selectedLevel = ReadingLevel.base;
+  final ReadingLevel selectedLevel;
+  final ValueChanged<ReadingLevel> onLevelChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +58,11 @@ class _WikiOverviewScreenState extends State<WikiOverviewScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-              Text(_descriptionFor(_selectedLevel), style: textTheme.bodyLarge),
+              Text(_descriptionFor(selectedLevel), style: textTheme.bodyLarge),
               const SizedBox(height: 18),
               ReadingLevelSelector(
-                selectedLevel: _selectedLevel,
-                onLevelChanged: (level) {
-                  setState(() => _selectedLevel = level);
-                },
+                selectedLevel: selectedLevel,
+                onLevelChanged: onLevelChanged,
               ),
               const SizedBox(height: 18),
               Wrap(

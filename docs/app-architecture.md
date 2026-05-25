@@ -66,6 +66,8 @@ Route di dettaglio target:
 - `/code/changelogs/:project/:version`
 
 La shell conserva i quattro tab. Le route di dettaglio devono poter essere deep-linkate e tornare correttamente al tab di provenienza.
+Le costanti e factory per le route vivono in `lib/src/core/navigation/app_routes.dart`;
+la shell usa `SatoWikiTab` per allineare tab, label e route principali.
 
 ## Stato
 
@@ -77,7 +79,10 @@ Persistenza locale minima:
 - versione bundle contenuti installata;
 - BIP seguiti per notifiche future.
 
-Per la prima fase basta un repository locale astratto. La scelta concreta tra `shared_preferences`, SQLite/Isar o altro va fatta quando sono definiti bundle e indice search.
+La fase Foundation introduce `AppSettingsRepository` e `AppSettingsController`
+per ultima tab visitata e reading level preferito. L'implementazione iniziale
+usa `shared_preferences`; storage piu strutturati restano da valutare quando
+arrivano bundle, indice search e migrazioni.
 
 ## Content domain
 
