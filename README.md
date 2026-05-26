@@ -172,6 +172,7 @@ Le istruzioni sintetiche sono in questo README; il contratto dati completo e in
 ## Documentazione
 
 - `docs/design-system.md`: tema, token, componenti e regole UI derivate da Stitch.
+- `docs/image-generation-guidelines.md`: stile, prompt e checklist per immagini dei contenuti.
 - `docs/development-guidelines.md`: linee guida codice, frontend, accessibilita e test.
 - `docs/app-architecture.md`: struttura Flutter, routing, stato, offline-first e search.
 - `docs/content-model.md`: modelli dati target per bundle contenuti.

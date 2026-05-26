@@ -7,7 +7,7 @@ livelli di lettura `base`, `medium` e `advanced`.
 
 ## Protocol (`protocol`)
 
-- [ ] Proof of Work - `wiki.proof-of-work`
+- [x] Proof of Work - `wiki.proof-of-work`
 - [ ] Bitcoin transactions - `wiki.transactions`
 - [ ] UTXO model - `wiki.utxo-model`
 - [ ] Blocks - `wiki.blocks`

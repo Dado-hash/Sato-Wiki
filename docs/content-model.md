@@ -85,6 +85,9 @@ Durante l'update remoto l'app scarica tutte le immagini referenziate prima di
 installare il bundle. L'installazione e atomica: un errore su una immagine
 mantiene il bundle locale precedente.
 
+Per il seed bundled, le immagini referenziate vivono in `assets/content/media/`
+e vengono copiate nello store media locale al caricamento del bundle.
+
 ## Parser, Validazione E Fallback
 
 Implementazione:

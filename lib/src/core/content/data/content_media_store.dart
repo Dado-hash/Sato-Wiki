@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../domain/content_media.dart';
@@ -72,6 +74,54 @@ final class ContentMediaStore {
         return file.existsSync() ? file.uri : null;
       },
     );
+  }
+
+  Future<void> installBundleMediaFromAssets({
+    required ContentBundle bundle,
+    AssetBundle? assetBundle,
+    String assetRoot = 'assets/content',
+  }) async {
+    final references = ContentMedia.referencesFromBundle(bundle);
+    final errors = ContentMedia.validateReferences(references);
+    if (errors.isNotEmpty) {
+      throw ContentBundleParseException(_errorMessage(errors));
+    }
+    if (references.isEmpty) {
+      return;
+    }
+
+    final effectiveAssetBundle = assetBundle ?? rootBundle;
+    final sources = references
+        .map((reference) => reference.source)
+        .toSet()
+        .toList(growable: false);
+
+    for (final source in sources) {
+      final targetFile = _fileFor(
+        language: bundle.language,
+        version: bundle.version,
+        source: source,
+      );
+      if (targetFile.existsSync()) {
+        continue;
+      }
+
+      final ByteData assetData;
+      try {
+        assetData = await effectiveAssetBundle.load('$assetRoot/$source');
+      } on FlutterError {
+        continue;
+      }
+
+      await targetFile.parent.create(recursive: true);
+      await targetFile.writeAsBytes(
+        assetData.buffer.asUint8List(
+          assetData.offsetInBytes,
+          assetData.lengthInBytes,
+        ),
+        flush: true,
+      );
+    }
   }
 
   Future<void> prefetchBundleMedia({

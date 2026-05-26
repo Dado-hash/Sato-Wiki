@@ -101,6 +101,7 @@ final class AppContentController extends ChangeNotifier {
     ContentMediaStore? mediaStore,
   ) async {
     final result = await repository.load(languageCode);
+    await mediaStore?.installBundleMediaFromAssets(bundle: result.bundle);
 
     return _contentFromResult(result, mediaStore);
   }

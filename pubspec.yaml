@@ -76,6 +76,7 @@ flutter:
 
   assets:
     - assets/content/seed_bundle_en.json
+    - assets/content/media/
 
   fonts:
     - family: Inter

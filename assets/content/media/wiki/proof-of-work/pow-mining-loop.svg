@@ -1,0 +1,78 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Proof of Work mining loop</title>
+  <desc id="desc">A block candidate is hashed, checked against the target, and changed until the hash is valid.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Finding a valid block</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Many attempts, one cheap verification</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 152H884"/>
+    <path d="M76 340H884"/>
+    <path d="M76 432H884"/>
+    <path d="M184 152V432"/>
+    <path d="M480 152V432"/>
+    <path d="M768 152V432"/>
+  </g>
+
+  <g transform="translate(-12 0)">
+  <g filter="url(#soft)">
+    <rect x="72" y="180" width="224" height="132" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="184" y="224" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Block candidate</text>
+    <g stroke="#B7B1A8" stroke-linecap="round" opacity="0.82">
+      <path d="M118 254H250" stroke-width="3"/>
+      <path d="M118 278H232" stroke-width="3"/>
+      <path d="M118 302H212" stroke-width="3"/>
+    </g>
+    <circle cx="96" cy="254" r="4" fill="#F7931A"/>
+    <circle cx="96" cy="278" r="4" fill="#DBC2AE"/>
+    <circle cx="96" cy="302" r="4" fill="#DBC2AE"/>
+  </g>
+
+  <path d="M310 246H382" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="398" y="180" width="176" height="132" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="486" y="228" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Hash</text>
+    <text x="486" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="15">SHA-256d</text>
+    <rect x="432" y="280" width="108" height="18" rx="9" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="486" y="294" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">0000...</text>
+  </g>
+
+  <path d="M588 246H642" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <path d="M760 168L854 246L760 324L666 246L760 168Z" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="760" y="238" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">Hash</text>
+    <text x="760" y="266" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">&lt; target</text>
+  </g>
+
+  <path d="M760 337V383C760 414 735 428 700 428H184C149 428 124 414 124 383V326" stroke="#7C8794" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-muted)"/>
+  <rect x="382" y="406" width="196" height="36" rx="18" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+  <text x="480" y="430" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">retry with new nonce</text>
+
+  <path d="M854 246H918" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <rect x="820" y="124" width="78" height="34" rx="17" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="859" y="147" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">valid</text>
+
+  <rect x="72" y="358" width="224" height="52" rx="26" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+  <text x="184" y="391" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">target from nBits</text>
+  </g>
+</svg>

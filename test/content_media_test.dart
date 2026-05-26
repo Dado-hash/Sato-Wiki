@@ -1,7 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:sato_wiki/src/core/content/data/content_media_store.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 import 'package:sato_wiki/src/core/content/domain/content_media.dart';
 
@@ -55,6 +59,43 @@ void main() {
         'Image source must start with media/.',
         'Image extension must be one of .jpeg, .jpg, .png, .svg, .webp.',
       ]),
+    );
+  });
+
+  test('installs bundled media assets for seed content', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp(
+      'satowiki_seed_media',
+    );
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final bundle = ContentBundleParser.parseJson(
+      _bundleJson(
+        wiki: '![Wiki diagram](media/wiki/entry/wiki.svg "Wiki caption")',
+        news: '',
+        history: '',
+        bipSummary: '',
+        bipImpact: '',
+        releaseUserImpact: '',
+        releaseTechnicalChanges: '',
+      ),
+    ).bundle;
+    final store = ContentMediaStore(rootDirectory: mediaRoot);
+
+    await store.installBundleMediaFromAssets(
+      bundle: bundle,
+      assetBundle: _FakeAssetBundle({
+        'assets/content/media/wiki/entry/wiki.svg': [1, 2, 3],
+      }),
+    );
+
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.25/media/wiki/entry/wiki.svg',
+      ).readAsBytesSync(),
+      [1, 2, 3],
     );
   });
 }
@@ -172,4 +213,21 @@ String _bundleJson({
   };
 
   return jsonEncode(data);
+}
+
+final class _FakeAssetBundle extends AssetBundle {
+  _FakeAssetBundle(this.assets);
+
+  final Map<String, List<int>> assets;
+
+  @override
+  Future<ByteData> load(String key) async {
+    final bytes = assets[key];
+    if (bytes == null) {
+      throw FlutterError('Missing asset: $key');
+    }
+
+    final data = Uint8List.fromList(bytes);
+    return ByteData.view(data.buffer);
+  }
 }

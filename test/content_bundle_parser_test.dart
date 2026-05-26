@@ -16,10 +16,10 @@ void main() {
 
     expect(result.warnings, isEmpty);
     expect(bundle.schemaVersion, 1);
-    expect(bundle.version, '2026.05.25');
+    expect(bundle.version, '2026.05.26');
     expect(
       bundle.wiki.single.contentFor(ReadingLevel.base).bodyMarkdown,
-      contains('central coordinator'),
+      contains('history costly to rewrite'),
     );
     expect(bundle.news.single.author.github, 'andreas-m');
     expect(bundle.history.single.date, DateTime(2010, 5, 22));
