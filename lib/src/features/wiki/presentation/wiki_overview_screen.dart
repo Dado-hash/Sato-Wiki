@@ -511,126 +511,124 @@ class _CategoryEntryCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
           clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-          ),
-      child: Stack(
-        children: [
-          if (backgroundImage != null)
-            Positioned.fill(
-              child: ImageFiltered(
-                imageFilter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                child: backgroundImage,
-              ),
-            ),
-          if (backgroundImage != null)
-            Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.transparent,
-                      colorScheme.surface.withValues(alpha: 0.92),
-                    ],
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+          child: Stack(
+            children: [
+              if (backgroundImage != null)
+                Positioned.fill(
+                  child: ImageFiltered(
+                    imageFilter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                    child: backgroundImage,
                   ),
                 ),
-              ),
-            ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Stack(
-              children: [
-                if (highlighted)
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: colorScheme.primary,
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(8),
-                        ),
+              if (backgroundImage != null)
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          colorScheme.surface.withValues(alpha: 0.92),
+                        ],
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 3,
-                        ),
-                        child: Text(
-                          l10n.coreConcept,
-                          style: textTheme.labelSmall?.copyWith(
-                            color: colorScheme.onPrimary,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.05,
-                            fontSize: 10,
+                    ),
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Stack(
+                  children: [
+                    if (highlighted)
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: colorScheme.primary,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 3,
+                            ),
+                            child: Text(
+                              l10n.coreConcept,
+                              style: textTheme.labelSmall?.copyWith(
+                                color: colorScheme.onPrimary,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.05,
+                                fontSize: 10,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      entry.title,
-                      style: textTheme.titleLarge?.copyWith(
-                        color: highlighted
-                            ? colorScheme.primary
-                            : colorScheme.onSurface,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      entry.description,
-                      style: textTheme.bodyMedium?.copyWith(
-                        color: highlighted
-                            ? colorScheme.onSurface
-                            : colorScheme.onSurfaceVariant,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _MetaLabel(
-                          icon: Icons.schedule_outlined,
-                          label: l10n.minRead(entry.readTimeMinutes),
+                        Text(
+                          entry.title,
+                          style: textTheme.titleLarge?.copyWith(
+                            color: highlighted
+                                ? colorScheme.primary
+                                : colorScheme.onSurface,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                        const SizedBox(width: 16),
-                        _MetaLabel(
-                          icon: Icons.update,
-                          label: _formatDate(entry.updatedAt, l10n),
+                        const SizedBox(height: 8),
+                        Text(
+                          entry.description,
+                          style: textTheme.bodyMedium?.copyWith(
+                            color: highlighted
+                                ? colorScheme.onSurface
+                                : colorScheme.onSurfaceVariant,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        const Spacer(),
-                        _DifficultyIndicator(level: entry.difficulty),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            _MetaLabel(
+                              icon: Icons.schedule_outlined,
+                              label: l10n.minRead(entry.readTimeMinutes),
+                            ),
+                            const SizedBox(width: 16),
+                            _MetaLabel(
+                              icon: Icons.update,
+                              label: _formatDate(entry.updatedAt, l10n),
+                            ),
+                            const Spacer(),
+                            _DifficultyIndicator(level: entry.difficulty),
+                          ],
+                        ),
                       ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          if (backgroundImage != null)
-            Positioned.fill(
-              child: IgnorePointer(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: highlighted
-                          ? colorScheme.primary
-                          : colorScheme.outlineVariant,
+              ),
+              if (backgroundImage != null)
+                Positioned.fill(
+                  child: IgnorePointer(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: highlighted
+                              ? colorScheme.primary
+                              : colorScheme.outlineVariant,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-        ],
-      ),
+            ],
+          ),
         ),
       ),
     );

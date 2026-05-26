@@ -70,14 +70,14 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get categoryLightningNetworkDescription =>
-      'Scalabilita layer 2, canali di pagamento e routing.';
+      'Scalabilità layer 2, canali di pagamento e routing.';
 
   @override
   String get categoryEconomics => 'Economia';
 
   @override
   String get categoryEconomicsDescription =>
-      'Teoria dei giochi, incentivi, difficolta e politica monetaria.';
+      'Teoria dei giochi, incentivi, difficoltà e politica monetaria.';
 
   @override
   String get categoryBips => 'BIP';
@@ -101,7 +101,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get categoryHalving => 'Halving';
 
   @override
-  String get categoryDifficulty => 'Difficolta';
+  String get categoryDifficulty => 'Difficoltà';
 
   @override
   String wikiEntriesInCategory(String category) {
@@ -249,10 +249,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get noBipsMatchFilter => 'Nessun BIP corrisponde al filtro.';
 
   @override
-  String get bipNumberDescending => 'BIP # piu alto';
+  String get bipNumberDescending => 'BIP # più alto';
 
   @override
-  String get bipNumberAscending => 'BIP # piu basso';
+  String get bipNumberAscending => 'BIP # più basso';
 
   @override
   String get bipTracker => 'Tracker BIP';
