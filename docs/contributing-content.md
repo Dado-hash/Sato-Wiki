@@ -19,9 +19,13 @@ PR checks must run:
 
 ```bash
 /Users/davide/development/flutter/bin/dart run tool/validate_content.dart
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart assets/content/seed_bundle_it.json build/pages
+/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp
+/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
 ```
+
+`--stamp` assegna automaticamente una nuova versione UTC
+`YYYY.MM.DD.HHMMSS` al bundle pubblicato. Senza una versione nuova, l'app puo
+considerare il contenuto gia installato e non riscaricare modifiche testuali.
 
 ## Immagini inline
 

@@ -5,15 +5,25 @@ import 'package:crypto/crypto.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 
 void main(List<String> args) {
-  final source = args.isEmpty
-      ? 'assets/content/seed_bundle_en.json'
-      : args.first;
-  final pagesRoot = args.length < 2 ? 'build/pages' : args[1];
+  final options = _GenerateBundleOptions.parse(args);
+  final source = options.source;
+  final pagesRoot = options.pagesRoot;
   final outputRoot = '$pagesRoot/content';
-  final baseUrl = args.length < 3
-      ? 'https://dado-hash.github.io/Sato-Wiki/content'
-      : args[2];
-  final json = File(source).readAsStringSync();
+  final baseUrl = options.baseUrl;
+  final sourceJson = File(source).readAsStringSync();
+  final decoded = jsonDecode(sourceJson);
+  if (decoded is! Map<String, Object?>) {
+    stderr.writeln('Bundle root must be an object.');
+    exitCode = 1;
+    return;
+  }
+  final data = Map<String, Object?>.from(decoded);
+  final stamp = options.stamp ? _buildStamp(DateTime.now().toUtc()) : null;
+  if (stamp != null) {
+    data['version'] = stamp.version;
+    data['generatedAt'] = stamp.generatedAt;
+  }
+  final json = const JsonEncoder.withIndent('  ').convert(data);
 
   final result = ContentBundleParser.parseJson(json);
   final bundle = result.bundle;
@@ -62,6 +72,65 @@ void main(List<String> args) {
   }
   stdout.writeln('generated ${latestRoot.path}/manifest.json');
   stdout.writeln('generated $pagesRoot/index.html');
+  if (stamp != null) {
+    stdout.writeln('stamped version=${stamp.version}');
+  }
+}
+
+final class _GenerateBundleOptions {
+  const _GenerateBundleOptions({
+    required this.source,
+    required this.pagesRoot,
+    required this.baseUrl,
+    required this.stamp,
+  });
+
+  final String source;
+  final String pagesRoot;
+  final String baseUrl;
+  final bool stamp;
+
+  static _GenerateBundleOptions parse(List<String> args) {
+    var stamp = false;
+    final positional = <String>[];
+    for (final arg in args) {
+      if (arg == '--stamp') {
+        stamp = true;
+      } else {
+        positional.add(arg);
+      }
+    }
+
+    return _GenerateBundleOptions(
+      source: positional.isEmpty
+          ? 'assets/content/seed_bundle_en.json'
+          : positional.first,
+      pagesRoot: positional.length < 2 ? 'build/pages' : positional[1],
+      baseUrl: positional.length < 3
+          ? 'https://dado-hash.github.io/Sato-Wiki/content'
+          : positional[2],
+      stamp: stamp,
+    );
+  }
+}
+
+final class _BundleStamp {
+  const _BundleStamp({required this.version, required this.generatedAt});
+
+  final String version;
+  final String generatedAt;
+}
+
+_BundleStamp _buildStamp(DateTime now) {
+  final version =
+      '${now.year.toString().padLeft(4, '0')}.'
+      '${now.month.toString().padLeft(2, '0')}.'
+      '${now.day.toString().padLeft(2, '0')}.'
+      '${now.hour.toString().padLeft(2, '0')}'
+      '${now.minute.toString().padLeft(2, '0')}'
+      '${now.second.toString().padLeft(2, '0')}';
+
+  return _BundleStamp(version: version, generatedAt: now.toIso8601String());
 }
 
 void _copyDirectory(Directory source, Directory target) {
