@@ -1,12 +1,18 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
 import '../../../generated/l10n/app_localizations.dart';
+import '../../../core/content/domain/content_media.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/content/reading_level.dart';
 import '../../../core/navigation/app_routes.dart';
 import '../../../core/widgets/content_mappers.dart';
+import '../../../core/widgets/content_media_scope.dart';
 import '../../../core/widgets/hero_media.dart';
 import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/reading_level_selector.dart';
@@ -480,6 +486,20 @@ class _CategoryEntryCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context);
+    final resolver =
+        ContentMediaScope.maybeOf(context) ?? ContentMediaResolver.empty;
+
+    Widget? backgroundImage;
+    if (entry.coverImage != null) {
+      final resolvedUri = resolver.resolve(entry.coverImage.toString());
+      if (resolvedUri != null && resolvedUri.scheme == 'file') {
+        final file = File.fromUri(resolvedUri);
+        final ext = ContentMedia.extensionFor(file.path);
+        backgroundImage = ext == '.svg'
+            ? SvgPicture.file(file, fit: BoxFit.cover)
+            : Image.file(file, fit: BoxFit.cover);
+      }
+    }
 
     return Material(
       color: highlighted
@@ -490,88 +510,127 @@ class _CategoryEntryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         onTap: onTap,
         child: Container(
+          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: highlighted
-                  ? colorScheme.primary
-                  : colorScheme.outlineVariant,
-            ),
           ),
-          padding: const EdgeInsets.all(20),
-          child: Stack(
-            children: [
-              if (highlighted)
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: colorScheme.primary,
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(8),
+      child: Stack(
+        children: [
+          if (backgroundImage != null)
+            Positioned.fill(
+              child: ImageFiltered(
+                imageFilter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                child: backgroundImage,
+              ),
+            ),
+          if (backgroundImage != null)
+            Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      colorScheme.surface.withValues(alpha: 0.92),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Stack(
+              children: [
+                if (highlighted)
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: colorScheme.primary,
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(8),
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 3,
-                      ),
-                      child: Text(
-                        l10n.coreConcept,
-                        style: textTheme.labelSmall?.copyWith(
-                          color: colorScheme.onPrimary,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.05,
-                          fontSize: 10,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 3,
+                        ),
+                        child: Text(
+                          l10n.coreConcept,
+                          style: textTheme.labelSmall?.copyWith(
+                            color: colorScheme.onPrimary,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.05,
+                            fontSize: 10,
+                          ),
                         ),
                       ),
                     ),
                   ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      entry.title,
+                      style: textTheme.titleLarge?.copyWith(
+                        color: highlighted
+                            ? colorScheme.primary
+                            : colorScheme.onSurface,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      entry.description,
+                      style: textTheme.bodyMedium?.copyWith(
+                        color: highlighted
+                            ? colorScheme.onSurface
+                            : colorScheme.onSurfaceVariant,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        _MetaLabel(
+                          icon: Icons.schedule_outlined,
+                          label: l10n.minRead(entry.readTimeMinutes),
+                        ),
+                        const SizedBox(width: 16),
+                        _MetaLabel(
+                          icon: Icons.update,
+                          label: _formatDate(entry.updatedAt, l10n),
+                        ),
+                        const Spacer(),
+                        _DifficultyIndicator(level: entry.difficulty),
+                      ],
+                    ),
+                  ],
                 ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    entry.title,
-                    style: textTheme.titleLarge?.copyWith(
+              ],
+            ),
+          ),
+          if (backgroundImage != null)
+            Positioned.fill(
+              child: IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
                       color: highlighted
                           ? colorScheme.primary
-                          : colorScheme.onSurface,
-                      fontWeight: FontWeight.w600,
+                          : colorScheme.outlineVariant,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    entry.description,
-                    style: textTheme.bodyMedium?.copyWith(
-                      color: highlighted
-                          ? colorScheme.onSurface
-                          : colorScheme.onSurfaceVariant,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      _MetaLabel(
-                        icon: Icons.schedule_outlined,
-                        label: l10n.minRead(entry.readTimeMinutes),
-                      ),
-                      const SizedBox(width: 16),
-                      _MetaLabel(
-                        icon: Icons.update,
-                        label: _formatDate(entry.updatedAt, l10n),
-                      ),
-                      const Spacer(),
-                      _DifficultyIndicator(level: entry.difficulty),
-                    ],
-                  ),
-                ],
+                ),
               ),
-            ],
-          ),
+            ),
+        ],
+      ),
         ),
       ),
     );
