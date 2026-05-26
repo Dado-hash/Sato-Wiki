@@ -21,6 +21,10 @@ List<disclosure.SourceReference> sourceReferences(
 ) {
   return [
     for (final source in sources)
-      disclosure.SourceReference(title: source.title, author: source.author),
+      disclosure.SourceReference(
+        title: source.title,
+        author: source.author,
+        url: source.url,
+      ),
   ];
 }

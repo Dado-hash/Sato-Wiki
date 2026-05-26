@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../generated/l10n/app_localizations.dart';
 
@@ -34,35 +35,59 @@ class SourcesDisclosure extends StatelessWidget {
           for (final source in sources)
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.link,
-                    size: 18,
-                    color: colorScheme.onSurfaceVariant,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text.rich(
-                      TextSpan(
-                        text: source.title,
-                        style: textTheme.bodyMedium?.copyWith(
-                          color: colorScheme.primary,
-                          decoration: TextDecoration.underline,
-                          decorationColor: colorScheme.outlineVariant,
-                        ),
-                        children: [
-                          if (source.author != null)
-                            TextSpan(
-                              text: ' - ${source.author}',
-                              style: textTheme.bodyMedium,
-                            ),
-                        ],
+              child: InkWell(
+                borderRadius: BorderRadius.circular(6),
+                onTap: source.url == null
+                    ? null
+                    : () => launchUrl(
+                        source.url!,
+                        mode: LaunchMode.externalApplication,
                       ),
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.link,
+                        size: 18,
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text.rich(
+                          TextSpan(
+                            text: source.title,
+                            style: textTheme.bodyMedium?.copyWith(
+                              color: source.url == null
+                                  ? colorScheme.onSurface
+                                  : colorScheme.primary,
+                              decoration: source.url == null
+                                  ? TextDecoration.none
+                                  : TextDecoration.underline,
+                              decorationColor: colorScheme.outlineVariant,
+                            ),
+                            children: [
+                              if (source.author != null)
+                                TextSpan(
+                                  text: ' - ${source.author}',
+                                  style: textTheme.bodyMedium,
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      if (source.url != null) ...[
+                        const SizedBox(width: 8),
+                        Icon(
+                          Icons.open_in_new,
+                          size: 16,
+                          color: colorScheme.onSurfaceVariant,
+                        ),
+                      ],
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
         ],
@@ -72,8 +97,9 @@ class SourcesDisclosure extends StatelessWidget {
 }
 
 class SourceReference {
-  const SourceReference({required this.title, this.author});
+  const SourceReference({required this.title, this.author, this.url});
 
   final String title;
   final String? author;
+  final Uri? url;
 }

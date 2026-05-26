@@ -29,6 +29,7 @@ final class LocalFirstContentBundleRepository
   static const defaultLanguageCode = AppLocale.fallbackLanguageCode;
   static const seedAssetPaths = <String, String>{
     defaultLanguageCode: 'assets/content/seed_bundle_en.json',
+    'it': 'assets/content/seed_bundle_it.json',
   };
   static const _updatedBundleKeyPrefix = 'content.updatedBundleJson';
 
@@ -262,9 +263,30 @@ final class VerifiedBackgroundContentUpdater
 
     if (manifest == null ||
         manifest.language != normalizedLanguageCode ||
-        manifest.schemaVersion > ContentBundleMigrator.currentSchemaVersion ||
-        !_isNewerVersion(manifest.version, current.bundle.version)) {
+        manifest.schemaVersion > ContentBundleMigrator.currentSchemaVersion) {
       return null;
+    }
+
+    final isNewerVersion = _isNewerVersion(
+      manifest.version,
+      current.bundle.version,
+    );
+    final canRepairCurrentMedia =
+        manifest.version == current.bundle.version &&
+        _mediaStore != null &&
+        !_mediaStore.hasBundleMedia(current.bundle);
+
+    if (!isNewerVersion && !canRepairCurrentMedia) {
+      return null;
+    }
+
+    if (canRepairCurrentMedia) {
+      await _mediaStore.prefetchBundleMedia(
+        bundle: current.bundle,
+        bundleUrl: manifest.bundleUrl,
+      );
+
+      return _localRepository.load(normalizedLanguageCode);
     }
 
     final json = await _downloader.downloadBundle(manifest.bundleUrl);

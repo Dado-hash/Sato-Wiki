@@ -76,6 +76,28 @@ final class ContentMediaStore {
     );
   }
 
+  bool hasBundleMedia(ContentBundle bundle) {
+    final references = ContentMedia.referencesFromBundle(bundle);
+    final errors = ContentMedia.validateReferences(references);
+    if (errors.isNotEmpty) {
+      return false;
+    }
+
+    final sources = references.map((reference) => reference.source).toSet();
+    for (final source in sources) {
+      final file = _fileFor(
+        language: bundle.language,
+        version: bundle.version,
+        source: source,
+      );
+      if (!file.existsSync()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   Future<void> installBundleMediaFromAssets({
     required ContentBundle bundle,
     AssetBundle? assetBundle,

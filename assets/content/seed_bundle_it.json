@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.05.26",
+  "language": "it",
+  "generatedAt": "2026-05-26T00:00:00Z",
+  "wiki": [
+    {
+      "id": "wiki.proof-of-work",
+      "slug": "proof-of-work",
+      "language": "it",
+      "category": "protocol",
+      "title": "Proof of Work",
+      "description": "Il meccanismo che Bitcoin usa per rendere costoso riscrivere la storia dei blocchi e semplice verificarla.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "La Proof of Work e il modo in cui Bitcoin rende costoso riscrivere la storia. I miner costruiscono blocchi candidati e cercano un hash inferiore al target corrente della rete. La ricerca richiede molti tentativi, ma ogni nodo puo verificare rapidamente l'hash vincente.\n\n![Schema del ciclo di mining](media/wiki/proof-of-work/pow-mining-loop.svg \"Un miner modifica il blocco candidato finche l'hash non scende sotto il target.\")\n\nUn blocco e utile solo se rispetta tutte le regole di consenso: le transazioni devono essere valide, il blocco deve collegarsi a un blocco precedente e la prova deve soddisfare il target. La Proof of Work non sostituisce la validazione; assegna un costo oggettivo ai blocchi validi.\n\nQuando i nodi vedono storie concorrenti, seguono la chain valida con piu lavoro accumulato. Per modificare una vecchia transazione, un attaccante dovrebbe rifare il lavoro di quel blocco e poi produrre piu lavoro della rete onesta. Ogni nuovo blocco rende piu difficile questa rincorsa."
+        },
+        "medium": {
+          "bodyMarkdown": "I miner Bitcoin non ricalcolano sempre l'intero blocco: fanno hash dell'header del blocco. L'header contiene l'hash del blocco precedente, la Merkle root delle transazioni, un timestamp, il target compatto chiamato `nBits` e un nonce. I miner variano nonce, timestamp, insieme di transazioni o dati della coinbase finche il doppio SHA-256 non e abbastanza basso.\n\nIl target e una soglia. Un target piu basso significa meno hash accettabili, quindi aumenta il numero atteso di tentativi. Poiche l'output degli hash si comporta come dato casuale, il mining e una gara probabilistica: nessun miner puo prevedere il nonce vincente, ma chi ha piu hash rate ha piu tentativi al secondo.\n\n![Schema del lavoro accumulato](media/wiki/proof-of-work/accumulated-work.svg \"I nodi scelgono il ramo valido con piu proof of work accumulata, non semplicemente il primo blocco ricevuto.\")\n\nOgni 2.016 blocchi, mainnet ricalibra la difficolta per mantenere i blocchi vicino a una media di 10 minuti. Se il periodo precedente e stato troppo veloce, il target scende e il mining diventa piu difficile. Se e stato troppo lento, il target sale e il mining diventa piu facile.\n\nLa Proof of Work da a Bitcoin due proprieta importanti. Primo, rende costosi gli attacchi Sybil: il peso non dipende dalle identita di rete, ma dal lavoro dimostrato. Secondo, rende il settlement probabilistico: le conferme non sono finalita magica, ma ogni conferma aggiunge lavoro che un attaccante deve superare."
+        },
+        "advanced": {
+          "bodyMarkdown": "I full node validano la Proof of Work derivando il target da `nBits` e controllando che l'hash dell'header sia minore o uguale a quel target. Controllano anche che il target sia entro il limite consentito e che il blocco rispetti tutte le altre regole di consenso.\n\nLa regola di scelta del ramo si basa sulla chainwork accumulata. Un ramo apparentemente piu lungo, ma composto da blocchi piu facili, puo perdere contro un ramo piu corto con piu lavoro totale. Per questo \"longest chain\" va letta come chain valida con la maggiore Proof of Work accumulata.\n\nIl ricalcolo della difficolta e volutamente lento e limitato. Su Bitcoin mainnet avviene solo agli intervalli di aggiustamento, usando il tempo osservato nel periodo precedente di 2.016 blocchi e applicando limiti alla variazione. Questo evita salti improvvisi del target, ma permette di seguire i cambiamenti di hash rate nel lungo periodo.\n\nLa Proof of Work definisce anche il costo delle reorg. Un miner puo sempre provare a costruire un ramo privato, ma per sostituire storia gia confermata quel ramo deve superare la chain pubblica in lavoro accumulato prima che il resto della rete la estenda ancora. La domanda economica non e solo \"si possono produrre hash?\", ma \"si possono produrre piu velocemente di tutti gli altri rinunciando ai ricavi del mining onesto?\"\n\nPer questo la Proof of Work non e solo una lotteria di mining. E il ponte tra consenso digitale e costo esterno. I nodi restano economici da eseguire e severi sulle regole; i miner spendono energia per proporre una storia ordinata che i nodi possono rifiutare o accettare indipendentemente."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 9,
+      "tags": ["Mining", "Consenso", "Crittografia", "Difficolta"],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Developer Reference - Block Chain",
+          "url": "https://developer.bitcoin.org/reference/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core proof-of-work implementation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/pow.cpp",
+          "author": "Bitcoin Core contributors"
+        }
+      ],
+      "related": [
+        {"id": "wiki.mining", "title": "Mining"},
+        {"id": "wiki.sha-256", "title": "SHA-256"},
+        {"id": "wiki.difficulty-adjustment", "title": "Aggiustamento della difficolta"},
+        {"id": "wiki.blocks", "title": "Blocchi"}
+      ],
+      "updatedAt": "2026-05-26T00:00:00Z"
+    }
+  ],
+  "news": [
+    {
+      "id": "news.taproot-retrospective",
+      "slug": "taproot-retrospective",
+      "language": "it",
+      "title": "L'attivazione di Taproot: una retrospettiva",
+      "summary": "Uno sguardo all'attivazione di Taproot e al suo impatto di lungo periodo.",
+      "category": "protocol",
+      "author": {
+        "github": "andreas-m",
+        "displayName": "Andreas M.",
+        "lightningAddress": "andreas@example.com"
+      },
+      "publishedAt": "2023-11-14",
+      "readTimeMinutes": 12,
+      "bodyMarkdown": "Taproot si e attivato al blocco 709.632 dopo il lock-in tramite Speedy Trial.",
+      "tags": ["Taproot", "Upgrade"],
+      "sources": [
+        {
+          "title": "BIP 341: Taproot",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": ["code.bip.341"],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "history.bitcoin-pizza-day",
+      "slug": "bitcoin-pizza-day",
+      "language": "it",
+      "date": "2010-05-22",
+      "title": "Bitcoin Pizza Day",
+      "category": "community",
+      "summary": "Laszlo Hanyecz fece la prima transazione commerciale documentata in Bitcoin.",
+      "bodyMarkdown": "Due pizze furono acquistate per 10.000 BTC, creando un riferimento culturale duraturo per Bitcoin.",
+      "tags": ["Community", "Pagamenti"],
+      "sources": [
+        {
+          "title": "Thread pizza su BitcoinTalk",
+          "url": "https://bitcointalk.org/index.php?topic=137.0",
+          "author": "Laszlo Hanyecz"
+        }
+      ],
+      "related": ["wiki.transactions"],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    }
+  ],
+  "bips": [
+    {
+      "id": "code.bip.341",
+      "number": 341,
+      "language": "it",
+      "title": "Taproot",
+      "summary": "Regole di spesa SegWit versione 1.",
+      "status": "active",
+      "category": "consensus",
+      "authors": ["Pieter Wuille", "Jonas Nick", "Anthony Towns"],
+      "createdAt": "2020-01-19",
+      "summaryMarkdown": "Taproot combina firme Schnorr e percorsi script Merkle.",
+      "impactMarkdown": "Spese complesse possono apparire come normali spese key-path.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+      "tags": ["Taproot", "Consenso"],
+      "sources": [
+        {
+          "title": "BIP 341",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": ["wiki.taproot", "news.taproot-retrospective"],
+      "statusHistory": [
+        {
+          "date": "2020-01-19",
+          "status": "draft",
+          "note": "Bozza iniziale pubblicata."
+        },
+        {
+          "date": "2021-11-14",
+          "status": "active",
+          "note": "Attivato al blocco 709.632."
+        }
+      ],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    }
+  ],
+  "changelogs": [
+    {
+      "id": "release.bitcoin-core.27.0",
+      "slug": "bitcoin-core-27-0",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "27.0",
+      "title": "Bitcoin Core 27.0",
+      "summary": "Release maggiore di Bitcoin Core con miglioramenti a rete e wallet.",
+      "releasedAt": "2024-04-16",
+      "importance": "major",
+      "userImpactMarkdown": "Gli utenti ottengono miglioramenti nel comportamento di wallet e peer.",
+      "technicalChangesMarkdown": "La release include modifiche a P2P, RPC e sistema di build.",
+      "officialUrl": "https://bitcoincore.org/en/releases/27.0/",
+      "tags": ["Bitcoin Core", "Release"],
+      "sources": [
+        {
+          "title": "Note di rilascio Bitcoin Core 27.0",
+          "url": "https://bitcoincore.org/en/releases/27.0/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": ["code.bip.324"],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    }
+  ]
+}

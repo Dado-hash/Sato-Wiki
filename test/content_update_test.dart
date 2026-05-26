@@ -44,7 +44,7 @@ void main() {
           const AppLocalePreference.system(),
           const [Locale('it')],
         ),
-        'en',
+        'it',
       );
     },
   );
@@ -54,7 +54,10 @@ void main() {
     final preferences = await SharedPreferences.getInstance();
     final repository = LocalFirstContentBundleRepository(
       preferences: preferences,
-      assetBundle: _FakeAssetBundle(_bundleJson(version: '2026.05.25')),
+      assetBundle: _FakeAssetBundle(
+        _bundleJson(version: '2026.05.25'),
+        itJson: _bundleJson(version: '2026.05.25', language: 'it'),
+      ),
     );
 
     await repository.saveUpdatedBundleJson(
@@ -66,7 +69,7 @@ void main() {
     final fallbackResult = await repository.load('it');
 
     expect(result.bundle.version, '2026.05.26');
-    expect(fallbackResult.bundle.language, 'en');
+    expect(fallbackResult.bundle.language, 'it');
   });
 
   test('updater installs newer valid bundle', () async {
@@ -118,6 +121,45 @@ void main() {
         'media/wiki/utxo-model/utxo-flow.png',
       ).readAsBytesSync(),
       [1, 2, 3],
+    );
+  });
+
+  test('updater repairs missing media for current bundle version', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp(
+      'satowiki_media_repair',
+    );
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final currentJson = _bundleJson(
+      version: '2026.05.25',
+      wikiBody: '![Mining loop](media/wiki/proof-of-work/pow-mining-loop.svg)',
+    );
+    final mediaUrl =
+        'https://example.com/content/en/2026.05.25/'
+        'media/wiki/proof-of-work/pow-mining-loop.svg';
+    final fixture = await _updaterFixtureFor(
+      seedJson: currentJson,
+      manifest: _manifest(version: '2026.05.25', json: currentJson),
+      mediaStore: ContentMediaStore(
+        rootDirectory: mediaRoot,
+        downloader: _FakeMediaDownloader({
+          mediaUrl: [4, 5, 6],
+        }),
+      ),
+    );
+
+    final result = await fixture.updater.checkForUpdates('en');
+
+    expect(result?.bundle.version, '2026.05.25');
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.25/'
+        'media/wiki/proof-of-work/pow-mining-loop.svg',
+      ).readAsBytesSync(),
+      [4, 5, 6],
     );
   });
 
@@ -238,12 +280,15 @@ Future<_UpdaterFixture> _updaterFixtureFor({
   ContentManifest? manifest,
   String? downloadJson,
   ContentMediaStore? mediaStore,
+  String? seedJson,
 }) async {
   SharedPreferences.setMockInitialValues({});
   final preferences = await SharedPreferences.getInstance();
   final localRepository = LocalFirstContentBundleRepository(
     preferences: preferences,
-    assetBundle: _FakeAssetBundle(_bundleJson(version: '2026.05.25')),
+    assetBundle: _FakeAssetBundle(
+      seedJson ?? _bundleJson(version: '2026.05.25'),
+    ),
   );
 
   return _UpdaterFixture(
@@ -326,9 +371,10 @@ String _bundleJson({
 }
 
 final class _FakeAssetBundle extends AssetBundle {
-  _FakeAssetBundle(this.json);
+  _FakeAssetBundle(this.json, {String? itJson}) : _itJson = itJson;
 
   final String json;
+  final String? _itJson;
 
   @override
   Future<ByteData> load(String key) async {
@@ -339,6 +385,10 @@ final class _FakeAssetBundle extends AssetBundle {
 
   @override
   Future<String> loadString(String key, {bool cache = true}) async {
+    if (key.endsWith('seed_bundle_it.json')) {
+      return _itJson ?? json;
+    }
+
     return json;
   }
 }

@@ -124,8 +124,9 @@ Implementazione corrente:
   bundle, verifica sha256, validazione schema e update background.
 - `ContentStore` espone il bundle locale alle repository interface delle
   feature.
-- La lingua contenuto risolta usa la preferenza app e le locale del sistema;
-  nella v1 e attivo solo `en`, con fallback inglese per locale non supportate.
+- La lingua contenuto risolta usa la preferenza app e le locale del sistema.
+  I seed locali attivi sono `en` e `it`, con fallback inglese per locale non
+  supportate.
 
 ## Search
 

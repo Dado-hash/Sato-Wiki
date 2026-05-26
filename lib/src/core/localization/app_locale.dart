@@ -39,8 +39,11 @@ final class AppLocalePreference {
 
 abstract final class AppLocale {
   static const fallbackLanguageCode = 'en';
-  static const supportedLanguageCodes = <String>{fallbackLanguageCode};
-  static const supportedLocales = <Locale>[Locale(fallbackLanguageCode)];
+  static const supportedLanguageCodes = <String>{fallbackLanguageCode, 'it'};
+  static const supportedLocales = <Locale>[
+    Locale(fallbackLanguageCode),
+    Locale('it'),
+  ];
 
   static bool isSupportedLanguageCode(String languageCode) {
     return supportedLanguageCodes.contains(languageCode.toLowerCase());

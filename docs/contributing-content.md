@@ -10,6 +10,7 @@ Flow:
 
 ```bash
 /Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
 ```
 
 4. Open PR with generated bundle and source Markdown.
@@ -19,6 +20,7 @@ PR checks must run:
 ```bash
 /Users/davide/development/flutter/bin/dart run tool/validate_content.dart
 /Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart
+/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart assets/content/seed_bundle_it.json build/pages
 ```
 
 ## Immagini inline

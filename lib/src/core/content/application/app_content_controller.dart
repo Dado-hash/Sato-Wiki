@@ -83,8 +83,7 @@ final class AppContentController extends ChangeNotifier {
 
     try {
       final result = await updater.checkForUpdates(_languageCode);
-      if (result == null ||
-          result.bundle.version == _content.store.bundle.version) {
+      if (result == null) {
         return;
       }
 

@@ -39,6 +39,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageEnglish => 'English';
 
   @override
+  String get languageItalian => 'Italiano';
+
+  @override
   String get orangeBookTitle => 'The Orange Book';
 
   @override

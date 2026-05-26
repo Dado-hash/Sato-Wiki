@@ -20,7 +20,9 @@ Questa repo e stata inizializzata come applicazione Flutter per iOS e Android.
 /Users/davide/development/flutter/bin/flutter analyze
 /Users/davide/development/flutter/bin/flutter test
 /Users/davide/development/flutter/bin/dart run tool/validate_content.dart
+/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
 /Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart
+/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart assets/content/seed_bundle_it.json build/pages
 ```
 
 Il bundle seed inglese dell'app vive in `assets/content/seed_bundle_en.json`.
@@ -55,12 +57,14 @@ Workflow consigliato:
 
 ```bash
 /Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
 ```
 
 7. Genera l'output statico pubblicabile:
 
 ```bash
 /Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart
+/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart assets/content/seed_bundle_it.json build/pages
 ```
 
 8. Apri PR includendo sorgente Markdown/YAML, bundle JSON generato e, se cambia

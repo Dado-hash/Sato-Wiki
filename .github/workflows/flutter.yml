@@ -38,8 +38,14 @@ jobs:
       - name: Validate content bundle
         run: dart run tool/validate_content.dart
 
+      - name: Validate Italian content bundle
+        run: dart run tool/validate_content.dart assets/content/seed_bundle_it.json
+
       - name: Generate content bundle
         run: dart run tool/generate_bundle.dart
+
+      - name: Generate Italian content bundle
+        run: dart run tool/generate_bundle.dart assets/content/seed_bundle_it.json build/pages
 
       - name: Test
         run: flutter test
@@ -68,6 +74,9 @@ jobs:
 
       - name: Generate Pages content
         run: dart run tool/generate_bundle.dart assets/content/seed_bundle_en.json build/pages
+
+      - name: Generate Italian Pages content
+        run: dart run tool/generate_bundle.dart assets/content/seed_bundle_it.json build/pages
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
