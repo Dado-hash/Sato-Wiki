@@ -18,3 +18,5 @@ updatedAt: 2026-05-25T00:00:00Z
 ---
 
 Article body in Markdown.
+
+![Example chart](media/news/example/example-chart.png "Optional caption")

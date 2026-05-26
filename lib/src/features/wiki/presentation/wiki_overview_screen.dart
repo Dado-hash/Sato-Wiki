@@ -8,6 +8,7 @@ import '../../../core/content/reading_level.dart';
 import '../../../core/navigation/app_routes.dart';
 import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/hero_media.dart';
+import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/reading_level_selector.dart';
 import '../../../core/widgets/related_links_grid.dart';
 import '../../../core/widgets/section_title.dart';
@@ -727,10 +728,7 @@ class WikiEntryScreen extends StatelessWidget {
               label: l10n.entryConceptualVisual(entry.title),
             ),
             const SizedBox(height: 24),
-            Text(
-              entry.contentFor(selectedLevel).bodyMarkdown,
-              style: textTheme.bodyLarge?.copyWith(height: 1.6),
-            ),
+            MarkdownText(entry.contentFor(selectedLevel).bodyMarkdown),
             if (entry.related.isNotEmpty) ...[
               const SizedBox(height: 32),
               SectionTitle(title: l10n.relatedConcepts),

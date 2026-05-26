@@ -22,6 +22,8 @@ updatedAt: 2026-05-25T00:00:00Z
 
 Readable summary.
 
+![Example technical diagram](media/code/bips/000/example-diagram.svg "Optional caption")
+
 ## impactMarkdown
 
 Practical impact.

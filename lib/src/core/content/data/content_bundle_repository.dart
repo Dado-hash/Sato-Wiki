@@ -10,6 +10,7 @@ import '../domain/content_models.dart';
 import 'content_bundle_errors.dart';
 import 'content_bundle_migrator.dart';
 import 'content_bundle_parser.dart';
+import 'content_media_store.dart';
 
 abstract interface class ContentBundleRepository {
   Future<ContentBundleParseResult> load(String languageCode);
@@ -238,13 +239,16 @@ final class VerifiedBackgroundContentUpdater
     required ContentBundleRepository localRepository,
     required RemoteContentManifestRepository manifestRepository,
     required ContentBundleDownloader downloader,
+    ContentMediaStore? mediaStore,
   }) : _localRepository = localRepository,
        _manifestRepository = manifestRepository,
-       _downloader = downloader;
+       _downloader = downloader,
+       _mediaStore = mediaStore;
 
   final ContentBundleRepository _localRepository;
   final RemoteContentManifestRepository _manifestRepository;
   final ContentBundleDownloader _downloader;
+  final ContentMediaStore? _mediaStore;
 
   @override
   Future<ContentBundleParseResult?> checkForUpdates(String languageCode) async {
@@ -269,6 +273,17 @@ final class VerifiedBackgroundContentUpdater
       throw const ContentBundleParseException('Bundle sha256 mismatch.');
     }
 
+    final parsed = ContentBundleParser.parseJson(json);
+    if (parsed.bundle.language != normalizedLanguageCode) {
+      throw ContentBundleParseException(
+        'Bundle language ${parsed.bundle.language} does not match '
+        '$normalizedLanguageCode.',
+      );
+    }
+    await _mediaStore?.prefetchBundleMedia(
+      bundle: parsed.bundle,
+      bundleUrl: manifest.bundleUrl,
+    );
     await _localRepository.saveUpdatedBundleJson(normalizedLanguageCode, json);
 
     return _localRepository.load(normalizedLanguageCode);

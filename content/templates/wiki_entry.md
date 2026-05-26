@@ -18,6 +18,8 @@ updatedAt: 2026-05-25T00:00:00Z
 
 Base explanation.
 
+![Example diagram](media/wiki/example/example-diagram.svg "Optional caption")
+
 ## medium
 
 Medium explanation.

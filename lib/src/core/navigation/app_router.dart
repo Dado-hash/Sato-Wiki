@@ -9,6 +9,7 @@ import '../../features/wiki/presentation/wiki_overview_screen.dart';
 import '../content/app_content.dart';
 import '../content/application/app_content_controller.dart';
 import '../settings/app_settings_controller.dart';
+import '../widgets/content_media_scope.dart';
 import '../../generated/l10n/app_localizations.dart';
 import 'app_routes.dart';
 import 'sato_wiki_tab.dart';
@@ -48,11 +49,14 @@ abstract final class AppRouter {
         settings: settings,
         builder: (_) => AnimatedBuilder(
           animation: contentController,
-          builder: (_, _) => _screenForTarget(
-            target,
-            settingsController,
-            contentController.content,
-          ),
+          builder: (_, _) {
+            final appContent = contentController.content;
+
+            return ContentMediaScope(
+              resolver: appContent.mediaResolver,
+              child: _screenForTarget(target, settingsController, appContent),
+            );
+          },
         ),
       );
     }

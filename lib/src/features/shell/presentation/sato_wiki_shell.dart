@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/content/application/app_content_controller.dart';
 import '../../../core/navigation/sato_wiki_tab.dart';
 import '../../../core/settings/app_settings_controller.dart';
+import '../../../core/widgets/content_media_scope.dart';
 import '../../../core/widgets/sato_scaffold.dart';
 import '../../code/presentation/code_dashboard_screen.dart';
 import '../../history/presentation/history_timeline_screen.dart';
@@ -68,14 +69,17 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
       CodeDashboardScreen(store: appContent.store),
     ];
 
-    return SatoScaffold(
-      selectedTab: selectedTab,
-      onTabSelected: (tab) => _handleDestinationSelected(context, tab),
-      localePreference: widget.settingsController.localePreference,
-      onLocalePreferenceChanged: (preference) {
-        widget.settingsController.setLocalePreference(preference);
-      },
-      body: IndexedStack(index: selectedTab.index, children: screens),
+    return ContentMediaScope(
+      resolver: appContent.mediaResolver,
+      child: SatoScaffold(
+        selectedTab: selectedTab,
+        onTabSelected: (tab) => _handleDestinationSelected(context, tab),
+        localePreference: widget.settingsController.localePreference,
+        onLocalePreferenceChanged: (preference) {
+          widget.settingsController.setLocalePreference(preference);
+        },
+        body: IndexedStack(index: selectedTab.index, children: screens),
+      ),
     );
   }
 

@@ -29,6 +29,14 @@ void main(List<String> args) {
     ..createSync(recursive: true);
   final bundleFile = File('${versionRoot.path}/bundle.json');
   bundleFile.writeAsStringSync(normalizedJson);
+  final sourceMediaRoot = Directory('${File(source).parent.path}/media');
+  final outputMediaRoot = Directory('${versionRoot.path}/media');
+  if (sourceMediaRoot.existsSync()) {
+    if (outputMediaRoot.existsSync()) {
+      outputMediaRoot.deleteSync(recursive: true);
+    }
+    _copyDirectory(sourceMediaRoot, outputMediaRoot);
+  }
 
   final sha = sha256.convert(utf8.encode(normalizedJson)).toString();
   final bundleUrl = '$baseUrl/${bundle.language}/${bundle.version}/bundle.json';
@@ -49,8 +57,26 @@ void main(List<String> args) {
   );
 
   stdout.writeln('generated ${bundleFile.path}');
+  if (sourceMediaRoot.existsSync()) {
+    stdout.writeln('generated ${outputMediaRoot.path}');
+  }
   stdout.writeln('generated ${latestRoot.path}/manifest.json');
   stdout.writeln('generated $pagesRoot/index.html');
+}
+
+void _copyDirectory(Directory source, Directory target) {
+  target.createSync(recursive: true);
+  for (final entity in source.listSync(recursive: true)) {
+    final relativePath = entity.path.substring(source.path.length + 1);
+    final targetPath = '${target.path}/$relativePath';
+    if (entity is Directory) {
+      Directory(targetPath).createSync(recursive: true);
+    } else if (entity is File) {
+      File(targetPath)
+        ..createSync(recursive: true)
+        ..writeAsBytesSync(entity.readAsBytesSync(), flush: true);
+    }
+  }
 }
 
 void _writeIndexHtml({

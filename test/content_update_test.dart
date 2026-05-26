@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:crypto/crypto.dart';
@@ -8,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:sato_wiki/src/core/content/data/content_bundle_errors.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_repository.dart';
+import 'package:sato_wiki/src/core/content/data/content_media_store.dart';
 import 'package:sato_wiki/src/core/localization/app_locale.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_controller.dart';
 import 'package:sato_wiki/src/core/settings/shared_preferences_app_settings_repository.dart';
@@ -79,6 +81,82 @@ void main() {
     expect(result?.bundle.version, '2026.05.26');
   });
 
+  test('updater downloads referenced media before installing bundle', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp(
+      'satowiki_media_success',
+    );
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final updateJson = _bundleJson(
+      version: '2026.05.26',
+      wikiBody:
+          '![UTXO diagram](media/wiki/utxo-model/utxo-flow.png "UTXO flow")',
+    );
+    final mediaUrl =
+        'https://example.com/content/en/2026.05.26/'
+        'media/wiki/utxo-model/utxo-flow.png';
+    final updater = await _updaterFor(
+      manifest: _manifest(version: '2026.05.26', json: updateJson),
+      downloadJson: updateJson,
+      mediaStore: ContentMediaStore(
+        rootDirectory: mediaRoot,
+        downloader: _FakeMediaDownloader({
+          mediaUrl: [1, 2, 3],
+        }),
+      ),
+    );
+
+    final result = await updater.checkForUpdates('en');
+
+    expect(result?.bundle.version, '2026.05.26');
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.26/'
+        'media/wiki/utxo-model/utxo-flow.png',
+      ).readAsBytesSync(),
+      [1, 2, 3],
+    );
+  });
+
+  test('updater keeps previous bundle when referenced media fails', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp(
+      'satowiki_media_failure',
+    );
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final fixture = await _updaterFixtureFor(
+      manifest: _manifest(
+        version: '2026.05.26',
+        json: _bundleJson(
+          version: '2026.05.26',
+          wikiBody: '![UTXO diagram](media/wiki/utxo-model/missing.png)',
+        ),
+      ),
+      downloadJson: _bundleJson(
+        version: '2026.05.26',
+        wikiBody: '![UTXO diagram](media/wiki/utxo-model/missing.png)',
+      ),
+      mediaStore: ContentMediaStore(
+        rootDirectory: mediaRoot,
+        downloader: const _FakeMediaDownloader({}),
+      ),
+    );
+
+    await expectLater(
+      fixture.updater.checkForUpdates('en'),
+      throwsA(isA<ContentBundleParseException>()),
+    );
+
+    final current = await fixture.repository.load('en');
+    expect(current.bundle.version, '2026.05.25');
+  });
+
   test(
     'updater ignores same version, missing manifest and future schema',
     () async {
@@ -145,6 +223,21 @@ void main() {
 Future<VerifiedBackgroundContentUpdater> _updaterFor({
   ContentManifest? manifest,
   String? downloadJson,
+  ContentMediaStore? mediaStore,
+}) async {
+  final fixture = await _updaterFixtureFor(
+    manifest: manifest,
+    downloadJson: downloadJson,
+    mediaStore: mediaStore,
+  );
+
+  return fixture.updater;
+}
+
+Future<_UpdaterFixture> _updaterFixtureFor({
+  ContentManifest? manifest,
+  String? downloadJson,
+  ContentMediaStore? mediaStore,
 }) async {
   SharedPreferences.setMockInitialValues({});
   final preferences = await SharedPreferences.getInstance();
@@ -153,11 +246,22 @@ Future<VerifiedBackgroundContentUpdater> _updaterFor({
     assetBundle: _FakeAssetBundle(_bundleJson(version: '2026.05.25')),
   );
 
-  return VerifiedBackgroundContentUpdater(
-    localRepository: localRepository,
-    manifestRepository: _FakeManifestRepository(manifest),
-    downloader: _FakeDownloader(downloadJson),
+  return _UpdaterFixture(
+    repository: localRepository,
+    updater: VerifiedBackgroundContentUpdater(
+      localRepository: localRepository,
+      manifestRepository: _FakeManifestRepository(manifest),
+      downloader: _FakeDownloader(downloadJson),
+      mediaStore: mediaStore,
+    ),
   );
+}
+
+final class _UpdaterFixture {
+  const _UpdaterFixture({required this.repository, required this.updater});
+
+  final LocalFirstContentBundleRepository repository;
+  final VerifiedBackgroundContentUpdater updater;
 }
 
 ContentManifest _manifest({
@@ -179,14 +283,40 @@ String _bundleJson({
   required String version,
   String language = 'en',
   int schemaVersion = 1,
+  String? wikiBody,
 }) {
+  final wiki = wikiBody == null
+      ? '[]'
+      : '''
+[
+  {
+    "id": "wiki.test",
+    "slug": "test",
+    "language": "$language",
+    "category": "protocol",
+    "title": "Test",
+    "description": "Test entry.",
+    "readingLevels": {
+      "base": {"bodyMarkdown": ${jsonEncode(wikiBody)}},
+      "medium": {"bodyMarkdown": "Medium."},
+      "advanced": {"bodyMarkdown": "Advanced."}
+    },
+    "difficulty": "base",
+    "readTimeMinutes": 1,
+    "tags": [],
+    "sources": [],
+    "related": [],
+    "updatedAt": "2026-05-25T00:00:00Z"
+  }
+]''';
+
   return '''
 {
   "schemaVersion": $schemaVersion,
   "version": "$version",
   "language": "$language",
   "generatedAt": "2026-05-25T00:00:00Z",
-  "wiki": [],
+  "wiki": $wiki,
   "news": [],
   "history": [],
   "bips": [],
@@ -237,5 +367,21 @@ final class _FakeDownloader implements ContentBundleDownloader {
     }
 
     return json;
+  }
+}
+
+final class _FakeMediaDownloader implements ContentMediaDownloader {
+  const _FakeMediaDownloader(this.media);
+
+  final Map<String, List<int>> media;
+
+  @override
+  Future<List<int>> downloadMedia(Uri mediaUrl) async {
+    final bytes = media[mediaUrl.toString()];
+    if (bytes == null) {
+      throw const ContentBundleParseException('Media missing.');
+    }
+
+    return bytes;
   }
 }

@@ -37,7 +37,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   crypto: ^3.0.6
   cupertino_icons: ^1.0.8
+  flutter_markdown_plus: ^1.0.7
+  flutter_svg: ^2.0.17
   intl: ^0.20.2
+  markdown: ^7.3.0
+  path_provider: ^2.1.5
   shared_preferences: ^2.5.3
 
 dev_dependencies:

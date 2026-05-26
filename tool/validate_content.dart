@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:sato_wiki/src/core/content/domain/content_media.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 
 void main(List<String> args) {
@@ -18,6 +19,29 @@ void main(List<String> args) {
   for (final warning in result.warnings) {
     stderr.writeln('warning ${warning.path}: ${warning.message}');
   }
+  final mediaReferences = ContentMedia.referencesFromBundle(result.bundle);
+  final mediaErrors = <String>[
+    for (final error in ContentMedia.validateReferences(mediaReferences))
+      '${error.source}: ${error.message}',
+  ];
+  final contentRoot = file.parent;
+  final validMediaSources = mediaReferences
+      .map((reference) => reference.source)
+      .where((source) => ContentMedia.validateSource(source) == null)
+      .toSet();
+  for (final source in validMediaSources) {
+    if (!File('${contentRoot.path}/$source').existsSync()) {
+      mediaErrors.add('$source: Referenced media file does not exist.');
+    }
+  }
+
+  if (mediaErrors.isNotEmpty) {
+    for (final error in mediaErrors) {
+      stderr.writeln('error media $error');
+    }
+    exitCode = 1;
+    return;
+  }
 
   stdout.writeln(
     'valid ${result.bundle.version} '
@@ -26,6 +50,7 @@ void main(List<String> args) {
     'news=${result.bundle.news.length} '
     'history=${result.bundle.history.length} '
     'bips=${result.bundle.bips.length} '
-    'changelogs=${result.bundle.changelogs.length}',
+    'changelogs=${result.bundle.changelogs.length} '
+    'media=${validMediaSources.length}',
   );
 }

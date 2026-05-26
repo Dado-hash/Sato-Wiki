@@ -20,6 +20,8 @@ updatedAt: 2026-05-25T00:00:00Z
 
 User-facing impact.
 
+![Example release image](media/releases/project-version/example-image.png "Optional caption")
+
 ## technicalChangesMarkdown
 
 Technical changes.

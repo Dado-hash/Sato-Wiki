@@ -5,6 +5,8 @@ import '../../search/search_index.dart';
 import '../app_content.dart';
 import '../data/content_bundle_parser.dart';
 import '../data/content_bundle_repository.dart';
+import '../data/content_media_store.dart';
+import '../domain/content_media.dart';
 import '../domain/content_store.dart';
 
 final class AppContentController extends ChangeNotifier {
@@ -13,13 +15,16 @@ final class AppContentController extends ChangeNotifier {
     required String languageCode,
     required AppContent content,
     BackgroundContentUpdater? updater,
+    ContentMediaStore? mediaStore,
   }) : _repository = repository,
        _languageCode = languageCode,
        _content = content,
-       _updater = updater;
+       _updater = updater,
+       _mediaStore = mediaStore;
 
   final ContentBundleRepository _repository;
   final BackgroundContentUpdater? _updater;
+  final ContentMediaStore? _mediaStore;
 
   String _languageCode;
   AppContent _content;
@@ -32,15 +37,21 @@ final class AppContentController extends ChangeNotifier {
     required ContentBundleRepository repository,
     required String languageCode,
     BackgroundContentUpdater? updater,
+    ContentMediaStore? mediaStore,
   }) async {
     final normalizedLanguageCode = AppLocale.normalizeLanguageCode(
       languageCode,
     );
-    final content = await _loadContent(repository, normalizedLanguageCode);
+    final content = await _loadContent(
+      repository,
+      normalizedLanguageCode,
+      mediaStore,
+    );
 
     return AppContentController._(
       repository: repository,
       updater: updater,
+      mediaStore: mediaStore,
       languageCode: normalizedLanguageCode,
       content: content,
     );
@@ -54,7 +65,11 @@ final class AppContentController extends ChangeNotifier {
       return;
     }
 
-    final content = await _loadContent(_repository, normalizedLanguageCode);
+    final content = await _loadContent(
+      _repository,
+      normalizedLanguageCode,
+      _mediaStore,
+    );
     _languageCode = normalizedLanguageCode;
     _content = content;
     notifyListeners();
@@ -73,7 +88,7 @@ final class AppContentController extends ChangeNotifier {
         return;
       }
 
-      _content = _contentFromResult(result);
+      _content = _contentFromResult(result, _mediaStore);
       notifyListeners();
     } on Object {
       // Background updates are best-effort; local content remains authoritative.
@@ -83,18 +98,28 @@ final class AppContentController extends ChangeNotifier {
   static Future<AppContent> _loadContent(
     ContentBundleRepository repository,
     String languageCode,
+    ContentMediaStore? mediaStore,
   ) async {
     final result = await repository.load(languageCode);
 
-    return _contentFromResult(result);
+    return _contentFromResult(result, mediaStore);
   }
 
-  static AppContent _contentFromResult(ContentBundleParseResult result) {
+  static AppContent _contentFromResult(
+    ContentBundleParseResult result,
+    ContentMediaStore? mediaStore,
+  ) {
     final store = ContentStore(result.bundle);
 
     return AppContent(
       store: store,
       searchIndex: SearchIndex.fromBundle(result.bundle),
+      mediaResolver:
+          mediaStore?.resolverFor(
+            language: result.bundle.language,
+            version: result.bundle.version,
+          ) ??
+          ContentMediaResolver.empty,
       warnings: result.warnings,
     );
   }

@@ -14,3 +14,5 @@ updatedAt: 2026-05-25T00:00:00Z
 ---
 
 Event body in Markdown.
+
+![Example timeline image](media/history/example/example-image.webp "Optional caption")

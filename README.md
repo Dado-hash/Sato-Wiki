@@ -119,6 +119,27 @@ Usalo per analisi editoriali e approfondimenti community. Campi chiave:
 I link inline a Wiki/BIP devono essere riflessi anche in `related` quando sono
 rilevanti per la navigazione interna.
 
+### Immagini inline
+
+Tutti i corpi Markdown supportano immagini inline con sintassi standard:
+
+```md
+![Schema UTXO](media/wiki/utxo-model/utxo-flow.svg "Flusso semplificato degli UTXO")
+```
+
+Regole:
+
+- usare solo path relativi sotto `media/`;
+- non usare URL esterni o segmenti `..`;
+- scrivere sempre un alt text descrittivo;
+- usare il title Markdown per la caption opzionale;
+- formati supportati: `.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`.
+
+Le immagini devono vivere nella cartella `media/` accanto al bundle sorgente; il
+generatore le copia nel CDN versionato e l'app le scarica insieme al bundle.
+Se una immagine referenziata non e disponibile, l'update contenuti viene
+scartato per mantenere il comportamento offline-first.
+
 ### History
 
 Template: `content/templates/history_event.md`.

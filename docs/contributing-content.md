@@ -21,6 +21,18 @@ PR checks must run:
 /Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart
 ```
 
+## Immagini inline
+
+Nei corpi Markdown puoi inserire schemi e immagini con la sintassi standard:
+
+```md
+![Schema canali Lightning](media/lightning/channels/channel-lifecycle.svg "Ciclo di vita di un canale")
+```
+
+Usa solo file sotto `media/`, sempre con alt text descrittivo. I formati
+supportati sono PNG, JPG/JPEG, WebP e SVG. `validate_content.dart` fallisce se
+un'immagine referenziata non esiste o non segue queste convenzioni.
+
 Publishing target: static JSON bundle on CDN plus immutable versioned path:
 
 ```text

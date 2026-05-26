@@ -63,6 +63,28 @@ ed e registrata come asset Flutter. I bundle sono separati per lingua:
 `seed_bundle_{language}.json` per seed locali e `content/{language}/...` per CDN.
 Serve per parser test, vertical slice e futuro bootstrap offline.
 
+## Immagini Inline
+
+I campi Markdown (`bodyMarkdown`, `summaryMarkdown`, `impactMarkdown`,
+`userImpactMarkdown`, `technicalChangesMarkdown` e i livelli Wiki) supportano
+immagini inline con sintassi Markdown standard:
+
+```md
+![Alt descrittivo](media/wiki/utxo-model/utxo-flow.svg "Caption opzionale")
+```
+
+Regole:
+
+- il path deve essere relativo e iniziare con `media/`;
+- URL esterni, query string, fragment e segmenti `..` non sono ammessi;
+- l'alt text e obbligatorio;
+- il title Markdown diventa caption;
+- formati supportati: `.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`.
+
+Durante l'update remoto l'app scarica tutte le immagini referenziate prima di
+installare il bundle. L'installazione e atomica: un errore su una immagine
+mantiene il bundle locale precedente.
+
 ## Parser, Validazione E Fallback
 
 Implementazione:

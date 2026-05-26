@@ -174,7 +174,7 @@ void main() {
       expect(find.text('BIP 399'), findsOneWidget);
       expect(find.text('BIP 1'), findsOneWidget);
 
-      await tester.tap(find.text('Lowest BIP #'));
+      await tester.tap(find.byTooltip('Lowest BIP #'));
       await tester.pumpAndSettle();
 
       expect(
