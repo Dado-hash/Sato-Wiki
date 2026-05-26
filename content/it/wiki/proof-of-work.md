@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Proof of Work
 description: Il meccanismo che Bitcoin usa per rendere costoso riscrivere la storia dei blocchi e semplice verificarla.
+coverImage: media/wiki/proof-of-work/pow-mining-loop.svg
 difficulty: advanced
 readTimeMinutes: 9
 tags:
@@ -35,7 +36,7 @@ updatedAt: 2026-05-26T00:00:00Z
 
 La Proof of Work e il modo in cui Bitcoin rende costoso riscrivere la storia. I miner costruiscono blocchi candidati e cercano un hash inferiore al target corrente della rete. La ricerca richiede molti tentativi, ma ogni nodo puo verificare rapidamente l'hash vincente.
 
-![Schema del ciclo di mining](media/wiki/proof-of-work/pow-mining-loop.svg "Un miner modifica il blocco candidato finche l'hash non scende sotto il target.")
+![Schema del lavoro accumulato](media/wiki/proof-of-work/accumulated-work.svg "I nodi scelgono il ramo valido con piu proof of work accumulata, non semplicemente il primo blocco ricevuto.")
 
 Un blocco e utile solo se rispetta tutte le regole di consenso: le transazioni devono essere valide, il blocco deve collegarsi a un blocco precedente e la prova deve soddisfare il target. La Proof of Work non sostituisce la validazione; assegna un costo oggettivo ai blocchi validi.
 

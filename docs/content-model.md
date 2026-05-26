@@ -43,6 +43,7 @@ Ogni record deve includere:
   "category": "protocol",
   "title": "Proof of Work",
   "description": "The consensus mechanism used to validate transactions...",
+  "coverImage": "media/wiki/proof-of-work/hero.svg",
   "readingLevels": {
     "base": { "bodyMarkdown": "..." },
     "medium": { "bodyMarkdown": "..." },
@@ -80,6 +81,10 @@ Regole:
 - l'alt text e obbligatorio;
 - il title Markdown diventa caption;
 - formati supportati: `.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`.
+
+Le `WikiEntry` possono anche dichiarare `coverImage` con le stesse regole di
+path. L'immagine viene mostrata come visuale principale dell'articolo e viene
+inclusa nel prefetch media offline insieme alle immagini inline.
 
 Durante l'update remoto l'app scarica tutte le immagini referenziate prima di
 installare il bundle. L'installazione e atomica: un errore su una immagine

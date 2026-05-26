@@ -21,6 +21,10 @@ void main() {
       bundle.wiki.single.contentFor(ReadingLevel.base).bodyMarkdown,
       contains('history costly to rewrite'),
     );
+    expect(
+      bundle.wiki.single.coverImage,
+      Uri.parse('media/wiki/proof-of-work/pow-mining-loop.svg'),
+    );
     expect(bundle.news.single.author.github, 'andreas-m');
     expect(bundle.history.single.date, DateTime(2010, 5, 22));
     expect(bundle.bips.single.status, BipStatus.active);

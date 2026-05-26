@@ -51,6 +51,16 @@ abstract final class ContentMedia {
     final references = <ContentMediaReference>[];
 
     for (final entry in bundle.wiki) {
+      final coverImage = entry.coverImage;
+      if (coverImage != null) {
+        references.add(
+          ContentMediaReference(
+            source: coverImage.toString(),
+            alt: entry.title,
+            title: entry.description,
+          ),
+        );
+      }
       for (final level in entry.readingLevels.values) {
         references.addAll(referencesFromMarkdown(level.bodyMarkdown));
       }

@@ -86,6 +86,7 @@ abstract final class ContentBundleParser {
       category: _string(data, 'category', path),
       title: _string(data, 'title', path),
       description: _string(data, 'description', path),
+      coverImage: _optionalRelativeUri(data, 'coverImage', path),
       readingLevels: levels,
       difficulty: _readingLevel(data, 'difficulty', path),
       readTimeMinutes: _int(data, 'readTimeMinutes', path),
@@ -441,6 +442,20 @@ abstract final class ContentBundleParser {
     final uri = Uri.tryParse(value);
     if (uri == null || !uri.hasScheme) {
       throw ContentBundleParseException('$path.$key must be an absolute URI.');
+    }
+
+    return uri;
+  }
+
+  static Uri? _optionalRelativeUri(JsonMap data, String key, String path) {
+    final value = _optionalString(data, key);
+    if (value == null) {
+      return null;
+    }
+
+    final uri = Uri.tryParse(value);
+    if (uri == null) {
+      throw ContentBundleParseException('$path.$key must be a URI.');
     }
 
     return uri;

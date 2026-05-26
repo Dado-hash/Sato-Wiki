@@ -73,6 +73,7 @@ final class WikiEntry {
     required this.category,
     required this.title,
     required this.description,
+    this.coverImage,
     required this.readingLevels,
     required this.difficulty,
     required this.readTimeMinutes,
@@ -88,6 +89,7 @@ final class WikiEntry {
   final String category;
   final String title;
   final String description;
+  final Uri? coverImage;
   final Map<ReadingLevel, ReadingLevelContent> readingLevels;
   final ReadingLevel difficulty;
   final int readTimeMinutes;

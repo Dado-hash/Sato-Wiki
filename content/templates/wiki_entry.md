@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Example
 description: One sentence summary.
+coverImage: media/wiki/example/example-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

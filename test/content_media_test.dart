@@ -64,6 +64,18 @@ void main() {
     );
   });
 
+  test('extracts wiki cover image media references', () {
+    final json = File('assets/content/seed_bundle_en.json').readAsStringSync();
+    final bundle = ContentBundleParser.parseJson(json).bundle;
+
+    final references = ContentMedia.referencesFromBundle(bundle);
+
+    expect(
+      references.map((reference) => reference.source),
+      contains('media/wiki/proof-of-work/pow-mining-loop.svg'),
+    );
+  });
+
   test('proof-of-work seed media assets are bundled', () async {
     final miningLoop = await rootBundle.load(
       'assets/content/media/wiki/proof-of-work/pow-mining-loop.svg',

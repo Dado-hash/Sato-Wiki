@@ -723,10 +723,19 @@ class WikiEntryScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            HeroMedia(
-              icon: _iconForEntry(entry),
-              label: l10n.entryConceptualVisual(entry.title),
-            ),
+            if (entry.coverImage != null)
+              ContentImageFigure(
+                source: entry.coverImage.toString(),
+                alt: entry.title,
+                aspectRatio: 16 / 9,
+                showCaption: false,
+                padding: EdgeInsets.zero,
+              )
+            else
+              HeroMedia(
+                icon: _iconForEntry(entry),
+                label: l10n.entryConceptualVisual(entry.title),
+              ),
             const SizedBox(height: 24),
             MarkdownText(entry.contentFor(selectedLevel).bodyMarkdown),
             if (entry.related.isNotEmpty) ...[

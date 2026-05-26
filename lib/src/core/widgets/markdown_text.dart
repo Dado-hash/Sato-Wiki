@@ -51,11 +51,11 @@ class MarkdownText extends StatelessWidget {
         blockSpacing: 16,
       ),
       imageBuilder: (uri, title, alt) {
-        return _MarkdownImageFigure(
+        return ContentImageFigure(
           source: uri.toString(),
           alt: alt,
           title: title,
-          resolver:
+          mediaResolver:
               mediaResolver ??
               ContentMediaScope.maybeOf(context) ??
               ContentMediaResolver.empty,
@@ -65,50 +65,77 @@ class MarkdownText extends StatelessWidget {
   }
 }
 
-class _MarkdownImageFigure extends StatelessWidget {
-  const _MarkdownImageFigure({
+class ContentImageFigure extends StatelessWidget {
+  const ContentImageFigure({
     required this.source,
-    required this.resolver,
+    this.mediaResolver,
     this.alt,
     this.title,
+    this.aspectRatio,
+    this.height = 220,
+    this.showCaption = true,
+    this.padding = const EdgeInsets.symmetric(vertical: 8),
+    this.fit = BoxFit.contain,
+    super.key,
   });
 
   final String source;
   final String? alt;
   final String? title;
-  final ContentMediaResolver resolver;
+  final ContentMediaResolver? mediaResolver;
+  final double? aspectRatio;
+  final double height;
+  final bool showCaption;
+  final EdgeInsetsGeometry padding;
+  final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final resolver =
+        mediaResolver ??
+        ContentMediaScope.maybeOf(context) ??
+        ContentMediaResolver.empty;
     final semanticLabel = (alt?.trim().isNotEmpty ?? false)
         ? alt!.trim()
         : source;
     final caption = title?.trim();
+    final resolvedUri = resolver.resolve(source);
+    final VoidCallback? openImage =
+        resolvedUri != null && resolvedUri.scheme == 'file'
+        ? () => _openFullScreen(context, resolvedUri, semanticLabel)
+        : null;
+    final canOpen = openImage != null;
+    final image = _resolvedImage(context, resolvedUri);
+
+    Widget imageBox = Semantics(
+      container: true,
+      label: semanticLabel,
+      image: true,
+      button: canOpen,
+      onTap: openImage,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: _sizedImage(image),
+      ),
+    );
+
+    if (canOpen) {
+      imageBox = GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: openImage,
+        child: imageBox,
+      );
+    }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Semantics(
-            container: true,
-            label: semanticLabel,
-            image: true,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: colorScheme.surfaceContainerLow,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: colorScheme.outlineVariant),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: _resolvedImage(context),
-              ),
-            ),
-          ),
-          if (caption != null && caption.isNotEmpty) ...[
+          imageBox,
+          if (showCaption && caption != null && caption.isNotEmpty) ...[
             const SizedBox(height: 8),
             Text(
               caption,
@@ -123,28 +150,151 @@ class _MarkdownImageFigure extends StatelessWidget {
     );
   }
 
-  Widget _resolvedImage(BuildContext context) {
-    final resolvedUri = resolver.resolve(source);
+  Widget _sizedImage(Widget child) {
+    if (aspectRatio != null) {
+      return AspectRatio(aspectRatio: aspectRatio!, child: child);
+    }
+
+    return SizedBox(width: double.infinity, height: height, child: child);
+  }
+
+  Widget _resolvedImage(BuildContext context, Uri? resolvedUri) {
     if (resolvedUri == null || resolvedUri.scheme != 'file') {
-      return _ImagePlaceholder(label: source);
+      return _FramedImagePlaceholder(label: source);
     }
 
     final file = File.fromUri(resolvedUri);
     final extension = ContentMedia.extensionFor(file.path);
-    final image = extension == '.svg'
-        ? SvgPicture.file(
-            file,
-            fit: BoxFit.contain,
-            placeholderBuilder: (_) => _ImagePlaceholder(label: source),
-          )
-        : Image.file(
-            file,
-            fit: BoxFit.contain,
-            semanticLabel: alt,
-            errorBuilder: (_, _, _) => _ImagePlaceholder(label: source),
-          );
+    return _ContentImageFile(
+      file: file,
+      extension: extension,
+      fit: fit,
+      semanticLabel: alt,
+      placeholder: _FramedImagePlaceholder(label: source),
+    );
+  }
 
-    return SizedBox(width: double.infinity, height: 220, child: image);
+  void _openFullScreen(
+    BuildContext context,
+    Uri resolvedUri,
+    String semanticLabel,
+  ) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        fullscreenDialog: true,
+        builder: (_) => _ContentImageFullScreen(
+          file: File.fromUri(resolvedUri),
+          semanticLabel: semanticLabel,
+        ),
+      ),
+    );
+  }
+}
+
+class _ContentImageFile extends StatelessWidget {
+  const _ContentImageFile({
+    required this.file,
+    required this.extension,
+    required this.fit,
+    required this.placeholder,
+    this.semanticLabel,
+  });
+
+  final File file;
+  final String extension;
+  final BoxFit fit;
+  final Widget placeholder;
+  final String? semanticLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    if (extension == '.svg') {
+      return SvgPicture.file(
+        file,
+        fit: fit,
+        placeholderBuilder: (_) => placeholder,
+      );
+    }
+
+    return Image.file(
+      file,
+      fit: fit,
+      semanticLabel: semanticLabel,
+      errorBuilder: (_, _, _) => placeholder,
+    );
+  }
+}
+
+class _ContentImageFullScreen extends StatelessWidget {
+  const _ContentImageFullScreen({
+    required this.file,
+    required this.semanticLabel,
+  });
+
+  final File file;
+  final String semanticLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final extension = ContentMedia.extensionFor(file.path);
+    final closeTooltip = MaterialLocalizations.of(context).closeButtonTooltip;
+
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        leading: IconButton(
+          tooltip: closeTooltip,
+          icon: const Icon(Icons.close),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return InteractiveViewer(
+              minScale: 1,
+              maxScale: 4,
+              child: SizedBox(
+                width: constraints.maxWidth,
+                height: constraints.maxHeight,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: _ContentImageFile(
+                    file: file,
+                    extension: extension,
+                    fit: BoxFit.contain,
+                    semanticLabel: semanticLabel,
+                    placeholder: _ImagePlaceholder(label: semanticLabel),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class _FramedImagePlaceholder extends StatelessWidget {
+  const _FramedImagePlaceholder({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: colorScheme.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: colorScheme.outlineVariant),
+      ),
+      child: _ImagePlaceholder(label: label),
+    );
   }
 }
 
