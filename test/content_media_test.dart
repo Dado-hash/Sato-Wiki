@@ -10,6 +10,8 @@ import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 import 'package:sato_wiki/src/core/content/domain/content_media.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test('extracts media references from every markdown content type', () {
     final bundle = ContentBundleParser.parseJson(
       _bundleJson(
@@ -60,6 +62,18 @@ void main() {
         'Image extension must be one of .jpeg, .jpg, .png, .svg, .webp.',
       ]),
     );
+  });
+
+  test('proof-of-work seed media assets are bundled', () async {
+    final miningLoop = await rootBundle.load(
+      'assets/content/media/wiki/proof-of-work/pow-mining-loop.svg',
+    );
+    final accumulatedWork = await rootBundle.load(
+      'assets/content/media/wiki/proof-of-work/accumulated-work.svg',
+    );
+
+    expect(miningLoop.lengthInBytes, greaterThan(0));
+    expect(accumulatedWork.lengthInBytes, greaterThan(0));
   });
 
   test('installs bundled media assets for seed content', () async {

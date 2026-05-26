@@ -26,7 +26,7 @@ final class HttpContentMediaDownloader implements ContentMediaDownloader {
         throw const ContentBundleParseException('Media download failed.');
       }
 
-      return response.expand((chunk) => chunk).toList();
+      return await response.expand((chunk) => chunk).toList();
     } finally {
       client.close(force: true);
     }
