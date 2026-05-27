@@ -1,0 +1,139 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mempool pipeline — transaction lifecycle</title>
+  <desc id="desc">A transaction is broadcast, validated against policy rules, held in the mempool, then either included in a block or evicted.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Transaction lifecycle through the mempool</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Broadcast, validate, wait, confirm or evict — every transaction follows this path.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 160H884"/>
+    <path d="M76 370H884"/>
+    <path d="M220 150V460"/>
+    <path d="M460 150V460"/>
+    <path d="M700 150V460"/>
+  </g>
+
+  <!-- Stage 1: Broadcast (left) -->
+  <text x="92" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">1  broadcast</text>
+
+  <g filter="url(#soft)">
+    <rect x="82" y="190" width="200" height="140" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+
+    <!-- Wallet icon area -->
+    <rect x="112" y="210" width="56" height="28" rx="8" fill="#20252D" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="140" y="229" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">wallet</text>
+
+    <!-- TX box -->
+    <rect x="102" y="260" width="160" height="50" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
+    <text x="182" y="284" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Create TX</text>
+    <text x="182" y="302" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">sign + broadcast</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <path d="M296 260C340 260 346 240 384 240" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Stage 2: Validation checks (mid-left) -->
+  <text x="404" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">2  policy validation</text>
+
+  <g filter="url(#soft)">
+    <rect x="386" y="186" width="162" height="200" rx="16" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
+
+    <!-- Validation items -->
+    <rect x="406" y="206" width="122" height="30" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="467" y="226" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">standardness</text>
+
+    <rect x="406" y="248" width="122" height="30" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="467" y="268" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">anti-DoS</text>
+
+    <rect x="406" y="290" width="122" height="30" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="467" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">RBF rules</text>
+
+    <rect x="406" y="332" width="122" height="30" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="467" y="352" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ancestor limits</text>
+  </g>
+
+  <!-- Arrow 2→3 (accepted path) -->
+  <path d="M562 238C598 238 604 220 632 220" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Arrow 2→reject (rejected path, going down) -->
+  <path d="M467 398V424" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+
+  <!-- Rejected box -->
+  <rect x="404" y="430" width="126" height="28" rx="14" fill="#241E31" stroke="#7C5CFF" stroke-width="1.4"/>
+  <text x="467" y="449" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">rejected</text>
+
+  <!-- Stage 3: Mempool wait (center-right) -->
+  <text x="624" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">3  mempool wait</text>
+
+  <g filter="url(#soft)">
+    <rect x="618" y="186" width="170" height="126" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+
+    <rect x="640" y="206" width="126" height="36" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="703" y="228" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">unconfirmed</text>
+
+    <!-- Clock / time indicator -->
+    <rect x="656" y="256" width="94" height="28" rx="14" fill="#1F2630" stroke="#46505C" stroke-width="1.2"/>
+    <text x="703" y="275" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">~10 min avg</text>
+
+    <g stroke="#28313B" stroke-width="1" stroke-dasharray="6 6" opacity="0.7">
+      <path d="M640 296H766"/>
+    </g>
+    <text x="703" y="312" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">300 MB cap</text>
+  </g>
+
+  <!-- Arrow 3→4 (mempool → block) -->
+  <path d="M802 222C832 222 836 216 856 216" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Stage 4: Block inclusion (right) -->
+  <text x="848" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">4  block</text>
+
+  <g filter="url(#soft)">
+    <rect x="850" y="186" width="74" height="126" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+
+    <rect x="862" y="206" width="50" height="36" rx="10" fill="#203327" stroke="#22C55E" stroke-width="1.4"/>
+    <text x="887" y="228" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">in</text>
+
+    <rect x="862" y="256" width="50" height="36" rx="10" fill="#203327" stroke="#22C55E" stroke-width="1.4"/>
+    <text x="887" y="278" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">confirmed</text>
+  </g>
+
+  <!-- Arrow 4→UTXO set (block → confirmed) -->
+  <path d="M887 324V430H160" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-green)"/>
+
+  <!-- EVICTION PATH: from mempool down -->
+  <path d="M703 324V400" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-orange)"/>
+
+  <!-- Evicted box -->
+  <rect x="640" y="406" width="126" height="28" rx="14" fill="#241E31" stroke="#7C5CFF" stroke-width="1.4"/>
+  <text x="703" y="425" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">evicted</text>
+
+  <!-- Confirmed UTXO set (bottom) -->
+  <g filter="url(#soft)">
+    <rect x="82" y="420" width="200" height="42" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="182" y="446" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">UTXO set updated</text>
+  </g>
+
+  <!-- Vertical labels for the two outcomes -->
+  <text x="618" y="420" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11" opacity="0.7">or</text>
+</svg>

@@ -1,0 +1,118 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mempool hero — transactions entering and being selected for a block</title>
+  <desc id="desc">Three unconfirmed transactions float into the mempool area. A miner pulls the highest-fee transactions from the mempool into a block template.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Every node has its own mempool</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Transactions arrive, policy filters them, miners build block templates from the best candidates.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 160H884"/>
+    <path d="M76 300H884"/>
+    <path d="M76 440H884"/>
+    <path d="M340 150V458"/>
+    <path d="M680 150V458"/>
+  </g>
+
+  <text x="92" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">inbound transactions</text>
+  <text x="372" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">mempool</text>
+  <text x="706" y="166" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">block template</text>
+
+  <!-- Inbound transactions (left column) -->
+  <g filter="url(#soft)">
+    <rect x="82" y="190" width="190" height="64" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="177" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Payment TX</text>
+    <text x="177" y="239" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">15 sat/vB</text>
+
+    <rect x="82" y="282" width="190" height="64" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="177" y="312" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Swap TX</text>
+    <text x="177" y="331" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">65 sat/vB</text>
+
+    <rect x="82" y="374" width="190" height="64" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="177" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Dust sweep</text>
+    <text x="177" y="423" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">3 sat/vB</text>
+  </g>
+
+  <!-- Arrows from inbound to mempool -->
+  <path d="M286 222H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M286 314H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M286 406H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Mempool container (center) -->
+  <g filter="url(#soft)">
+    <rect x="334" y="186" width="278" height="260" rx="18" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
+    <text x="473" y="216" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">mempool ~ 300 MB</text>
+
+    <!-- Transactions inside mempool -->
+    <rect x="360" y="234" width="132" height="42" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="426" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">65 sat/vB</text>
+
+    <rect x="500" y="240" width="96" height="38" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="548" y="264" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">42 s/vB</text>
+
+    <rect x="360" y="290" width="96" height="38" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="408" y="314" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">28 s/vB</text>
+
+    <rect x="468" y="288" width="128" height="38" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="532" y="312" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">15 sat/vB</text>
+
+    <rect x="360" y="344" width="128" height="38" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="424" y="368" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">8 sat/vB</text>
+
+    <rect x="500" y="348" width="96" height="38" rx="12" fill="#241E31" stroke="#7C5CFF" stroke-width="1.4"/>
+    <text x="548" y="372" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">3 s/vB</text>
+
+    <!-- Fee-rate separator line inside mempool -->
+    <g stroke="#28313B" stroke-width="1" stroke-dasharray="6 6" opacity="0.7">
+      <path d="M360 396H598"/>
+    </g>
+    <text x="479" y="432" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">eviction line</text>
+  </g>
+
+  <!-- Arrow from mempool to block template -->
+  <path d="M626 260C650 260 656 210 680 210" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M626 298C650 298 656 248 680 248" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Block template (right) -->
+  <g filter="url(#soft)">
+    <rect x="680" y="186" width="220" height="260" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
+    <text x="790" y="216" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block template</text>
+
+    <rect x="708" y="236" width="90" height="32" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="753" y="257" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">coinbase</text>
+
+    <rect x="804" y="236" width="80" height="32" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="844" y="257" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">65 s/vB</text>
+
+    <rect x="708" y="282" width="80" height="32" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="748" y="303" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">42 s/vB</text>
+
+    <rect x="798" y="282" width="86" height="32" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="841" y="303" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">28 s/vB</text>
+
+    <rect x="708" y="330" width="86" height="32" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+    <text x="751" y="351" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">15 s/vB</text>
+
+    <g stroke="#28313B" stroke-width="1" stroke-dasharray="6 6" opacity="0.7">
+      <path d="M708 388H886"/>
+    </g>
+    <text x="790" y="420" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">4 MWU remaining</text>
+  </g>
+</svg>

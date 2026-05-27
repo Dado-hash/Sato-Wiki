@@ -1,0 +1,102 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Block propagation wave across the Bitcoin network</title>
+  <desc id="desc">A newly discovered block radiates from the miner outward through connected peers in concentric waves. Nodes light up as they validate and relay the block, growing the coverage area until all reachable peers have received it.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <filter id="glow-orange" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Propagation wave</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">A discovered block radiates through the peer-to-peer network, validated hop by hop.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 166H884"/>
+    <path d="M76 300H884"/>
+    <path d="M76 434H884"/>
+    <path d="M164 150V454"/>
+    <path d="M480 150V454"/>
+    <path d="M796 150V454"/>
+  </g>
+
+  <g opacity="0.12" fill="none" stroke="#F7931A" stroke-width="3">
+    <circle cx="300" cy="270" r="60"/>
+    <circle cx="300" cy="270" r="120"/>
+  </g>
+
+  <g opacity="0.08" fill="none" stroke="#F7931A" stroke-width="2">
+    <circle cx="300" cy="270" r="180"/>
+    <circle cx="300" cy="270" r="240"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <circle cx="300" cy="270" r="32" fill="#203327" stroke="#22C55E" stroke-width="2.5" filter="url(#glow-orange)"/>
+    <text x="300" y="274" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">M</text>
+
+    <circle cx="300" cy="150" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="300" y="154" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="160" cy="200" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="160" y="204" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="450" cy="190" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="450" y="194" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="140" cy="340" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="140" y="344" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="460" cy="360" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="460" y="364" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="300" cy="390" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="300" y="394" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="640" cy="240" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
+    <text x="640" y="244" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="720" cy="350" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
+    <text x="720" y="354" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+
+    <circle cx="580" cy="140" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
+    <text x="580" y="144" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+  </g>
+
+  <g stroke="#22C55E" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="6 5">
+    <path d="M300 238V172"/>
+    <path d="M268 240L172 208"/>
+    <path d="M330 242L436 208"/>
+    <path d="M268 298L160 332"/>
+    <path d="M330 296L440 348"/>
+    <path d="M300 302V368"/>
+    <path d="M322 250L618 250"/>
+    <path d="M690 258L700 338"/>
+    <path d="M580 162L618 228"/>
+  </g>
+
+  <g stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.25">
+    <path d="M160 222L140 318" stroke="#B7B1A8"/>
+    <path d="M450 212L442 338" stroke="#B7B1A8"/>
+    <path d="M580 162L640 218" stroke="#B7B1A8"/>
+  </g>
+
+  <rect x="698" y="430" width="216" height="38" rx="12" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
+  <circle cx="716" cy="449" r="5" fill="#22C55E"/>
+  <text x="730" y="454" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">relayed block</text>
+
+  <circle cx="810" cy="449" r="5" fill="#46505C"/>
+  <text x="824" y="454" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">not yet relayed</text>
+</svg>

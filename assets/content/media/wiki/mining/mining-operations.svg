@@ -1,0 +1,120 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mining pool architecture</title>
+  <desc id="desc">Multiple miners connect to a pool server via Stratum protocol, receive jobs, submit shares, and share block rewards proportionally.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Mining pool architecture</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Coordinating hash power through Stratum job distribution</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 152H884"/>
+    <path d="M76 274H884"/>
+    <path d="M76 394H884"/>
+    <path d="M124 152V444"/>
+    <path d="M418 152V444"/>
+    <path d="M712 152V444"/>
+  </g>
+
+  <g transform="translate(-12 0)">
+
+    <!-- Miners column -->
+    <g filter="url(#soft)">
+      <rect x="44" y="170" width="180" height="258" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+      <text x="134" y="206" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Miners</text>
+
+      <!-- Miner 1 -->
+      <rect x="60" y="228" width="148" height="52" rx="10" fill="#171B21" stroke="#46505C"/>
+      <rect x="70" y="238" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <rect x="96" y="238" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <rect x="122" y="238" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <text x="134" y="270" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~100 TH/s</text>
+
+      <!-- Miner 2 -->
+      <rect x="60" y="296" width="148" height="52" rx="10" fill="#171B21" stroke="#46505C"/>
+      <rect x="70" y="306" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <rect x="96" y="306" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <rect x="122" y="306" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <text x="134" y="338" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~150 TH/s</text>
+
+      <!-- Miner 3 -->
+      <rect x="60" y="364" width="148" height="52" rx="10" fill="#171B21" stroke="#46505C"/>
+      <rect x="70" y="374" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <rect x="96" y="374" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <rect x="122" y="374" width="22" height="14" rx="3" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+      <text x="134" y="406" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~80 TH/s</text>
+    </g>
+
+    <!-- Arrow miner to pool -->
+    <path d="M238 300H300" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+    <!-- Pool server -->
+    <g filter="url(#soft)">
+      <rect x="316" y="170" width="202" height="258" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+      <text x="417" y="206" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Pool server</text>
+
+      <!-- Server rack -->
+      <rect x="336" y="228" width="162" height="130" rx="8" fill="#171B21" stroke="#343A44" stroke-width="1.5"/>
+
+      <rect x="348" y="238" width="138" height="30" rx="6" fill="#1A1F28" stroke="#46505C"/>
+      <text x="417" y="258" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">Stratum</text>
+
+      <rect x="348" y="278" width="138" height="30" rx="6" fill="#1A1F28" stroke="#46505C"/>
+      <text x="417" y="298" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">Job dispatch</text>
+
+      <rect x="348" y="318" width="138" height="30" rx="6" fill="#14251A" stroke="#22C55E" stroke-width="1.2"/>
+      <text x="417" y="338" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Share tracking</text>
+
+      <path d="M366 366 L486 366" stroke="#46505C" stroke-width="1" stroke-dasharray="4 4"/>
+    </g>
+
+    <!-- Arrow pool to network -->
+    <path d="M532 300H594" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+    <!-- Bitcoin network -->
+    <g filter="url(#soft)">
+      <rect x="610" y="170" width="282" height="258" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+      <text x="751" y="206" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Bitcoin Network</text>
+
+      <!-- Node icon -->
+      <circle cx="710" cy="270" r="34" fill="#171B21" stroke="#46505C" stroke-width="2"/>
+      <circle cx="710" cy="270" r="12" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+      <text x="710" y="274" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">B</text>
+
+      <!-- Block submitted -->
+      <rect x="772" y="244" width="96" height="52" rx="10" fill="#171B21" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="820" y="264" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">Block</text>
+      <text x="820" y="284" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">submitted</text>
+
+      <rect x="630" y="332" width="228" height="38" rx="19" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="744" y="356" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">6.25 BTC + fees</text>
+
+      <path d="M820 244 L820 228 L710 228 L710 238" stroke="#7C8794" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow-muted)"/>
+      <text x="765" y="222" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">propagation</text>
+    </g>
+
+    <!-- Reward sharing bottom -->
+    <g filter="url(#soft)">
+      <rect x="316" y="448" width="288" height="44" rx="22" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+      <text x="460" y="476" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">shares → reward distribution (PPS / PPLNS / FPPS)</text>
+    </g>
+
+    <path d="M460 430V442" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  </g>
+</svg>

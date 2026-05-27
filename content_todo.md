@@ -13,16 +13,16 @@ livelli di lettura `base`, `medium` e `advanced`.
 - [x] Blocks - `wiki.blocks`
 - [x] Blockchain - `wiki.blockchain`
 - [x] Full nodes - `wiki.full-nodes`
-- [ ] Consensus rules - `wiki.consensus-rules`
-- [ ] Mempool - `wiki.mempool`
-- [ ] Mining - `wiki.mining`
-- [ ] Block propagation - `wiki.block-propagation`
-- [ ] Peer-to-peer network - `wiki.peer-to-peer-network`
-- [ ] Bitcoin Script - `wiki.bitcoin-script`
-- [ ] Segregated Witness - `wiki.segregated-witness`
-- [ ] Taproot - `wiki.taproot`
-- [ ] Forks and soft forks - `wiki.forks-and-soft-forks`
-- [ ] Transaction fees - `wiki.transaction-fees`
+- [x] Consensus rules - `wiki.consensus-rules`
+- [x] Mempool - `wiki.mempool`
+- [x] Mining - `wiki.mining`
+- [x] Block propagation - `wiki.block-propagation`
+- [x] Peer-to-peer network - `wiki.peer-to-peer-network`
+- [x] Bitcoin Script - `wiki.bitcoin-script`
+- [x] Segregated Witness - `wiki.segregated-witness`
+- [x] Taproot - `wiki.taproot`
+- [x] Forks and soft forks - `wiki.forks-and-soft-forks`
+- [x] Transaction fees - `wiki.transaction-fees`
 
 ## Cryptography (`cryptography`)
 

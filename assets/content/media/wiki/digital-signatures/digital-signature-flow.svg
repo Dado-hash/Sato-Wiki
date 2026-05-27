@@ -1,0 +1,114 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Digital Signature Flow</title>
+  <desc id="desc">Two-column diagram showing signing with private key on the left and verification with public key on the right. The signing side takes a private key and transaction through a signing algorithm to produce a signature. The verification side takes the transaction, signature, and public key through a verification algorithm to output valid or invalid.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Digital Signatures in Bitcoin</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Prove ownership without revealing the secret</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 152H884"/>
+    <path d="M76 398H884"/>
+    <path d="M480 150V490"/>
+  </g>
+
+  <text x="278" y="141" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">SIGNING</text>
+  <text x="742" y="141" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">VERIFICATION</text>
+
+  <!-- LEFT COLUMN: Signing -->
+  <g filter="url(#soft)">
+    <rect x="64" y="168" width="184" height="64" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="156" y="196" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Private Key</text>
+    <text x="156" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">256-bit random secret</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="280" y="168" width="172" height="64" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
+    <text x="366" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Transaction</text>
+    <text x="366" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">unsigned tx data</text>
+  </g>
+
+  <path d="M248 200H272" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="128" y="270" width="216" height="48" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="236" y="294" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Signing Algorithm</text>
+    <text x="236" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ECDSA / Schnorr</text>
+  </g>
+
+  <path d="M156 232V262" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M366 232V262" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+
+  <g filter="url(#soft)">
+    <rect x="128" y="356" width="216" height="64" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="236" y="382" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Digital Signature</text>
+    <text x="236" y="402" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">(r, s) pair</text>
+  </g>
+
+  <path d="M236 322V348" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Divider -->
+  <rect x="470" y="160" width="2" height="330" rx="1" fill="#343A44"/>
+
+  <!-- RIGHT COLUMN: Verification -->
+  <g filter="url(#soft)">
+    <rect x="520" y="168" width="172" height="64" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
+    <text x="606" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Transaction</text>
+    <text x="606" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">same tx data</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="724" y="168" width="184" height="64" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="816" y="196" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Public Key</text>
+    <text x="816" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">derived from private key</text>
+  </g>
+
+  <path d="M606 232V262" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M816 232V262" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Signature comes from left column -->
+  <path d="M344 388H480V294H506" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <text x="480" y="326" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">signature</text>
+
+  <g filter="url(#soft)">
+    <rect x="560" y="270" width="216" height="48" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.4"/>
+    <text x="668" y="294" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Verification Algorithm</text>
+    <text x="668" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ECDSA / Schnorr</text>
+  </g>
+
+  <path d="M668 322V348" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <g filter="url(#soft)">
+    <rect x="560" y="356" width="216" height="64" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="668" y="382" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Result</text>
+    <text x="668" y="404" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">VALID / INVALID</text>
+  </g>
+
+  <!-- Bottom note -->
+  <g filter="url(#soft)">
+    <rect x="64" y="446" width="836" height="52" rx="14" fill="#171B21" stroke="#343A44" stroke-width="1.5"/>
+    <text x="482" y="470" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">
+      Verification doesn't reveal the private key. Only the signature, message, and public key are shared.
+    </text>
+    <text x="482" y="490" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">
+      Privacy property: zero-knowledge-like, but for authenticity
+    </text>
+  </g>
+</svg>

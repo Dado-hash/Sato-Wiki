@@ -1,0 +1,95 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Block validation pipeline</title>
+  <desc id="desc">A new block enters the validation pipeline. It passes through structural checks, transaction validation, and proof-of-work verification. Valid blocks are connected to the chain state; invalid blocks are rejected and their transactions are returned to the mempool.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Validation pipeline</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Cheap structural checks before expensive stateful validation</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 350H884"/>
+    <path d="M76 452H884"/>
+    <path d="M184 152V502"/>
+    <path d="M576 152V502"/>
+    <path d="M800 152V502"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="72" y="178" width="196" height="112" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="170" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">New block</text>
+    <text x="170" y="238" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">arrives from network</text>
+    <g fill="#B7B1A8" opacity="0.6">
+      <circle cx="144" cy="268" r="3"/>
+      <circle cx="158" cy="268" r="3"/>
+      <circle cx="172" cy="268" r="3"/>
+      <circle cx="186" cy="268" r="3"/>
+      <circle cx="200" cy="268" r="3"/>
+    </g>
+  </g>
+
+  <path d="M282 234H346" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="356" y="182" width="196" height="104" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="454" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Structural checks</text>
+    <text x="454" y="236" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">block size &amp; weight</text>
+    <text x="454" y="254" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">timestamp range</text>
+    <text x="454" y="272" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">proof-of-work target</text>
+  </g>
+
+  <path d="M454 291V314H170V318" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-muted)"/>
+  <rect x="250" y="306" width="176" height="26" rx="13" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+  <text x="338" y="324" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">fail → drop block</text>
+
+  <path d="M566 234H632" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="642" y="182" width="196" height="104" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="740" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Transaction validation</text>
+    <text x="740" y="236" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">signatures &amp; scripts</text>
+    <text x="740" y="254" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">double-spend check</text>
+    <text x="740" y="272" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">UTXO consistency</text>
+  </g>
+
+  <path d="M740 291V314H170V318" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-muted)"/>
+
+  <path d="M740 314H736" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round"/>
+
+  <g filter="url(#soft)">
+    <rect x="642" y="362" width="196" height="80" rx="14" fill="#2A2331" stroke="#7C5CFF" stroke-width="2"/>
+    <text x="740" y="394" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Chain state</text>
+    <text x="740" y="416" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">connect block</text>
+  </g>
+
+  <path d="M852 234H898" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <rect x="852" y="152" width="64" height="34" rx="17" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="884" y="175" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">valid</text>
+
+  <path d="M740 448V474" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M740 474H72" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M156 474V298" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-muted)"/>
+
+  <path d="M454 291V392H658" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+
+  <text x="82" y="492" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">Invalid blocks are rejected immediately; valid blocks update the chain state.</text>
+</svg>

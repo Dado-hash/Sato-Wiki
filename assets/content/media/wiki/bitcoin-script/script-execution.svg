@@ -1,0 +1,118 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">P2PKH script execution</title>
+  <desc id="desc">Stack state after each opcode in a Pay-to-Public-Key-Hash script execution showing signature and public key verification.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">P2PKH script execution</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Stack evolution during a Pay-to-Public-Key-Hash spend. Bottom of stack at left, top at right.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+    <path d="M76 204H884"/>
+    <path d="M76 260H884"/>
+    <path d="M76 316H884"/>
+    <path d="M76 372H884"/>
+    <path d="M76 428H884"/>
+    <path d="M76 484H884"/>
+    <path d="M256 140V490"/>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" fill="#B7B1A8" font-size="13">
+    <text x="88" y="141">#</text>
+    <text x="116" y="141">Operation</text>
+    <text x="324" y="141">Stack (bottom → top)</text>
+  </g>
+
+  <!-- Row 1: <sig> pushed -->
+  <g filter="url(#soft)">
+    <text x="88" y="177" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">1</text>
+    <rect x="112" y="160" width="117" height="28" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="170" y="179" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">&lt;sig&gt; push</text>
+    <rect x="320" y="191" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="206" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;sig&gt;</text>
+    <path d="M410 191V168" stroke="#F7931A" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  </g>
+
+  <!-- Row 2: <pubKey> pushed -->
+  <g>
+    <text x="88" y="233" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">2</text>
+    <rect x="112" y="216" width="117" height="28" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="170" y="235" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">&lt;pubKey&gt; push</text>
+    <rect x="320" y="222" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="237" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKey&gt;</text>
+    <rect x="530" y="222" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="620" y="237" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;sig&gt;</text>
+  </g>
+
+  <!-- Row 3: OP_DUP -->
+  <g filter="url(#soft)">
+    <text x="88" y="289" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">3</text>
+    <rect x="112" y="272" width="117" height="28" rx="8" fill="#20252D" stroke="#7C5CFF" stroke-width="1.4"/>
+    <text x="170" y="291" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">OP_DUP</text>
+    <rect x="320" y="278" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="293" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKey&gt;</text>
+    <rect x="530" y="278" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="620" y="293" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKey&gt;</text>
+    <rect x="740" y="278" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="830" y="293" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;sig&gt;</text>
+  </g>
+
+  <!-- Row 4: OP_HASH160 -->
+  <g>
+    <text x="88" y="345" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">4</text>
+    <rect x="112" y="328" width="117" height="28" rx="8" fill="#20252D" stroke="#7C5CFF" stroke-width="1.4"/>
+    <text x="170" y="347" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">OP_HASH160</text>
+    <rect x="320" y="334" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="349" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">HASH160(&lt;pubKey&gt;)</text>
+    <rect x="530" y="334" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="620" y="349" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKey&gt;</text>
+    <rect x="740" y="334" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="830" y="349" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;sig&gt;</text>
+  </g>
+
+  <!-- Row 5: <pubKeyHash> push -->
+  <g filter="url(#soft)">
+    <text x="88" y="401" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">5</text>
+    <rect x="112" y="384" width="117" height="28" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="170" y="403" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">&lt;pkHash&gt; push</text>
+    <rect x="320" y="390" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="405" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKeyHash&gt;</text>
+    <rect x="530" y="390" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="620" y="405" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">HASH160(&lt;pubKey&gt;)</text>
+    <rect x="320" y="364" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="379" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKey&gt;</text>
+    <rect x="530" y="364" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="620" y="379" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;sig&gt;</text>
+  </g>
+
+  <!-- Row 6: OP_EQUALVERIFY -->
+  <g>
+    <text x="88" y="457" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">6</text>
+    <rect x="112" y="440" width="117" height="28" rx="8" fill="#20252D" stroke="#7C5CFF" stroke-width="1.4"/>
+    <text x="170" y="459" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">OP_EQUALVERIFY</text>
+    <rect x="320" y="452" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="410" y="467" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;pubKey&gt;</text>
+    <rect x="530" y="452" width="180" height="21" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+    <text x="620" y="467" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">&lt;sig&gt;</text>
+  </g>
+
+  <!-- Row 7: OP_CHECKSIG -->
+  <g filter="url(#soft)">
+    <text x="88" y="513" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">7</text>
+    <rect x="112" y="496" width="117" height="28" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="1.4"/>
+    <text x="170" y="515" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">OP_CHECKSIG</text>
+    <rect x="320" y="502" width="180" height="28" rx="8" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="410" y="520" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">TRUE</text>
+  </g>
+</svg>

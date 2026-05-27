@@ -1,0 +1,88 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Transaction fees explained</title>
+  <desc id="desc">Three inputs feed into a transaction, two outputs go out, and the surplus flows to the miner as the fee.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Transaction fees</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Inputs minus outputs — the surplus goes to the miner.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 160H884"/>
+    <path d="M76 270H884"/>
+    <path d="M76 380H884"/>
+    <path d="M220 150V442"/>
+    <path d="M490 150V442"/>
+    <path d="M740 150V442"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="78" y="176" width="190" height="72" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="173" y="206" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Input 1</text>
+    <text x="173" y="234" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15">80,000 sats</text>
+
+    <rect x="78" y="276" width="190" height="72" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="173" y="306" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Input 2</text>
+    <text x="173" y="334" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15">70,000 sats</text>
+
+    <rect x="78" y="376" width="190" height="72" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="173" y="406" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Input 3</text>
+    <text x="173" y="434" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15">50,000 sats</text>
+  </g>
+
+  <path d="M282 212C335 212 350 248 400 248" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M282 312C335 312 350 272 400 272" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M282 412C335 412 350 388 400 388" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="402" y="192" width="170" height="240" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
+    <text x="487" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700">Transaction</text>
+    <rect x="442" y="260" width="90" height="32" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="487" y="282" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">sign inputs</text>
+    <g stroke="#B7B1A8" stroke-linecap="round" opacity="0.78">
+      <path d="M440 342H534" stroke-width="3"/>
+      <path d="M460 364H514" stroke-width="3"/>
+    </g>
+    <text x="487" y="406" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">sum</text>
+    <text x="487" y="430" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700">200,000</text>
+  </g>
+
+  <path d="M586 226C630 207 645 207 680 207" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M586 278C630 300 645 300 680 300" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <g filter="url(#soft)">
+    <rect x="684" y="172" width="190" height="80" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="779" y="202" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Recipient</text>
+    <text x="779" y="234" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15">130,000 sats</text>
+
+    <rect x="684" y="272" width="190" height="80" rx="14" fill="#20252D" stroke="#B7B1A8" stroke-width="2"/>
+    <text x="779" y="302" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Change</text>
+    <text x="779" y="334" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="15">60,000 sats</text>
+  </g>
+
+  <path d="M487 444V472H825" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-purple)"/>
+
+  <g filter="url(#soft)">
+    <rect x="684" y="390" width="190" height="56" rx="28" fill="#241E31" stroke="#7C5CFF" stroke-width="1.7"/>
+    <text x="779" y="424" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700">fee 10,000 sats</text>
+  </g>
+</svg>

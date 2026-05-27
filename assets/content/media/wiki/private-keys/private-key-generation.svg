@@ -1,0 +1,126 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Bitcoin Private Key — generation and structure</title>
+  <desc id="desc">A private key is generated from entropy, produces a random 256-bit number, and must fall between 0x1 and the secp256k1 order n. The key space is approximately 2^256.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <linearGradient id="key-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7931A" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#F7931A" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Bitcoin Private Key</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">A random 256-bit number that controls ownership of bitcoin.</text>
+
+  <!-- Divider lines -->
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 150H884"/>
+    <path d="M76 310H884"/>
+  </g>
+
+  <!-- ====== Row 1: Entropy → Random Number ====== -->
+
+  <!-- Step 1: Entropy Source -->
+  <g filter="url(#soft)">
+    <rect x="76" y="172" width="220" height="108" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="186" y="204" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Entropy Source</text>
+    <text x="186" y="228" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">OS randomness pool</text>
+    <text x="186" y="248" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">CPU jitter · mouse movements</text>
+    <text x="186" y="266" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">hardware RNG · sensor noise</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M296 226L342 226" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+
+  <!-- Step 2: CSPRNG -->
+  <g filter="url(#soft)">
+    <rect x="352" y="172" width="240" height="108" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="472" y="204" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Cryptographic RNG</text>
+    <text x="472" y="228" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">CSPRNG / /dev/urandom</text>
+    <text x="472" y="248" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">SHA-256 / ChaCha20 based</text>
+    <text x="472" y="266" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">entropy pool ← sources</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M592 226L638 226" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Step 3: 256-bit Private Key (big box) -->
+  <g filter="url(#soft)">
+    <rect x="648" y="164" width="260" height="126" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2.4"/>
+    <text x="778" y="196" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">256-bit Private Key</text>
+
+    <!-- Hex representation box -->
+    <rect x="666" y="210" width="224" height="30" rx="6" fill="#111418" stroke="#343A44" stroke-width="1"/>
+    <text x="778" y="232" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">0xE9 87 3D 79 ... C1 A5 2B 40</text>
+
+    <text x="778" y="266" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">32 bytes · 256 bits</text>
+  </g>
+
+  <!-- ====== Row 2: Validation ====== -->
+
+  <!-- Arrow down from Private Key -->
+  <path d="M778 294L778 330" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Validation boxes: 1 -- lower bound check -->
+  <g filter="url(#soft)">
+    <rect x="168" y="340" width="260" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="298" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Lower Bound Check</text>
+    <text x="298" y="396" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">must be <tspan fill="#22C55E">≥ 0x1</tspan></text>
+    <text x="298" y="420" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Zero and above curve order are invalid</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M428 390L468 390" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Validation boxes: 2 -- upper bound check -->
+  <g filter="url(#soft)">
+    <rect x="478" y="340" width="300" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="628" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Upper Bound Check</text>
+    <text x="628" y="396" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="10">must be <tspan fill="#22C55E">≤ n − 1</tspan></text>
+    <text x="628" y="414" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="9">n = 0xFFF…FFFEBAAEDCE6AF48A03BBFD25E8CD0364141</text>
+    <text x="628" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">secp256k1 group order n ≈ 2^256</text>
+  </g>
+
+  <!-- Arrow down from upper bound to valid key -->
+  <path d="M778 444L778 470" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Result: Valid Private Key -->
+  <g filter="url(#soft)">
+    <rect x="648" y="478" width="260" height="26" rx="13" fill="#0A1F16" stroke="#22C55E" stroke-width="1.8"/>
+    <text x="778" y="496" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Valid Private Key</text>
+  </g>
+
+  <!-- Key space annotation on the left -->
+  <g>
+    <rect x="76" y="340" width="80" height="168" rx="10" fill="#1C1F26" stroke="#343A44" stroke-width="1.4"/>
+    <text x="116" y="370" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Key Space</text>
+    <text x="116" y="395" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="24" font-weight="700">2^256</text>
+    <text x="116" y="420" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">≈ 10^77</text>
+    <text x="116" y="442" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Addresses</text>
+    <text x="116" y="460" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">in universe</text>
+    <text x="116" y="478" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">≈ atoms</text>
+  </g>
+
+  <!-- Annotation lines from key space to check boxes -->
+  <line x1="156" y1="380" x2="168" y2="380" stroke="#343A44" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="156" y1="410" x2="478" y2="410" stroke="#343A44" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Footer legend -->
+  <text x="64" y="524" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Generate from entropy → validate range → produce private key</text>
+  <text x="480" y="524" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Private key → Public key (EC multiplication) → Address</text>
+</svg>

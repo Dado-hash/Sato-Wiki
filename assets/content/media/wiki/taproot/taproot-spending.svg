@@ -1,0 +1,138 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Taproot spending — key path vs script path</title>
+  <desc id="desc">A Taproot output can be spent via key path with a single Schnorr signature, or via script path by revealing one script and its Merkle proof.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Taproot spending</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Key path or script path — only what is used appears on-chain.</text>
+
+  <!-- Vertical divider down the middle -->
+  <line x1="480" y1="150" x2="480" y2="490" stroke="#28313B" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Column headers -->
+  <rect x="76" y="146" width="170" height="36" rx="18" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
+  <text x="161" y="170" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Key Path Spend</text>
+
+  <rect x="714" y="146" width="170" height="36" rx="18" fill="#241E31" stroke="#7C5CFF" stroke-width="1.8"/>
+  <text x="799" y="170" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script Path Spend</text>
+
+  <!-- ======== LEFT COLUMN — Key Path ======== -->
+
+  <!-- Row 1: Taproot Output -->
+  <g filter="url(#soft)">
+    <rect x="130" y="204" width="220" height="76" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="240" y="236" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Taproot Output</text>
+    <text x="240" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">bc1p...</text>
+  </g>
+
+  <!-- Arrow: Output → Sig -->
+  <path d="M240 282V316" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Row 2: Schnorr Signature -->
+  <g filter="url(#soft)">
+    <rect x="140" y="324" width="200" height="64" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="240" y="356" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Schnorr Signature</text>
+    <text x="240" y="376" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">64 bytes</text>
+  </g>
+
+  <!-- Arrow: Sig → Output Spent -->
+  <path d="M240 390V422" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Row 3: Output Spent (key path) -->
+  <g filter="url(#soft)">
+    <rect x="155" y="430" width="170" height="46" rx="23" fill="#0A1F16" stroke="#22C55E" stroke-width="2"/>
+    <text x="240" y="459" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Output Spent</text>
+  </g>
+
+  <!-- Key path: data size label -->
+  <text x="240" y="496" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">~64 B witness · minimal data</text>
+
+  <!-- ======== RIGHT COLUMN — Script Path ======== -->
+
+  <!-- Row 1: Taproot Output -->
+  <g filter="url(#soft)">
+    <rect x="610" y="204" width="220" height="76" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="720" y="236" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Taproot Output</text>
+    <text x="720" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">bc1p...</text>
+  </g>
+
+  <!-- Arrow: Output → Script + Proof -->
+  <path d="M720 282V316" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+
+  <!-- Row 2: Script + Merkle Proof (larger box) -->
+  <g filter="url(#soft)">
+    <rect x="548" y="322" width="344" height="112" rx="14" fill="#20252D" stroke="#7C5CFF" stroke-width="2"/>
+
+    <!-- Script revealed label -->
+    <text x="720" y="348" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script + Merkle Proof</text>
+
+    <!-- Small tree inside the box showing the proof path -->
+    <!-- Tree: root → CD* (highlighted) → C* (highlighted), D (gray) -->
+    <!-- Also show AB (gray) → A, B (gray) to the left -->
+
+    <!-- Root node -->
+    <circle cx="720" cy="370" r="5" fill="#7C5CFF"/>
+
+    <!-- Level 2: AB (gray) and CD* (orange) -->
+    <path d="M720 375L682 392" stroke="#56626F" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M720 375L758 392" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round"/>
+
+    <circle cx="682" cy="392" r="4" fill="#56626F"/>
+    <text x="655" y="396" text-anchor="end" fill="#56626F" font-family="JetBrains Mono, monospace" font-size="10">AB</text>
+
+    <circle cx="758" cy="392" r="4" fill="#F7931A"/>
+    <text x="768" y="396" text-anchor="start" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">CD*</text>
+
+    <!-- Level 3: A, B (gray) and C* (orange), D (gray) -->
+    <path d="M682 396L658 412" stroke="#56626F" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M682 396L706 412" stroke="#56626F" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M758 396L734 412" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M758 396L782 412" stroke="#56626F" stroke-width="1.8" stroke-linecap="round"/>
+
+    <circle cx="658" cy="412" r="3" fill="#56626F"/>
+    <text x="644" y="416" text-anchor="end" fill="#56626F" font-family="JetBrains Mono, monospace" font-size="10">A</text>
+
+    <circle cx="706" cy="412" r="3" fill="#56626F"/>
+    <text x="714" y="416" text-anchor="start" fill="#56626F" font-family="JetBrains Mono, monospace" font-size="10">B</text>
+
+    <circle cx="734" cy="412" r="4" fill="#F7931A"/>
+    <text x="742" y="416" text-anchor="start" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">C*</text>
+
+    <circle cx="782" cy="412" r="3" fill="#56626F"/>
+    <text x="790" y="416" text-anchor="start" fill="#56626F" font-family="JetBrains Mono, monospace" font-size="10">D</text>
+
+    <!-- Proof path label inside box -->
+    <text x="576" y="424" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">
+      <tspan fill="#F7931A">■</tspan> proof path (C + siblings)
+    </text>
+  </g>
+
+  <!-- Arrow: Script+Proof → Output Spent -->
+  <path d="M720 436V450" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Row 3: Output Spent (script path) -->
+  <g filter="url(#soft)">
+    <rect x="635" y="458" width="170" height="46" rx="23" fill="#0A1F16" stroke="#22C55E" stroke-width="2"/>
+    <text x="720" y="487" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Output Spent</text>
+  </g>
+
+  <!-- Script path: data size label -->
+  <text x="720" y="514" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">larger witness · script + proof revealed</text>
+</svg>

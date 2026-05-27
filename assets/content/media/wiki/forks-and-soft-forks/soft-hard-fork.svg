@@ -1,0 +1,126 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Soft fork vs hard fork comparison</title>
+  <desc id="desc">Left panel shows a soft fork where old nodes and new nodes both accept all blocks. Right panel shows a hard fork where old nodes reject blocks created under new rules.</desc>
+
+  <defs>
+    <marker id="arrow-gray" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Soft fork vs hard fork</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Soft forks tighten rules (backward compatible). Hard forks relax rules (backward incompatible).</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 160H460"/>
+    <path d="M500 160H884"/>
+    <path d="M76 212H460"/>
+    <path d="M500 212H884"/>
+    <path d="M76 264H460"/>
+    <path d="M500 264H884"/>
+    <path d="M76 316H460"/>
+    <path d="M500 316H884"/>
+    <path d="M76 368H460"/>
+    <path d="M500 368H884"/>
+    <path d="M76 420H460"/>
+    <path d="M500 420H884"/>
+    <path d="M148 140V440"/>
+    <path d="M260 140V440"/>
+    <path d="M372 140V440"/>
+    <path d="M588 140V440"/>
+    <path d="M700 140V440"/>
+    <path d="M812 140V440"/>
+  </g>
+
+  <g filter="url(#soft)" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+
+    <text x="268" y="180" fill="#F4EAD8" font-size="22" font-weight="700">SOFT FORK</text>
+    <text x="268" y="200" fill="#22C55E" font-size="15">All blocks valid for old and new nodes</text>
+
+    <rect x="100" y="220" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
+    <text x="148" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B0</text>
+
+    <rect x="212" y="220" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
+    <text x="260" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B1</text>
+
+    <rect x="324" y="220" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
+    <text x="372" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B2</text>
+
+    <rect x="324" y="292" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
+    <text x="372" y="324" fill="#F4EAD8" font-size="18" font-weight="700">B3</text>
+
+    <rect x="324" y="364" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
+    <text x="372" y="396" fill="#F4EAD8" font-size="18" font-weight="700">B4</text>
+
+    <line x1="148" y1="272" x2="148" y2="420" stroke="#28313B" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="148" y="444" fill="#6B7280" font-size="13" font-family="JetBrains Mono, monospace">new rules</text>
+    <line x1="260" y1="272" x2="260" y2="420" stroke="#28313B" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="260" y="444" fill="#6B7280" font-size="13" font-family="JetBrains Mono, monospace">new rules</text>
+
+    <rect x="100" y="288" width="96" height="24" rx="6" fill="#1A2522" stroke="#22C55E" stroke-width="1"/>
+    <text x="148" y="304" fill="#22C55E" font-size="12">✓ old node</text>
+    <rect x="212" y="288" width="96" height="24" rx="6" fill="#1A2522" stroke="#22C55E" stroke-width="1"/>
+    <text x="260" y="304" fill="#22C55E" font-size="12">✓ old node</text>
+  </g>
+
+  <g stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M196 246H212" stroke="#6B7280"/>
+    <path d="M308 246H324" stroke="#6B7280"/>
+    <path d="M420 246V420" stroke="#6B7280"/>
+    <path d="M420 272H436" stroke="#6B7280"/>
+    <path d="M420 344H436" stroke="#6B7280"/>
+  </g>
+
+  <g filter="url(#soft)" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+
+    <text x="700" y="180" fill="#F4EAD8" font-size="22" font-weight="700">HARD FORK</text>
+    <text x="700" y="200" fill="#EF4444" font-size="15">Old nodes reject new rules blocks</text>
+
+    <rect x="540" y="220" width="96" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="588" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B0</text>
+
+    <rect x="652" y="220" width="96" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="700" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B1</text>
+
+    <rect x="764" y="220" width="96" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="812" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B2</text>
+
+    <rect x="652" y="292" width="96" height="52" rx="14" fill="#2A2331" stroke="#7C5CFF" stroke-width="2"/>
+    <text x="700" y="324" fill="#F4EAD8" font-size="18" font-weight="700">B3</text>
+
+    <rect x="764" y="292" width="96" height="52" rx="14" fill="#2A2331" stroke="#7C5CFF" stroke-width="2"/>
+    <text x="812" y="324" fill="#F4EAD8" font-size="18" font-weight="700">B4</text>
+
+    <rect x="540" y="292" width="96" height="32" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
+    <text x="588" y="312" fill="#EF4444" font-size="12">✗ old rejects</text>
+
+    <rect x="540" y="340" width="96" height="32" rx="6" fill="#1A2522" stroke="#22C55E" stroke-width="1"/>
+    <text x="588" y="360" fill="#22C55E" font-size="12">✓ new accepts</text>
+
+    <rect x="652" y="364" width="96" height="52" rx="14" fill="#20252D" stroke="#B91C1C" stroke-width="2"/>
+    <text x="700" y="396" fill="#EF4444" font-size="18" font-weight="700">B3</text>
+
+    <rect x="764" y="364" width="96" height="52" rx="14" fill="#20252D" stroke="#B91C1C" stroke-width="2"/>
+    <text x="812" y="396" fill="#EF4444" font-size="18" font-weight="700">B4</text>
+
+    <line x1="652" y1="344" x2="652" y2="364" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 4"/>
+    <line x1="812" y1="344" x2="812" y2="364" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 4"/>
+  </g>
+
+  <g stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M636 246H652" stroke="#6B7280"/>
+    <path d="M748 246H764" stroke="#6B7280"/>
+    <path d="M860 246V292" stroke="#7C5CFF"/>
+    <path d="M860 246V364" stroke="#EF4444"/>
+    <path d="M748 292H764" stroke="#7C5CFF" marker-end="url(#arrow-gray)"/>
+    <path d="M860 292H764" stroke="#7C5CFF"/>
+    <path d="M748 364H764" stroke="#EF4444" marker-end="url(#arrow-gray)"/>
+  </g>
+
+</svg>

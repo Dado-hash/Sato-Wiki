@@ -1,0 +1,110 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Taproot — Merkle tree commitment</title>
+  <desc id="desc">A Taproot output commits to an internal key and a Merkle tree of scripts. The cooperative key path is the straightest line; script paths branch off.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <filter id="tree-line" x="-80%" y="-20%" width="260%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Taproot</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">One output key commits to a Merkle tree of scripts off-chain.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 154H884"/>
+    <path d="M76 294H884"/>
+    <path d="M76 434H884"/>
+    <path d="M320 150V444"/>
+    <path d="M640 150V444"/>
+  </g>
+
+  <!-- Row 1: Output Key Q -->
+  <g filter="url(#soft)">
+    <rect x="330" y="170" width="300" height="100" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
+    <text x="480" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Output Key</text>
+    <text x="480" y="244" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="17">Q = P + t·G</text>
+  </g>
+
+  <!-- Arrows from Q down: left to P, right through t to script tree -->
+  <!-- Key path branch: Q → P (orange) -->
+  <path d="M430 270L430 290L200 290L200 306" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <!-- Script path branch: Q → t → Merkle root (muted) -->
+  <path d="M530 270L530 290L700 290L700 306" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+
+  <!-- Row 2, Col 1: Internal Key P -->
+  <g filter="url(#soft)">
+    <rect x="110" y="314" width="180" height="96" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="200" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Internal Key</text>
+    <text x="200" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">P (cooperative)</text>
+  </g>
+
+  <!-- Row 2, Col 3: Merkle Root -->
+  <g filter="url(#soft)">
+    <rect x="610" y="314" width="180" height="96" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="700" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Merkle Root</text>
+    <text x="700" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">t = H(P ∥ Root)</text>
+  </g>
+
+  <!-- Row 3, Col 1: Key path result — Schnorr Signature -->
+  <path d="M200 414V442" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="110" y="452" width="180" height="48" rx="24" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
+    <text x="200" y="482" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Schnorr Signature</text>
+  </g>
+
+  <!-- Row 3, Col 2-3: Script tree -->
+  <!-- Lines from Merkle Root to tree nodes -->
+  <path d="M700 414V436" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Tree: 4 leaves (A, B, C, D) with intermediate nodes -->
+  <!-- Root position: X=700, Y=440 (after arrow) -->
+
+  <!-- Level 2: AB and CD nodes -->
+  <circle cx="640" cy="458" r="4" fill="#7C8794"/>
+  <circle cx="760" cy="458" r="4" fill="#7C8794"/>
+
+  <!-- Lines from root to level 2 -->
+  <path d="M700 440L640 458" stroke="#7C8794" stroke-width="2" stroke-linecap="round"/>
+  <path d="M700 440L760 458" stroke="#7C8794" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Level 3: A, B, C, D leaves -->
+  <circle cx="610" cy="478" r="3" fill="#56626F"/>
+  <circle cx="670" cy="478" r="3" fill="#56626F"/>
+  <circle cx="730" cy="478" r="3" fill="#56626F"/>
+  <circle cx="790" cy="478" r="3" fill="#56626F"/>
+
+  <!-- Lines from level 2 to level 3 -->
+  <path d="M640 458L610 478" stroke="#56626F" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M640 458L670 478" stroke="#56626F" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M760 458L730 478" stroke="#56626F" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M760 458L790 478" stroke="#56626F" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Script labels -->
+  <text x="595" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">A</text>
+  <text x="655" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">B</text>
+  <text x="715" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">C</text>
+  <text x="775" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">D</text>
+
+  <!-- Key path label -->
+  <text x="64" y="472" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Key path:</text>
+  <text x="64" y="492" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">cooperative, single sig</text>
+
+  <!-- Script path label -->
+  <text x="284" y="472" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Script paths:</text>
+  <text x="284" y="492" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">revealed only when needed</text>
+</svg>
