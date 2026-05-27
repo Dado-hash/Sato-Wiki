@@ -26,14 +26,14 @@ livelli di lettura `base`, `medium` e `advanced`.
 
 ## Cryptography (`cryptography`)
 
-- [ ] Hash functions - `wiki.hash-functions`
-- [ ] SHA-256 - `wiki.sha-256`
-- [ ] Merkle trees - `wiki.merkle-trees`
-- [ ] Private keys - `wiki.private-keys`
-- [ ] Public keys - `wiki.public-keys`
-- [ ] Digital signatures - `wiki.digital-signatures`
-- [ ] ECDSA - `wiki.ecdsa`
-- [ ] Schnorr signatures - `wiki.schnorr-signatures`
+- [x] Hash functions - `wiki.hash-functions`
+- [x] SHA-256 - `wiki.sha-256`
+- [x] Merkle trees - `wiki.merkle-trees`
+- [x] Private keys - `wiki.private-keys`
+- [x] Public keys - `wiki.public-keys`
+- [x] Digital signatures - `wiki.digital-signatures`
+- [x] ECDSA - `wiki.ecdsa`
+- [x] Schnorr signatures - `wiki.schnorr-signatures`
 - [ ] secp256k1 - `wiki.secp256k1`
 - [ ] Bitcoin addresses - `wiki.bitcoin-addresses`
 - [ ] Wallet seeds - `wiki.wallet-seeds`
