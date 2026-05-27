@@ -1,0 +1,64 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">secp256k1 Elliptic Curve</title>
+  <desc id="desc">Elliptic curve y^2 = x^3 + 7 over the finite field of prime order p = 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1, showing the generator point G and public key derivation K = k * G.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">secp256k1</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">The elliptic curve that secures Bitcoin key pairs</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+    <path d="M76 390H884"/>
+    <path d="M481 148V490"/>
+  </g>
+  <text x="278" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">CURVE PARAMETERS</text>
+  <text x="742" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">KEY DERIVATION</text>
+  <g filter="url(#soft)">
+    <rect x="64" y="162" width="408" height="216" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="268" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Curve equation</text>
+    <text x="268" y="228" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="18">y² = x³ + 7</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M80 246H456"/>
+    </g>
+    <text x="268" y="272" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Prime order p</text>
+    <text x="268" y="296" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE</text>
+    <text x="268" y="316" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">BAAEDCE6AF48A03BBFD25E8CD0364141</text>
+    <text x="268" y="348" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Order n</text>
+    <text x="268" y="370" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="512" y="162" width="408" height="216" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="716" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Public Key = k × G</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M528 214H904"/>
+    </g>
+    <rect x="568" y="234" width="100" height="40" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
+    <text x="618" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">k</text>
+    <text x="618" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">private key</text>
+    <text x="700" y="258" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="24">×</text>
+    <rect x="728" y="234" width="100" height="40" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+    <text x="778" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">G</text>
+    <text x="778" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">generator point</text>
+    <text x="852" y="258" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="24">=</text>
+    <text x="680" y="368" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">ECDSA / Schnorr signatures prove k is known</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="64" y="404" width="856" height="82" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="492" y="436" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Generator Point G (compressed)</text>
+    <text x="492" y="462" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">0279BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798</text>
+    <text x="492" y="478" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798 (x-coordinate only)</text>
+  </g>
+</svg>

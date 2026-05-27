@@ -1747,6 +1747,467 @@
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.secp256k1",
+      "slug": "secp256k1",
+      "language": "it",
+      "category": "cryptography",
+      "title": "secp256k1",
+      "description": "La curva ellittica standardizzata da SECG che Bitcoin usa per tutte le sue operazioni crittografiche.",
+      "coverImage": "media/wiki/secp256k1/secp256k1-curve.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "secp256k1 è la curva ellittica che Bitcoin usa per tutte le sue operazioni crittografiche. Ogni chiave privata, chiave pubblica e firma digitale in Bitcoin è definita da questa curva. È una curva di Koblitz — un tipo speciale di curva ellittica progettata per calcoli efficienti — definita sul campo di ordine primo p.\n\nL'equazione della curva è y² = x³ + 7. È un'equazione semplice, ma la sua struttura su un campo finito crea un terreno matematico dove certi problemi sono facili da calcolare in avanti ma impossibili da invertire, che è esattamente ciò di cui Bitcoin ha bisogno per la sua sicurezza.\n\nSatoshi Nakamoto scelse secp256k1 per Bitcoin perché offre prestazioni migliori rispetto ad altre curve standard e non ha backdoor note. Il design Koblitz della curva permette una moltiplicazione di punto particolarmente efficiente, operazione necessaria in ogni transazione Bitcoin.\n\n![Parametri della curva secp256k1 e derivazione della chiave](media/wiki/secp256k1/secp256k1-curve.svg \"L'equazione della curva secp256k1 y² = x³ + 7, il suo ordine primo e la derivazione della chiave pubblica K = k × G.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "secp256k1 è definita sul campo F_p dove p = 2²⁵⁶ − 2³² − 2⁹ − 2⁸ − 2⁷ − 2⁶ − 2⁴ − 1. Questo primo è stato scelto perché molto vicino a una potenza di due, permettendo una riduzione modulare efficiente usando shift di bit e addizioni invece di divisioni generiche. Ogni implementazione beneficia automaticamente di questa scelta.\n\nL'ordine della curva n — il numero di punti sulla curva — è circa 2²⁵⁶. Ogni chiave privata è uno scalare nell'intervallo [1, n-1]. Il punto generatore G è un punto fisso della curva usato nella formula di derivazione K = k × G, dove k è la chiave privata, G è il generatore e K è la chiave pubblica. Il generatore G è specificato in forma compressa come `0279BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798`.\n\nBitcoin ha scelto secp256k1 anche per i suoi parametri verificabilmente casuali. A differenza di altre curve dove certe costanti sono state scelte senza spiegazione pubblica, i parametri di secp256k1 derivano dai valori più piccoli possibili che soddisfano l'equazione della curva, senza lasciare spazio a debolezze nascoste. La curva ha cofattore 1, il che significa che il numero di punti è esattamente uguale all'ordine n.\n\nTipi di chiave che usano secp256k1:\n- Firme ECDSA (Bitcoin dal 2009)\n- Firme Schnorr (BIP 340, Taproot 2021)\n- Recupero della chiave pubblica dalle firme\n- Derivazione delle chiavi HD wallet (BIP 32)"
+        },
+        "advanced": {
+          "bodyMarkdown": "La curva secp256k1 appartiene alla famiglia Koblitz (K-256), progettata per le prestazioni usando l'endomorfismo di Frobenius. La mappa τ(x, y) = (x², y²) su F_p permette di sostituire le operazioni di punto doppio con elevamenti al quadrato molto più economici. Le implementazioni che usano espansioni τ-adiche possono ottenere un'accelerazione di 2-3× nella moltiplicazione scalare rispetto a curve generiche come P-256, con tecniche avanzate che si avvicinano a 4×.\n\nIl primo di campo p = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F è un primo di Crandall (anche chiamato primo di Solinas della forma 2²⁵⁶ − 2³² − 937). La riduzione modulare può essere eseguita efficientemente usando l'identità:\n\n```\nc = 2²⁵⁶ mod p = 2³² + 937\n```\n\nQuesta proprietà è critica per implementazioni ad alta velocità, riducendo un prodotto a 512 bit a 256 bit con poche addizioni. La maggior parte delle implementazioni di produzione (libsecp256k1, OpenSSL) usa questo per ottenere moltiplicazione scalare in sub-microsecondi su hardware moderno.\n\nL'ordine della curva n = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141 è un primo di 256 bit. La relazione tra p e n non è casuale: n ≈ p per le curve Koblitz a causa del limite di Hasse |n − (p + 1)| ≤ 2√p.\n\nSicurezza: il miglior attacco noto al logaritmo discreto di secp256k1 è l'algoritmo Pollard's rho, con complessità attesa circa (√(πn/2))/2 ≈ 2¹²⁸ operazioni usando varianti parallelizzate. Questo corrisponde al livello di sicurezza di 128 bit dichiarato per la curva. Tutti gli attacchi noti richiedono 2¹²⁸ operazioni di curva, ognuna delle quali è una moltiplicazione scalare completa.\n\nLa scelta di secp256k1 rispetto alle curve NIST (P-256) è stata deliberata. Satoshi la selezionò perché:\n- Parametri verificabilmente casuali (nessuna costante inspiegabile)\n- Nessuna relazione con le curve progettate dalla NSA\n- Struttura di curva Koblitz per efficienza implementativa\n- Forte analisi e adozione dalla comunità\n\nLe implementazioni Bitcoin moderne (Bitcoin Core, libsecp256k1) usano moltiplicazione scalare a tempo costante per prevenire attacchi side-channel. La libreria libsecp256k1, mantenuta da Pieter Wuille e dal team di Bitcoin Core, implementa queste tecniche sia per ECDSA che per Schnorr ed è considerata un riferimento per la crittografia a curva ellittica di livello produzione."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "secp256k1",
+        "Curva Ellittica",
+        "ECDSA",
+        "Schnorr"
+      ],
+      "sources": [
+        {
+          "title": "SEC 2 — Recommended Elliptic Curve Domain Parameters",
+          "url": "https://www.secg.org/sec2-v2.pdf",
+          "author": "Standards for Efficient Cryptography Group",
+          "publishedAt": "2010-01-27"
+        },
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "BIP 340 — Schnorr Signatures for secp256k1",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
+          "author": "Pieter Wuille, Jonas Nick, Tim Ruffing"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.private-keys"
+        },
+        {
+          "id": "wiki.public-keys"
+        },
+        {
+          "id": "wiki.ecdsa"
+        },
+        {
+          "id": "wiki.schnorr-signatures"
+        },
+        {
+          "id": "wiki.digital-signatures"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.bitcoin-addresses",
+      "slug": "bitcoin-addresses",
+      "language": "it",
+      "category": "cryptography",
+      "title": "Indirizzi Bitcoin",
+      "description": "Gli identificatori alfanumerici che rappresentano destinazioni per pagamenti in bitcoin, derivati dalle chiavi pubbliche tramite hashing e codifica.",
+      "coverImage": "media/wiki/bitcoin-addresses/address-derivation.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un indirizzo Bitcoin è un identificatore che dice alla rete dove inviare bitcoin. È derivato da una chiave pubblica attraverso una serie di operazioni crittografiche, ma non è la chiave pubblica stessa. Gli indirizzi sono più corti, più facili da condividere e includono codici di rilevamento errori per evitare che i fondi vadano persi a causa di errori di battitura.\n\nL'analogia più semplice è un indirizzo email: condividi il tuo indirizzo email con altri così che possano inviarti messaggi, ma nessuno può leggere le tue email solo con l'indirizzo. Similmente, un indirizzo Bitcoin permette ad altri di inviarti bitcoin, ma non possono spenderli solo con l'indirizzo.\n\nUn indirizzo viene creato prendendo una chiave pubblica, applicando due hash (SHA-256 poi RIPEMD-160), aggiungendo un prefisso di rete e un checksum, e codificando il risultato. La codifica specifica determina il formato dell'indirizzo: gli indirizzi legacy iniziano con \"1\" (Base58Check), gli indirizzi SegWit iniziano con \"bc1\" (Bech32) e gli indirizzi Taproot iniziano con \"bc1p\" (Bech32m).\n\n![Pipeline di derivazione dell'indirizzo Bitcoin](media/wiki/bitcoin-addresses/address-derivation.svg \"Dalla chiave privata, attraverso la moltiplicazione a curva ellittica, hashing e codifica, fino all'indirizzo finale.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "Gli indirizzi Bitcoin si sono evoluti attraverso diversi formati, ciascuno migliorando il precedente:\n\n**Legacy (P2PKH).** Gli indirizzi Pay to Public Key Hash iniziano con \"1\" e usano la codifica Base58Check. L'hash è RIPEMD-160 di SHA-256 della chiave pubblica. Un byte di versione (0x00 per mainnet) viene preposto e un checksum di 4 byte (doppio SHA-256) viene appeso. Base58 omette caratteri simili (0, O, I, l) per ridurre errori di trascrizione.\n\n**P2SH (Pay to Script Hash).** Indirizzi che iniziano con \"3\" usano la stessa codifica Base58Check ma hashano uno script di redeem invece di una chiave pubblica. Questo permette multisig e altre condizioni di spesa complesse dietro un semplice indirizzo. P2SH è stato introdotto con BIP 16 (2012).\n\n**SegWit nativo (P2WPKH / P2WSH).** Gli indirizzi Bech32 che iniziano con \"bc1\" usano uno schema di codifica diverso: una parte leggibile dall'umano (hrp = \"bc\" per mainnet, \"tb\" per testnet), un separatore \"1\", una parte dati che codifica il witness program e un checksum BCH di 6 caratteri. Bech32 è più efficiente (commissioni più basse), case-insensitive e in grado di correggere errori.\n\n**Taproot (P2TR).** Gli indirizzi Bech32m che iniziano con \"bc1p\" sono il formato più recente. Usano chiavi pubbliche x-only da 32 byte e supportano spesa via chiave e via script. Bech32m (BIP 350) corregge una debolezza di Bech32 che permetteva l'inserimento di caratteri estranei.\n\nI passaggi di derivazione dalla chiave pubblica all'indirizzo:\n\n1. Calcola H = RIPEMD160(SHA256(K)) dove K è la chiave pubblica (33 o 65 byte)\n2. Aggiungi il byte di versione: prefisso di rete (0x00 per mainnet P2PKH, 0x05 per P2SH)\n3. Calcola il checksum: primi 4 byte del doppio SHA-256 di (versione || H)\n4. Codifica in Base58: versione || H || checksum, convertito nell'alfabeto Base58\n\nPer gli indirizzi Bech32, il passo 4 è sostituito dalla codifica Bech32 usando il witness program (versione witness + byte del programma witness)."
+        },
+        "advanced": {
+          "bodyMarkdown": "**Probabilità di collisione degli indirizzi.** Un indirizzo Bitcoin è di 160 bit. La probabilità che due chiavi pubbliche diverse producano lo stesso indirizzo è circa 2⁻¹⁶⁰, ovvero circa 1 su 10⁴⁸. Anche se ogni persona sulla Terra generasse un miliardo di indirizzi al secondo per un secolo, la probabilità di collisione rimarrebbe trascurabile. Questo è il motivo per cui gli indirizzi sono considerati identificativi unici.\n\n**Dettagli della codifica Base58Check.** L'alfabeto Base58 è: `123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz`. L'assenza di 0, O, I, l riduce l'ambiguità visiva. Il processo di codifica tratta i byte come un numero big-endian e lo converte in base-58, poi prepone caratteri \"1\" per ogni byte zero iniziale nei dati originali.\n\n**Correzione errori Bech32.** Bech32 usa un codice BCH (Bose-Chaudhuri-Hocquenghem) su GF(32) che può rilevare fino a 4 errori e correggerne fino a 3 nella parte dati. Il checksum garantisce che ogni errore di sostituzione venga rilevato con probabilità schiacciante. Tuttavia, Bech32 ha una debolezza: inserire o eliminare caratteri \"q\" può passare inosservato. Bech32m (BIP 350) corregge questo usando una costante di checksum diversa (0x2BC830A3 invece di 0x1).\n\n**Riutilizzo degli indirizzi.** Gli strumenti di analisi della blockchain tracciano gli indirizzi. Associare pubblicamente più transazioni allo stesso indirizzo rivela il cluster di proprietà. I wallet moderni generano un nuovo indirizzo per ogni pagamento usando la derivazione deterministica delle chiavi (BIP 32). Questa non è una regola del protocollo ma una raccomandazione per la privacy. Il riutilizzo degli indirizzi è tecnicamente valido ma collega le transazioni sul registro pubblico.\n\n**Chiavi pubbliche x-only in Taproot.** BIP 341 ha introdotto chiavi pubbliche x-only per gli indirizzi Taproot: solo la coordinata x del punto della curva ellittica viene usata (32 byte). La coordinata y è assunta pari. Questo riduce la dimensione dell'indirizzo e migliora l'efficienza. La chiave pubblica corrispondente non può essere recuperata da una firma Schnorr (a differenza di ECDSA), che è un compromesso deliberato per l'efficienza.\n\n**Indirizzi invoice (BIP 21).** Gli indirizzi Bitcoin sono spesso incorporati in un formato URI: `bitcoin:indirizzo?amount=valore&label=testo`. Questo standard permette ai wallet di generare richieste di pagamento con importi e descrizioni. Il formato BIP 21 è ampiamente supportato da wallet e processori di pagamento."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "Indirizzi",
+        "Wallet",
+        "Codifica"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Mastering Bitcoin - Chapter 4",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04.asciidoc",
+          "author": "Andreas M. Antonopoulos"
+        },
+        {
+          "title": "BIP 173 — Bech32 Address Format",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki",
+          "author": "Pieter Wuille, Greg Maxwell"
+        },
+        {
+          "title": "BIP 350 — Bech32m Address Format",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
+          "author": "Pieter Wuille"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.public-keys"
+        },
+        {
+          "id": "wiki.private-keys"
+        },
+        {
+          "id": "wiki.segregated-witness"
+        },
+        {
+          "id": "wiki.taproot"
+        },
+        {
+          "id": "wiki.ecdsa"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.wallet-seeds",
+      "slug": "wallet-seeds",
+      "language": "it",
+      "category": "cryptography",
+      "title": "Seed di Wallet",
+      "description": "Le frasi mnemoniche leggibili che codificano l'entropia necessaria per generare deterministicamente tutte le chiavi di un wallet Bitcoin.",
+      "coverImage": "media/wiki/wallet-seeds/wallet-seed-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un seed di wallet è una sequenza di parole — tipicamente 12 o 24 — che può generare ogni chiave in un wallet Bitcoin. Questa è la \"chiave maestra\" che annoti quando configuri un wallet. Se perdi il telefono o il computer, le parole seed sono tutto ciò che ti serve per ripristinare l'accesso ai tuoi bitcoin.\n\nIl seed viene generato una volta dal tuo wallet usando una fonte di casualità (entropia). Questi bit casuali vengono divisi in gruppi e mappati a parole dalla wordlist BIP 39 — un elenco accuratamente curato di 2048 parole inglesi comuni. La sequenza di parole viene poi processata attraverso una funzione di key-stretching chiamata PBKDF2 per produrre un seed master di 512 bit.\n\nIl sistema è gerarchico e deterministico. \"Deterministico\" significa che lo stesso seed produce sempre la stessa sequenza di chiavi. \"Gerarchico\" significa che le chiavi sono organizzate in una struttura ad albero, con diversi rami per diversi scopi (ricezione, resto, diverse criptovalute). Questa relazione uno-a-molti tra un seed e tutte le sue chiavi discendenti è ciò che rende il backup del wallet così semplice.\n\n![Generazione del seed di wallet dall'entropia al seed master](media/wiki/wallet-seeds/wallet-seed-flow.svg \"L'entropia casuale viene codificata in una frase mnemonica tramite BIP 39, poi trasformata in un seed master di 512 bit tramite PBKDF2.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "BIP 39 definisce lo standard del codice mnemonico. Il processo ha tre passaggi:\n\n**Step 1: Genera entropia.** Il wallet genera ENT bit casuali usando un generatore di numeri casuali crittograficamente sicuro (CSPRNG). Dimensioni di entropia standard:\n- 128 bit → frase di 12 parole\n- 192 bit → frase di 18 parole\n- 256 bit → frase di 24 parole\n\n**Step 2: Calcola checksum.** Un hash SHA-256 dell'entropia fornisce CS = ENT/32 bit di checksum. Questi bit vengono aggiunti all'entropia.\n\n**Step 3: Codifica in parole.** La stringa di bit combinata (ENT + CS) viene divisa in segmenti da 11 bit. Ogni segmento è un indice nella wordlist BIP 39 (0-2047). Ogni indice corrisponde a una parola dell'elenco.\n\nLa frase mnemonica viene poi processata da PBKDF2 con HMAC-SHA512:\n```\nseed = PBKDF2(mnemonico, \"mnemonic\" + passphrase, iterazioni = 2048, dklen = 512)\n```\n\nLa passphrase opzionale aggiunge un ulteriore livello di sicurezza. Lo stesso mnemonico con una passphrase diversa produce un seed completamente diverso. Questa è talvolta chiamata \"tredicesima parola\" o \"venticinquesima parola.\""
+        },
+        "advanced": {
+          "bodyMarkdown": "**Entropia e sicurezza.** Un seed con entropia di 128 bit fornisce 128 bit di sicurezza contro attacchi di brute-force. Questo è considerato sufficiente per tutti gli scopi pratici: 2¹²⁸ operazioni è astronomicamente grande, superando la potenza di calcolo combinata di tutti i dispositivi umani. Anche 2⁸⁰ operazioni è attualmente considerato irrealizzabile per un avversario ben finanziato. La sicurezza effettiva è leggermente inferiore perché le frasi mnemoniche rappresentano una struttura nota, ma con 2048¹² ≈ 2¹³² possibili frasi di 12 parole, il margine rimane generoso.\n\n**Proprietà della wordlist.** La wordlist BIP 39 (disponibile in inglese, giapponese, coreano, spagnolo, francese, italiano, ceco, portoghese e cinese) è stata scelta con proprietà specifiche:\n- Ogni parola è lunga 4-8 caratteri\n- I primi 4 caratteri identificano univocamente ogni parola (codice prefisso)\n- Le parole sono selezionate per facilità di pronuncia e resistenza a errori di trascrizione\n- L'elenco evita coppie di parole con suono o aspetto simile\n\n**Vulnerabilità dei seed fisici.** Poiché il seed è il singolo punto di guasto per un wallet, la sua conservazione è critica. Approcci comuni:\n- **Backup cartacei**: scritti e conservati in una cassaforte\n- **Backup metallici**: incisi su acciaio inossidabile (ignifughi, impermeabili)\n- **Shamir's Secret Sharing (SLIP 39)**: dividi il seed in più parti. Il recupero M-of-N richiede M parti, fornendo ridondanza e separazione della sicurezza\n- **Multifirma**: distribuisci le chiavi su più dispositivi, ognuno con il proprio seed\n\n**SLIP 39 (Shamir's Secret Sharing).** Un'alternativa a BIP 39 che usa Shamir's Secret Sharing per dividere il segreto master in più parti. Per esempio, uno schema 2-of-3 richiede 2 parti su 3 per recuperare il wallet. Questo elimina il problema del singolo punto di guasto dei seed BIP 39. SLIP 39 include anche una struttura di gruppi di backup: le parti possono essere organizzate in gruppi, ognuno con la propria soglia.\n\n**Attacchi alla passphrase BIP 39.** La passphrase non viene verificata per correttezza durante il ripristino del wallet. Una passphrase errata produce chiavi valide — che però accedono a un wallet vuoto. Attaccanti che scoprono un mnemonico devono fare brute-force sulla passphrase se una è stata usata. Il costo di PBKDF2 (2048 iterazioni) aggiunge una protezione marginale contro questo, ma le implementazioni hardware wallet impongono limiti di velocità sui tentativi di passphrase.\n\n**Confronto con i seed BIP 32 grezzi.** Prima di BIP 39, alcuni wallet salvavano semplicemente la chiave privata master grezza da 256 bit in formato esadecimale o WIF. BIP 39 ha migliorato l'usabilità codificando l'entropia in parole memorabili con verifica del checksum incorporata, riducendo il rischio di errori di trascrizione durante il backup."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "Seed",
+        "Wallet",
+        "BIP 39"
+      ],
+      "sources": [
+        {
+          "title": "BIP 39 — Mnemonic code for generating deterministic keys",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+          "author": "Marek Palatinus, Pavol Rusnak, Aaron Voisine, Sean Bowe"
+        },
+        {
+          "title": "BIP 32 — Hierarchical Deterministic Wallets",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+          "author": "Pieter Wuille"
+        },
+        {
+          "title": "Mastering Bitcoin - Capitolo 4",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04.asciidoc",
+          "author": "Andreas M. Antonopoulos"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hd-wallets"
+        },
+        {
+          "id": "wiki.private-keys"
+        },
+        {
+          "id": "wiki.bitcoin-addresses"
+        },
+        {
+          "id": "wiki.public-keys"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.hd-wallets",
+      "slug": "hd-wallets",
+      "language": "it",
+      "category": "cryptography",
+      "title": "Wallet HD Gerarchici Deterministici",
+      "description": "Un sistema per derivare un albero di coppie di chiavi da un singolo seed, permettendo una gestione del wallet organizzata e facile da salvare.",
+      "coverImage": "media/wiki/hd-wallets/hd-wallet-tree.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un wallet HD (Hierarchical Deterministic wallet) è un sistema che genera tutte le tue chiavi Bitcoin da un singolo punto di partenza — una frase seed. Invece di creare ogni chiave indipendentemente e doverle salvare tutte, un wallet HD crea un albero di chiavi, dove ogni chiave è derivata matematicamente dal seed.\n\nQuesto è il motivo per cui puoi salvare una frase seed di 12 parole e ripristinare l'intero wallet — ogni indirizzo che hai mai usato, su qualsiasi dispositivo, attraverso tutte le criptovalute. Il seed agisce come la radice di un albero. Ogni ramo è un account o criptovaluta diverso, e ogni foglia è un indirizzo specifico.\n\nI wallet HD sono definiti da BIP 32 ed estesi da BIP 44, BIP 49, BIP 84 e BIP 86 per diversi tipi di indirizzo. Il sistema usa un percorso di derivazione per descrivere esattamente quale chiave nell'albero usare, per esempio `m/44'/0'/0'/0/0` descrive il primo indirizzo di ricezione in un account Bitcoin legacy.\n\n![Albero di derivazione delle chiavi HD wallet](media/wiki/hd-wallets/hd-wallet-tree.svg \"Il seed master genera una gerarchia di chiavi con livelli di scopo, tipo di moneta, account, catena e indice di indirizzo.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "BIP 32 definisce due tipi di derivazione delle chiavi figlie:\n\n**Derivazione normale.** Una chiave pubblica genitore può derivare chiavi pubbliche figlie senza bisogno della chiave privata genitore. Questa proprietà permette wallet \"watch-only\" e setup di audit dove le chiavi pubbliche sono generate su un dispositivo online mentre le chiavi private restano offline:\n```\nChildPublicKey = ParentPublicKey + (HMAC-SHA512(chain_code, pubkey || index) right 32 bytes) × G\n```\n\n**Derivazione hardenizzata.** Usa la chiave privata genitore nell'HMAC, impedendo a un attaccante che conosce una chiave privata figlia di risalire al genitore. I percorsi hardenizzati usano indici ≥ 2³¹ (denotati con un simbolo primo, es. `44'`):\n```\nChildPrivateKey = ParentPrivateKey + HMAC-SHA512(chain_code, privkey || index) right 32 bytes\n```\n\nLa struttura del percorso di derivazione standard (BIP 44) è:\n```\nm / scopo' / tipo_moneta' / account' / cambio / indice_indirizzo\n```\n\nDove:\n- **scopo**: 44' per legacy, 49' per SegWit wrapped, 84' per SegWit nativo, 86' per Taproot\n- **tipo_moneta**: 0' per Bitcoin, 1' per Testnet\n- **account'**: numero account definito dall'utente (hardenizzato)\n- **cambio**: 0 per esterno (ricezione), 1 per interno (resto)\n- **indice_indirizzo**: indice sequenziale che parte da 0\n\nI formati di chiave estesa (xprv/xpub) codificano il chain code, la profondità, l'impronta del genitore, l'indice della chiave e la chiave stessa. Questo permette di condividere in sicurezza l'intero albero di chiavi pubbliche di un account."
+        },
+        "advanced": {
+          "bodyMarkdown": "**Serializzazione delle chiavi estese.** Le chiavi estese BIP 32 codificano un chain code e una chiave con metadati. La chiave pubblica estesa (xpub) permette di derivare tutte le chiavi pubbliche discendenti senza esporre le chiavi private. Il formato:\n- 4 byte: versione (0x0488B21E per xpub, 0x0488ADE4 per xprv)\n- 1 byte: profondità (0 per master, 1 per figlio, ecc.)\n- 4 byte: impronta del genitore (primi 32 bit dell'Hash160 del genitore)\n- 4 byte: numero figlio (indice tra i figli del genitore)\n- 32 byte: chain code\n- 33 byte: dati della chiave pubblica o privata\n\nTotale: 78 byte, tipicamente codificati in Base58 in una stringa che inizia con \"xpub\" o \"xprv\".\n\n**Considerazioni sulla sicurezza.** La derivazione hardenizzata esiste proprio per contenere l'esposizione. Se un attaccante ottiene una chiave privata figlia normale e il suo chain code, può calcolare il chain code genitore e derivare tutte le chiavi sorelle. Con la derivazione hardenizzata questo è impossibile perché la chiave privata genitore viene mescolata nell'input HMAC. Questo è il motivo per cui i primi tre livelli del percorso BIP 44 (scopo, tipo moneta, account) usano la derivazione hardenizzata.\n\n**Debolezze note.** Diverse proprietà di BIP 32 richiedono implementazione attenta:\n- Riutilizzo xpub: condividere più xpub derivati dallo stesso seed permette di collegare account — ogni xpub rilascia il chain code e l'analisi cross-account è possibile\n- Entropia debole: un seed compromesso compromette tutte le chiavi discendenti, non solo un ramo\n- Perdita di chiave figlia non hardenizzata: se una chiave privata figlia non hardenizzata viene esposta, il chain code genitore può ricostruire la chiave privata genitore usando HMAC-SHA512\n\n**Standard alternativi.** Diversi miglioramenti affrontano i limiti di BIP 32:\n- **BIP 43**: definisce il campo scopo nel percorso di derivazione\n- **BIP 44**: struttura wallet multi-account\n- **BIP 48**: struttura HD wallet per multisig\n- **SLIP 0010**: derivazione seed universale per multiple criptovalute\n- **Output Script Descriptor (BIP 380-383)**: i descrittori di script forniscono un linguaggio per descrivere output HD wallet, inclusi percorsi di derivazione e tipi di script\n\n**Wallet watch-only.** La derivazione normale permette di creare un wallet watch-only: un xpub viene importato in un dispositivo che può generare indirizzi di ricezione e rilevare pagamenti in arrivo, ma non può firmare transazioni. Le chiavi private rimangono sul dispositivo di cold storage. Questa è l'architettura usata dagli hardware wallet: il dispositivo tiene il seed e firma, mentre un'app telefonica o un wallet desktop tiene l'xpub e costruisce le transazioni."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "Wallet",
+        "HD Wallet",
+        "BIP 32",
+        "Derivazione Chiavi"
+      ],
+      "sources": [
+        {
+          "title": "BIP 32 — Hierarchical Deterministic Wallets",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+          "author": "Pieter Wuille",
+          "publishedAt": "2012-02-11"
+        },
+        {
+          "title": "BIP 44 — Multi-Account Hierarchy for Deterministic Wallets",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki",
+          "author": "Marek Palatinus, Pavol Rusnak",
+          "publishedAt": "2014-04-24"
+        },
+        {
+          "title": "Mastering Bitcoin - Capitolo 4",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04.asciidoc",
+          "author": "Andreas M. Antonopoulos"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.wallet-seeds"
+        },
+        {
+          "id": "wiki.private-keys"
+        },
+        {
+          "id": "wiki.public-keys"
+        },
+        {
+          "id": "wiki.bitcoin-addresses"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.multisig",
+      "slug": "multisig",
+      "language": "it",
+      "category": "cryptography",
+      "title": "Multifirma",
+      "description": "Una funzionalità di Bitcoin Script che richiede firme multiple da possessori di chiavi indipendenti per autorizzare una transazione.",
+      "coverImage": "media/wiki/multisig/multisig-m-of-n.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "La multifirma (multisig) è una funzionalità di Bitcoin che richiede firme indipendenti multiple per autorizzare un pagamento. Invece di un singolo che controlla i fondi, una configurazione M-of-N richiede che M su N possibili firmatari siano d'accordo. Un multisig 2-of-3, per esempio, richiede che 2 dei 3 possessori di chiave firmino prima che i fondi possano essere spostati.\n\nQuesto è utile in molti scenari: un'azienda potrebbe usare 2-of-3 con CEO, CFO e tesoriere che detengono ciascuno una chiave — due qualsiasi possono autorizzare pagamenti, ma nessun individuo può agire da solo. Le famiglie usano 2-of-3 tra genitori e un avvocato per la pianificazione ereditaria. Gli utenti tecnici usano multisig per distribuire il rischio su più dispositivi o luoghi.\n\nLa multifirma è implementata da Bitcoin Script usando l'opcode OP_CHECKMULTISIG. Lo script di blocco contiene tutte le N chiavi pubbliche e la soglia M richiesta. Ogni spenditore fornisce M firme. Lo script verifica che le firme corrispondano a un sottoinsieme delle chiavi pubbliche elencate.\n\n![Setup di multifirma M-of-N](media/wiki/multisig/multisig-m-of-n.svg \"Un multisig 2-of-3 richiede due dei tre partecipanti per firmare. Lo script di blocco elenca tutte e tre le chiavi pubbliche e la soglia.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "Il pattern base dello script multisig è:\n```\nOP_M <pubKey1> <pubKey2> ... <pubKeyN> OP_N OP_CHECKMULTISIG\n```\n\nQuesto è chiamato \"bare multisig\" ed è raramente usato direttamente oggi a causa del wrapping P2SH e P2WSH. Invece, lo script viene hashato e l'hash viene usato come indirizzo:\n\n**P2SH multisig.** Lo script di blocco è `OP_HASH160 <scriptHash> OP_EQUAL`. Il redeem script (lo script multisig completo) viene rivelato nella transazione di spesa. Questo nasconde i parametri multisig al mittente e riduce le commissioni per il creatore.\n\n**P2WSH multisig.** Versione SegWit del multisig P2SH. Il witness script sostituisce il redeem script. I benefici includono commissioni più basse (sconto witness), risoluzione della malleabilità delle transazioni e maggiore capacità dello script (10.000 byte vs 520 byte per il redeem script).\n\n**Taproot multisig.** Le firme Schnorr permettono l'aggregazione delle chiavi. Invece di elencare N chiavi pubbliche on-chain, Taproot le combina in una singola chiave pubblica usando MuSig2. Il risultato è indistinguibile da una transazione a firma singola, fornendo sia privacy che risparmio sui costi.\n\nIl numero di firme verificate per input conta verso il limite di sigop del blocco: un OP_CHECKMULTISIG conta come N sigop (uno per chiave pubblica). Questo è significativo perché i blocchi sono limitati a 80.000 sigop prima di SegWit e 800.000 dopo SegWit (ponderati)."
+        },
+        "advanced": {
+          "bodyMarkdown": "**Bug di OP_CHECKMULTISIG.** L'opcode estrae un elemento extra (il primo elemento dello stack) e lo scarta a causa di un bug nell'implementazione originale. Gli script di sblocco devono quindi spingere un OP_0 (o qualsiasi valore dummy) prima delle firme reali:\n```\nOP_0 <sig1> <sig2> ... <sigM>\n```\n\nQuesto bug è ora imposto dal consenso e non può essere corretto senza un hard fork. Tutti gli output multisig legacy richiedono l'elemento dummy.\n\n**Aggregazione delle chiavi con MuSig.** BIP 327 (MuSig2) è uno schema multifirma che permette a N parti di produrre una singola firma Schnorr che viene verificata contro una singola chiave pubblica aggregata. Il protocollo richiede tre round di comunicazione:\n- Round 1: Ogni parte invia un impegno nonce\n- Round 2: Ogni parte invia il proprio nonce\n- Round 3: Ogni parte invia la propria firma parziale\n\nLa firma aggregata è una singola firma Schnorr da 64 byte, indistinguibile da una normale firma a singolo firmatario. Questo fornisce:\n- **Risparmio sui costi**: una firma invece di N nel witness\n- **Privacy**: le condizioni di spesa sembrano una normale spesa via chiave\n- **Efficienza**: singola operazione di verifica\n\n**Firme di soglia (FROST).** Mentre MuSig richiede la partecipazione di tutti i firmatari (è N-of-N), FROST (Flexible Round-Optimized Schnorr Threshold Signatures) permette la firma Schnorr di soglia t-of-n con due round. FROST non è ancora implementato su mainnet Bitcoin ma è in fase attiva di ricerca e sviluppo.\n\n**Modello di sicurezza.** La sicurezza del multisig dipende dall'indipendenza dei possessori delle chiavi. Minacce comuni:\n- Dispositivo di firma condiviso: se due chiavi sono sullo stesso dispositivo, un compromesso di quel dispositivo rompe la protezione multisig\n- Ingegneria sociale: un attaccante che convince M-1 possessori di chiavi a firmare una transazione malevola può avere successo\n- Collusione: se M possessori di chiavi colludono, i rimanenti N-M possessori non possono impedire la spesa\n\n**Implementazioni pratiche.** I wallet multisig moderni usano BIP 48 per definire i percorsi di derivazione per account multisig e BIP 174 (PSBT — Partially Signed Bitcoin Transactions) per coordinare la firma tra co-firmatari in un formato standardizzato. PSBT permette a ogni firmatario di rivedere e firmare indipendentemente la transazione prima di trasmetterla."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "Multifirma",
+        "Sicurezza",
+        "Script"
+      ],
+      "sources": [
+        {
+          "title": "BIP 11 — M-of-N Standard Transactions",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki",
+          "author": "Gavin Andresen",
+          "publishedAt": "2011-10-18"
+        },
+        {
+          "title": "BIP 16 — Pay to Script Hash",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki",
+          "author": "Gavin Andresen",
+          "publishedAt": "2012-01-03"
+        },
+        {
+          "title": "Mastering Bitcoin - Capitolo 4",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04.asciidoc",
+          "author": "Andreas M. Antonopoulos"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.digital-signatures"
+        },
+        {
+          "id": "wiki.ecdsa"
+        },
+        {
+          "id": "wiki.schnorr-signatures"
+        },
+        {
+          "id": "wiki.bitcoin-addresses"
+        },
+        {
+          "id": "wiki.bitcoin-script"
+        },
+        {
+          "id": "wiki.hashlocks"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.timelocks",
+      "slug": "timelocks",
+      "language": "it",
+      "category": "cryptography",
+      "title": "Time Lock",
+      "description": "Primitivi di Bitcoin che impediscono la spesa di un output fino al raggiungimento di una specifica altezza di blocco o tempo.",
+      "coverImage": "media/wiki/timelocks/timelock-cltv-csv.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "I time lock sono condizioni che impediscono a una transazione Bitcoin di essere confermata fino a un certo punto nel tempo. Sono il meccanismo che permette contratti basati sul tempo su Bitcoin, formando la base dei canali di pagamento, della Lightning Network e di molti altri pattern di smart contract.\n\nCi sono due tipi di time lock in Bitcoin:\n\n**Time lock assoluti.** Bloccano una transazione o output fino a una specifica altezza di blocco (es. blocco 800.000) o un timestamp UNIX specifico (es. 1 gennaio 2027). La transazione non può essere minata prima di quel punto, indipendentemente dalla commissione.\n\n**Time lock relativi.** Bloccano una transazione o output per una durata specifica misurata da quando l'output è stato incluso in un blocco. Per esempio, se un output è stato minato nel blocco 800.000 con un time lock relativo di 100 blocchi, non può essere speso fino al blocco 800.100.\n\nEntrambi i tipi sono imposti a livello di consenso — ogni full node verifica le condizioni di time lock prima di accettare un blocco. Questo è ciò che rende i time lock affidabili senza intermediari.\n\n![Confronto tra CLTV e CSV](media/wiki/timelocks/timelock-cltv-csv.svg \"I time lock assoluti (CLTV) bloccano fino a un'altezza o tempo specifici. I time lock relativi (CSV) bloccano per una durata dopo che l'output è minato.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "I time lock esistono a due livelli separati: a livello di transazione e a livello di script.\n\n**Livello transazione: locktime e sequence.**\n\nOgni transazione ha un campo locktime (4 byte) che imposta una condizione di tempo assoluto. Se locktime è diverso da zero e minore di 500 milioni, è interpretato come altezza di blocco. Se è 500 milioni o maggiore, è un timestamp UNIX. Una transazione con locktime > 0 non è considerata finale fino al raggiungimento del suo locktime.\n\nIl campo nSequence in ogni input permette time lock relativi a livello di transazione. BIP 68 ha ridefinito la semantica del numero di sequenza: se il bit più significativo di nSequence è zero (bit 31 = 0), i bit rimanenti codificano un time lock relativo. La codifica usa il secondo bit più significativo per distinguere tra blocchi (bit 30 = 0) e tempo (bit 30 = 1, in granularità di 512 secondi).\n\n**Livello script: OP_CHECKLOCKTIMEVERIFY e OP_CHECKSEQUENCEVERIFY.**\n\nCLTV (BIP 65) spinge un valore sullo stack. Se quel valore è maggiore del locktime della transazione, lo script fallisce. Questo collega le condizioni basate su script al locktime a livello di transazione. Un uso tipico:\n```\n<locktime> OP_CHECKLOCKTIMEVERIFY OP_DROP OP_CHECKSIG\n```\n\nCSV (BIP 112) funziona similmente ma verifica contro il numero di sequenza dell'input (BIP 68) invece del locktime della transazione:\n```\n<blocchi_relativi> OP_CHECKSEQUENCEVERIFY OP_DROP OP_CHECKSIG\n```"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Dettagli del locktime di transazione.** Il campo locktime usa regole di codifica multiple:\n- Valore 0: immediatamente finale\n- Valori 1-499.999.999: altezza di blocco\n- Valori ≥ 500.000.000: timestamp UNIX\n- La regola median-time-past (MTP) richiede che il locktime sia confrontato con la mediana degli ultimi 11 blocchi, non con il timestamp del blocco stesso. Questo impedisce ai miner di manipolare i timestamp per spendere output con time lock prematuramente.\n\n**Codifica della sequenza BIP 68.** Quando bit 31 = 0, i 16 bit inferiori codificano:\n- Se bit 30 = 0: blocchi relativi (valore 16 bit, max 65535 blocchi ≈ 455 giorni)\n- Se bit 30 = 1: tempo relativo in intervalli di 512 secondi (max 65535 × 512 secondi ≈ 388 giorni)\n\nQuesta granularità è stata scelta in modo che un'unità di tempo relativo corrisponda approssimativamente all'intervallo di blocco target (10 minuti × 512/600 ≈ 0,85).\n\n**Utilizzo nella Lightning Network.** I time lock sono la spina dorsale della sicurezza della Lightning Network. Ogni transazione di commitment usa sia CLTV che CSV:\n- L'output to_local ha un time lock CSV (tipicamente 144 blocchi ≈ 24 ore) che impedisce al finanziatore del canale di spendere immediatamente il proprio saldo dopo una chiusura unilaterale\n- Gli output HTLC usano CLTV per impostare il timeout assoluto per il pagamento, dopo il quale il mittente può reclamare i fondi se il destinatario non riesce a riscuotere\n- La combinazione garantisce che le parti oneste possano sempre recuperare i propri fondi, anche se l'altra parte va offline o tenta di pubblicare uno stato obsoleto\n\n**Vault e transazioni con time lock.** Costruzioni più avanzate usano time lock per vault — output che impongono un time lock prima che i fondi possano muoversi verso la loro destinazione finale. Un vault tipico usa:\n1. Una chiave \"hot\" che può attivare un trasferimento a un indirizzo con time lock\n2. L'indirizzo con time lock impone un ritardo\n3. Durante il ritardo, una chiave \"cold\" (conservata offline) può annullare la transazione o reindirizzare i fondi\n\n**Considerazioni sulla sicurezza.** I time lock sono imposti dal consenso, ma ci sono sfumature:\n- I miner controllano quali transazioni entrano nei blocchi, nei limiti dei vincoli di time lock\n- Un miner potrebbe teoricamente trattenere una transazione con time lock fino al blocco successivo, ma non può includerla prima\n- Le riorganizzazioni possono resettare i time lock relativi se l'output non è più nella chain\n- La regola MTP per CLTV significa che i valori di time lock possono essere ±2 ore dal tempo reale, il che è accettabile per la maggior parte dei casi d'uso"
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "Time Lock",
+        "Script",
+        "Lightning Network",
+        "CLTV",
+        "CSV"
+      ],
+      "sources": [
+        {
+          "title": "BIP 65 — OP_CHECKLOCKTIMEVERIFY",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki",
+          "author": "Peter Todd",
+          "publishedAt": "2014-10-10"
+        },
+        {
+          "title": "BIP 68 — Relative lock-time using consensus-enforced sequence numbers",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki",
+          "author": "Mark Friedenbach, BtcDrak, Nicolas Dorier, kinoshitajona",
+          "publishedAt": "2015-05-28"
+        },
+        {
+          "title": "BIP 112 — CHECKSEQUENCEVERIFY",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki",
+          "author": "BtcDrak, Mark Friedenbach, Eric Lombrozo",
+          "publishedAt": "2015-08-10"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hashlocks"
+        },
+        {
+          "id": "wiki.bitcoin-script"
+        },
+        {
+          "id": "wiki.lightning-network"
+        },
+        {
+          "id": "wiki.payment-channels"
+        },
+        {
+          "id": "wiki.commitment-transactions"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.hashlocks",
+      "slug": "hashlocks",
+      "language": "it",
+      "category": "cryptography",
+      "title": "Hash Lock",
+      "description": "Una condizione crittografica che richiede di rivelare la preimmagine di un hash per spendere un output, permettendo pagamenti atomici e condizionali.",
+      "coverImage": "media/wiki/hashlocks/hashlock-mechanism.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un hash lock è una condizione di spesa che richiede un valore segreto (chiamato \"preimmagine\") per sbloccare i fondi. La condizione funziona impegnando l'hash del segreto nello script di blocco. Per spendere l'output, lo spenditore deve rivelare il segreto originale che produce quell'hash.\n\nIl meccanismo è semplice: Alice blocca bitcoin con l'hash di un segreto R. Solo chi conosce R può spenderlo. Poiché l'hashing è unidirezionale, pubblicare l'hash non rivela nulla su R. Ma una volta che R viene rivelato per riscuotere i fondi, chiunque può vederlo. Questa proprietà — che rivelare R è una prova pubblica della conoscenza del segreto — è ciò che rende gli hash lock così utili.\n\nQuando combinati con i time lock, un hash lock crea un Hashed TimeLock Contract (HTLC). Questo è il blocco fondamentale della Lightning Network, degli atomic swap e di molti pattern di smart contract Bitcoin. L'hash lock assicura che il pagamento vada alla persona giusta se conosce il segreto; il time lock assicura che il mittente possa recuperare i fondi se il segreto non viene mai rivelato.\n\n![Meccanismo dell'hash lock](media/wiki/hashlocks/hashlock-mechanism.svg \"Una preimmagine segreta viene hashata con SHA-256. L'hash blocca l'output. Per spendere bisogna rivelare la preimmagine. Combinato con un time lock, forma un HTLC.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "Un hash lock in Bitcoin Script si presenta così:\n```\nOP_SHA256 <hash> OP_EQUALVERIFY OP_CHECKSIG\n```\n\nLo spenditore deve fornire un valore che, quando hashato con SHA-256, sia uguale all'hash di blocco. Dopo che l'uguaglianza dell'hash è verificata, OP_EQUALVERIFY passa e lo script procede alla verifica della firma. Questo è il \"percorso di successo\" di un HTLC.\n\nL'HTLC completo ha due percorsi:\n\n**Percorso 1 — Riscatta con preimmagine (successo):**\n```\nOP_SHA256 <hash> OP_EQUALVERIFY OP_CHECKSIG\n```\nLo spenditore fornisce: `<sig> <preimage>`\n\n**Percorso 2 — Rimborso dopo timeout (timeout):**\n```\n<locktime> OP_CHECKLOCKTIMEVERIFY OP_DROP OP_CHECKSIG\n```\nIl mittente fornisce: `<sig>` (dopo il locktime)\n\nLo script è tipicamente avvolto in P2SH o P2WSH per nascondere le condizioni di blocco complesse al mittente. Lo script combinato è un pagamento condizionale: il destinatario può riscuotere immediatamente rivelando R, o il mittente può reclamare dopo il locktime.\n\n**Meccanica degli atomic swap.** Gli hash lock permettono atomic swap cross-chain. Alice (su Bitcoin) e Bob (su Litecoin) vogliono scambiare senza fidarsi:\n\n1. Bob genera R, invia H = SHA256(R) ad Alice\n2. Alice crea un HTLC Bitcoin bloccato con H: se Bob rivela R entro 48 ore, Bob riceve i bitcoin di Alice; altrimenti Alice li riprende\n3. Bob crea un HTLC Litecoin bloccato con lo stesso H: se Alice rivela R entro 24 ore, Alice riceve i litecoin di Bob; altrimenti Bob li riprende\n4. Alice riscuote l'HTLC Litecoin, rivelando R\n5. Bob usa l'R ora pubblico per riscuotere l'HTLC Bitcoin\n\nL'asimmetria dei time lock (48h vs 24h) garantisce che Alice non possa riscuotere entrambi e Bob non possa tirarsi indietro, rendendo lo swap atomico."
+        },
+        "advanced": {
+          "bodyMarkdown": "**HTLC nella Lightning Network.** I canali di pagamento usano HTLC per il routing multi-hop. Quando Alice paga Dave attraverso Bob e Carol:\n\n1. Ogni hop crea un HTLC con lo stesso H ma time lock decrescenti\n2. Alice→Bob: HTLC con hash H, time lock 144 blocchi\n3. Bob→Carol: HTLC con hash H, time lock 138 blocchi\n4. Carol→Dave: HTLC con hash H, time lock 132 blocchi\n\nSe Dave conosce R, riscuote da Carol, rivelando R. Carol poi riscuote da Bob, Bob da Alice. R si propaga all'indietro lungo il percorso. Se un hop fallisce, i time lock scadono e ogni hop recupera i propri fondi indipendentemente.\n\nI time lock decrescenti (132 < 138 < 144) sono critici: ogni nodo intermedio ha tempo per riscuotere il proprio HTLC prima che il proprio time lock scada dopo aver inoltrato la preimmagine.\n\n**Proprietà di sicurezza.** Gli hash lock forniscono atomicità senza terze parti fidate:\n\n- **Atomicità**: entrambe le parti completano lo scambio, o nessuna delle due. Il completamento parziale è impossibile perché riscuotere l'HTLC della parte ricevente rivela automaticamente R, che permette di riscuotere l'HTLC della parte mittente.\n- **Non-custodial**: i fondi sono sempre controllati da uno script, mai da una controparte\n- **Trustless**: nessun intermediario può rubare fondi e nessuna parte può imbrogliare rifiutandosi di rivelare R (il time lock protegge la parte onesta)\n\n**Riutilizzo della preimmagine e privacy.** Usare la stessa R per HTLC multipli crea una perdita di privacy: chiunque veda una riscossione può collegare tutte le transazioni che usano quella R. Le implementazioni moderne della Lightning Network usano preimmagini diverse per ogni pagamento. Ogni HTLC dovrebbe usare una preimmagine unica e crittograficamente casuale.\n\n**Point Timelock (PTLC).** Un'alternativa avanzata agli HTLC che usa firme adattatore invece di hash lock. Invece di bloccare con un hash, un PTLC blocca con un punto della curva ellittica. La preimmagine non è un valore grezzo R ma uno scalare che, moltiplicato per G, produce il punto. Questo permette:\n- Stesse proprietà di privacy degli hash lock\n- Potenziale per scriptless script (la condizione di blocco sembra una normale spesa via chiave)\n- Impronta on-chain ridotta\n- Aggregazione basata su Schnorr\n\nI PTLC non sono ancora implementati su mainnet Bitcoin ma sono un'estensione nota per futuri aggiornamenti del protocollo, particolarmente nel contesto di Taproot e firme Schnorr.\n\n**OP_SHA256 vs OP_HASH256.** Gli hash lock possono usare entrambi gli opcode. OP_SHA256 hash con singolo SHA-256, producendo 32 byte. OP_HASH256 produce doppio SHA-256. SHA-256 singolo è preferito per HTLC perché è standard nelle specifiche del protocollo Lightning Network e compatibile con le specifiche BOLT."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Crittografia",
+        "Hash Lock",
+        "Script",
+        "HTLC",
+        "Lightning Network",
+        "Atomic Swap"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "BIP 199 — Hashed Time-Locked Contract improvements",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0199.mediawiki",
+          "author": "Sean Bowe, Daira Hopwood"
+        },
+        {
+          "title": "The Bitcoin Lightning Network — Poon-Dryja",
+          "url": "https://lightning.network/lightning-network-paper.pdf",
+          "author": "Joseph Poon, Thaddeus Dryja",
+          "publishedAt": "2016-01-14"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hash-functions"
+        },
+        {
+          "id": "wiki.timelocks"
+        },
+        {
+          "id": "wiki.bitcoin-script"
+        },
+        {
+          "id": "wiki.lightning-network"
+        },
+        {
+          "id": "wiki.htlcs"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
     }
   ],
   "news": [

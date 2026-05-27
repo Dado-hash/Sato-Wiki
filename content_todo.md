@@ -34,13 +34,13 @@ livelli di lettura `base`, `medium` e `advanced`.
 - [x] Digital signatures - `wiki.digital-signatures`
 - [x] ECDSA - `wiki.ecdsa`
 - [x] Schnorr signatures - `wiki.schnorr-signatures`
-- [ ] secp256k1 - `wiki.secp256k1`
-- [ ] Bitcoin addresses - `wiki.bitcoin-addresses`
-- [ ] Wallet seeds - `wiki.wallet-seeds`
-- [ ] Hierarchical deterministic wallets - `wiki.hd-wallets`
-- [ ] Multisig - `wiki.multisig`
-- [ ] Timelocks - `wiki.timelocks`
-- [ ] Hashlocks - `wiki.hashlocks`
+- [x] secp256k1 - `wiki.secp256k1`
+- [x] Bitcoin addresses - `wiki.bitcoin-addresses`
+- [x] Wallet seeds - `wiki.wallet-seeds`
+- [x] Hierarchical deterministic wallets - `wiki.hd-wallets`
+- [x] Multisig - `wiki.multisig`
+- [x] Timelocks - `wiki.timelocks`
+- [x] Hashlocks - `wiki.hashlocks`
 
 ## Lightning Network (`lightning network`)
 
