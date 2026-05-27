@@ -363,4 +363,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get changelogTitle => 'Changelog';
+
+  @override
+  String get contentUpdateTitle => 'Content Update';
+
+  @override
+  String get contentUpdateAvailable => 'New content is ready to download.';
+
+  @override
+  String get contentUpdateChecking => 'Checking for updates...';
+
+  @override
+  String get contentUpdateDownloadingBundle => 'Downloading content...';
+
+  @override
+  String get contentUpdateDownloadingMedia => 'Downloading media files...';
+
+  @override
+  String contentUpdateDownloadingMediaFormatted(int current, int total) {
+    return 'Downloading media ($current of $total)...';
+  }
+
+  @override
+  String get contentUpdateInstalling => 'Installing update...';
+
+  @override
+  String get contentUpdateDone => 'Update complete!';
+
+  @override
+  String get contentUpdateError => 'Update failed. Content is unchanged.';
 }

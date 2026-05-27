@@ -9,6 +9,30 @@ import '../data/content_media_store.dart';
 import '../domain/content_media.dart';
 import '../domain/content_store.dart';
 
+final class UpdateProgress {
+  const UpdateProgress({
+    required this.state,
+    required this.progress,
+    this.mediaFilesDownloaded = 0,
+    this.mediaFilesTotal = 0,
+  });
+
+  final UpdateState state;
+  final double progress;
+  final int mediaFilesDownloaded;
+  final int mediaFilesTotal;
+}
+
+enum UpdateState {
+  idle,
+  checking,
+  downloadingBundle,
+  downloadingMedia,
+  installing,
+  done,
+  error,
+}
+
 final class AppContentController extends ChangeNotifier {
   AppContentController._({
     required ContentBundleRepository repository,
@@ -28,10 +52,16 @@ final class AppContentController extends ChangeNotifier {
 
   String _languageCode;
   AppContent _content;
+  UpdateProgress _updateProgress = const UpdateProgress(
+    state: UpdateState.idle,
+    progress: 0,
+  );
 
   String get languageCode => _languageCode;
 
   AppContent get content => _content;
+
+  UpdateProgress get updateProgress => _updateProgress;
 
   static Future<AppContentController> load({
     required ContentBundleRepository repository,
@@ -78,19 +108,89 @@ final class AppContentController extends ChangeNotifier {
   Future<void> checkForUpdates() async {
     final updater = _updater;
     if (updater == null) {
+      _updateProgress = const UpdateProgress(
+        state: UpdateState.idle,
+        progress: 0,
+      );
+      notifyListeners();
       return;
     }
 
+    _updateProgress = const UpdateProgress(
+      state: UpdateState.checking,
+      progress: 0.05,
+    );
+    notifyListeners();
+
     try {
-      final result = await updater.checkForUpdates(_languageCode);
-      if (result == null) {
+      final manifest = await updater.fetchManifest(_languageCode);
+      if (manifest == null) {
+        _updateProgress = const UpdateProgress(
+          state: UpdateState.idle,
+          progress: 0,
+        );
+        notifyListeners();
         return;
       }
 
+      final current = await _repository.load(_languageCode);
+      final isNewer = _isNewerVersion(manifest.version, current.bundle.version);
+      if (!isNewer) {
+        _updateProgress = const UpdateProgress(
+          state: UpdateState.idle,
+          progress: 0,
+        );
+        notifyListeners();
+        return;
+      }
+
+      _updateProgress = const UpdateProgress(
+        state: UpdateState.downloadingBundle,
+        progress: 0.15,
+      );
+      notifyListeners();
+
+      final result = await updater.checkForUpdates(
+        _languageCode,
+        onMediaProgress: (current, total) {
+          final mediaProgress = total > 0 ? current / total : 0.0;
+          _updateProgress = UpdateProgress(
+            state: UpdateState.downloadingMedia,
+            progress: 0.15 + 0.8 * mediaProgress,
+            mediaFilesDownloaded: current,
+            mediaFilesTotal: total,
+          );
+          notifyListeners();
+        },
+      );
+
+      if (result == null) {
+        _updateProgress = const UpdateProgress(
+          state: UpdateState.idle,
+          progress: 0,
+        );
+        notifyListeners();
+        return;
+      }
+
+      _updateProgress = const UpdateProgress(
+        state: UpdateState.installing,
+        progress: 0.95,
+      );
+      notifyListeners();
+
       _content = _contentFromResult(result, _mediaStore);
+      _updateProgress = const UpdateProgress(
+        state: UpdateState.done,
+        progress: 1.0,
+      );
       notifyListeners();
     } on Object {
-      // Background updates are best-effort; local content remains authoritative.
+      _updateProgress = const UpdateProgress(
+        state: UpdateState.error,
+        progress: 0,
+      );
+      notifyListeners();
     }
   }
 
@@ -122,5 +222,42 @@ final class AppContentController extends ChangeNotifier {
           ContentMediaResolver.empty,
       warnings: result.warnings,
     );
+  }
+
+  bool _isNewerVersion(String candidate, String current) {
+    final candidateParts = _versionParts(candidate);
+    final currentParts = _versionParts(current);
+    if (candidateParts != null && currentParts != null) {
+      final length = candidateParts.length > currentParts.length
+          ? candidateParts.length
+          : currentParts.length;
+      for (var i = 0; i < length; i++) {
+        final candidateValue = i < candidateParts.length
+            ? candidateParts[i]
+            : 0;
+        final currentValue = i < currentParts.length ? currentParts[i] : 0;
+        if (candidateValue != currentValue) {
+          return candidateValue > currentValue;
+        }
+      }
+
+      return false;
+    }
+
+    return candidate.compareTo(current) > 0;
+  }
+
+  List<int>? _versionParts(String version) {
+    final parts = version.split('.');
+    final values = <int>[];
+    for (final part in parts) {
+      final value = int.tryParse(part);
+      if (value == null) {
+        return null;
+      }
+      values.add(value);
+    }
+
+    return values;
   }
 }

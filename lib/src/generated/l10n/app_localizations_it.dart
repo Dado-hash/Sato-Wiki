@@ -365,4 +365,35 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get changelogTitle => 'Changelog';
+
+  @override
+  String get contentUpdateTitle => 'Aggiornamento contenuti';
+
+  @override
+  String get contentUpdateAvailable =>
+      'Nuovi contenuti pronti per il download.';
+
+  @override
+  String get contentUpdateChecking => 'Verifica aggiornamenti...';
+
+  @override
+  String get contentUpdateDownloadingBundle => 'Download contenuti...';
+
+  @override
+  String get contentUpdateDownloadingMedia => 'Download file media...';
+
+  @override
+  String contentUpdateDownloadingMediaFormatted(int current, int total) {
+    return 'Download media ($current di $total)...';
+  }
+
+  @override
+  String get contentUpdateInstalling => 'Installazione aggiornamento...';
+
+  @override
+  String get contentUpdateDone => 'Aggiornamento completato!';
+
+  @override
+  String get contentUpdateError =>
+      'Aggiornamento fallito. I contenuti sono invariati.';
 }

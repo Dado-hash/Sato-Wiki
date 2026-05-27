@@ -775,6 +775,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Changelog'**
   String get changelogTitle;
+
+  /// No description provided for @contentUpdateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Content Update'**
+  String get contentUpdateTitle;
+
+  /// No description provided for @contentUpdateAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'New content is ready to download.'**
+  String get contentUpdateAvailable;
+
+  /// No description provided for @contentUpdateChecking.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking for updates...'**
+  String get contentUpdateChecking;
+
+  /// No description provided for @contentUpdateDownloadingBundle.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading content...'**
+  String get contentUpdateDownloadingBundle;
+
+  /// No description provided for @contentUpdateDownloadingMedia.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading media files...'**
+  String get contentUpdateDownloadingMedia;
+
+  /// No description provided for @contentUpdateDownloadingMediaFormatted.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading media ({current} of {total})...'**
+  String contentUpdateDownloadingMediaFormatted(int current, int total);
+
+  /// No description provided for @contentUpdateInstalling.
+  ///
+  /// In en, this message translates to:
+  /// **'Installing update...'**
+  String get contentUpdateInstalling;
+
+  /// No description provided for @contentUpdateDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Update complete!'**
+  String get contentUpdateDone;
+
+  /// No description provided for @contentUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Update failed. Content is unchanged.'**
+  String get contentUpdateError;
 }
 
 class _AppLocalizationsDelegate

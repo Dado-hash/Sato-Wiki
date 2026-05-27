@@ -140,5 +140,20 @@
   "newsArticleTitle": "Articolo news",
   "historyEventTitle": "Evento storico",
   "bipDetailTitle": "Dettaglio BIP",
-  "changelogTitle": "Changelog"
+  "changelogTitle": "Changelog",
+  "contentUpdateTitle": "Aggiornamento contenuti",
+  "contentUpdateAvailable": "Nuovi contenuti pronti per il download.",
+  "contentUpdateChecking": "Verifica aggiornamenti...",
+  "contentUpdateDownloadingBundle": "Download contenuti...",
+  "contentUpdateDownloadingMedia": "Download file media...",
+  "contentUpdateDownloadingMediaFormatted": "Download media ({current} di {total})...",
+  "@contentUpdateDownloadingMediaFormatted": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "contentUpdateInstalling": "Installazione aggiornamento...",
+  "contentUpdateDone": "Aggiornamento completato!",
+  "contentUpdateError": "Aggiornamento fallito. I contenuti sono invariati."
 }

@@ -159,7 +159,12 @@ abstract interface class ContentBundleDownloader {
 }
 
 abstract interface class BackgroundContentUpdater {
-  Future<ContentBundleParseResult?> checkForUpdates(String languageCode);
+  Future<ContentBundleParseResult?> checkForUpdates(
+    String languageCode, {
+    void Function(int current, int total)? onMediaProgress,
+  });
+
+  Future<ContentManifest?> fetchManifest(String languageCode);
 }
 
 final class GitHubPagesContentManifestRepository
@@ -252,7 +257,10 @@ final class VerifiedBackgroundContentUpdater
   final ContentMediaStore? _mediaStore;
 
   @override
-  Future<ContentBundleParseResult?> checkForUpdates(String languageCode) async {
+  Future<ContentBundleParseResult?> checkForUpdates(
+    String languageCode, {
+    void Function(int current, int total)? onMediaProgress,
+  }) async {
     final normalizedLanguageCode = AppLocale.normalizeLanguageCode(
       languageCode,
     );
@@ -284,6 +292,7 @@ final class VerifiedBackgroundContentUpdater
       await _mediaStore.prefetchBundleMedia(
         bundle: current.bundle,
         bundleUrl: manifest.bundleUrl,
+        onMediaProgress: onMediaProgress,
       );
 
       return _localRepository.load(normalizedLanguageCode);
@@ -305,10 +314,16 @@ final class VerifiedBackgroundContentUpdater
     await _mediaStore?.prefetchBundleMedia(
       bundle: parsed.bundle,
       bundleUrl: manifest.bundleUrl,
+      onMediaProgress: onMediaProgress,
     );
     await _localRepository.saveUpdatedBundleJson(normalizedLanguageCode, json);
 
     return _localRepository.load(normalizedLanguageCode);
+  }
+
+  @override
+  Future<ContentManifest?> fetchManifest(String languageCode) async {
+    return _manifestRepository.fetchManifest(languageCode);
   }
 
   bool _isNewerVersion(String candidate, String current) {

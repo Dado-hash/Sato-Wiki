@@ -6,6 +6,7 @@ import 'core/localization/app_locale.dart';
 import 'core/navigation/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/settings/app_settings_controller.dart';
+import 'core/widgets/update_progress_dialog.dart';
 import 'generated/l10n/app_localizations.dart';
 
 class SatoWikiApp extends StatefulWidget {
@@ -29,6 +30,7 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     widget.settingsController.addListener(_handleAppStateChanged);
     widget.contentController.addListener(_handleAppStateChanged);
+    widget.contentController.addListener(_handleUpdateProgress);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.contentController.checkForUpdates();
     });
@@ -44,6 +46,8 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     if (oldWidget.contentController != widget.contentController) {
       oldWidget.contentController.removeListener(_handleAppStateChanged);
       widget.contentController.addListener(_handleAppStateChanged);
+      oldWidget.contentController.removeListener(_handleUpdateProgress);
+      widget.contentController.addListener(_handleUpdateProgress);
     }
   }
 
@@ -52,7 +56,39 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     widget.settingsController.removeListener(_handleAppStateChanged);
     widget.contentController.removeListener(_handleAppStateChanged);
+    widget.contentController.removeListener(_handleUpdateProgress);
     super.dispose();
+  }
+
+  void _handleUpdateProgress() {
+    final progress = widget.contentController.updateProgress;
+    switch (progress.state) {
+      case UpdateState.checking:
+      case UpdateState.downloadingBundle:
+      case UpdateState.downloadingMedia:
+      case UpdateState.installing:
+        _maybeShowUpdateDialog();
+      case UpdateState.done:
+      case UpdateState.error:
+      case UpdateState.idle:
+        break;
+    }
+  }
+
+  bool _isDialogShowing = false;
+
+  void _maybeShowUpdateDialog() {
+    if (!mounted || _isDialogShowing) return;
+
+    _isDialogShowing = true;
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) =>
+          UpdateProgressDialog(contentController: widget.contentController),
+    ).then((_) {
+      _isDialogShowing = false;
+    });
   }
 
   @override

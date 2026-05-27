@@ -149,6 +149,7 @@ final class ContentMediaStore {
   Future<void> prefetchBundleMedia({
     required ContentBundle bundle,
     required Uri bundleUrl,
+    void Function(int current, int total)? onMediaProgress,
   }) async {
     final references = ContentMedia.referencesFromBundle(bundle);
     final errors = ContentMedia.validateReferences(references);
@@ -175,7 +176,9 @@ final class ContentMediaStore {
     await temporaryDirectory.create(recursive: true);
 
     try {
-      for (final source in sources) {
+      for (var i = 0; i < sources.length; i++) {
+        final source = sources[i];
+        onMediaProgress?.call(i, sources.length);
         final mediaUrl = bundleUrl.resolve(source);
         final bytes = await _downloader.downloadMedia(mediaUrl);
         final targetFile = File('${temporaryDirectory.path}/$source');

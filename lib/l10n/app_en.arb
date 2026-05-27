@@ -140,5 +140,20 @@
   "newsArticleTitle": "News article",
   "historyEventTitle": "History event",
   "bipDetailTitle": "BIP detail",
-  "changelogTitle": "Changelog"
+  "changelogTitle": "Changelog",
+  "contentUpdateTitle": "Content Update",
+  "contentUpdateAvailable": "New content is ready to download.",
+  "contentUpdateChecking": "Checking for updates...",
+  "contentUpdateDownloadingBundle": "Downloading content...",
+  "contentUpdateDownloadingMedia": "Downloading media files...",
+  "contentUpdateDownloadingMediaFormatted": "Downloading media ({current} of {total})...",
+  "@contentUpdateDownloadingMediaFormatted": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "contentUpdateInstalling": "Installing update...",
+  "contentUpdateDone": "Update complete!",
+  "contentUpdateError": "Update failed. Content is unchanged."
 }
