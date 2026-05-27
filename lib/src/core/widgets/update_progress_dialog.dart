@@ -26,17 +26,25 @@ class _UpdateProgressDialogState extends State<UpdateProgressDialog> {
   }
 
   void _onProgressChanged() {
+    if (!mounted) return;
+
     final progress = widget.contentController.updateProgress;
-    if (mounted &&
-        (progress.state == UpdateState.done ||
-            progress.state == UpdateState.error)) {
-      Future.delayed(const Duration(milliseconds: 1500), () {
-        if (mounted) Navigator.of(context).pop();
-      });
+    switch (progress.state) {
+      case UpdateState.idle:
+        Navigator.of(context).pop();
+      case UpdateState.error:
+        Future.delayed(const Duration(milliseconds: 1500), () {
+          if (mounted) Navigator.of(context).pop();
+        });
+      case UpdateState.done:
+      case UpdateState.checking:
+      case UpdateState.downloadingBundle:
+      case UpdateState.downloadingMedia:
+      case UpdateState.installing:
+        break;
     }
-    if (mounted) {
-      setState(() {});
-    }
+
+    setState(() {});
   }
 
   @override
@@ -144,6 +152,14 @@ class _UpdateProgressDialogState extends State<UpdateProgressDialog> {
             ],
           ),
         ),
+        actions: progress.state == UpdateState.done
+            ? [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(l10n.close),
+                ),
+              ]
+            : null,
       ),
     );
   }
