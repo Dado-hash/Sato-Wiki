@@ -23,10 +23,22 @@ void main(List<String> args) {
           .toList()
         ..sort((a, b) => a.path.compareTo(b.path));
 
+  final idToTitle = <String, String>{};
+  for (final file in mdFiles) {
+    final meta = parseFrontmatterOnly(file);
+    if (meta != null) {
+      final id = meta['id'] as String?;
+      final title = meta['title'] as String?;
+      if (id != null && title != null) {
+        idToTitle[id] = title;
+      }
+    }
+  }
+
   final wikiEntries = <Map<String, Object?>>[];
   for (final file in mdFiles) {
     try {
-      final entry = parseWikiMarkdown(file, lang);
+      final entry = parseWikiMarkdown(file, lang, idToTitle);
       wikiEntries.add(entry);
       stdout.writeln('  ${entry['id']} ← ${file.path}');
     } catch (e) {
@@ -45,7 +57,18 @@ void main(List<String> args) {
   stdout.writeln('\n✓ Wrote $seedPath (${wikiEntries.length} wiki entries)');
 }
 
-Map<String, Object?> parseWikiMarkdown(File file, String lang) {
+Map<String, Object?>? parseFrontmatterOnly(File file) {
+  final text = file.readAsStringSync();
+  final fmMatch = RegExp('^---\n(.*?)\n---', dotAll: true).firstMatch(text);
+  if (fmMatch == null) return null;
+  return _parseFrontmatter(fmMatch.group(1)!);
+}
+
+Map<String, Object?> parseWikiMarkdown(
+  File file,
+  String lang,
+  Map<String, String> idToTitle,
+) {
   final text = file.readAsStringSync();
 
   final fmMatch = RegExp('^---\n(.*?)\n---', dotAll: true).firstMatch(text);
@@ -78,7 +101,7 @@ Map<String, Object?> parseWikiMarkdown(File file, String lang) {
     'readTimeMinutes': meta['readTimeMinutes'] as int? ?? 8,
     'tags': _strList(meta['tags']),
     'sources': _srcList(meta['sources']),
-    'related': _relList(meta['related']),
+    'related': _relList(meta['related'], idToTitle),
     'updatedAt': meta['updatedAt'] as String? ?? '2026-05-27T00:00:00Z',
   };
 }
@@ -233,11 +256,17 @@ List<Map<String, Object?>> _srcList(Object? v) {
   }).toList();
 }
 
-List<Map<String, Object?>> _relList(Object? v) {
+List<Map<String, Object?>> _relList(Object? v, Map<String, String> idToTitle) {
   if (v is! List<Object?>) return [];
   return v.map((e) {
-    if (e is String) return <String, Object?>{'id': e};
-    if (e is Map<String, Object?>) return Map<String, Object?>.from(e);
-    return <String, Object?>{};
+    final id = e is String
+        ? e
+        : e is Map<String, Object?>
+        ? e['id'] as String?
+        : null;
+    if (id == null) return <String, Object?>{};
+    final title = idToTitle[id];
+    if (title != null) return <String, Object?>{'id': id, 'title': title};
+    return <String, Object?>{'id': id};
   }).toList();
 }

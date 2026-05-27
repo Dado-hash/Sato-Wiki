@@ -63,16 +63,20 @@
       ],
       "related": [
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.utxo-model"
+          "id": "wiki.utxo-model",
+          "title": "UTXO Model"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.consensus-rules"
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -141,19 +145,24 @@
       ],
       "related": [
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.blockchain"
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
         },
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.consensus-rules"
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -210,19 +219,24 @@
       ],
       "related": [
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.consensus-rules"
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
         },
         {
-          "id": "wiki.block-propagation"
+          "id": "wiki.block-propagation",
+          "title": "Block Propagation"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -279,19 +293,24 @@
       ],
       "related": [
         {
-          "id": "wiki.blockchain"
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.merkle-trees"
+          "id": "wiki.merkle-trees",
+          "title": "Merkle Trees"
         },
         {
-          "id": "wiki.mining"
+          "id": "wiki.mining",
+          "title": "Mining"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -347,22 +366,28 @@
       ],
       "related": [
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.forks-and-soft-forks"
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Forks and Soft Forks"
         },
         {
-          "id": "wiki.mining"
+          "id": "wiki.mining",
+          "title": "Mining"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -414,19 +439,24 @@
       ],
       "related": [
         {
-          "id": "wiki.private-keys"
+          "id": "wiki.private-keys",
+          "title": "Private Keys"
         },
         {
-          "id": "wiki.public-keys"
+          "id": "wiki.public-keys",
+          "title": "Public Keys"
         },
         {
-          "id": "wiki.ecdsa"
+          "id": "wiki.ecdsa",
+          "title": "ECDSA"
         },
         {
-          "id": "wiki.schnorr-signatures"
+          "id": "wiki.schnorr-signatures",
+          "title": "Schnorr Signatures"
         },
         {
-          "id": "wiki.bitcoin-script"
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -478,16 +508,20 @@
       ],
       "related": [
         {
-          "id": "wiki.digital-signatures"
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
         },
         {
-          "id": "wiki.schnorr-signatures"
+          "id": "wiki.schnorr-signatures",
+          "title": "Schnorr Signatures"
         },
         {
-          "id": "wiki.private-keys"
+          "id": "wiki.private-keys",
+          "title": "Private Keys"
         },
         {
-          "id": "wiki.public-keys"
+          "id": "wiki.public-keys",
+          "title": "Public Keys"
         },
         {
           "id": "wiki.secp256k1"
@@ -557,19 +591,24 @@
       ],
       "related": [
         {
-          "id": "wiki.consensus-rules"
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.blockchain"
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -627,19 +666,24 @@
       ],
       "related": [
         {
-          "id": "wiki.consensus-rules"
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.utxo-model"
+          "id": "wiki.utxo-model",
+          "title": "UTXO Model"
         },
         {
-          "id": "wiki.mempool"
+          "id": "wiki.mempool",
+          "title": "Mempool"
         },
         {
-          "id": "wiki.peer-to-peer-network"
+          "id": "wiki.peer-to-peer-network",
+          "title": "Peer-to-Peer Network"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -691,13 +735,16 @@
       ],
       "related": [
         {
-          "id": "wiki.sha-256"
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
         },
         {
-          "id": "wiki.merkle-trees"
+          "id": "wiki.merkle-trees",
+          "title": "Merkle Trees"
         },
         {
-          "id": "wiki.digital-signatures"
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -759,19 +806,24 @@
       ],
       "related": [
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.utxo-model"
+          "id": "wiki.utxo-model",
+          "title": "UTXO Model"
         },
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.transaction-fees"
+          "id": "wiki.transaction-fees",
+          "title": "Transaction Fees"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -824,16 +876,20 @@
       ],
       "related": [
         {
-          "id": "wiki.hash-functions"
+          "id": "wiki.hash-functions",
+          "title": "Hash Functions"
         },
         {
-          "id": "wiki.sha-256"
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.segregated-witness"
+          "id": "wiki.segregated-witness",
+          "title": "Segregated Witness"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -892,19 +948,23 @@
       ],
       "related": [
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.sha-256"
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
         },
         {
           "id": "wiki.difficulty-adjustment"
         },
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -966,16 +1026,20 @@
       ],
       "related": [
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.mempool"
+          "id": "wiki.mempool",
+          "title": "Mempool"
         },
         {
-          "id": "wiki.consensus-rules"
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1027,13 +1091,16 @@
       ],
       "related": [
         {
-          "id": "wiki.public-keys"
+          "id": "wiki.public-keys",
+          "title": "Public Keys"
         },
         {
-          "id": "wiki.digital-signatures"
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
         },
         {
-          "id": "wiki.ecdsa"
+          "id": "wiki.ecdsa",
+          "title": "ECDSA"
         },
         {
           "id": "wiki.bitcoin-addresses"
@@ -1091,16 +1158,19 @@
       ],
       "related": [
         {
-          "id": "wiki.mining"
+          "id": "wiki.mining",
+          "title": "Mining"
         },
         {
-          "id": "wiki.sha-256"
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
         },
         {
           "id": "wiki.difficulty-adjustment"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         }
       ],
       "updatedAt": "2026-05-26T00:00:00Z"
@@ -1152,13 +1222,16 @@
       ],
       "related": [
         {
-          "id": "wiki.private-keys"
+          "id": "wiki.private-keys",
+          "title": "Private Keys"
         },
         {
-          "id": "wiki.digital-signatures"
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
         },
         {
-          "id": "wiki.ecdsa"
+          "id": "wiki.ecdsa",
+          "title": "ECDSA"
         },
         {
           "id": "wiki.bitcoin-addresses"
@@ -1216,19 +1289,23 @@
       ],
       "related": [
         {
-          "id": "wiki.ecdsa"
+          "id": "wiki.ecdsa",
+          "title": "ECDSA"
         },
         {
-          "id": "wiki.digital-signatures"
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
         },
         {
-          "id": "wiki.taproot"
+          "id": "wiki.taproot",
+          "title": "Taproot"
         },
         {
           "id": "wiki.multisig"
         },
         {
-          "id": "wiki.public-keys"
+          "id": "wiki.public-keys",
+          "title": "Public Keys"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1294,13 +1371,16 @@
       ],
       "related": [
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.bitcoin-script"
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1352,13 +1432,16 @@
       ],
       "related": [
         {
-          "id": "wiki.hash-functions"
+          "id": "wiki.hash-functions",
+          "title": "Hash Functions"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.merkle-trees"
+          "id": "wiki.merkle-trees",
+          "title": "Merkle Trees"
         },
         {
           "id": "wiki.bitcoin-addresses"
@@ -1428,10 +1511,12 @@
       ],
       "related": [
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.bitcoin-script"
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
         },
         {
           "id": "wiki.segwit"
@@ -1492,19 +1577,24 @@
       ],
       "related": [
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.mempool"
+          "id": "wiki.mempool",
+          "title": "Mempool"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         },
         {
-          "id": "wiki.proof-of-work"
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
         },
         {
-          "id": "wiki.utxo-model"
+          "id": "wiki.utxo-model",
+          "title": "UTXO Model"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1562,19 +1652,24 @@
       ],
       "related": [
         {
-          "id": "wiki.utxo-model"
+          "id": "wiki.utxo-model",
+          "title": "UTXO Model"
         },
         {
-          "id": "wiki.bitcoin-script"
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
         },
         {
-          "id": "wiki.transaction-fees"
+          "id": "wiki.transaction-fees",
+          "title": "Transaction Fees"
         },
         {
-          "id": "wiki.mempool"
+          "id": "wiki.mempool",
+          "title": "Mempool"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1631,19 +1726,24 @@
       ],
       "related": [
         {
-          "id": "wiki.transactions"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
         },
         {
-          "id": "wiki.full-nodes"
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         },
         {
-          "id": "wiki.transaction-fees"
+          "id": "wiki.transaction-fees",
+          "title": "Transaction Fees"
         },
         {
-          "id": "wiki.bitcoin-script"
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
         },
         {
-          "id": "wiki.blocks"
+          "id": "wiki.blocks",
+          "title": "Blocks"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
