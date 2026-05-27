@@ -8,11 +8,11 @@ livelli di lettura `base`, `medium` e `advanced`.
 ## Protocol (`protocol`)
 
 - [x] Proof of Work - `wiki.proof-of-work`
-- [ ] Bitcoin transactions - `wiki.transactions`
-- [ ] UTXO model - `wiki.utxo-model`
-- [ ] Blocks - `wiki.blocks`
-- [ ] Blockchain - `wiki.blockchain`
-- [ ] Full nodes - `wiki.full-nodes`
+- [x] Bitcoin transactions - `wiki.transactions`
+- [x] UTXO model - `wiki.utxo-model`
+- [x] Blocks - `wiki.blocks`
+- [x] Blockchain - `wiki.blockchain`
+- [x] Full nodes - `wiki.full-nodes`
 - [ ] Consensus rules - `wiki.consensus-rules`
 - [ ] Mempool - `wiki.mempool`
 - [ ] Mining - `wiki.mining`

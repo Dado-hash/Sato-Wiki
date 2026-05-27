@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.05.26",
+  "version": "2026.05.27",
   "language": "it",
-  "generatedAt": "2026-05-26T00:00:00Z",
+  "generatedAt": "2026-05-27T00:00:00Z",
   "wiki": [
     {
       "id": "wiki.proof-of-work",
@@ -25,7 +25,12 @@
       },
       "difficulty": "advanced",
       "readTimeMinutes": 9,
-      "tags": ["Mining", "Consenso", "Crittografia", "Difficoltà"],
+      "tags": [
+        "Mining",
+        "Consenso",
+        "Crittografia",
+        "Difficoltà"
+      ],
       "sources": [
         {
           "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
@@ -45,12 +50,396 @@
         }
       ],
       "related": [
-        {"id": "wiki.mining", "title": "Mining"},
-        {"id": "wiki.sha-256", "title": "SHA-256"},
-        {"id": "wiki.difficulty-adjustment", "title": "Aggiustamento della difficoltà"},
-        {"id": "wiki.blocks", "title": "Blocchi"}
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
+        },
+        {
+          "id": "wiki.difficulty-adjustment",
+          "title": "Aggiustamento della difficoltà"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        }
       ],
       "updatedAt": "2026-05-26T00:00:00Z"
+    },
+    {
+      "id": "wiki.transactions",
+      "slug": "transactions",
+      "language": "it",
+      "category": "protocol",
+      "title": "Transazioni Bitcoin",
+      "description": "La struttura dati che Bitcoin usa per spendere output precedenti, creare nuovi output ed esprimere autorizzazione.",
+      "coverImage": "media/wiki/transactions/transaction-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Una transazione Bitcoin è un'istruzione firmata che spende bitcoin esistenti e crea nuovi punti da cui potranno essere spesi in futuro. Non sposta saldi tra account. Consuma output di transazioni precedenti e crea nuovi output con condizioni di spesa proprie.\n\n![Flusso di input e output di una transazione](media/wiki/transactions/transaction-flow.svg \"Una transazione consuma output precedenti come input, crea nuovi output e lascia la differenza come fee per il miner.\")\n\nLa maggior parte dei pagamenti ha almeno un input e due output: un output paga il destinatario e un altro rimanda il resto al wallet di chi spende. Il wallet firma gli input per dimostrare di poter soddisfare le condizioni degli output che vengono spesi.\n\nI nodi controllano le transazioni prima di inoltrarle e di nuovo quando un blocco le include. Verificano che gli input esistano, non siano già stati spesi, soddisfino gli script e non creino più satoshi di quanti ne spendono. Una transazione diventa più difficile da sostituire man mano che vengono aggiunti blocchi sopra quello che la contiene."
+        },
+        "medium": {
+          "bodyMarkdown": "A livello di dati grezzi, una transazione contiene una versione, una lista di input, una lista di output e un locktime. Ogni input punta a un output precedente tramite un outpoint: l'ID della transazione precedente più l'indice dell'output. Ogni output contiene un valore in satoshi e uno script di blocco, spesso chiamato `scriptPubKey`.\n\nLa fee non è scritta in un campo separato. I nodi la calcolano come valore totale degli input spesi meno valore totale dei nuovi output. Se gli input valgono 100.000 sat e gli output sommano 98.500 sat, la fee è 1.500 sat.\n\nI dati di sblocco dipendono dal tipo di output speso. Gli input legacy usano `scriptSig`; gli input SegWit mettono firme e altri dati nella struttura witness separata. Questa separazione cambia il calcolo del peso e degli identificatori, ma l'idea di base resta la stessa: gli input provano autorità, gli output definiscono autorità futura.\n\nUna transazione può essere valida per consenso ma non essere inoltrata dalla policy mempool predefinita. Le regole di consenso decidono se una transazione può stare in un blocco. Le regole di policy decidono se un nodo vuole tenere o inoltrare una transazione non confermata prima che venga minata."
+        },
+        "advanced": {
+          "bodyMarkdown": "La validazione di una transazione è una transizione di stato sull'insieme UTXO. Per ogni input non coinbase, un full node cerca l'outpoint referenziato, verifica che sia non speso, esegue i controlli di script richiesti e poi marca quella coin come spesa se la transazione viene collegata in un blocco valido. Gli output della transazione diventano nuovi UTXO.\n\nAlcuni campi hanno senso solo nel contesto. `nLockTime` può impedire che una transazione sia finale fino a una certa altezza o soglia temporale. I valori di sequence degli input possono attivare timelock relativi e policy di sostituzione. Questi meccanismi non aggirano le firme; aggiungono vincoli temporali a quando una spesa altrimenti valida può essere accettata.\n\nAnche gli identificatori sono sottili. Il `txid` tradizionale impegna la serializzazione senza witness. Le transazioni SegWit hanno anche un `wtxid` che impegna i dati witness. Questa distinzione riduce la malleabilità non desiderata per le spese SegWit preservando la compatibilità con i vecchi impegni delle transazioni.\n\nLe transazioni coinbase sono l'eccezione alle normali regole sugli input. Creano il subsidy del blocco più le fee raccolte e hanno un input coinbase speciale invece di spendere un outpoint precedente. I loro output non possono essere spesi finché non maturano, così una reorg breve non invalida subito ricompense di mining appena create e già spese.\n\nIl modello mentale importante è che le transazioni non sono messaggi d'intenzione. Sono rivendicazioni eseguibili su output precedenti. Se la rivendicazione è valida secondo le regole correnti ed entra nella chain valida con abbastanza lavoro dietro, l'insieme UTXO cambia di conseguenza."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Transazioni",
+        "Pagamenti",
+        "UTXO",
+        "Script",
+        "Mempool"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Developer Reference - Transactions",
+          "url": "https://developer.bitcoin.org/reference/transactions.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Transactions",
+          "url": "https://developer.bitcoin.org/devguide/transactions.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "BIP 141 - Segregated Witness",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
+          "author": "Eric Lombrozo, Johnson Lau, Pieter Wuille"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.utxo-model",
+          "title": "Modello UTXO"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Script Bitcoin"
+        },
+        {
+          "id": "wiki.transaction-fees",
+          "title": "Fee di transazione"
+        },
+        {
+          "id": "wiki.mempool",
+          "title": "Mempool"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.utxo-model",
+      "slug": "utxo-model",
+      "language": "it",
+      "category": "protocol",
+      "title": "Modello UTXO",
+      "description": "Il modello con cui Bitcoin traccia coin spendibili come output non spesi distinti, invece di saldi account.",
+      "coverImage": "media/wiki/utxo-model/utxo-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "UTXO significa unspent transaction output, cioè output di transazione non speso. Bitcoin non mantiene un saldo account per ogni utente. Tiene traccia di molti output individuali che non sono ancora stati spesi. Il saldo di un wallet è la somma degli UTXO che il wallet può spendere.\n\n![Flusso di spesa e resto UTXO](media/wiki/utxo-model/utxo-flow.svg \"Spendere un UTXO consuma l'intero output e crea nuovi output, di solito includendo un output di resto verso chi spende.\")\n\nSe hai un UTXO da 50.000 sat e vuoi pagare 20.000 sat, non tagli il vecchio UTXO a metà. La transazione spende tutto l'output da 50.000 sat e crea nuovi output: uno per il destinatario, uno per il resto e una piccola differenza lasciata come fee al miner.\n\nQuesto modello rende precisa la proprietà. Una coin è non spesa e disponibile, oppure è spesa e non può più essere usata. I nodi rifiutano qualunque transazione che provi a spendere due volte lo stesso output nella stessa storia valida."
+        },
+        "medium": {
+          "bodyMarkdown": "Ogni UTXO è identificato da un outpoint: l'ID della transazione che lo ha creato e l'indice dell'output dentro quella transazione. Un input di transazione nomina un outpoint e fornisce i dati necessari per soddisfare lo script di blocco di quell'output.\n\nGli output sono discreti, quindi i wallet devono fare coin selection. Scelgono quali UTXO spendere, stimano la fee e creano resto quando gli input selezionati sono più grandi del pagamento. Una buona coin selection può ridurre fee ed evitare perdite di privacy inutili.\n\nL'insieme UTXO è lo stato spendibile corrente di Bitcoin. È molto più piccolo della storia completa delle transazioni, ma è critico per il consenso. Un full node lo usa per rispondere a una domanda diretta per ogni input: l'output referenziato esiste, è non speso e questa transazione può spenderlo?\n\nGli UTXO influenzano anche la privacy. Combinare più UTXO in una transazione può rivelare che lo stesso wallet o utente probabilmente li controlla. Anche gli output di resto possono essere indovinati quando importi, tipi di script o riuso degli indirizzi rendono ovvia la struttura."
+        },
+        "advanced": {
+          "bodyMarkdown": "Il modello UTXO dà a Bitcoin una regola di validazione locale per la scarsità globale. Per validare un blocco, un nodo non deve ricalcolare ogni saldo storico. Applica ogni transazione come insieme di cancellazioni e inserimenti sullo stato UTXO corrente: spende vecchie coin, crea nuove coin e controlla che il valore totale in output non superi il valore spendibile in input.\n\nPer questo il rilevamento dei double-spend è esatto. Due transazioni possono essere in conflitto se provano a spendere lo stesso outpoint. Solo una può essere collegata in uno stato di chain valido. Un ramo concorrente può scegliere l'altra transazione, ma il conflitto viene risolto dalla chain valida con più proof of work accumulata.\n\nGli UTXO separano anche stato di validazione e storia archivistica. Un full node pruned può eliminare vecchi dati di blocco dopo averli validati, ma deve mantenere abbastanza chainstate per validare nuovi blocchi. L'insieme UTXO è quindi una risorsa condivisa scarsa: ogni output non speso impone costi di archiviazione e lookup ai nodi validanti.\n\nGli script vivono al confine di questo modello. L'output precedente definisce la condizione di spesa; la nuova transazione fornisce dati di sblocco. Una volta soddisfatta la condizione e collegata la transazione, la vecchia condizione scompare con l'UTXO speso e vengono create nuove condizioni per spese future.\n\nRispetto a un modello account, gli UTXO semplificano validazione parallela, costruzione di prove e rilevamento dei conflitti. Il prezzo è che i wallet devono gestire coin selection, resto e privacy con attenzione invece di affidarsi a un singolo saldo mutabile."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "UTXO",
+        "Transazioni",
+        "Validazione",
+        "Privacy"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Transactions",
+          "url": "https://developer.bitcoin.org/devguide/transactions.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Developer Reference - Transactions",
+          "url": "https://developer.bitcoin.org/reference/transactions.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core coins implementation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/coins.h",
+          "author": "Bitcoin Core contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Transazioni Bitcoin"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.transaction-fees",
+          "title": "Fee di transazione"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Script Bitcoin"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.blocks",
+      "slug": "blocks",
+      "language": "it",
+      "category": "protocol",
+      "title": "Blocchi",
+      "description": "I pacchetti di transazioni che i miner propongono e i full node validano come aggiornamenti alla storia condivisa di Bitcoin.",
+      "coverImage": "media/wiki/blocks/block-anatomy.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un blocco è un pacchetto di transazioni proposto da un miner. Si collega al blocco precedente, dimostra che è stato fatto lavoro e chiede ai nodi di accettare un nuovo aggiornamento alla storia delle transazioni di Bitcoin.\n\n![Schema dell'anatomia di un blocco](media/wiki/blocks/block-anatomy.svg \"Un blocco contiene un header da 80 byte, una transazione coinbase e una lista di transazioni impegnata dalla Merkle root.\")\n\nOgni blocco ha due parti principali: un header e una lista di transazioni. L'header contiene l'hash del blocco precedente, una Merkle root che impegna le transazioni, un timestamp, il target di difficoltà in forma compatta e un nonce usato durante il mining.\n\nLa prima transazione è la coinbase. Crea il subsidy del blocco e raccoglie le fee delle altre transazioni incluse. I nodi accettano il blocco solo se la coinbase non paga più di quanto consentito dalle regole e se ogni transazione inclusa è valida."
+        },
+        "medium": {
+          "bodyMarkdown": "L'header del blocco è piccolo, ma contiene gli impegni di cui i nodi hanno bisogno. L'hash del blocco precedente collega il blocco al suo genitore. La Merkle root impegna la lista ordinata delle transazioni. Il campo `nBits` esprime il target della proof of work e il nonce è uno dei valori che i miner variano mentre cercano un hash valido dell'header.\n\nI blocchi hanno anche vincoli di dimensione. Dopo SegWit, il limite di consenso principale è il block weight, che pesa i dati base delle transazioni più dei dati witness e limita un blocco a 4.000.000 weight unit. Questo permette ai nodi di ragionare sui costi di validazione e relay preservando compatibilità con le vecchie regole di serializzazione.\n\nUna proof of work valida non basta. I full node controllano struttura del blocco, prova, regole sul timestamp, validità delle transazioni, importo coinbase, impegno Merkle e regole contestuali che dipendono dalla storia della chain. Se una regola fallisce, il blocco è invalido anche se il suo hash è sotto il target.\n\nI blocchi danno settlement ordinando le transazioni. Se due transazioni sono in conflitto, un blocco valido può includerne al massimo una. I blocchi successivi costruiscono sopra quella scelta, aumentando il lavoro necessario per sostituirla con una storia diversa."
+        },
+        "advanced": {
+          "bodyMarkdown": "Collegare un blocco è una transizione di stato di consenso. Un nodo valida l'header, controlla che il parent sia noto e accettabile, verifica tutti gli input delle transazioni contro l'insieme UTXO corrente, esegue gli script, spende gli output consumati, crea nuovi output e registra il chainstate risultante.\n\nAlcune regole riguardano il blocco intero, non la singola transazione. La coinbase deve essere la prima. La Merkle root deve corrispondere alle transazioni del blocco. Il valore coinbase non deve superare subsidy più fee. I blocchi SegWit devono impegnare i dati witness attraverso il witness commitment nella coinbase quando sono presenti transazioni witness.\n\nI blocchi portano anche vincoli contestuali. I timestamp sono confrontati con il median-time-past e non possono spingersi troppo nel futuro secondo la policy sul network-adjusted time. Su mainnet la difficoltà cambia solo agli intervalli di retarget. Gli output coinbase richiedono maturità prima di poter essere spesi, riducendo il danno delle riorganizzazioni brevi.\n\nUn blocco può essere salvato, inoltrato, usato come punta di mining o rifiutato a seconda del suo stato di validazione. Gli header possono arrivare prima dei blocchi completi, e un nodo può conoscere più lavoro negli header di quanto abbia già validato come dati di blocco completi. La best chain non è semplicemente il ramo con header: è il miglior ramo pienamente valido che il nodo può collegare secondo le sue regole.\n\nI blocchi sono quindi sia contenitori di dati sia checkpoint di regole. Raggruppano transazioni, impegnano l'ordine, portano proof of work e trasformano l'insieme UTXO un passo valido alla volta."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Blocchi",
+        "Mining",
+        "Consenso",
+        "Merkle Tree"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Developer Reference - Block Chain",
+          "url": "https://developer.bitcoin.org/reference/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Block Chain",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "BIP 141 - Segregated Witness",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
+          "author": "Eric Lombrozo, Johnson Lau, Pieter Wuille"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.transactions",
+          "title": "Transazioni Bitcoin"
+        },
+        {
+          "id": "wiki.merkle-trees",
+          "title": "Merkle Tree"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.blockchain",
+      "slug": "blockchain",
+      "language": "it",
+      "category": "protocol",
+      "title": "Blockchain",
+      "description": "La storia collegata di blocchi validi di Bitcoin, selezionata dalla proof of work accumulata.",
+      "coverImage": "media/wiki/blockchain/linked-chain.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "La blockchain di Bitcoin è una catena di blocchi validi. Ogni blocco punta all'hash del blocco precedente, quindi modificare un vecchio blocco cambierebbe il suo hash e romperebbe ogni collegamento successivo.\n\n![Schema di blockchain collegata](media/wiki/blockchain/linked-chain.svg \"I blocchi si collegano all'indietro tramite hash, mentre i nodi seguono il ramo valido con più proof of work accumulata.\")\n\nLa blockchain non è semplicemente un database pubblico. È una storia selezionata da regole e proof of work. I nodi rifiutano blocchi invalidi e i miner competono per estendere la chain valida con più lavoro accumulato.\n\nLe conferme misurano quanto una transazione è profonda in quella storia. Una transazione nell'ultimo blocco ha una conferma. Ogni nuovo blocco sopra aggiunge un'altra conferma e rende più costoso sostituire quella transazione."
+        },
+        "medium": {
+          "bodyMarkdown": "Ogni header di blocco impegna il suo parent tramite l'hash del blocco precedente. Questo crea una struttura ordinata dal blocco genesis alla punta corrente. Un nodo può verificare collegamenti, proof of work e regole di ogni blocco mentre costruisce la propria vista locale della chain.\n\nPossono esserci split temporanei quando miner diversi trovano blocchi in momenti vicini. I nodi possono vedere rami validi concorrenti. Non scelgono in base all'identità del miner né restano per sempre sul primo ramo sentito: tracciano il ramo valido con più proof of work accumulata.\n\nLa blockchain impegna anche cambiamenti di stato. I blocchi contengono transazioni, le transazioni consumano e creano UTXO, e il chainstate del nodo cambia mentre i blocchi vengono collegati o scollegati durante una riorganizzazione. La catena visibile di blocchi e l'insieme UTXO corrente sono due viste della stessa storia validata.\n\nPer questo \"on-chain\" significa più di \"pubblicato da qualche parte\". Una transazione è sulla chain di Bitcoin solo quando è inclusa in un blocco valido che appartiene alla best valid chain del nodo."
+        },
+        "advanced": {
+          "bodyMarkdown": "La blockchain di Bitcoin è un log collegato da hash più una regola di validazione per scegliere tra log concorrenti. I collegamenti hash rendono evidente la manomissione. La proof of work rende costose le storie alternative. La validazione dei full node assicura che il lavoro conti solo quando è attaccato a blocchi che rispettano le regole di consenso.\n\nI nodi di solito imparano gli header prima dei dati di blocco completi. Gli header permettono di confrontare chainwork potenziale a basso costo, ma una chain di header non basta per accettare pagamenti. Il nodo deve validare i blocchi e le transazioni corrispondenti prima di trattare quel ramo come storia pienamente utilizzabile.\n\nLe riorganizzazioni fanno parte del disegno. Se la punta corrente di un nodo perde contro un altro ramo valido con più lavoro accumulato, il nodo scollega blocchi fino al punto di fork e collega il ramo più forte. Le transazioni dei blocchi scollegati possono tornare in mempool se sono ancora valide e non in conflitto.\n\nLa chain non offre finalità istantanea. Offre settlement probabilistico: sostituire una transazione richiede produrre un ramo alternativo valido che superi il lavoro accumulato dal ramo pubblico. Più la transazione è profonda, più lavoro deve essere rimpiazzato.\n\nIl risultato pratico è un sistema di ordinamento condiviso senza un'autorità centrale di timestamp. Ogni nodo può ricostruire indipendentemente la stessa migliore storia valida da dati di blocco, proof of work e regole di consenso."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Blockchain",
+        "Consenso",
+        "Chainwork",
+        "Storia"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Block Chain",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Developer Reference - Block Chain",
+          "url": "https://developer.bitcoin.org/reference/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core validation implementation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/validation.cpp",
+          "author": "Bitcoin Core contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di consenso"
+        },
+        {
+          "id": "wiki.block-propagation",
+          "title": "Propagazione dei blocchi"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.full-nodes",
+      "slug": "full-nodes",
+      "language": "it",
+      "category": "protocol",
+      "title": "Full Node",
+      "description": "Software Bitcoin che valida indipendentemente blocchi e transazioni invece di fidarsi della vista della chain di qualcun altro.",
+      "coverImage": "media/wiki/full-nodes/validation-pipeline.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un full node è un software Bitcoin che controlla la blockchain da sé. Scarica blocchi, verifica transazioni e proof of work, tiene traccia dell'insieme UTXO e rifiuta dati che violano le regole.\n\n![Pipeline di validazione di un full node](media/wiki/full-nodes/validation-pipeline.svg \"Un full node riceve dati dai peer, valida header e blocchi, aggiorna l'insieme UTXO e inoltra solo dati accettabili.\")\n\nEseguire un full node significa non dover chiedere a un server wallet quali blocchi o pagamenti siano validi. Il tuo nodo può dire se una transazione è confermata, se un blocco segue le regole e se al tuo wallet viene mostrata la stessa chain che il tuo software accetta.\n\nI full node non sono miner. I miner propongono blocchi facendo proof of work. I full node decidono se quei blocchi sono validi secondo le proprie regole. Un miner può trovare un blocco, ma non può costringere nodi onesti ad accettarne uno invalido."
+        },
+        "medium": {
+          "bodyMarkdown": "Durante l'initial block download, un full node parte dal blocco genesis e valida la chain fino alla punta corrente. Controlla proof of work, struttura dei blocchi, regole delle transazioni, script, regole di emissione e ordine in cui gli output vengono spesi e creati.\n\nUn full node può essere archival o pruned. Un nodo archival conserva i vecchi dati di blocco e può servire blocchi storici ad altri peer. Un nodo pruned valida comunque tutta la chain e mantiene il chainstate corrente, ma elimina vecchi file di blocco quando non servono più localmente.\n\nI full node partecipano anche alla rete peer-to-peer. Scoprono peer, scambiano header, richiedono blocchi, inoltrano transazioni valide e mantengono una mempool di transazioni non confermate che passano la policy locale. Il networking fa muovere i dati; la validazione decide cosa il nodo accetta.\n\nIl vantaggio di sicurezza è l'indipendenza. Anche se molti peer mentono, un full node può rifiutare blocchi e transazioni invalidi. Ha bisogno di connettività per conoscere la rete, ma non esternalizza la domanda sulla validità."
+        },
+        "advanced": {
+          "bodyMarkdown": "Un full node separa consenso e policy. Le regole di consenso determinano se un blocco può far parte della best chain. Le regole di policy determinano cosa il nodo inoltra o conserva in mempool prima del mining. Una transazione può essere non standard per policy ma comunque valida se un miner la include in un blocco valido.\n\nLa validazione dei blocchi è stratificata. Il nodo controlla header e proof of work, valida regole contestuali sugli header, scarica i dati di blocco, verifica struttura delle transazioni, controlla gli input contro l'insieme UTXO, esegue gli script, applica vincoli su subsidy e fee e registra il chainstate risultante se il blocco si collega.\n\nI full node rendono prudenti anche i cambi di regole di Bitcoin. Una modifica che rende validi blocchi prima invalidi richiede che utenti e attori economici eseguano software che accetta le nuove regole. Altrimenti i loro nodi continuano a rifiutare quei blocchi. Per questo la validazione locale è parte del modello di governance di Bitcoin, non solo un dettaglio implementativo.\n\nPruning, default assume-valid e caching possono ridurre l'uso di risorse, ma non cambiano la responsabilità centrale: il nodo deve poter applicare le regole di consenso alla chain che accetta. Le scorciatoie di performance sono accettabili solo quando preservano lo stesso risultato finale di validazione.\n\nIl lavoro silenzioso del full node è essere severo. Ascolta una rete aperta, ma tratta ogni peer come non fidato finché i dati non passano i controlli locali."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Full Node",
+        "Validazione",
+        "Consenso",
+        "Rete P2P",
+        "Privacy"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Developer Guide - Operating Modes",
+          "url": "https://developer.bitcoin.org/devguide/operating_modes.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Developer Guide - P2P Network",
+          "url": "https://developer.bitcoin.org/devguide/p2p_network.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core validation implementation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/validation.cpp",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di consenso"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        },
+        {
+          "id": "wiki.utxo-model",
+          "title": "Modello UTXO"
+        },
+        {
+          "id": "wiki.mempool",
+          "title": "Mempool"
+        },
+        {
+          "id": "wiki.peer-to-peer-network",
+          "title": "Rete peer-to-peer"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
     }
   ],
   "news": [
@@ -69,7 +458,10 @@
       "publishedAt": "2023-11-14",
       "readTimeMinutes": 12,
       "bodyMarkdown": "Taproot si è attivato al blocco 709.632 dopo il lock-in tramite Speedy Trial.",
-      "tags": ["Taproot", "Upgrade"],
+      "tags": [
+        "Taproot",
+        "Upgrade"
+      ],
       "sources": [
         {
           "title": "BIP 341: Taproot",
@@ -77,7 +469,9 @@
           "author": "Bitcoin BIPs"
         }
       ],
-      "related": ["code.bip.341"],
+      "related": [
+        "code.bip.341"
+      ],
       "updatedAt": "2026-05-25T00:00:00Z"
     }
   ],
@@ -91,7 +485,10 @@
       "category": "community",
       "summary": "Laszlo Hanyecz fece la prima transazione commerciale documentata in Bitcoin.",
       "bodyMarkdown": "Due pizze furono acquistate per 10.000 BTC, creando un riferimento culturale duraturo per Bitcoin.",
-      "tags": ["Community", "Pagamenti"],
+      "tags": [
+        "Community",
+        "Pagamenti"
+      ],
       "sources": [
         {
           "title": "Thread pizza su BitcoinTalk",
@@ -99,7 +496,9 @@
           "author": "Laszlo Hanyecz"
         }
       ],
-      "related": ["wiki.transactions"],
+      "related": [
+        "wiki.transactions"
+      ],
       "updatedAt": "2026-05-25T00:00:00Z"
     }
   ],
@@ -112,12 +511,19 @@
       "summary": "Regole di spesa SegWit versione 1.",
       "status": "active",
       "category": "consensus",
-      "authors": ["Pieter Wuille", "Jonas Nick", "Anthony Towns"],
+      "authors": [
+        "Pieter Wuille",
+        "Jonas Nick",
+        "Anthony Towns"
+      ],
       "createdAt": "2020-01-19",
       "summaryMarkdown": "Taproot combina firme Schnorr e percorsi script Merkle.",
       "impactMarkdown": "Spese complesse possono apparire come normali spese key-path.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-      "tags": ["Taproot", "Consenso"],
+      "tags": [
+        "Taproot",
+        "Consenso"
+      ],
       "sources": [
         {
           "title": "BIP 341",
@@ -125,7 +531,10 @@
           "author": "Bitcoin BIPs"
         }
       ],
-      "related": ["wiki.taproot", "news.taproot-retrospective"],
+      "related": [
+        "wiki.taproot",
+        "news.taproot-retrospective"
+      ],
       "statusHistory": [
         {
           "date": "2020-01-19",
@@ -155,7 +564,10 @@
       "userImpactMarkdown": "Gli utenti ottengono miglioramenti nel comportamento di wallet e peer.",
       "technicalChangesMarkdown": "La release include modifiche a P2P, RPC e sistema di build.",
       "officialUrl": "https://bitcoincore.org/en/releases/27.0/",
-      "tags": ["Bitcoin Core", "Release"],
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
       "sources": [
         {
           "title": "Note di rilascio Bitcoin Core 27.0",
@@ -163,7 +575,9 @@
           "author": "Bitcoin Core"
         }
       ],
-      "related": ["code.bip.324"],
+      "related": [
+        "code.bip.324"
+      ],
       "updatedAt": "2026-05-25T00:00:00Z"
     }
   ]

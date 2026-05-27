@@ -1,0 +1,70 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Full node validation pipeline</title>
+  <desc id="desc">A full node receives network data, validates it locally, updates chainstate, and relays only acceptable information.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Independent validation</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Peers provide data; the node decides what is valid.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 166H884"/>
+    <path d="M76 300H884"/>
+    <path d="M76 434H884"/>
+    <path d="M184 150V454"/>
+    <path d="M480 150V454"/>
+    <path d="M776 150V454"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="74" y="220" width="150" height="118" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="149" y="262" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Peers</text>
+    <g fill="#F7931A">
+      <circle cx="114" cy="300" r="7"/>
+      <circle cx="149" cy="300" r="7"/>
+      <circle cx="184" cy="300" r="7"/>
+    </g>
+  </g>
+
+  <path d="M240 279H314" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="330" y="178" width="300" height="204" rx="20" fill="#20252D" stroke="#F7931A" stroke-width="2.2"/>
+    <text x="480" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Full node</text>
+    <rect x="362" y="248" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
+    <text x="480" y="270" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">headers + proof of work</text>
+    <rect x="362" y="298" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
+    <text x="480" y="320" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">transactions + scripts</text>
+    <rect x="362" y="348" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
+    <text x="480" y="370" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">consensus rules</text>
+  </g>
+
+  <path d="M646 252H716" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M646 334H716" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+  <g filter="url(#soft)">
+    <rect x="734" y="190" width="154" height="92" rx="18" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="811" y="226" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Chainstate</text>
+    <text x="811" y="254" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">UTXO set</text>
+
+    <rect x="734" y="318" width="154" height="92" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="811" y="354" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Relay</text>
+    <text x="811" y="382" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">valid data only</text>
+  </g>
+
+  <path d="M480 396V438C480 456 466 466 446 466H150C128 466 116 454 116 434V358" stroke="#7C8794" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10"/>
+  <text x="224" y="456" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">reject invalid data locally</text>
+</svg>

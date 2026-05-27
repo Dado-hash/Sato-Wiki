@@ -16,13 +16,16 @@ void main() {
 
     expect(result.warnings, isEmpty);
     expect(bundle.schemaVersion, 1);
-    expect(bundle.version, '2026.05.26');
+    expect(bundle.version, '2026.05.27');
+    final proofOfWork = bundle.wiki.firstWhere(
+      (entry) => entry.id == 'wiki.proof-of-work',
+    );
     expect(
-      bundle.wiki.single.contentFor(ReadingLevel.base).bodyMarkdown,
+      proofOfWork.contentFor(ReadingLevel.base).bodyMarkdown,
       contains('history costly to rewrite'),
     );
     expect(
-      bundle.wiki.single.coverImage,
+      proofOfWork.coverImage,
       Uri.parse('media/wiki/proof-of-work/pow-mining-loop.svg'),
     );
     expect(bundle.news.single.author.github, 'andreas-m');
