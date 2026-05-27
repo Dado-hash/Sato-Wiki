@@ -431,45 +431,6 @@ class _FilterChip extends StatelessWidget {
   }
 }
 
-class _DifficultyIndicator extends StatelessWidget {
-  const _DifficultyIndicator({required this.level});
-
-  final ReadingLevel level;
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final filledCount = switch (level) {
-      ReadingLevel.base => 1,
-      ReadingLevel.medium => 2,
-      ReadingLevel.advanced => 3,
-    };
-    final activeColor = switch (level) {
-      ReadingLevel.base => colorScheme.tertiaryContainer,
-      ReadingLevel.medium => colorScheme.primaryContainer,
-      ReadingLevel.advanced => colorScheme.error,
-    };
-
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        for (var i = 0; i < 3; i++)
-          Container(
-            width: 8,
-            height: 8,
-            margin: const EdgeInsets.only(left: 3),
-            decoration: BoxDecoration(
-              color: i < filledCount
-                  ? activeColor
-                  : activeColor.withValues(alpha: 0.25),
-              shape: BoxShape.circle,
-            ),
-          ),
-      ],
-    );
-  }
-}
-
 class _CategoryEntryCard extends StatelessWidget {
   const _CategoryEntryCard({
     required this.entry,
@@ -540,34 +501,6 @@ class _CategoryEntryCard extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: Stack(
                   children: [
-                    if (highlighted)
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: colorScheme.primary,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(8),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 3,
-                            ),
-                            child: Text(
-                              l10n.coreConcept,
-                              style: textTheme.labelSmall?.copyWith(
-                                color: colorScheme.onPrimary,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 0.05,
-                                fontSize: 10,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -603,8 +536,6 @@ class _CategoryEntryCard extends StatelessWidget {
                               icon: Icons.update,
                               label: _formatDate(entry.updatedAt, l10n),
                             ),
-                            const Spacer(),
-                            _DifficultyIndicator(level: entry.difficulty),
                           ],
                         ),
                       ],
@@ -799,7 +730,13 @@ class WikiEntryScreen extends StatelessWidget {
               const SizedBox(height: 32),
               SectionTitle(title: l10n.relatedConcepts),
               const SizedBox(height: 12),
-              RelatedLinksGrid(links: relatedLinks(entry.related)),
+              RelatedLinksGrid(
+                links: relatedLinks(
+                  entry.related,
+                  onTap: (id) =>
+                      Navigator.of(context).pushNamed(AppRoutes.wikiEntry(id)),
+                ),
+              ),
             ],
             if (entry.sources.isNotEmpty) ...[
               const SizedBox(height: 24),

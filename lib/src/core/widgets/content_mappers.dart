@@ -9,10 +9,17 @@ List<MetadataItem> tagMetadata(List<String> tags) {
   return [for (final tag in tags) MetadataItem(label: '#$tag', isTag: true)];
 }
 
-List<RelatedLink> relatedLinks(List<content.RelatedContentLink> links) {
+List<RelatedLink> relatedLinks(
+  List<content.RelatedContentLink> links, {
+  void Function(String id)? onTap,
+}) {
   return [
     for (final link in links)
-      RelatedLink(title: link.title ?? link.id, icon: Icons.link),
+      RelatedLink(
+        title: link.title ?? link.id,
+        icon: Icons.link,
+        onTap: onTap != null ? () => onTap(link.id) : null,
+      ),
   ];
 }
 
