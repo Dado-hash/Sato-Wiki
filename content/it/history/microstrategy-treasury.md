@@ -18,6 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 L'11 agosto 2020, MicroStrategy, una società quotata in borsa specializzata in business intelligence, annunciò l'acquisto di 21.454 BTC per $250 milioni come riserva di tesoreria primaria. Guidata dall'amministratore delegato Michael Saylor, MicroStrategy divenne la prima società quotata ad adottare Bitcoin come asset di tesoreria aziendale.
+![Michael Saylor presenta la strategia di tesoreria in Bitcoin di MicroStrategy a una conferenza.](media/history/microstrategy-treasury/michael-saylor-presentation.webp "Michael Saylor strategia Bitcoin")
+
 
 La tesi di Saylor era che le proprietà monetarie di Bitcoin — scarsità assoluta, portabilità, durabilità e decentralizzazione — lo rendevano una riserva di valore superiore rispetto al contante, che veniva deprezzato dalla stampa di moneta senza precedenti. Il consiglio di amministrazione di MicroStrategy autorizzò la società a investire le riserve di cassa in eccesso in Bitcoin come copertura contro l'inflazione.
 

@@ -20,6 +20,8 @@ updatedAt: 2026-05-28T00:00:00Z
 Il 9 giugno 2021, El Salvador divenne la prima nazione sovrana ad adottare Bitcoin come moneta a corso legale. L'amministrazione del presidente Nayib Bukele approvò la Bitcoin Law con 62 voti su 84 nell'Assemblea Legislativa, obbligando tutti gli agenti economici ad accettare Bitcoin come pagamento per beni e servizi.
 
 La legge definiva il tasso di cambio di Bitcoin rispetto al dollaro USA come determinato liberamente dal mercato. Istituiva il Chivo Wallet, un portafoglio digitale di proprietà statale per facilitare le transazioni in Bitcoin senza commissioni, finanziato da un fondo fiduciario di $150 milioni in Bitcoin creato dal governo. Ogni cittadino salvadoregno ricevette $30 in Bitcoin come incentivo all'adozione.
+![Interfaccia dell'applicazione mobile Chivo Wallet per transazioni Bitcoin in El Salvador.](media/history/el-salvador-law/chivo-wallet-interface.webp "Interfaccia Chivo Wallet")
+
 
 La decisione fu guidata da diversi fattori: il 70% dei salvadoregni non aveva accesso ai servizi bancari tradizionali, le rimesse rappresentavano oltre il 20% del PIL e Bitcoin offriva alternative a costo inferiore rispetto ai sistemi di pagamento esistenti. La legge mirava ad aumentare l'inclusione finanziaria e ridurre i costi delle rimesse.
 

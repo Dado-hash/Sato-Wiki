@@ -18,6 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On August 1, 2017, Bitcoin experienced a hard fork at block height 478,558, creating a new cryptocurrency called Bitcoin Cash (BCH). The fork was the culmination of a long-running debate within the Bitcoin community about how to scale the network.
+![Diagram showing the blockchain fork at block height 478,558 that created Bitcoin Cash.](media/history/bitcoin-cash-fork/bitcoin-cash-split-diagram.webp "Bitcoin Cash hard fork diagram")
+
 
 The Bitcoin Cash faction argued for larger blocks as a direct scaling solution, opposing SegWit which they viewed as unnecessarily complex. Bitcoin Cash increased the block size limit to 8 MB, later raising it to 32 MB, aiming to process more transactions per block at lower fees.
 

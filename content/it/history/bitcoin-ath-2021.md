@@ -18,6 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 10 novembre 2021, Bitcoin raggiunse il massimo storico di $69.000, quasi triplicando il picco del ciclo precedente di $20.000. Il rally fu guidato da una combinazione di fattori che distinsero questo mercato rialzista dal 2017: adozione istituzionale, venti macroeconomici favorevoli e un panorama normativo in maturazione.
+![Grafico del prezzo di Bitcoin dal 2020 al 2021 che mostra il rally da $10.000 a $69.000.](media/history/bitcoin-ath-2021/bitcoin-2021-price-chart.webp "Grafico prezzo Bitcoin 2021")
+
 
 Il coinvolgimento istituzionale fu la caratteristica distintiva del mercato rialzista del 2021. Aziende come MicroStrategy, Tesla e Square detenevano Bitcoin nei loro bilanci. Grandi istituzioni finanziarie tra cui Goldman Sachs, Morgan Stanley e JPMorgan offrivano esposizione a Bitcoin ai loro clienti. Il lancio del primo ETF futures su Bitcoin (BITO) nell'ottobre 2021 fornì un veicolo regolamentato per gli investitori tradizionali.
 

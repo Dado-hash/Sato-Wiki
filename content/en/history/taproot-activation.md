@@ -20,6 +20,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On November 14, 2021, Taproot activated on the Bitcoin mainnet at block height 709,632. The upgrade introduced three Bitcoin Improvement Proposals: BIP 340 (Schnorr signatures), BIP 341 (Taproot), and BIP 342 (Tapscript).
+![Block 709,632 on a block explorer marking Taproot activation on Bitcoin mainnet.](media/history/taproot-activation/taproot-activation-block.webp "Taproot activation block")
+
 
 Taproot represented Bitcoin's most significant protocol upgrade since SegWit. It introduced three key innovations. First, Schnorr signatures replaced ECDSA, enabling signature aggregation — multiple parties could produce a single signature for a multi-signature transaction, reducing data and improving privacy. Second, MAST allowed complex smart contracts to be revealed only partially upon execution, making simple transactions indistinguishable from complex ones. Third, Taproot's new scripting language — Tapscript — improved efficiency and flexibility.
 

@@ -101,6 +101,24 @@ Le immagini vanno inserite nel path indicato, formato `.webp`.
 - [ ] `media/history/cyprus-crisis/cyprus-bank-queue.webp`
 - [ ] `media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp`
 - [ ] `media/history/mtgox-collapse/mtgox-collapse-logo.webp`
+- [ ] `media/history/segwit-proposal/segwit-structure-diagram.webp`
+- [ ] `media/history/second-halving/block-420000-explorer.webp`
+- [ ] `media/history/bitcoin-cash-fork/bitcoin-cash-split-diagram.webp`
+- [ ] `media/history/segwit-activation/uasf-signaling-chart.webp`
+- [ ] `media/history/lightning-whitepaper/lightning-network-diagram.webp`
+- [ ] `media/history/bitcoin-twenty-thousand/bitcoin-2017-price-chart.webp`
+- [ ] `media/history/cme-bitcoin-futures/cme-futures-contract.webp`
+- [ ] `media/history/lightning-mainnet/ln-network-growth.webp`
+- [ ] `media/history/third-halving/block-630000-explorer.webp`
+- [ ] `media/history/microstrategy-treasury/michael-saylor-presentation.webp`
+- [ ] `media/history/el-salvador-law/chivo-wallet-interface.webp`
+- [ ] `media/history/bitcoin-ath-2021/bitcoin-2021-price-chart.webp`
+- [ ] `media/history/taproot-activation/taproot-activation-block.webp`
+- [ ] `media/history/ordinals-launch/ordinals-inscription-example.webp`
+- [ ] `media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp`
+- [ ] `media/history/fourth-halving/block-840000-explorer.webp`
+- [ ] `media/history/runes-launch/runes-transaction-example.webp`
+- [ ] `media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp`
 
 Le fasi successive aggiungeranno altre voci a questa lista.
 
@@ -257,27 +275,27 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
 
 ### Fase 6 — New Frontiers (2022–2026)
 
-- [ ] Ordinals launch - `history.ordinals-launch`
+- [x] Ordinals launch - `history.ordinals-launch`
   `2023-01-21` | `community`
   Casey Rodarmor lancia il protocollo Ordinals, permettendo inscription di
   dati sulla blockchain Bitcoin.
 
-- [ ] Bitcoin ETFs approved - `history.bitcoin-etf-approval`
+- [x] Bitcoin ETFs approved - `history.bitcoin-etf-approval`
   `2024-01-10` | `regulation`
   La SEC approva 11 spot Bitcoin ETF, segnando un punto di svolta per
   l'adozione istituzionale.
 
-- [ ] Fourth halving - `history.fourth-halving`
+- [x] Fourth halving - `history.fourth-halving`
   `2024-04-20` | `protocol`
   Quarto halving: il block subsidy passa da 6,25 a 3,125 BTC. Altezza blocco
   840.000.
 
-- [ ] Runes protocol launch - `history.runes-launch`
+- [x] Runes protocol launch - `history.runes-launch`
   `2024-04` | `protocol`
   Casey Rodarmor lancia Runes, protocollo di token fungibile su Bitcoin
   basato su UTXO.
 
-- [ ] Bitcoin $100,000 milestone - `history.bitcoin-one-hundred-thousand`
+- [x] Bitcoin $100,000 milestone - `history.bitcoin-one-hundred-thousand`
   `2024-12-05` | `market`
   Bitcoin supera $100.000 per la prima volta, trainato dall'afflusso degli
   ETF.

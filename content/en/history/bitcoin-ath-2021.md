@@ -18,6 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On November 10, 2021, Bitcoin reached an all-time high of $69,000, nearly tripling its previous cycle peak of $20,000. The rally was driven by a confluence of factors that distinguished this bull run from 2017: institutional adoption, macroeconomic tailwinds, and a maturing regulatory landscape.
+![Bitcoin price chart from 2020 to 2021 showing the rally from $10,000 to $69,000.](media/history/bitcoin-ath-2021/bitcoin-2021-price-chart.webp "Bitcoin 2021 bull run price chart")
+
 
 Institutional involvement was the defining characteristic of the 2021 bull run. Companies like MicroStrategy, Tesla, and Square held Bitcoin on their balance sheets. Major financial institutions including Goldman Sachs, Morgan Stanley, and JPMorgan offered Bitcoin exposure to their clients. The launch of the first Bitcoin futures ETF (BITO) in October 2021 provided a regulated vehicle for traditional investors.
 

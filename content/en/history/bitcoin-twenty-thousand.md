@@ -19,6 +19,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On December 17, 2017, Bitcoin reached its cycle peak of $19,783 on the CoinDesk Price Index, capping a historic bull run that saw the price rise from under $1,000 in January to nearly $20,000 in December. The rally was fueled by a surge of retail interest, mainstream media coverage, and the launch of Bitcoin futures.
+![Bitcoin price chart from January to December 2017 showing the parabolic rise to $19,783.](media/history/bitcoin-twenty-thousand/bitcoin-2017-price-chart.webp "Bitcoin 2017 bull run price chart")
+
 
 The mania attracted millions of new participants through easy-to-use exchanges like Coinbase, which added over 100,000 users in a single day during peak frenzy. Stories of overnight millionaires and speculative frenzy dominated headlines worldwide, with Bitcoin becoming a household name.
 

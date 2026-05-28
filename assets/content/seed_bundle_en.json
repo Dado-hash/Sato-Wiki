@@ -674,7 +674,7 @@
       "title": "SegWit Proposal",
       "category": "protocol",
       "summary": "Pieter Wuille proposes Segregated Witness (BIP 141, 143, 144) to solve transaction malleability and scalability.",
-      "bodyMarkdown": "In December 2015, Pieter Wuille introduced Segregated Witness (SegWit) through three Bitcoin Improvement Proposals: BIP 141, BIP 143, and BIP 144. SegWit proposed a soft fork that would separate (segregate) the witness data (signatures and scripts) from the transaction data, effectively restructuring how blocks store information.\n\nThe primary goals of SegWit were twofold. First, it fixed transaction malleability, a long-standing bug that allowed third parties to alter transaction identifiers before confirmation. This was a critical requirement for second-layer protocols like the Lightning Network. Second, by moving witness data outside the main block structure, SegWit effectively increased the block size limit from 1 MB to approximately 4 MB, providing a scalability improvement.\n\nSegWit also introduced a new weight-based block size measurement system, replacing the strict 1 MB limit. Each byte in the witness section counted as 1 weight unit, while each byte in the base block counted as 4 weight units, with a total block weight limit of 4 million units.\n\nThe proposal sparked intense debate within the Bitcoin community, with some advocating for larger hard-fork block size increases instead. This debate would eventually lead to the Bitcoin Cash fork in 2017.",
+      "bodyMarkdown": "In December 2015, Pieter Wuille introduced Segregated Witness (SegWit) through three Bitcoin Improvement Proposals: BIP 141, BIP 143, and BIP 144. SegWit proposed a soft fork that would separate (segregate) the witness data (signatures and scripts) from the transaction data, effectively restructuring how blocks store information.\n![Diagram illustrating the structure of a SegWit transaction showing the separation of witness data from the transaction body.](media/history/segwit-proposal/segwit-structure-diagram.webp \"SegWit transaction structure diagram\")\n\n\nThe primary goals of SegWit were twofold. First, it fixed transaction malleability, a long-standing bug that allowed third parties to alter transaction identifiers before confirmation. This was a critical requirement for second-layer protocols like the Lightning Network. Second, by moving witness data outside the main block structure, SegWit effectively increased the block size limit from 1 MB to approximately 4 MB, providing a scalability improvement.\n\nSegWit also introduced a new weight-based block size measurement system, replacing the strict 1 MB limit. Each byte in the witness section counted as 1 weight unit, while each byte in the base block counted as 4 weight units, with a total block weight limit of 4 million units.\n\nThe proposal sparked intense debate within the Bitcoin community, with some advocating for larger hard-fork block size increases instead. This debate would eventually lead to the Bitcoin Cash fork in 2017.",
       "sources": [
         {
           "title": "BIP 141",
@@ -704,7 +704,7 @@
       "title": "Second Halving",
       "category": "protocol",
       "summary": "The second Bitcoin halving reduces the block subsidy from 25 to 12.5 BTC at block height 420,000.",
-      "bodyMarkdown": "On July 9, 2016, at block height 420,000, the second Bitcoin halving occurred. The block subsidy dropped from 25 BTC to 12.5 BTC per block, continuing the programmed issuance reduction that occurs every 210,000 blocks (approximately every four years).\n\nAt the time of the halving, Bitcoin was trading around $650, with a market capitalization of approximately $10 billion. Unlike the first halving in 2012, which occurred when Bitcoin was still relatively unknown, the second halving attracted significant media attention and analysis.\n\nThe event reinforced Bitcoin's predictable monetary policy. With the subsidy now at 12.5 BTC, the rate of new supply entering the market was cut in half, reducing annual inflation from approximately 8.5% to 4.2%. This steady reduction toward the 21 million cap remained a core feature differentiating Bitcoin from fiat currencies.\n\nMining difficulty adjusted in the following weeks, and the network continued to operate smoothly, demonstrating the robustness of the automated issuance schedule.",
+      "bodyMarkdown": "On July 9, 2016, at block height 420,000, the second Bitcoin halving occurred. The block subsidy dropped from 25 BTC to 12.5 BTC per block, continuing the programmed issuance reduction that occurs every 210,000 blocks (approximately every four years).\n![Block 420,000 as displayed on a block explorer at the moment of the second Bitcoin halving.](media/history/second-halving/block-420000-explorer.webp \"Block 420,000 — second halving\")\n\n\nAt the time of the halving, Bitcoin was trading around $650, with a market capitalization of approximately $10 billion. Unlike the first halving in 2012, which occurred when Bitcoin was still relatively unknown, the second halving attracted significant media attention and analysis.\n\nThe event reinforced Bitcoin's predictable monetary policy. With the subsidy now at 12.5 BTC, the rate of new supply entering the market was cut in half, reducing annual inflation from approximately 8.5% to 4.2%. This steady reduction toward the 21 million cap remained a core feature differentiating Bitcoin from fiat currencies.\n\nMining difficulty adjusted in the following weeks, and the network continued to operate smoothly, demonstrating the robustness of the automated issuance schedule.",
       "sources": [
         {
           "title": "Bitcoin Block 420,000",
@@ -734,7 +734,7 @@
       "title": "Bitcoin Cash Hard Fork",
       "category": "protocol",
       "summary": "Bitcoin undergoes a hard fork creating Bitcoin Cash, a new cryptocurrency with an increased 8 MB block size.",
-      "bodyMarkdown": "On August 1, 2017, Bitcoin experienced a hard fork at block height 478,558, creating a new cryptocurrency called Bitcoin Cash (BCH). The fork was the culmination of a long-running debate within the Bitcoin community about how to scale the network.\n\nThe Bitcoin Cash faction argued for larger blocks as a direct scaling solution, opposing SegWit which they viewed as unnecessarily complex. Bitcoin Cash increased the block size limit to 8 MB, later raising it to 32 MB, aiming to process more transactions per block at lower fees.\n\nThe split divided the community, hash power, and ecosystem. Bitcoin Cash adopted the same proof-of-work algorithm but with a different difficulty adjustment mechanism. All Bitcoin holders at the time of the fork received an equal amount of Bitcoin Cash, creating a significant wealth distribution event.\n\nWhile Bitcoin Cash briefly commanded significant market attention and hash rate, Bitcoin retained the majority of network effect, brand recognition, and developer mindshare. The fork represented the most significant split in Bitcoin's history up to that point, with lasting implications for governance debates in cryptocurrency.",
+      "bodyMarkdown": "On August 1, 2017, Bitcoin experienced a hard fork at block height 478,558, creating a new cryptocurrency called Bitcoin Cash (BCH). The fork was the culmination of a long-running debate within the Bitcoin community about how to scale the network.\n![Diagram showing the blockchain fork at block height 478,558 that created Bitcoin Cash.](media/history/bitcoin-cash-fork/bitcoin-cash-split-diagram.webp \"Bitcoin Cash hard fork diagram\")\n\n\nThe Bitcoin Cash faction argued for larger blocks as a direct scaling solution, opposing SegWit which they viewed as unnecessarily complex. Bitcoin Cash increased the block size limit to 8 MB, later raising it to 32 MB, aiming to process more transactions per block at lower fees.\n\nThe split divided the community, hash power, and ecosystem. Bitcoin Cash adopted the same proof-of-work algorithm but with a different difficulty adjustment mechanism. All Bitcoin holders at the time of the fork received an equal amount of Bitcoin Cash, creating a significant wealth distribution event.\n\nWhile Bitcoin Cash briefly commanded significant market attention and hash rate, Bitcoin retained the majority of network effect, brand recognition, and developer mindshare. The fork represented the most significant split in Bitcoin's history up to that point, with lasting implications for governance debates in cryptocurrency.",
       "sources": [
         {
           "title": "Bitcoin Cash Announcement",
@@ -760,7 +760,7 @@
       "title": "Lightning Network Whitepaper",
       "category": "protocol",
       "summary": "Joseph Poon and Thaddeus Dryja publish the Lightning Network whitepaper, proposing a second-layer scaling solution for Bitcoin.",
-      "bodyMarkdown": "In August 2017, Joseph Poon and Thaddeus Dryja published \"The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments,\" introducing a second-layer protocol designed to address Bitcoin's scalability challenges. While early drafts circulated in late 2015 and early 2016, the canonical whitepaper is dated to this period.\n\nThe whitepaper proposed a network of bidirectional payment channels that could route payments across multiple participants without settling each transaction on the Bitcoin blockchain. By moving most transactions off-chain and only settling the final balance, the Lightning Network could theoretically process millions of payments per second with near-instant finality and minimal fees.\n\nKey innovations included Hashed Timelock Contracts (HTLCs) for atomic routing, commitment transactions for channel state management, and onion routing for payment privacy. The protocol required SegWit to be active on Bitcoin, creating a symbiotic relationship between the two technologies.\n\nThe Lightning Network whitepaper became one of the most influential documents in Bitcoin's history, spawning multiple interoperable implementations (LND, c-lightning, Eclair) and a growing ecosystem of applications built on top of the payment layer.",
+      "bodyMarkdown": "In August 2017, Joseph Poon and Thaddeus Dryja published \"The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments,\" introducing a second-layer protocol designed to address Bitcoin's scalability challenges. While early drafts circulated in late 2015 and early 2016, the canonical whitepaper is dated to this period.\n![Diagram of a Lightning Network payment channel network routing a payment across multiple participants.](media/history/lightning-whitepaper/lightning-network-diagram.webp \"Lightning Network routing diagram\")\n\n\nThe whitepaper proposed a network of bidirectional payment channels that could route payments across multiple participants without settling each transaction on the Bitcoin blockchain. By moving most transactions off-chain and only settling the final balance, the Lightning Network could theoretically process millions of payments per second with near-instant finality and minimal fees.\n\nKey innovations included Hashed Timelock Contracts (HTLCs) for atomic routing, commitment transactions for channel state management, and onion routing for payment privacy. The protocol required SegWit to be active on Bitcoin, creating a symbiotic relationship between the two technologies.\n\nThe Lightning Network whitepaper became one of the most influential documents in Bitcoin's history, spawning multiple interoperable implementations (LND, c-lightning, Eclair) and a growing ecosystem of applications built on top of the payment layer.",
       "sources": [
         {
           "title": "Lightning Network Whitepaper",
@@ -786,7 +786,7 @@
       "title": "SegWit Activation",
       "category": "protocol",
       "summary": "Segregated Witness activates on Bitcoin mainnet after a user-activated soft fork (UASF), enabling Lightning Network and fixing transaction malleability.",
-      "bodyMarkdown": "On August 23, 2017, Segregated Witness (SegWit) activated on the Bitcoin mainnet at block height 481,824. The activation followed months of contentious debate and a novel governance mechanism: the User-Activated Soft Fork (UASF), formalized in BIP 148.\n\nThe UASF strategy required full nodes to enforce SegWit signaling by a specific deadline, applying economic pressure on miners to signal support. This approach bypassed the traditional miner-driven activation, demonstrating that Bitcoin's governance ultimately rests with node operators and users. Under this pressure, miners began signaling SegWit readiness, reaching the required 95% activation threshold.\n\nWith SegWit activated, Bitcoin gained several critical improvements. Transaction malleability was fixed, enabling robust second-layer protocols. The new block weight system increased effective capacity. Additionally, SegWit's script versioning system paved the way for future upgrades like Taproot.\n\nThe activation was a watershed moment for Bitcoin governance, proving that the network could evolve through social consensus even against miner opposition.",
+      "bodyMarkdown": "On August 23, 2017, Segregated Witness (SegWit) activated on the Bitcoin mainnet at block height 481,824. The activation followed months of contentious debate and a novel governance mechanism: the User-Activated Soft Fork (UASF), formalized in BIP 148.\n![Chart showing miner signaling percentages during the SegWit UASF activation period in mid-2017.](media/history/segwit-activation/uasf-signaling-chart.webp \"SegWit UASF miner signaling chart\")\n\n\nThe UASF strategy required full nodes to enforce SegWit signaling by a specific deadline, applying economic pressure on miners to signal support. This approach bypassed the traditional miner-driven activation, demonstrating that Bitcoin's governance ultimately rests with node operators and users. Under this pressure, miners began signaling SegWit readiness, reaching the required 95% activation threshold.\n\nWith SegWit activated, Bitcoin gained several critical improvements. Transaction malleability was fixed, enabling robust second-layer protocols. The new block weight system increased effective capacity. Additionally, SegWit's script versioning system paved the way for future upgrades like Taproot.\n\nThe activation was a watershed moment for Bitcoin governance, proving that the network could evolve through social consensus even against miner opposition.",
       "sources": [
         {
           "title": "BIP 148 (UASF)",
@@ -816,7 +816,7 @@
       "title": "Bitcoin Reaches $20,000",
       "category": "market",
       "summary": "Bitcoin reaches its cycle all-time high of $19,783, ending a historic bull run that captured global attention.",
-      "bodyMarkdown": "On December 17, 2017, Bitcoin reached its cycle peak of $19,783 on the CoinDesk Price Index, capping a historic bull run that saw the price rise from under $1,000 in January to nearly $20,000 in December. The rally was fueled by a surge of retail interest, mainstream media coverage, and the launch of Bitcoin futures.\n\nThe mania attracted millions of new participants through easy-to-use exchanges like Coinbase, which added over 100,000 users in a single day during peak frenzy. Stories of overnight millionaires and speculative frenzy dominated headlines worldwide, with Bitcoin becoming a household name.\n\nHowever, the rally was accompanied by extreme volatility, network congestion pushing fees to $50 per transaction, and a proliferation of scams and initial coin offerings (ICOs). The subsequent bear market would see Bitcoin lose over 80% of its value over the following year, a pattern reminiscent of previous boom-and-bust cycles.\n\nDespite the eventual crash, the 2017 bull run established Bitcoin as a mainstream financial phenomenon and laid the groundwork for the institutional adoption that would follow in later years.",
+      "bodyMarkdown": "On December 17, 2017, Bitcoin reached its cycle peak of $19,783 on the CoinDesk Price Index, capping a historic bull run that saw the price rise from under $1,000 in January to nearly $20,000 in December. The rally was fueled by a surge of retail interest, mainstream media coverage, and the launch of Bitcoin futures.\n![Bitcoin price chart from January to December 2017 showing the parabolic rise to $19,783.](media/history/bitcoin-twenty-thousand/bitcoin-2017-price-chart.webp \"Bitcoin 2017 bull run price chart\")\n\n\nThe mania attracted millions of new participants through easy-to-use exchanges like Coinbase, which added over 100,000 users in a single day during peak frenzy. Stories of overnight millionaires and speculative frenzy dominated headlines worldwide, with Bitcoin becoming a household name.\n\nHowever, the rally was accompanied by extreme volatility, network congestion pushing fees to $50 per transaction, and a proliferation of scams and initial coin offerings (ICOs). The subsequent bear market would see Bitcoin lose over 80% of its value over the following year, a pattern reminiscent of previous boom-and-bust cycles.\n\nDespite the eventual crash, the 2017 bull run established Bitcoin as a mainstream financial phenomenon and laid the groundwork for the institutional adoption that would follow in later years.",
       "sources": [
         {
           "title": "CoinDesk Price Index",
@@ -846,7 +846,7 @@
       "title": "CME Bitcoin Futures Launch",
       "category": "market",
       "summary": "CME Group launches Bitcoin futures, the first regulated derivative product for Bitcoin on a major exchange.",
-      "bodyMarkdown": "On December 18, 2017, the Chicago Mercantile Exchange (CME) launched Bitcoin futures contracts, marking the first regulated Bitcoin derivative on a major traditional exchange. The launch came just one day after Bitcoin's cycle peak, and followed CBOE's similar product launch on December 10.\n\nCME Bitcoin futures allowed institutional investors to gain exposure to Bitcoin through a regulated, well-understood financial instrument. Contracts were cash-settled based on the CME CF Bitcoin Reference Rate (BRR), an index calculated from major spot exchanges. This provided a transparent pricing mechanism that traditional investors trusted.\n\nThe launch represented a significant milestone for institutional adoption. It signaled that established financial infrastructure was willing to engage with cryptocurrencies, providing tools for hedging, risk management, and portfolio allocation. The futures market also attracted arbitrageurs, improving price efficiency across exchanges.\n\nThe CME Bitcoin futures market would grow substantially over the years, with open interest and trading volumes reaching billions of dollars daily. Its presence provided a regulated gateway for Wall Street to enter the Bitcoin ecosystem.",
+      "bodyMarkdown": "On December 18, 2017, the Chicago Mercantile Exchange (CME) launched Bitcoin futures contracts, marking the first regulated Bitcoin derivative on a major traditional exchange. The launch came just one day after Bitcoin's cycle peak, and followed CBOE's similar product launch on December 10.\n![CME Group Bitcoin futures contract specifications and trading interface.](media/history/cme-bitcoin-futures/cme-futures-contract.webp \"CME Bitcoin futures contract\")\n\n\nCME Bitcoin futures allowed institutional investors to gain exposure to Bitcoin through a regulated, well-understood financial instrument. Contracts were cash-settled based on the CME CF Bitcoin Reference Rate (BRR), an index calculated from major spot exchanges. This provided a transparent pricing mechanism that traditional investors trusted.\n\nThe launch represented a significant milestone for institutional adoption. It signaled that established financial infrastructure was willing to engage with cryptocurrencies, providing tools for hedging, risk management, and portfolio allocation. The futures market also attracted arbitrageurs, improving price efficiency across exchanges.\n\nThe CME Bitcoin futures market would grow substantially over the years, with open interest and trading volumes reaching billions of dollars daily. Its presence provided a regulated gateway for Wall Street to enter the Bitcoin ecosystem.",
       "sources": [
         {
           "title": "CME Bitcoin Futures",
@@ -872,7 +872,7 @@
       "title": "Lightning Network Goes Live on Mainnet",
       "category": "protocol",
       "summary": "The Lightning Network launches on Bitcoin mainnet with LND 0.4, enabling instant, low-cost payments through a second-layer protocol.",
-      "bodyMarkdown": "In March 2018, the Lightning Network (LN) became operational on Bitcoin mainnet with the release of LND 0.4-beta, the first production-grade implementation of the protocol. Developed by Lightning Labs, LND provided a complete node implementation with channel management, routing, and payment processing capabilities.\n\nThe Lightning Network addressed Bitcoin's scalability limitations by enabling off-chain payment channels. Users could open bidirectional channels by committing funds to a multi-signature address on the Bitcoin blockchain, then conduct unlimited transactions off-chain with instant settlement. Only the final channel state would be broadcast to the main chain.\n\nEarly adoption was gradual but steady. By late 2018, the network comprised approximately 2,500 nodes and 6,000 channels with a total capacity of around 100 BTC. Developers built wallets like Zap, mobile apps, and point-of-sale systems, demonstrating real-world use cases for micropayments.\n\nThe mainnet launch marked a transition from theory to practice for Bitcoin's most anticipated scaling solution, proving that Layer 2 could work securely on the existing base layer.",
+      "bodyMarkdown": "In March 2018, the Lightning Network (LN) became operational on Bitcoin mainnet with the release of LND 0.4-beta, the first production-grade implementation of the protocol. Developed by Lightning Labs, LND provided a complete node implementation with channel management, routing, and payment processing capabilities.\n![Chart showing Lightning Network node and channel count growth from 2018 onward.](media/history/lightning-mainnet/ln-network-growth.webp \"Lightning Network growth chart\")\n\n\nThe Lightning Network addressed Bitcoin's scalability limitations by enabling off-chain payment channels. Users could open bidirectional channels by committing funds to a multi-signature address on the Bitcoin blockchain, then conduct unlimited transactions off-chain with instant settlement. Only the final channel state would be broadcast to the main chain.\n\nEarly adoption was gradual but steady. By late 2018, the network comprised approximately 2,500 nodes and 6,000 channels with a total capacity of around 100 BTC. Developers built wallets like Zap, mobile apps, and point-of-sale systems, demonstrating real-world use cases for micropayments.\n\nThe mainnet launch marked a transition from theory to practice for Bitcoin's most anticipated scaling solution, proving that Layer 2 could work securely on the existing base layer.",
       "sources": [
         {
           "title": "LND Release v0.4",
@@ -898,7 +898,7 @@
       "title": "Third Bitcoin Halving",
       "category": "protocol",
       "summary": "The third Bitcoin halving reduces the block subsidy from 12.5 to 6.25 BTC at block height 630,000.",
-      "bodyMarkdown": "On May 11, 2020, at block height 630,000, the third Bitcoin halving occurred. The block subsidy dropped from 12.5 BTC to 6.25 BTC per block, reducing the annual inflation rate from approximately 3.6% to 1.8% — below the long-term average inflation target of most central banks.\n\nThe halving took place against an unusual backdrop. The COVID-19 pandemic had triggered global economic uncertainty, with central banks printing trillions in stimulus. Bitcoin's programmed scarcity stood in stark contrast, attracting attention from investors seeking a hedge against monetary debasement.\n\nDespite the pandemic's economic disruption, the Bitcoin network continued operating flawlessly. The halving proceeded exactly as coded, reinforcing confidence in the protocol's deterministic monetary policy.\n\nThe months following the halving saw Bitcoin's price rise from around $8,500 to over $60,000 by early 2021, a rally many attributed to the reduced supply issuance combining with increasing institutional demand.",
+      "bodyMarkdown": "On May 11, 2020, at block height 630,000, the third Bitcoin halving occurred. The block subsidy dropped from 12.5 BTC to 6.25 BTC per block, reducing the annual inflation rate from approximately 3.6% to 1.8% — below the long-term average inflation target of most central banks.\n![Block 630,000 as displayed on a block explorer at the moment of the third Bitcoin halving.](media/history/third-halving/block-630000-explorer.webp \"Block 630,000 — third halving\")\n\n\nThe halving took place against an unusual backdrop. The COVID-19 pandemic had triggered global economic uncertainty, with central banks printing trillions in stimulus. Bitcoin's programmed scarcity stood in stark contrast, attracting attention from investors seeking a hedge against monetary debasement.\n\nDespite the pandemic's economic disruption, the Bitcoin network continued operating flawlessly. The halving proceeded exactly as coded, reinforcing confidence in the protocol's deterministic monetary policy.\n\nThe months following the halving saw Bitcoin's price rise from around $8,500 to over $60,000 by early 2021, a rally many attributed to the reduced supply issuance combining with increasing institutional demand.",
       "sources": [
         {
           "title": "Bitcoin Block 630,000",
@@ -928,7 +928,7 @@
       "title": "MicroStrategy Adopts Bitcoin as Treasury Reserve",
       "category": "adoption",
       "summary": "MicroStrategy announces a $250 million Bitcoin purchase as its primary treasury reserve asset, sparking a wave of corporate Bitcoin adoption.",
-      "bodyMarkdown": "On August 11, 2020, MicroStrategy, a publicly traded business intelligence company, announced the purchase of 21,454 BTC for $250 million as its primary treasury reserve asset. Led by CEO Michael Saylor, MicroStrategy became the first publicly traded company to adopt Bitcoin as a corporate treasury asset.\n\nSaylor's thesis was that Bitcoin's monetary properties — absolute scarcity, portability, durability, and decentralization — made it a superior store of value compared to cash, which was being debased by unprecedented money printing. MicroStrategy's board authorized the company to invest excess cash reserves into Bitcoin as a hedge against inflation.\n\nThe announcement had a catalytic effect. Within months, other companies followed: Square (now Block) purchased $50 million in Bitcoin, and Tesla invested $1.5 billion in early 2021. The trend legitimized Bitcoin as a corporate treasury asset and introduced a new demand vector beyond retail speculation.\n\nMicroStrategy continued buying Bitcoin aggressively, eventually holding over 200,000 BTC by 2024 — making it the largest corporate Bitcoin holder. Saylor became one of Bitcoin's most vocal advocates, regularly publishing educational content and advising other companies on Bitcoin treasury strategies.",
+      "bodyMarkdown": "On August 11, 2020, MicroStrategy, a publicly traded business intelligence company, announced the purchase of 21,454 BTC for $250 million as its primary treasury reserve asset. Led by CEO Michael Saylor, MicroStrategy became the first publicly traded company to adopt Bitcoin as a corporate treasury asset.\n![Michael Saylor presenting MicroStrategy's Bitcoin treasury strategy at a conference.](media/history/microstrategy-treasury/michael-saylor-presentation.webp \"Michael Saylor Bitcoin strategy\")\n\n\nSaylor's thesis was that Bitcoin's monetary properties — absolute scarcity, portability, durability, and decentralization — made it a superior store of value compared to cash, which was being debased by unprecedented money printing. MicroStrategy's board authorized the company to invest excess cash reserves into Bitcoin as a hedge against inflation.\n\nThe announcement had a catalytic effect. Within months, other companies followed: Square (now Block) purchased $50 million in Bitcoin, and Tesla invested $1.5 billion in early 2021. The trend legitimized Bitcoin as a corporate treasury asset and introduced a new demand vector beyond retail speculation.\n\nMicroStrategy continued buying Bitcoin aggressively, eventually holding over 200,000 BTC by 2024 — making it the largest corporate Bitcoin holder. Saylor became one of Bitcoin's most vocal advocates, regularly publishing educational content and advising other companies on Bitcoin treasury strategies.",
       "sources": [
         {
           "title": "MicroStrategy Bitcoin Strategy",
@@ -958,7 +958,7 @@
       "title": "El Salvador Adopts Bitcoin as Legal Tender",
       "category": "adoption",
       "summary": "El Salvador becomes the first country in the world to adopt Bitcoin as legal tender, passing the Bitcoin Law with a supermajority vote.",
-      "bodyMarkdown": "On June 9, 2021, El Salvador became the first sovereign nation to adopt Bitcoin as legal tender. President Nayib Bukele's administration passed the Bitcoin Law with 62 out of 84 votes in the Legislative Assembly, mandating that all economic agents must accept Bitcoin as payment for goods and services.\n\nThe law defined Bitcoin's exchange rate to the US Dollar as freely determined by the market. It established the state-owned Chivo Wallet, a digital wallet that would facilitate Bitcoin transactions with no fees, funded by a $150 million Bitcoin trust created by the government. Every Salvadoran citizen received $30 in Bitcoin as an adoption incentive.\n\nThe decision was driven by several factors: 70% of Salvadorans lacked access to traditional banking, remittances accounted for over 20% of GDP, and Bitcoin offered lower-cost alternatives to existing payment rails. The law aimed to increase financial inclusion and reduce remittance costs.\n\nInternational reactions were mixed. The IMF and World Bank expressed concerns about macroeconomic stability, while the Bitcoin community celebrated the milestone. The rollout faced technical challenges with the Chivo Wallet and opposition from some segments of the population, but the law remained in effect, marking a historic precedent for national Bitcoin adoption.",
+      "bodyMarkdown": "On June 9, 2021, El Salvador became the first sovereign nation to adopt Bitcoin as legal tender. President Nayib Bukele's administration passed the Bitcoin Law with 62 out of 84 votes in the Legislative Assembly, mandating that all economic agents must accept Bitcoin as payment for goods and services.\n\nThe law defined Bitcoin's exchange rate to the US Dollar as freely determined by the market. It established the state-owned Chivo Wallet, a digital wallet that would facilitate Bitcoin transactions with no fees, funded by a $150 million Bitcoin trust created by the government. Every Salvadoran citizen received $30 in Bitcoin as an adoption incentive.\n![The Chivo Wallet mobile application interface for Bitcoin transactions in El Salvador.](media/history/el-salvador-law/chivo-wallet-interface.webp \"Chivo Wallet interface\")\n\n\nThe decision was driven by several factors: 70% of Salvadorans lacked access to traditional banking, remittances accounted for over 20% of GDP, and Bitcoin offered lower-cost alternatives to existing payment rails. The law aimed to increase financial inclusion and reduce remittance costs.\n\nInternational reactions were mixed. The IMF and World Bank expressed concerns about macroeconomic stability, while the Bitcoin community celebrated the milestone. The rollout faced technical challenges with the Chivo Wallet and opposition from some segments of the population, but the law remained in effect, marking a historic precedent for national Bitcoin adoption.",
       "sources": [
         {
           "title": "Bitcoin Law (El Salvador)",
@@ -984,7 +984,7 @@
       "title": "Bitcoin Reaches $69,000 All-Time High",
       "category": "market",
       "summary": "Bitcoin sets a new all-time high of $69,000, driven by institutional adoption, inflation concerns, and mainstream acceptance.",
-      "bodyMarkdown": "On November 10, 2021, Bitcoin reached an all-time high of $69,000, nearly tripling its previous cycle peak of $20,000. The rally was driven by a confluence of factors that distinguished this bull run from 2017: institutional adoption, macroeconomic tailwinds, and a maturing regulatory landscape.\n\nInstitutional involvement was the defining characteristic of the 2021 bull run. Companies like MicroStrategy, Tesla, and Square held Bitcoin on their balance sheets. Major financial institutions including Goldman Sachs, Morgan Stanley, and JPMorgan offered Bitcoin exposure to their clients. The launch of the first Bitcoin futures ETF (BITO) in October 2021 provided a regulated vehicle for traditional investors.\n\nMacroeconomic conditions also played a crucial role. Central banks worldwide pursued unprecedented monetary expansion in response to COVID-19, driving inflation to multi-decade highs. Bitcoin's fixed supply narrative resonated with investors seeking protection against currency debasement.\n\nThe rally also saw increased adoption in emerging markets, with countries like El Salvador adopting Bitcoin as legal tender and individuals in Turkey, Nigeria, and Argentina using it as a store of value amid local currency crises. The $69,000 peak represented a maturation of Bitcoin from a speculative asset to a recognized component of global finance.",
+      "bodyMarkdown": "On November 10, 2021, Bitcoin reached an all-time high of $69,000, nearly tripling its previous cycle peak of $20,000. The rally was driven by a confluence of factors that distinguished this bull run from 2017: institutional adoption, macroeconomic tailwinds, and a maturing regulatory landscape.\n![Bitcoin price chart from 2020 to 2021 showing the rally from $10,000 to $69,000.](media/history/bitcoin-ath-2021/bitcoin-2021-price-chart.webp \"Bitcoin 2021 bull run price chart\")\n\n\nInstitutional involvement was the defining characteristic of the 2021 bull run. Companies like MicroStrategy, Tesla, and Square held Bitcoin on their balance sheets. Major financial institutions including Goldman Sachs, Morgan Stanley, and JPMorgan offered Bitcoin exposure to their clients. The launch of the first Bitcoin futures ETF (BITO) in October 2021 provided a regulated vehicle for traditional investors.\n\nMacroeconomic conditions also played a crucial role. Central banks worldwide pursued unprecedented monetary expansion in response to COVID-19, driving inflation to multi-decade highs. Bitcoin's fixed supply narrative resonated with investors seeking protection against currency debasement.\n\nThe rally also saw increased adoption in emerging markets, with countries like El Salvador adopting Bitcoin as legal tender and individuals in Turkey, Nigeria, and Argentina using it as a store of value amid local currency crises. The $69,000 peak represented a maturation of Bitcoin from a speculative asset to a recognized component of global finance.",
       "sources": [
         {
           "title": "CoinDesk Price Index",
@@ -1014,7 +1014,7 @@
       "title": "Taproot Activation",
       "category": "protocol",
       "summary": "Taproot (BIP 340-342) activates on Bitcoin mainnet, introducing Schnorr signatures, MAST, and improved smart contract privacy and efficiency.",
-      "bodyMarkdown": "On November 14, 2021, Taproot activated on the Bitcoin mainnet at block height 709,632. The upgrade introduced three Bitcoin Improvement Proposals: BIP 340 (Schnorr signatures), BIP 341 (Taproot), and BIP 342 (Tapscript).\n\nTaproot represented Bitcoin's most significant protocol upgrade since SegWit. It introduced three key innovations. First, Schnorr signatures replaced ECDSA, enabling signature aggregation — multiple parties could produce a single signature for a multi-signature transaction, reducing data and improving privacy. Second, MAST allowed complex smart contracts to be revealed only partially upon execution, making simple transactions indistinguishable from complex ones. Third, Taproot's new scripting language — Tapscript — improved efficiency and flexibility.\n\nThe activation process was notably smooth compared to previous upgrades. Unlike the contentious SegWit debate of 2017, Taproot enjoyed broad consensus from miners, developers, and users. Over 90% of miners signaled readiness within weeks of the signaling period's start.\n\nTaproot's privacy and efficiency improvements had implications for various Bitcoin use cases. Multi-signature wallets became cheaper and more private. Lightning Network channels benefited from reduced transaction sizes. Complex smart contracts like DLCs and vaults became more practical. The upgrade demonstrated Bitcoin's capacity for continued technological evolution through well-designed soft forks.",
+      "bodyMarkdown": "On November 14, 2021, Taproot activated on the Bitcoin mainnet at block height 709,632. The upgrade introduced three Bitcoin Improvement Proposals: BIP 340 (Schnorr signatures), BIP 341 (Taproot), and BIP 342 (Tapscript).\n![Block 709,632 on a block explorer marking Taproot activation on Bitcoin mainnet.](media/history/taproot-activation/taproot-activation-block.webp \"Taproot activation block\")\n\n\nTaproot represented Bitcoin's most significant protocol upgrade since SegWit. It introduced three key innovations. First, Schnorr signatures replaced ECDSA, enabling signature aggregation — multiple parties could produce a single signature for a multi-signature transaction, reducing data and improving privacy. Second, MAST allowed complex smart contracts to be revealed only partially upon execution, making simple transactions indistinguishable from complex ones. Third, Taproot's new scripting language — Tapscript — improved efficiency and flexibility.\n\nThe activation process was notably smooth compared to previous upgrades. Unlike the contentious SegWit debate of 2017, Taproot enjoyed broad consensus from miners, developers, and users. Over 90% of miners signaled readiness within weeks of the signaling period's start.\n\nTaproot's privacy and efficiency improvements had implications for various Bitcoin use cases. Multi-signature wallets became cheaper and more private. Lightning Network channels benefited from reduced transaction sizes. Complex smart contracts like DLCs and vaults became more practical. The upgrade demonstrated Bitcoin's capacity for continued technological evolution through well-designed soft forks.",
       "sources": [
         {
           "title": "BIP 340 (Schnorr)",
@@ -1037,6 +1037,152 @@
         {
           "id": "wiki.schnorr-signatures",
           "title": "Schnorr Signatures"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.ordinals-launch",
+      "slug": "ordinals-launch",
+      "date": "2023-01-21",
+      "title": "Ordinals Protocol Launch",
+      "category": "community",
+      "summary": "Casey Rodarmor launches the Ordinals protocol, enabling permanent data inscriptions on the Bitcoin blockchain.",
+      "bodyMarkdown": "On January 21, 2023, Casey Rodarmor launched the Ordinals protocol, introducing a novel system for assigning unique identifiers to individual satoshis and inscribing arbitrary data onto them. Ordinals leveraged Bitcoin's Taproot upgrade and SegWit to embed data — images, text, audio, or applications — directly into the Bitcoin blockchain.\n![An example Ordinals inscription showing embedded artwork permanently stored on the Bitcoin blockchain.](media/history/ordinals-launch/ordinals-inscription-example.webp \"Ordinals inscription example\")\n\n\nThe protocol worked through two key innovations. First, Ordinal Theory assigned each satoshi a unique number based on the order it was mined, creating a system where individual satoshis could be tracked and transferred. Second, inscriptions used Taproot's witness data to store content, with the entire inscribed data committed to a Bitcoin transaction output that could be spent and transferred.\n\nOrdinals sparked intense debate within the Bitcoin community. Supporters saw them as a realization of Bitcoin's potential as a data storage and settlement layer, drawing parallels to colored coins and earlier experiments. Critics argued that inscriptions were spam that consumed block space and drove up fees for regular transactions.\n\nDespite the controversy, Ordinals drove significant innovation. The demand for block space led to higher fee revenue for miners. Inscriptions reached millions within the first year, with popular collections like Bitcoin Frogs and Taproot Wizards demonstrating the breadth of creative applications. The protocol established a vibrant ecosystem of wallets, marketplaces, and indexers.",
+      "sources": [
+        {
+          "title": "Ordinals Documentation",
+          "url": "https://docs.ordinals.com/"
+        },
+        {
+          "title": "Ordinal Theory Handbook",
+          "url": "https://www.ordinaltheory.com/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.segregated-witness",
+          "title": "Segregated Witness"
+        },
+        {
+          "id": "wiki.taproot",
+          "title": "Taproot"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-etf-approval",
+      "slug": "bitcoin-etf-approval",
+      "date": "2024-01-10",
+      "title": "SEC Approves Spot Bitcoin ETFs",
+      "category": "regulation",
+      "summary": "The SEC approves 11 spot Bitcoin ETFs, marking a historic milestone for institutional Bitcoin access through regulated financial products.",
+      "bodyMarkdown": "On January 10, 2024, the United States Securities and Exchange Commission (SEC) approved 11 spot Bitcoin Exchange-Traded Funds (ETFs), ending a decade-long regulatory standoff. Major asset managers including BlackRock, Fidelity, Ark Invest, and Grayscale received approval to list Bitcoin ETFs on US exchanges.\n![Chart showing cumulative Bitcoin spot ETF trading volume in the months following SEC approval.](media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp \"Bitcoin ETF trading volume chart\")\n\n\nThe approval followed a pivotal legal victory: in August 2023, Grayscale won a court case against the SEC, with the DC Circuit Court ruling that the SEC's rejection of Grayscale's ETF application was arbitrary and capricious. This ruling forced the SEC to reconsider its position and ultimately led to the wave of approvals.\n\nThe ETFs provided a simple, regulated way for investors to gain Bitcoin exposure through traditional brokerage accounts. Unlike futures-based ETFs already trading, spot ETFs held actual Bitcoin, tying the fund's value directly to the underlying asset. BlackRock's IBIT and Fidelity's FBTC dominated trading volumes, accumulating billions in assets under management within weeks.\n\nThe approval was widely hailed as a watershed moment for Bitcoin's integration into mainstream finance. It unlocked demand from pension funds, retirement accounts, and institutional allocators who had previously been unable or unwilling to custody Bitcoin directly. Within months, the ETFs accumulated over $50 billion in assets.",
+      "sources": [
+        {
+          "title": "SEC Order",
+          "url": "https://www.sec.gov/files/rules/sro/nasdaq/2024/34-99306.pdf"
+        },
+        {
+          "title": "Bitcoin ETF Tracker",
+          "url": "https://www.theblock.co/bitcoin-etf"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.runes-launch",
+      "slug": "runes-launch",
+      "date": "2024-04-01",
+      "title": "Runes Protocol Launch",
+      "category": "protocol",
+      "summary": "Casey Rodarmor launches the Runes protocol, enabling fungible token creation on Bitcoin using the UTXO model.",
+      "bodyMarkdown": "In April 2024, Casey Rodarmor launched the Runes protocol, a new standard for creating fungible tokens on the Bitcoin blockchain. Runes launched concurrently with the fourth halving at block 840,000, in a coordinated event that generated significant attention and activity.\n![Example of a Runes protocol transaction showing OP_RETURN token operation encoding.](media/history/runes-launch/runes-transaction-example.webp \"Runes transaction example\")\n\n\nRunes addressed limitations of earlier Bitcoin token protocols. Unlike BRC-20, which relied on Ordinals inscriptions and created significant blockchain bloat through its off-chain state model, Runes used Bitcoin's native UTXO model directly. Each Rune token balance was committed to a Bitcoin transaction output, enabling clean integration with Bitcoin's existing infrastructure.\n\nThe protocol's design prioritized simplicity and efficiency. Runes transactions used OP_RETURN outputs to encode token operations — etching new tokens, minting, and transferring — with minimal on-chain footprint. This approach reduced the data burden on the blockchain compared to inscription-based token protocols.\n\nRunes launched with immense initial hype. Several prominent projects conducted mints and airdrops on the first day, generating millions of dollars in transaction fees. While early enthusiasm moderated over time, Runes established a foundation for fungible token activity on Bitcoin, complementing the non-fungible use cases enabled by Ordinals.",
+      "sources": [
+        {
+          "title": "Runes Documentation",
+          "url": "https://docs.ordinals.com/runes.html"
+        },
+        {
+          "title": "Runes Specification",
+          "url": "https://github.com/ordinals/ord/blob/master/src/runes.rs"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.utxo-model",
+          "title": "UTXO Model"
+        },
+        {
+          "id": "wiki.taproot",
+          "title": "Taproot"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.fourth-halving",
+      "slug": "fourth-halving",
+      "date": "2024-04-20",
+      "title": "Fourth Bitcoin Halving",
+      "category": "protocol",
+      "summary": "The fourth Bitcoin halving reduces the block subsidy from 6.25 to 3.125 BTC at block height 840,000.",
+      "bodyMarkdown": "On April 20, 2024, at block height 840,000, the fourth Bitcoin halving occurred. The block subsidy dropped from 6.25 BTC to 3.125 BTC per block, reducing Bitcoin's annualized inflation rate to approximately 0.85% — below gold's long-term supply inflation of roughly 1.5%.\n![Block 840,000 as displayed on a block explorer at the moment of the fourth Bitcoin halving.](media/history/fourth-halving/block-840000-explorer.webp \"Block 840,000 — fourth halving\")\n\n\nThe halving took place in a radically different environment than previous ones. Bitcoin had just reached a new all-time high months before the halving — the first time this had occurred — driven by the launch of spot ETFs in the United States. Institutional demand through the ETFs created a new demand dynamic that many analysts believed would amplify the supply reduction effect.\n\nThe block reward reduction had significant implications for miners. With the subsidy halved, miners needed Bitcoin prices to rise or transaction fee revenue to increase to maintain profitability. The rise of Ordinals and inscriptions had substantially increased fee revenue, partly offsetting the subsidy reduction. Total miner revenue in the months following the halving remained higher than the 2020-2023 average.\n\nThe fourth halving brought Bitcoin's total issuance to approximately 19.7 million BTC out of the 21 million maximum cap — over 93% of all Bitcoin that will ever exist had already been mined. The next halving, expected in 2028, would reduce the subsidy to 1.5625 BTC.",
+      "sources": [
+        {
+          "title": "Bitcoin Block 840,000",
+          "url": "https://bitcoinexplorer.org/block/840000"
+        },
+        {
+          "title": "Bitcoin Halving Countdown",
+          "url": "https://www.bitcoinblockhalf.com/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.halving",
+          "title": "Halving"
+        },
+        {
+          "id": "wiki.issuance-schedule",
+          "title": "Issuance Schedule"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-one-hundred-thousand",
+      "slug": "bitcoin-one-hundred-thousand",
+      "date": "2024-12-05",
+      "title": "Bitcoin Breaks $100,000",
+      "category": "market",
+      "summary": "Bitcoin surpasses $100,000 for the first time, driven by institutional ETF inflows, the halving supply shock, and favorable regulation.",
+      "bodyMarkdown": "On December 5, 2024, Bitcoin surpassed $100,000 for the first time in its history, reaching a new all-time high approximately 236% above its November 2021 peak of $69,000. The milestone was the culmination of a remarkable year driven by several transformative developments.\n![Bitcoin price chart and celebration graphic as it crosses the historic $100,000 milestone.](media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp \"Bitcoin $100,000 milestone\")\n\n\nThe primary catalyst was the massive inflow of capital through spot Bitcoin ETFs, which had accumulated over $50 billion in assets under management within their first year. These funds provided a consistent and growing demand stream, absorbing newly mined Bitcoin and creating supply-side pressure. The fourth halving in April had reduced daily new issuance from approximately 900 BTC to 450 BTC, amplifying the impact of ETF demand.\n\nInstitutional adoption had broadened significantly. Major Wall Street banks and hedge funds disclosed Bitcoin ETF holdings. Sovereign wealth funds and pension funds began allocating. Corporate treasuries continued accumulating, with MicroStrategy alone holding over 400,000 BTC by year-end.\n\nThe regulatory environment had also shifted markedly. The approval of spot ETFs, growing bipartisan support in Washington, and clearer regulatory frameworks in major economies reduced the regulatory uncertainty that had historically suppressed Bitcoin's price. The $100,000 milestone represented a symbolic validation of Bitcoin's two-decade journey from a cypherpunk whitepaper to a trillion-dollar asset class.",
+      "sources": [
+        {
+          "title": "CoinDesk Price Index",
+          "url": "https://www.coindesk.com/price/bitcoin/"
+        },
+        {
+          "title": "Bitcoin ETF Flow Data",
+          "url": "https://www.theblock.co/data/on-chain-metrics/bitcoin-etfs"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
