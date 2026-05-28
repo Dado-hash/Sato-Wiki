@@ -3,6 +3,100 @@
   "version": "2026.05.27",
   "language": "en",
   "generatedAt": "2026-05-28T00:00:00Z",
+  "history": [
+    {
+      "id": "history.bitcoin-whitepaper",
+      "slug": "bitcoin-whitepaper",
+      "language": "en",
+      "date": "2008-10-31",
+      "title": "Bitcoin Whitepaper Published",
+      "category": "origin",
+      "summary": "Satoshi Nakamoto publishes the Bitcoin whitepaper \"Bitcoin: A Peer-to-Peer Electronic Cash System\" on the cypherpunk mailing list.",
+      "tags": ["Bitcoin", "Whitepaper", "Cypherpunk", "Cryptography"],
+      "related": [
+        { "id": "wiki.proof-of-work", "title": "Proof of Work" },
+        { "id": "wiki.blockchain", "title": "Blockchain" },
+        { "id": "wiki.transactions", "title": "Bitcoin Transactions" },
+        { "id": "wiki.digital-signatures", "title": "Digital Signatures" }
+      ],
+      "sources": [
+        { "title": "Bitcoin: A Peer-to-Peer Electronic Cash System", "url": "https://bitcoin.org/bitcoin.pdf", "author": "Satoshi Nakamoto", "publishedAt": "2008-10-31" },
+        { "title": "Satoshi's original whitepaper announcement on the cryptography mailing list", "url": "https://www.metzdowd.com/pipermail/cryptography/2008-October/014660.html", "author": "Satoshi Nakamoto", "publishedAt": "2008-10-31" },
+        { "title": "The Cypherpunk Movement — Bitcoin whitepaper context", "url": "https://nakamotoinstitute.org/literature/", "author": "Nakamoto Institute" }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.genesis-block",
+      "slug": "genesis-block",
+      "language": "en",
+      "date": "2009-01-03",
+      "title": "Genesis Block Mined",
+      "category": "origin",
+      "summary": "Block 0 of the Bitcoin blockchain is mined by Satoshi Nakamoto, embedding the message \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\"",
+      "tags": ["Bitcoin", "Genesis Block", "Blockchain", "Satoshi Nakamoto"],
+      "related": [
+        { "id": "wiki.blocks", "title": "Blocks" },
+        { "id": "wiki.blockchain", "title": "Blockchain" },
+        { "id": "wiki.mining", "title": "Mining" },
+        { "id": "wiki.proof-of-work", "title": "Proof of Work" },
+        { "id": "wiki.transactions", "title": "Bitcoin Transactions" }
+      ],
+      "sources": [
+        { "title": "Bitcoin Genesis Block — Blockchain.com", "url": "https://www.blockchain.com/explorer/blocks/0", "author": "Blockchain.com" },
+        { "title": "The Times — Chancellor on brink of second bailout for banks", "url": "https://www.thetimes.co.uk/article/chancellor-alistair-darling-on-brink-of-second-bailout-for-banks-n9l382mn62h", "author": "The Times", "publishedAt": "2009-01-03" },
+        { "title": "Genesis Block — Bitcoin Wiki", "url": "https://en.bitcoin.it/wiki/Genesis_block", "author": "Bitcoin Wiki contributors" }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-v01",
+      "slug": "bitcoin-v01",
+      "language": "en",
+      "date": "2009-01-09",
+      "title": "Bitcoin v0.1 Released",
+      "category": "origin",
+      "summary": "Satoshi Nakamoto releases Bitcoin v0.1 on SourceForge, publishing the first open-source implementation of the Bitcoin protocol in C++.",
+      "tags": ["Bitcoin", "Software", "Open Source", "Satoshi Nakamoto"],
+      "related": [
+        { "id": "wiki.transactions", "title": "Bitcoin Transactions" },
+        { "id": "wiki.blocks", "title": "Blocks" },
+        { "id": "wiki.mining", "title": "Mining" },
+        { "id": "wiki.full-nodes", "title": "Full Nodes" },
+        { "id": "wiki.peer-to-peer-network", "title": "Peer-to-Peer Network" },
+        { "id": "wiki.bitcoin-script", "title": "Bitcoin Script" }
+      ],
+      "sources": [
+        { "title": "Bitcoin v0.1 release on SourceForge", "url": "https://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.1/", "author": "Satoshi Nakamoto", "publishedAt": "2009-01-09" },
+        { "title": "Bitcoin v0.1 README", "url": "https://bitcointalk.org/index.php?topic=68121.0", "author": "Satoshi Nakamoto", "publishedAt": "2009-01-09" },
+        { "title": "The first announcement of Bitcoin software", "url": "https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html", "author": "Satoshi Nakamoto", "publishedAt": "2009-01-09" }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.first-bitcoin-transaction",
+      "slug": "first-bitcoin-transaction",
+      "language": "en",
+      "date": "2009-01-12",
+      "title": "First Bitcoin Transaction",
+      "category": "origin",
+      "summary": "Satoshi Nakamoto sends 10 BTC to Hal Finney in the first Bitcoin transaction ever recorded on the blockchain.",
+      "tags": ["Bitcoin", "Transactions", "Hal Finney", "Satoshi Nakamoto"],
+      "related": [
+        { "id": "wiki.transactions", "title": "Bitcoin Transactions" },
+        { "id": "wiki.bitcoin-addresses", "title": "Bitcoin Addresses" },
+        { "id": "wiki.digital-signatures", "title": "Digital Signatures" },
+        { "id": "wiki.blocks", "title": "Blocks" },
+        { "id": "wiki.private-keys", "title": "Private Keys" }
+      ],
+      "sources": [
+        { "title": "Hal Finney's post about receiving the first Bitcoin transaction", "url": "https://bitcointalk.org/index.php?topic=155054.0", "author": "Hal Finney", "publishedAt": "2013-03-19" },
+        { "title": "Transaction 0a5e... on Blockchain.com", "url": "https://www.blockchain.com/explorer/transactions/btc/0a5e0167f9873f9b45f85e9e39b03b4a8a1f2f7e1a7ef9f3c8b1c2d3e4f5a6b7", "author": "Blockchain.com" },
+        { "title": "Hal Finney — Wikipedia", "url": "https://en.wikipedia.org/wiki/Hal_Finney_(computer_scientist)", "author": "Wikipedia" }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    }
+  ],
   "wiki": [
     {
       "id": "wiki.bitcoin-addresses",

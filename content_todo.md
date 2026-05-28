@@ -111,22 +111,22 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
 
 ### Fase 1 — Origins & Whitepaper (2008–2009)
 
-- [ ] Bitcoin Whitepaper published - `history.bitcoin-whitepaper`
+- [x] Bitcoin Whitepaper published - `history.bitcoin-whitepaper`
   `2008-10-31` | `origin`
   Satoshi Nakamoto pubblica il whitepaper "Bitcoin: A Peer-to-Peer Electronic
   Cash System" su mailing list cypherpunk.
 
-- [ ] Genesis Block mined - `history.genesis-block`
+- [x] Genesis Block mined - `history.genesis-block`
   `2009-01-03` | `origin`
   Il blocco 0 della blockchain Bitcoin viene minato da Satoshi, contenente il
   messaggio "The Times 03/Jan/2009 Chancellor on brink of second bailout for
   banks."
 
-- [ ] First Bitcoin transaction - `history.first-bitcoin-transaction`
+- [x] First Bitcoin transaction - `history.first-bitcoin-transaction`
   `2009-01-12` | `origin`
   Satoshi invia 10 BTC a Hal Finney, prima transazione Bitcoin della storia.
 
-- [ ] Bitcoin v0.1 released - `history.bitcoin-v01`
+- [x] Bitcoin v0.1 released - `history.bitcoin-v01`
   `2009-01-09` | `origin`
   Satoshi rilascia Bitcoin v0.1 su SourceForge, codice C++ open source.
 
