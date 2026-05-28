@@ -864,6 +864,182 @@
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.lightning-mainnet",
+      "slug": "lightning-mainnet",
+      "date": "2018-03-01",
+      "title": "Lightning Network Goes Live on Mainnet",
+      "category": "protocol",
+      "summary": "The Lightning Network launches on Bitcoin mainnet with LND 0.4, enabling instant, low-cost payments through a second-layer protocol.",
+      "bodyMarkdown": "In March 2018, the Lightning Network (LN) became operational on Bitcoin mainnet with the release of LND 0.4-beta, the first production-grade implementation of the protocol. Developed by Lightning Labs, LND provided a complete node implementation with channel management, routing, and payment processing capabilities.\n\nThe Lightning Network addressed Bitcoin's scalability limitations by enabling off-chain payment channels. Users could open bidirectional channels by committing funds to a multi-signature address on the Bitcoin blockchain, then conduct unlimited transactions off-chain with instant settlement. Only the final channel state would be broadcast to the main chain.\n\nEarly adoption was gradual but steady. By late 2018, the network comprised approximately 2,500 nodes and 6,000 channels with a total capacity of around 100 BTC. Developers built wallets like Zap, mobile apps, and point-of-sale systems, demonstrating real-world use cases for micropayments.\n\nThe mainnet launch marked a transition from theory to practice for Bitcoin's most anticipated scaling solution, proving that Layer 2 could work securely on the existing base layer.",
+      "sources": [
+        {
+          "title": "LND Release v0.4",
+          "url": "https://github.com/lightningnetwork/lnd/releases/tag/v0.4-beta"
+        },
+        {
+          "title": "Lightning Network Overview",
+          "url": "https://lightning.network/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.third-halving",
+      "slug": "third-halving",
+      "date": "2020-05-11",
+      "title": "Third Bitcoin Halving",
+      "category": "protocol",
+      "summary": "The third Bitcoin halving reduces the block subsidy from 12.5 to 6.25 BTC at block height 630,000.",
+      "bodyMarkdown": "On May 11, 2020, at block height 630,000, the third Bitcoin halving occurred. The block subsidy dropped from 12.5 BTC to 6.25 BTC per block, reducing the annual inflation rate from approximately 3.6% to 1.8% — below the long-term average inflation target of most central banks.\n\nThe halving took place against an unusual backdrop. The COVID-19 pandemic had triggered global economic uncertainty, with central banks printing trillions in stimulus. Bitcoin's programmed scarcity stood in stark contrast, attracting attention from investors seeking a hedge against monetary debasement.\n\nDespite the pandemic's economic disruption, the Bitcoin network continued operating flawlessly. The halving proceeded exactly as coded, reinforcing confidence in the protocol's deterministic monetary policy.\n\nThe months following the halving saw Bitcoin's price rise from around $8,500 to over $60,000 by early 2021, a rally many attributed to the reduced supply issuance combining with increasing institutional demand.",
+      "sources": [
+        {
+          "title": "Bitcoin Block 630,000",
+          "url": "https://bitcoinexplorer.org/block/630000"
+        },
+        {
+          "title": "Bitcoin Halving History",
+          "url": "https://en.bitcoin.it/wiki/Halving"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.halving",
+          "title": "Halving"
+        },
+        {
+          "id": "wiki.issuance-schedule",
+          "title": "Issuance Schedule"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.microstrategy-treasury",
+      "slug": "microstrategy-treasury",
+      "date": "2020-08-11",
+      "title": "MicroStrategy Adopts Bitcoin as Treasury Reserve",
+      "category": "adoption",
+      "summary": "MicroStrategy announces a $250 million Bitcoin purchase as its primary treasury reserve asset, sparking a wave of corporate Bitcoin adoption.",
+      "bodyMarkdown": "On August 11, 2020, MicroStrategy, a publicly traded business intelligence company, announced the purchase of 21,454 BTC for $250 million as its primary treasury reserve asset. Led by CEO Michael Saylor, MicroStrategy became the first publicly traded company to adopt Bitcoin as a corporate treasury asset.\n\nSaylor's thesis was that Bitcoin's monetary properties — absolute scarcity, portability, durability, and decentralization — made it a superior store of value compared to cash, which was being debased by unprecedented money printing. MicroStrategy's board authorized the company to invest excess cash reserves into Bitcoin as a hedge against inflation.\n\nThe announcement had a catalytic effect. Within months, other companies followed: Square (now Block) purchased $50 million in Bitcoin, and Tesla invested $1.5 billion in early 2021. The trend legitimized Bitcoin as a corporate treasury asset and introduced a new demand vector beyond retail speculation.\n\nMicroStrategy continued buying Bitcoin aggressively, eventually holding over 200,000 BTC by 2024 — making it the largest corporate Bitcoin holder. Saylor became one of Bitcoin's most vocal advocates, regularly publishing educational content and advising other companies on Bitcoin treasury strategies.",
+      "sources": [
+        {
+          "title": "MicroStrategy Bitcoin Strategy",
+          "url": "https://www.microstrategy.com/en/company/company-video/microstrategy-brochure"
+        },
+        {
+          "title": "MicroStrategy Q2 2020 Earnings",
+          "url": "https://www.microstrategy.com/en/investor-relations"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.el-salvador-law",
+      "slug": "el-salvador-law",
+      "date": "2021-06-09",
+      "title": "El Salvador Adopts Bitcoin as Legal Tender",
+      "category": "adoption",
+      "summary": "El Salvador becomes the first country in the world to adopt Bitcoin as legal tender, passing the Bitcoin Law with a supermajority vote.",
+      "bodyMarkdown": "On June 9, 2021, El Salvador became the first sovereign nation to adopt Bitcoin as legal tender. President Nayib Bukele's administration passed the Bitcoin Law with 62 out of 84 votes in the Legislative Assembly, mandating that all economic agents must accept Bitcoin as payment for goods and services.\n\nThe law defined Bitcoin's exchange rate to the US Dollar as freely determined by the market. It established the state-owned Chivo Wallet, a digital wallet that would facilitate Bitcoin transactions with no fees, funded by a $150 million Bitcoin trust created by the government. Every Salvadoran citizen received $30 in Bitcoin as an adoption incentive.\n\nThe decision was driven by several factors: 70% of Salvadorans lacked access to traditional banking, remittances accounted for over 20% of GDP, and Bitcoin offered lower-cost alternatives to existing payment rails. The law aimed to increase financial inclusion and reduce remittance costs.\n\nInternational reactions were mixed. The IMF and World Bank expressed concerns about macroeconomic stability, while the Bitcoin community celebrated the milestone. The rollout faced technical challenges with the Chivo Wallet and opposition from some segments of the population, but the law remained in effect, marking a historic precedent for national Bitcoin adoption.",
+      "sources": [
+        {
+          "title": "Bitcoin Law (El Salvador)",
+          "url": "https://www.asamblea.gob.sv/decretos/2021/06/09/bitcoin-law"
+        },
+        {
+          "title": "Nayib Bukele Announcement",
+          "url": "https://twitter.com/nayibbukele/status/1402483640466112518"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.sound-money",
+          "title": "Sound Money"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-ath-2021",
+      "slug": "bitcoin-ath-2021",
+      "date": "2021-11-10",
+      "title": "Bitcoin Reaches $69,000 All-Time High",
+      "category": "market",
+      "summary": "Bitcoin sets a new all-time high of $69,000, driven by institutional adoption, inflation concerns, and mainstream acceptance.",
+      "bodyMarkdown": "On November 10, 2021, Bitcoin reached an all-time high of $69,000, nearly tripling its previous cycle peak of $20,000. The rally was driven by a confluence of factors that distinguished this bull run from 2017: institutional adoption, macroeconomic tailwinds, and a maturing regulatory landscape.\n\nInstitutional involvement was the defining characteristic of the 2021 bull run. Companies like MicroStrategy, Tesla, and Square held Bitcoin on their balance sheets. Major financial institutions including Goldman Sachs, Morgan Stanley, and JPMorgan offered Bitcoin exposure to their clients. The launch of the first Bitcoin futures ETF (BITO) in October 2021 provided a regulated vehicle for traditional investors.\n\nMacroeconomic conditions also played a crucial role. Central banks worldwide pursued unprecedented monetary expansion in response to COVID-19, driving inflation to multi-decade highs. Bitcoin's fixed supply narrative resonated with investors seeking protection against currency debasement.\n\nThe rally also saw increased adoption in emerging markets, with countries like El Salvador adopting Bitcoin as legal tender and individuals in Turkey, Nigeria, and Argentina using it as a store of value amid local currency crises. The $69,000 peak represented a maturation of Bitcoin from a speculative asset to a recognized component of global finance.",
+      "sources": [
+        {
+          "title": "CoinDesk Price Index",
+          "url": "https://www.coindesk.com/price/bitcoin/"
+        },
+        {
+          "title": "Bitcoin Historical Data",
+          "url": "https://coinmarketcap.com/currencies/bitcoin/historical-data/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.taproot-activation",
+      "slug": "taproot-activation",
+      "date": "2021-11-14",
+      "title": "Taproot Activation",
+      "category": "protocol",
+      "summary": "Taproot (BIP 340-342) activates on Bitcoin mainnet, introducing Schnorr signatures, MAST, and improved smart contract privacy and efficiency.",
+      "bodyMarkdown": "On November 14, 2021, Taproot activated on the Bitcoin mainnet at block height 709,632. The upgrade introduced three Bitcoin Improvement Proposals: BIP 340 (Schnorr signatures), BIP 341 (Taproot), and BIP 342 (Tapscript).\n\nTaproot represented Bitcoin's most significant protocol upgrade since SegWit. It introduced three key innovations. First, Schnorr signatures replaced ECDSA, enabling signature aggregation — multiple parties could produce a single signature for a multi-signature transaction, reducing data and improving privacy. Second, MAST allowed complex smart contracts to be revealed only partially upon execution, making simple transactions indistinguishable from complex ones. Third, Taproot's new scripting language — Tapscript — improved efficiency and flexibility.\n\nThe activation process was notably smooth compared to previous upgrades. Unlike the contentious SegWit debate of 2017, Taproot enjoyed broad consensus from miners, developers, and users. Over 90% of miners signaled readiness within weeks of the signaling period's start.\n\nTaproot's privacy and efficiency improvements had implications for various Bitcoin use cases. Multi-signature wallets became cheaper and more private. Lightning Network channels benefited from reduced transaction sizes. Complex smart contracts like DLCs and vaults became more practical. The upgrade demonstrated Bitcoin's capacity for continued technological evolution through well-designed soft forks.",
+      "sources": [
+        {
+          "title": "BIP 340 (Schnorr)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki"
+        },
+        {
+          "title": "BIP 341 (Taproot)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki"
+        },
+        {
+          "title": "BIP 342 (Tapscript)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.taproot",
+          "title": "Taproot"
+        },
+        {
+          "id": "wiki.schnorr-signatures",
+          "title": "Schnorr Signatures"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
     }
   ],
   "wiki": [

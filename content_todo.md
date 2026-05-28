@@ -85,6 +85,25 @@ italiano, con i tre livelli di lettura `base`, `medium` e `advanced`.
 
 ## History (`history`)
 
+### Media necessari (da trovare e mettere in `assets/content/media/`)
+
+Le immagini vanno inserite nel path indicato, formato `.webp`.
+
+- [ ] `media/history/bitcoin-whitepaper/whitepaper-cover.webp`
+- [ ] `media/history/genesis-block/genesis-block-landmark.webp`
+- [ ] `media/history/bitcoin-v01/bitcoin-v01-screenshot.webp`
+- [ ] `media/history/first-bitcoin-transaction/hal-finney-portrait.webp`
+- [ ] `media/history/bitcoin-pizza-day/pizza-day-pizzas.webp`
+- [ ] `media/history/mtgox-launch/mtgox-website.webp`
+- [ ] `media/history/silk-road-launch/silk-road-interface.webp`
+- [ ] `media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp`
+- [ ] `media/history/first-halving/first-halving-block.webp`
+- [ ] `media/history/cyprus-crisis/cyprus-bank-queue.webp`
+- [ ] `media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp`
+- [ ] `media/history/mtgox-collapse/mtgox-collapse-logo.webp`
+
+Le fasi successive aggiungeranno altre voci a questa lista.
+
 Eventi storici di Bitcoin, ordinati cronologicamente per data. Ogni evento usa
 il modello `HistoryEvent`:
 
@@ -207,32 +226,32 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
 
 ### Fase 5 — Institutional (2018–2021)
 
-- [ ] Lightning Network mainnet - `history.lightning-mainnet`
+- [x] Lightning Network mainnet - `history.lightning-mainnet`
   `2018-03` | `protocol`
   Lightning Network entra in produzione su mainnet con la prima implementazione
   stabile (LND 0.4).
 
-- [ ] Third halving - `history.third-halving`
+- [x] Third halving - `history.third-halving`
   `2020-05-11` | `protocol`
   Terzo halving: il block subsidy passa da 12,5 a 6,25 BTC. Altezza blocco
   630.000.
 
-- [ ] MicroStrategy Bitcoin treasury - `history.microstrategy-treasury`
+- [x] MicroStrategy Bitcoin treasury - `history.microstrategy-treasury`
   `2020-08-11` | `adoption`
   MicroStrategy annuncia l'acquisto di $250M in BTC come riserva di tesoreria,
   primo di una serie di acquisti aziendali.
 
-- [ ] El Salvador legal tender - `history.el-salvador-law`
+- [x] El Salvador legal tender - `history.el-salvador-law`
   `2021-06-09` | `adoption`
   El Salvador diventa il primo paese ad adottare Bitcoin come moneta a corso
   legale.
 
-- [ ] Taproot activation - `history.taproot-activation`
+- [x] Taproot activation - `history.taproot-activation`
   `2021-11-14` | `protocol`
   Taproot (BIP 340-342) si attiva su mainnet, migliorando privacy ed
   efficienza degli script.
 
-- [ ] All-time high $69,000 - `history.bitcoin-ath-2021`
+- [x] All-time high $69,000 - `history.bitcoin-ath-2021`
   `2021-11-10` | `market`
   Bitcoin raggiunge il massimo storico di ~$69.000.
 

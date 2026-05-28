@@ -864,6 +864,182 @@
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.lightning-mainnet",
+      "slug": "lightning-mainnet",
+      "date": "2018-03-01",
+      "title": "Lightning Network Entra in Produzione su Mainnet",
+      "category": "protocol",
+      "summary": "La Lightning Network viene lanciata sulla mainnet di Bitcoin con LND 0.4, abilitando pagamenti istantanei a basso costo tramite un protocollo di secondo livello.",
+      "bodyMarkdown": "Nel marzo 2018, la Lightning Network (LN) divenne operativa sulla mainnet di Bitcoin con il rilascio di LND 0.4-beta, la prima implementazione della rete in grado di competere su scala produttiva. Sviluppato da Lightning Labs, LND forniva un nodo completo con gestione dei canali, routing ed elaborazione dei pagamenti.\n\nLa Lightning Network affrontava i limiti di scalabilità di Bitcoin abilitando canali di pagamento off-chain. Gli utenti potevano aprire canali bidirezionali vincolando fondi a un indirizzo multi-firma sulla blockchain di Bitcoin, quindi condurre transazioni illimitate off-chain con regolamento istantaneo. Solo lo stato finale del canale veniva trasmesso alla catena principale.\n\nL'adozione iniziale fu graduale ma costante. Entro la fine del 2018, la rete contava circa 2.500 nodi e 6.000 canali con una capacità totale di circa 100 BTC. Gli sviluppatori crearono wallet come Zap, applicazioni mobili e sistemi point-of-sale, dimostrando casi d'uso reali per i micropagamenti.\n\nIl lancio su mainnet segnò il passaggio dalla teoria alla pratica per la più attesa soluzione di scaling di Bitcoin, dimostrando che il Layer 2 poteva funzionare in modo sicuro sul livello base esistente.",
+      "sources": [
+        {
+          "title": "LND Release v0.4",
+          "url": "https://github.com/lightningnetwork/lnd/releases/tag/v0.4-beta"
+        },
+        {
+          "title": "Lightning Network Overview",
+          "url": "https://lightning.network/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.third-halving",
+      "slug": "third-halving",
+      "date": "2020-05-11",
+      "title": "Terzo Halving di Bitcoin",
+      "category": "protocol",
+      "summary": "Il terzo halving di Bitcoin riduce il block subsidy da 12,5 a 6,25 BTC all'altezza blocco 630.000.",
+      "bodyMarkdown": "L'11 maggio 2020, all'altezza blocco 630.000, si verificò il terzo halving di Bitcoin. Il block subsidy scese da 12,5 BTC a 6,25 BTC per blocco, riducendo il tasso di inflazione annuo da circa il 3,6% all'1,8% — al di sotto dell'obiettivo di inflazione a lungo termine della maggior parte delle banche centrali.\n\nL'halving ebbe luogo in uno scenario insolito. La pandemia di COVID-19 aveva innescato un'incertezza economica globale, con le banche centrali che stampavano trilioni in stimoli. La scarsità programmata di Bitcoin contrastava nettamente, attirando l'attenzione degli investitori in cerca di una copertura contro il deprezzamento monetario.\n\nNonostante la perturbazione economica della pandemia, la rete Bitcoin continuò a funzionare perfettamente. L'halving avvenne esattamente come programmato, rafforzando la fiducia nella politica monetaria deterministica del protocollo.\n\nNei mesi successivi all'halving, il prezzo di Bitcoin salì da circa $8.500 a oltre $60.000 all'inizio del 2021, un rally che molti attribuirono alla ridotta emissione combinata con la crescente domanda istituzionale.",
+      "sources": [
+        {
+          "title": "Bitcoin Block 630,000",
+          "url": "https://bitcoinexplorer.org/block/630000"
+        },
+        {
+          "title": "Bitcoin Halving History",
+          "url": "https://en.bitcoin.it/wiki/Halving"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.halving",
+          "title": "Halving"
+        },
+        {
+          "id": "wiki.issuance-schedule",
+          "title": "Issuance Schedule"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.microstrategy-treasury",
+      "slug": "microstrategy-treasury",
+      "date": "2020-08-11",
+      "title": "MicroStrategy Adotta Bitcoin Come Riserva di Tesoreria",
+      "category": "adoption",
+      "summary": "MicroStrategy annuncia l'acquisto di Bitcoin per $250 milioni come riserva di tesoreria, innescando un'ondata di adozione aziendale.",
+      "bodyMarkdown": "L'11 agosto 2020, MicroStrategy, una società quotata in borsa specializzata in business intelligence, annunciò l'acquisto di 21.454 BTC per $250 milioni come riserva di tesoreria primaria. Guidata dall'amministratore delegato Michael Saylor, MicroStrategy divenne la prima società quotata ad adottare Bitcoin come asset di tesoreria aziendale.\n\nLa tesi di Saylor era che le proprietà monetarie di Bitcoin — scarsità assoluta, portabilità, durabilità e decentralizzazione — lo rendevano una riserva di valore superiore rispetto al contante, che veniva deprezzato dalla stampa di moneta senza precedenti. Il consiglio di amministrazione di MicroStrategy autorizzò la società a investire le riserve di cassa in eccesso in Bitcoin come copertura contro l'inflazione.\n\nL'annuncio ebbe un effetto catalizzatore. Entro mesi, altre società seguirono: Square (ora Block) acquistò $50 milioni in Bitcoin e Tesla investì $1,5 miliardi all'inizio del 2021. La tendenza legittimò Bitcoin come asset di tesoreria aziendale e introdusse un nuovo vettore di domanda oltre alla speculazione retail.\n\nMicroStrategy continuò ad acquistare Bitcoin in modo aggressivo, arrivando a detenere oltre 200.000 BTC entro il 2024 — diventando il più grande detentore aziendale di Bitcoin. Saylor divenne uno dei più accesi sostenitori di Bitcoin, pubblicando regolarmente contenuti educativi e consigliando altre aziende sulle strategie di tesoreria in Bitcoin.",
+      "sources": [
+        {
+          "title": "MicroStrategy Bitcoin Strategy",
+          "url": "https://www.microstrategy.com/en/company/company-video/microstrategy-brochure"
+        },
+        {
+          "title": "MicroStrategy Q2 2020 Earnings",
+          "url": "https://www.microstrategy.com/en/investor-relations"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.el-salvador-law",
+      "slug": "el-salvador-law",
+      "date": "2021-06-09",
+      "title": "El Salvador Adotta Bitcoin Come Moneta Legale",
+      "category": "adoption",
+      "summary": "El Salvador diventa il primo paese al mondo ad adottare Bitcoin come moneta a corso legale, approvando la Bitcoin Law con voto a maggioranza.",
+      "bodyMarkdown": "Il 9 giugno 2021, El Salvador divenne la prima nazione sovrana ad adottare Bitcoin come moneta a corso legale. L'amministrazione del presidente Nayib Bukele approvò la Bitcoin Law con 62 voti su 84 nell'Assemblea Legislativa, obbligando tutti gli agenti economici ad accettare Bitcoin come pagamento per beni e servizi.\n\nLa legge definiva il tasso di cambio di Bitcoin rispetto al dollaro USA come determinato liberamente dal mercato. Istituiva il Chivo Wallet, un portafoglio digitale di proprietà statale per facilitare le transazioni in Bitcoin senza commissioni, finanziato da un fondo fiduciario di $150 milioni in Bitcoin creato dal governo. Ogni cittadino salvadoregno ricevette $30 in Bitcoin come incentivo all'adozione.\n\nLa decisione fu guidata da diversi fattori: il 70% dei salvadoregni non aveva accesso ai servizi bancari tradizionali, le rimesse rappresentavano oltre il 20% del PIL e Bitcoin offriva alternative a costo inferiore rispetto ai sistemi di pagamento esistenti. La legge mirava ad aumentare l'inclusione finanziaria e ridurre i costi delle rimesse.\n\nLe reazioni internazionali furono contrastanti. Il FMI e la Banca Mondiale espressero preoccupazioni sulla stabilità macroeconomica, mentre la comunità di Bitcoin celebrò la tappa storica. L'implementazione affrontò sfide tecniche con il Chivo Wallet e opposizione da alcuni settori della popolazione, ma la legge rimase in vigore, segnando un precedente storico per l'adozione nazionale di Bitcoin.",
+      "sources": [
+        {
+          "title": "Bitcoin Law (El Salvador)",
+          "url": "https://www.asamblea.gob.sv/decretos/2021/06/09/bitcoin-law"
+        },
+        {
+          "title": "Nayib Bukele Announcement",
+          "url": "https://twitter.com/nayibbukele/status/1402483640466112518"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.sound-money",
+          "title": "Sound Money"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-ath-2021",
+      "slug": "bitcoin-ath-2021",
+      "date": "2021-11-10",
+      "title": "Bitcoin Raggiunge il Massimo Storico di $69.000",
+      "category": "market",
+      "summary": "Bitcoin stabilisce un nuovo massimo storico di $69.000, trainato dall'adozione istituzionale, dalle preoccupazioni per l'inflazione e dall'accettazione mainstream.",
+      "bodyMarkdown": "Il 10 novembre 2021, Bitcoin raggiunse il massimo storico di $69.000, quasi triplicando il picco del ciclo precedente di $20.000. Il rally fu guidato da una combinazione di fattori che distinsero questo mercato rialzista dal 2017: adozione istituzionale, venti macroeconomici favorevoli e un panorama normativo in maturazione.\n\nIl coinvolgimento istituzionale fu la caratteristica distintiva del mercato rialzista del 2021. Aziende come MicroStrategy, Tesla e Square detenevano Bitcoin nei loro bilanci. Grandi istituzioni finanziarie tra cui Goldman Sachs, Morgan Stanley e JPMorgan offrivano esposizione a Bitcoin ai loro clienti. Il lancio del primo ETF futures su Bitcoin (BITO) nell'ottobre 2021 fornì un veicolo regolamentato per gli investitori tradizionali.\n\nAnche le condizioni macroeconomiche giocarono un ruolo cruciale. Le banche centrali di tutto il mondo attuarono un'espansione monetaria senza precedenti in risposta al COVID-19, spingendo l'inflazione a livelli massimi da decenni. La narrazione dell'offerta fissa di Bitcoin risuonò tra gli investitori in cerca di protezione contro il deprezzamento della valuta.\n\nIl rally vide anche una maggiore adozione nei mercati emergenti, con paesi come El Salvador che adottarono Bitcoin come moneta legale e individui in Turchia, Nigeria e Argentina che lo usarono come riserva di valore in mezzo alle crisi delle valute locali. Il picco di $69.000 rappresentò la maturazione di Bitcoin da asset speculativo a componente riconosciuto della finanza globale.",
+      "sources": [
+        {
+          "title": "CoinDesk Price Index",
+          "url": "https://www.coindesk.com/price/bitcoin/"
+        },
+        {
+          "title": "Bitcoin Historical Data",
+          "url": "https://coinmarketcap.com/currencies/bitcoin/historical-data/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.taproot-activation",
+      "slug": "taproot-activation",
+      "date": "2021-11-14",
+      "title": "Attivazione di Taproot",
+      "category": "protocol",
+      "summary": "Taproot (BIP 340-342) si attiva sulla mainnet di Bitcoin, introducendo firme Schnorr, MAST e maggiore privacy ed efficienza per gli smart contract.",
+      "bodyMarkdown": "Il 14 novembre 2021, Taproot si attivò sulla mainnet di Bitcoin all'altezza blocco 709.632. L'aggiornamento introdusse tre Bitcoin Improvement Proposals: BIP 340 (firme Schnorr), BIP 341 (Taproot) e BIP 342 (Tapscript).\n\nTaproot rappresentò l'aggiornamento del protocollo più significativo di Bitcoin dopo SegWit. Introdusse tre innovazioni chiave. Primo, le firme Schnorr sostituirono ECDSA, consentendo l'aggregazione delle firme — più parti potevano produrre un'unica firma per una transazione multi-firma, riducendo i dati e migliorando la privacy. Secondo, MAST permetteva che contratti intelligenti complessi venissero rivelati solo parzialmente all'esecuzione, rendendo le transazioni semplici indistinguibili da quelle complesse. Terzo, il nuovo linguaggio di scripting di Taproot — Tapscript — migliorò efficienza e flessibilità.\n\nIl processo di attivazione fu notevolmente fluido rispetto agli aggiornamenti precedenti. A differenza del dibattito acceso su SegWit del 2017, Taproot godette di ampio consenso da parte di miner, sviluppatori e utenti. Oltre il 90% dei miner segnalò la disponibilità entro poche settimane dall'inizio del periodo di signaling.\n\nI miglioramenti in termini di privacy ed efficienza di Taproot ebbero implicazioni per vari casi d'uso di Bitcoin. I portafogli multi-firma divennero più economici e privati. I canali della Lightning Network beneficiarono di dimensioni ridotte delle transazioni. Contratti intelligenti complessi come DLC e vaults divennero più pratici. L'aggiornamento dimostrò la capacità di Bitcoin di continuare l'evoluzione tecnologica attraverso soft fork ben progettati.",
+      "sources": [
+        {
+          "title": "BIP 340 (Schnorr)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki"
+        },
+        {
+          "title": "BIP 341 (Taproot)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki"
+        },
+        {
+          "title": "BIP 342 (Tapscript)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.taproot",
+          "title": "Taproot"
+        },
+        {
+          "id": "wiki.schnorr-signatures",
+          "title": "Schnorr Signatures"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
     }
   ],
   "wiki": [
