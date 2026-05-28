@@ -172,35 +172,35 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
 
 ### Fase 4 — Maturation (2015–2017)
 
-- [ ] SegWit proposal - `history.segwit-proposal`
+- [x] SegWit proposal - `history.segwit-proposal`
   `2015-12` | `protocol`
   Pieter Wuille propone Segregated Witness (BIP 141, 143, 144) per risolvere
   malleabilità e scalabilità.
 
-- [ ] Second halving - `history.second-halving`
+- [x] Second halving - `history.second-halving`
   `2016-07-09` | `protocol`
   Secondo halving: il block subsidy passa da 25 a 12,5 BTC. Altezza blocco
   420.000.
 
-- [ ] Bitcoin Cash fork - `history.bitcoin-cash-fork`
+- [x] Bitcoin Cash fork - `history.bitcoin-cash-fork`
   `2017-08-01` | `protocol`
   Bitcoin subisce un hard fork che crea Bitcoin Cash, con block size aumentato
   a 8 MB.
 
-- [ ] SegWit activation - `history.segwit-activation`
+- [x] SegWit activation - `history.segwit-activation`
   `2017-08-23` | `protocol`
   SegWit si attiva sulla mainnet di Bitcoin dopo UASF, risolvendo transaction
   malleability e aprendo la strada a Lightning Network.
 
-- [ ] Lightning Network whitepaper - `history.lightning-whitepaper`
+- [x] Lightning Network whitepaper - `history.lightning-whitepaper`
   `2017-08` | `protocol`
   Poon e Dryja pubblicano "The Bitcoin Lightning Network" paper.
 
-- [ ] $20,000 ATH - `history.bitcoin-twenty-thousand`
+- [x] $20,000 ATH - `history.bitcoin-twenty-thousand`
   `2017-12-17` | `market`
   Bitcoin raggiunge $19.783, il massimo storico del ciclo 2017.
 
-- [ ] CME Bitcoin futures - `history.cme-bitcoin-futures`
+- [x] CME Bitcoin futures - `history.cme-bitcoin-futures`
   `2017-12-18` | `market`
   CME Group lancia i futures su Bitcoin, primo derivato regolamentato
   importante.

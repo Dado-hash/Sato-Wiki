@@ -666,6 +666,204 @@
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.segwit-proposal",
+      "slug": "segwit-proposal",
+      "date": "2015-12-01",
+      "title": "Proposta SegWit",
+      "category": "protocol",
+      "summary": "Pieter Wuille propone Segregated Witness (BIP 141, 143, 144) per risolvere malleabilità e scalabilità.",
+      "bodyMarkdown": "Nel dicembre 2015, Pieter Wuille introdusse Segregated Witness (SegWit) attraverso tre Bitcoin Improvement Proposals: BIP 141, BIP 143 e BIP 144. SegWit proponeva un soft fork che avrebbe separato (segregato) i dati witness (firme e script) dai dati della transazione, ristrutturando efficacemente il modo in cui i blocchi memorizzano le informazioni.\n\nGli obiettivi principali di SegWit erano due. Primo, risolveva la malleabilità delle transazioni, un bug di lunga data che permetteva a terze parti di alterare gli identificatori delle transazioni prima della conferma. Questo era un requisito fondamentale per protocolli di secondo livello come la Lightning Network. Secondo, spostando i dati witness fuori dalla struttura principale del blocco, SegWit aumentava effettivamente il limite di dimensione del blocco da 1 MB a circa 4 MB, fornendo un miglioramento della scalabilità.\n\nSegWit introdusse anche un nuovo sistema di misurazione basato sul peso del blocco, sostituendo il rigido limite di 1 MB. Ogni byte nella sezione witness contava come 1 unità di peso, mentre ogni byte nel blocco base contava come 4 unità di peso, con un limite totale di peso del blocco di 4 milioni di unità.\n\nLa proposta scatenò un acceso dibattito nella comunità Bitcoin, con alcuni che sostenevano aumenti della dimensione del blocco tramite hard fork. Questo dibattito avrebbe infine portato al fork Bitcoin Cash nel 2017.",
+      "sources": [
+        {
+          "title": "BIP 141",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki"
+        },
+        {
+          "title": "BIP 143",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki"
+        },
+        {
+          "title": "BIP 144",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.segregated-witness",
+          "title": "Segregated Witness"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.second-halving",
+      "slug": "second-halving",
+      "date": "2016-07-09",
+      "title": "Secondo Halving",
+      "category": "protocol",
+      "summary": "Il secondo halving di Bitcoin riduce il block subsidy da 25 a 12,5 BTC all'altezza blocco 420.000.",
+      "bodyMarkdown": "Il 9 luglio 2016, all'altezza blocco 420.000, si verificò il secondo halving di Bitcoin. Il block subsidy scese da 25 BTC a 12,5 BTC per blocco, continuando la riduzione programmata dell'emissione che avviene ogni 210.000 blocchi (circa ogni quattro anni).\n\nAl momento dell'halving, Bitcoin veniva scambiato intorno ai $650, con una capitalizzazione di mercato di circa $10 miliardi. A differenza del primo halving del 2012, avvenuto quando Bitcoin era ancora relativamente sconosciuto, il secondo halving attirò notevole attenzione mediatica e analisi.\n\nL'evento rafforzò la politica monetaria prevedibile di Bitcoin. Con il subsidy ora a 12,5 BTC, il tasso di nuova offerta in entrata nel mercato fu dimezzato, riducendo l'inflazione annua da circa l'8,5% al 4,2%. Questa riduzione costante verso il limite massimo di 21 milioni rimane una caratteristica fondamentale che differenzia Bitcoin dalle valute fiat.\n\nLa difficoltà di mining si adeguò nelle settimane successive e la rete continuò a funzionare senza problemi, dimostrando la robustezza del programma di emissione automatizzato.",
+      "sources": [
+        {
+          "title": "Bitcoin Block 420,000",
+          "url": "https://bitcoinexplorer.org/block/420000"
+        },
+        {
+          "title": "Halving Schedule",
+          "url": "https://en.bitcoin.it/wiki/Controlled_supply"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.halving",
+          "title": "Halving"
+        },
+        {
+          "id": "wiki.issuance-schedule",
+          "title": "Issuance Schedule"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-cash-fork",
+      "slug": "bitcoin-cash-fork",
+      "date": "2017-08-01",
+      "title": "Hard Fork Bitcoin Cash",
+      "category": "protocol",
+      "summary": "Bitcoin subisce un hard fork che crea Bitcoin Cash, una nuova criptovaluta con dimensioni del blocco aumentate a 8 MB.",
+      "bodyMarkdown": "Il 1° agosto 2017, Bitcoin subì un hard fork all'altezza blocco 478.558, creando una nuova criptovaluta chiamata Bitcoin Cash (BCH). Il fork fu il culmine di un lungo dibattito nella comunità Bitcoin su come scalare la rete.\n\nLa fazione di Bitcoin Cash sosteneva blocchi più grandi come soluzione diretta di scalabilità, opponendosi a SegWit che consideravano inutilmente complesso. Bitcoin Cash aumentò il limite di dimensione del blocco a 8 MB, successivamente portato a 32 MB, con l'obiettivo di elaborare più transazioni per blocco a commissioni più basse.\n\nLa divisione divise la comunità, la potenza di hash e l'ecosistema. Bitcoin Cash adottò lo stesso algoritmo di proof-of-work ma con un diverso meccanismo di regolazione della difficoltà. Tutti i possessori di Bitcoin al momento del fork ricevettero un importo equivalente di Bitcoin Cash, creando un significativo evento di distribuzione di ricchezza.\n\nSebbene Bitcoin Cash abbia brevemente attirato notevole attenzione di mercato e potenza di hash, Bitcoin mantenne la maggior parte dell'effetto rete, del riconoscimento del marchio e dell'attenzione degli sviluppatori. Il fork rappresentò la scissione più significativa nella storia di Bitcoin fino a quel momento, con implicazioni durature per i dibattiti sulla governance nelle criptovalute.",
+      "sources": [
+        {
+          "title": "Bitcoin Cash Announcement",
+          "url": "https://web.archive.org/web/20170801000000/https://www.bitcoincash.org/"
+        },
+        {
+          "title": "Bitcoin Cash Wiki",
+          "url": "https://en.bitcoin.it/wiki/Bitcoin_Cash"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Forks and Soft Forks"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.lightning-whitepaper",
+      "slug": "lightning-whitepaper",
+      "date": "2017-08-01",
+      "title": "Whitepaper Lightning Network",
+      "category": "protocol",
+      "summary": "Joseph Poon e Thaddeus Dryja pubblicano il whitepaper della Lightning Network, proponendo una soluzione di scaling di secondo livello per Bitcoin.",
+      "bodyMarkdown": "Nell'agosto 2017, Joseph Poon e Thaddeus Dryja pubblicarono \"The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments,\" introducendo un protocollo di secondo livello progettato per affrontare le sfide di scalabilità di Bitcoin. Sebbene bozze iniziali circolassero già alla fine del 2015 e all'inizio del 2016, il whitepaper canonico è datato a questo periodo.\n\nIl whitepaper proponeva una rete di canali di pagamento bidirezionali in grado di instradare pagamenti attraverso più partecipanti senza regolare ogni transazione sulla blockchain di Bitcoin. Spostando la maggior parte delle transazioni off-chain e regolando solo il saldo finale, la Lightning Network poteva teoricamente elaborare milioni di transazioni al secondo con finalità quasi immediata e commissioni minime.\n\nLe innovazioni chiave includevano gli Hashed Timelock Contracts (HTLC) per il routing atomico, le transazioni di commitment per la gestione dello stato del canale e l'onion routing per la privacy dei pagamenti. Il protocollo richiedeva che SegWit fosse attivo su Bitcoin, creando una relazione simbiotica tra le due tecnologie.\n\nIl whitepaper della Lightning Network divenne uno dei documenti più influenti nella storia di Bitcoin, dando origine a molteplici implementazioni interoperabili (LND, c-lightning, Eclair) e a un ecosistema crescente di applicazioni costruite sul layer di pagamento.",
+      "sources": [
+        {
+          "title": "Lightning Network Whitepaper",
+          "url": "https://lightning.network/lightning-network-paper.pdf"
+        },
+        {
+          "title": "BOLT Specifications",
+          "url": "https://github.com/lightning/bolts"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.segwit-activation",
+      "slug": "segwit-activation",
+      "date": "2017-08-23",
+      "title": "Attivazione SegWit",
+      "category": "protocol",
+      "summary": "Segregated Witness si attiva sulla mainnet di Bitcoin dopo un user-activated soft fork (UASF), abilitando Lightning Network e risolvendo la malleabilità.",
+      "bodyMarkdown": "Il 23 agosto 2017, Segregated Witness (SegWit) si attivò sulla mainnet di Bitcoin all'altezza blocco 481.824. L'attivazione seguì mesi di dibattito acceso e un innovativo meccanismo di governance: lo User-Activated Soft Fork (UASF), formalizzato nel BIP 148.\n\nLa strategia UASF richiedeva che i nodi completi imponessero il signaling di SegWit entro una scadenza specifica, applicando pressione economica sui miner affinché esprimessero supporto. Questo approccio bypassava l'attivazione tradizionale guidata dai miner, dimostrando che la governance di Bitcoin risiede in ultima analisi negli operatori dei nodi e negli utenti. Sotto questa pressione, i miner iniziarono a segnalare la disponibilità per SegWit, raggiungendo la soglia di attivazione richiesta del 95%.\n\nCon SegWit attivato, Bitcoin ottenne diversi miglioramenti critici. La malleabilità delle transazioni fu risolta, consentendo protocolli di secondo livello robusti. Il nuovo sistema di peso dei blocchi aumentò la capacità effettiva. Inoltre, il sistema di versionamento degli script di SegWit aprì la strada a futuri aggiornamenti come Taproot.\n\nL'attivazione fu un momento spartiacque per la governance di Bitcoin, dimostrando che la rete poteva evolversi attraverso il consenso sociale anche contro l'opposizione dei miner.",
+      "sources": [
+        {
+          "title": "BIP 148 (UASF)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki"
+        },
+        {
+          "title": "SegWit Activation Stats",
+          "url": "https://segwit.co/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.segregated-witness",
+          "title": "Segregated Witness"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-twenty-thousand",
+      "slug": "bitcoin-twenty-thousand",
+      "date": "2017-12-17",
+      "title": "Bitcoin Raggiunge $20.000",
+      "category": "market",
+      "summary": "Bitcoin raggiunge il massimo storico del ciclo a $19.783, concludendo un'impennata storica che ha catturato l'attenzione globale.",
+      "bodyMarkdown": "Il 17 dicembre 2017, Bitcoin raggiunse il picco del ciclo a $19.783 sul CoinDesk Price Index, coronando un'impennata storica che vide il prezzo salire da meno di $1.000 a gennaio a quasi $20.000 a dicembre. Il rally fu alimentato da un'ondata di interesse retail, copertura mediatica mainstream e il lancio dei futures su Bitcoin.\n\nLa mania attirò milioni di nuovi partecipanti attraverso exchange facili da usare come Coinbase, che aggiunse oltre 100.000 utenti in un singolo giorno durante il picco di frenesia. Storie di milionari improvvisi e frenesia speculativa dominarono i titoli dei giornali in tutto il mondo, con Bitcoin che divenne un nome familiare.\n\nTuttavia, il rally fu accompagnato da volatilità estrema, congestione della rete che portò le commissioni a $50 per transazione e una proliferazione di truffe e initial coin offerings (ICO). Il successivo mercato ribassista avrebbe visto Bitcoin perdere oltre l'80% del suo valore nell'anno seguente, un pattern simile ai precedenti cicli di boom e bust.\n\nNonostante il crollo finale, l'impennata del 2017 stabilì Bitcoin come fenomeno finanziario mainstream e gettò le basi per l'adozione istituzionale che sarebbe seguita negli anni successivi.",
+      "sources": [
+        {
+          "title": "CoinDesk Price Index",
+          "url": "https://www.coindesk.com/price/bitcoin/"
+        },
+        {
+          "title": "Bitcoin Historical Data",
+          "url": "https://coinmarketcap.com/currencies/bitcoin/historical-data/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        },
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.cme-bitcoin-futures",
+      "slug": "cme-bitcoin-futures",
+      "date": "2017-12-18",
+      "title": "Lancio Futures Bitcoin CME",
+      "category": "market",
+      "summary": "CME Group lancia i futures su Bitcoin, il primo prodotto derivato regolamentato per Bitcoin su un exchange tradizionale.",
+      "bodyMarkdown": "Il 18 dicembre 2017, il Chicago Mercantile Exchange (CME) lanciò i contratti futures su Bitcoin, segnando il primo derivato Bitcoin regolamentato su un importante exchange tradizionale. Il lancio arrivò solo un giorno dopo il picco del ciclo di Bitcoin e seguì il lancio di un prodotto simile da parte del CBOE il 10 dicembre.\n\nI futures Bitcoin del CME permisero agli investitori istituzionali di ottenere esposizione a Bitcoin attraverso uno strumento finanziario regolamentato e ben compreso. I contratti erano regolati in contanti sulla base del CME CF Bitcoin Reference Rate (BRR), un indice calcolato dai principali exchange spot. Questo forniva un meccanismo di prezzo trasparente che gli investitori tradizionali apprezzavano.\n\nIl lancio rappresentò una tappa fondamentale per l'adozione istituzionale. Segnalò che le infrastrutture finanziarie consolidate erano disposte a interagire con le criptovalute, fornendo strumenti per hedging, gestione del rischio e allocazione di portafoglio. Il mercato dei futures attirò anche arbitraggisti, migliorando l'efficienza dei prezzi tra gli exchange.\n\nIl mercato dei futures Bitcoin del CME sarebbe cresciuto sostanzialmente negli anni, con open interest e volumi di scambio che avrebbero raggiunto miliardi di dollari al giorno. La sua presenza fornì un gateway regolamentato per Wall Street per entrare nell'ecosistema Bitcoin.",
+      "sources": [
+        {
+          "title": "CME Bitcoin Futures",
+          "url": "https://www.cmegroup.com/markets/cryptocurrencies/bitcoin/bitcoin.contractSpecs.html"
+        },
+        {
+          "title": "CFTC Press Release",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/7654-17"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
     }
   ],
   "wiki": [
@@ -4631,5 +4829,7 @@
       ],
       "updatedAt": "2026-05-25T00:00:00Z"
     }
-  ]
+  ],
+  "totalRecords": 90,
+  "historyCount": 26
 }
