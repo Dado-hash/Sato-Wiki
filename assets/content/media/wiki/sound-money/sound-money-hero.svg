@@ -1,0 +1,86 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Sound Money Properties Comparison</title>
+  <desc id="desc">Comparison of six sound money properties across Bitcoin, Gold, and Fiat: durable, portable, divisible, verifiable, scarce, and fungible — with check marks for pass and crosses for fail.</desc>
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Sound Money</text>
+  <text x="480" y="82" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">6 Properties &middot; 3 Assets</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Six classical properties that define a monetary asset — compared across Bitcoin, Gold, and Fiat.</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 210H884"/><path d="M76 484H884"/>
+  </g>
+  <!-- Asset cards row -->
+  <!-- Bitcoin card (green) -->
+  <g filter="url(#soft)">
+    <rect x="64" y="144" width="270" height="54" rx="10" fill="#20252D"/>
+    <rect x="64" y="144" width="4" height="54" rx="2" fill="#22C55E"/>
+    <text x="86" y="170" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Bitcoin</text>
+    <text x="86" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">5 of 6 properties &mdash; hardest money</text>
+  </g>
+  <!-- Gold card (orange) -->
+  <g filter="url(#soft)">
+    <rect x="350" y="144" width="270" height="54" rx="10" fill="#20252D"/>
+    <rect x="350" y="144" width="4" height="54" rx="2" fill="#F7931A"/>
+    <text x="372" y="170" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Gold</text>
+    <text x="372" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">3 of 6 properties &mdash; historically strong</text>
+  </g>
+  <!-- Fiat card (violet) -->
+  <g filter="url(#soft)">
+    <rect x="636" y="144" width="270" height="54" rx="10" fill="#20252D"/>
+    <rect x="636" y="144" width="4" height="54" rx="2" fill="#7C5CFF"/>
+    <text x="658" y="170" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Fiat</text>
+    <text x="658" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">3 of 6 properties &mdash; inflated away</text>
+  </g>
+  <!-- Comparison table -->
+  <g filter="url(#soft)">
+    <rect x="64" y="218" width="832" height="252" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect x="64" y="218" width="832" height="40" rx="14" fill="#171B21"/>
+    <rect x="64" y="242" width="832" height="16" fill="#171B21"/>
+    <text x="144" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Property</text>
+    <text x="360" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Bitcoin</text>
+    <text x="560" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Gold</text>
+    <text x="760" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Fiat</text>
+    <line x1="70" y1="260" x2="890" y2="260" stroke="#343A44" stroke-width="1"/>
+    <!-- Row 1: Durable -->
+    <text x="80" y="286" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Durable</text>
+    <path d="M352,281 L357,286 L368,275" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M552,281 L557,286 L568,275" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M754,280 L766,292 M766,280 L754,292" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="70" y1="302" x2="890" y2="302" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 2: Portable -->
+    <text x="80" y="330" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Portable</text>
+    <path d="M352,325 L357,330 L368,319" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M554,324 L566,336 M566,324 L554,336" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M752,325 L757,330 L768,319" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="70" y1="346" x2="890" y2="346" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 3: Divisible -->
+    <text x="80" y="374" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Divisible</text>
+    <path d="M352,369 L357,374 L368,363" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M554,368 L566,380 M566,368 L554,380" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M752,369 L757,374 L768,363" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="70" y1="390" x2="890" y2="390" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 4: Verifiable -->
+    <text x="80" y="418" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Verifiable</text>
+    <path d="M352,413 L357,418 L368,407" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="560" y="418" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
+    <path d="M754,412 L766,424 M766,412 L754,424" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="70" y1="434" x2="890" y2="434" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 5: Scarce -->
+    <text x="80" y="462" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Scarce</text>
+    <path d="M352,457 L357,462 L368,451" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="560" y="462" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
+    <path d="M754,456 L766,468 M766,456 L754,468" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="70" y1="466" x2="890" y2="466" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 6: Fungible -->
+    <text x="80" y="508" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Fungible</text>
+    <text x="360" y="508" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
+    <path d="M552,503 L557,508 L568,497" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M752,503 L757,508 L768,497" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

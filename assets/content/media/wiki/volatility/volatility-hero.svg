@@ -1,0 +1,120 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Bitcoin Volatility</title>
+  <desc id="desc">Comparison of annualized volatility across Bitcoin, Gold, S&P 500, and FX majors, showing Bitcoin's higher volatility range and the long-term declining trend with colored volatility bands.</desc>
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Volatility</text>
+  <text x="480" y="82" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">Annualized Volatility &middot; 4 Assets</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Bitcoin volatility compared to traditional assets, with declining trend as market matures.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 154H884"/>
+    <path d="M76 480H884"/>
+  </g>
+
+  <!-- Legend -->
+  <rect x="540" y="164" width="14" height="14" rx="3" fill="#F7931A"/>
+  <text x="560" y="176" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Bitcoin</text>
+  <rect x="640" y="164" width="14" height="14" rx="3" fill="#FFD700"/>
+  <text x="660" y="176" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Gold</text>
+  <rect x="722" y="164" width="14" height="14" rx="3" fill="#7C5CFF"/>
+  <text x="742" y="176" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">S&amp;P 500</text>
+  <rect x="828" y="164" width="14" height="14" rx="3" fill="#22C55E"/>
+  <text x="848" y="176" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">EUR/USD</text>
+
+  <!-- Chart area -->
+  <g transform="translate(100, 196)">
+    <!-- Grid lines -->
+    <g stroke="#28313B" stroke-width="1" opacity="0.45">
+      <line x1="0" y1="0" x2="760" y2="0"/>
+      <line x1="0" y1="50" x2="760" y2="50"/>
+      <line x1="0" y1="100" x2="760" y2="100"/>
+      <line x1="0" y1="150" x2="760" y2="150"/>
+      <line x1="0" y1="200" x2="760" y2="200"/>
+      <line x1="0" y1="250" x2="760" y2="250"/>
+    </g>
+    <!-- Y-axis labels (volatility %) -->
+    <text x="-8" y="254" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">0%</text>
+    <text x="-8" y="204" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">20%</text>
+    <text x="-8" y="154" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">40%</text>
+    <text x="-8" y="104" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">60%</text>
+    <text x="-8" y="54" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">80%</text>
+    <text x="-8" y="4" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">100%</text>
+    <text x="-8" y="-10" text-anchor="end" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Annualized Volatility</text>
+
+    <!-- X-axis year labels -->
+    <text x="0" y="272" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2012</text>
+    <text x="152" y="272" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2014</text>
+    <text x="304" y="272" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2016</text>
+    <text x="456" y="272" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2020</text>
+    <text x="608" y="272" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2024</text>
+    <text x="760" y="272" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2026</text>
+
+    <!-- S&P 500 line (low, stable) -->
+    <path d="M0 215 C40 215, 80 210, 130 208 C180 205, 230 210, 280 205 C330 200, 380 195, 430 190 C480 188, 530 185, 580 183 C630 180, 680 178, 720 176 L760 175" stroke="#7C5CFF" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+    <!-- Gold line (very low, flat) -->
+    <path d="M0 230 C40 228, 80 227, 130 226 C180 224, 230 225, 280 223 C330 222, 380 220, 430 219 C480 217, 530 216, 580 215 C630 214, 680 213, 720 213 L760 213" stroke="#FFD700" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+    <!-- EUR/USD line (lowest) -->
+    <path d="M0 238 C40 237, 80 237, 130 236 C180 236, 230 235, 280 235 C330 234, 380 234, 430 233 C480 233, 530 232, 580 232 C630 232, 680 231, 720 231 L760 231" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+    <!-- Bitcoin volatility band (area between upper and lower bound) -->
+    <path d="M0 60 C40 30, 80 35, 130 25 C180 20, 230 40, 280 30 C330 55, 380 70, 430 50 C480 60, 530 75, 580 70 C630 85, 680 95, 720 100 L760 105" stroke="none" fill="#F7931A" opacity="0.08"/>
+    <path d="M760 105 C720 100, 680 95, 630 85 C580 70, 530 75, 480 60 C430 50, 380 70, 330 55 C280 30, 230 40, 180 20 C130 25, 80 35, 40 30 L0 60 Z" fill="none"/>
+
+    <!-- Bitcoin volatility band lower bound -->
+    <path d="M0 140 C40 115, 80 120, 130 115 C180 110, 230 125, 280 115 C330 135, 380 145, 430 130 C480 135, 530 145, 580 140 C630 150, 680 155, 720 158 L760 160" stroke="none" fill="#F7931A" opacity="0.05"/>
+
+    <!-- Bitcoin main line -->
+    <path d="M0 100 C40 70, 80 75, 130 65 C180 60, 230 80, 280 70 C330 95, 380 105, 430 90 C480 95, 530 108, 580 102 C630 115, 680 122, 720 127 L760 130" stroke="#F7931A" stroke-width="3.5" fill="none" stroke-linecap="round" filter="url(#glow-green)"/>
+
+    <!-- Bitcoin label -->
+    <text x="770" y="133" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">BTC</text>
+    <text x="770" y="178" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="13">S&amp;P 500</text>
+    <text x="770" y="216" fill="#FFD700" font-family="Inter, Arial, sans-serif" font-size="13">Gold</text>
+    <text x="770" y="234" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13">EUR/USD</text>
+
+    <!-- Highlight annotation: declining trend -->
+    <path d="M 220 45 L 280 12" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3,3"/>
+    <rect x="142" y="6" width="140" height="28" rx="6" fill="#171B21" stroke="#22C55E" stroke-width="1"/>
+    <text x="212" y="25" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12">Volatility declining</text>
+  </g>
+
+  <!-- Bottom cards: Comparison at a glance -->
+  <g filter="url(#soft)">
+    <!-- BTC card -->
+    <rect x="64" y="424" width="200" height="72" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="1.5"/>
+    <text x="164" y="450" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Bitcoin</text>
+    <text x="164" y="472" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">60–100% annualized</text>
+    <text x="164" y="488" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">3–5% daily (1σ)</text>
+
+    <!-- Gold card -->
+    <rect x="280" y="424" width="200" height="72" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
+    <text x="380" y="450" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Gold</text>
+    <text x="380" y="472" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">10–20% annualized</text>
+    <text x="380" y="488" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">0.5–1% daily (1σ)</text>
+
+    <!-- S&P 500 card -->
+    <rect x="496" y="424" width="200" height="72" rx="12" fill="#20252D" stroke="#7C5CFF" stroke-width="1.5"/>
+    <text x="596" y="450" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">S&amp;P 500</text>
+    <text x="596" y="472" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">12–25% annualized</text>
+    <text x="596" y="488" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">0.5–1.5% daily (1σ)</text>
+
+    <!-- FX card -->
+    <rect x="712" y="424" width="200" height="72" rx="12" fill="#20252D" stroke="#FF6B6B" stroke-width="1.5"/>
+    <text x="812" y="450" text-anchor="middle" fill="#FF6B6B" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">EUR/USD</text>
+    <text x="812" y="472" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">6–10% annualized</text>
+    <text x="812" y="488" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">0.3–0.6% daily (1σ)</text>
+  </g>
+</svg>

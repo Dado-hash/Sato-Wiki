@@ -1,0 +1,63 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Network Effects Flywheel</title>
+  <desc id="desc">Bitcoin network flywheel diagram showing the self-reinforcing cycle: More Users leads to More Miners leads to More Security leads to More Value leads to More Developers leads to More Applications and back to More Users.</desc>
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+    <marker id="arrow-orange" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L12 5 L0 10" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L12 5 L0 10" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L12 5 L0 10" fill="none" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-dot" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="3" fill="#F7931A"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="74" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Network Effects</text>
+  <text x="64" y="104" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">The Bitcoin flywheel — a self-reinforcing cycle of adoption and value.</text>
+
+  <!-- Subtle guide circle -->
+  <circle cx="480" cy="278" r="148" fill="none" stroke="#28313B" stroke-width="1" stroke-dasharray="4 6" opacity="0.45"/>
+
+  <!-- Curved arrows between cards -->
+  <!-- Users → Miners -->
+  <path d="M545 125 Q590 135 610 169" fill="none" stroke="#F7931A" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <!-- Miners → Security -->
+  <path d="M640 221 Q670 280 660 329" fill="none" stroke="#22C55E" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <!-- Security → Value -->
+  <path d="M630 381 Q590 425 545 440" fill="none" stroke="#F7931A" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <!-- Value → Developers -->
+  <path d="M415 440 Q370 425 330 381" fill="none" stroke="#7C5CFF" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <!-- Developers → Applications -->
+  <path d="M320 329 Q290 280 300 221" fill="none" stroke="#F7931A" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <!-- Applications → Users -->
+  <path d="M370 169 Q420 135 415 120" fill="none" stroke="#22C55E" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+  <!-- Central hub -->
+  <circle cx="480" cy="278" r="50" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
+  <text x="480" y="268" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="2">NETWORK</text>
+  <text x="480" y="290" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1">FLYWHEEL</text>
+
+  <!-- Cards -->
+  <g filter="url(#soft)">
+    <!-- 1. More Users --><rect x="415" y="94" width="130" height="52" rx="10" fill="#20252D" stroke="#22C55E" stroke-width="2"/><text x="480" y="120" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text><text x="480" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">USERS</text>
+    <!-- 2. More Miners --><rect x="554" y="174" width="130" height="52" rx="10" fill="#20252D" stroke="#F7931A" stroke-width="2"/><text x="619" y="200" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text><text x="619" y="220" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">MINERS</text>
+    <!-- 3. More Security --><rect x="554" y="334" width="130" height="52" rx="10" fill="#20252D" stroke="#7C5CFF" stroke-width="2"/><text x="619" y="360" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text><text x="619" y="380" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">SECURITY</text>
+    <!-- 4. More Value --><rect x="415" y="414" width="130" height="52" rx="10" fill="#20252D" stroke="#22C55E" stroke-width="2"/><text x="480" y="440" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text><text x="480" y="460" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">VALUE</text>
+    <!-- 5. More Developers --><rect x="276" y="334" width="130" height="52" rx="10" fill="#20252D" stroke="#F7931A" stroke-width="2"/><text x="341" y="360" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text><text x="341" y="380" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">DEVELOPERS</text>
+    <!-- 6. More Applications --><rect x="276" y="174" width="130" height="52" rx="10" fill="#20252D" stroke="#7C5CFF" stroke-width="2"/><text x="341" y="200" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text><text x="341" y="220" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">APPLICATIONS</text>
+  </g>
+
+  <!-- Metcalfe's Law formula -->
+  <text x="480" y="498" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="15">V ∝ n² — Metcalfe's Law</text>
+  <text x="480" y="518" text-anchor="middle" fill="#525C69" font-family="JetBrains Mono, monospace" font-size="11">Total wallet addresses: ~400M+ (2025)</text>
+</svg>

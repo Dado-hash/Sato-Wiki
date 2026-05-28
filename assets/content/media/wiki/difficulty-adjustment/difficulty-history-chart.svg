@@ -1,0 +1,70 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Bitcoin Difficulty History</title>
+  <desc id="desc">A chart showing Bitcoin's mining difficulty over time, with hash rate and retargeting events annotated at key milestones.</desc>
+
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Difficulty History</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Bitcoin mining difficulty has grown from 1 to over 100 trillion.</text>
+
+  <!-- Chart area -->
+  <g transform="translate(80, 150)">
+    <!-- Grid -->
+    <g stroke="#28313B" stroke-width="1" opacity="0.55">
+      <line x1="0" y1="0" x2="800" y2="0"/>
+      <line x1="0" y1="60" x2="800" y2="60"/>
+      <line x1="0" y1="120" x2="800" y2="120"/>
+      <line x1="0" y1="180" x2="800" y2="180"/>
+      <line x1="0" y1="240" x2="800" y2="240"/>
+      <line x1="0" y1="300" x2="800" y2="300"/>
+      <line x1="0" y1="0" x2="0" y2="300"/>
+      <line x1="0" y1="300" x2="800" y2="300"/>
+    </g>
+
+    <!-- Y-axis labels -->
+    <text x="-10" y="5" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">100T</text>
+    <text x="-10" y="65" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">10T</text>
+    <text x="-10" y="125" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">1T</text>
+    <text x="-10" y="185" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">100B</text>
+    <text x="-10" y="245" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">1</text>
+
+    <text x="400" y="-8" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Difficulty (log scale)</text>
+
+    <!-- X-axis labels -->
+    <text x="0" y="320" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">2009</text>
+    <text x="200" y="320" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">2013</text>
+    <text x="400" y="320" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">2017</text>
+    <text x="600" y="320" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">2021</text>
+    <text x="800" y="320" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">2025</text>
+
+    <!-- Difficulty curve (approximate) -->
+    <path d="M0 299 C20 298, 80 298, 160 295 C240 290, 300 260, 320 240 C340 220, 360 180, 380 150 C400 130, 420 110, 460 80 C500 55, 560 35, 620 22 C680 12, 740 6, 800 2" stroke="#F7931A" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Annotations -->
+    <g filter="url(#soft)">
+      <rect x="145" y="265" width="120" height="30" rx="8" fill="#171B21" stroke="#F7931A" stroke-width="1.2"/>
+      <text x="205" y="285" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">Difficulty = 1</text>
+
+      <rect x="275" y="220" width="120" height="30" rx="8" fill="#171B21" stroke="#F7931A" stroke-width="1.2"/>
+      <text x="335" y="240" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">GPU mining era</text>
+
+      <rect x="380" y="120" width="140" height="30" rx="8" fill="#171B21" stroke="#F7931A" stroke-width="1.2"/>
+      <text x="450" y="140" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">ASIC dominance</text>
+
+      <rect x="650" y="0" width="140" height="30" rx="8" fill="#171B21" stroke="#F7931A" stroke-width="1.2"/>
+      <text x="720" y="20" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">~100T+ difficulty</text>
+    </g>
+  </g>
+
+  <!-- Bottom -->
+  <text x="480" y="500" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">
+    Difficulty adjusts every 2016 blocks to maintain 10-minute block intervals despite massive hash rate growth
+  </text>
+</svg>

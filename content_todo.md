@@ -62,18 +62,18 @@ livelli di lettura `base`, `medium` e `advanced`.
 
 ## Economics (`economics`)
 
-- [ ] Fixed supply - `wiki.fixed-supply`
-- [ ] 21 million cap - `wiki.twenty-one-million-cap`
-- [ ] Issuance schedule - `wiki.issuance-schedule`
-- [ ] Halving - `wiki.halving`
-- [ ] Difficulty adjustment - `wiki.difficulty-adjustment`
-- [ ] Miner incentives - `wiki.miner-incentives`
-- [ ] Fee market - `wiki.fee-market`
-- [ ] Block subsidy - `wiki.block-subsidy`
-- [ ] Game theory - `wiki.game-theory`
-- [ ] Scarcity - `wiki.scarcity`
-- [ ] Store of value - `wiki.store-of-value`
-- [ ] Sound money - `wiki.sound-money`
-- [ ] Network effects - `wiki.network-effects`
-- [ ] Mining energy economics - `wiki.mining-energy-economics`
-- [ ] Volatility - `wiki.volatility`
+- [x] Fixed supply - `wiki.fixed-supply`
+- [x] 21 million cap - `wiki.twenty-one-million-cap`
+- [x] Issuance schedule - `wiki.issuance-schedule`
+- [x] Halving - `wiki.halving`
+- [x] Difficulty adjustment - `wiki.difficulty-adjustment`
+- [x] Miner incentives - `wiki.miner-incentives`
+- [x] Fee market - `wiki.fee-market`
+- [x] Block subsidy - `wiki.block-subsidy`
+- [x] Game theory - `wiki.game-theory`
+- [x] Scarcity - `wiki.scarcity`
+- [x] Store of value - `wiki.store-of-value`
+- [x] Sound money - `wiki.sound-money`
+- [x] Network effects - `wiki.network-effects`
+- [x] Mining energy economics - `wiki.mining-energy-economics`
+- [x] Volatility - `wiki.volatility`

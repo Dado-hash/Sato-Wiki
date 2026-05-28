@@ -1,0 +1,54 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Digital Scarcity</title>
+  <desc id="desc">Comparison chart showing Bitcoin against gold, fiat, and digital goods across key properties: supply cap, verifiability, portability, and durability.</desc>
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Digital Scarcity</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Bitcoin is the first asset to combine digital verifiability with provable scarcity.</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 160H884"/><path d="M76 440H884"/>
+  </g>
+  <!-- Comparison table -->
+  <g filter="url(#soft)">
+    <rect x="64" y="176" width="832" height="264" rx="16" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
+    <!-- Header row -->
+    <rect x="64" y="176" width="832" height="44" rx="16" fill="#171B21"/>
+    <rect x="64" y="204" width="832" height="16" fill="#171B21"/>
+    <text x="220" y="206" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Property</text>
+    <text x="480" y="206" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Bitcoin</text>
+    <text x="650" y="206" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">Gold</text>
+    <text x="810" y="206" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">Fiat</text>
+    <line x1="70" y1="222" x2="890" y2="222" stroke="#343A44" stroke-width="1"/>
+    <!-- Row 1 -->
+    <text x="100" y="258" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">Supply cap</text>
+    <text x="480" y="258" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">21 million</text>
+    <text x="650" y="258" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15">Limited but growing</text>
+    <text x="810" y="258" text-anchor="middle" fill="#FF6B6B" font-family="Inter, Arial, sans-serif" font-size="15">Unlimited</text>
+    <line x1="70" y1="276" x2="890" y2="276" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 2 -->
+    <text x="100" y="310" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">Verifiability</text>
+    <text x="480" y="310" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Instant, public</text>
+    <text x="650" y="310" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15">Requires assay</text>
+    <text x="810" y="310" text-anchor="middle" fill="#FF6B6B" font-family="Inter, Arial, sans-serif" font-size="15">Requires trust</text>
+    <line x1="70" y1="328" x2="890" y2="328" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 3 -->
+    <text x="100" y="362" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">Portability</text>
+    <text x="480" y="362" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Global, instant</text>
+    <text x="650" y="362" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15">Heavy, slow</text>
+    <text x="810" y="362" text-anchor="middle" fill="#FF6B6B" font-family="Inter, Arial, sans-serif" font-size="15">Digital, but frozen</text>
+    <line x1="70" y1="380" x2="890" y2="380" stroke="#28313B" stroke-width="1"/>
+    <!-- Row 4 -->
+    <text x="100" y="414" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">Durability</text>
+    <text x="480" y="414" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Immutable</text>
+    <text x="650" y="414" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15">Imperishable</text>
+    <text x="810" y="414" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15">Inflated away</text>
+  </g>
+  <text x="480" y="496" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">
+    Scarcity + verifiability + portability + durability = sound money
+  </text>
+</svg>

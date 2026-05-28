@@ -1,0 +1,150 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mining Energy Economics — Bitcoin energy use in context</title>
+  <desc id="desc">Comparison bar chart showing Bitcoin mining vs gold mining, banking system, and datacenters. Flow diagram from energy to ASIC mining to revenue to energy cost.</desc>
+
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bar-btc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F7931A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="bar-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#E6B800"/>
+    </linearGradient>
+    <linearGradient id="bar-bank" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C5CFF"/>
+      <stop offset="100%" stop-color="#6B4FE0"/>
+    </linearGradient>
+    <linearGradient id="bar-dc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Title area -->
+  <text x="64" y="82" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Mining Energy Economics</text>
+  <text x="896" y="82" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">Energy vs Industry</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Bitcoin energy consumption compared to other industries — context matters.</text>
+
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 150H884"/>
+    <path d="M76 396H884"/>
+  </g>
+
+  <!-- ===== TOP SECTION: Comparison Bars ===== -->
+
+  <!-- Bitcoin bar -->
+  <g>
+    <text x="80" y="188" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Bitcoin Mining</text>
+    <text x="80" y="206" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~140 TWh/yr</text>
+    <rect x="240" y="180" width="250" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
+    <rect x="240" y="180" width="250" height="28" rx="14" fill="url(#bar-btc)" opacity="0.85"/>
+    <rect x="240" y="180" width="250" height="28" rx="14" fill="none" stroke="#F7931A" stroke-width="1.5"/>
+    <text x="510" y="200" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">$1–2T network secured</text>
+  </g>
+
+  <!-- Gold mining bar -->
+  <g>
+    <text x="80" y="242" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Gold Mining</text>
+    <text x="80" y="260" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~270 TWh/yr</text>
+    <rect x="240" y="234" width="480" height="28" rx="14" fill="#2A281A" stroke="#FFD700" stroke-width="1.5"/>
+    <rect x="240" y="234" width="480" height="28" rx="14" fill="url(#bar-gold)" opacity="0.5"/>
+    <rect x="240" y="234" width="480" height="28" rx="14" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+    <text x="740" y="254" fill="#FFD700" font-family="JetBrains Mono, monospace" font-size="13">~15T mkt cap</text>
+  </g>
+
+  <!-- Banking system bar -->
+  <g>
+    <text x="80" y="296" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Banking System</text>
+    <text x="80" y="314" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~200 TWh/yr</text>
+    <rect x="240" y="288" width="360" height="28" rx="14" fill="#24202E" stroke="#7C5CFF" stroke-width="1.5"/>
+    <rect x="240" y="288" width="360" height="28" rx="14" fill="url(#bar-bank)" opacity="0.5"/>
+    <rect x="240" y="288" width="360" height="28" rx="14" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+    <text x="620" y="308" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">Global financial system</text>
+  </g>
+
+  <!-- Data centers bar -->
+  <g>
+    <text x="80" y="350" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Data Centers</text>
+    <text x="80" y="368" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~500 TWh/yr</text>
+    <rect x="240" y="342" width="600" height="28" rx="14" fill="#1A242E" stroke="#3B82F6" stroke-width="1.5"/>
+    <rect x="240" y="342" width="600" height="28" rx="14" fill="url(#bar-dc)" opacity="0.35"/>
+    <rect x="240" y="342" width="600" height="28" rx="14" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="860" y="362" fill="#3B82F6" font-family="JetBrains Mono, monospace" font-size="13">Internet infrastructure</text>
+  </g>
+
+  <!-- ===== BOTTOM SECTION: Flow Diagram ===== -->
+
+  <!-- Row labels -->
+  <text x="64" y="430" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">How mining energy economics work:</text>
+
+  <g transform="translate(0, 420)">
+
+    <!-- Energy -->
+    <g filter="url(#soft)">
+      <rect x="56" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+      <text x="111" y="38" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Energy In</text>
+      <text x="111" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Electricity</text>
+    </g>
+
+    <path d="M176 40H208" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+    <!-- ASIC -->
+    <g filter="url(#soft)">
+      <rect x="218" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+      <text x="273" y="38" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">ASIC</text>
+      <text x="273" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">SHA-256 hashing</text>
+    </g>
+
+    <path d="M338 40H370" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+
+    <!-- Hash Rate -->
+    <g filter="url(#soft)">
+      <rect x="380" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+      <text x="435" y="38" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Hash Rate</text>
+      <text x="435" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">EH/s</text>
+    </g>
+
+    <path d="M500 40H532" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+    <!-- Block Reward -->
+    <g filter="url(#soft)">
+      <rect x="542" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="597" y="38" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Reward</text>
+      <text x="597" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">BTC + fees</text>
+    </g>
+
+    <path d="M662 40H694" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+
+    <!-- Revenue -->
+    <g filter="url(#soft)">
+      <rect x="704" y="18" width="100" height="44" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="754" y="38" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Revenue</text>
+      <text x="754" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">USD</text>
+    </g>
+
+    <!-- Feedback arrow: Revenue back to Energy -->
+    <path d="M754 62V78H111V68" stroke="#7C8794" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 3" fill="none" marker-end="url(#arrow-muted)"/>
+    <text x="432" y="92" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Revenue funds energy cost → incentive loop</text>
+
+  </g>
+</svg>
