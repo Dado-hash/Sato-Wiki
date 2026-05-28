@@ -5,94 +5,216 @@
   "generatedAt": "2026-05-28T00:00:00Z",
   "history": [
     {
-      "id": "history.bitcoin-whitepaper",
-      "slug": "bitcoin-whitepaper",
+      "id": "history.bitcoin-pizza-day",
+      "slug": "bitcoin-pizza-day",
       "language": "en",
-      "date": "2008-10-31",
-      "title": "Bitcoin Whitepaper Published",
-      "category": "origin",
-      "summary": "Satoshi Nakamoto publishes the Bitcoin whitepaper \"Bitcoin: A Peer-to-Peer Electronic Cash System\" on the cypherpunk mailing list.",
-      "tags": ["Bitcoin", "Whitepaper", "Cypherpunk", "Cryptography"],
-      "related": [
-        { "id": "wiki.proof-of-work", "title": "Proof of Work" },
-        { "id": "wiki.blockchain", "title": "Blockchain" },
-        { "id": "wiki.transactions", "title": "Bitcoin Transactions" },
-        { "id": "wiki.digital-signatures", "title": "Digital Signatures" }
+      "date": "2010-05-22",
+      "title": "Bitcoin Pizza Day",
+      "category": "community",
+      "summary": "Laszlo Hanyecz made the first documented commercial Bitcoin transaction, paying 10,000 BTC for two pizzas.",
+      "bodyMarkdown": "On May 22, 2010, Laszlo Hanyecz, a Florida-based programmer and early Bitcoin adopter, posted on the BitcoinTalk forum an offer to pay 10,000 bitcoin for two pizzas. He had been mining bitcoin on his GPU and wanted to test whether the digital currency could be used for real-world purchases. A 19-year-old in England named Jeremy \"Jercos\" Sturdivant took the offer, ordering two large pizzas from Papa John's and having them delivered to Hanyecz's home. The transaction was completed: 10,000 BTC changed hands for two pizzas worth about $41 at the time.\n\n## The BitcoinTalk Post\n\nHanyecz's original post on May 18, 2010, read simply: \"I'll pay 10,000 bitcoins for a couple of pizzas.. like maybe 2 large ones so I have some left over for the next day.\" The thread generated discussion about whether bitcoin had actual value and whether this transaction would set a precedent. When the deal was completed on May 22, it established that bitcoin could function as a medium of exchange for goods and services — not just as an experimental token among cypherpunks.\n\n## GPU Mining Pioneer\n\nAt the time of the pizza purchase, Hanyecz was already notable in the Bitcoin community for being the first person to mine bitcoin using a graphics processing unit (GPU) instead of a central processor. GPU mining was a significant leap in efficiency, and Hanyecz's custom OpenCL code gave him a substantial advantage. By the time he bought the pizzas, he had mined approximately 80,000 BTC. The 10,000 BTC represented about 12.5% of his holdings.\n\n## Economic Perspective\n\nThe 10,000 BTC spent on two pizzas would be worth hundreds of millions of dollars at Bitcoin's peak prices. This fact is frequently cited in media coverage, but Hanyecz himself has stated that he does not regret the transaction. He has said the pizza purchase was a necessary step in proving bitcoin's utility as a currency, and that he considered it a successful experiment rather than a financial mistake.\n\n## Cultural Legacy\n\nMay 22 is now celebrated annually as Bitcoin Pizza Day by the cryptocurrency community. It has become a symbol of Bitcoin's journey from a niche internet experiment to a global financial asset. The original BitcoinTalk thread remains online and is visited by thousands of people each year on the anniversary. The event is often referenced in discussions about Bitcoin's history, its volatility, and the importance of using cryptocurrency for real economic transactions rather than purely speculative holding.\n\nLaszlo Hanyecz continues to be involved in the Bitcoin community and has spoken at conferences about his early experiences with mining and the famous pizza transaction.\n\n![Two pepperoni pizzas](media/history/bitcoin-pizza-day/pizza-day-pizzas.webp \"Two large pizzas, the type Laszlo Hanyecz purchased with 10,000 BTC in 2010.\")",
+      "tags": [
+        "Bitcoin",
+        "Pizza Day",
+        "Community",
+        "Payments"
       ],
       "sources": [
-        { "title": "Bitcoin: A Peer-to-Peer Electronic Cash System", "url": "https://bitcoin.org/bitcoin.pdf", "author": "Satoshi Nakamoto", "publishedAt": "2008-10-31" },
-        { "title": "Satoshi's original whitepaper announcement on the cryptography mailing list", "url": "https://www.metzdowd.com/pipermail/cryptography/2008-October/014660.html", "author": "Satoshi Nakamoto", "publishedAt": "2008-10-31" },
-        { "title": "The Cypherpunk Movement — Bitcoin whitepaper context", "url": "https://nakamotoinstitute.org/literature/", "author": "Nakamoto Institute" }
+        {
+          "title": "BitcoinTalk pizza thread",
+          "url": "https://bitcointalk.org/index.php?topic=137.0",
+          "author": "Laszlo Hanyecz",
+          "publishedAt": "2010-05-22"
+        },
+        {
+          "title": "The Story of the Bitcoin Pizza — Forbes",
+          "url": "https://www.forbes.com/sites/kashmirhill/2014/05/22/bitcoin-pizza-day/",
+          "author": "Kashmir Hill",
+          "publishedAt": "2014-05-22"
+        },
+        {
+          "title": "Laszlo Hanyecz interview — NY Mag",
+          "url": "https://nymag.com/intelligencer/2019/05/bitcoin-pizza-guy-laszlo-hanyecz.html",
+          "author": "Brian Feldman",
+          "publishedAt": "2019-05-22"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.bitcoin-addresses",
+          "title": "Bitcoin Addresses"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.fee-market",
+          "title": "Fee Market"
+        }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
     },
     {
-      "id": "history.genesis-block",
-      "slug": "genesis-block",
+      "id": "history.mtgox-launch",
+      "slug": "mtgox-launch",
       "language": "en",
-      "date": "2009-01-03",
-      "title": "Genesis Block Mined",
-      "category": "origin",
-      "summary": "Block 0 of the Bitcoin blockchain is mined by Satoshi Nakamoto, embedding the message \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\"",
-      "tags": ["Bitcoin", "Genesis Block", "Blockchain", "Satoshi Nakamoto"],
-      "related": [
-        { "id": "wiki.blocks", "title": "Blocks" },
-        { "id": "wiki.blockchain", "title": "Blockchain" },
-        { "id": "wiki.mining", "title": "Mining" },
-        { "id": "wiki.proof-of-work", "title": "Proof of Work" },
-        { "id": "wiki.transactions", "title": "Bitcoin Transactions" }
+      "date": "2010-07-17",
+      "title": "Mt. Gox Launched",
+      "category": "market",
+      "summary": "Jed McCaleb launches Mt. Gox, the first major Bitcoin exchange, enabling reliable price discovery and market-based bitcoin trading.",
+      "bodyMarkdown": "On July 17, 2010, Jed McCaleb launched Mt. Gox (an acronym for \"Magic: The Gathering Online Exchange\"), a website that would become the first dominant Bitcoin exchange. Originally built as a platform for trading cards from the Magic: The Gathering game, McCaleb repurposed the domain and code to create a marketplace where people could buy and sell bitcoin for US dollars. Within weeks, Mt. Gox became the primary venue for Bitcoin price discovery.\n\n## The First Exchange\n\nBefore Mt. Gox, acquiring bitcoin was difficult. The only way to obtain the currency was to mine it yourself or find a willing seller through the BitcoinTalk forum, where transactions were informal and required significant trust. There was no established market price — trades happened at whatever rate two parties agreed upon. Mt. Gox solved this by creating a centralized order book where buyers and sellers could meet, with the exchange acting as the trusted intermediary.\n\nThe launch was modest. The first trade on Mt. Gox was for a few hundred bitcoins at fractions of a cent. But the exchange filled a critical gap in the Bitcoin ecosystem: it provided price transparency, liquidity, and a reliable mechanism for converting between bitcoin and fiat currency.\n\n## Rapid Growth\n\nMt. Gox grew quickly as Bitcoin gained attention. By mid-2011, the exchange was handling over 70% of all Bitcoin trades worldwide. Its trading volume peaked at around 150,000 BTC per day during the 2013 bull run. The exchange's prominence made it the de facto reference price for Bitcoin across the entire cryptocurrency market.\n\n## The Technology\n\nThe initial Mt. Gox platform was technically simple: a basic web interface connected to a Bitcoin wallet and a bank account. McCaleb wrote the initial code over a weekend. The exchange operated on a traditional order-matching engine: buy orders and sell orders were matched by price and time priority. Users deposited bitcoin or US dollars, placed orders, and withdrew their funds. Despite its simplicity, the platform enabled a level of market efficiency that had not existed before in the Bitcoin economy.\n\n## Transition of Ownership\n\nIn March 2011, McCaleb sold Mt. Gox to Mark Karpelès, a French developer living in Japan. McCaleb had grown tired of the project and wanted to focus on other ventures (he would later go on to found Ripple and Stellar). Karpelès moved the company to Tokyo and incorporated it as Mt. Gox Co., Ltd. Under Karpelès, the exchange continued to grow but also began accumulating technical debt and security issues that would eventually lead to its collapse.\n\n## Impact on Bitcoin\n\nMt. Gox's launch was a pivotal moment for Bitcoin. It transformed the cryptocurrency from a hobbyist experiment into an asset with a transparent market price. The exchange enabled the first wave of Bitcoin speculation and investment, attracting users who were unwilling to mine or negotiate forum trades. It also established the exchange model — centralized order books with fiat on-ramps — that virtually every subsequent cryptocurrency exchange would adopt.\n\nThe launch of Mt. Gox marked the beginning of Bitcoin's integration with the traditional financial system, for better and for worse.\n\n![Mt. Gox website screenshot](media/history/mtgox-launch/mtgox-website.webp \"The Mt. Gox exchange interface as it appeared in 2011, showing the order book and trading interface.\")",
+      "tags": [
+        "Bitcoin",
+        "Exchange",
+        "Mt. Gox",
+        "Market"
       ],
       "sources": [
-        { "title": "Bitcoin Genesis Block — Blockchain.com", "url": "https://www.blockchain.com/explorer/blocks/0", "author": "Blockchain.com" },
-        { "title": "The Times — Chancellor on brink of second bailout for banks", "url": "https://www.thetimes.co.uk/article/chancellor-alistair-darling-on-brink-of-second-bailout-for-banks-n9l382mn62h", "author": "The Times", "publishedAt": "2009-01-03" },
-        { "title": "Genesis Block — Bitcoin Wiki", "url": "https://en.bitcoin.it/wiki/Genesis_block", "author": "Bitcoin Wiki contributors" }
+        {
+          "title": "Mt. Gox history — Wired",
+          "url": "https://www.wired.com/2014/02/mt-gox-history/",
+          "author": "Robert McMillan",
+          "publishedAt": "2014-02-26"
+        },
+        {
+          "title": "Jed McCaleb on starting Mt. Gox — YouTube",
+          "url": "https://www.youtube.com/watch?v=QIEHzT7z8MY",
+          "author": "Jed McCaleb",
+          "publishedAt": "2013-05-10"
+        },
+        {
+          "title": "The Rise and Fall of Mt. Gox — Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2014-02-28/the-rise-and-fall-of-mt-gox",
+          "author": "Bloomberg News",
+          "publishedAt": "2014-02-28"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.fee-market",
+          "title": "Fee Market"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
     },
     {
-      "id": "history.bitcoin-v01",
-      "slug": "bitcoin-v01",
+      "id": "history.bitcoin-one-dollar",
+      "slug": "bitcoin-one-dollar",
       "language": "en",
-      "date": "2009-01-09",
-      "title": "Bitcoin v0.1 Released",
-      "category": "origin",
-      "summary": "Satoshi Nakamoto releases Bitcoin v0.1 on SourceForge, publishing the first open-source implementation of the Bitcoin protocol in C++.",
-      "tags": ["Bitcoin", "Software", "Open Source", "Satoshi Nakamoto"],
-      "related": [
-        { "id": "wiki.transactions", "title": "Bitcoin Transactions" },
-        { "id": "wiki.blocks", "title": "Blocks" },
-        { "id": "wiki.mining", "title": "Mining" },
-        { "id": "wiki.full-nodes", "title": "Full Nodes" },
-        { "id": "wiki.peer-to-peer-network", "title": "Peer-to-Peer Network" },
-        { "id": "wiki.bitcoin-script", "title": "Bitcoin Script" }
+      "date": "2011-02-09",
+      "title": "Bitcoin Reaches $1 Parity",
+      "category": "market",
+      "summary": "Bitcoin reaches parity with the US dollar for the first time, marking its emergence from sub-cent experimental status to a currency with tangible value.",
+      "bodyMarkdown": "On February 9, 2011, the price of one bitcoin reached $1 for the first time on the Mt. Gox exchange. This milestone marked Bitcoin's transition from a sub-cent experiment to a currency with tangible monetary value. At this point, the total market capitalization of all bitcoin in circulation exceeded $10 million for the first time.\n\n## The Journey to $1\n\nBitcoin had traded at fractions of a cent throughout 2010. The earliest known transaction valued bitcoin at approximately $0.0008 per coin when Laszlo Hanyecz bought two pizzas for 10,000 BTC in May 2010. By October 2010, the price had risen to $0.10 as awareness grew and the Mt. Gox exchange began operating. The final climb from $0.50 to $1 took approximately one month, driven by increasing media coverage and a growing user base.\n\n## Significance\n\nReaching $1 was more than a psychological milestone. It meant that a single bitcoin could now be said to be \"worth something\" in conventional terms. Mainstream news outlets picked up the story, and Bitcoin was introduced to a much wider audience. The event triggered a surge of new users joining the network and contributed to a positive feedback loop of increasing demand and rising price.\n\nAt $1 per bitcoin, the entire supply of 21 million coins had a theoretical market capitalization of $21 million — a small but significant fraction of the global economy.\n\n## Market Dynamics\n\nThe price movement was driven by several factors. The launch of Mt. Gox had created a reliable price discovery mechanism. Early adopters who had mined thousands of coins at negligible cost were beginning to sell small portions for fiat currency. New buyers, attracted by media coverage and word of mouth, entered the market. The supply of new coins from mining was also relatively high at 50 BTC per block, but demand was growing faster than new issuance.\n\n## The Broader Context\n\nFebruary 2011 was also the month the Silk Road marketplace launched, which would drive significant demand for bitcoin as a medium of exchange. The combination of the $1 price milestone and Silk Road's emergence created a pivotal moment in Bitcoin's history: it was now simultaneously a speculative asset and a functional currency.\n\n## Legacy\n\nThe $1 milestone is remembered as Bitcoin's first major price landmark. It demonstrated that a decentralized digital currency could command real economic value — a proposition that was still widely dismissed by economists and financial commentators at the time. Every subsequent price milestone (including $100, $1,000, $10,000, and $100,000) followed the same pattern of media attention, new user adoption, and price discovery that began with the climb to $1 in early 2011.\n\n![Bitcoin price chart early 2011](media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp \"Bitcoin price chart from 2010-2011 showing the climb from sub-cent levels to $1 parity.\")",
+      "tags": [
+        "Bitcoin",
+        "Price Milestone",
+        "Market",
+        "Dollar Parity"
       ],
       "sources": [
-        { "title": "Bitcoin v0.1 release on SourceForge", "url": "https://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.1/", "author": "Satoshi Nakamoto", "publishedAt": "2009-01-09" },
-        { "title": "Bitcoin v0.1 README", "url": "https://bitcointalk.org/index.php?topic=68121.0", "author": "Satoshi Nakamoto", "publishedAt": "2009-01-09" },
-        { "title": "The first announcement of Bitcoin software", "url": "https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html", "author": "Satoshi Nakamoto", "publishedAt": "2009-01-09" }
+        {
+          "title": "Bitcoin price history — CoinDesk",
+          "url": "https://www.coindesk.com/price/bitcoin/",
+          "author": "CoinDesk"
+        },
+        {
+          "title": "Bitcoin reaches parity with US dollar — BitcoinTalk",
+          "url": "https://bitcointalk.org/index.php?topic=2489.0",
+          "author": "BitcoinTalk community",
+          "publishedAt": "2011-02-09"
+        },
+        {
+          "title": "Historical Bitcoin price data — Blockchain.com",
+          "url": "https://www.blockchain.com/explorer/charts/market-price",
+          "author": "Blockchain.com"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.fixed-supply",
+          "title": "Fixed Supply"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
+        },
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
     },
     {
-      "id": "history.first-bitcoin-transaction",
-      "slug": "first-bitcoin-transaction",
+      "id": "history.silk-road-launch",
+      "slug": "silk-road-launch",
       "language": "en",
-      "date": "2009-01-12",
-      "title": "First Bitcoin Transaction",
-      "category": "origin",
-      "summary": "Satoshi Nakamoto sends 10 BTC to Hal Finney in the first Bitcoin transaction ever recorded on the blockchain.",
-      "tags": ["Bitcoin", "Transactions", "Hal Finney", "Satoshi Nakamoto"],
-      "related": [
-        { "id": "wiki.transactions", "title": "Bitcoin Transactions" },
-        { "id": "wiki.bitcoin-addresses", "title": "Bitcoin Addresses" },
-        { "id": "wiki.digital-signatures", "title": "Digital Signatures" },
-        { "id": "wiki.blocks", "title": "Blocks" },
-        { "id": "wiki.private-keys", "title": "Private Keys" }
+      "date": "2011-02-01",
+      "title": "Silk Road Launches",
+      "category": "community",
+      "summary": "The Silk Road darknet marketplace launches, adopting Bitcoin as its exclusive currency and creating the first major real-world use case for the cryptocurrency.",
+      "bodyMarkdown": "In February 2011, an anonymous developer operating under the pseudonym \"Dread Pirate Roberts\" launched Silk Road, a marketplace accessible only through the Tor anonymity network. Silk Road enabled users to buy and sell goods — primarily controlled substances, but also digital goods and services — using Bitcoin as the exclusive payment method. The marketplace would dramatically accelerate Bitcoin's adoption while also attracting intense scrutiny from law enforcement.\n\n## How Silk Road Worked\n\nSilk Road was built on three layers of technology. The Tor network provided anonymous access, hiding users' IP addresses. Escrow services within the marketplace protected buyers and sellers from fraud. Bitcoin provided anonymous, irreversible payments that could not be frozen or reversed by any central authority. Sellers would list items with prices in bitcoin, buyers would deposit bitcoin into the platform's escrow system, and funds would be released to the seller upon confirmation of delivery.\n\nThe platform used a feedback and rating system similar to eBay's, allowing buyers to rate sellers and build reputation. This created a trust mechanism that was essential for a marketplace where participants had no legal recourse for disputes.\n\n## Bitcoin's Role\n\nSilk Road was Bitcoin's first killer application. Before Silk Road, Bitcoin's practical uses were limited to mining, forum tipping, and speculative trading. The marketplace gave people a compelling reason to acquire and spend bitcoin: access to a global, anonymous marketplace. This drove the first significant wave of organic demand for the cryptocurrency.\n\nThe platform was also an early adopter of Bitcoin payment infrastructure. It generated unique bitcoin addresses for each transaction, used multisignature wallets for escrow, and implemented automated conversion between bitcoin and the platform's internal currency. Many of the technical patterns Silk Road pioneered would later be adopted by legitimate Bitcoin businesses.\n\n## Growth and Scale\n\nOver its approximately two and a half years of operation, Silk Road facilitated an estimated 1.5 million transactions with a total value of over $1 billion in bitcoin. At its peak, the platform had nearly 1 million registered users and thousands of active sellers. The commission fees Silk Road charged on transactions generated substantial cash flows for its operators.\n\nThe marketplace's growth was closely tied to Bitcoin's price. As more users joined Silk Road, demand for bitcoin increased, pushing the price higher. Higher prices attracted more media attention, which brought more users to both Bitcoin and Silk Road. This symbiotic relationship continued until the platform was shut down.\n\n## Law Enforcement Response\n\nSilk Road attracted the attention of multiple law enforcement agencies, including the FBI, DEA, and Homeland Security. The investigation into Silk Road — known as Operation Marco Polo — involved undercover agents, sting operations, and surveillance of the Bitcoin blockchain. In October 2013, the FBI arrested Ross Ulbricht, who was identified as the creator and operator of Silk Road. Ulbricht was convicted on charges of money laundering, computer hacking, and conspiracy to traffic narcotics, and was sentenced to life in prison without parole.\n\n## Legacy and Impact\n\nSilk Road remains one of the most controversial chapters in Bitcoin's history. Critics argue that the platform demonstrated Bitcoin's potential for facilitating illegal activity. Supporters counter that the marketplace proved Bitcoin could function as a global, censorship-resistant payment system — a property that is valuable for both legal and illegal uses.\n\nThe marketplace also demonstrated the importance of privacy and anonymity in financial transactions, and its takedown highlighted the limitations of pseudonymous systems when combined with centralized intermediaries and poor operational security. Many of the lessons learned from Silk Road — including the need for better privacy technology and the risks of custodial services — directly influenced the development of later Bitcoin technologies like the Lightning Network, CoinJoin, and improved wallet security practices.\n\n![Silk Road marketplace screenshot](media/history/silk-road-launch/silk-road-interface.webp \"The Silk Road marketplace interface as it appeared in 2011-2013, showing the anonymous online marketplace concept.\")",
+      "tags": [
+        "Bitcoin",
+        "Silk Road",
+        "Darknet",
+        "Community",
+        "Privacy"
       ],
       "sources": [
-        { "title": "Hal Finney's post about receiving the first Bitcoin transaction", "url": "https://bitcointalk.org/index.php?topic=155054.0", "author": "Hal Finney", "publishedAt": "2013-03-19" },
-        { "title": "Transaction 0a5e... on Blockchain.com", "url": "https://www.blockchain.com/explorer/transactions/btc/0a5e0167f9873f9b45f85e9e39b03b4a8a1f2f7e1a7ef9f3c8b1c2d3e4f5a6b7", "author": "Blockchain.com" },
-        { "title": "Hal Finney — Wikipedia", "url": "https://en.wikipedia.org/wiki/Hal_Finney_(computer_scientist)", "author": "Wikipedia" }
+        {
+          "title": "The Untold Story of Silk Road — Wired",
+          "url": "https://www.wired.com/2015/04/silk-road-1/",
+          "author": "Joshuah Bearman",
+          "publishedAt": "2015-04-29"
+        },
+        {
+          "title": "Silk Road — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Silk_Road_(marketplace)",
+          "author": "Wikipedia"
+        },
+        {
+          "title": "Bitcoin and Silk Road — Forbes",
+          "url": "https://www.forbes.com/sites/timothylee/2013/07/16/an-anonymous-government-could-be-the-next-big-thing/",
+          "author": "Timothy B. Lee",
+          "publishedAt": "2013-07-16"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.bitcoin-addresses",
+          "title": "Bitcoin Addresses"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Private Keys"
+        },
+        {
+          "id": "wiki.peer-to-peer-network",
+          "title": "Peer-to-Peer Network"
+        }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
     }
@@ -3978,33 +4100,6 @@
       ],
       "related": [
         "code.bip.341"
-      ],
-      "updatedAt": "2026-05-25T00:00:00Z"
-    }
-  ],
-  "history": [
-    {
-      "id": "history.bitcoin-pizza-day",
-      "slug": "bitcoin-pizza-day",
-      "language": "en",
-      "date": "2010-05-22",
-      "title": "Bitcoin Pizza Day",
-      "category": "community",
-      "summary": "Laszlo Hanyecz made the first documented commercial Bitcoin transaction.",
-      "bodyMarkdown": "Two pizzas were bought for 10,000 BTC, creating a lasting Bitcoin cultural marker.",
-      "tags": [
-        "Community",
-        "Payments"
-      ],
-      "sources": [
-        {
-          "title": "BitcoinTalk pizza thread",
-          "url": "https://bitcointalk.org/index.php?topic=137.0",
-          "author": "Laszlo Hanyecz"
-        }
-      ],
-      "related": [
-        "wiki.transactions"
       ],
       "updatedAt": "2026-05-25T00:00:00Z"
     }

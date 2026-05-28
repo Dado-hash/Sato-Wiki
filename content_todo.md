@@ -132,21 +132,21 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
 
 ### Fase 2 — Early Adoption (2010–2011)
 
-- [ ] Bitcoin Pizza Day - `history.bitcoin-pizza-day`
+- [x] Bitcoin Pizza Day - `history.bitcoin-pizza-day`
   `2010-05-22` | `community`
   Laszlo Hanyecz paga 10.000 BTC per due pizze, prima transazione commerciale
   documentata. (già presente in seed bundle)
 
-- [ ] Mt. Gox launched - `history.mtgox-launch`
+- [x] Mt. Gox launched - `history.mtgox-launch`
   `2010-07-17` | `market`
   Jed McCaleb lancia Mt. Gox, il primo grande exchange Bitcoin.
 
-- [ ] Bitcoin reaches $1 parity - `history.bitcoin-one-dollar`
+- [x] Bitcoin reaches $1 parity - `history.bitcoin-one-dollar`
   `2011-02-09` | `market`
   Bitcoin raggiunge la parità con il dollaro USA per la prima volta.
 
-- [ ] Silk Road launch - `history.silk-road-launch`
-  `2011-02` | `community`
+- [x] Silk Road launch - `history.silk-road-launch`
+  `2011-02-01` | `community`
   Viene lanciato Silk Road, mercato darknet che adotta Bitcoin come valuta.
 
 ### Fase 3 — Growth & Turmoil (2012–2014)
