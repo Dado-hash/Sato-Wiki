@@ -37,6 +37,6 @@ void main() {
     final mining = index.search('mining');
 
     expect(taproot.first.route, '/code/bips/341');
-    expect(mining.first.route, '/wiki/entries/mining');
+    expect(mining.first.route, '/wiki/entries/mining-energy-economics');
   });
 }
