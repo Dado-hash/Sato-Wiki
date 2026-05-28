@@ -97,7 +97,7 @@ Le immagini vanno inserite nel path indicato, formato `.webp`.
 - [ ] `media/history/mtgox-launch/mtgox-website.webp`
 - [ ] `media/history/silk-road-launch/silk-road-interface.webp`
 - [ ] `media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp`
-- [ ] `media/history/first-halving/first-halving-block.webp`
+- [x] `media/history/first-halving/first-halving-block.webp`
 - [ ] `media/history/cyprus-crisis/cyprus-bank-queue.webp`
 - [ ] `media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp`
 - [ ] `media/history/mtgox-collapse/mtgox-collapse-logo.webp`
