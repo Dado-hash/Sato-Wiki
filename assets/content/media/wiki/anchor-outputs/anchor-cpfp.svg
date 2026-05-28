@@ -1,0 +1,68 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CPFP Fee Bumping via Anchor Outputs</title>
+  <desc id="desc">Flow diagram showing a commitment transaction stuck with low fee (~1 sat/vbyte), either party creating a child transaction spending the anchor output with a high fee, and the miner including both via CPFP.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#EF4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">CPFP Fee Bumping via Anchor Outputs</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Anchor outputs give both channel parties the ability to bump the fee of a commitment transaction</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="52" y="162" width="856" height="154" rx="14" fill="#20252D" stroke="#EF4444" stroke-width="2"/>
+    <text x="480" y="192" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Step 1: Commitment Transaction Broadcast With Low Fee</text>
+    <g filter="url(#soft)">
+      <rect x="310" y="208" width="340" height="50" rx="12" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
+      <text x="480" y="232" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Commitment Transaction</text>
+      <text x="480" y="250" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">Fee: ~1 sat/vbyte — Stuck in mempool</text>
+    </g>
+    <path d="M480 258V280" stroke="#EF4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+    <g filter="url(#soft)">
+      <rect x="310" y="284" width="340" height="24" rx="8" fill="#1A1F28" stroke="#46505C" stroke-width="1"/>
+      <text x="480" y="300" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Not enough fee → miners won't include it</text>
+    </g>
+  </g>
+  <path d="M480 316L480 328" stroke="#7C8794" stroke-width="3" marker-end="url(#arrow-muted)"/>
+  <g filter="url(#soft)">
+    <rect x="52" y="334" width="856" height="108" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="480" y="364" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Step 2: Either Party Creates CPFP Child Transaction</text>
+    <g filter="url(#soft)">
+      <rect x="64" y="382" width="260" height="46" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
+      <text x="194" y="404" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Anchor Output (1 sat)</text>
+      <text x="194" y="420" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="10">Spendable by local party</text>
+    </g>
+    <path d="M324 405L358 405" stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <g filter="url(#soft)">
+      <rect x="368" y="382" width="230" height="46" rx="10" fill="#1A3322" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="483" y="404" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">Child Transaction</text>
+      <text x="483" y="420" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="10">High fee: ~50 sat/vbyte</text>
+    </g>
+    <path d="M598 405L632 405" stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <g filter="url(#soft)">
+      <rect x="642" y="382" width="246" height="46" rx="10" fill="#1A1F28" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="765" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">CPFP Effect</text>
+      <text x="765" y="420" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="10">Parent + child both confirmed</text>
+    </g>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="52" y="458" width="856" height="34" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
+    <text x="480" y="479" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Low fee commitment tx → create child tx spending anchor output with high fee → miner includes both (CPFP)</text>
+  </g>
+</svg>

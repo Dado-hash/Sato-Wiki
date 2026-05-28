@@ -1,0 +1,55 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Penalty Mechanism</title>
+  <desc id="desc">Penalty mechanism flow: top shows valid State N (current balance A=0.7, B=0.3) on Bob's commitment. Middle shows Alice attempting to broadcast old State N-1 (A=1.0, B=0.0). Bottom shows Bob taking all funds using the revocation key from State N-1. Orange arrows indicate honest flow, red indicates cheating attempt.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#EF4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Penalty Mechanism</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Publishing an old state lets the other party take all channel funds</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+    <path d="M76 256H884"/>
+    <path d="M76 378H884"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="64" y="164" width="832" height="78" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="114" y="194" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">State N (current) — Bob's Commitment</text>
+    <text x="114" y="216" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Alice: 0.7 BTC (to_local, CSV timelock — cannot spend immediately)</text>
+    <text x="114" y="236" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Bob: 0.3 BTC (to_remote — immediately spendable)</text>
+    <text x="480" y="216" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">revocation_secret_N kept secret</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="64" y="270" width="832" height="94" rx="14" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
+    <text x="114" y="300" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Alice broadcasts old State N-1 (cheating attempt)</text>
+    <text x="114" y="324" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Alice: 1.0 BTC (to_local — but this state has been revoked!)</text>
+    <text x="114" y="344" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Bob: 0.0 BTC</text>
+    <text x="480" y="324" fill="#EF4444" font-family="JetBrains Mono, monospace" font-size="12">revocation_secret_N-1 was already revealed</text>
+  </g>
+  <path d="M480 242L480 270" stroke="#EF4444" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-red)"/>
+  <text x="494" y="260" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="13">Alice cheats</text>
+  <g filter="url(#soft)">
+    <rect x="64" y="394" width="832" height="90" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="114" y="424" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Bob claims all funds via penalty (revocation key)</text>
+    <text x="114" y="450" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Using revocation_secret_N-1, Bob derives the revocation pubkey</text>
+    <text x="114" y="472" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Spends Alice's to_local output immediately — bypasses CSV timelock</text>
+    <text x="480" y="450" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">Bob takes: 1.0 BTC + channel reserve</text>
+  </g>
+  <path d="M480 364L480 394" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <text x="494" y="383" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13">Penalty</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Anchor Output Structure</title>
+  <desc id="desc">A commitment transaction showing the funding UTXO input, to_local, to_remote, and two small 1-sat anchor outputs highlighted in orange, with a callout explaining anchors exist solely for CPFP fee bumping.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Anchor Outputs</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Small 1-sat outputs in commitment transactions that allow any party to fee-bump via CPFP</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+    <path d="M76 240H370"/>
+    <path d="M420 240H884"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="64" y="164" width="220" height="62" rx="14" fill="#241E31" stroke="#7C5CFF" stroke-width="2"/>
+    <text x="174" y="190" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Funding UTXO</text>
+    <text x="174" y="210" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">2-of-2 multisig (A + B)</text>
+  </g>
+  <path d="M284 195L340 195" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <text x="312" y="188" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">spends</text>
+  <g filter="url(#soft)">
+    <rect x="360" y="156" width="260" height="76" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="490" y="182" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Commitment Transaction</text>
+    <text x="490" y="204" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">nLocktime = 0 | nVersion = 2</text>
+    <text x="490" y="222" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">Includes anchor outputs (1 sat each)</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="52" y="258" width="300" height="82" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="202" y="286" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">to_local Output</text>
+    <text x="202" y="310" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Local party's balance with CSV timelock</text>
+    <text x="202" y="330" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">Standard output</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="380" y="258" width="300" height="82" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="530" y="286" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">to_remote Output</text>
+    <text x="530" y="310" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Remote party's balance, immediately spendable</text>
+    <text x="530" y="330" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">Standard output</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="52" y="356" width="300" height="48" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="202" y="378" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Anchor Output (A)</text>
+    <text x="202" y="396" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">1 sat — anyone-can-spend / key-spendable</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="380" y="356" width="300" height="48" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="530" y="378" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Anchor Output (B)</text>
+    <text x="530" y="396" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">1 sat — anyone-can-spend / key-spendable</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="720" y="252" width="200" height="160" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="820" y="282" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Why Anchors?</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M734 296H906"/>
+    </g>
+    <text x="820" y="320" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Commitment txs are</text>
+    <text x="820" y="338" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">pre-signed with a</text>
+    <text x="820" y="356" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">fixed fee. If fees</text>
+    <text x="820" y="374" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">spike, the tx gets</text>
+    <text x="820" y="392" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">stuck. Anchors enable</text>
+    <text x="820" y="410" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">CPFP by either party</text>
+  </g>
+  <path d="M680 380L710 380" stroke="#F7931A" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-orange)"/>
+  <path d="M680 332L710 332" stroke="#F7931A" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-orange)"/>
+  <g filter="url(#soft)">
+    <rect x="52" y="422" width="628" height="68" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="366" y="450" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Anchor Outputs: Emergency Fee Handle</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M68 462H664"/>
+    </g>
+    <text x="366" y="482" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Two tiny 1-sat outputs, one for each party. Either party can spend their anchor with a high-fee child transaction to CPFP the commitment tx.</text>
+  </g>
+</svg>

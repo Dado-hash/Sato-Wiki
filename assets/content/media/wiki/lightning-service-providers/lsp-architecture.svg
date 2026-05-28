@@ -1,0 +1,135 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Lightning Service Provider (LSP) Architecture</title>
+  <desc id="desc">Diagram showing LSP architecture. Bottom: a mobile wallet user with a single channel to the LSP. Center: the LSP node acting as a hub with multiple channels to many nodes. Top: the wider Lightning Network represented as a mesh cloud. Arrows show sending and receiving paths through the LSP.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green-solid" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Lightning Service Provider (LSP)</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">An LSP connects end-users to the Lightning Network, providing liquidity, routing, and always-on availability</text>
+
+  <!-- Section separator -->
+  <line x1="76" y1="140" x2="884" y2="140" stroke="#28313B" stroke-width="1" opacity="0.55"/>
+
+  <!-- Section labels -->
+  <text x="256" y="136" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">END-USER (LSP CLIENT)</text>
+  <text x="600" y="136" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">LIGHTNING SERVICE PROVIDER</text>
+
+  <!-- ===== LAYER 1: Lightning Network Cloud (Top) ===== -->
+  <text x="480" y="168" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">LIGHTNING NETWORK</text>
+
+  <!-- Cloud shape representing the LN mesh -->
+  <path d="M176 210C176 188 200 170 232 170C256 170 276 180 286 196C296 180 324 168 352 170C384 172 408 190 412 214C436 216 452 232 448 254C444 274 424 286 400 284L232 284C206 284 184 268 178 248C168 238 166 222 176 210Z" fill="#1A1F26" stroke="#46505C" stroke-width="1.5" opacity="0.7"/>
+  <path d="M504 210C504 188 528 170 560 170C584 170 604 180 614 196C624 180 652 168 680 170C712 172 736 190 740 214C764 216 780 232 776 254C772 274 752 286 728 284L560 284C534 284 512 268 506 248C496 238 494 222 504 210Z" fill="#1A1F26" stroke="#46505C" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Mesh nodes in the Lightning Network -->
+  <circle cx="220" cy="210" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="220" y="214" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="280" cy="200" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="280" y="204" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="340" cy="210" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="340" y="214" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="260" cy="250" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="260" y="254" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="320" cy="260" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="320" y="264" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="380" cy="250" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="380" y="254" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+
+  <circle cx="540" cy="210" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="540" y="214" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="600" cy="200" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="600" y="204" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="670" cy="210" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="670" y="214" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="580" cy="250" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="580" y="254" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="650" cy="260" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="650" y="264" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+  <circle cx="720" cy="250" r="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="720" y="254" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">N</text>
+
+  <!-- Channel connections in the mesh -->
+  <line x1="228" y1="210" x2="272" y2="202" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="288" y1="202" x2="332" y2="210" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="228" y1="210" x2="252" y2="248" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="340" y1="210" x2="372" y2="248" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="260" y1="250" x2="312" y2="258" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="328" y1="260" x2="372" y2="250" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+
+  <line x1="548" y1="210" x2="592" y2="202" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="608" y1="202" x2="662" y2="210" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="548" y1="210" x2="572" y2="248" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="670" y1="210" x2="712" y2="248" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="580" y1="250" x2="642" y2="258" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+  <line x1="658" y1="260" x2="712" y2="250" stroke="#22C55E" stroke-width="1" opacity="0.5"/>
+
+  <!-- ===== LAYER 2: LSP Node (Center) ===== -->
+  <g filter="url(#soft)">
+    <rect x="340" y="310" width="280" height="100" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  </g>
+  <!-- LSP icon with multi-connector -->
+  <circle cx="370" cy="360" r="22" fill="#2A2116" stroke="#F7931A" stroke-width="2.5"/>
+  <text x="370" y="367" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">LSP</text>
+  <text x="468" y="350" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">LSP Node</text>
+  <text x="468" y="374" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Always-on, well-connected hub</text>
+  <text x="468" y="394" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Multiple channels &bull; High capacity &bull; Reliable routing</text>
+
+  <!-- Channel indicators: LSP connected to other nodes -->
+  <line x1="440" y1="330" x2="480" y2="310" stroke="#22C55E" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="480" cy="306" r="4" fill="#22C55E"/>
+  <line x1="460" y1="330" x2="530" y2="308" stroke="#22C55E" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="530" cy="304" r="4" fill="#22C55E"/>
+  <line x1="480" y1="330" x2="570" y2="330" stroke="#22C55E" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="574" cy="330" r="4" fill="#22C55E"/>
+  <line x1="340" y1="360" x2="310" y2="350" stroke="#22C55E" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="306" cy="348" r="4" fill="#22C55E"/>
+
+  <!-- ===== LAYER 3: Mobile Wallet User (Bottom) ===== -->
+  <g filter="url(#soft)">
+    <rect x="340" y="444" width="280" height="90" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  </g>
+  <!-- Mobile phone icon -->
+  <rect x="358" y="458" width="18" height="30" rx="4" fill="#343A44" stroke="#46505C" stroke-width="1.5"/>
+  <circle cx="367" cy="483" r="3" fill="#7C8794"/>
+  <text x="424" y="478" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">User (Mobile Wallet)</text>
+  <text x="424" y="500" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Single channel to LSP</text>
+  <text x="424" y="518" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Goes offline frequently</text>
+
+  <!-- ===== ARROWS: User -> LSP (sending) ===== -->
+  <path d="M450 444L450 420C450 416 452 412 456 410" stroke="#F7931A" stroke-width="3.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <text x="468" y="428" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="start">User sends &rarr; LSP routes</text>
+
+  <!-- ===== ARROWS: Other nodes -> LSP -> User (receiving) ===== -->
+  <path d="M260 280C250 300 250 320 250 340Q250 380 320 390" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrow-green-solid)" stroke-dasharray="6 4"/>
+  <path d="M530 415Q530 430 530 442" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrow-green-solid)"/>
+  <text x="142" y="376" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10">Other nodes send &rarr; LSP forwards to user</text>
+
+  <!-- ===== CALLOUT BOX ===== -->
+  <g filter="url(#soft)">
+    <rect x="62" y="170" width="220" height="56" rx="10" fill="#1A1F26" stroke="#7C5CFF" stroke-width="1.5"/>
+  </g>
+  <text x="76" y="196" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">&#x24D8; The LSP provides inbound</text>
+  <text x="76" y="214" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">liquidity and routing connectivity</text>
+
+  <!-- ===== FOOTER ===== -->
+  <text x="480" y="478" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">The LSP maintains a well-connected hub so that end-users need only one channel to reach the entire Lightning Network.</text>
+</svg>

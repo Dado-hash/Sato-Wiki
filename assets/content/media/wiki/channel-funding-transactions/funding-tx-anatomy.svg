@@ -1,0 +1,87 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Channel Funding Transaction</title>
+  <desc id="desc">Two parties fund a shared 2-of-2 multisig output on the Bitcoin blockchain. Alice contributes 2 BTC and Bob contributes 1 BTC to a funding transaction that creates a 3 BTC multisig output confirmed in a block.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Channel Funding Transaction</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Two parties fund a shared 2-of-2 multisig output on the Bitcoin blockchain</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+    <path d="M340 148V490"/>
+    <path d="M620 148V490"/>
+  </g>
+  <text x="202" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">INPUTS</text>
+  <text x="480" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">FUNDING TRANSACTION</text>
+  <text x="758" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BLOCKCHAIN</text>
+  <g filter="url(#soft)">
+    <rect x="76" y="176" width="248" height="100" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="200" y="208" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Alice</text>
+    <rect x="112" y="226" width="176" height="28" rx="6" fill="#1F1A12" stroke="#F7931A" stroke-width="1"/>
+    <text x="200" y="246" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">2 BTC</text>
+    <text x="200" y="264" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">UTXO input</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="76" y="316" width="248" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="200" y="348" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Bob</text>
+    <rect x="112" y="366" width="176" height="28" rx="6" fill="#1A1E23" stroke="#46505C" stroke-width="1"/>
+    <text x="200" y="386" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700">1 BTC</text>
+    <text x="200" y="404" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">UTXO input</text>
+  </g>
+  <path d="M324 226C336 226 340 254 354 254" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M324 366C336 366 340 320 354 320" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <g filter="url(#soft)">
+    <rect x="356" y="176" width="248" height="240" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
+    <text x="480" y="216" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Funding Transaction</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M372 234H588"/>
+    </g>
+    <text x="480" y="264" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Inputs (2)</text>
+    <text x="480" y="294" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14">Alice — 2 BTC</text>
+    <text x="480" y="318" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14">Bob — 1 BTC</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M372 336H588"/>
+    </g>
+    <text x="480" y="366" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Outputs (1)</text>
+    <rect x="390" y="380" width="180" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.3"/>
+    <text x="480" y="399" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">2-of-2 Multisig — 3 BTC</text>
+  </g>
+  <path d="M604 296C640 296 680 218 726 218" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <g filter="url(#soft)">
+    <rect x="644" y="186" width="72" height="64" rx="10" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="680" y="214" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Block</text>
+    <text x="680" y="234" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">N</text>
+  </g>
+  <path d="M716 218L724 218" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <g filter="url(#soft)">
+    <rect x="728" y="186" width="72" height="64" rx="10" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="764" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12">Block</text>
+    <text x="764" y="234" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">N+1</text>
+  </g>
+  <path d="M800 218L808 218" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <g filter="url(#soft)">
+    <rect x="812" y="186" width="72" height="64" rx="10" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="848" y="214" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Block</text>
+    <text x="848" y="234" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">N+2</text>
+  </g>
+  <path d="M764 250V310" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <g filter="url(#soft)">
+    <rect x="658" y="316" width="212" height="100" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="764" y="348" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Funding UTXO</text>
+    <text x="764" y="378" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">3 BTC multisig</text>
+    <text x="764" y="402" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Confirmed in Block N+1</text>
+  </g>
+</svg>

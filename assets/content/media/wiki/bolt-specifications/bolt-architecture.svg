@@ -1,0 +1,137 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">BOLT Protocol Stack</title>
+  <desc id="desc">Diagram showing the BOLT protocol stack as layered blocks. Bottom layer: BOLT #1 (Base Protocol) with encryption, handshake, transport. Middle layer left: BOLT #2 (Peer Protocol) for channel management, BOLT #3 (Transaction Formats) for commitment tx specs. Middle layer right: BOLT #4 (Onion Routing), BOLT #7 (Gossip) for network discovery. Top layer: BOLT #9 (Feature Bits), BOLT #11 (Invoices), BOLT #12 (Offers). Arrows show lower layers supporting upper layers.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">BOLT Protocol Stack</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Nine active specifications define the Lightning Network protocol</text>
+
+  <!-- Column labels -->
+  <text x="250" y="150" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">CHANNEL &amp; TRANSACTION</text>
+  <text x="710" y="150" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">ROUTING &amp; DISCOVERY</text>
+
+  <!-- Top layer: Application / Features -->
+  <text x="480" y="150" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">APPLICATION LAYER</text>
+
+  <!-- BOLT #9 card -->
+  <g filter="url(#soft)">
+    <rect x="64" y="166" width="200" height="80" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="64" y="166" width="200" height="28" rx="14" fill="#241E31"/>
+    <text x="164" y="185" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #9</text>
+    <text x="76" y="212" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Feature Bits</text>
+    <text x="76" y="232" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Protocol extension signaling</text>
+  </g>
+
+  <!-- BOLT #11 card -->
+  <g filter="url(#soft)">
+    <rect x="286" y="166" width="200" height="80" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="286" y="166" width="200" height="28" rx="14" fill="#241E31"/>
+    <text x="386" y="185" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #11</text>
+    <text x="298" y="212" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Invoice Protocol</text>
+    <text x="298" y="232" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Bech32 payment requests</text>
+  </g>
+
+  <!-- BOLT #12 card -->
+  <g filter="url(#soft)">
+    <rect x="508" y="166" width="200" height="80" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="508" y="166" width="200" height="28" rx="14" fill="#241E31"/>
+    <text x="608" y="185" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #12</text>
+    <text x="520" y="212" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Offers</text>
+    <text x="520" y="232" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Next-gen recurring invoices</text>
+  </g>
+
+  <!-- Application layer bracket -->
+  <rect x="48" y="158" width="676" height="96" rx="12" fill="none" stroke="#7C5CFF" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"/>
+  <text x="740" y="222" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" opacity="0.6">Payment requests,</text>
+  <text x="740" y="238" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" opacity="0.6">feature negotiation</text>
+
+  <!-- Vertical arrows: top layer -> middle layers -->
+  <path d="M164 250V268" stroke="#7C5CFF" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <path d="M386 250V268" stroke="#7C5CFF" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Middle layer left: BOLT #2 -->
+  <g filter="url(#soft)">
+    <rect x="64" y="284" width="260" height="90" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="64" y="284" width="260" height="28" rx="14" fill="#2A2116"/>
+    <text x="194" y="303" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #2</text>
+    <text x="76" y="332" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Peer Protocol</text>
+    <text x="76" y="352" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Channel open/close/update, HTLC management</text>
+  </g>
+
+  <!-- Middle layer left: BOLT #3 -->
+  <g filter="url(#soft)">
+    <rect x="64" y="384" width="260" height="90" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="64" y="384" width="260" height="28" rx="14" fill="#2A2116"/>
+    <text x="194" y="403" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #3</text>
+    <text x="76" y="432" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Transaction Formats</text>
+    <text x="76" y="452" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Commitment tx, HTLC scripts, penalty</text>
+  </g>
+
+  <!-- Middle layer right: BOLT #4 -->
+  <g filter="url(#soft)">
+    <rect x="446" y="284" width="200" height="90" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="446" y="284" width="200" height="28" rx="14" fill="#203327"/>
+    <text x="546" y="303" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #4</text>
+    <text x="458" y="332" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Onion Routing</text>
+    <text x="458" y="352" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Sphinx packet construction, per-hop payloads</text>
+  </g>
+
+  <!-- Middle layer right: BOLT #7 -->
+  <g filter="url(#soft)">
+    <rect x="446" y="384" width="200" height="90" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="446" y="384" width="200" height="28" rx="14" fill="#203327"/>
+    <text x="546" y="403" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #7</text>
+    <text x="458" y="432" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">P2P Discovery</text>
+    <text x="458" y="452" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Gossip protocol, network graph</text>
+  </g>
+
+  <!-- Middle column bracket -->
+  <rect x="48" y="276" width="676" height="206" rx="12" fill="none" stroke="#F7931A" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+
+  <!-- Arrows: middle layer -> bottom layer -->
+  <path d="M194 478V496" stroke="#F7931A" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <path d="M546 478V496" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Bottom layer: BOLT #1 -->
+  <g filter="url(#soft)">
+    <rect x="160" y="460" width="600" height="40" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="160" y="460" width="72" height="40" rx="14" fill="#2A2116"/>
+    <text x="196" y="485" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">BOLT #1</text>
+    <text x="250" y="486" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Base Protocol</text>
+    <text x="380" y="486" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Encrypted transport · Handshake · Message format · Error handling</text>
+  </g>
+
+  <!-- Bottom bracket -->
+  <rect x="144" y="452" width="632" height="56" rx="12" fill="none" stroke="#F7931A" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+  <text x="790" y="490" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" opacity="0.6">Transport &amp; sync</text>
+
+  <!-- Right side: BOLT #5 and #8 annotations -->
+  <g filter="url(#soft)">
+    <rect x="718" y="284" width="200" height="80" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="718" y="284" width="200" height="28" rx="14" fill="#1B2838"/>
+    <text x="818" y="303" text-anchor="middle" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">BOLT #5 · #8</text>
+    <text x="730" y="332" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">On-chain Handling</text>
+    <text x="730" y="352" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Noise transport · Fee mgmt</text>
+  </g>
+
+  <path d="M646 334H718" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-muted)"/>
+
+  <!-- Feature bits dotted connections -->
+  <path d="M164 250C164 258 80 258 80 266" stroke="#7C5CFF" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <path d="M164 250C164 258 200 258 200 266" stroke="#7C5CFF" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+
+</svg>

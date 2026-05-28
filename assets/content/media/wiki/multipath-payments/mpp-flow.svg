@@ -1,0 +1,122 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-Path Payments (MPP)</title>
+  <desc id="desc">A single payment of 200,000 sats from Alice to Carol is split across three paths: Alice to Bob to Carol (80,000), Alice to Dave to Carol (70,000), and Alice to Eve to Frank to Carol (50,000). Carol accumulates all partial payments, and the payment completes only when the sum equals 200,000 sats. All paths use the same payment hash H(x).</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#60A5FA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Multi-Path Payments (MPP)</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">A single payment is split across multiple routes for improved reliability and privacy</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+  </g>
+
+  <!-- Sender / Receiver labels -->
+  <text x="210" y="174" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">SENDER</text>
+  <text x="750" y="174" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">RECEIVER</text>
+
+  <!-- Alice (Sender) -->
+  <g filter="url(#soft)">
+    <rect x="80" y="190" width="240" height="120" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <rect x="96" y="206" width="72" height="24" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <text x="132" y="222" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">ALICE</text>
+    <text x="185" y="223" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Sender</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M96 242H304"/>
+    </g>
+    <text x="200" y="268" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Wants to pay Carol</text>
+    <text x="200" y="290" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">200,000 sats</text>
+  </g>
+
+  <!-- Carol (Receiver) -->
+  <g filter="url(#soft)">
+    <rect x="640" y="190" width="240" height="120" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <rect x="656" y="206" width="72" height="24" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
+    <text x="692" y="222" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">CAROL</text>
+    <text x="745" y="223" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Receiver</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M656 242H864"/>
+    </g>
+    <text x="760" y="264" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Accumulates partial HTLCs</text>
+    <text x="760" y="282" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Same hash H(x) for all parts</text>
+    <text x="760" y="300" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11">Sum = 200,000 sats → done</text>
+  </g>
+
+  <!-- Path 1: Alice → Bob → Carol -->
+  <rect x="355" y="192" width="85" height="85" rx="10" fill="#20252D" stroke="#60A5FA" stroke-width="1.5"/>
+  <text x="397" y="226" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">BOB</text>
+  <text x="397" y="250" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Forwarder</text>
+  <text x="397" y="268" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Path 1</text>
+
+  <g stroke="#60A5FA" stroke-width="2.5" marker-end="url(#arrow-blue)">
+    <path d="M320 230L350 230"/>
+  </g>
+  <g stroke="#60A5FA" stroke-width="2.5" marker-end="url(#arrow-blue)">
+    <path d="M440 230L635 230"/>
+  </g>
+  <text x="475" y="224" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono, monospace" font-size="10">80,000 sats</text>
+
+  <!-- Path 2: Alice → Dave → Carol -->
+  <rect x="355" y="286" width="85" height="85" rx="10" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="397" y="320" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">DAVE</text>
+  <text x="397" y="344" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Forwarder</text>
+  <text x="397" y="362" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Path 2</text>
+
+  <g stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)">
+    <path d="M320 328L350 328"/>
+  </g>
+  <g stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)">
+    <path d="M440 328L635 328"/>
+  </g>
+  <text x="475" y="322" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="10">70,000 sats</text>
+
+  <!-- Path 3: Alice → Eve → Frank → Carol -->
+  <rect x="355" y="380" width="85" height="85" rx="10" fill="#20252D" stroke="#7C8794" stroke-width="1.5"/>
+  <text x="397" y="414" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">EVE</text>
+  <text x="397" y="438" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Forwarder</text>
+  <text x="397" y="456" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Path 3</text>
+
+  <rect x="460" y="398" width="70" height="50" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+  <text x="495" y="420" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">FRANK</text>
+  <text x="495" y="440" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Forwarder</text>
+
+  <g stroke="#7C8794" stroke-width="2.5" marker-end="url(#arrow-muted)">
+    <path d="M320 422L350 422"/>
+  </g>
+  <g stroke="#7C8794" stroke-width="2.5" marker-end="url(#arrow-muted)">
+    <path d="M530 423L635 423"/>
+  </g>
+  <g stroke="#7C8794" stroke-width="2" marker-end="url(#arrow-muted)">
+    <path d="M440 418L455 418"/>
+  </g>
+  <text x="475" y="470" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">50,000 sats</text>
+
+  <!-- Payment hash badge -->
+  <rect x="82" y="340" width="200" height="44" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+  <text x="182" y="362" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="11">Payment hash: H(x)</text>
+  <text x="182" y="378" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Same hash for all 3 paths</text>
+
+  <!-- Carol accumulates note -->
+  <g stroke="#28313B" stroke-width="1" opacity="0.4">
+    <path d="M560 192V500"/>
+  </g>
+  <rect x="565" y="385" width="180" height="70" rx="10" fill="#203327" stroke="#22C55E" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="655" y="408" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">3 partial payments</text>
+  <text x="655" y="426" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">80,000 + 70,000 + 50,000</text>
+  <text x="655" y="446" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">= 200,000 ✓</text>
+</svg>

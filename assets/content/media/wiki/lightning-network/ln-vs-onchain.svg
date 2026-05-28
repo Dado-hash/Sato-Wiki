@@ -1,0 +1,96 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">On-chain vs Lightning comparison</title>
+  <desc id="desc">Side-by-side comparison of on-chain Bitcoin transactions and Lightning Network payments. On-chain: transaction → mempool → block → confirmation (slow, expensive). Lightning: open channel → update balance → close channel (fast, cheap). Bottom section shows key differences in speed, cost, and finality.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">On-chain vs Lightning</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Different tradeoffs for different use cases</text>
+  <g stroke="#28313B" stroke-width="1" opacity="0.55">
+    <path d="M76 148H884"/>
+    <path d="M480 148V490"/>
+  </g>
+  <text x="278" y="144" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">ON-CHAIN TRANSACTION</text>
+  <text x="742" y="144" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">LIGHTNING PAYMENT</text>
+  <g filter="url(#soft)">
+    <rect x="64" y="170" width="196" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="162" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Transaction created</text>
+    <text x="162" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Alice signs tx to Bob</text>
+  </g>
+  <path d="M276 205H340" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <g filter="url(#soft)">
+    <rect x="352" y="170" width="104" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="404" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Mempool</text>
+    <text x="404" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">waits ~10-60 min</text>
+  </g>
+  <path d="M404 244V258H490" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+  <text x="445" y="308" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">~300-500 bytes</text>
+  <text x="445" y="326" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">block weight limit</text>
+  <g filter="url(#soft)">
+    <rect x="506" y="170" width="196" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="604" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block confirmation</text>
+    <text x="604" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">miner includes tx</text>
+  </g>
+  <path d="M718 205H760" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <g filter="url(#soft)">
+    <rect x="772" y="170" width="164" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="854" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Settled</text>
+    <text x="854" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">~10-60 min finality</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="500" y="280" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="586" y="304" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Open channel</text>
+    <text x="586" y="322" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">funding tx on-chain</text>
+  </g>
+  <path d="M586 339V366" stroke="#22C55E" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <g filter="url(#soft)">
+    <rect x="500" y="375" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="586" y="399" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Update balance</text>
+    <text x="586" y="417" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">off-chain, instant</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="500" y="376" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2" opacity="0"/>
+  </g>
+  <path d="M572 414H536" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)" fill="none"/>
+  <text x="460" y="406" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="end">x 1000+ payments</text>
+  <path d="M586 434V458" stroke="#22C55E" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <g filter="url(#soft)">
+    <rect x="500" y="466" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="586" y="490" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Close channel</text>
+    <text x="586" y="508" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">closing tx on-chain</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="64" y="280" width="400" height="230" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="264" y="310" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">On-chain characteristics</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M80 322H416"/>
+    </g>
+    <text x="100" y="348" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Speed</text>
+    <text x="100" y="368" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">10-60 minutes for first confirmation</text>
+    <text x="100" y="394" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Cost</text>
+    <text x="100" y="414" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">~$0.50-$10+ per tx (fee market dependent)</text>
+    <text x="100" y="440" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Finality</text>
+    <text x="100" y="460" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Full settlement after 6+ confirmations (1 hour)</text>
+    <text x="100" y="486" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Throughput</text>
+    <text x="100" y="506" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">~7 transactions per second (global limit)</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="508" y="504" width="0" height="0" rx="14" fill="none"/>
+  </g>
+  <g stroke="#28313B" stroke-width="1" opacity="0.4">
+    <path d="M480 310V490"/>
+  </g>
+</svg>

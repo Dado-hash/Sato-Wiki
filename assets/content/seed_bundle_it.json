@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "version": "2026.05.27",
   "language": "it",
-  "generatedAt": "2026-05-27T00:00:00Z",
+  "generatedAt": "2026-05-28T00:00:00Z",
   "wiki": [
     {
       "id": "wiki.bitcoin-addresses",
@@ -886,10 +886,12 @@
           "title": "Bitcoin Script"
         },
         {
-          "id": "wiki.lightning-network"
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
         },
         {
-          "id": "wiki.htlcs"
+          "id": "wiki.htlcs",
+          "title": "HTLC"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1172,7 +1174,8 @@
           "title": "SHA-256"
         },
         {
-          "id": "wiki.difficulty-adjustment"
+          "id": "wiki.difficulty-adjustment",
+          "title": "Difficulty Adjustment"
         },
         {
           "id": "wiki.transactions",
@@ -1454,7 +1457,8 @@
           "title": "SHA-256"
         },
         {
-          "id": "wiki.difficulty-adjustment"
+          "id": "wiki.difficulty-adjustment",
+          "title": "Difficulty Adjustment"
         },
         {
           "id": "wiki.blocks",
@@ -1882,7 +1886,8 @@
           "title": "Bitcoin Script"
         },
         {
-          "id": "wiki.segwit"
+          "id": "wiki.segwit",
+          "title": "Segwit"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -1946,13 +1951,16 @@
           "title": "Bitcoin Script"
         },
         {
-          "id": "wiki.lightning-network"
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
         },
         {
-          "id": "wiki.payment-channels"
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
         },
         {
-          "id": "wiki.commitment-transactions"
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -2241,6 +2249,793 @@
         {
           "id": "wiki.public-keys",
           "title": "Chiavi Pubbliche"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.lightning-network",
+      "slug": "lightning-network",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Lightning Network",
+      "description": "La soluzione di scaling di secondo livello di Bitcoin che permette pagamenti istantanei e a basso costo attraverso una rete di canali di pagamento bidirezionali.",
+      "coverImage": "media/wiki/lightning-network/ln-overview-hero.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Cos'è la Lightning Network? È un protocollo di secondo livello costruito sopra Bitcoin che permette pagamenti istantanei tra nodi partecipanti. Invece di trasmettere ogni transazione alla blockchain, la Lightning Network usa canali di pagamento — registri privati tra due parti che possono essere transati senza conferma di blocco.\n\n**Il problema che risolve.** Il livello base di Bitcoin può processare circa 7 transazioni al secondo (limitato dalla dimensione di 1 MB del blocco e dall'intervallo di 10 minuti). Per pagamenti piccoli come comprare un caffè o streaming di satoshi, attendere 10-60 minuti e pagare commissioni di diversi dollari rende le transazioni on-chain impraticabili. La Lightning Network risolve questo problema spostando la stragrande maggioranza dei pagamenti off-chain.\n\n**Come aiuta.** I pagamenti su Lightning sono quasi istantanei (millisecondi o secondi), costano frazioni di centesimo indipendentemente dall'importo inviato, e possono scalare a milioni di transazioni al secondo attraverso la rete. Il modello di sicurezza si basa ancora su Bitcoin — i fondi sono protetti dal livello base e possono essere saldati on-chain in qualsiasi momento.\n\n**Analogia.** Immagina un conto al bar. Invece di strisciare una carta di credito per ogni caffè da 5€, apri un conto all'inizio: il barista prende nota del tuo nome ed esegue un'autorizzazione iniziale. Ogni caffè aggiunge un importo al totale corrente. Alla fine della giornata, saldi l'importo finale in un unico pagamento. La Lightning Network funziona in modo simile: apri un canale (il conto), fai molti micropagamenti off-chain, e chiudi il canale per saldare il saldo finale su Bitcoin.\n\n![Panoramica della Lightning Network](media/wiki/lightning-network/ln-overview-hero.svg \"La Lightning Network si trova sopra Bitcoin, permettendo pagamenti istantanei tra utenti attraverso canali di pagamento.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**I canali di pagamento come mattoni fondamentali.** Un canale di pagamento è una relazione finanziaria tra due parti, garantita da un output multisig 2-of-2 su Bitcoin. Il ciclo di vita del canale ha tre fasi:\n\n**Apertura di un canale (transazione di funding).** Alice crea una transazione di funding che blocca una certa quantità di bitcoin in un output multisig 2-of-2. La trasmette alla rete Bitcoin. Una volta confermata, il canale esiste con un saldo iniziale: Alice possiede l'intero importo, Bob possiede zero. Alice può ora inviare fondi a Bob aggiornando lo stato del canale.\n\n**Aggiornamento dello stato del canale (transazioni di commitment).** Alice e Bob detengono ciascuno una transazione di commitment che riflette la distribuzione corrente dei fondi. Quando Alice vuole inviare 0,01 BTC a Bob, negoziano nuove transazioni di commitment: il commitment di Alice dà 0,01 BTC a Bob e il resto ad Alice. Fondamentalmente, ogni nuova versione invalida la precedente usando un meccanismo di revoca — se una delle parti tenta di trasmettere uno stato vecchio, la controparte può reclamare tutti i fondi come penale.\n\n**Chiusura di un canale.** Qualsiasi delle due parti può chiudere il canale in qualsiasi momento trasmettendo l'ultima transazione di commitment alla rete Bitcoin. La transazione di chiusura spende l'output multisig 2-of-2, distribuendo i saldi finali a ciascuna parte. Il canale viene saldato on-chain in una singola transazione, indipendentemente da quanti pagamenti sono avvenuti all'interno del canale.\n\n**Pagamenti multi-hop.** Non serve un canale diretto con ogni persona a cui vuoi pagare. La Lightning Network instrada i pagamenti attraverso nodi intermedi usando onion routing. Ogni nodo nel percorso conosce solo il suo predecessore e successore immediato — nessun singolo nodo conosce l'intero percorso. Questo preserva la privacy e permette pagamenti tra qualsiasi coppia di nodi sulla rete.\n\n**HTLC (Hashed Timelock Contracts).** L'unità atomica di un pagamento Lightning è l'HTLC. Un HTLC è un pagamento condizionale che può essere riscosso dal destinatario se rivela il preimage di un dato hash entro un time lock, o rimborsato al mittente dopo la scadenza del time lock. Gli HTLC si concatenano attraverso il percorso di pagamento, garantendo che o tutti i nodi vengono pagati o nessuno lo è — il pagamento è atomico.\n\n**Fatture Lightning (BOLT 11).** Per ricevere un pagamento, un nodo genera una fattura contenente un hash di pagamento, l'importo, una descrizione e un tempo di scadenza. La fattura è codificata come stringa bech32 e può essere condivisa tramite QR code o qualsiasi canale di comunicazione. Il pagatore usa la fattura per costruire un percorso HTLC verso il destinatario.\n\n**Routing vs canali diretti.** I canali diretti offrono la migliore esperienza utente (nessuna commissione di routing, nessuna dipendenza da nodi intermedi) ma richiedono di bloccare capitale in anticipo. Il routing permette di pagare chiunque attraverso la rete ma comporta piccole commissioni per ogni salto e dipende dalla topologia della rete e dalla liquidità.\n\n![Confronto on-chain vs Lightning](media/wiki/lightning-network/ln-vs-onchain.svg \"Le transazioni on-chain si saldano sul livello base. Le transazioni Lightning avvengono off-chain con solo l'apertura e la chiusura del canale registrate su Bitcoin.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**La costruzione del canale Poon-Dryja.** La costruzione originale del canale Lightning, introdotta nel white paper del 2016 da Joseph Poon e Thaddeus Dryja, stabilisce una coppia di transazioni di commitment asimmetriche. Ogni parte detiene una transazione di commitment che spende l'output di funding 2-of-2. L'innovazione chiave è l'uso di chiavi di revoca: quando viene negoziato un nuovo stato, la chiave di revoca dello stato precedente viene rivelata alla controparte. Se una parte trasmette uno stato vecchio, la controparte può usare la chiave di revoca per reclamare tutti i fondi nel canale. Questo disincentivo economico garantisce che entrambe le parti trasmettano sempre lo stato più recente.\n\n**Il meccanismo di penale in dettaglio.** Ogni transazione di commitment include un output `to_local` (per la parte che ha trasmesso) e un output `to_remote` (per l'altra parte). L'output `to_local` ha un time lock CSV (tipicamente 144 blocchi) e un percorso di revoca. Se colui che ha trasmesso tradisce, la controparte può spendere immediatamente l'output `to_local` usando la chiave di revoca, bypassando il time lock. La penale è totale — l'imbroglione perde l'intero saldo del canale a favore della controparte.\n\n**Protocollo gossip per la scoperta della rete.** I nodi Lightning si scoprono reciprocamente e scoprono la topologia della rete attraverso un protocollo gossip definito in BOLT 7. Tre tipi di messaggi gestiscono questo processo:\n\n- `node_announcement`: Contiene la chiave pubblica del nodo, l'indirizzo IP o servizio onion Tor, le funzionalità supportate e un alias colore RGB. I nodi trasmettono questo quando diventano online.\n- `channel_announcement`: Creato quando un nuovo canale viene confermato on-chain. Contiene l'ID del canale, le chiavi pubbliche dei due nodi e l'output della transazione Bitcoin che lo finanzia.\n- `channel_update`: Aggiornato da ciascun nodo indipendentemente. Contiene la politica di commissioni (commissione base e proporzionale), i valori HTLC minimi e massimi, il delta di time lock e un flag di disabilitazione. I nodi aggiornano questo quando la loro politica di routing cambia.\n\nIl protocollo gossip usa la freschezza basata su timestamp e previene lo spam attraverso proof-of-work sugli ID dei nodi.\n\n**Economia delle commissioni.** Ogni nodo di routing applica due commissioni per ogni pagamento inoltrato:\n\n- **Commissione base** (`fee_base_msat`): Un importo fisso per HTLC, tipicamente 1-1000 millisatoshi (~0,001-1 sat). Copre il costo dell'inoltro, incluso il rischio on-chain di avere un canale chiuso forzatamente mentre un HTLC è in sospeso.\n- **Commissione proporzionale** (`fee_proportional_millionths`): Una frazione dell'importo del pagamento, tipicamente 1-1000 ppm (0,0001%-0,1%). Scala con il valore a rischio.\n\nCommissione totale = commissione_base + (importo × commissione_proporzionale / 1.000.000). Per un pagamento di 100.000 sat con 1000 ppm e 10 msat base, la commissione = 10 + (100.000 × 1000 / 1.000.000) = 10 + 100 = 110 msat.\n\n**Valore HTLC massimo e vincoli di time lock.** Ogni canale ha due parametri critici:\n- `htlc_maximum_msat`: Il più grande HTLC che il canale può inoltrare. Impedisce ai nodi di instradare pagamenti che superano la capacità del canale.\n- `htlc_minimum_msat`: Il più piccolo HTLC che il canale inoltrerà. Previene HTLC di polvere che costerebbero più in commissioni di quanto valgano.\n\nIl **delta di time lock** (`cltv_expiry_delta`) specifica quanti blocchi ogni salto sottrae dal CLTV. Un valore tipico è 40-144 blocchi per salto. Questo protegge ogni nodo intermedio garantendo che abbia tempo per reclamare i propri fondi a monte prima che l'HTLC a valle scada.\n\n**Attacchi di griefing.** Un attacco di griefing si verifica quando un nodo malintenzionato inoltra un HTLC con un time lock molto lungo ma non lo rivendica né lo fallisce mai. I fondi lungo il percorso vengono bloccati fino alla scadenza del time lock. Le mitigazioni includono:\n- Limitare il valore totale degli HTLC in sospeso per canale (`max_concurrent_htlcs`, tipicamente 30)\n- Impostare valori HTLC minimi e massimi ragionevoli\n- Monitorare la durata degli HTLC in sospeso e chiudere canali con peer non reattivi\n- Usare delta CLTV più brevi dove possibile\n\nIl griefing è un rischio di denial-of-service, non un rischio di furto — i fondi non vengono mai persi, solo temporaneamente bloccati.\n\n**Watchtower.** Un watchtower è un servizio di terze parti che monitora la blockchain Bitcoin per le transazioni di chiusura del canale per conto di un nodo Lightning. Se la controparte trasmette una transazione di commitment revocata, il watchtower pubblica la transazione di penale per reclamare i fondi del canale. I watchtower operano in modo trust-minimized — apprendono solo i dati necessari per rilevare e rispondere a tentativi di imbroglio (la chiave di revoca e la transazione incriminata), non il saldo del canale o i dettagli del pagamento. Questo permette ai nodi mobili (che possono essere offline per periodi prolungati) di mantenere la sicurezza del canale senza eseguire un nodo di monitoraggio 24/7.\n\n**Limitazioni attuali.**\n\n- **Liquidità in entrata.** Per ricevere pagamenti, un nodo deve avere capacità in entrata — altri nodi devono aver aperto canali verso di esso. Avviare la liquidità in entrata è uno dei problemi più difficili per i nuovi nodi. Le soluzioni includono: acquistare liquidità in entrata da fornitori, aprire canali dal lato opposto (dual-funding) e bilanciare i canali attraverso ribilanciamento circolare.\n- **Fallimenti di routing.** I tassi di successo dei pagamenti sono tipicamente del 90-98%, a seconda della topologia della rete e della distribuzione della liquidità. I fallimenti si verificano quando un nodo lungo il percorso ha liquidità insufficiente, è offline o applica commissioni inaspettate. La maggior parte delle implementazioni implementa il re-try automatico con euristiche di pathfinding.\n- **Ribilanciamento dei canali.** Col tempo, i pagamenti in una direzione possono esaurire il saldo locale di un canale. Il ribilanciamento sposta la liquidità attraverso pagamenti circolari o chiudendo e riaprendo canali. Il processo è manuale o semi-automatizzato nelle implementazioni attuali e consuma commissioni di routing.\n\n**Miglioramenti del protocollo.** Due notevoli miglioramenti nella pipeline di specifica BOLT:\n\n- **Wumbo (canali grandi) — BOLT 2.** Le prime implementazioni Lightning limitavano le dimensioni dei canali a circa 16,7 milioni di satoshi (0,167 BTC) per limitare il rischio. Wumbo rimuove questo limite, permettendo canali con capacità maggiori per instradare pagamenti di alto valore. I nodi devono segnalare il supporto wumbo e aderire esplicitamente.\n\n- **Dual-funding — BOLT 2.** La costruzione originale Poon-Dryja richiede che una sola parte finanzi l'intero canale. Il dual-funding permette a entrambe le parti di contribuire con fondi al saldo iniziale del canale, risolvendo metà del problema di liquidità in entrata alla creazione del canale. Utilizza un protocollo di costruzione collaborativa delle transazioni chiamato interactive funding."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 10,
+      "tags": [],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.htlcs",
+          "title": "HTLC"
+        },
+        {
+          "id": "wiki.onion-routing",
+          "title": "Onion Routing"
+        },
+        {
+          "id": "wiki.lightning-invoices",
+          "title": "Fatture Lightning (BOLT 11)"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.payment-channels",
+      "slug": "payment-channels",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Canali di Pagamento",
+      "description": "Una connessione bidirezionale tra due wallet Bitcoin che permette di transare off-chain senza trasmettere ogni pagamento alla rete.",
+      "coverImage": "media/wiki/payment-channels/payment-channel-lifecycle.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un canale di pagamento è un percorso privato diretto tra due parti sulla Lightning Network. Permette di scambiare pagamenti istantaneamente senza registrare ogni singola transazione sulla blockchain di Bitcoin.\n\nImmagina una carta caffè prepagata. Carichi denaro sulla carta una volta, poi fai molti acquisti detraendo dal saldo. Solo due eventi toccano la blockchain: il caricamento della carta (apertura) e lo scarto della carta con il saldo rimanente (chiusura). Tutto il resto avviene off-chain tra te e il bar.\n\nAprire un canale richiede una singola transazione on-chain su Bitcoin. Alice crea una transazione di funding che blocca i suoi bitcoin in un output multisig 2-of-2 — un indirizzo speciale che richiede la firma sia di Alice che di Bob prima che i fondi possano essere spostati. Questa transazione viene trasmessa e confermata sulla blockchain.\n\nUna volta confermata la transazione di funding, Alice e Bob possono scambiarsi tutti i pagamenti che desiderano. Ogni pagamento aggiorna l'allocazione del saldo del canale. Entrambe le parti firmano nuove transazioni di commitment che riflettono il saldo aggiornato, e lo stato precedente viene revocato. Non sono necessarie ulteriori transazioni on-chain.\n\nIl canale può rimanere aperto finché entrambe le parti concordano sul saldo. Quando decidono di chiudere, l'ultima transazione di commitment viene trasmessa alla blockchain. Ogni parte riceve il saldo concordato come un normale output on-chain.\n\nI vantaggi principali sono pagamenti istantanei tra le due parti, commissioni di transazione vicine allo zero per i pagamenti all'interno del canale, e la possibilità di instradare pagamenti attraverso più canali attraverso la Lightning Network.\n\n![Ciclo di vita di un canale di pagamento](media/wiki/payment-channels/payment-channel-lifecycle.svg \"Un canale di pagamento attraversa tre fasi: apertura con una transazione di funding on-chain, aggiornamento con scambi di commitment off-chain, e chiusura con la trasmissione dello stato finale sulla blockchain.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "Un canale di pagamento è costruito su un output multisig 2-of-2 in Bitcoin Script. La transazione di funding crea un UTXO condiviso che può essere speso solo quando entrambe le parti firmano. Questo vincolo multisig è il fondamento che rende sicuro il canale — nessuna delle due parti può spostare unilateralmente i fondi senza il consenso dell'altra.\n\n**Transazioni di commitment.** Una volta finanziato il canale, ogni parte detiene una versione dell'ultimo stato del canale sotto forma di una transazione di commitment firmata ma non confermata. Ogni transazione di commitment spende l'output multisig 2-of-2 e alloca il saldo secondo lo stato corrente. Alice detiene una transazione di commitment che invia il suo saldo a un output che controlla e invia il saldo di Bob a un output che Bob controlla — ma questa transazione non viene trasmessa. Viene tenuta off-chain come garanzia.\n\n**Design asimmetrico del commitment (Poon-Dryja).** La transazione di commitment di Alice è diversa da quella di Bob. Nella versione di Alice, il suo output include un to_self_delay imposto da `OP_CHECKSEQUENCEVERIFY` (CSV) — tipicamente 144 blocchi (circa 24 ore). L'output di Bob nella transazione di commitment di Alice è immediatamente spendibile da Bob. Questa asimmetria è intenzionale: dà ad Alice il tempo di reagire se Bob tenta di trasmettere uno stato vecchio e revocato.\n\n**Meccanismo di revoca.** Quando Alice e Bob concordano di aggiornare il saldo del canale, non si limitano a firmare una nuova transazione di commitment. Scambiano anche segreti di revoca che rendono la transazione di commitment precedente non spendibile. Se Alice successivamente tenta di imbrogliare trasmettendo un vecchio commitment a lei favorevole, Bob può usare il segreto di revoca per reclamare tutti i fondi del canale come penale.\n\n**Chiusura cooperativa vs unilaterale.** Una chiusura cooperativa avviene quando entrambe le parti concordano di chiudere il canale. Firma e trasmettono una transazione di settlement concordata senza time lock — entrambe le parti ricevono i loro fondi immediatamente. Una chiusura unilaterale avviene quando una parte trasmette la propria ultima transazione di commitment senza la cooperazione dell'altra. La parte che trasmette deve attendere il to_self_delay (time lock CSV) prima di poter accedere ai propri fondi, mentre l'altra parte può reclamare i propri fondi immediatamente.\n\n![Aggiornamenti del saldo del canale](media/wiki/payment-channels/channel-update.svg \"Ogni pagamento in un canale crea una nuova transazione di commitment che aggiorna l'allocazione del saldo tra Alice e Bob. Le vecchie transazioni di commitment vengono revocate.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Struttura della transazione di commitment.** Ogni transazione di commitment contiene due output primari: l'output to_local e l'output to_remote. L'output to_local restituisce i fondi alla parte che ha creato la transazione di commitment, gravati da un time lock CSV (il to_self_delay). L'output to_remote invia i fondi della controparte a un indirizzo che controlla, spendibile immediatamente.\n\nInoltre, le transazioni di commitment possono contenere output HTLC per pagamenti in transito instradati attraverso il canale. Ogni output HTLC è gravato sia da un time lock CLTV (la scadenza) che da un hashlock (il preimage del pagamento). La struttura garantisce che i fondi siano o reclamati dal destinatario previsto con il preimage, o restituiti al mittente dopo la scadenza del time lock.\n\n**Derivazione del segreto di revoca.** La costruzione Poon-Dryja usa uno schema di revoca gerarchico. Ogni parte genera un segreto per-commitment usando un percorso di derivazione HD. Il segreto di revoca per il commitment N può essere memorizzato come il segreto per il commitment N-1 dopo che lo stato è stato aggiornato. Questo permette una finestra scorrevole di sicurezza: in qualsiasi momento, entrambe le parti possono revocare lo stato precedente rivelando il suo segreto di revoca.\n\nLa derivazione segue una gerarchia deterministica:\n1. Il finanziatore genera un segreto di revoca base dal seed del canale\n2. Ogni punto di commitment è derivato usando SHA256\n3. Il segreto di revoca per lo stato N viene rivelato quando si passa allo stato N+1\n4. La controparte memorizza questo segreto per costruire una transazione di penalità se necessario\n\n**Flusso della transazione di penalità.** Se Alice trasmette una vecchia transazione di commitment (stato N invece dello stato corrente N+2), Bob lo rileva monitorando la blockchain. Bob ha 144 blocchi (la finestra to_self_delay) per rispondere. Costruisce una transazione di penalità che spende l'output to_local usando il segreto di revoca che Alice ha rivelato quando sono passati dallo stato N a N+1. La transazione di penalità invia tutti i fondi del canale — sia il saldo di Alice che quello di Bob — a Bob. Questo è il deterrente economico che rende l'imbroglio irrazionale.\n\n**Limiti di dust.** Gli output HTLC al di sotto del limite di dust (tipicamente 546 satoshi per output standard) non sono inclusi nelle transazioni di commitment. Questo previene attacchi economici denial-of-service dove un HTLC minuscolo costerebbe più in commissioni per essere riscosso del suo valore. Il limite di dust viene negoziato tra i peer nell'handshake di apertura del canale.\n\n**Riserva del canale.** Ogni peer mantiene una riserva del canale — un saldo minimo che non può essere speso. La riserva è tipicamente l'1% della capacità del canale. Questo garantisce che ogni transazione di commitment abbia valore sufficiente sia nell'output to_local che to_remote per rendere il meccanismo di penalità economicamente sostenibile. Se il saldo di una parte scende alla riserva, non può inviare ulteriori pagamenti finché il canale non viene rifornito.\n\n**Costruzione interattiva del commitment.** Costruire una nuova transazione di commitment segue un flusso di messaggi preciso:\n1. `update_add_htlc` / `update_fulfill_htlc` / `update_fail_htlc`: Modificano l'insieme di HTLC in sospeso\n2. `commitment_signed`: L'iniziatore invia la propria firma per la nuova transazione di commitment, insieme al segreto di revoca per lo stato precedente\n3. `revoke_and_ack`: Il risponditore accusa ricevuta inviando il proprio segreto di revoca per lo stato precedente e la propria firma per il nuovo commitment\n4. Entrambe le parti ora detengono una transazione di commitment firmata valida per il nuovo stato\n\nQuesto ciclo sign-revoke-commit garantisce che in qualsiasi momento entrambe le parti abbiano una transazione di commitment valida per lo stato corrente e la capacità di penalizzare un imbroglio usando lo stato precedente.\n\n**Flusso di messaggi per l'apertura del canale (BOLT 2).** Aprire un canale segue un protocollo strutturato:\n1. `open_channel`: Il finanziatore invia i parametri del canale inclusi capacità, dust limit, to_self_delay e la funding pubkey\n2. `accept_channel`: Il risponditore conferma con i propri parametri\n3. `funding_created`: Il finanziatore fornisce i dettagli della transazione di funding e la propria firma per la prima transazione di commitment\n4. `funding_signed`: Il risponditore fornisce la propria firma per la transazione di funding e la propria firma per la prima transazione di commitment\n5. Entrambe le parti trasmettono la transazione di funding e attendono le conferme\n6. `funding_locked`: Una volta che la transazione di funding raggiunge la profondità richiesta (tipicamente 3 conferme), entrambe le parti si scambiano `funding_locked` per segnalare che il canale è pronto per i pagamenti\n\nDopo `funding_locked`, il canale passa allo stato ready e può iniziare a instradare pagamenti."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 9,
+      "tags": [],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.channel-funding-transactions",
+          "title": "Transazioni di Funding del Canale"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.htlcs",
+          "title": "HTLC"
+        },
+        {
+          "id": "wiki.timelocks",
+          "title": "Time Lock"
+        },
+        {
+          "id": "wiki.multisig",
+          "title": "Multifirma"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.channel-funding-transactions",
+      "slug": "channel-funding-transactions",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Transazioni di Funding del Canale",
+      "description": "La transazione Bitcoin on-chain che apre un canale di pagamento creando un output multisig 2-of-2 condiviso finanziato da entrambe le parti del canale.",
+      "coverImage": "media/wiki/channel-funding-transactions/funding-tx-anatomy.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Per aprire un canale di pagamento sulla Lightning Network, le due parti creano prima una transazione di funding sulla blockchain di Bitcoin. Si tratta di una normale transazione Bitcoin che spende UTXO esistenti appartenenti a ciascuna parte e crea un singolo output inviato a un indirizzo multisig 2-of-2.\n\nLa proprietà fondamentale di questo output di funding è che richiede la firma di entrambe le parti prima che i fondi possano essere spesi. Né Alice né Bob possono muovere i fondi del canale da soli. Questa custodia reciproca è ciò che rende sicuri i pagamenti off-chain.\n\nLa transazione di funding viene trasmessa alla rete Bitcoin e confermata come qualsiasi altra transazione. I miner la includono in un blocco e, dopo un numero sufficiente di conferme (tipicamente 6 su mainnet), il canale è considerato aperto. Da quel momento, le due parti possono scambiarsi transazioni di commitment firmate off-chain senza ulteriore attività on-chain.\n\n![Anatomia della transazione di funding](media/wiki/channel-funding-transactions/funding-tx-anatomy.svg \"Alice e Bob contribuiscono con UTXO a una transazione di funding che crea un output multisig 2-of-2 condiviso, confermato in un blocco.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "La transazione di funding crea un output P2WSH (Pay-to-Witness-Script-Hash) il cui script witness è un multisig 2-of-2:\n\n```\nOP_2 <pubkey_A> <pubkey_B> OP_2 OP_CHECKMULTISIG\n```\n\nOgni parte contribuisce con un numero di satoshi all'output di funding. La somma dei loro contributi forma la capacità totale del canale. Per esempio, se Alice contribuisce con 200.000 sats e Bob con 100.000 sats, il canale ha una capacità di 300.000 sats.\n\nL'output di funding è identificato dal suo outpoint — una combinazione dell'ID della transazione (txid) e dell'indice dell'output (vout). Questo outpoint funge da identificatore unico del canale sulla Lightning Network e viene utilizzato in tutti i successivi messaggi del protocollo che fanno riferimento al canale.\n\nUna salvaguardia critica del protocollo è che la transazione di funding deve essere completamente firmata da entrambe le parti prima di essere trasmessa. Questo impedisce a una delle parti di trasmettere una transazione non concordata dall'altra. Lo scambio delle firme avviene attraverso il messaggio `funding_signed` definito in BOLT 2.\n\nUna volta che entrambe le firme sono state scambiate e verificate, la transazione può essere trasmessa. La capacità del canale è fissa per tutta la durata del canale — a meno che non venga utilizzato lo splicing (un'estensione del protocollo) per aggiungere o rimuovere fondi.\n\n![Creazione dell'indirizzo multisig 2-of-2](media/wiki/channel-funding-transactions/multisig-address.svg \"Le chiavi pubbliche di Alice e Bob sono combinate in uno script multisig 2-of-2, che viene hashato per produrre l'indirizzo P2WSH.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Flusso di funding in dettaglio.** Il processo di apertura del canale definito in BOLT 2 inizia con il messaggio `open_channel`, che include l'importo del funding, il feerate per le transazioni di commitment e le chiavi pubbliche della parte. Il destinatario risponde con `accept_channel`. Entrambe le parti costruiscono poi la transazione di funding e le rispettive transazioni di commitment *prima* che la transazione di funding venga trasmessa.\n\nQuesta pre-costruzione è essenziale: ogni parte crea una transazione di commitment iniziale che spende l'output di funding verso sé stessa (meno la riserva del canale). Queste transazioni di commitment vengono firmate e scambiate tramite `funding_signed`, ma non vengono mai trasmesse a meno che una parte non debba chiudere il canale unilateralmente. Pre-firmandole, entrambe le parti si assicurano di poter sempre recuperare i propri fondi anche se l'altra parte scompare dopo la conferma della transazione di funding.\n\n**Il messaggio funding_locked.** Dopo che la transazione di funding è stata trasmessa, entrambe le parti monitorano la sua profondità di conferma sulla blockchain di Bitcoin. Quando la transazione raggiunge la profondità richiesta (min_depth), che per default è di 6 conferme su mainnet, ogni parte invia il messaggio `funding_locked`. Questo messaggio segnala che il canale è operativo e pronto per instradare pagamenti. Il messaggio `funding_locked` include il successivo per-commitment point della parte, necessario per costruire future transazioni di commitment.\n\n**Derivazione del Channel ID.** Il channel ID è derivato dall'outpoint della transazione di funding. Nello specifico, il txid e l'indice dell'output vengono XOR-normalizzati per produrre un identificatore di canale a 32 byte utilizzato in tutti i successivi messaggi Lightning:\n```\nchannel_id = funding_txid XOR (funding_output_index || 0x0000...)\n```\n\n**Dual funding (BOLT 2).** Nella variante dual funding, entrambe le parti contribuiscono simultaneamente all'output di funding. A differenza del caso single-funder, dove una sola parte fornisce tutti i satoshi, il dual funding richiede un protocollo di costruzione della transazione interattivo più complesso. Entrambe le parti aggiungono i propri input e output alla transazione di funding, poi si scambiano le firme in modo interattivo fino al completamento della transazione.\n\n**P2WSH vs P2SH-P2WSH.** Le implementazioni Lightning moderne usano P2WSH nativo per l'output di funding, che è più efficiente e ha commissioni più basse. Tuttavia, P2SH-P2WSH (SegWit incapsulato) è anche supportato per compatibilità con wallet più vecchi che non supportano indirizzi SegWit nativi. In P2SH-P2WSH, l'hash dello script è incorporato in un output P2SH, e i dati witness vengono rivelati al momento della spesa.\n\n**Gestione delle fee.** La transazione di funding deve pagare le commissioni di mining. Poiché entrambe le parti contribuiscono all'output di funding, devono concordare come viene dedotta la commissione. Nel modello single-funder, il finanziatore paga la commissione contribuendo leggermente di più per coprirla. Nel dual funding, la commissione viene tipicamente suddivisa proporzionalmente. Il feerate viene negoziato durante l'handshake `open_channel` / `accept_channel`.\n\n**Riserva del canale.** Ogni canale impone un saldo minimo che ciascuna parte deve mantenere — la riserva del canale. Questa riserva (tipicamente l'1% della capacità del canale) garantisce che entrambe le parti abbiano un incentivo economico a comportarsi onestamente. Se il saldo di una parte scende a zero, potrebbe essere incentivata a pubblicare uno stato obsoleto. La riserva mitiga questo rischio assicurando che ogni parte abbia sempre qualcosa da perdere."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.transactions",
+          "title": "Transazioni Bitcoin"
+        },
+        {
+          "id": "wiki.multisig",
+          "title": "Multifirma"
+        },
+        {
+          "id": "wiki.bitcoin-addresses",
+          "title": "Indirizzi Bitcoin"
+        },
+        {
+          "id": "wiki.utxo-model",
+          "title": "Modello UTXO"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.commitment-transactions",
+      "slug": "commitment-transactions",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Transazioni di Commitment",
+      "description": "Le transazioni asimmetriche off-chain che rappresentano il saldo più recente del canale, progettate con un meccanismo di penalità per scoraggiare chiusure disoneste del canale.",
+      "coverImage": "media/wiki/commitment-transactions/commitment-tx-structure.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Le transazioni di commitment sono il cuore del protocollo Lightning Network. Ogni volta che due parti effettuano o inoltrano un pagamento in un canale, creano una nuova transazione di commitment che riflette il saldo aggiornato. In condizioni normali, questa transazione non viene mai trasmessa alla blockchain di Bitcoin — esiste solo come accordo firmato off-chain tra i due partecipanti al canale.\n\nOgni transazione di commitment spende l'output di funding 2-of-2 multisig della transazione di funding del canale. Paga a ciascuna parte il saldo corrente secondo l'ultimo stato del canale. Se una delle due parti scompare o tenta di imbrogliare, l'altra può trasmettere l'ultima transazione di commitment per recuperare i propri fondi on-chain.\n\nLa proprietà di sicurezza fondamentale: solo la transazione di commitment più recente è valida. Gli stati precedenti, se trasmessi, attivano una penalità che assegna tutti i fondi del canale alla parte onesta.\n\n![Struttura della transazione di commitment](media/wiki/commitment-transactions/commitment-tx-structure.svg \"Transazione di commitment per il finanziatore del canale che mostra l'input UTXO di funding, gli output to_local e to_remote, e gli output HTLC.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "Il design della transazione di commitment è deliberatamente asimmetrico. Nella versione di Alice della transazione di commitment, l'output di Alice (chiamato to_local) ha un time lock relativo tramite OP_CHECKSEQUENCEVERIFY, tipicamente 144 blocchi (circa 24 ore). L'output di Bob (chiamato to_remote) non ha time lock ed è immediatamente spendibile da Bob. Nella transazione di commitment di Bob, i ruoli sono invertiti: l'output di Bob ha il time lock e quello di Alice è immediato.\n\nQuesta asimmetria è ciò che rende funzionante il meccanismo di penalità. Quando viene negoziato un nuovo stato del canale, entrambe le parti si scambiano i segreti di revoca per lo stato precedente. Se una delle due parti tenta di trasmettere una vecchia transazione di commitment, l'altra parte può:\n\n1. Spendere immediatamente il proprio output to_remote (non ha time lock)\n2. Usare la chiave di revoca per spendere l'output to_local della parte disonesta, bypassando completamente il time lock CSV\n\nLo script dell'output revocato contiene sia la chiave pubblica di revoca della parte onesta che il percorso di spesa ritardata. Poiché il segreto di revoca per il vecchio stato è ora noto, la parte onesta può costruire una firma usando la chiave di revoca e reclamare i fondi della parte disonesta come penalità.\n\n![Meccanismo di penalità](media/wiki/commitment-transactions/penalty-mechanism.svg \"Se Alice trasmette un vecchio stato, Bob può reclamare tutti i fondi del canale usando la chiave di revoca, bypassando il time lock CSV.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "### Derivazione del segreto per-commitment\n\nOgni stato di commitment è legato a un segreto per-commitment unico. BOLT #3 specifica l'uso di una shachain o di una catena di hash indicizzata per derivare questi segreti in modo efficiente. Il nodo finanziatore genera un segreto base e deriva una sequenza di segreti usando una funzione hash unidirezionale:\n\n```\nsecret_n = SHA256(secret_{n+1})\n```\n\nDato secret_n, chiunque può derivare tutti i segreti precedenti nella catena, ma non può derivare segreti futuri. Ciò permette uno storage efficiente: i nodi devono solo memorizzare il segreto più recente e possono rigenerare quelli più vecchi quando necessario.\n\n### Processo di revoca\n\nDopo che entrambe le parti hanno firmato una nuova transazione di commitment (stato N), si scambiano immediatamente i segreti di revoca per lo stato precedente (stato N-1). Ciò significa che dopo aver concordato lo stato N, entrambe le parti hanno la capacità di penalizzare lo stato N-1. Il protocollo garantisce che nessuno stato precedente al più recente possa essere trasmesso in sicurezza.\n\n### Dettagli della struttura della transazione\n\nLa transazione di commitment usa valori specifici dei campi per abilitare il meccanismo di penalità:\n\n**nLocktime.** Impostato a 0 per il funzionamento normale. Il time lock relativo è imposto attraverso il numero di sequenza sull'input di funding e il CSV nello script di output.\n\n**Sequence.** L'input di funding ha il numero di sequenza impostato al valore di ritardo CSV (es. 144). Questo, combinato con OP_CSV nello script to_local, impedisce che l'output ritardato venga speso fino al passaggio del numero richiesto di blocchi.\n\n**Script dell'output to_local:**\n```\nOP_IF\n    <remote_revocation_pubkey>\nOP_ELSE\n    <csv_delay> OP_CHECKSEQUENCEVERIFY OP_DROP\n    <local_delayed_pubkey>\nOP_ENDIF\nOP_CHECKSIG\n```\n\nSe la parte remota conosce la chiave privata di revoca (dal segreto di revoca del vecchio stato), può spendere usando il primo ramo immediatamente. Altrimenti, la parte locale deve attendere il ritardo CSV per spendere tramite il secondo ramo.\n\n**Script dell'output to_remote:**\n```\n<remote_pubkey> OP_CHECKSIG\n```\n\nSemplice pay-to-pubkey. La parte remota può spenderlo immediatamente.\n\n### Output HTLC nelle transazioni di commitment\n\nOgni HTLC in sospeso genera due output nella transazione di commitment:\n\n- **HTLC offerto:** L'HTLC offerto dal nodo locale al nodo remoto. Il remoto lo riscatta fornendo il preimage entro il timeout CLTV.\n- **HTLC ricevuto:** L'HTLC offerto dal nodo remoto al nodo locale. Il locale lo riscatta fornendo il preimage, o il remoto lo reclama dopo il timeout.\n\nOgni output HTLC usa uno script con due percorsi di spesa (simile allo script to_local): un percorso richiede il preimage e l'altro richiede un timeout.\n\n### Gestione delle commissioni\n\nOgni transazione di commitment include una commissione che viene dedotta dal saldo del canale. La commissione è calcolata dal peso della transazione e da un tasso di commissione negoziato tra le parti. La commissione è sempre pagata dal finanziatore del canale. Se la commissione è troppo bassa per essere attraente per i miner, entrambe le parti possono rifiutarsi di firmare un nuovo commitment e richiedere un aggiornamento della commissione.\n\n### HTLC dust\n\nGli HTLC il cui valore è inferiore al limite dust (attualmente 546 satoshi per un output P2WPKH) non sono inclusi nella transazione di commitment. Invece, il valore viene aggiunto alla commissione. Questo impedisce che la blockchain venga inquinata con output antieconomici e mantiene limitata la dimensione della transazione di commitment."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 10,
+      "tags": [],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.channel-funding-transactions",
+          "title": "Transazioni di Funding del Canale"
+        },
+        {
+          "id": "wiki.htlcs",
+          "title": "HTLC"
+        },
+        {
+          "id": "wiki.timelocks",
+          "title": "Time Lock"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.htlcs",
+      "slug": "htlcs",
+      "language": "it",
+      "category": "lightning network",
+      "title": "HTLC",
+      "description": "Hash Time Locked Contracts — pagamenti condizionali che possono essere riscossi solo con il preimmagine corretto prima della scadenza di un timelock, consentendo il routing multi-hop sicuro sulla Lightning Network.",
+      "coverImage": "media/wiki/htlcs/htlc-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un Hash Time Locked Contract (HTLC) è un pagamento Bitcoin condizionale che richiede al destinatario di dimostrare la conoscenza di un valore segreto (il preimage) prima della scadenza di un termine. Due condizioni devono essere soddisfatte:\n\n**Hashlock.** Il mittente crea l'hash di un valore casuale segreto, H(x). Il destinatario può spendere l'output solo fornendo il valore originale x che produce lo stesso hash. Questo prova che il destinatario conosce il segreto.\n\n**Timelock.** L'output HTLC include un limite di tempo assoluto usando CLTV (OP_CHECKLOCKTIMEVERIFY). Se il destinatario non rivela il preimage prima di questa scadenza, il mittente può recuperare i fondi.\n\nGli HTLC rendono possibili i pagamenti multi-hop sulla Lightning Network senza doversi fidare dei nodi intermedi. Alice può pagare Carol attraverso Bob senza che Bob possa rubare i fondi — Bob può riscuotere la sua commissione di routing solo se Carol rivela il preimage, cosa che permette anche ad Alice di confermare che il pagamento è avvenuto con successo.\n\n![Flusso HTLC attraverso tre nodi](media/wiki/htlcs/htlc-flow.svg \"Alice crea un HTLC con hashlock H(x) e timelock di 144 blocchi. Bob lo inoltra a Carol con un timelock più breve. Carol rivela il preimage x per riscuotere. Il preimage si propaga all'indietro, provando che il pagamento è completo.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Meccanica dell'hashlock.** Il mittente genera un valore casuale x di 32 byte e calcola il suo hash SHA256 H(x). L'hash è incorporato nello script HTLC. Per spendere l'output, il destinatario deve fornire x e una firma valida. L'hashlock garantisce che solo il party che conosce x possa riscuotere i fondi. SHA256 di Bitcoin è resistente al preimage — non c'è modo di derivare x da H(x) se non tramite forza bruta.\n\n**Meccanica del timelock.** L'output HTLC usa CLTV con un'altezza di blocco assoluta. Nella Lightning Network, i valori CLTV sono espressi come altezze di blocco (non timestamp). Un HTLC tipico potrebbe avere un timelock di 144 blocchi (~24 ore) dalla punta corrente della chain. Se il preimage non viene rivelato prima della scadenza del timelock, il mittente può spendere tramite il ramo di timeout.\n\n**Atomicità.** L'HTLC viene o interamente riscosso o interamente rimborsato. Quando Alice paga Carol attraverso Bob usando HTLC, la proprietà atomica garantisce:\n- Se Carol rivela il preimage, tutti e tre gli HTLC si regolano: Alice paga Bob, Bob paga Carol\n- Se Carol non rivela il preimage, tutti e tre gli HTLC scadono: Carol non può riscuotere, Bob recupera i fondi da Carol, Alice recupera i fondi da Bob\n- Nessun regolamento parziale è possibile — non esiste uno stato in cui un hop ha successo e un altro fallisce\n\n**Offer HTLC e Receive HTLC.** In una transazione di commitment del canale, ogni HTLC è rappresentato come due output: uno per il nodo che ha offerto l'HTLC (lato mittente) e uno per il nodo che lo ha ricevuto (lato destinatario). L'output offer HTLC è controllato dal mittente, mostrando i fondi che ha impegnato. L'output receive HTLC è controllato dal destinatario, mostrando i fondi che si aspetta di ricevere. Entrambi sono inclusi nella transazione di commitment e aggiornati quando un nuovo HTLC viene aggiunto o rimosso.\n\n![Percorsi di successo e timeout HTLC](media/wiki/htlcs/htlc-timeout-vs-success.svg \"Il percorso di successo: Carol rivela il preimage, Bob riscuote e lo inoltra, Alice riscuote. Il percorso di timeout: Carol non rivela il preimage, il timelock scade, e Bob e Alice recuperano i loro fondi.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Script HTLC nella transazione di commitment.** Lo script dell'output HTLC in una transazione di commitment usa un ramo a due vie:\n\n```\nOP_IF\n  <remote_pubkey> OP_CHECKSIG                (ramo di adempimento)\nOP_ELSE\n  <cltv_expiry> OP_CHECKLOCKTIMEVERIFY OP_DROP\n  <local_pubkey> OP_CHECKSIG                 (ramo di timeout)\nOP_ENDIF\n```\n\nLo spenditore sceglie quale ramo eseguire spingendo un valore true (1) o false (0) prima che lo script venga eseguito.\n\n**Ramo di adempimento.** Il destinatario spende tramite il ramo IF fornendo:\n1. Il preimage x (l'hashlock)\n2. Una firma valida dalla propria chiave privata\n3. Un valore 1 sullo stack per entrare nel ramo IF\n\nLa transazione usa il preimage come elemento hashlock witness. Il full node verifica che H(x) corrisponda all'hash impegnato nell'HTLC e che la firma sia valida per la pubkey remota. Una volta verificato, l'output HTLC viene speso a favore del destinatario.\n\n**Ramo di timeout.** Il mittente spende tramite il ramo ELSE fornendo:\n1. Una firma valida dalla propria chiave privata\n2. Un valore 0 (o qualsiasi cosa falsy) sullo stack per entrare nel ramo ELSE\n3. La transazione deve avere nLockTime >= cltv_expiry\n\nOP_CHECKLOCKTIMEVERIFY verifica che il locktime della transazione sia maggiore o uguale a cltv_expiry. Se il controllo passa, l'esecuzione continua a OP_DROP (che rimuove il valore di scadenza) e poi a OP_CHECKSIG con la pubkey locale. Questo garantisce che il mittente non possa riscuotere il ramo di timeout prima della scadenza del timelock, nemmeno con la propria firma.\n\n**Accettazione di un HTLC.** Prima di accettare un HTLC, un nodo di forwarding verifica diverse condizioni:\n- Il cltv_expiry dell'HTLC in entrata è sufficientemente lontano nel futuro\n- L'HTLC in uscita ha un cltv_expiry più breve, lasciando un margine di sicurezza (il cltv_expiry_delta da BOLT 2)\n- L'importo dell'HTLC copre la commissione di routing più il pagamento in uscita\n\nIl cltv_expiry_delta standard è di 144 blocchi (~24 ore) per il primo hop e 12 blocchi (~2 ore) per gli hop successivi nella configurazione predefinita di LND.\n\n**Forwarding HTLC e cltv_expiry_delta.** Quando Bob inoltra un HTLC da Alice a Carol, deve garantire che:\n- L'HTLC di Alice verso Bob: cltv_expiry = T1\n- L'HTLC di Bob verso Carol: cltv_expiry = T2, dove T2 < T1\n\nLa differenza T1 - T2 (il cltv_expiry_delta) dà a Bob il tempo di riscuotere il ramo di timeout sul canale Alice-Bob se Carol non rivela il preimage prima di T2. BOLT 2 specifica valori minimi di cltv_expiry_delta basati sull'intervallo di blocco previsto e sulla tolleranza al rischio del nodo di forwarding.\n\n**Propagazione del preimage.** Il preimage scorre all'indietro attraverso la route:\n1. Carol rivela x a Bob spendendo l'output HTLC sul canale Bob-Carol\n2. Bob vede x on-chain, il che prova che Carol ha riscosso l'HTLC\n3. Bob ora conosce x e può spendere l'output HTLC sul canale Alice-Bob\n4. Alice vede x on-chain, confermando che Carol ha ricevuto il pagamento\n\nOgni hop riscuote indipendentemente il suo HTLC in entrata usando il preimage.\n\n**HTLC e gestione delle commissioni.** Ogni nodo di forwarding addebita una commissione di routing. Quando Bob inoltra un HTLC, l'importo che invia a Carol è inferiore a quello che riceve da Alice — la differenza è la sua commissione di routing. La struttura delle commissioni è:\n- Commissione base: un importo fisso per HTLC (tipicamente 1-1000 millisatoshi)\n- Tasso di commissione: una commissione proporzionale all'importo inoltrato (tipicamente 1-1000 parti per milione)\n\nSia la commissione base che il tasso sono codificati nell'annuncio del canale del nodo e possono essere regolati dinamicamente.\n\n**Trimming.** Gli output HTLC al di sotto del limite di polvere (dust limit) non vengono aggiunti alla transazione di commitment. Invece, vengono tracciati off-chain e regolati alla chiusura del canale o quando una futura transazione di commitment li include. Il dust limit è tipicamente di 546 satoshi per output P2WSH. Il trimming riduce il peso della transazione e mantiene le transazioni di commitment più piccole, abbassando le commissioni on-chain in caso di chiusura unilaterale.\n\n**Multi-Path Payments (MPP).** Un singolo pagamento può essere suddiviso in più HTLC parziali, ciascuno instradato attraverso un percorso diverso. MPP richiede:\n- Tutti gli HTLC parziali usano lo stesso hash di pagamento H(x)\n- Il destinatario attende che la somma di tutti i pagamenti parziali sia uguale all'importo totale prima di generare una fattura\n- Ogni HTLC parziale è atomicamente indipendente, ma il pagamento complessivo si completa solo quando tutte le parti arrivano\n\nMPP migliora l'affidabilità instradando attorno a canali congestionati o guasti, e migliora la privacy distribuendo il pagamento attraverso percorsi multipli.\n\n**KeySend e pagamenti spontanei.** KeySend è un'estensione che elimina la necessità di una fattura. Il mittente genera il preimage da solo e deriva l'hash di pagamento da esso. L'hash di pagamento è incluso nel payload onion, permettendo al destinatario di derivare il preimage dall'hash di pagamento. Questo consente pagamenti spontanei dove il mittente non deve richiedere una fattura al destinatario."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 9,
+      "tags": [],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.onion-routing",
+          "title": "Onion Routing"
+        },
+        {
+          "id": "wiki.timelocks",
+          "title": "Time Lock"
+        },
+        {
+          "id": "wiki.hashlocks",
+          "title": "Hash Lock"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.onion-routing",
+      "slug": "onion-routing",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Onion Routing",
+      "description": "Il protocollo di comunicazione che preserva la privacy nella Lightning Network, crittografando i dati di pagamento a strati in modo che nessun nodo intermedio conosca l'intero percorso.",
+      "coverImage": "media/wiki/onion-routing/onion-routing-layers.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "L'onion routing è una tecnica di privacy che avvolge i dati di pagamento in molteplici strati di crittografia, come gli strati di una cipolla. Quando Alice paga Carol attraverso nodi intermedi, costruisce un pacchetto in cui ogni strato può essere aperto solo da un nodo specifico. Ogni nodo intermedio rimuove uno strato, apprende solo l'identità del salto successivo e inoltra il payload crittografato rimanente.\n\n**Analogia.** Immagina di passare una lettera sigillata dentro una serie di buste concentriche. Alice mette una lettera (il pagamento) dentro una busta indirizzata a Carol. Colloca quella dentro un'altra busta indirizzata a Diana, che a sua volta va dentro una busta indirizzata a Bob. Bob riceve il plico, apre solo la busta esterna, legge \"inoltra a Diana\" e passa il resto. Diana apre la sua busta, vede \"inoltra a Carol\" e inoltra la busta interna. Carol apre l'ultima busta e legge i dettagli del pagamento. Nessun corriere vede mai il percorso completo.\n\n**Proprietà di privacy.** Solo il mittente conosce la route completa. Ogni intermediario vede esattamente due nodi: il nodo che gli ha inviato il pacchetto e il nodo a cui deve inoltrarlo. Questa proprietà protegge la privacy sia del mittente che del destinatario — un nodo intermedio non può determinare chi ha originato un pagamento né chi lo riceve definitivamente.\n\n![Strati dell'onion routing](media/wiki/onion-routing/onion-routing-layers.svg \"Alice costruisce una cipolla con tre strati. Bob rimuove lo strato esterno, Diana quello intermedio e Carol riceve i dati di pagamento interni. Ogni nodo vede solo il proprio salto.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Source routing.** Nella Lightning Network, il mittente sceglie l'intero percorso. Prima di costruire la cipolla, Alice esegue un algoritmo di pathfinding sul grafo della rete (scoperto tramite il protocollo gossip) per selezionare una route di canali collegati con liquidità sufficiente. Il percorso selezionato viene codificato nella cipolla, stratificato in ordine inverso — lo strato più esterno è crittografato per il primo salto, il successivo per il secondo, e così via. Lo strato più interno è per il destinatario finale.\n\n**Costruzione della cipolla.** Alice genera una serie di chiavi ECDH effimere (Elliptic Curve Diffie-Hellman), una per ogni salto. Per ogni salto, deriva un segreto condiviso usando la sua chiave privata effimera e la chiave pubblica del nodo. Questo segreto condiviso genera una chiave di crittografia simmetrica (usando ChaCha20-Poly1305, in precedenza AES-256 nelle prime versioni di BOLT 4) e una chiave MAC. Alice crittografa ogni strato partendo dal più interno: il payload per Carol è crittografato con la chiave di Carol, avvolto dentro il payload di Diana crittografato con la chiave di Diana, avvolto dentro il payload di Bob crittografato con la chiave di Bob. Il risultato è un pacchetto cipolla di dimensione fissa.\n\n**Il protocollo Sphinx.** L'onion routing di Lightning è costruito sul protocollo Sphinx, progettato da George Danezis e Ian Goldberg nel 2009. Sphinx fornisce tre garanzie:\n- **Compattezza:** la dimensione del pacchetto rimane costante indipendentemente dalla lunghezza del percorso.\n- **Protezione dal replay:** ogni pacchetto include un tag univoco che impedisce ai nodi di vedere lo stesso pacchetto due volte e di collegarlo allo stesso mittente.\n- **Integrità:** ogni strato include un MAC (Message Authentication Code) che il nodo verifica prima di accettare il pacchetto. Qualsiasi manomissione di un byte causa il fallimento del controllo MAC.\n\n**Payload per salto.** Quando un nodo rimuove il suo strato, trova:\n- La chiave pubblica del nodo o l'ID del canale breve del salto successivo.\n- I parametri HTLC: importo da inoltrare, scadenza CLTV.\n- Padding opzionale o dati TLV aggiuntivi.\n- Il resto della cipolla (strati interni) da inoltrare.\n\nIl nodo non vede l'importo del pagamento per il destinatario finale, la lunghezza totale del percorso o le identità dei nodi oltre i suoi vicini immediati.\n\n**Struttura del pacchetto.** BOLT 4 definisce il pacchetto cipolla come esattamente 1300 byte: una dimensione fissa indipendentemente dalla lunghezza del percorso. Questo impedisce l'analisi del traffico basata sulla dimensione del pacchetto. Il pacchetto contiene:\n- Un campo versione di 1 byte.\n- Una chiave pubblica effimera di 33 byte.\n- Un tag di protezione dal replay di 32 byte.\n- Un HMAC di 32 byte per l'intero pacchetto.\n- 1300 byte di dati di salto crittografati (nelle implementazioni moderne, payload TLV da 1300 byte; nelle legacy, 20 campi a lunghezza fissa di 65 byte con filler).\n\nLa dimensione fissa impedisce a un attaccante di determinare se un pacchetto sta attraversando 2 o 20 salti.\n\n![Percorso di pagamento multi-hop](media/wiki/onion-routing/payment-path.svg \"Alice seleziona un percorso attraverso Charlie, Bob e Diana fino a Carol. Gli HTLC fluiscono in avanti lungo il percorso; il preimmagine ritorna in direzione inversa. Ogni nodo conosce solo il suo predecessore e successore.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Costruzione Sphinx: derivazione del segreto condiviso.** Per ogni salto lungo il percorso, Alice calcola un segreto condiviso usando l'accordo di chiave Diffie-Hellman. Sia la sequenza di nodi N₀ (Alice), N₁, N₂, ..., Nₙ (Carol). Per il salto i, Alice genera una coppia di chiavi effimere (eᵢ, Eᵢ) dove Eᵢ = eᵢ × G. Il segreto condiviso con il nodo Nᵢ è:\n\n```\nssᵢ = SHA256(eᵢ × pubkeyᵢ)\n```\n\nIn pratica, viene generata una singola coppia di chiavi effimere (e, E) e i segreti condivisi vengono derivati usando un fattore di blinding che ri-randomizza la chiave effimera a ogni salto:\n\n```\nss₁ = SHA256(e × pubkey₁)\nE₁ = E\nss₂ = SHA256(e₁ × pubkey₂)  dove e₁ = SHA256(ss₁) × e\nE₂ = SHA256(ss₁) × E₁\n...\nssᵢ = SHA256(eᵢ₋₁ × pubkeyᵢ)\nEᵢ = SHA256(ssᵢ₋₁) × Eᵢ₋₁\n```\n\nQuesto blinding garantisce che ogni salto veda una chiave pubblica effimera diversa, impedendo a qualsiasi nodo di correlare il pacchetto cipolla attraverso salti multipli. Un nodo intermedio vede Eᵢ e deriva ssᵢ usando la propria chiave privata, ma non può collegare Eᵢ a Eᵢ₋₁ o Eᵢ₊₁ senza i fattori di blinding.\n\n**Fattori di blinding.** La ri-randomizzazione della chiave effimera usando SHA256(ssᵢ) come fattore di blinding è critica per la non-collegabilità. Senza blinding, un nodo che vede la stessa chiave effimera in due posizioni diverse sulla rete potrebbe dedurre che appartengono allo stesso pagamento. Il fattore di blinding rompe completamente questa correlazione — la chiave effimera è diversa a ogni salto, e solo il mittente può ricalcolare la catena.\n\n**Verifica MAC.** Ogni strato della cipolla include un MAC di 32 byte calcolato sul payload crittografato. La chiave MAC è derivata dal segreto condiviso:\n\n```\nmac_keyᵢ = HMAC-SHA256(ssᵢ, \"mac_key\")\n```\n\nQuando un nodo riceve il pacchetto cipolla, calcola il MAC usando la sua chiave derivata e lo confronta con il MAC nel pacchetto. Se il MAC non corrisponde, il pacchetto non è valido e il nodo DEVE rifiutarlo. Questo rileva qualsiasi manomissione — se Bob modifica un byte della cipolla prima di inoltrarla, il controllo MAC di Diana fallirà e lei rifiuterà il pacchetto.\n\n**Algoritmo di generazione del filler.** La dimensione fissa di 1300 byte crea una sfida: man mano che la cipolla viene rimossa a ogni salto, il payload grezzo rimanente si riduce. Per mantenere la dimensione del pacchetto costante, il mittente riempie gli strati interni con una stringa di filler. Il filler è generato usando un cifrario a flusso keyato con una chiave di filler derivata dal segreto condiviso di ogni salto. Il mittente genera il filler per tutti i salti e lo impacchetta attorno ai dati rimanenti della cipolla, in modo che dopo ogni rimozione il payload visibile sia sempre esattamente 1300 byte. Un attaccante non può distinguere tra dati di salto reali e filler, nascondendo la lunghezza rimanente del percorso.\n\n**Payload legacy BOLT 4 vs TLV.** Le prime implementazioni BOLT 4 usavano un payload per salto in formato fisso di 65 byte con campi specifici a offset fissi (importo, scadenza CLTV, salto successivo, padding). Questo formato legacy era rigido e richiedeva aggiornamenti del protocollo per cambiare la struttura del payload. Le implementazioni moderne usano la codifica TLV (Type-Length-Value) all'interno della cipolla, permettendo un'estensibilità flessibile:\n\n- **Cipolla TLV:** ogni payload per salto è una sequenza di record TLV. Nuovi tipi possono essere aggiunti senza cambiare il formato della cipolla, abilitando funzionalità come route blinding, KeySend e Trampoline routing.\n- **Compatibilità all'indietro:** i nodi segnalano il supporto TLV nei loro feature bit. Un nodo con capacità TLV può ricevere cipolle legacy e viceversa, anche se l'insieme completo delle funzionalità moderne richiede che entrambe le parti supportino TLV.\n\n**KeySend e pagamenti spontanei.** KeySend è un'estensione che permette pagamenti senza una fattura pre-generata. In un pagamento normale, il destinatario genera il preimage, calcola l'hash di pagamento H(x) e lo fornisce al mittente in una fattura. Con KeySend, il mittente genera il preimage e l'hash di pagamento da solo, quindi incorpora il preimage nel payload della cipolla crittografato per il destinatario finale. Il destinatario decritta il payload, apprende il preimage e riscuote l'HTLC. Questo elimina lo scambio di fatture, abilitando pagamenti spontanei come mance e donazioni dove il mittente inizia senza coordinamento preventivo.\n\n**Trampoline routing.** Nel source routing, il mittente deve conoscere l'intera topologia della rete per selezionare un percorso. Questo è impraticabile per wallet mobili con larghezza di banda e batteria limitate. Il Trampoline routing delega la scelta del percorso a nodi Trampoline designati. Il mittente specifica il destinatario finale e i dettagli del pagamento in una cipolla interna, e il nodo Trampoline gestisce la selezione del percorso rimanente. Il mittente costruisce una cipolla multi-strato dove gli strati esterni instradano verso il nodo Trampoline, e lo strato interno (crittografato per il destinatario) è opaco per il Trampoline. Salti Trampoline multipli possono essere concatenati, ognuno facendo pathfinding locale per il proprio segmento. Questo riduce i requisiti di banda del mittente al costo di rivelare il destinatario finale al nodo Trampoline.\n\n**Route blinding (BOLT 4).** Il route blinding nasconde il destinatario finale da tutti i nodi intermedi, incluso l'ultimo nodo pubblico prima del destinatario. Il destinatario genera una route nascosta: una sequenza di ID di nodo offuscati e istruzioni di inoltro crittografate che il mittente usa come coda del percorso di pagamento. Ogni salto nel segmento nascosto può essere decrittato solo dal nodo specifico, e il salto finale rivela solo l'ID offuscato del destinatario — non la sua chiave pubblica reale. Il destinatario genera più route nascoste in anticipo e le distribuisce tramite fatture o altri canali. Il route blinding è specificato in BOLT 4 come estensione TLV ed è critico per la privacy contro avversari che operano nodi di routing sulla rete."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 9,
+      "tags": [
+        "Lightning Network",
+        "Onion Routing",
+        "Privacy",
+        "Sphinx",
+        "Routing"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.htlcs",
+          "title": "HTLC"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.lightning-invoices",
+          "title": "Fatture Lightning (BOLT 11)"
+        },
+        {
+          "id": "wiki.routing-fees",
+          "title": "Commissioni di Routing"
+        },
+        {
+          "id": "wiki.multipath-payments",
+          "title": "Pagamenti Multipath"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.lightning-invoices",
+      "slug": "lightning-invoices",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Fatture Lightning (BOLT 11)",
+      "description": "Richieste di pagamento standardizzate sulla Lightning Network, codificate come stringhe bech32, contenenti l'hash di pagamento, l'importo, la descrizione e una prova crittografica.",
+      "coverImage": "media/wiki/lightning-invoices/invoice-creation.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Una fattura Lightning (Lightning invoice) è una richiesta di pagamento che dice al pagatore cosa pagare e dove inviare i fondi. Come una fattura di un idraulico — descrive il servizio, l'importo dovuto e dove effettuare il pagamento.\n\nUna fattura contiene un hash di pagamento (l'hash SHA256 di un preimmagine segreto scelto dal ricevente), l'importo richiesto, una descrizione del commerciante e un tempo di scadenza. Viene codificata come stringa bech32 che inizia con `lnbc` per la rete principale. La fattura può essere condivisa come testo, codice QR o tramite NFC.\n\nQuando il pagatore riceve la fattura, il suo wallet la decodifica, trova l'hash di pagamento, costruisce una route attraverso la Lightning Network fino al ricevente e invia HTLC (Hash Time Locked Contracts) lungo quella route. Il ricevente riscuote il pagamento rivelando il preimmagine, che il pagatore può verificare corrisponda all'hash di pagamento.\n\n![Ciclo di vita della fattura Lightning](media/wiki/lightning-invoices/invoice-creation.svg \"Il ricevente crea una fattura con un hash di pagamento; il pagatore la decodifica e instrada un pagamento attraverso la rete.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Formato BOLT 11.** Una fattura Lightning ha tre parti: un prefisso leggibile (HRP), una parte dati e una firma. Il prefisso inizia con `ln` (Lightning), seguito da `bc` (Bitcoin mainnet) e dall'importo. Ad esempio, `lnbc10u` significa 10 microBTC (10.000 satoshi). Gli importi usano suffissi SI: `p` (pico), `n` (nano), `u` (micro), `m` (milli).\n\n**Campi taggati.** La parte dati codifica i campi come tuple tipo-lunghezza-valore. Ogni campo inizia con un carattere che ne indica il tipo, seguito da una lunghezza di 2 caratteri e dal valore:\n\n- `p` — Hash di pagamento (SHA256 a 256 bit del preimmagine)\n- `d` — Descrizione, una stringa di testo breve\n- `h` — Hash della descrizione, SHA256 di una descrizione lunga\n- `x` — Scadenza in secondi (default 3600)\n- `n` — ID del pagatore (node ID del creatore)\n- `r` — Suggerimenti di routing per canali privati\n- `9` — Feature bits per estensioni del protocollo\n\n**Firma.** Gli ultimi 520 bit (65 byte) sono una firma ECDSA recuperabile. Copre l'intera parte dati e permette a chiunque di verificare che la fattura sia stata creata dal possessore della chiave privata del nodo. L'id di recupero permette di estrarre la chiave pubblica dalla sola firma.\n\n**Come l'hash di pagamento si collega agli HTLC.** Il pagatore usa l'hash di pagamento dalla fattura come hash lock in ogni HTLC lungo la route. Solo il ricevente conosce il preimmagine, quindi solo lui può riscuotere il pagamento rivelandolo. Quando il preimmagine si propaga all'indietro, ogni nodo intermedio viene rimborsato e il pagatore ha una prova crittografica che il ricevente ha ricevuto i fondi.\n\n**Scadenza e CLTV.** Il campo `x` imposta la scadenza della fattura (default 1 ora). Il `min_final_cltv_expiry` dice al pagatore il delta timelock minimo da impostare sull'HTLC finale, proteggendo il ricevente da fondi bloccati se la route di pagamento è lenta.\n\n![Struttura della fattura BOLT 11](media/wiki/lightning-invoices/invoice-anatomy.svg \"Una stringa bech32 segmentata in HRP, importo, timestamp, campi taggati e firma.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Dettagli della codifica Bech32.** BOLT 11 utilizza la stessa codifica bech32 degli indirizzi SegWit (BIP 173). I dati sono suddivisi in parole da 5 bit, rendendo efficiente la codifica per codici QR e la trascrizione manuale. Bech32 include un checksum BCH (6 caratteri) che rileva fino a 4 errori e ne corregge 1. La codifica usa un set di caratteri limitato (32 caratteri: alfanumerici esclusi `1`, `b`, `i`, `o`) per minimizzare le ambiguità.\n\n**Struttura della parte dati.** La parte dati inizia con un timestamp a 35 bit (epoch Unix in secondi). Dopo il timestamp seguono uno o più campi taggati, ciascuno con un tipo di 1 carattere, una lunghezza di 2 caratteri e un valore a lunghezza variabile. La firma occupa gli ultimi 520 bit: `r` a 256 bit, `s` a 256 bit e un recovery id a 8 bit.\n\n**Hash della descrizione vs testo semplice.** Quando la descrizione è breve (sotto i 639 byte), i wallet usano il campo `d` con il testo letterale. Per descrizioni lunghe, il campo `h` memorizza SHA256(descrizione) e la descrizione deve essere comunicata fuori banda. Il wallet del pagatore calcola l'hash della descrizione fornita e lo confronta con il campo `h` della fattura per assicurarsi che corrisponda a quanto inteso dal ricevente.\n\n**Suggerimenti di routing (campo `r`).** Se il ricevente è dietro uno o più canali privati (non annunciati), include suggerimenti di routing. Ogni suggerimento contiene un hop con: `short_channel_id`, `node_id`, `fee_base_msat`, `fee_proportional_millionths`, `cltv_expiry_delta`. Il pagatore incorpora questi suggerimenti nella ricerca della route. Più suggerimenti per percorsi diversi aumentano la probabilità che il pagatore raggiunga il ricevente.\n\n**Feature bits (campo `9`).** I feature bits pubblicizzano le capacità del protocollo:\n- Bit 8/9 — MPP (Multi-Path Payments): suddividere un pagamento su più route\n- Bit 9/9 — Keysend: pagamenti spontanei senza fattura\n- Bit 15 — Trampoline: routing delegato attraverso nodi trampolino\n- Bit 17/19 — Offerte BOLT 12\n\nLe future assegnazioni di feature sono tracciate nel repository dei BOLT.\n\n**Offerte BOLT 12.** Il protocollo Offers è la sostituta di nuova generazione per BOLT 11. A differenza delle fatture, le offerte non sono monouso: una singola offerta può generare molte fatture, permettendo pagamenti ricorrenti e ricezione asincrona. Le offerte usano blinded path (route blinding) invece di routing hints, migliorando la privacy. Il preimmagine è derivato deterministicamente da un segreto statico, evitando i problemi di riutilizzo del preimmagine. Le offerte supportano anche i rimborsi (il ricevente diventa pagatore) e sono più adatte all'automazione.\n\n**Keysend / Pagamenti Spontanei.** Keysend bypassa completamente il flusso della fattura. Il mittente genera un hash di pagamento da un preimmagine che sceglie lui, invia il pagamento e include il preimmagine nel payload onion usando il record TLV `key_send`. Il ricevente estrae il preimmagine, riscuote il pagamento e apprende il preimmagine dall'onion. Poiché il pagatore sceglie il preimmagine, Keysend non fornisce prova di pagamento — solo il pagatore, non il ricevente, può provare che il pagamento è avvenuto."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "Fatture",
+        "BOLT 11",
+        "Pagamenti",
+        "Bech32"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.htlcs",
+          "title": "HTLC"
+        },
+        {
+          "id": "wiki.onion-routing",
+          "title": "Onion Routing"
+        },
+        {
+          "id": "wiki.multipath-payments",
+          "title": "Pagamenti Multipath"
+        },
+        {
+          "id": "wiki.routing-fees",
+          "title": "Commissioni di Routing"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.channel-liquidity",
+      "slug": "channel-liquidity",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Liquidità del Canale",
+      "description": "La distribuzione dei fondi all'interno di un canale di pagamento che determina quanto può essere inviato o ricevuto e come i pagamenti vengono instradati attraverso la rete.",
+      "coverImage": "media/wiki/channel-liquidity/liquidity-balance.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "La liquidità del canale si riferisce a quanto bitcoin si trova su ciascun lato di un canale di pagamento in un dato momento. Ogni canale ha una capacità totale fissa, stabilita all'apertura quando i fondi vengono bloccati in un output multisig 2-of-2 sulla blockchain Bitcoin. La capacità non cambia mai per l'intera vita del canale — solo la distribuzione si sposta.\n\n**Capacità fissa, saldo variabile.** La somma dei saldi di entrambe le parti è sempre uguale alla capacità del canale. Quando Alice invia 0,1 BTC a Bob attraverso il loro canale da 1 BTC, il saldo di Alice diminuisce di 0,1 BTC e quello di Bob aumenta della stessa quantità. Il canale contiene ancora 1 BTC totale, ma il saldo si è spostato.\n\n**Liquidità in uscita vs in entrata.** La liquidità in uscita è l'importo che puoi inviare — è il tuo lato del saldo del canale. La liquidità in entrata è l'importo che puoi ricevere — è il lato della controparte. Sono immagini speculari: se hai 0,7 BTC in un canale, puoi inviare fino a 0,7 BTC e ricevere fino a 0,3 BTC.\n\n**L'analogia dell'altalena.** Immagina un'altalena con una tavola di lunghezza fissa. Quando un lato sale, l'altro scende della stessa identica quantità. La liquidità del canale funziona allo stesso modo: ogni satoshi che si sposta da Alice a Bob riduce la capacità di invio di Alice e aumenta quella di Bob. Il totale rimane costante.\n\n![Distribuzione della Liquidità del Canale](media/wiki/channel-liquidity/liquidity-balance.svg \"Due canali che mostrano come la stessa capacità totale sia suddivisa diversamente tra coppie di nodi. Alice può inviare 0,7 BTC a Bob ma Bob può inviare solo 0,3 BTC attraverso lo stesso canale.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Il vincolo della capacità fissa.** L'invariante di ogni canale di pagamento è: `saldo_A + saldo_B = capacità_canale`. Questo significa che la liquidità è un gioco a somma zero all'interno di un canale. Ogni pagamento in una direzione riduce la capacità in uscita del mittente dell'importo del pagamento e aumenta la capacità in uscita del ricevente.\n\n**La direzione del pagamento cambia il saldo.** Se Alice invia 0,2 BTC a Bob in un canale da 1 BTC, il saldo passa da (0,7, 0,3) a (0,5, 0,5). Ora entrambi possono inviare 0,5 BTC. Se Alice invia altri 0,4 BTC, passa a (0,1, 0,9). Ora Alice può inviare solo 0,1 BTC, mentre Bob può inviare 0,9 BTC. Il canale è sbilanciato — favorisce una direzione rispetto all'altra.\n\n**Il problema della liquidità in entrata.** Ricevere non è automatico su Lightning. Per ricevere un pagamento, hai bisogno di capacità in entrata — qualcun altro deve avere un canale verso di te con fondi sul suo lato. Questo è il problema più comune per i nuovi nodi Lightning.\n\n**Perché la liquidità in entrata è difficile.** Quando apri un canale, lo finanzi interamente dal tuo wallet. Questo ti dà liquidità in uscita (puoi inviare), ma ti dà zero liquidità in entrata (nessuno può inviarti pagamenti attraverso quel canale finché l'altra parte non ha saldo sul suo lato). Non puoi semplicemente comprare o creare liquidità in entrata on-chain — deve arrivare da altri nodi che instradano pagamenti attraverso il tuo canale nella direzione opposta.\n\n**Implicazioni per la topologia della rete.** I nodi ben connessi, o hub, accumulano naturalmente liquidità in entrata nel tempo perché i pagamenti li attraversano in entrambe le direzioni. Un nodo con molti canali bilanciati diventa un nodo di routing utile. I nodi piccoli o nuovi con pochi canali e tutto il saldo dalla loro parte faticano a ricevere perché nessun pagamento può entrare.\n\n![Il Problema della Liquidità in Entrata](media/wiki/channel-liquidity/liquidity-problem.svg \"Tre scenari che mostrano come la liquidità in entrata determini se un pagamento riesce o fallisce. Senza capacità in entrata, Bob non può ricevere nonostante abbia un canale aperto.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**La liquidità sul grafo della rete.** La Lightning Network è un grafo diretto dove ogni canale ha una capacità nota (pubblica negli annunci di canale secondo BOLT 7) ma la distribuzione esatta del saldo è privata — solo i due partner del canale la conoscono. Questo crea un problema fondamentale di incertezza per gli algoritmi di routing: devono indovinare quali canali hanno abbastanza liquidità in uscita per un dato pagamento.\n\n**Pathfinding probabilistico.** Le implementazioni moderne di Lightning usano il pathfinding probabilistico per stimare la liquidità dei canali. Invece di assumere un saldo particolare, modellano il saldo di ogni canale come una distribuzione di probabilità. Quando un tentativo di pagamento riesce o fallisce, il nodo aggiorna le sue convinzioni sulla liquidità di ogni canale lungo il percorso. Più informazioni ha un nodo (da tentativi passati, gossip o probing), migliori diventano le sue stime di probabilità.\n\n**L'insieme di incertezza.** Ogni nodo conosce esattamente due cose: i propri saldi dei canali (in uscita e in entrata per ogni canale diretto) e la capacità totale di ogni canale pubblico (dal protocollo gossip). Tutto il resto — la distribuzione del saldo dei canali tra altri nodi — è sconosciuto. Il pathfinding richiede di navigare questa incertezza: scegliere rotte dove la probabilità di liquidità in uscita sufficiente supera una certa soglia.\n\n**Ribilanciamento circolare.** Quando un canale diventa troppo sbilanciato (tutto il saldo da un lato), un nodo può eseguire un ribilanciamento circolare. Il nodo invia un pagamento che fa un ciclo attraverso la rete e torna a sé stesso attraverso il canale sbilanciato, spostando il saldo nella direzione desiderata. Questo consuma commissioni di routing (ogni salto nel ciclo addebita la sua commissione) ma evita di chiudere e riaprire il canale. Il ribilanciamento circolare è un'area attiva di sviluppo di strumenti, con molte implementazioni di nodi che offrono strategie di ribilanciamento automatico.\n\n**Splice-in e splice-out (BOLT 2).** Lo splice-in aggiunge più fondi a un canale esistente senza chiuderlo, aumentando la capacità del canale. Lo splice-out rimuove fondi da un canale, diminuendone la capacità. Entrambe le operazioni usano una nuova transazione di funding che sostituisce la precedente preservando lo stato del canale e gli HTLC. Lo splice-in è utile quando un canale ha bisogno di più capacità totale; lo splice-out è utile quando i fondi servono altrove. Nessuna delle due operazioni risolve direttamente il problema della liquidità in entrata — cambiano solo la capacità totale, non la distribuzione del saldo.\n\n**Dual-funding (BOLT 2). L'apertura standard di un canale richiede che una parte finanzi l'intero canale. Il dual-funding permette a entrambe le parti di contribuire alla creazione del canale. Se Alice e Bob aprono un canale da 1 BTC con dual-funding, Alice può contribuire 0,6 BTC e Bob 0,4 BTC. Bob ora ha 0,4 BTC di liquidità in uscita e 0,6 BTC di liquidità in entrata dal momento in cui il canale si apre. Il dual-funding risolve metà del problema della liquidità in entrata alla creazione del canale, ma il saldo può ancora diventare sbilanciato nel tempo con i pagamenti.**\n\n**LSP e liquidità in entrata come servizio.** I Lightning Service Provider (LSP) affrontano il problema della liquidità in entrata vendendola. Un LSP apre un canale verso di te, finanziandolo dal suo lato, dandoti capacità in entrata immediata. Paghi una commissione (tipicamente una commissione di setup una tantum più commissioni di routing) per questo servizio. Gli LSP sono essenziali per i wallet mobili e i nodi non di routing, che non possono acquisire facilmente liquidità in entrata attraverso la partecipazione organica alla rete.\n\n**Canali JIT (Just-In-Time).** Un canale JIT viene aperto da un LSP su richiesta quando arriva un pagamento per un utente che non ha un canale diretto con il mittente. L'LSP rileva un pagamento in arrivo, apre un canale verso il destinatario, inoltra il pagamento e raccoglie le commissioni di routing. L'utente non deve gestire canali o liquidità — l'LSP lo gestisce in modo trasparente. I canali JIT sono un miglioramento chiave dell'esperienza utente per l'onboarding su Lightning.\n\n**Annunci di liquidità e il mercato della liquidità.** Una proposta BOLT per gli annunci di liquidità permetterebbe ai nodi di pubblicizzare pubblicamente che vogliono comprare o vendere liquidità in entrata. Un mercato della liquidità permetterebbe ai nodi di scoprirsi reciprocamente, negoziare termini (commissione, durata, dimensione del canale) e aprire canali programmaticamente. Questa è un'area attiva di sviluppo che potrebbe ridurre significativamente l'attrito nell'acquisizione di liquidità in entrata.\n\n**La riserva del canale (limite di polvere dell'1%).** Ogni canale ha una riserva, tipicamente l'1% della capacità del canale, che non può essere spesa. Questa riserva esiste per imporre un costo alla chiusura del canale: se una delle parti tenta di imbrogliare trasmettendo uno stato vecchio, perde l'intero saldo, inclusa la riserva. La riserva non è disponibile come liquidità in uscita o in entrata — è bloccata fino alla chiusura del canale. Per un canale da 1 BTC, 0,01 BTC sono riservati e 0,99 BTC sono utilizzabili. Gli algoritmi di routing e i calcoli del saldo devono tenere conto di questa riserva per evitare fallimenti di routing dovuti a liquidità utilizzabile insufficiente."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "Liquidità",
+        "Saldo del Canale",
+        "Routing",
+        "Liquidità in Entrata"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.routing-fees",
+          "title": "Commissioni di Routing"
+        },
+        {
+          "id": "wiki.lightning-service-providers",
+          "title": "Lightning Service Provider"
+        },
+        {
+          "id": "wiki.multipath-payments",
+          "title": "Pagamenti Multipath"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.routing-fees",
+      "slug": "routing-fees",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Commissioni di Routing",
+      "description": "I costi applicati dai nodi intermedi della Lightning Network per l'inoltro dei pagamenti, composti da una commissione di base e una commissione proporzionale per HTLC.",
+      "coverImage": "media/wiki/routing-fees/fee-breakdown.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "**Cosa sono le commissioni di routing?** Quando un pagamento attraversa la Lightning Network, non viaggia direttamente dal mittente al destinatario — passa attraverso molteplici nodi intermedi. Ogni nodo che inoltra il pagamento applica una piccola commissione per il suo servizio.\n\n**Due componenti.** Ogni commissione di routing è composta da due parti:\n- **Commissione di base** (*fee_base_msat*): un importo fisso in millisatoshi applicato per ogni pagamento inoltrato, indipendentemente dal suo valore.\n- **Commissione proporzionale** (*fee_proportional_millionths*): un importo variabile proporzionale al valore del pagamento, espresso in parti per milione (ppm).\n\nIl mittente paga le commissioni cumulative di tutti i salti. Il destinatario riceve l'importo totale del pagamento meno le commissioni dedotte lungo il percorso.\n\n**Perché esistono le commissioni.** I nodi di routing forniscono infrastruttura essenziale — bloccano liquidità nei canali, si assumono il rischio degli HTLC (congelamento temporaneo dei fondi durante l'inoltro) e mantengono una connettività costante. Le commissioni compensano questi costi e rischi.\n\n**Analogia.** Pensa alle commissioni di routing come ai pedaggi autostradali. Ogni segmento tra due uscite ha il proprio pedaggio. Paghi a ogni casello e il pedaggio totale è la somma di tutti i segmenti. Un percorso più lungo con più salti significa più commissioni, proprio come un viaggio più lungo con più caselli costa di più.\n\n![Accumulo delle Commissioni di Routing](media/wiki/routing-fees/fee-breakdown.svg \"Un pagamento a 3 salti da Alice a Diana: Bob e Carol applicano ciascuno una commissione di base e una proporzionale, riducendo l'importo inoltrato a ogni passo.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Commissione di base in dettaglio.** La commissione di base (*fee_base_msat*) è un addebito fisso per ogni HTLC inoltrato, tipicamente compreso tra 1 e 1.000 millisatoshi (0,001–1 satoshi). Compensa il nodo per i costi operativi dell'inoltro: elaborazione dell'HTLC, gestione dello stato del canale e assunzione del rischio di controparte che l'HTLC debba essere risolto on-chain. La commissione di base è più rilevante per i pagamenti piccoli — può rappresentare una percentuale significativa per un pagamento da 1.000 satoshi ma è trascurabile per uno da 1.000.000 di satoshi.\n\n**Commissione proporzionale in dettaglio.** La commissione proporzionale (*fee_proportional_millionths*) è espressa in parti per milione (ppm). Per esempio, 100 ppm significa lo 0,01% dell'importo inoltrato. I valori tipici vanno da 1 ppm (0,0001%) a 1.000 ppm (0,1%). La commissione proporzionale scala con la dimensione del pagamento, diventando il costo dominante per i pagamenti grandi.\n\n**Calcolo della commissione.** La commissione per un singolo salto è:\n\n```\ncommissione = fee_base_msat + (importo_msat × fee_proportional_millionths / 1.000.000)\n```\n\nPer un pagamento di 100.000 satoshi attraverso un nodo che addebita 10 msat di base e 100 ppm:\n```\ncommissione = 10 + (100.000.000 × 100 / 1.000.000)\ncommissione = 10 + 10.000 = 10.010 msat = 10,01 satoshi\n```\n\n**Offuscamento delle commissioni nell'onion.** Il protocollo di onion routing garantisce che nessun nodo intermedio conosca l'intero percorso o la commissione totale. Ogni nodo vede solo l'HTLC che deve inoltrare e la commissione che guadagnerà. Il mittente costruisce payload crittografati annidati, con le istruzioni di ogni salto sigillate all'interno di strati che solo quel salto può decrittare. Questo preserva la privacy — Bob non sa se Alice è il mittente originale né se Carol è il destinatario finale.\n\n**Impatto sul pathfinding.** Gli algoritmi di pathfinding come l'algoritmo di Dijkstra trattano la commissione totale come un peso degli archi e cercano il percorso a costo minimo dal mittente al destinatario. I nodi con commissioni alte vengono deprioritizzati; i nodi con commissioni basse attraggono più traffico di routing. Il nodo che esegue il pathfinding calcola la commissione cumulativa attraverso i percorsi candidati e seleziona il più economico. Questo crea un mercato competitivo in cui i nodi devono impostare le commissioni strategicamente per attrarre flusso.\n\n**Aggiornamento delle commissioni.** I nodi modificano le commissioni dinamicamente tramite messaggi gossip `channel_update`. Gli operatori aggiustano le commissioni in base a:\n- Bilanciamento della liquidità del canale (aumentando le commissioni quando la liquidità in uscita è scarsa)\n- Congestione della rete (aumentando le commissioni in periodi di alta domanda)\n- Posizionamento competitivo (riducendo le commissioni per attrarre volume di routing)\n- Costi operativi (uptime del server, costi di ribilanciamento)\n\n![Strategie di Commissione di Routing](media/wiki/routing-fees/fee-strategies.svg \"Un confronto tra strategie di commissione economica, bilanciata e premium che mostra il compromesso tra volume e guadagno per pagamento.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Il dilemma del nodo.** Ogni nodo di routing affronta una scelta economica fondamentale: commissioni basse attirano alto volume di routing ma potrebbero non coprire i costi; commissioni alte generano più guadagno per pagamento ma respingono il traffico. Questo rispecchia il classico modello di competizione Bertrand in economia, dove i nodi si sottocotano a vicenda sul prezzo finché le commissioni si avvicinano al costo marginale. Tuttavia, la qualità eterogenea dei nodi di Lightning — differenze in affidabilità, profondità di liquidità e connettività dei canali — impedisce una corsa al ribasso pura.\n\n**Costo opportunità della liquidità.** Il capitale bloccato nei canali Lightning potrebbe essere impiegato altrove (prestiti, trading, guadagni on-chain). Un operatore di nodo deve considerare questo costo opportunità quando imposta le commissioni. Per esempio, se 1 BTC bloccato in canali potesse guadagnare un 5% APR in DeFi, il costo opportunità mensile sarebbe di circa 4.167 satoshi. Se il nodo instrada 1.000 pagamenti al mese, ha bisogno di almeno ~4,2 satoshi per pagamento solo per pareggiare con l'uso alternativo del capitale.\n\n**Costo del rischio HTLC.** Quando inoltra un HTLC, il nodo blocca temporaneamente i fondi per la durata del pagamento (tipicamente secondi o minuti, ma potenzialmente ore per pagamenti falliti o contestati). Durante questa finestra, la liquidità non è disponibile per altri routing. Se un canale viene chiuso forzatamente mentre un HTLC è in sospeso, risolverlo richiede transazioni on-chain, che aggiungono costo e complessità. La commissione di base compensa principalmente questo rischio specifico degli HTLC.\n\n**Pickhardt payments e grafi di incertezza.** René Pickhardt e Stefan Richter hanno proposto un approccio al pathfinding sensibile alle commissioni utilizzando grafi di incertezza (2021). Invece di trattare la liquidità del canale come binaria (sufficiente / insufficiente), il modello assegna probabilità ai bilanci dei canali. L'algoritmo di pathfinding minimizza quindi una funzione di costo combinato che include sia le commissioni che la probabilità di fallimento del pagamento. Questo approccio riduce la necessità di tentativi di pagamento per prova ed errore e migliora i tassi di successo al primo tentativo. Il costo totale minimizzato è:\n\n```\ncosto = commissioni_totali - λ × log(p_successo)\n```\n\nDove λ è un parametro regolabile che bilancia la minimizzazione delle commissioni con la probabilità di successo.\n\n**MPP e aritmetica delle commissioni.** I pagamenti multi-percorso (MPP) suddividono un pagamento attraverso più rotte, ciascuna con le proprie commissioni. La commissione totale è la somma delle commissioni su tutti i frammenti. L'MPP può talvolta ridurre le commissioni totali quando si può evitare un singolo salto costoso suddividendo il pagamento. Tuttavia, l'MPP aumenta anche il numero di HTLC in volo, potenzialmente aumentando i costi delle commissioni di base. La suddivisione ottimale dipende dalle strutture delle commissioni dei percorsi disponibili e dalla distribuzione della liquidità attraverso i canali.\n\n**Discriminazione delle commissioni.** Sebbene la maggior parte dei nodi applichi commissioni uniformi a tutti i peer, nulla impedisce a un nodo di impostare commissioni diverse per canali diversi. Questa pratica, chiamata discriminazione delle commissioni, è rara perché aggiunge complessità operativa e riduce la prevedibilità della rete. In pratica, i nodi tipicamente impostano una singola politica di commissioni e la applicano a tutti i canali, o raggruppano i canali per allineamento di liquidità.\n\n**Routing a commissione zero.** Alcuni nodi, particolarmente hub grandi e nodi ben capitalizzati, instradano pagamenti con commissioni zero o vicine allo zero. Questa è una strategia deliberata per avviare il volume di routing e stabilire una posizione centrale nel grafo della rete. Questi nodi tipicamente generano entrate attraverso altri mezzi (integrazione con exchange, operazioni di Lightning Service Provider) e trattano il routing come uno strumento di acquisizione o fidelizzazione dei clienti. Il routing a commissione zero è stato criticato per centralizzare la topologia della rete, ma abbassa anche la barriera d'ingresso per i nuovi utenti.\n\n**Entrate da commissioni vs. costi di ribilanciamento.** I nodi di routing guadagnano commissioni sui pagamenti in uscita ma devono mantenere bilanciata la liquidità dei canali per continuare a instradare. Il ribilanciamento — spostare i fondi nei canali impoveriti — ha un costo (commissioni di transazione on-chain o ribilanciamento circolare attraverso la stessa Lightning Network). Il profitto netto di routing è:\n\n```\nprofitto_netto = entrate_da_commissioni - costi_di_ribilanciamento - costi_operativi\n```\n\nUn nodo potrebbe guadagnare 10.000 satoshi in commissioni ma spenderne 3.000 per il ribilanciamento e 1.000 per l'infrastruttura del nodo, per un profitto netto di 6.000 satoshi. Molti nodi operano con margini ridotti o in perdita, trattando il routing come un bene pubblico o un investimento strategico.\n\n**Stima delle commissioni nel pathfinding.** Le implementazioni moderne di Lightning utilizzano una stima sofisticata delle commissioni che considera non solo la politica dichiarata ma anche:\n- Affidabilità storica del canale (uptime, tasso di inoltro riuscito)\n- Età e profondità del canale\n- Probabilità che il saldo in uscita di un canale possa effettivamente ospitare il pagamento\n- Il sovrapprezzo di congestione (i nodi possono aumentare le commissioni durante i periodi di alto carico)\n\nQuesti fattori sono combinati in una stima di costo \"canonica\" che gli algoritmi di pathfinding utilizzano al posto dei valori grezzi delle commissioni.\n\n**Canali Wumbo ed economia delle commissioni.** I canali grandi (oltre 0,167 BTC, il limite pre-Wumbo) cambiano significativamente l'economia delle commissioni. Un canale Wumbo può instradare molti pagamenti grandi senza ribilanciamento, riducendo i costi di ribilanciamento. Tuttavia, concentra anche il rischio di liquidità e aumenta il costo opportunità del capitale. Con la diffusione dei canali Wumbo, la componente proporzionale della commissione potrebbe diminuire (poiché il volume è maggiore) mentre la commissione di base potrebbe aumentare (poiché il rischio HTLC per canale è più grande)."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "Commissioni di Routing",
+        "Economia",
+        "Gestione del Nodo"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.channel-liquidity",
+          "title": "Liquidità del Canale"
+        },
+        {
+          "id": "wiki.onion-routing",
+          "title": "Onion Routing"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.lightning-invoices",
+          "title": "Fatture Lightning (BOLT 11)"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.watchtowers",
+      "slug": "watchtowers",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Watchtower",
+      "description": "Servizi di terze parti che monitorano la blockchain di Bitcoin alla ricerca di transazioni di commitment revocate, permettendo ai nodi Lightning di rimanere sicuri mentre sono offline.",
+      "coverImage": "media/wiki/watchtowers/watchtower-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un **watchtower** (torre di vigilanza) è un servizio di terze parti che osserva la blockchain di Bitcoin per conto tuo mentre il tuo nodo Lightning è offline. Immaginalo come una guardia giurata che sorveglia la tua casa mentre sei in vacanza — se qualcuno tenta di entrare, la guardia allerta le autorità.\n\n**Il problema.** I canali Lightning si basano sull'ultima transazione di commitment per determinare a chi appartengono i fondi. Se il tuo telefono è spento e il tuo peer di canale trasmette una vecchia transazione di commitment revocata che li favorisce, potrebbe rubare i tuoi fondi. Senza un watchtower, devi rimanere online costantemente per intercettare i tentativi di frode.\n\n**Come aiuta.** Prima di andare offline, il tuo nodo condivide \"transazioni di giustizia\" crittografate con il watchtower. Il watchtower scansiona ogni nuovo blocco Bitcoin. Se rileva una transazione di commitment revocata sulla blockchain, trasmette la transazione di giustizia — una transazione di penalità che invia tutti i fondi del canale a te, la parte onesta. Rimani sicuro anche quando il tuo dispositivo è spento.\n\n![Watchtower in Azione](media/wiki/watchtowers/watchtower-flow.svg \"Un watchtower monitora la blockchain per conto di un nodo offline e pubblica una transazione di penalità se il peer del canale tradisce.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Come funzionano i watchtower.** Prima di andare offline, un nodo Lightning crea e carica una o più transazioni di giustizia crittografate (chiamate anche \"blob\") sul watchtower. Ogni blob contiene i dati minimi necessari per l'azione del watchtower:\n\n- Il **txid della transazione di commitment revocata** (o un prefisso usato come indice)\n- Il **percorso di spesa della penalità** — una firma che permette a chiunque di spendere l'output revocato verso il portafoglio del nodo onesto\n- Una **chiave di offuscamento** per decrittare il blob\n\nIl watchtower memorizza questi blob indicizzati dal suffisso del txid. Per ogni nuovo blocco, il watchtower verifica se qualche transazione nel blocco corrisponde a un indice memorizzato. In caso di corrispondenza, recupera il blob corrispondente, lo decritta usando la chiave di offuscamento, e trasmette la transazione di penalità.\n\n**Modello di privacy.** Il blob è crittografato in modo che il watchtower non possa leggerne il contenuto. Il watchtower apprende:\n\n- Il prefisso del txid (abbastanza per abbinare le transazioni on-chain)\n- Che esiste un canale di pagamento (poiché riceve blob)\n- L'altezza del blocco a cui attivare ogni indizio\n\nIl watchtower **non** apprende:\n\n- Saldi del canale o importi dei pagamenti\n- Identità della controparte\n- Capacità del canale o alias del nodo\n- I dettagli completi della transazione di commitment\n\nQuesto garantisce che nemmeno un watchtower malintenzionato possa rubare fondi o spiare la tua attività nel canale. Il design crittografato rende i watchtower a fiducia minima — sono guardiani che non possono aprire la cassaforte.\n\n![Design Trust-Minimized del Watchtower](media/wiki/watchtowers/watchtower-privacy.svg \"La crittografia dei blob garantisce che il watchtower non apprenda nulla sullo stato del canale o sul saldo.\")\n\n**Limitazioni.** I watchtower proteggono solo da un attacco specifico: un peer del canale che trasmette una transazione di commitment revocata. Non proteggono da:\n\n- **Attacchi di griefing** in cui un peer chiude forzatamente il canale onestamente ma in un momento scomodo\n- **Attacchi legati alle commissioni** in cui un peer trasmette una transazione di commitment con commissioni insufficienti, rimanendo bloccata nel mempool\n- **Tempo di inattività del nodo di routing** nei pagamenti multi-hop\n- **Perdita di dati** — se perdi completamente lo stato del canale, un watchtower non può recuperare i tuoi fondi"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Il protocollo watchtower.** La comunicazione watchtower è definita nelle specifiche BOLT (estensioni a BOLT #2). Il protocollo definisce due ruoli:\n\n- **Client (tower client):** Il nodo Lightning che necessita di monitoraggio. Tipicamente un dispositivo mobile o a bassa disponibilità.\n- **Torre (watchtower):** Il servizio sempre attivo che monitora la blockchain.\n\nIl protocollo utilizza un'interfaccia in stile gRPC su tunnel Noise (trasporto crittografato). I messaggi chiave del protocollo includono:\n\n- `SessionInit`: Il client si registra presso una torre, negoziando parametri come dimensione del blob, schema di ricompensa e policy\n- `StateUpdate`: Il client carica nuovi blob crittografati man mano che lo stato del canale avanza\n- `DeleteSession`: Il client rimuove una sessione quando un canale viene chiuso\n- `TowerInfo`: Richieste di stato e riepiloghi di sessione\n\n**Formato del blob crittografato.** Lo schema di crittografia del blob è fondamentale per la privacy. Il client deriva una chiave dallo stato del canale usando una funzione di hash con chiave. Il payload del blob contiene:\n\n1. La **transazione di penalità crittografata** (la transazione di giustizia che spende l'output revocato)\n2. Il **suggerimento del txid** — un hash troncato del txid di commitment revocato usato per l'indicizzazione\n3. Un **suggerimento di altezza del blocco** — l'altezza minima alla quale il watchtower dovrebbe iniziare a scansionare\n\nLa crittografia garantisce che solo il client (che conosce il percorso di derivazione) possa decrittare il blob. Il watchtower esegue una semplice ricerca: dato un txid da un nuovo blocco, calcola il prefisso del suggerimento e verifica le corrispondenze nel suo database.\n\n**Gestione delle sessioni.** Un client gestisce sessioni con una o più torri:\n\n1. **Registrazione:** Il client sceglie una torre (per chiave pubblica e indirizzo) e avvia una sessione. La torre può richiedere autenticazione o pagamento anticipato.\n2. **Caricamento batch di blob:** Il client può caricare più blob in un singolo batch, ciascuno corrispondente a uno stato revocato diverso. Il client filtra gli stati e carica solo quelli rilevanti — tipicamente gli ultimi stati, non l'intera cronologia.\n3. **Heartbeat:** Il client invia messaggi di keep-alive periodici per confermare che la torre sia operativa.\n4. **Chiusura della sessione:** Quando un canale si chiude in modo cooperativo, il client comunica alla torre di eliminare i blob corrispondenti.\n\n**Filtro lato client.** Il client deve essere selettivo su quali stati caricare. Caricare ogni stato passato sprecherebbe storage e larghezza di banda della torre. Il client carica tipicamente solo:\n\n- Gli **ultimi n stati** (ad esempio, le 3 transazioni di commitment più recenti)\n- Stati **prossimi alla scadenza** (vicini al timelock CSV)\n- Stati in cui la **distribuzione del saldo è cambiata significativamente**\n\nLa strategia di filtro dipende dalla tolleranza al rischio del client. Un client conservativo carica molti stati; uno aggressivo ne carica pochi, accettando una finestra di vulnerabilità più piccola.\n\n**Meccanismo di ricompensa.** Alcuni watchtower fanno pagare commissioni per il loro servizio. Due modelli comuni:\n\n- **Commissione fissa:** Il client paga un abbonamento ricorrente (ad esempio, satoshi mensili) indipendentemente dal fatto che una penalità venga mai attivata\n- **Commissione di successo:** La torre prende una percentuale dei fondi recuperati quando una transazione di penalità viene trasmessa con successo\n\nIl modello a commissione di successo allinea gli incentivi — la torre guadagna solo quando protegge con successo il client. Tuttavia, introduce complessità: la transazione di penalità deve includere un output per la torre, che il client deve pre-firmare.\n\n**Implementazione LND.** LND (Lightning Network Daemon) è stata la prima implementazione importante a rilasciare un watchtower di produzione. Decisioni chiave di design:\n\n- Il watchtower di LND utilizza un modello a **sessione singola per canale** — ogni canale ha la propria sessione con storage blob indipendente\n- I blob sono crittografati usando **AEAD** (Authenticated Encryption with Associated Data) con una chiave derivata dall'elemento `shachain` del canale\n- La torre memorizza i blob in un **database bolt-backed** su disco locale\n- I client possono registrarsi con più torri simultaneamente per ridondanza\n- LND supporta sia la modalità \"torre\" (esecuzione di un server watchtower) che la modalità \"client\" (connessione a torri remote)\n\n**Approccio integrato BOLT 2.** La specifica BOLT adotta un approccio più integrato rispetto all'implementazione di LND:\n\n- Le sessioni sono stabilite attraverso il trasporto crittografato peer-to-peer esistente (Noise), non connessioni separate\n- Il protocollo è progettato per essere indipendente dall'implementazione — qualsiasi implementazione Lightning (c-lightning, Eclair, LDK) può supportare i watchtower\n- I formati dei blob sono standardizzati tra le implementazioni, consentendo l'interoperabilità\n- La specifica include disposizioni per la **ridondanza e il failover da torre a torre**\n\n**Topologia della rete di watchtower.** In pratica, i watchtower sono gestiti da:\n\n- **LSP (Lightning Service Providers):** Che offrono monitoraggio watchtower come parte di un pacchetto con gestione dei canali\n- **Exchange:** Che gestiscono torri come valore aggiunto per i loro portafogli Lightning ospitati\n- **Volontari della comunità:** Che gestiscono torri gratuitamente come bene pubblico\n- **Servizi commerciali:** Fornitori specializzati di watchtower-as-a-service\n\nUna topologia tipica prevede un client mobile registrato con 2–3 torri per ridondanza. Le torri sono distribuite geograficamente e gestite indipendentemente, in modo che nessuna singola torre sia un punto di errore o di fiducia.\n\n**Limitazioni attuali.** Nonostante la loro efficacia, i watchtower hanno limitazioni pratiche:\n\n- **Costo di storage:** Ogni stato del canale richiede un blob. Per nodi ad alto volume con molti canali, lo storage dei blob può raggiungere gigabyte\n- **Latenza di scansione:** Le torri devono scansionare ogni blocco. Durante periodi di alto throughput, una torre potrebbe rimanere indietro\n- **Rischio di front-running:** Un attaccante sofisticato potrebbe tentare di anticipare la transazione di penalità della torre, sebbene la struttura dell'output di penalità renda questa operazione difficile\n- **Nessuna protezione contro le commissioni di force-close:** I watchtower non possono regolare i livelli di commissione sulla transazione di penalità — se le commissioni aumentano, la penalità potrebbe non essere confermata in tempo\n- **Assunzioni di fiducia:** Sebbene a fiducia minima, il watchtower apprende comunque l'esistenza del tuo canale e la sua data di apertura approssimativa"
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "Watchtower",
+        "Sicurezza",
+        "Meccanismo di Penalità",
+        "Protezione Offline"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.lightning-service-providers",
+          "title": "Lightning Service Provider"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.bolt-specifications",
+      "slug": "bolt-specifications",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Specifiche BOLT",
+      "description": "The Basis of Lightning Technology — un insieme di specifiche che definiscono il protocollo Lightning Network, coprendo comunicazione tra peer, gestione dei canali, formati delle transazioni e routing.",
+      "coverImage": "media/wiki/bolt-specifications/bolt-architecture.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "BOLT sta per **Basis of Lightning Technology**. I BOLT sono le specifiche ufficiali del protocollo che definiscono il funzionamento della Lightning Network — ogni implementazione che vuole essere interoperabile deve seguirle.\n\nEsistono nove documenti BOLT attivi, ciascuno dedicato a un diverso aspetto del protocollo. Sono ospitati su GitHub all'indirizzo `github.com/lightning/bolts`, dove chiunque può leggere il codice sorgente, seguire le modifiche e proporre miglioramenti.\n\nLe specifiche garantiscono che diverse implementazioni di Lightning — LND, Core Lightning, Eclair, LDK — parlino lo stesso linguaggio. Senza i BOLT, ogni implementazione definirebbe il proprio formato di rete, la propria logica di canale e il proprio schema di routing, rendendo l'interoperabilità impossibile.\n\n![Pila del protocollo BOLT](media/wiki/bolt-specifications/bolt-architecture.svg \"Le nove specifiche BOLT attive organizzate come una pila di protocollo, dal trasporto al livello applicativo.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "I documenti BOLT sono numerati individualmente. Ciascuno affronta uno specifico layer o funzione del protocollo:\n\n**BOLT #1 — Protocollo di Base.** Definisce il trasporto crittografato, l'handshake crittografico iniziale, il formato dei messaggi (tipo a 2 byte + payload con prefisso di lunghezza) e la gestione degli errori. Ogni messaggio scambiato tra nodi Lightning utilizza il framing definito qui.\n\n**BOLT #2 — Protocollo Peer.** Specifica l'intero ciclo di vita di un canale di pagamento: apertura, accettazione, finanziamento, aggiornamento della transazione di commitment e chiusura. Definisce come gli HTLC vengono aggiunti e rimossi, come vengono scambiate le firme di commitment e come funzionano le chiusure cooperative e unilaterali.\n\n**BOLT #3 — Formati delle Transazioni Bitcoin e Script.** Descrive la struttura esatta delle transazioni di commitment, gli script degli output HTLC e il meccanismo di penale che garantisce la sicurezza del canale. Include dettagli su `to_local`, `to_remote` e gli output HTLC di timeout/successo.\n\n**BOLT #4 — Onion Routing.** Copre la costruzione di pacchetti di pagamento crittografati a cipolla usando il protocollo Sphinx. Specifica come il pagatore costruisce strati di crittografia annidati, come ogni hop decifra il suo payload e come gli errori risalgono.\n\n**BOLT #5 — Raccomandazioni per la Gestione delle Transazioni On-Chain.** Fornisce linee guida sulla gestione delle fee, la selezione UTXO e come le implementazioni dovrebbero gestire la chiusura on-chain dei canali quando il peer non risponde.\n\n**BOLT #7 — Scoperta di Nodi e Canali P2P.** Definisce il protocollo gossip che permette ai nodi di scoprirsi reciprocamente e conoscere i canali pubblici. Copre i messaggi `node_announcement`, `channel_announcement` e `channel_update` che costruiscono il grafo della rete.\n\n**BOLT #8 — Trasporto Crittografato e Autenticato.** Specifica il framework Noise protocol utilizzato per il trasporto crittografato. Definisce il pattern di handshake esatto (`Noise_XK`) e i primitivi crittografici (Secp256k1, ChaCha20-Poly1305, SHA256).\n\n**BOLT #9 — Feature Bits.** Un registro di feature bit che i nodi usano per segnalare le estensioni di protocollo supportate. Ogni feature ha una coppia pari/dispari: i bit pari sono obbligatori (il nodo deve supportarli o disconnettersi), i bit dispari sono opzionali.\n\n**BOLT #11 — Protocollo di Fatturazione.** Definisce il formato di fattura codificato in bech32 usato per richiedere pagamenti. Specifica il prefisso leggibile, il timestamp, i campi taggati (hash di pagamento, descrizione, scadenza, suggerimenti di routing) e la firma ECDSA recuperabile."
+        },
+        "advanced": {
+          "bodyMarkdown": "**BOLT #12 — Offers.** Il protocollo di fatturazione di nuova generazione destinato a sostituire BOLT 11. Le offerte risolvono le limitazioni chiave delle fatture statiche: supportano pagamenti ricorrenti senza riutilizzo del preimmagine, abilitano la ricezione asincrona, usano route blinding per la privacy e permettono rimborsi (il ricevente diventa pagatore). Un'offerta è una stringa statica che può generare molte fatture, eliminando la necessità che il ricevente sia online.\n\n**Estensioni di BOLT #2.** Il protocollo peer è stato esteso oltre il ciclo di vita originale del canale:\n- Dual-funding (BOLTs + `dual-fund`): entrambe le parti contribuiscono alla transazione di apertura del canale.\n- Splicing: modifica della capacità del canale in corso, aggiungendo o rimuovendo fondi senza chiudere.\n- Canali Wumbo: rimozione del limite massimo di 0,167 BTC sulla dimensione del canale, permettendo capacità maggiori.\n\n**Il processo BOLT.** Il ciclo di vita di un BOLT segue un percorso ben definito:\n1. **Proposta** — un'idea viene formalizzata come modifica alla specifica.\n2. **Bozza** — la proposta viene scritta come documento markdown BOLT.\n3. **Pull Request** — la bozza viene inviata a `github.com/lightning/bolts`.\n4. **Revisione** — gli implementatori discutono, commentano e richiedono modifiche.\n5. **Accettazione** — si raggiunge il consenso e la PR viene integrata.\n6. **Attivazione** — le implementazioni distribuiscono e supportano la nuova specifica.\n7. **Modifiche** — PR successive perfezionano e aggiornano la specifica.\n\n![Ciclo di vita delle specifiche BOLT](media/wiki/bolt-specifications/bolt-lifecycle.svg \"Dalla proposta all'attivazione: come le specifiche BOLT attraversano il processo di standardizzazione.\")\n\n**Negoziazione dei feature bit.** Quando due nodi si connettono, scambiano messaggi `init` che includono i loro vettori di feature bit. Ogni bit segnala il supporto per una specifica estensione:\n- Bit pari: obbligatori — se un nodo non supporta un bit pari, il peer deve disconnettersi.\n- Bit dispari: opzionali — i nodi possono ignorare i bit dispari non supportati e continuare a operare.\nQuesta negoziazione permette al protocollo di evolversi senza rompere la compatibilità con i nodi più vecchi.\n\n**Differenze tra implementazioni.** Sebbene i BOLT definiscano una specifica unica, le implementazioni interpretano la specifica con variazioni minori:\n- **LND** (Go): la più diffusa, enfatizza la stabilità in produzione.\n- **Core Lightning** (C): dà priorità alla conformità alle specifiche e all'architettura modulare.\n- **Eclair** (Scala): implementazione di riferimento con audit di sicurezza rigorosi.\n- **LDK** (Rust): una libreria anziché un nodo completo, usata per incorporare Lightning in altre applicazioni.\nLe discrepanze tra le implementazioni vengono discusse nel repository dei BOLT e risolte tramite modifiche alle specifiche.\n\n**Specifica vivente.** Il repository BOLT non è un insieme di documenti statici. Nuovi BOLT vengono aggiunti man mano che il protocollo si evolve, e quelli esistenti ricevono modifiche attraverso lo stesso processo di PR. Il repository traccia l'intera storia — ogni discussione, ogni decisione, ogni modifica — rendendolo la fonte autorevole per gli standard della Lightning Network."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 9,
+      "tags": [
+        "Lightning Network",
+        "BOLT",
+        "Specifiche",
+        "Standard",
+        "Protocollo"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.onion-routing",
+          "title": "Onion Routing"
+        },
+        {
+          "id": "wiki.lightning-invoices",
+          "title": "Fatture Lightning (BOLT 11)"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.splicing",
+          "title": "Splicing"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.splicing",
+      "slug": "splicing",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Splicing",
+      "description": "Un'estensione del protocollo che consente di aggiungere o rimuovere fondi da un canale Lightning aperto senza doverlo chiudere e riaprire, utilizzando una singola transazione on-chain.",
+      "coverImage": "media/wiki/splicing/splicing-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Lo splicing consente di modificare la capacità di un canale Lightning senza doverlo chiudere.\n\nUn canale Lightning viene normalmente creato con una capacità fissa. Se Alice apre un canale verso Bob con 1,0 BTC, quella capacità rimane bloccata per tutta la durata del canale. Per modificarla, l'approccio tradizionale richiede di chiudere il canale (una transazione on-chain), attendere le conferme, e poi aprire un nuovo canale (una seconda transazione on-chain). Il canale non è disponibile durante l'intero processo.\n\nLo splicing elimina questo overhead. Con lo splicing, Alice può aggiungere più bitcoin al canale (splice-in) o rimuovere bitcoin dal canale (splice-out) usando una singola transazione on-chain. Il canale rimane aperto e operativo durante tutto il processo — i pagamenti continuano a fluire mentre la transazione di splice viene confermata on-chain.\n\n**Splice-in.** Alice aggiunge fondi per aumentare la capacità del canale. La transazione di splice crea un nuovo output di funding che sostituisce il precedente. Se il canale era di 1,0 BTC, uno splice-in di 0,5 BTC lo porta a 1,5 BTC. La distribuzione del saldo esistente tra Alice e Bob viene preservata e il canale rimane aperto.\n\n**Splice-out.** Alice rimuove fondi dal canale, riducendone la capacità. Uno splice-out di 0,3 BTC da un canale da 1,0 BTC risulta in una capacità di 0,7 BTC. I fondi rimossi vanno a un indirizzo on-chain controllato da Alice.\n\n![Flusso dello Splicing del Canale](media/wiki/splicing/splicing-flow.svg \"Lo splicing consente di aggiungere (splice-in) o rimuovere (splice-out) fondi da un canale aperto senza chiuderlo. Senza splicing, il ridimensionamento richiede due transazioni on-chain.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Come funziona lo splicing.** Lo splicing si basa su un'idea semplice: la transazione di funding di un canale può essere sostituita da una nuova transazione di funding concordata da entrambe le parti. La nuova transazione spende il vecchio output multisig 2-of-2 e ne crea uno nuovo con un importo modificato. Lo stato del canale — inclusi tutti gli HTLC in sospeso e la distribuzione corrente del saldo — viene trasferito al nuovo output di funding.\n\n**Flusso del protocollo.** Quando Alice avvia uno splice, entrambe le parti costruiscono una nuova transazione di funding con gli importi modificati. Alice firma la sua parte della nuova transazione di funding e Bob firma la sua. Una volta scambiate le firme, la nuova transazione di funding può essere trasmessa. Mentre viene confermata, il vecchio canale rimane pienamente operativo — i pagamenti possono ancora essere instradati attraverso di esso. Questa è una proprietà di sicurezza fondamentale: non c'è interruzione del servizio.\n\n**Atomicità.** Se la transazione di splice non viene confermata (ad esempio, perché le fee erano troppo basse e viene rimossa dalla mempool), il vecchio canale continua invariato. Lo splice è atomico — o la nuova transazione di funding viene confermata e la capacità del canale viene aggiornata, o non cambia nulla. Entrambe le parti possono riprovare in sicurezza con fee rate modificate.\n\n**Gestione delle fee.** La parte che avvia lo splice paga tipicamente la fee della transazione on-chain. La fee viene dedotta dai fondi del canale o pagata da un wallet esterno, a seconda dell'implementazione. Entrambe le parti devono concordare il fee rate prima di firmare la transazione di splice, poiché uno splice bloccato a causa di fee basse ritarderebbe l'aggiornamento della capacità.\n\n**Casi d'uso.**\n- Ricaricare un canale di routing: un operatore aggiunge capacità a un canale trafficato per aumentare le entrate di routing\n- Prelevare profitti: un operatore rimuove i guadagni di routing senza chiudere il canale e interrompere i percorsi di pagamento attivi\n- Ribilanciamento: regolare la capacità tra più canali per adattarsi ai cambiamenti nei modelli di pagamento\n\n![Splicing vs Ridimensionamento Tradizionale del Canale](media/wiki/splicing/splicing-vs-closed.svg \"Lo splicing richiede una transazione on-chain e nessun tempo di inattività del canale, rispetto all'approccio tradizionale che richiede chiusura, attesa, riapertura e ulteriore attesa.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Il protocollo di splicing interattivo.** Il protocollo di splicing è definito in BOLT #2 e utilizza un insieme dedicato di messaggi scambiati tra i peer del canale:\n\n1. `splice_init`: L'iniziatore propone uno splicing con la variazione di importo desiderata, i dettagli della nuova transazione di funding e il fee rate. Questo messaggio include una firma parziale per la nuova transazione di funding.\n2. `splice_ack`: Il responder accetta la proposta di splicing, accetta il fee rate e fornisce la propria firma per la nuova transazione di funding.\n3. `splice_locked`: Una volta che la nuova transazione di funding raggiunge la profondità di conferma richiesta (tipicamente 3 blocchi), entrambe le parti si scambiano `splice_locked` per segnalare che il canale può riprendere le operazioni normali con la nuova capacità.\n\nDurante questo scambio, il canale rimane in uno stato speciale in cui sia la vecchia che la nuova transazione di funding sono valide. Il protocollo garantisce che in qualsiasi momento entrambe le parti abbiano una transazione di commitment di backup a cui possono ricorrere.\n\n**Interazione con le transazioni di commitment durante uno splice.** Quando uno splice è in corso, il sistema dei numeri di commitment del canale viene influenzato. Ogni operazione di splice incrementa il numero di commitment e la nuova serie di transazioni di commitment fa riferimento al nuovo output di funding. Eventuali HTLC in sospeso al momento dello splice devono essere trasferiti alle nuove transazioni di commitment. Questo richiede che entrambe le parti concordino sull'insieme di HTLC non risolti prima che lo splice possa procedere.\n\nIl protocollo gestisce questo richiedendo che tutti gli HTLC in volo vengano risolti o incorporati nelle nuove transazioni di commitment. Se ci sono HTLC non risolti che non possono essere trasferiti, lo splice deve attendere la loro risoluzione. Questo garantisce che nessun fondo venga perso durante la transizione tra gli output di funding.\n\n**Splicing e dual-funding.** Lo splicing può essere combinato con il dual-funding, dove entrambe le parti contribuiscono con fondi al canale. In uno splice con dual-funding, sia Alice che Bob possono aggiungere o rimuovere fondi nella stessa transazione di splice. Questo è particolarmente utile per il ribilanciamento del canale tra peer — invece di inviare pagamenti avanti e indietro per spostare il saldo, entrambe le parti possono regolare i propri contributi in una singola operazione atomica.\n\nIn uno scenario di dual-funding, il protocollo di splice viene esteso per permettere a entrambe le parti di specificare i propri contributi. La transazione di funding include input da entrambi i lati e gli importi degli output riflettono il nuovo saldo desiderato. Questo richiede una negoziazione più complessa ma riduce il numero di transazioni rispetto a operazioni di splice separate.\n\n**Relazione con i numeri di commitment.** Ogni operazione di splice reimposta il numero di commitment del canale. Il numero di commitment è un contatore monotonicamente crescente che traccia lo stato del canale. Dopo uno splice, il numero di commitment continua da dove era rimasto, assicurando che il meccanismo di revoca funzioni ancora correttamente. Le vecchie transazioni di commitment (pre-splice) vengono revocate usando lo schema di revoca standard Poon-Dryja.\n\n**Considerazioni sulla sicurezza.** La transazione di splice deve essere firmata da entrambe le parti, proprio come la transazione di funding originale. Questo significa che nessuna delle due parti può forzare unilateralmente uno splice — è sempre un'operazione cooperativa. Se un peer diventa non reattivo durante il protocollo di splice, la parte iniziatrice può interrompere in sicurezza e continuare a usare il vecchio canale.\n\nTuttavia, lo splicing introduce una nuova superficie d'attacco: un peer malevolo potrebbe proporre uno splice con termini sfavorevoli (ad esempio, assegnando a sé stesso più saldo del canale). Il protocollo mitiga questo richiedendo a entrambe le parti di convalidare e concordare gli output esatti della nuova transazione di funding prima di firmare. Ogni parte verifica che il proprio saldo sia correttamente rappresentato e che la fee sia ragionevole.\n\n**Splicing vs submarine swap.** Sia lo splicing che i submarine swap modificano il saldo on-chain di un nodo Lightning, ma funzionano diversamente:\n\n- **Splicing** è peer-to-peer: solo i due partecipanti al canale sono coinvolti. I fondi rimangono all'interno della relazione di canale esistente.\n- **Submarine swap** coinvolge un fornitore di servizi terzo che funge da intermediario tra la Lightning Network e la blockchain Bitcoin. Un submarine swap converte bitcoin on-chain in fondi Lightning (o viceversa) attraverso un meccanismo di escrow basato su HTLC.\n\nLo splicing è più privato (solo i peer del canale conoscono l'operazione) e non ha rischio di controparte oltre al peer del canale. I submarine swap introducono fiducia nel fornitore di swap (a meno che non si utilizzi un protocollo trustless).\n\n**Integrazione LSP.** I Lightning Service Provider offrono sempre più spesso lo splicing come funzionalità premium. Un LSP può eseguire automaticamente uno splice-in quando il canale di un utente ha poca liquidità in uscita, o uno splice-out per trasferire le fee di routing al wallet on-chain dell'utente. Questo offre un'esperienza fluida in cui l'utente non deve mai gestire manualmente la capacità del canale. Gli LSP tipicamente applicano una piccola commissione per il costo della transazione on-chain più un margine di servizio."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "Splicing",
+        "Gestione del Canale",
+        "BOLT 2"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.channel-funding-transactions",
+          "title": "Transazioni di Funding del Canale"
+        },
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.channel-liquidity",
+          "title": "Liquidità del Canale"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.anchor-outputs",
+      "slug": "anchor-outputs",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Anchor Outputs",
+      "description": "Piccoli output da 1 satoshi nelle transazioni di commitment Lightning che permettono a entrambe le parti del canale di aumentare la commissione della transazione usando Child-Pays-For-Parent (CPFP), garantendo conferma tempestiva anche durante picchi di fee.",
+      "coverImage": "media/wiki/anchor-outputs/anchor-output-structure.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Gli anchor output sono piccoli output da 1 satoshi aggiunti alle transazioni di commitment. Il loro unico scopo è permettere a entrambe le parti di aumentare la commissione della transazione dopo che il commitment è già stato firmato.\n\nIl problema che gli anchor output risolvono: le transazioni di commitment sono pre-firmate con una commissione fissa. Se il mercato delle fee di Bitcoin subisce un picco tra il momento in cui il commitment viene firmato e quello in cui deve essere trasmesso, la commissione pre-firmata potrebbe essere troppo bassa per essere confermata. Poiché il commitment è già completamente firmato, nessuna delle due parti può modificarne la commissione.\n\nLa soluzione: chiunque può spendere un anchor output con una transazione figlia a commissione elevata. Questa tecnica si chiama Child-Pays-For-Parent (CPFP). L'anchor funge da maniglia di emergenza — entrambe le parti possono tirarla per accelerare la conferma creando una transazione figlia che paga una commissione più alta.\n\n![Struttura degli anchor output](media/wiki/anchor-outputs/anchor-output-structure.svg \"Una transazione di commitment con due anchor output (1 sat ciascuno) che permettono il fee bumping tramite CPFP.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "Le transazioni di commitment sono le transazioni più critiche della Lightning Network — rappresentano lo stato più recente del canale e devono essere confermate rapidamente quando vengono trasmesse. Tuttavia, vengono negoziate e firmate in anticipo, il che significa che la loro commissione è bloccata al momento della firma. Se il tasso di commissione prevalente aumenta significativamente prima della trasmissione, la transazione potrebbe rimanere bloccata nel mempool indefinitamente.\n\nPrima degli anchor output, solo la parte che creava la transazione di commitment poteva aumentarne la commissione, usando Replace-by-Fee (RBF). Questo era asimmetrico: una parte aveva il controllo della commissione, l'altra no. Gli anchor output risolvono questo problema dando a entrambe le parti la possibilità di eseguire CPFP sulla transazione di commitment.\n\nUna transazione figlia CPFP spende uno degli anchor output. I miner che valutano la transazione figlia vedono la sua commissione alta e calcolano la commissione combinata del pacchetto genitore-figlia. Se il tasso combinato è competitivo, includono entrambe le transazioni. Questo funziona perché l'output anchor è tipicamente protetto da uno script semplice spendibile da chiunque (`OP_TRUE`) negli anchor v1, o da un percorso spendibile con chiave negli anchor v2.\n\nL'output anchor ha un valore di 1 satoshi — l'importo più piccolo possibile che sia ancora economicamente sensato come output non-dust. Spenderlo richiede l'aggiunta di almeno altrettanto in commissioni, che è esattamente lo scopo: il valore dell'anchor forza la transazione di fee bumping a includere commissioni sufficienti.\n\n![Fee bumping CPFP con anchor](media/wiki/anchor-outputs/anchor-cpfp.svg \"Una transazione di commitment bloccata con fee bassa viene sbloccata tramite CPFP usando una transazione figlia che spende l'output anchor.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "### Due Versioni di Anchor Output\n\nGli anchor output esistono in due versioni, che riflettono l'evoluzione del modello di sicurezza di Lightning:\n\n**v1 (OP_TRUE anchor):** Il primo script per anchor output era semplicemente `OP_TRUE`, il che significava che chiunque poteva spenderlo — non solo le due parti del canale. Questa è stata la prima proposta ed è stata implementata nelle prime versioni di c-lightning ed Eclair. La condizione di spesa era banale, rendendo il CPFP semplice per entrambe le parti.\n\n**v2 (key-spendable anchor):** La specifica v2 (definita in BOLT #3) ha sostituito `OP_TRUE` con uno script che richiede una firma da una delle due parti. Questa è stata una risposta diretta agli **attacchi di pinning**.\n\n### Attacchi di Pinning\n\nCon gli anchor v1, un terzo malintenzionato poteva monitorare il mempool per transazioni di commitment, prendere l'output anchor con `OP_TRUE` e spenderlo con una propria transazione a commissione bassa. Questa transazione figlia a bassa commissione \"bloccherebbe\" l'anchor, impedendo alla parte legittima del canale di eseguire efficacemente il CPFP. La transazione dell'attaccante dovrebbe essere inclusa prima, oppure la parte legittima dovrebbe superare l'offerta — una condizione di competizione che mina l'affidabilità degli anchor output.\n\nGli anchor v2 risolvono il pinning richiedendo una firma valida da una delle due parti del canale. Un terzo non può creare una transazione di spesa perché non possiede le chiavi di firma. Questo garantisce che solo i due partecipanti legittimi del canale possano creare transazioni figlie CPFP.\n\n### Interazione con il Calcolo delle Commissioni\n\nGli anchor output aggiungono due output extra alla transazione di commitment. Ogni anchor è da 1 satoshi, quindi il valore totale degli output aumenta di 2 satoshi. Il calcolo della commissione della transazione di commitment deve tenere conto di questi output — non fanno parte della distribuzione del saldo tra le parti. Gli anchor output vengono creati dal budget delle commissioni della transazione o dalla polvere che altrimenti sarebbe considerata non economica.\n\n### Considerazioni Temporali: to_self_delay e CPFP\n\nIl CPFP ha un vincolo temporale quando l'output anchor viene speso dalla parte il cui saldo è nell'output `to_local` (che ha un timelock CSV). Se Alice trasmette una transazione di commitment e vuole fare CPFP tramite il suo anchor, deve farlo prima che il timelock scada o rischiare una condizione di competizione. In pratica, il CPFP funziona meglio quando chi spende l'anchor è la parte che riceve l'output `to_remote`, poiché quell'output non ha timelock e può essere confermato immediatamente insieme alla transazione figlia.\n\n### Anchor Output in Splicing e Dual-Funding\n\nGli anchor output sono particolarmente utili in costruzioni di canali più avanzate:\n\n- **Splicing:** Quando un canale viene sottoposto a splicing (aggiunta o rimozione di fondi in-flight), la vecchia transazione di commitment potrebbe dover essere confermata on-chain. Gli anchor garantiscono che entrambe le parti possano aumentare la commissione della vecchia transazione se rimane bloccata.\n- **Dual-funding:** Con entrambe le parti che contribuiscono al finanziamento iniziale del canale, il problema del controllo asimmetrico delle commissioni è ancora più pronunciato. Gli anchor danno a entrambi i contributori la stessa capacità di garantire la conferma della transazione di finanziamento.\n\n### Stato delle Implementazioni\n\n| Implementazione | Supporto v1 | Supporto v2 |\n|---|---|---|\n| **LND** | Sperimentale | Default (da v0.15) |\n| **Core Lightning (CLN)** | Legacy | Default (da v23.05) |\n| **Eclair** | Legacy | Default |\n| **LDK** | N/D | Supportato |\n\nLa rete sta migrando verso gli anchor v2 come standard. La maggior parte dei canali Lightning moderni utilizza il formato anchor v2, e i canali più vecchi che usano anchor v1 vengono gradualmente chiusi e riaperti nel formato v2.\n\n### Riepilogo\n\nGli anchor output sono un meccanismo apparentemente semplice che risolve un problema fondamentale nel design del protocollo Lightning Network: come permettere a due parti che non si fidano reciprocamente di pre-firmare una transazione mantenendo la capacità di rispondere a condizioni on-chain mutevoli? Aggiungendo un piccolo output spendibile, entrambe le parti ottengono la flessibilità di eseguire CPFP sulla transazione di commitment senza bisogno di coordinarsi o rifirmare. Questo piccolo cambiamento migliora significativamente l'affidabilità e la sicurezza delle operazioni di canale."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "Anchor Output",
+        "CPFP",
+        "Gestione Commissioni",
+        "Transazioni di Commitment"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.commitment-transactions",
+          "title": "Transazioni di Commitment"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.channel-funding-transactions",
+          "title": "Transazioni di Funding del Canale"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.transaction-fees",
+          "title": "Commissioni di Transazione"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.multipath-payments",
+      "slug": "multipath-payments",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Pagamenti Multipath",
+      "description": "Una tecnica che suddivide un singolo pagamento Lightning in pagamenti parziali instradati attraverso percorsi diversi, migliorando affidabilità, privacy e utilizzo della liquidità.",
+      "coverImage": "media/wiki/multipath-payments/mpp-flow.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "**Cosa sono i Pagamenti Multipath?** I Pagamenti Multipath (MPP) sono una tecnica della Lightning Network che suddivide un singolo pagamento in pagamenti parziali più piccoli, ciascuno instradato attraverso un percorso diverso verso lo stesso destinatario. Invece di inviare l'intero importo attraverso una singola rotta, il mittente lo divide in parti che viaggiano indipendentemente attraverso la rete.\n\n**Il problema risolto da MPP.** I pagamenti Lightning sono vincolati dalla liquidità dei canali: un pagamento può attraversare un canale solo se questo dispone di capacità sufficiente nella direzione corretta. I pagamenti di importo elevato spesso falliscono perché nessun singolo percorso ha liquidità sufficiente dall'inizio alla fine. MPP risolve questo problema utilizzando percorsi multipli, ciascuno dei quali contribuisce con una parte dell'importo totale.\n\n**Come funziona.** Il mittente seleziona un insieme di rotte la cui capacità combinata copra l'importo del pagamento. Ogni pagamento parziale è avvolto nel proprio HTLC (Hash Time Locked Contract), ma tutti condividono lo stesso hash di pagamento H(x). Il destinatario accumula gli HTLC parziali e considera il pagamento completato solo quando la somma di tutte le parti ricevute eguaglia l'importo atteso. Poiché tutte le parti condividono lo stesso preimmagine x, il destinatario rilascia il preimmagine una sola volta — quando l'importo totale è arrivato.\n\n**Vantaggi principali.**\n\n- **Affidabilità.** Se un percorso ha liquidità insufficiente, il mittente può ritentare quella porzione attraverso una rotta diversa senza dover riavviare l'intero pagamento.\n- **Privacy.** Suddividere un pagamento su percorsi multipli rende più difficile per gli osservatori determinare l'importo totale inviato o la destinazione finale.\n- **Utilizzo della liquidità.** MPP utilizza la liquidità disponibile attraverso la rete in modo più efficiente, consentendo pagamenti più grandi di quanto un singolo canale permetterebbe.\n\n**Analogia.** Immagina di portare 200.000 satoshi in contanti lungo una singola strada per raggiungere la tua destinazione. Se un blocco stradale ti ferma, l'intera consegna fallisce. MPP è come dividere il contante in tre buste inviate attraverso strade diverse. Anche se una strada è bloccata, le altre due arrivano a destinazione. Il destinatario conferma la consegna solo quando tutte le buste sono state ricevute.\n\n![Flusso dei Pagamenti Multi-Path](media/wiki/multipath-payments/mpp-flow.svg \"Un pagamento di 200.000 satoshi suddiviso su tre percorsi: Alice a Bob a Carol (80.000), Alice a Dave a Carol (70.000) e Alice a Eve a Frank a Carol (50.000). Carol accumula tutti gli HTLC parziali e completa il pagamento solo quando la somma raggiunge 200.000.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Il vincolo dello stesso hash di pagamento.** Tutti i pagamenti parziali in un insieme MPP devono utilizzare lo stesso hash H(x). Questo vincolo è fondamentale per il modello di sicurezza: poiché tutte le parti condividono lo stesso preimmagine x, il destinatario può riscuotere qualsiasi HTLC parziale solo rivelando x. Una volta ricevuto l'importo completo, il destinatario rivela x una sola volta e tutti gli HTLC parziali si risolvono atomicamente.\n\n**Come viene segnalato il supporto MPP.** Sia il mittente che il destinatario devono pubblicizzare il supporto MPP attraverso i feature bit del protocollo Lightning. Il feature bit `basic_mpp` (bit 14 in BOLT 9) viene negoziato durante la connessione. Se una delle due parti non supporta MPP, il mittente torna al pagamento a percorso singolo.\n\n**Il meccanismo payment_secret.** Le fatture BOLT 11 includono un campo `payment_secret` — un valore casuale di 32 byte generato dal destinatario. Questo segreto serve a due scopi:\n\n1. **Legare insieme i pagamenti parziali.** Il payment_secret è incluso nel payload onion di ogni pagamento parziale. Il destinatario verifica che tutti gli HTLC parziali in arrivo portino lo stesso payment_secret, confermando che appartengono allo stesso pagamento.\n\n2. **Prevenire attacchi di riutilizzo del preimmagine.** Senza payment_secret, un nodo malevolo potrebbe intercettare un hash di pagamento H(x) e creare una nuova fattura fingendosi il destinatario originale.\n\n**Selezione del percorso per pagamenti parziali.** Ogni pagamento parziale viene instradato indipendentemente, potenzialmente attraverso nodi intermedi completamente diversi. L'algoritmo di pathfinding del mittente:\n\n1. Determina l'importo totale da inviare e il numero di percorsi da utilizzare\n2. Seleziona rotte che non si sovrappongono nei nodi intermedi (per evitare fallimenti correlati)\n3. Alloca importi a ciascun percorso in base alla liquidità disponibile\n4. Costruisce un pacchetto onion separato per ogni pagamento parziale\n\n**MPP vs AMP (Atomic Multipath Payments).** MPP e AMP sono due approcci ai pagamenti multipath con diversi compromessi:\n\n- **MPP (Base MPP).** Tutte le parti condividono un hash di pagamento. Il destinatario attende tutte le parti. Più semplice ma richiede che il destinatario conosca l'importo totale in anticipo.\n- **AMP (Atomic Multipath Payments).** Ogni pagamento parziale ha il proprio preimmagine. Il destinatario ricostruisce la prova di pagamento combinando tutti i preimmagine. Vantaggio: non richiede che l'importo totale sia noto in anticipo.\n\n**Il ruolo degli onion in MPP.** Ogni pagamento parziale viaggia nel proprio pacchetto onion cifrato. Il mittente costruisce N onion separati (uno per percorso), ciascuno contenente l'importo parziale e il `payment_secret` nel payload per il destinatario finale. I nodi intermedi non possono distinguere un pagamento parziale MPP da un pagamento normale.\n\n![Confronto MPP vs percorso singolo](media/wiki/multipath-payments/mpp-vs-single.svg \"In alto: un pagamento a percorso singolo fallisce quando Bob ha liquidità insufficiente. In basso: MPP suddivide il pagamento in tre percorsi; anche quando un percorso fallisce, gli altri riescono e la porzione fallita può essere ritentata.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**Il payment_secret in dettaglio.** Il campo `payment_secret` è un impegno crittografico che lega insieme tutti i pagamenti parziali di un insieme MPP. Quando viene generata una fattura, il destinatario crea un `payment_secret` casuale e lo memorizza. Per ogni HTLC in entrata, il destinatario verifica:\n\n- Il payload onion dell'HTLC contiene un `payment_secret`\n- Il `payment_secret` corrisponde a quello della fattura\n- L'importo accumulato per quel `payment_secret` non supera l'importo della fattura\n\n**Onion routing con MPP.** Ogni pagamento parziale riceve il proprio pacchetto onion completo, costruito esattamente come un pagamento a percorso singolo. Il mittente costruisce un payload cifrato separato per ogni hop su ogni percorso. Gli unici dati specifici MPP si trovano nel payload dell'ultimo hop:\n\n- `amt_to_forward`: l'importo parziale (non il totale)\n- `outgoing_cltv_value`: il CLTV per questo pagamento parziale\n- `payment_secret`: lega questo pagamento parziale all'insieme MPP\n\n**Ottimizzazione del pathfinding per MPP.** L'algoritmo di pathfinding del mittente per MPP è più complesso che per pagamenti a percorso singolo:\n\n1. **Dimensione massima di suddivisione.** Le implementazioni tipicamente limitano MPP a un numero massimo di pagamenti parziali (comunemente 5-10) per evitare commissioni di routing eccessive.\n2. **Importo parziale minimo.** Pagamenti parziali molto piccoli sprecano commissioni. La maggior parte delle implementazioni imposta un minimo (es. 1.000 satoshi).\n3. **Disgiunzione dei nodi.** Percorsi sovrapposti creano rischio di fallimento correlato.\n4. **Suddivisione consapevole della liquidità.** Il mittente stima la liquidità disponibile sui canali candidati e dimensiona i pagamenti parziali di conseguenza.\n\n**Implicazioni sulle commissioni.** Suddividere un pagamento aumenta le commissioni totali di routing perché sono coinvolti più hop. Tuttavia, l'importo per percorso è minore, il che può ridurre le commissioni proporzionali sui canali con commissioni elevate. L'effetto netto dipende dalla commissione base per HTLC, dal tasso di commissione di ciascun canale e dal numero di hop aggiuntivi.\n\n**La prospettiva del destinatario.** Dal punto di vista del destinatario, MPP introduce diverse considerazioni:\n\n1. **Accumulo di HTLC.** Il nodo del destinatario deve tracciare gli HTLC parziali in arrivo raggruppati per `payment_secret`.\n2. **Gestione dei timeout.** Gli HTLC parziali hanno scadenze CLTV individuali.\n3. **Recupero da fallimenti parziali.** Se alcune parti falliscono, il mittente può ritentare quegli importi specifici lungo percorsi diversi.\n\n**AMP (Atomic Multipath Payments) in dettaglio.** AMP estende il concetto MPP dando a ogni pagamento parziale il proprio preimmagine:\n\n1. Il mittente genera N preimmagini casuali: x₁, x₂, ..., xₙ\n2. Ogni preimmagine ha il proprio hash: H(x₁), H(x₂), ..., H(xₙ)\n3. Un \"payment point\" — un segreto di ricostruzione — viene suddiviso usando Shamir's Secret Sharing\n4. Il destinatario riscuote ogni HTLC parziale indipendentemente usando il preimmagine corrispondente\n\n**MPP nella pratica.** Le implementazioni reali dei nodi Lightning gestiscono MPP automaticamente:\n\n- **LND.** MPP è abilitato per impostazione predefinita. LND sonda automaticamente i percorsi e suddivide i pagamenti che superano la capacità del percorso singolo.\n- **CLN (Core Lightning).** Supporta Base MPP con comportamento di suddivisione configurabile.\n- **Eclair (Scala).** Supporta MPP con suddivisione dinamica controllata dal flag `multipart`.\n\n**MPP e liquidità.** MPP migliora fondamentalmente il modo in cui la Lightning Network utilizza la liquidità disponibile. La capacità di pagamento effettiva della rete scala con la somma di tutte le capacità dei canali nel grafo di routing, non solo con il percorso individuale più grande.\n\n**Considerazioni sul scaling.** Man mano che la Lightning Network cresce, MPP diventa sempre più importante per due ragioni:\n\n1. La maggior parte dei canali sulla rete è inferiore a 0,1 BTC. I pagamenti grandi (>0,01 BTC) sono quasi impossibili da instradare attraverso un singolo percorso.\n2. La suddivisione in molte piccole parti rende le tecniche di analisi statistica significativamente più difficili.\n\nIl compromesso è un aumento del numero di HTLC sulla rete. Le implementazioni bilanciano la probabilità di successo rispetto all'overhead degli HTLC quando decidono quante suddivisioni utilizzare."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "MPP",
+        "Pagamenti Multipath",
+        "Routing",
+        "Affidabilità"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.htlcs",
+          "title": "HTLC"
+        },
+        {
+          "id": "wiki.onion-routing",
+          "title": "Onion Routing"
+        },
+        {
+          "id": "wiki.channel-liquidity",
+          "title": "Liquidità del Canale"
+        },
+        {
+          "id": "wiki.routing-fees",
+          "title": "Commissioni di Routing"
+        }
+      ],
+      "updatedAt": "2026-05-27T00:00:00Z"
+    },
+    {
+      "id": "wiki.lightning-service-providers",
+      "slug": "lightning-service-providers",
+      "language": "it",
+      "category": "lightning network",
+      "title": "Lightning Service Provider",
+      "description": "Servizi di terze parti che connettono gli utenti finali alla Lightning Network offrendo liquidità in entrata, routing affidabile, gestione dei canali e operatività del nodo sempre attiva.",
+      "coverImage": "media/wiki/lightning-service-providers/lsp-architecture.svg",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un LSP (Lightning Service Provider, Fornitore di Servizi Lightning) è un servizio che gestisce la connettività Lightning per gli utenti, fungendo da ponte tra un portafoglio mobile e la più ampia Lightning Network. Senza un LSP, un nodo appena creato parte con zero canali e nessuna capacità di ricevere pagamenti — può solo inviare fondi attraverso canali che apre autonomamente.\n\n**Il problema principale che gli LSP risolvono è la liquidità in entrata.** Quando un utente apre un canale verso un peer, i fondi risiedono sul lato dell'utente, il che significa che il peer ha capacità in entrata ma l'utente no. Per ricevere pagamenti, qualcun altro deve aprire un canale verso l'utente — ed è esattamente ciò che fa un LSP. L'LSP apre un canale *verso* l'utente, fornendo capacità in uscita dal punto di vista dell'LSP e capacità in entrata dal punto di vista dell'utente.\n\n**Cosa fornisce un LSP:** un canale diretto dall'LSP all'utente con capacità iniziale in uscita (dando all'utente la capacità immediata di ricevere), routing sempre attivo in modo che i pagamenti da e verso l'utente raggiungano la destinazione, monitoraggio watchtower che protegge il canale dell'utente mentre il portafoglio è offline, e backup dei canali che prevengono la perdita di fondi in caso di ripristino del dispositivo mobile.\n\n**Analogia.** Un LSP è come un ISP (Fornitore di Servizi Internet) per la Lightning Network. Quando ti abboni a internet a casa, l'ISP fornisce il modem e il cavo — non devi costruire la tua infrastruttura. Analogamente, un LSP fornisce la connettività Lightning così puoi inviare e ricevere pagamenti senza dover gestire un nodo full-time con molti canali.\n\n![Architettura LSP](media/wiki/lightning-service-providers/lsp-architecture.svg \"Un LSP collega gli utenti finali alla Lightning Network, fornendo liquidità, routing e disponibilità sempre attiva.\")"
+        },
+        "medium": {
+          "bodyMarkdown": "**Come funzionano gli LSP.** L'LSP opera un nodo ben connesso con molti canali verso altri nodi ben connessi sulla rete. Quando un utente si connette a un LSP, l'LSP apre un canale verso l'utente, finanziandolo con bitcoin dalle proprie riserve. Dal punto di vista dell'utente, questo canale ha capacità in entrata — può immediatamente ricevere pagamenti senza prima spendere i propri fondi per spingere liquidità dall'altra parte.\n\n**Canali Just-In-Time (JIT).** Un modello più sofisticato è il canale JIT. In questa configurazione, l'LSP non apre un canale verso l'utente in anticipo. Invece, quando un pagamento arriva per l'utente, l'LSP apre un canale al volo, inoltra il pagamento attraverso di esso, e mantiene il canale aperto per pagamenti futuri. I canali JIT riducono i costi iniziali per l'utente e permettono agli LSP di allocare capitale solo quando genera commissioni di routing.\n\n**Modelli di tariffazione degli LSP.** Gli LSP tipicamente applicano una o più delle seguenti strutture:\n\n- **Canone di lease del canale:** una tariffa una tantum o ricorrente per aprire e mantenere un canale di una dimensione specifica (es. canale da 0,01 BTC per 30 giorni).\n- **Percentuale per pagamento:** una piccola percentuale di ogni pagamento instradato attraverso l'LSP.\n- **Abbonamento mensile fisso:** una tariffa fissa per un pacchetto di servizi che include liquidità in entrata, routing e copertura watchtower.\n\n**Il mercato della liquidità in entrata.** Gli LSP competono su prezzo, affidabilità, dimensione del canale e prossimità geografica (latenza minore significa routing più veloce). Gli utenti possono confrontare le offerte di lease e scegliere LSP che offrono le migliori tariffe per la dimensione e durata del canale desiderate. Alcuni LSP offrono anche tier gratuiti con dimensioni di canale limitate per attrarre nuovi utenti.\n\n**Lease di canali.** Un lease di canale è un accordo a tempo determinato in cui l'LSP impegna fondi in un canale con l'utente. Dopo la scadenza del lease, l'LSP può chiudere il canale o l'utente può rinnovarlo. I lease sono denominati in importo di bitcoin e durata, tipicamente da 0,01 BTC a 0,5 BTC per 30-365 giorni.\n\n![Servizi LSP](media/wiki/lightning-service-providers/lsp-services.svg \"Gli LSP offrono liquidità in entrata, routing affidabile e servizi di gestione dei canali, ciascuno con diversi modelli di prezzo.\")"
+        },
+        "advanced": {
+          "bodyMarkdown": "**LSPS (LSP Specification).** Con la crescita dell'ecosistema LSP, è emersa la necessità di un protocollo standard per la comunicazione tra LSP e client. LSPS (LSP Specification) è uno sforzo in corso nella comunità Lightning Network per definire come LSP e client interagiscono. È organizzato come un insieme di sottoprotocolli, ciascuno identificato da un numero LSPS:\n\n**LSPS0 — Livello di trasporto.** Definisce i protocolli di trasporto che LSP e client usano per comunicare. I due trasporti principali sono WebSocket (raccomandato per client mobili) e gRPC (raccomandato per comunicazione server-to-server). LSPS0 gestisce anche autenticazione, segnalazione errori e negoziazione delle capacità.\n\n**LSPS1 — Acquisto di canali in entrata.** Il servizio più fondamentale: il client richiede un canale in entrata di una dimensione specifica dall'LSP, paga una commissione di lease (on-chain o tramite Lightning), e l'LSP apre il canale. Il protocollo gestisce la negoziazione delle commissioni, la durata del canale e il flusso di finanziamento. È l'equivalente LSP dell'acquisto di una SIM prepagata.\n\n**LSPS2 — Canali Just-In-Time.** Invece di acquistare un canale in anticipo, il client si registra presso l'LSP e fornisce una fattura o un identificatore di pagamento. Quando un pagamento arriva per il client, l'LSP apre un canale, inoltra il pagamento e fattura al client il servizio. Questo modello è ideale per utenti che ricevono pagamenti poco frequentemente e non vogliono prepagare per capacità del canale.\n\n**Connettività watchtower.** Molti LSP includono servizi watchtower con la loro offerta di canali. Poiché l'LSP è già sempre attivo e monitora la blockchain, estendere la copertura watchtower al canale dell'utente è un'aggiunta naturale. L'utente delega all'LSP la responsabilità di monitorare le transazioni di commitment revocate, o a una watchtower dedicata gestita dall'LSP.\n\n**Splicing come servizio LSP.** Lo splicing permette di regolare la capacità di un canale senza chiuderlo e riaprirlo. Un LSP può offrire lo splicing come servizio gestito: quando un utente vuole aggiungere o rimuovere fondi dal proprio canale, l'LSP coordina la transazione di splice. Dal punto di vista dell'utente, il canale rimane attivo per tutto il tempo — non c'è interruzione. Questo è particolarmente utile per portafogli mobili che devono regolare la dimensione dei canali in base ai cambiamenti nelle loro abitudini di spesa e ricezione.\n\n**Canali zero-conf.** Un canale zero-conf (zero conferma) è un canale che l'LSP apre e che l'utente inizia a usare immediatamente, prima che la transazione di funding sia confermata sulla blockchain Bitcoin. L'LSP si assume il rischio che la transazione di funding possa non essere confermata (a causa di double-spend o commissioni basse), ma in pratica questo rischio è minimo con una corretta stima delle commissioni. I canali zero-conf offrono un'esperienza utente istantanea: l'utente può ricevere pagamenti secondi dopo aver installato un portafoglio, senza attendere conferme on-chain.\n\n**Considerazioni normative.** Poiché gli LSP gestiscono bitcoin e fanno pagare per i servizi, potrebbero essere soggetti a normative sul trasferimento di denaro in alcune giurisdizioni. Mentre gestire un nodo Lightning è generalmente considerato un'attività software, operare un LSP come attività commerciale che facilita pagamenti e applica commissioni può attivare requisiti KYC/AML. Questo crea tensione tra l'etica self-custodial e permissionless di Bitcoin e gli obblighi normativi che gli LSP possono affrontare. Alcuni LSP operano senza KYC come puri servizi software, mentre altri implementano programmi di conformità.\n\n**Il futuro degli LSP.** Il panorama degli LSP si sta evolvendo verso modelli più decentralizzati:\n\n- **Mercati LSP decentralizzati:** piattaforme in cui più LSP competono per i canali degli utenti, permettendo agli utenti di confrontare le tariffe e cambiare fornitore senza problemi.\n- **Aste di liquidità:** gli utenti richiedono capacità del canale e gli LSP fanno offerte per fornirla, abbassando i prezzi attraverso la concorrenza.\n- **LSP federati:** gruppi di nodi mettono in comune la liquidità e condividono i ricavi del routing, riducendo i requisiti di capitale per ogni singolo partecipante.\n\n**LSP vs submarine swap.** Sia gli LSP che i submarine swap forniscono liquidità in entrata, ma funzionano diversamente. Un submarine swap converte bitcoin on-chain in bitcoin Lightning (o viceversa) attraverso un terzo fidato, solitamente in una singola transazione atomica. Un LSP, al contrario, fornisce una relazione di canale duratura con servizi continui di routing e gestione. I submarine swap sono una soluzione di liquidità una tantum; gli LSP sono una relazione di servizio continuativa. Molti utenti combinano entrambi: usando submarine swap per regolazioni occasionali e un LSP per la connettività quotidiana."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 8,
+      "tags": [
+        "Lightning Network",
+        "LSP",
+        "Fornitore di Servizi",
+        "Liquidità in Entrata",
+        "Gestione del Nodo"
+      ],
+      "sources": [],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.channel-liquidity",
+          "title": "Liquidità del Canale"
+        },
+        {
+          "id": "wiki.routing-fees",
+          "title": "Commissioni di Routing"
+        },
+        {
+          "id": "wiki.watchtowers",
+          "title": "Watchtower"
+        },
+        {
+          "id": "wiki.splicing",
+          "title": "Splicing"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"

@@ -44,21 +44,21 @@ livelli di lettura `base`, `medium` e `advanced`.
 
 ## Lightning Network (`lightning network`)
 
-- [ ] Lightning Network overview - `wiki.lightning-network`
-- [ ] Payment channels - `wiki.payment-channels`
-- [ ] Channel funding transactions - `wiki.channel-funding-transactions`
-- [ ] Commitment transactions - `wiki.commitment-transactions`
-- [ ] HTLCs - `wiki.htlcs`
-- [ ] Onion routing - `wiki.onion-routing`
-- [ ] Lightning invoices - `wiki.lightning-invoices`
-- [ ] Channel liquidity - `wiki.channel-liquidity`
-- [ ] Routing fees - `wiki.routing-fees`
-- [ ] Watchtowers - `wiki.watchtowers`
-- [ ] BOLT specifications - `wiki.bolt-specifications`
-- [ ] Splicing - `wiki.splicing`
-- [ ] Anchor outputs - `wiki.anchor-outputs`
-- [ ] Multipath payments - `wiki.multipath-payments`
-- [ ] Lightning Service Providers - `wiki.lightning-service-providers`
+- [x] Lightning Network overview - `wiki.lightning-network`
+- [x] Payment channels - `wiki.payment-channels`
+- [x] Channel funding transactions - `wiki.channel-funding-transactions`
+- [x] Commitment transactions - `wiki.commitment-transactions`
+- [x] HTLCs - `wiki.htlcs`
+- [x] Onion routing - `wiki.onion-routing`
+- [x] Lightning invoices - `wiki.lightning-invoices`
+- [x] Channel liquidity - `wiki.channel-liquidity`
+- [x] Routing fees - `wiki.routing-fees`
+- [x] Watchtowers - `wiki.watchtowers`
+- [x] BOLT specifications - `wiki.bolt-specifications`
+- [x] Splicing - `wiki.splicing`
+- [x] Anchor outputs - `wiki.anchor-outputs`
+- [x] Multipath payments - `wiki.multipath-payments`
+- [x] Lightning Service Providers - `wiki.lightning-service-providers`
 
 ## Economics (`economics`)
 

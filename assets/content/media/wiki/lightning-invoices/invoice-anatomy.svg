@@ -1,0 +1,141 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">BOLT 11 Invoice Structure</title>
+  <desc id="desc">Diagram showing the structure of a BOLT 11 Lightning invoice. The bech32 string is broken into colored segments: HRP (lnbc) in orange, Amount (10u) in green, Timestamp in purple, Tagged fields in blue tones including payment hash (p), description (d), expiry (x), routing hints (r), and fallback address (f), and the recoverable ECDSA Signature at the end. Each segment is a labeled box connected by arrows showing the encoding order.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">BOLT 11 Invoice Structure</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">A bech32-encoded string carrying payment details, metadata, and a digital signature</text>
+
+  <!-- Top: full bech32 string visual segment bar -->
+  <g filter="url(#soft)">
+    <rect x="64" y="148" width="832" height="48" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1"/>
+    <!-- HRP segment -->
+    <rect x="72" y="154" width="72" height="36" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <text x="108" y="176" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">lnbc</text>
+    <!-- Amount segment -->
+    <rect x="150" y="154" width="60" height="36" rx="8" fill="#203327" stroke="#22C55E" stroke-width="1"/>
+    <text x="180" y="176" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">10u</text>
+    <!-- Timestamp segment -->
+    <rect x="216" y="154" width="100" height="36" rx="8" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
+    <text x="266" y="176" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">1p0xj2q</text>
+    <!-- Tagged fields segment -->
+    <rect x="322" y="154" width="340" height="36" rx="8" fill="#1B2838" stroke="#3B82F6" stroke-width="1"/>
+    <text x="492" y="176" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">dppjqyz...qr5xqrzjq...</text>
+    <!-- Signature segment -->
+    <rect x="668" y="154" width="220" height="36" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <text x="778" y="176" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">0spq...3r2a</text>
+  </g>
+
+  <!-- Arrow connectors between named sections and the bar above -->
+  <!-- HRP card -->
+  <g filter="url(#soft)">
+    <rect x="64" y="230" width="140" height="84" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="64" y="230" width="140" height="28" rx="14" fill="#2A2116"/>
+    <text x="134" y="250" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">HRP</text>
+    <text x="74" y="278" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Human Readable Prefix</text>
+    <text x="74" y="300" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">ln + bc (mainnet) + amount units</text>
+  </g>
+  <path d="M134 228V210" stroke="#F7931A" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Amount card -->
+  <g filter="url(#soft)">
+    <rect x="216" y="230" width="140" height="84" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="216" y="230" width="140" height="28" rx="14" fill="#203327"/>
+    <text x="286" y="250" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">AMOUNT</text>
+    <text x="226" y="278" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Payment Amount</text>
+    <text x="226" y="300" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">p = picoBTC, n = nano, u = micro, m = milli</text>
+  </g>
+  <path d="M180 210V200" stroke="#22C55E" stroke-width="2"/>
+  <path d="M180 200H266" stroke="#F7931A" stroke-width="2"/>
+  <path d="M266 200V210" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Timestamp card -->
+  <g filter="url(#soft)">
+    <rect x="370" y="230" width="140" height="84" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="370" y="230" width="140" height="28" rx="14" fill="#241E31"/>
+    <text x="440" y="250" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">TIMESTAMP</text>
+    <text x="380" y="278" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Unix Timestamp</text>
+    <text x="380" y="300" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">35 bits, seconds since 1970-01-01</text>
+  </g>
+  <path d="M296 210H440" stroke="#F7931A" stroke-width="2"/>
+  <path d="M440 210V228" stroke="#7C5CFF" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Tagged fields card -->
+  <g filter="url(#soft)">
+    <rect x="524" y="230" width="180" height="112" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="524" y="230" width="180" height="28" rx="14" fill="#1B2838"/>
+    <text x="614" y="250" text-anchor="middle" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">TAGGED FIELDS</text>
+    <text x="534" y="278" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">p → Payment Hash</text>
+    <text x="534" y="296" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">d → Description</text>
+    <text x="534" y="314" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">x → Expiry</text>
+    <text x="534" y="332" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">r → Routing hints • h → desc hash</text>
+  </g>
+  <path d="M490 210H614" stroke="#F7931A" stroke-width="2"/>
+  <path d="M614 210V228" stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Signature card -->
+  <g filter="url(#soft)">
+    <rect x="720" y="230" width="176" height="84" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="720" y="230" width="176" height="28" rx="14" fill="#2A2116"/>
+    <text x="808" y="250" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">SIGNATURE</text>
+    <text x="730" y="278" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Recoverable ECDSA</text>
+    <text x="730" y="300" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">520 bits (65 bytes) • r, s, recovery id</text>
+  </g>
+  <path d="M704 210H728" stroke="#F7931A" stroke-width="2"/>
+  <path d="M728 200H734" stroke="#F7931A" stroke-width="2"/>
+  <path d="M734 200H810" stroke="#F7931A" stroke-width="2"/>
+  <path d="M810 210V228" stroke="#F7931A" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Bottom: second row of detail cards -->
+  <!-- Description / Hash detail -->
+  <g filter="url(#soft)">
+    <rect x="64" y="348" width="260" height="110" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="80" y="372" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Description vs Description Hash</text>
+    <text x="80" y="396" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">d field: plaintext description (short)</text>
+    <text x="80" y="414" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">h field: SHA256(description) for long</text>
+    <text x="80" y="432" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Verifier hashes the description and</text>
+    <text x="80" y="448" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">compares it with the h field value</text>
+  </g>
+
+  <path d="M524 342H200" stroke="#60A5FA" stroke-width="1" stroke-dasharray="4 3"/>
+  <path d="M200 348" stroke="#60A5FA" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Routing hints -->
+  <g filter="url(#soft)">
+    <rect x="350" y="348" width="260" height="110" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="366" y="372" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Routing Hints (r field)</text>
+    <text x="366" y="396" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">For receivers behind private channels,</text>
+    <text x="366" y="414" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">provides channel_id + node_id +</text>
+    <text x="366" y="432" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">fee/cltv info to help the payer</text>
+    <text x="366" y="450" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">find a route to the receiver</text>
+  </g>
+
+  <path d="M614 342H480" stroke="#60A5FA" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Feature bits -->
+  <g filter="url(#soft)">
+    <rect x="636" y="348" width="260" height="110" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="652" y="372" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Feature Bits (9 field)</text>
+    <text x="652" y="396" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Signals supported protocol features:</text>
+    <text x="652" y="414" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">8 → MPP (multi-path payments)</text>
+    <text x="652" y="432" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">9 → Keysend (spontaneous)</text>
+    <text x="652" y="450" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">15 → Trampoline routing</text>
+  </g>
+
+  <!-- Legend at far bottom -->
+  <text x="64" y="496" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Each tagged field uses type (1 char) + data length (2 chars) + variable-length value. The signature covers the entire data part for integrity.</text>
+</svg>
