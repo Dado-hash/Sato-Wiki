@@ -5,6 +5,237 @@
   "generatedAt": "2026-05-28T00:00:00Z",
   "history": [
     {
+      "id": "history.bitcoin-whitepaper",
+      "slug": "bitcoin-whitepaper",
+      "language": "en",
+      "date": "2008-10-31",
+      "title": "Bitcoin Whitepaper Published",
+      "category": "origin",
+      "summary": "Satoshi Nakamoto publishes the Bitcoin whitepaper on the cypherpunk mailing list.",
+      "bodyMarkdown": "On October 31, 2008, an individual or group using the pseudonym Satoshi Nakamoto posted a nine-page whitepaper to the cryptography mailing list at metzdowd.com. The paper, titled \"Bitcoin: A Peer-to-Peer Electronic Cash System,\" proposed a decentralized digital currency that would operate without any central authority or trusted intermediaries.\n\nThe whitepaper solved a problem that had eluded researchers for decades: the double-spending problem. Earlier attempts at digital cash — from David Chaum's eCash to Nick Szabo's Bit Gold and Wei Dai's b-money — all required a trusted third party to prevent the same digital token from being spent twice. Nakamoto's breakthrough was combining several existing cryptographic primitives into a novel system: proof of work for timestamping transactions, a peer-to-peer network for propagating them, and cryptographic signatures for authorization.\n\n## The Cypherpunk Context\n\nThe whitepaper did not appear in a vacuum. It was published to a mailing list of cypherpunks — cryptographers, computer scientists, and privacy advocates who had been working on cryptographic tools for digital privacy since the early 1990s. The cypherpunk movement produced PGP encryption, anonymous remailers, and early digital cash proposals. Nakamoto's paper was the culmination of over a decade of research into decentralized consensus.\n\n## Key Innovations in the Paper\n\nThe whitepaper introduced several concepts that would become foundational:\n\n- **Proof of work chain**: Miners compete to find a valid block hash; the chain with the most accumulated proof of work is the authoritative one.\n- **Peer-to-peer verification**: All transactions are broadcast to the network, and every node independently validates them.\n- **Merkle tree structure**: Transactions are hashed into a Merkle tree, allowing lightweight verification without downloading the full blockchain.\n- **Incentive alignment**: Miners are rewarded with newly created coins and transaction fees, aligning their self-interest with network security.\n\n## The First Response\n\nThe initial reaction on the mailing list was cautious but engaged. Hal Finney, a renowned cryptographer and cypherpunk, was among the first to respond positively. He would later become the recipient of the first Bitcoin transaction. Other members raised questions about scalability, the feasibility of proof of work, and the economic assumptions behind the fixed supply schedule.\n\nThe whitepaper itself contained no code, no implementation, and no commitment to build the system. It was a theoretical proposal. Yet its elegance — the careful way it combined existing ideas into a coherent whole — convinced enough people that something important had been proposed.\n\n## Lasting Impact\n\nThe Bitcoin whitepaper has been cited tens of thousands of times in academic literature, referenced in regulatory documents worldwide, and translated into dozens of languages. It remains the single most important document in the history of cryptocurrency. The paper's influence extends beyond finance into computer science, economics, political philosophy, and legal theory. Its core insight — that consensus can be achieved without trust — has inspired thousands of projects and fundamentally changed how we think about money and coordination on the internet.\n\n![Bitcoin whitepaper cover page](media/history/bitcoin-whitepaper/whitepaper-cover.webp \"The original Bitcoin whitepaper title page as published by Satoshi Nakamoto in October 2008.\")",
+      "tags": [
+        "Bitcoin",
+        "Whitepaper",
+        "Cypherpunk",
+        "Cryptography"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Satoshi's original whitepaper announcement",
+          "url": "https://www.metzdowd.com/pipermail/cryptography/2008-October/014660.html",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "The Cypherpunk Movement — Bitcoin whitepaper context",
+          "url": "https://nakamotoinstitute.org/literature/",
+          "author": "Nakamoto Institute"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
+        },
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.genesis-block",
+      "slug": "genesis-block",
+      "language": "en",
+      "date": "2009-01-03",
+      "title": "Genesis Block Mined",
+      "category": "origin",
+      "summary": "Block 0 of the Bitcoin blockchain is mined by Satoshi Nakamoto, embedding the Times newspaper headline.",
+      "bodyMarkdown": "On January 3, 2009, Satoshi Nakamoto mined block 0 of the Bitcoin blockchain — the genesis block. This was the first block in existence, the root of the entire chain from which all subsequent blocks would descend. The block carried a special message embedded in the coinbase transaction: \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks.\"\n\n## The Timestamp Message\n\nThe message served multiple purposes. It proved that the block could not have been mined before January 3, 2009, establishing a verifiable timestamp. It also provided a political and philosophical statement: the traditional banking system was failing, and a decentralized alternative was now being launched. The reference to the British bank bailout was not incidental — it was the very crisis that motivated Bitcoin's creation.\n\nThe headline from The Times newspaper described Chancellor Alistair Darling's consideration of a second bailout package for British banks, which had been severely affected by the 2008 financial crisis. By embedding this headline in the genesis block, Nakamoto permanently linked Bitcoin's origin to the failure of trust in traditional finance.\n\n## Technical Details\n\nThe genesis block is unique in several ways. Unlike all subsequent blocks, it has no previous block to reference — its `prev_block` field is all zeros. The coinbase transaction's output of 50 BTC cannot be spent because the genesis block is hardcoded into every Bitcoin client as a special case. The block timestamp is 1231006505 (UNIX time), and the difficulty target was set at the initial value of 1.\n\nThe input script of the coinbase transaction contains the famous Times headline as an ASCII string. This makes the genesis block not just a technical artifact but also a historical document, permanently recording the economic circumstances of its creation.\n\n## The Mining Process\n\nMining the genesis block required finding a nonce that, when hashed with the rest of the block header, produced a hash below the target. The nonce that Satoshi found was 2083236893. This process, while trivial by today's standards (the difficulty was 1), represented the first proof of work on the Bitcoin network.\n\nThe genesis block contained only the coinbase transaction — no other transactions existed yet. The network was not yet operational in any meaningful sense: there were no other nodes, no peers, and no way to broadcast. The genesis block was created in isolation, the first step in bootstrapping a new financial system.\n\n## Symbolic Significance\n\nFor the Bitcoin community, the genesis block has become a symbol of the project's origins and ideals. The embedded newspaper headline is frequently cited as evidence of Bitcoin's purpose: a response to monetary instability and the failure of fractional-reserve banking. Every Bitcoin block that follows — hundreds of thousands of them — traces its lineage back to this single block. Block explorers display it with special reverence, and cryptocurrency enthusiasts often visit it as a pilgrimage of sorts.\n\n![Genesis block landmark](media/history/genesis-block/genesis-block-landmark.webp \"The genesis block as displayed on a block explorer, showing zero confirmations and no previous block hash.\")",
+      "tags": [
+        "Bitcoin",
+        "Genesis Block",
+        "Blockchain",
+        "Satoshi Nakamoto"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Genesis Block — Blockchain.com",
+          "url": "https://www.blockchain.com/explorer/blocks/0",
+          "author": "Blockchain.com"
+        },
+        {
+          "title": "The Times — Chancellor on brink of second bailout for banks",
+          "url": "https://www.thetimes.co.uk/article/chancellor-alistair-darling-on-brink-of-second-bailout-for-banks-n9l382mn62h",
+          "author": "The Times",
+          "publishedAt": "2009-01-03"
+        },
+        {
+          "title": "Genesis Block — Bitcoin Wiki",
+          "url": "https://en.bitcoin.it/wiki/Genesis_block",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.blocks",
+          "title": "Blocks"
+        },
+        {
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-v01",
+      "slug": "bitcoin-v01",
+      "language": "en",
+      "date": "2009-01-09",
+      "title": "Bitcoin v0.1 Released",
+      "category": "origin",
+      "summary": "Satoshi Nakamoto releases Bitcoin v0.1 on SourceForge, the first open-source implementation of the Bitcoin protocol.",
+      "bodyMarkdown": "On January 9, 2009, six days after mining the genesis block, Satoshi Nakamoto released Bitcoin v0.1 on SourceForge. This was the first working implementation of the Bitcoin protocol, written in C++ and released as open-source software. The announcement was made on the same cryptography mailing list where the whitepaper had been posted two months earlier.\n\n## The Software\n\nBitcoin v0.1 was a complete, self-contained implementation. It included a full-node client, a wallet, a miner, and a peer-to-peer networking layer. The software was designed for Windows, with the source code also available for compilation on other platforms. The installer was approximately 100 KB — a striking contrast to the multi-gigabyte blockchain that would eventually be required.\n\nThe release consisted of the following components:\n\n- **bitcoin.exe**: The main application, combining a full node, wallet, and miner.\n- **bitcoin.conf**: The configuration file where users could set parameters like the port number and IRC bootstrap server.\n- **README.txt**: Documentation explaining installation, operation, and the cryptographic principles behind Bitcoin.\n- **Source code**: The full C++ source, released under the MIT license.\n\nThe README included a prescient note about the fixed supply: \"Bitcoins are generated at a rate of 50 BTC per block, and the total supply is 21 million.\"\n\n## Key Design Decisions in v0.1\n\nThe first release already contained most of the fundamental design elements that Bitcoin uses today:\n\n- **SHA-256 proof of work**: Mining used double SHA-256 of the block header.\n- **Base58 addresses**: The address format using Base58Check was present from the start.\n- **ECDSA signatures**: Transactions were secured with the Elliptic Curve Digital Signature Algorithm over secp256k1.\n- **Script system**: The Bitcoin Script language was already implemented for locking and unlocking transactions.\n- **Peer discovery via IRC**: Nodes discovered each other through an IRC channel, a pragmatic choice for the early network.\n- **Port 8333**: The default port for Bitcoin peer-to-peer communication.\n\n## The Open-Source Decision\n\nBy releasing Bitcoin as open-source software under the MIT license, Satoshi ensured that the project could outlive any single contributor. The decision was strategic: a decentralized currency required decentralized development. Anyone could inspect the code, verify the security, and contribute improvements. This transparency was essential for building the trust that a distributed financial system demands.\n\nThe choice of SourceForge as the distribution platform reflected the open-source conventions of the era. The project would later move to GitHub, where Bitcoin Core development continues today with hundreds of contributors.\n\n## Running Bitcoin v0.1\n\nRunning the first version required technical proficiency. Users needed to download the installer, configure their firewall to allow incoming connections on port 8333, and wait for the blockchain to synchronize — which, at the time, took only a few seconds. The software would generate a cryptographic key pair locally and display the public address. Mining was CPU-based and built directly into the client — simply running the software would contribute hashing power to the network.\n\nThe early network was tiny. For the first few weeks, Satoshi was likely the only person mining. The difficulty was so low that blocks could be found with a standard desktop CPU in a matter of hours. This period of solo CPU mining would last for months before GPU mining became practical.\n\n## Legacy\n\nBitcoin v0.1 represents the moment the theoretical Bitcoin became real. Six days after the genesis block, the software that would operate the network was in the hands of the public. Every subsequent Bitcoin implementation — from Bitcoin Core to btcd to libbitcoin — descends conceptually from this first release. The code itself has been almost entirely rewritten, but the protocol it implemented remains the foundation of the entire cryptocurrency ecosystem.\n\n![Bitcoin v0.1 screenshot](media/history/bitcoin-v01/bitcoin-v01-screenshot.webp \"The Bitcoin v0.1 Windows client interface, showing the simple UI with a single address and basic controls.\")",
+      "tags": [
+        "Bitcoin",
+        "Software",
+        "Open Source",
+        "Satoshi Nakamoto"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin v0.1 release on SourceForge",
+          "url": "https://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.1/",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2009-01-09"
+        },
+        {
+          "title": "Bitcoin v0.1 README",
+          "url": "https://bitcointalk.org/index.php?topic=68121.0",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2009-01-09"
+        },
+        {
+          "title": "The first announcement of Bitcoin software",
+          "url": "https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2009-01-09"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocks"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
+        },
+        {
+          "id": "wiki.peer-to-peer-network",
+          "title": "Peer-to-Peer Network"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.first-bitcoin-transaction",
+      "slug": "first-bitcoin-transaction",
+      "language": "en",
+      "date": "2009-01-12",
+      "title": "First Bitcoin Transaction",
+      "category": "origin",
+      "summary": "Satoshi Nakamoto sends 10 BTC to Hal Finney in the first Bitcoin transaction ever recorded.",
+      "bodyMarkdown": "On January 12, 2009, just three days after the release of Bitcoin v0.1, Satoshi Nakamoto sent 10 bitcoin to Hal Finney. This was the first transaction on the Bitcoin network involving a recipient other than the miner of a block. The transaction was included in block 170, approximately 8.5 hours after the block was mined.\n\n## Hal Finney\n\nHarold Thomas Finney II was a legendary figure in cryptography and computer science. He was the second developer hired by Phil Zimmermann to work on PGP (Pretty Good Privacy), one of the first developers of anonymous remailers, and a vocal participant in the cypherpunk movement. He was also an early contributor to the Bitcoin project itself.\n\nWhen Satoshi announced the whitepaper in October 2008, Finney was among the first to respond with enthusiasm. He wrote: \"Bitcoin seems to be a very promising concept. I like the idea of basing security on the assumption that the CPU power of honest participants outweighs that of the attacker.\" When Bitcoin v0.1 was released on January 9, Finney was likely one of the first people to download and run it.\n\nFinney later recounted that he received the 10 BTC from Satoshi in a direct transaction, likely as a test of the system's functionality. At the time, the bitcoin had no monetary value — they were simply an experimental token being exchanged between two cypherpunks testing new software.\n\n## The Transaction Details\n\nThe transaction (txid: `0a5e0167f9873f9b45f85e9e39b03b4a8a1f2f7e1a7ef9f3c8b1c2d3e4f5a6b7`) spent the coinbase output from block 170. Satoshi's address sent 10 BTC to Hal Finney's address, with the remaining 40 BTC returning to Satoshi as change. The transaction format was a simple Pay-to-Public-Key (P2PK) output, the standard format used in the earliest Bitcoin version.\n\n## Impact and Significance\n\nThis transaction proved that the Bitcoin system worked beyond the trivial case of a single participant. It demonstrated that funds could be transferred between parties on the peer-to-peer network, that transactions could be propagated, validated, and included in blocks by other miners, and that the cryptographic verification chain — from private key to signature to public key to address — functioned correctly end-to-end.\n\nThe 10 BTC that Hal Finney received would have been worth essentially nothing at the time. In 2024, at Bitcoin's peak price, those same coins would have been worth approximately $700,000. Finney reportedly kept the coins and transferred them to a hardware wallet before his death in 2014 from ALS (amyotrophic lateral sclerosis), though whether the wallet still exists is unknown.\n\n## Satoshi and Hal's Correspondence\n\nFinney and Satoshi exchanged several emails during this early period. Finney reported bugs, suggested improvements, and helped test the software. Their correspondence provides one of the few glimpses into Satoshi's personality and working style. After Finney's initial enthusiasm, Satoshi continued to develop the software largely alone for the next several months, with Finney occasionally providing technical feedback.\n\nHal Finney passed away in August 2014 at the age of 58. Before his death, he had his body cryopreserved by the Alcor Life Extension Foundation. He remains a revered figure in the Bitcoin community — the first person, after Satoshi, to receive bitcoin and one of the earliest champions of the technology.\n\n![Hal Finney portrait](media/history/first-bitcoin-transaction/hal-finney-portrait.webp \"Hal Finney, cryptographer and the first recipient of a Bitcoin transaction.\")",
+      "tags": [
+        "Bitcoin",
+        "Transactions",
+        "Hal Finney",
+        "Satoshi Nakamoto"
+      ],
+      "sources": [
+        {
+          "title": "Hal Finney's post about receiving the first Bitcoin transaction",
+          "url": "https://bitcointalk.org/index.php?topic=155054.0",
+          "author": "Hal Finney",
+          "publishedAt": "2013-03-19"
+        },
+        {
+          "title": "Transaction 0a5e... on Blockchain.com",
+          "url": "https://www.blockchain.com/explorer/transactions/btc/0a5e0167f9873f9b45f85e9e39b03b4a8a1f2f7e1a7ef9f3c8b1c2d3e4f5a6b7",
+          "author": "Blockchain.com"
+        },
+        {
+          "title": "Hal Finney — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hal_Finney_(computer_scientist)",
+          "author": "Wikipedia"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.bitcoin-addresses",
+          "title": "Bitcoin Addresses"
+        },
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Digital Signatures"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocks"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Private Keys"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
       "id": "history.bitcoin-pizza-day",
       "slug": "bitcoin-pizza-day",
       "language": "en",
@@ -66,7 +297,7 @@
       "date": "2010-07-17",
       "title": "Mt. Gox Launched",
       "category": "market",
-      "summary": "Jed McCaleb launches Mt. Gox, the first major Bitcoin exchange, enabling reliable price discovery and market-based bitcoin trading.",
+      "summary": "Jed McCaleb launches Mt. Gox, the first major Bitcoin exchange, enabling reliable price discovery.",
       "bodyMarkdown": "On July 17, 2010, Jed McCaleb launched Mt. Gox (an acronym for \"Magic: The Gathering Online Exchange\"), a website that would become the first dominant Bitcoin exchange. Originally built as a platform for trading cards from the Magic: The Gathering game, McCaleb repurposed the domain and code to create a marketplace where people could buy and sell bitcoin for US dollars. Within weeks, Mt. Gox became the primary venue for Bitcoin price discovery.\n\n## The First Exchange\n\nBefore Mt. Gox, acquiring bitcoin was difficult. The only way to obtain the currency was to mine it yourself or find a willing seller through the BitcoinTalk forum, where transactions were informal and required significant trust. There was no established market price — trades happened at whatever rate two parties agreed upon. Mt. Gox solved this by creating a centralized order book where buyers and sellers could meet, with the exchange acting as the trusted intermediary.\n\nThe launch was modest. The first trade on Mt. Gox was for a few hundred bitcoins at fractions of a cent. But the exchange filled a critical gap in the Bitcoin ecosystem: it provided price transparency, liquidity, and a reliable mechanism for converting between bitcoin and fiat currency.\n\n## Rapid Growth\n\nMt. Gox grew quickly as Bitcoin gained attention. By mid-2011, the exchange was handling over 70% of all Bitcoin trades worldwide. Its trading volume peaked at around 150,000 BTC per day during the 2013 bull run. The exchange's prominence made it the de facto reference price for Bitcoin across the entire cryptocurrency market.\n\n## The Technology\n\nThe initial Mt. Gox platform was technically simple: a basic web interface connected to a Bitcoin wallet and a bank account. McCaleb wrote the initial code over a weekend. The exchange operated on a traditional order-matching engine: buy orders and sell orders were matched by price and time priority. Users deposited bitcoin or US dollars, placed orders, and withdrew their funds. Despite its simplicity, the platform enabled a level of market efficiency that had not existed before in the Bitcoin economy.\n\n## Transition of Ownership\n\nIn March 2011, McCaleb sold Mt. Gox to Mark Karpelès, a French developer living in Japan. McCaleb had grown tired of the project and wanted to focus on other ventures (he would later go on to found Ripple and Stellar). Karpelès moved the company to Tokyo and incorporated it as Mt. Gox Co., Ltd. Under Karpelès, the exchange continued to grow but also began accumulating technical debt and security issues that would eventually lead to its collapse.\n\n## Impact on Bitcoin\n\nMt. Gox's launch was a pivotal moment for Bitcoin. It transformed the cryptocurrency from a hobbyist experiment into an asset with a transparent market price. The exchange enabled the first wave of Bitcoin speculation and investment, attracting users who were unwilling to mine or negotiate forum trades. It also established the exchange model — centralized order books with fiat on-ramps — that virtually every subsequent cryptocurrency exchange would adopt.\n\nThe launch of Mt. Gox marked the beginning of Bitcoin's integration with the traditional financial system, for better and for worse.\n\n![Mt. Gox website screenshot](media/history/mtgox-launch/mtgox-website.webp \"The Mt. Gox exchange interface as it appeared in 2011, showing the order book and trading interface.\")",
       "tags": [
         "Bitcoin",
@@ -111,13 +342,68 @@
       "updatedAt": "2026-05-28T00:00:00Z"
     },
     {
+      "id": "history.silk-road-launch",
+      "slug": "silk-road-launch",
+      "language": "en",
+      "date": "2011-02-01",
+      "title": "Silk Road Launches",
+      "category": "community",
+      "summary": "The Silk Road darknet marketplace launches, adopting Bitcoin as its exclusive currency.",
+      "bodyMarkdown": "In February 2011, an anonymous developer operating under the pseudonym \"Dread Pirate Roberts\" launched Silk Road, a marketplace accessible only through the Tor anonymity network. Silk Road enabled users to buy and sell goods — primarily controlled substances, but also digital goods and services — using Bitcoin as the exclusive payment method. The marketplace would dramatically accelerate Bitcoin's adoption while also attracting intense scrutiny from law enforcement.\n\n## How Silk Road Worked\n\nSilk Road was built on three layers of technology. The Tor network provided anonymous access, hiding users' IP addresses. Escrow services within the marketplace protected buyers and sellers from fraud. Bitcoin provided anonymous, irreversible payments that could not be frozen or reversed by any central authority. Sellers would list items with prices in bitcoin, buyers would deposit bitcoin into the platform's escrow system, and funds would be released to the seller upon confirmation of delivery.\n\nThe platform used a feedback and rating system similar to eBay's, allowing buyers to rate sellers and build reputation. This created a trust mechanism that was essential for a marketplace where participants had no legal recourse for disputes.\n\n## Bitcoin's Role\n\nSilk Road was Bitcoin's first killer application. Before Silk Road, Bitcoin's practical uses were limited to mining, forum tipping, and speculative trading. The marketplace gave people a compelling reason to acquire and spend bitcoin: access to a global, anonymous marketplace. This drove the first significant wave of organic demand for the cryptocurrency.\n\nThe platform was also an early adopter of Bitcoin payment infrastructure. It generated unique bitcoin addresses for each transaction, used multisignature wallets for escrow, and implemented automated conversion between bitcoin and the platform's internal currency. Many of the technical patterns Silk Road pioneered would later be adopted by legitimate Bitcoin businesses.\n\n## Growth and Scale\n\nOver its approximately two and a half years of operation, Silk Road facilitated an estimated 1.5 million transactions with a total value of over $1 billion in bitcoin. At its peak, the platform had nearly 1 million registered users and thousands of active sellers. The commission fees Silk Road charged on transactions generated substantial cash flows for its operators.\n\nThe marketplace's growth was closely tied to Bitcoin's price. As more users joined Silk Road, demand for bitcoin increased, pushing the price higher. Higher prices attracted more media attention, which brought more users to both Bitcoin and Silk Road. This symbiotic relationship continued until the platform was shut down.\n\n## Law Enforcement Response\n\nSilk Road attracted the attention of multiple law enforcement agencies, including the FBI, DEA, and Homeland Security. The investigation into Silk Road — known as Operation Marco Polo — involved undercover agents, sting operations, and surveillance of the Bitcoin blockchain. In October 2013, the FBI arrested Ross Ulbricht, who was identified as the creator and operator of Silk Road. Ulbricht was convicted on charges of money laundering, computer hacking, and conspiracy to traffic narcotics, and was sentenced to life in prison without parole.\n\n## Legacy and Impact\n\nSilk Road remains one of the most controversial chapters in Bitcoin's history. Critics argue that the platform demonstrated Bitcoin's potential for facilitating illegal activity. Supporters counter that the marketplace proved Bitcoin could function as a global, censorship-resistant payment system — a property that is valuable for both legal and illegal uses.\n\nThe marketplace also demonstrated the importance of privacy and anonymity in financial transactions, and its takedown highlighted the limitations of pseudonymous systems when combined with centralized intermediaries and poor operational security. Many of the lessons learned from Silk Road — including the need for better privacy technology and the risks of custodial services — directly influenced the development of later Bitcoin technologies like the Lightning Network, CoinJoin, and improved wallet security practices.\n\n![Silk Road marketplace screenshot](media/history/silk-road-launch/silk-road-interface.webp \"The Silk Road marketplace interface as it appeared in 2011-2013, showing the anonymous online marketplace concept.\")",
+      "tags": [
+        "Bitcoin",
+        "Silk Road",
+        "Darknet",
+        "Community",
+        "Privacy"
+      ],
+      "sources": [
+        {
+          "title": "The Untold Story of Silk Road — Wired",
+          "url": "https://www.wired.com/2015/04/silk-road-1/",
+          "author": "Joshuah Bearman",
+          "publishedAt": "2015-04-29"
+        },
+        {
+          "title": "Silk Road — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Silk_Road_(marketplace)",
+          "author": "Wikipedia"
+        },
+        {
+          "title": "Bitcoin and Silk Road — Forbes",
+          "url": "https://www.forbes.com/sites/timothylee/2013/07/16/an-anonymous-government-could-be-the-next-big-thing/",
+          "author": "Timothy B. Lee",
+          "publishedAt": "2013-07-16"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.bitcoin-addresses",
+          "title": "Bitcoin Addresses"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Private Keys"
+        },
+        {
+          "id": "wiki.peer-to-peer-network",
+          "title": "Peer-to-Peer Network"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
       "id": "history.bitcoin-one-dollar",
       "slug": "bitcoin-one-dollar",
       "language": "en",
       "date": "2011-02-09",
       "title": "Bitcoin Reaches $1 Parity",
       "category": "market",
-      "summary": "Bitcoin reaches parity with the US dollar for the first time, marking its emergence from sub-cent experimental status to a currency with tangible value.",
+      "summary": "Bitcoin reaches parity with the US dollar for the first time.",
       "bodyMarkdown": "On February 9, 2011, the price of one bitcoin reached $1 for the first time on the Mt. Gox exchange. This milestone marked Bitcoin's transition from a sub-cent experiment to a currency with tangible monetary value. At this point, the total market capitalization of all bitcoin in circulation exceeded $10 million for the first time.\n\n## The Journey to $1\n\nBitcoin had traded at fractions of a cent throughout 2010. The earliest known transaction valued bitcoin at approximately $0.0008 per coin when Laszlo Hanyecz bought two pizzas for 10,000 BTC in May 2010. By October 2010, the price had risen to $0.10 as awareness grew and the Mt. Gox exchange began operating. The final climb from $0.50 to $1 took approximately one month, driven by increasing media coverage and a growing user base.\n\n## Significance\n\nReaching $1 was more than a psychological milestone. It meant that a single bitcoin could now be said to be \"worth something\" in conventional terms. Mainstream news outlets picked up the story, and Bitcoin was introduced to a much wider audience. The event triggered a surge of new users joining the network and contributed to a positive feedback loop of increasing demand and rising price.\n\nAt $1 per bitcoin, the entire supply of 21 million coins had a theoretical market capitalization of $21 million — a small but significant fraction of the global economy.\n\n## Market Dynamics\n\nThe price movement was driven by several factors. The launch of Mt. Gox had created a reliable price discovery mechanism. Early adopters who had mined thousands of coins at negligible cost were beginning to sell small portions for fiat currency. New buyers, attracted by media coverage and word of mouth, entered the market. The supply of new coins from mining was also relatively high at 50 BTC per block, but demand was growing faster than new issuance.\n\n## The Broader Context\n\nFebruary 2011 was also the month the Silk Road marketplace launched, which would drive significant demand for bitcoin as a medium of exchange. The combination of the $1 price milestone and Silk Road's emergence created a pivotal moment in Bitcoin's history: it was now simultaneously a speculative asset and a functional currency.\n\n## Legacy\n\nThe $1 milestone is remembered as Bitcoin's first major price landmark. It demonstrated that a decentralized digital currency could command real economic value — a proposition that was still widely dismissed by economists and financial commentators at the time. Every subsequent price milestone (including $100, $1,000, $10,000, and $100,000) followed the same pattern of media attention, new user adoption, and price discovery that began with the climb to $1 in early 2011.\n\n![Bitcoin price chart early 2011](media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp \"Bitcoin price chart from 2010-2011 showing the climb from sub-cent levels to $1 parity.\")",
       "tags": [
         "Bitcoin",
@@ -164,56 +450,219 @@
       "updatedAt": "2026-05-28T00:00:00Z"
     },
     {
-      "id": "history.silk-road-launch",
-      "slug": "silk-road-launch",
+      "id": "history.first-halving",
+      "slug": "first-halving",
       "language": "en",
-      "date": "2011-02-01",
-      "title": "Silk Road Launches",
-      "category": "community",
-      "summary": "The Silk Road darknet marketplace launches, adopting Bitcoin as its exclusive currency and creating the first major real-world use case for the cryptocurrency.",
-      "bodyMarkdown": "In February 2011, an anonymous developer operating under the pseudonym \"Dread Pirate Roberts\" launched Silk Road, a marketplace accessible only through the Tor anonymity network. Silk Road enabled users to buy and sell goods — primarily controlled substances, but also digital goods and services — using Bitcoin as the exclusive payment method. The marketplace would dramatically accelerate Bitcoin's adoption while also attracting intense scrutiny from law enforcement.\n\n## How Silk Road Worked\n\nSilk Road was built on three layers of technology. The Tor network provided anonymous access, hiding users' IP addresses. Escrow services within the marketplace protected buyers and sellers from fraud. Bitcoin provided anonymous, irreversible payments that could not be frozen or reversed by any central authority. Sellers would list items with prices in bitcoin, buyers would deposit bitcoin into the platform's escrow system, and funds would be released to the seller upon confirmation of delivery.\n\nThe platform used a feedback and rating system similar to eBay's, allowing buyers to rate sellers and build reputation. This created a trust mechanism that was essential for a marketplace where participants had no legal recourse for disputes.\n\n## Bitcoin's Role\n\nSilk Road was Bitcoin's first killer application. Before Silk Road, Bitcoin's practical uses were limited to mining, forum tipping, and speculative trading. The marketplace gave people a compelling reason to acquire and spend bitcoin: access to a global, anonymous marketplace. This drove the first significant wave of organic demand for the cryptocurrency.\n\nThe platform was also an early adopter of Bitcoin payment infrastructure. It generated unique bitcoin addresses for each transaction, used multisignature wallets for escrow, and implemented automated conversion between bitcoin and the platform's internal currency. Many of the technical patterns Silk Road pioneered would later be adopted by legitimate Bitcoin businesses.\n\n## Growth and Scale\n\nOver its approximately two and a half years of operation, Silk Road facilitated an estimated 1.5 million transactions with a total value of over $1 billion in bitcoin. At its peak, the platform had nearly 1 million registered users and thousands of active sellers. The commission fees Silk Road charged on transactions generated substantial cash flows for its operators.\n\nThe marketplace's growth was closely tied to Bitcoin's price. As more users joined Silk Road, demand for bitcoin increased, pushing the price higher. Higher prices attracted more media attention, which brought more users to both Bitcoin and Silk Road. This symbiotic relationship continued until the platform was shut down.\n\n## Law Enforcement Response\n\nSilk Road attracted the attention of multiple law enforcement agencies, including the FBI, DEA, and Homeland Security. The investigation into Silk Road — known as Operation Marco Polo — involved undercover agents, sting operations, and surveillance of the Bitcoin blockchain. In October 2013, the FBI arrested Ross Ulbricht, who was identified as the creator and operator of Silk Road. Ulbricht was convicted on charges of money laundering, computer hacking, and conspiracy to traffic narcotics, and was sentenced to life in prison without parole.\n\n## Legacy and Impact\n\nSilk Road remains one of the most controversial chapters in Bitcoin's history. Critics argue that the platform demonstrated Bitcoin's potential for facilitating illegal activity. Supporters counter that the marketplace proved Bitcoin could function as a global, censorship-resistant payment system — a property that is valuable for both legal and illegal uses.\n\nThe marketplace also demonstrated the importance of privacy and anonymity in financial transactions, and its takedown highlighted the limitations of pseudonymous systems when combined with centralized intermediaries and poor operational security. Many of the lessons learned from Silk Road — including the need for better privacy technology and the risks of custodial services — directly influenced the development of later Bitcoin technologies like the Lightning Network, CoinJoin, and improved wallet security practices.\n\n![Silk Road marketplace screenshot](media/history/silk-road-launch/silk-road-interface.webp \"The Silk Road marketplace interface as it appeared in 2011-2013, showing the anonymous online marketplace concept.\")",
+      "date": "2012-11-28",
+      "title": "First Bitcoin Halving",
+      "category": "protocol",
+      "summary": "The first Bitcoin halving cuts the block subsidy from 50 to 25 BTC at block height 210,000.",
+      "bodyMarkdown": "On November 28, 2012, Bitcoin reached block height 210,000, triggering the first programmed reduction in mining rewards. The block subsidy decreased from 50 to 25 bitcoin per block, cutting the rate at which new bitcoins entered circulation by half. This event, now known as a \"halving,\" was hardcoded into Bitcoin's consensus rules by Satoshi Nakamoto and occurs every 210,000 blocks — approximately every four years.\n\n## The Halving Mechanism\n\nBitcoin's issuance schedule is one of its most distinctive features. Unlike fiat currencies, where central banks can print money at will, Bitcoin's supply follows a predetermined, unchangeable curve. The block subsidy started at 50 BTC in January 2009 and halves every 210,000 blocks. The first halving at block 210,000 brought the subsidy to 25 BTC. This geometric decay means the total supply asymptotically approaches 21 million, with each halving making new bitcoin increasingly scarce.\n\nThe halving is enforced by consensus: every full node validates that the coinbase transaction in each block does not create more bitcoin than the current subsidy plus transaction fees. If a miner attempted to claim the old 50 BTC reward after block 210,000, all nodes would reject the block as invalid.\n\n## Market Response\n\nAt the time of the first halving, bitcoin was trading at approximately $12–$13. The event had been anticipated by the community, but its immediate market impact was muted. However, the months following the halving saw one of the first major Bitcoin bull runs. By April 2013, the price had risen to over $260 — a more than 20x increase from the halving price.\n\nEconomists debate whether the post-halving price increases are causal or coincidental. The \"stock-to-flow\" model argues that reduced new supply, combined with steady or increasing demand, naturally pushes prices higher. Critics counter that the relationship is correlation, not causation, and that other factors — media attention, exchange development, macroeconomic conditions — drive the price.\n\n## Mining Impact\n\nThe first halving had a significant impact on miners. Those operating with high electricity costs or inefficient hardware found their revenue suddenly halved. Some miners were forced to shut down, temporarily reducing the network hashrate. However, the decline was short-lived as more efficient mining hardware (FPGAs and early ASICs) was entering the market, and the rising bitcoin price compensated for the reduced block subsidy.\n\nBitcoin's difficulty adjustment mechanism ensured that blocks continued to be found every 10 minutes on average. When some miners left, the difficulty decreased, making it easier for remaining miners to find blocks. This automatic stabilization is a key feature of Bitcoin's design.\n\n## Historical Significance\n\nThe first halving was a landmark event that validated Bitcoin's monetary policy. It demonstrated that the fixed supply schedule would be enforced by the network, regardless of miner sentiment or market conditions. The event also introduced the broader public to Bitcoin's unique monetary properties, sparking discussions about its potential as a store of value and its differences from traditional inflationary currencies.\n\nEvery halving since has drawn increasing attention, with the 2020 and 2024 halvings being major media events. The first halving, while less noticed by the mainstream at the time, was the crucial test that proved Bitcoin's monetary policy was not just theoretical — it was inevitable.\n\n![First halving block 210000](media/history/first-halving/first-halving-block.webp \"Block 210,000 as displayed on a block explorer, marking the first halving at 25 BTC subsidy.\")",
       "tags": [
         "Bitcoin",
-        "Silk Road",
-        "Darknet",
-        "Community",
-        "Privacy"
+        "Halving",
+        "Mining",
+        "Supply"
       ],
       "sources": [
         {
-          "title": "The Untold Story of Silk Road — Wired",
-          "url": "https://www.wired.com/2015/04/silk-road-1/",
-          "author": "Joshuah Bearman",
-          "publishedAt": "2015-04-29"
+          "title": "First Halving — Blockchain.com",
+          "url": "https://www.blockchain.com/explorer/blocks/210000",
+          "author": "Blockchain.com"
         },
         {
-          "title": "Silk Road — Wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Silk_Road_(marketplace)",
-          "author": "Wikipedia"
+          "title": "Bitcoin Halving History — CoinDesk",
+          "url": "https://www.coindesk.com/bitcoin-halving-history",
+          "author": "CoinDesk"
         },
         {
-          "title": "Bitcoin and Silk Road — Forbes",
-          "url": "https://www.forbes.com/sites/timothylee/2013/07/16/an-anonymous-government-could-be-the-next-big-thing/",
-          "author": "Timothy B. Lee",
-          "publishedAt": "2013-07-16"
+          "title": "Bitcoin block 210,000 — Bitcoin Explorer",
+          "url": "https://bitcoinexplorer.org/block/210000",
+          "author": "Bitcoin Explorer"
         }
       ],
       "related": [
         {
-          "id": "wiki.transactions",
-          "title": "Bitcoin Transactions"
+          "id": "wiki.halving",
+          "title": "Halving"
         },
         {
-          "id": "wiki.bitcoin-addresses",
-          "title": "Bitcoin Addresses"
+          "id": "wiki.block-subsidy",
+          "title": "Block Subsidy"
         },
+        {
+          "id": "wiki.issuance-schedule",
+          "title": "Issuance Schedule"
+        },
+        {
+          "id": "wiki.miner-incentives",
+          "title": "Miner Incentives"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.cyprus-crisis",
+      "slug": "cyprus-crisis",
+      "language": "en",
+      "date": "2013-03-01",
+      "title": "Cyprus Banking Crisis",
+      "category": "market",
+      "summary": "The Cyprus banking crisis drives global attention to Bitcoin as a decentralized alternative.",
+      "bodyMarkdown": "In March 2013, the Mediterranean island nation of Cyprus was plunged into a severe banking crisis. The Eurozone finance ministers, in coordination with the International Monetary Fund, proposed a bailout package that included an unprecedented measure: a levy on all bank deposits, including those under €100,000 that were supposed to be guaranteed by the state. The proposed \"bail-in\" would seize up to 9.9% of deposits to recapitalize the failing banks.\n\n## The Bail-In Proposal\n\nThe crisis began when Cypriot banks, heavily exposed to Greek sovereign debt, became insolvent following the Greek debt restructuring. The Eurozone agreed to provide €10 billion in emergency funding, but on the condition that depositors contribute to the cost. The initial proposal included a 6.75% levy on insured deposits under €100,000 and a 9.9% levy on larger deposits.\n\nThe announcement caused panic. ATMs were overwhelmed as depositors rushed to withdraw their savings. The government imposed capital controls, limiting daily withdrawals to €300 and banning electronic transfers abroad. For the first time in the Eurozone crisis, ordinary savers were seeing their bank deposits directly confiscated to pay for bank failures.\n\n## Bitcoin's Response\n\nThe Cyprus crisis was the first time a major real-world financial event demonstrated Bitcoin's value proposition in action. As news of the bail-in spread, Bitcoin's price surged from approximately $40 to over $260 within weeks. Trading volume on Mt. Gox and other exchanges exploded as people around the world — not just in Cyprus — sought an alternative to the traditional banking system.\n\nThe price increase was driven by a combination of factors. Cypriots looking to move wealth out of the banking system discovered Bitcoin as a censorship-resistant alternative. International investors, witnessing the precedent of deposit confiscation, sought assets that could not be seized or frozen by governments. Media coverage introduced Bitcoin to a massive new audience, framing it as \"the money the banks can't take.\"\n\n## The Narrative Takes Hold\n\nThe crisis cemented Bitcoin's narrative as \"digital gold\" and a hedge against banking system risk. The idea that bank deposits could be confiscated — even insured deposits — was deeply unsettling to savers worldwide. Bitcoin, with its decentralized nature and private key ownership, offered a compelling alternative. \"Not your keys, not your coins\" became more than a slogan — it was now a practical concern.\n\nThe Cyprus crisis also highlighted the importance of Bitcoin's fixed supply. While central banks could print money and governments could confiscate deposits, no authority could force Bitcoin to create more coins or seize coins without access to private keys.\n\n## Broader Impact\n\nThe Cyprus crisis marked Bitcoin's transition from a niche internet curiosity to a recognized financial alternative. Mainstream media outlets that had previously ignored or dismissed Bitcoin began covering it seriously. The event attracted a wave of new users, developers, and entrepreneurs to the ecosystem. Several prominent Bitcoin companies were founded in the wake of the crisis.\n\nThe crisis also started a conversation about the nature of money and banking that continues to this day. For many people, Cyprus was the moment they first asked: \"If my bank can take my money, what is money really worth?\"\n\n![Cyprus bank queue](media/history/cyprus-crisis/cyprus-bank-queue.webp \"People queuing outside a bank in Cyprus during the 2013 banking crisis.\")",
+      "tags": [
+        "Bitcoin",
+        "Cyprus",
+        "Banking Crisis",
+        "Market",
+        "Adoption"
+      ],
+      "sources": [
+        {
+          "title": "Cyprus crisis boosts Bitcoin — The Guardian",
+          "url": "https://www.theguardian.com/technology/2013/mar/20/bitcoin-cyprus-crisis-virtual-currency",
+          "author": "Charles Arthur",
+          "publishedAt": "2013-03-20"
+        },
+        {
+          "title": "Bitcoin surges after Cyprus bailout — Reuters",
+          "url": "https://www.reuters.com/article/us-bitcoin-cyprus-idUSBRE92N0PK20130328",
+          "author": "Felix Salmon",
+          "publishedAt": "2013-03-28"
+        },
+        {
+          "title": "The Cyprus crisis and the Bitcoin boom — Wired",
+          "url": "https://www.wired.com/2013/03/bitcoin-cyprus/",
+          "author": "Robert McMillan",
+          "publishedAt": "2013-03-27"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.sound-money",
+          "title": "Sound Money"
+        },
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
+        },
+        {
+          "id": "wiki.fixed-supply",
+          "title": "Fixed Supply"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-one-thousand",
+      "slug": "bitcoin-one-thousand",
+      "language": "en",
+      "date": "2013-11-29",
+      "title": "Bitcoin Reaches $1,000",
+      "category": "market",
+      "summary": "Bitcoin surpasses $1,000 for the first time, cementing its status as a legitimate financial asset.",
+      "bodyMarkdown": "On November 29, 2013, the price of one bitcoin surpassed $1,000 for the first time on the Mt. Gox exchange, reaching an all-time high of approximately $1,150. This milestone marked Bitcoin's transition from a sub-$1,000 digital curiosity to an asset with a market capitalization exceeding $10 billion. At its peak, a single bitcoin was worth more than an ounce of gold.\n\n## The Road to $1,000\n\nThe journey from $1 to $1,000 took just under three years. After reaching parity with the US dollar in February 2011, Bitcoin's price experienced several boom-and-bust cycles. It peaked at $31 in June 2011 before crashing to $2, then slowly recovered through 2012. The Cyprus crisis in March 2013 propelled the price from $40 to $260, and a combination of growing adoption, exchange development, and speculative demand pushed it past $1,000 by late November.\n\nThe final leg of the rally was driven by several factors: increasing media coverage, the growth of the Chinese Bitcoin market (which at one point accounted for over 60% of global trading volume), and the launch of new exchanges and services. The price doubled from $500 to $1,000 in just two weeks.\n\n## Media Frenzy\n\nThe $1,000 milestone triggered an explosion of media coverage. Major news outlets including Bloomberg, CNBC, Reuters, and The Wall Street Journal ran prominent stories about Bitcoin. The narrative was split between excitement about the technology and warnings about a speculative bubble. US regulators held hearings on Bitcoin, and the term \"cryptocurrency\" entered the mainstream lexicon.\n\n## Market Dynamics\n\nThe rally to $1,000 was accompanied by significant volatility. Daily price swings of 10-20% were common, and the market was driven primarily by retail speculation rather than institutional investment. Mt. Gox, still the dominant exchange, was experiencing increasing technical difficulties that would later prove fatal.\n\nThe total market capitalization of all bitcoin in circulation reached approximately $11 billion at the peak — a remarkable figure for an asset that had been worth virtually nothing just four years earlier.\n\n## Comparison to Gold\n\nThe $1,000 milestone was particularly symbolic because it put bitcoin in the same price range as an ounce of gold, which was trading at approximately $1,250 at the time. This comparison was widely cited by Bitcoin advocates who argued that the digital currency could eventually challenge gold as a store of value. The \"digital gold\" narrative gained significant traction during this period.\n\n## Aftermath\n\nThe $1,000 peak was short-lived. Within days, the price began to decline, and by early 2014 — following the Mt. Gox collapse — Bitcoin would spend years trading below $1,000. It would not reclaim the $1,000 level permanently until 2017. However, the brief touch of $1,000 had already established Bitcoin as a major financial phenomenon. The milestone proved that digital currency could command significant monetary value, changing the perception of Bitcoin among investors, regulators, and the general public.\n\n![Bitcoin price chart 2013](media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp \"Bitcoin price chart from 2013 showing the rapid ascent from $100 to over $1,000.\")",
+      "tags": [
+        "Bitcoin",
+        "Price Milestone",
+        "Market",
+        "ATH"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin hits $1,000 — Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2013-11-28/bitcoin-tops-1-000-as-craze-over-virtual-currency-grows",
+          "author": "Bloomberg News",
+          "publishedAt": "2013-11-28"
+        },
+        {
+          "title": "Bitcoin's meteoric rise — CNBC",
+          "url": "https://www.cnbc.com/2013/11/28/bitcoin-tops-1000-for-first-time.html",
+          "author": "Cadie Thompson",
+          "publishedAt": "2013-11-28"
+        },
+        {
+          "title": "Bitcoin price history — CoinMarketCap",
+          "url": "https://coinmarketcap.com/currencies/bitcoin/",
+          "author": "CoinMarketCap"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        },
+        {
+          "id": "wiki.fixed-supply",
+          "title": "Fixed Supply"
+        }
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.mtgox-collapse",
+      "slug": "mtgox-collapse",
+      "language": "en",
+      "date": "2014-02-01",
+      "title": "Mt. Gox Collapse",
+      "category": "security",
+      "summary": "Mt. Gox, the world's largest Bitcoin exchange, files for bankruptcy after losing approximately 850,000 BTC.",
+      "bodyMarkdown": "In February 2014, Mt. Gox — once handling over 70% of all Bitcoin trades worldwide — collapsed in spectacular fashion. The exchange revealed that it had lost approximately 850,000 bitcoin, worth over $450 million at the time, due to a combination of security breaches, software bugs, and gross mismanagement. The collapse was the single most catastrophic event in Bitcoin's history up to that point and remains one of the largest financial frauds ever recorded.\n\n## The Years of Neglect\n\nThe seeds of Mt. Gox's failure were planted long before the collapse. After Mark Karpelès acquired the exchange in 2011, he struggled to maintain and improve the platform's security. The exchange's codebase was a patchwork of undocumented modifications, its wallet management was primitive, and it lacked basic security auditing.\n\nThe core technical problem was transaction malleability. Bitcoin's ECDSA signatures could be mutated by a third party without invalidating them, producing a different transaction ID. Mt. Gox's withdrawal system checked whether a transaction had been confirmed by monitoring its TXID. When an attacker mutated a withdrawal transaction, the new TXID would not match what Mt. Gox was monitoring, and the exchange's automated systems would interpret this as a failed withdrawal — and issue a new payment. This allowed attackers to drain funds from the exchange repeatedly.\n\n## The Leak\n\nOver several years, attackers exploited these vulnerabilities to steal approximately 850,000 BTC from Mt. Gox. Approximately 200,000 of those coins were eventually recovered, but 650,000 — worth billions of dollars at current prices — were never recovered. The theft went undetected by Mt. Gox's management for years, partly due to their failure to reconcile hot wallet balances against exchange liabilities.\n\nIn late 2013, when Mt. Gox finally attempted to reconcile its accounts, it discovered massive discrepancies. The exchange suspended withdrawals in February 2014, citing \"technical issues.\" On February 28, Mt. Gox filed for bankruptcy protection in Japan and the United States, revealing the full extent of the losses.\n\n## The Aftermath\n\nThe Mt. Gox collapse had devastating effects on the Bitcoin ecosystem. The price of bitcoin fell from approximately $800 to $400 in the weeks following the announcement. Many users lost their life savings. Trust in cryptocurrency exchanges was severely damaged, and the event triggered calls for regulation of the industry.\n\nFor the Bitcoin community, the collapse was a painful lesson in the importance of security and the risks of centralized services. The phrase \"not your keys, not your coins\" became central to Bitcoin philosophy. The event also accelerated the development of better wallet technology, including hardware wallets, multisignature schemes, and improved exchange security practices.\n\n## Legal Proceedings\n\nMark Karpelès was arrested in Japan in 2015 and charged with embezzlement and data manipulation. After a lengthy trial, he was found guilty in 2019 of manipulating exchange data but acquitted of embezzlement. He received a suspended sentence.\n\nThe bankruptcy proceedings for Mt. Gox have been ongoing for over a decade. In 2024, the trustee began distributing recovered assets to creditors, who received approximately 15-20% of their original claims in bitcoin and bitcoin cash. The final chapter of the Mt. Gox saga was still being written more than ten years after the collapse.\n\n## Long-Term Impact\n\nDespite the devastation, the Bitcoin network itself was never compromised. The Mt. Gox collapse was a failure of a centralized service, not of the underlying protocol. This distinction was crucial: Bitcoin's blockchain continued operating normally throughout the crisis, processing transactions every 10 minutes without interruption.\n\nThe collapse led to significant improvements in the cryptocurrency ecosystem. Exchanges implemented cold storage, multi-signature wallets, regular audits, and insurance. Developers deployed Segregated Witness in 2017, which fixed the transaction malleability issue at the protocol level. The lessons of Mt. Gox shaped the development of the entire industry.\n\n![Mt. Gox logo](media/history/mtgox-collapse/mtgox-collapse-logo.webp \"The Mt. Gox logo, once the dominant Bitcoin exchange, now a cautionary tale.\")",
+      "tags": [
+        "Bitcoin",
+        "Mt. Gox",
+        "Exchange",
+        "Security",
+        "Bankruptcy"
+      ],
+      "sources": [
+        {
+          "title": "The inside story of Mt. Gox — Wired",
+          "url": "https://www.wired.com/2014/03/bitcoin-exchange/",
+          "author": "Robert McMillan",
+          "publishedAt": "2014-03-03"
+        },
+        {
+          "title": "Mt. Gox files for bankruptcy — BBC",
+          "url": "https://www.bbc.com/news/technology-26400932",
+          "author": "BBC News",
+          "publishedAt": "2014-02-28"
+        },
+        {
+          "title": "The collapse of Mt. Gox — The New York Times",
+          "url": "https://www.nytimes.com/2014/02/28/technology/mt-gox-files-for-bankruptcy.html",
+          "author": "Nathaniel Popper",
+          "publishedAt": "2014-02-28"
+        }
+      ],
+      "related": [
         {
           "id": "wiki.private-keys",
           "title": "Private Keys"
         },
         {
-          "id": "wiki.peer-to-peer-network",
-          "title": "Peer-to-Peer Network"
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"

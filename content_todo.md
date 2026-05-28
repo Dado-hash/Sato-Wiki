@@ -151,22 +151,22 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
 
 ### Fase 3 — Growth & Turmoil (2012–2014)
 
-- [ ] First halving - `history.first-halving`
+- [x] First halving - `history.first-halving`
   `2012-11-28` | `protocol`
   Primo halving Bitcoin: il block subsidy passa da 50 a 25 BTC. Altezza blocco
   210.000.
 
-- [ ] Cyprus banking crisis - `history.cyprus-crisis`
-  `2013-03` | `market`
+- [x] Cyprus banking crisis - `history.cyprus-crisis`
+  `2013-03-01` | `market`
   La crisi bancaria cipriota spinge l'adozione di Bitcoin come alternativa al
   sistema bancario tradizionale.
 
-- [ ] First $1,000 milestone - `history.bitcoin-one-thousand`
+- [x] First $1,000 milestone - `history.bitcoin-one-thousand`
   `2013-11-29` | `market`
   Bitcoin supera $1.000 per la prima volta.
 
-- [ ] Mt. Gox collapse - `history.mtgox-collapse`
-  `2014-02` | `security`
+- [x] Mt. Gox collapse - `history.mtgox-collapse`
+  `2014-02-01` | `security`
   Mt. Gox, il più grande exchange Bitcoin, dichiara bancarotta dopo la perdita
   di 850.000 BTC.
 
