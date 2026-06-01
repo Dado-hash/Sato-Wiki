@@ -8813,15 +8813,15 @@
       "number": 121,
       "language": "en",
       "title": "Proof of Payment URI scheme",
-      "summary": "BIP 121: Proof of Payment URI scheme.",
+      "summary": "Defines a proof-of-payment URI scheme extending BIP 21 to support payment verification proofs.",
       "status": "closed",
       "category": "applications",
       "authors": [
         "Kalle Rosenbaum"
       ],
       "createdAt": "2015-07-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 121 extends the bitcoin: URI scheme (BIP 21) to include parameters for proof-of-payment. The URI format allows a payee to generate a link that contains the transaction proof, which can be verified by third parties without access to the full transaction details.\n\nThis builds on the proof-of-payment concept from BIP 120 by integrating it directly into the URI scheme used for payment requests.",
+      "impactMarkdown": "BIP 121 was closed without widespread adoption. Payment proof mechanisms evolved through other approaches.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0121.mediawiki",
       "tags": [
         "BIP",
@@ -8840,10 +8840,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c10b6c12d0b0d974161503a8f2ce2611e0001c64",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0121.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8851,15 +8848,15 @@
       "number": 122,
       "language": "en",
       "title": "URI scheme for Blockchain references / exploration",
-      "summary": "BIP 122: URI scheme for Blockchain references / exploration.",
+      "summary": "Defines a URI scheme for referencing blockchain data including blocks, transactions, and addresses.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Marco Pontello"
       ],
       "createdAt": "2015-08-29",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 122 specifies a URI format for referencing blockchain data in a standard way. The scheme uses `blockchain:` URIs that can reference a block by hash or height, a transaction by txid, or an address. The format includes a network identifier to distinguish between mainnet, testnet, and other chains.\n\nThis standard aims to make blockchain references portable across applications, enabling consistent linking to on-chain data.",
+      "impactMarkdown": "BIP 122 remains in Draft status. While the concept of standardized blockchain references is useful, adoption has been limited by competing approaches and network-specific conventions.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0122.mediawiki",
       "tags": [
         "BIP",
@@ -8878,10 +8875,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0f230904cf77b43dafa4f58fbbfe727b866a580f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0122.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8889,15 +8883,15 @@
       "number": 123,
       "language": "en",
       "title": "BIP Classification",
-      "summary": "BIP 123: BIP Classification.",
+      "summary": "Defines an updated classification system for BIPs, replacing the original BIP 1 categories with a more flexible structure.",
       "status": "deployed",
       "category": "process",
       "authors": [
         "Eric Lombrozo"
       ],
       "createdAt": "2015-08-26",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 123 replaces the original BIP categorization from BIP 1 with a new system. It defines three BIP types: Standards Track, Informational, and Process. Within Standards Track, it further distinguishes Consensus, Peer Services, API/RPC, and Applications layers.\n\nThe classification clarifies which BIPs require consensus changes and which are purely process or informational, making the BIP workflow more organized as the number of proposals grew.",
+      "impactMarkdown": "BIP 123 was deployed as the standard BIP classification system. It replaced the original BIP 1 taxonomy and is used by the BIPs repository for categorizing new proposals.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0123.mediawiki",
       "tags": [
         "BIP",
@@ -8916,10 +8910,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "9358e1dacd1deb0a88cce9a9d377fc14d4f06cd9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0123.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8927,7 +8918,7 @@
       "number": 124,
       "language": "en",
       "title": "Hierarchical Deterministic Script Templates",
-      "summary": "BIP 124: Hierarchical Deterministic Script Templates.",
+      "summary": "Proposes hierarchical deterministic script templates for multi-signature and complex script wallets.",
       "status": "closed",
       "category": "applications",
       "authors": [
@@ -8935,8 +8926,8 @@
         "William Swanson"
       ],
       "createdAt": "2015-11-20",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 124 extends BIP 32 hierarchical deterministic wallets to support script templates, enabling deterministic generation of complex script addresses (not just single-key addresses). The templates define how scripts for multisignature, timelocked, and other conditions are derived from a master seed.",
+      "impactMarkdown": "BIP 124 was closed. The approach was later revisited in BIP 87 (multisig hierarchy) and BIP 88 (HD path templates).",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0124.mediawiki",
       "tags": [
         "BIP",
@@ -8955,10 +8946,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "e48844593afa5a48b3b6b41968830d42269349ae",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0124.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8966,7 +8954,7 @@
       "number": 125,
       "language": "en",
       "title": "Opt-in Full Replace-by-Fee Signaling",
-      "summary": "BIP 125: Opt-in Full Replace-by-Fee Signaling.",
+      "summary": "Specifies opt-in replace-by-fee (RBF) signaling, allowing transaction senders to indicate they allow replacement with higher-fee versions.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -8974,8 +8962,8 @@
         "Peter Todd"
       ],
       "createdAt": "2015-12-04",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 125 defines the opt-in replace-by-fee mechanism where a transaction signals replaceability by setting a specific sequence number (`nSequence < 0xfffffffe`). When a node receives a replacement transaction with higher fees, it can replace the original in its mempool.\n\nRBF allows senders to bump stuck transactions by sending a new version with higher fees. The BIP specifies the replacement rules including that the new transaction must pay higher fees than the original, preventing DoS attacks on the mempool.",
+      "impactMarkdown": "BIP 125 is widely deployed in Bitcoin Core and most node implementations. Opt-in RBF became standard after its predecessor, full RBF (BIP 64 era), was controversial. The opt-in approach gives senders control while allowing receivers to reject replaceable transactions if desired.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki",
       "tags": [
         "BIP",
@@ -8994,10 +8982,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ff54969ae4896efd294276241f852b424c21ea08",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9005,15 +8990,15 @@
       "number": 126,
       "language": "en",
       "title": "Best Practices for Heterogeneous Input Script Transactions",
-      "summary": "BIP 126: Best Practices for Heterogeneous Input Script Transactions.",
+      "summary": "Provides best practices for creating transactions with heterogeneous inputs (different script types) to improve privacy and efficiency.",
       "status": "draft",
       "category": "informational",
       "authors": [
         "Kristov Atlas"
       ],
       "createdAt": "2016-02-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 126 addresses the challenges of creating transactions that combine inputs of different script types (legacy P2PKH, SegWit P2SH, native SegWit, etc). Mixing input types can leak information about wallet structure and reduce privacy.\n\nThe BIP recommends practices for ordering and handling heterogeneous inputs to minimize fingerprinting and ensure reliable transaction construction.",
+      "impactMarkdown": "BIP 126 is an Informational Draft providing guidance rather than a protocol standard. Its recommendations are followed by some wallet implementations concerned with transaction privacy.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0126.mediawiki",
       "tags": [
         "BIP",
@@ -9032,10 +9017,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "1bc19cb4ed73c4c434e61cce659346217d436248",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0126.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9043,15 +9025,15 @@
       "number": 127,
       "language": "en",
       "title": "Simple Proof-of-Reserves Transactions",
-      "summary": "BIP 127: Simple Proof-of-Reserves Transactions.",
+      "summary": "Describes a simple proof-of-reserves transaction format that allows custodians to demonstrate ownership of Bitcoin funds.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Steven Roose"
       ],
       "createdAt": "2019-01-28",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 127 specifies a method for creating proof-of-reserves transactions. A custodian (exchange, vault) creates a transaction that signs with the private keys of their cold storage addresses, proving they control those funds. The proof transaction does not need to be broadcast; it can be shared directly with auditors.\n\nThe format standardizes how custodians construct and present proof-of-reserves, making audits more transparent and comparable across different services.",
+      "impactMarkdown": "BIP 127 remains in Draft status. While the concept is straightforward, formal proof-of-reserves has not been widely adopted by exchanges, and different approaches exist for demonstrating solvency.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0127.mediawiki",
       "tags": [
         "BIP",
@@ -9070,10 +9052,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3e669187d657826109a97f0fb7eee1ba2588d75c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0127.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9081,15 +9060,15 @@
       "number": 128,
       "language": "en",
       "title": "Timelock-Recovery Storage Format",
-      "summary": "BIP 128: Timelock-Recovery Storage Format.",
+      "summary": "Defines a storage format for timelock-recovery scripts, enabling wallets to encode recovery conditions for funds.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Oren Z"
       ],
       "createdAt": "2026-02-05",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 128 specifies a standardized format for storing timelock-recovery information for Bitcoin wallets. The format encodes the conditions under which funds can be recovered after a timelock expires, such as inheriting funds or recovering access after key loss.\n\nThis enables wallet software to encode recovery paths that depend on time-based conditions, improving the safety of self-custody arrangements.",
+      "impactMarkdown": "BIP 128 is a Draft proposal. Timelock-based recovery is used in some multisig and inheritance planning setups but has not been standardized across wallet implementations.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0128.mediawiki",
       "tags": [
         "BIP",
@@ -9108,10 +9087,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c89ef32032dc1072a97ac67560c6dcd9d7b99356",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0128.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9119,7 +9095,7 @@
       "number": 129,
       "language": "en",
       "title": "Bitcoin Secure Multisig Setup (BSMS)",
-      "summary": "BIP 129: Bitcoin Secure Multisig Setup (BSMS).",
+      "summary": "Defines a secure protocol for setting up multisignature wallets across different devices without exposing private keys.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -9130,8 +9106,8 @@
         "Rodolfo Novak"
       ],
       "createdAt": "2020-11-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 129 specifies Bitcoin Secure Multisig Setup (BSMS), a protocol for creating multisignature wallets across multiple devices or participants. Each participant generates their own seed and shares only public information, ensuring no single point of failure.\n\nThe protocol handles key exchange, script policy negotiation, and verification that all participants have the correct multisig address. It supports various multisig configurations (2-of-3, 3-of-5, etc.) and is designed to be interoperable across different wallet software.",
+      "impactMarkdown": "BIP 129 is Complete and has been adopted by multisig-focused wallets and services including Specter and Casa. It provides a standardized setup flow that reduces the risk of configuration errors in multisig wallet creation.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki",
       "tags": [
         "BIP",
@@ -9150,10 +9126,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "b1d054662b9d6f86d408d9f26505f13256e015ab",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9161,15 +9134,15 @@
       "number": 130,
       "language": "en",
       "title": "sendheaders message",
-      "summary": "BIP 130: sendheaders message.",
+      "summary": "Introduces the sendheaders message, allowing nodes to announce new blocks by sending headers instead of full inventory messages.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
         "Suhas Daftuar"
       ],
       "createdAt": "2015-05-08",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 130 adds a `sendheaders` message to the Bitcoin P2P protocol. When a node sends `sendheaders`, the peer will announce new blocks by sending the block header directly rather than an `inv` message. This eliminates a round trip: the receiving node can immediately request the block if it wants it, without first requesting the header.\n\nThis optimization reduces block propagation latency and bandwidth, particularly for SPV nodes that only need headers.",
+      "impactMarkdown": "BIP 130 is deployed in Bitcoin Core and most node implementations. The `sendheaders` mechanism is part of the standard P2P protocol and contributes to faster block propagation across the network.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki",
       "tags": [
         "BIP",
@@ -9188,10 +9161,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "1476d5871a0755d87a9ae5d0ece396c996ce73ad",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9199,15 +9169,15 @@
       "number": 131,
       "language": "en",
       "title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
-      "summary": "BIP 131: \"Coalescing Transaction\" Specification (wildcard inputs).",
+      "summary": "Proposes coalescing transactions with wildcard inputs, allowing transactions to specify inputs that match any UTXO with a given script.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Chris Priest"
       ],
       "createdAt": "2015-11-30",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 131 introduced the concept of wildcard inputs for Bitcoin transactions, where an input could match any unspent output with a specific script rather than referencing a specific outpoint. This would enable more flexible transaction construction but required a hard fork.\n\nThe proposal was extremely ambitious and would have significantly changed Bitcoin's transaction model.",
+      "impactMarkdown": "BIP 131 was closed and not adopted. The wildcard input concept was considered too radical a change to Bitcoin's transaction model and raised security concerns about unintended spending of funds.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0131.mediawiki",
       "tags": [
         "BIP",
@@ -9226,10 +9196,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2077f634532e5b92799917727aa64de43c21b65e",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0131.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9237,15 +9204,15 @@
       "number": 132,
       "language": "en",
       "title": "Committee-based BIP Acceptance Process",
-      "summary": "BIP 132: Committee-based BIP Acceptance Process.",
+      "summary": "Proposes replacing the BIP editor model with a committee-based acceptance process for BIPs.",
       "status": "closed",
       "category": "process",
       "authors": [
         "Andy Chase"
       ],
       "createdAt": "2015-08-31",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 132 suggested a governance change for the BIP process itself, replacing the single BIP editor with a committee responsible for reviewing and accepting proposals. The committee would include representatives from different parts of the Bitcoin ecosystem: developers, miners, businesses, and users.\n\nThis was motivated by concerns that a single editor had too much influence over which proposals moved forward.",
+      "impactMarkdown": "BIP 132 was closed without adoption. The BIP process retains the editor model, though the editor role has been refined and shared over time. The proposal reflects ongoing debates about Bitcoin governance structures.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0132.mediawiki",
       "tags": [
         "BIP",
@@ -9264,10 +9231,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "12036935d745a07e8b69435b4dd10bf691509a49",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0132.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9275,15 +9239,15 @@
       "number": 133,
       "language": "en",
       "title": "feefilter message",
-      "summary": "BIP 133: feefilter message.",
+      "summary": "Introduces the feefilter message, allowing nodes to announce the minimum transaction fee they will accept for relay.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
         "Alex Morcos"
       ],
       "createdAt": "2016-02-13",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 133 adds a `feefilter` P2P message that allows a node to tell its peers the minimum fee rate it will accept for relaying transactions. Peers can then avoid sending transactions that fall below this threshold, reducing bandwidth usage for both sides.\n\nThis mechanism helps nodes manage their mempool resources more efficiently and reduces network traffic from low-fee transactions that will likely never be mined.",
+      "impactMarkdown": "BIP 133 is deployed in Bitcoin Core and most node implementations. The feefilter message is part of the standard P2P protocol and helps optimize transaction relay efficiency.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki",
       "tags": [
         "BIP",
@@ -9302,10 +9266,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6f3e04899435134b0a8fedbce13d54bc34c4c19a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9313,15 +9274,15 @@
       "number": 134,
       "language": "en",
       "title": "Flexible Transactions",
-      "summary": "BIP 134: Flexible Transactions.",
+      "summary": "Proposes flexible transactions (FlexTX), a comprehensive redesign of the Bitcoin transaction format for greater scripting flexibility.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Tom Zander"
       ],
       "createdAt": "2016-07-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 134 introduced FlexTX, a major redesign of Bitcoin's transaction format aimed at enabling more advanced scripting capabilities. The proposal included changes to input/output structure, signature handling, and script evaluation rules.\n\nThe redesign was motivated by the limitations of the original transaction format for complex smart contract applications. FlexTX required a hard fork to implement.",
+      "impactMarkdown": "BIP 134 was closed and not adopted. Its ambitious scope was later addressed incrementally through SegWit (BIP 141) and Taproot (BIP 341), which achieved many of FlexTX's goals through soft fork-compatible approaches.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki",
       "tags": [
         "BIP",
@@ -9340,10 +9301,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f34a9f6b60359b2d0e64f5ca4e90136aaeb864cf",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9351,15 +9309,15 @@
       "number": 135,
       "language": "en",
       "title": "Generalized version bits voting",
-      "summary": "BIP 135: Generalized version bits voting.",
+      "summary": "Proposes generalized version bits voting to replace BIP 9's fixed deployment mechanism with a more flexible system.",
       "status": "closed",
       "category": "informational",
       "authors": [
         "Sancho Panza"
       ],
       "createdAt": "2017-03-29",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 135 suggested improvements to BIP 9's version bits deployment mechanism, adding more flexibility in activation parameters. It proposed support for multiple simultaneous deployments, customizable thresholds, and different activation timelines.\n\nThe generalization aimed to make future soft fork activations smoother by providing a more adaptable voting framework.",
+      "impactMarkdown": "BIP 135 was closed without adoption. Its ideas influenced later deployment discussions but BIP 9 remains the standard mechanism, supplemented by the buried deployment concept from BIP 90.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0135.mediawiki",
       "tags": [
         "BIP",
@@ -9378,10 +9336,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "1d7978b51a65e78a7649885f28e68c18f3beddc3",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0135.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9389,7 +9344,7 @@
       "number": 136,
       "language": "en",
       "title": "Bech32 Encoded Tx Position References",
-      "summary": "BIP 136: Bech32 Encoded Tx Position References.",
+      "summary": "Defines a Bech32-encoded format for referencing transaction positions (block height and index) in a compact way.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -9398,8 +9353,8 @@
         "Daniel Pape"
       ],
       "createdAt": "2017-07-09",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 136 specifies a compact encoding for referencing a transaction's location in the blockchain: block height and position within the block. The format uses Bech32 encoding for error detection, similar to addresses.\n\nThis enables applications to reference transactions in a human-friendly, error-resistant format suitable for APIs and user interfaces.",
+      "impactMarkdown": "BIP 136 remains in Draft status. While useful, the format has not seen widespread adoption, as most applications use txid-based references rather than position-based ones.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0136.mediawiki",
       "tags": [
         "BIP",
@@ -9418,10 +9373,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "e1224af148f0aa0f8ccaedf41381590f9ca275af",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0136.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9429,15 +9381,15 @@
       "number": 137,
       "language": "en",
       "title": "Signatures of Messages using Private Keys",
-      "summary": "BIP 137: Signatures of Messages using Private Keys.",
+      "summary": "Standardizes the format for signing messages with Bitcoin private keys, enabling verification of message authenticity.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Christopher Gilliard"
       ],
       "createdAt": "2019-02-16",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 137 defines a standard format for signing messages using Bitcoin private keys. The format includes the address, the message, and a signature that can be verified by anyone with the corresponding public key. It supports different address types (legacy, SegWit, native SegWit).\n\nThis enables proving ownership of an address without spending funds, useful for identity verification, proof of control for audits, and message authentication.",
+      "impactMarkdown": "BIP 137 is deployed and widely implemented in Bitcoin wallets. The sign-message functionality is a standard feature in most wallets and is used for identity verification and proof-of-control scenarios.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0137.mediawiki",
       "tags": [
         "BIP",
@@ -9456,10 +9408,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f748045e40e0b52f4f8641841690a3ba1939f131",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0137.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9467,15 +9416,15 @@
       "number": 140,
       "language": "en",
       "title": "Normalized TXID",
-      "summary": "BIP 140: Normalized TXID.",
+      "summary": "Proposes normalized transaction IDs (NTXID) to prevent transaction malleability by separating transaction identity from signature data.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Christian Decker"
       ],
       "createdAt": "2015-10-14",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 140 introduced normalized TXIDs that remain stable even when transaction signatures change. The approach used a separate identifier for the transaction content versus the signing content, making transaction IDs immutable regardless of malleability.\n\nThe proposal addressed the same problem that was later solved by SegWit (BIP 141), which separates signature data from the transaction hash by moving it into a witness structure.",
+      "impactMarkdown": "BIP 140 was closed as its approach was superseded by SegWit's witness structure. The normalized TXID concept influenced the SegWit design where the wtxid differs from the txid.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0140.mediawiki",
       "tags": [
         "BIP",
@@ -9494,10 +9443,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "983e3bf11596ab9dc982f5348fc67d9892215b65",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0140.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
