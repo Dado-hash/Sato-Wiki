@@ -16,12 +16,10 @@ extension ReadingLevelLabels on ReadingLevel {
 extension BipStatusLabels on BipStatus {
   String label(AppLocalizations l10n) {
     return switch (this) {
-      BipStatus.active => l10n.statusActive,
-      BipStatus.finalStatus => l10n.statusFinal,
       BipStatus.draft => l10n.statusDraft,
-      BipStatus.proposed => l10n.statusProposed,
-      BipStatus.withdrawn => l10n.statusWithdrawn,
-      BipStatus.rejected => l10n.statusRejected,
+      BipStatus.complete => l10n.statusComplete,
+      BipStatus.deployed => l10n.statusDeployed,
+      BipStatus.closed => l10n.statusClosed,
     };
   }
 }

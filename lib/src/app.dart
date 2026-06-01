@@ -24,6 +24,8 @@ class SatoWikiApp extends StatefulWidget {
 }
 
 class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
+  final _navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   void initState() {
     super.initState();
@@ -80,9 +82,12 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
   void _maybeShowUpdateDialog() {
     if (!mounted || _isDialogShowing) return;
 
+    final navigatorContext = _navigatorKey.currentContext;
+    if (navigatorContext == null) return;
+
     _isDialogShowing = true;
     showDialog<void>(
-      context: context,
+      context: navigatorContext,
       barrierDismissible: false,
       builder: (_) =>
           UpdateProgressDialog(contentController: widget.contentController),
@@ -101,6 +106,7 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     final localePreference = widget.settingsController.localePreference;
 
     return MaterialApp(
+      navigatorKey: _navigatorKey,
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       locale: localePreference.explicitLocale,

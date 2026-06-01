@@ -196,7 +196,7 @@ class _StatusFilters extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
-    const filters = [BipStatus.active, BipStatus.draft, BipStatus.rejected];
+    const filters = [BipStatus.deployed, BipStatus.draft, BipStatus.closed];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -257,11 +257,11 @@ class _BipTrackerCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final bips = store.bundle.bips;
 
-    final activeCount = bips.where((b) => b.status == BipStatus.active).length;
-    final draftCount = bips.where((b) => b.status == BipStatus.draft).length;
-    final rejectedCount = bips
-        .where((b) => b.status == BipStatus.rejected)
+    final deployedCount = bips
+        .where((b) => b.status == BipStatus.deployed)
         .length;
+    final draftCount = bips.where((b) => b.status == BipStatus.draft).length;
+    final closedCount = bips.where((b) => b.status == BipStatus.closed).length;
 
     return Container(
       decoration: BoxDecoration(
@@ -290,8 +290,8 @@ class _BipTrackerCard extends StatelessWidget {
             children: [
               Expanded(
                 child: _CountBox(
-                  label: l10n.activeUpper,
-                  count: activeCount,
+                  label: l10n.deployedUpper,
+                  count: deployedCount,
                   color: colorScheme.tertiary,
                 ),
               ),
@@ -306,9 +306,9 @@ class _BipTrackerCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: _CountBox(
-                  label: l10n.rejectedUpper,
-                  count: rejectedCount,
-                  color: colorScheme.error,
+                  label: l10n.closedUpper,
+                  count: closedCount,
+                  color: colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -619,11 +619,9 @@ class _BipCard extends StatelessWidget {
 
   Color _statusDotColor(BipStatus status, ColorScheme colors) {
     return switch (status) {
-      BipStatus.active || BipStatus.finalStatus => colors.tertiary,
+      BipStatus.deployed || BipStatus.complete => colors.tertiary,
       BipStatus.draft => colors.primary,
-      BipStatus.proposed => colors.primary.withValues(alpha: 0.6),
-      BipStatus.withdrawn => colors.error.withValues(alpha: 0.6),
-      BipStatus.rejected => colors.error,
+      BipStatus.closed => colors.onSurfaceVariant,
     };
   }
 
@@ -805,18 +803,15 @@ class _StatusPill extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
     final color = switch (status) {
-      BipStatus.active ||
-      BipStatus.finalStatus => colorScheme.tertiaryContainer,
+      BipStatus.deployed || BipStatus.complete => colorScheme.tertiaryContainer,
       BipStatus.draft => colorScheme.primaryContainer,
-      BipStatus.proposed => colorScheme.secondaryContainer,
-      BipStatus.withdrawn || BipStatus.rejected => colorScheme.errorContainer,
+      BipStatus.closed => colorScheme.surfaceContainerHighest,
     };
     final textColor = switch (status) {
-      BipStatus.active ||
-      BipStatus.finalStatus => colorScheme.onTertiaryContainer,
+      BipStatus.deployed ||
+      BipStatus.complete => colorScheme.onTertiaryContainer,
       BipStatus.draft => colorScheme.onPrimaryContainer,
-      BipStatus.proposed => colorScheme.onSecondaryContainer,
-      BipStatus.withdrawn || BipStatus.rejected => colorScheme.onErrorContainer,
+      BipStatus.closed => colorScheme.onSurfaceVariant,
     };
 
     return Container(

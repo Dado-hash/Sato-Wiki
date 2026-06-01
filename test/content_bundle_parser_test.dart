@@ -30,7 +30,7 @@ void main() {
     );
     expect(bundle.news.single.author.github, 'andreas-m');
     expect(bundle.history.first.date, DateTime(2008, 10, 31));
-    expect(bundle.bips.single.status, BipStatus.active);
+    expect(bundle.bips.single.status, BipStatus.deployed);
     expect(bundle.changelogs.single.importance, ReleaseImportance.major);
   });
 
@@ -80,6 +80,19 @@ void main() {
       result.warnings.map((warning) => warning.path),
       containsAll(['schemaVersion', 'changelogs']),
     );
+  });
+
+  test('parses official BIP statuses and legacy aliases', () {
+    expect(BipStatus.fromJson('draft'), BipStatus.draft);
+    expect(BipStatus.fromJson('proposed'), BipStatus.draft);
+    expect(BipStatus.fromJson('complete'), BipStatus.complete);
+    expect(BipStatus.fromJson('final'), BipStatus.complete);
+    expect(BipStatus.fromJson('deployed'), BipStatus.deployed);
+    expect(BipStatus.fromJson('active'), BipStatus.deployed);
+    expect(BipStatus.fromJson('closed'), BipStatus.closed);
+    expect(BipStatus.fromJson('withdrawn'), BipStatus.closed);
+    expect(BipStatus.fromJson('rejected'), BipStatus.closed);
+    expect(BipStatus.fromJson('unknown'), isNull);
   });
 
   test('unsupported future schema is fatal', () {

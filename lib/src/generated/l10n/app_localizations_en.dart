@@ -257,10 +257,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bipTracker => 'BIP Tracker';
 
   @override
+  String get deployedUpper => 'DEPLOYED';
+
+  @override
   String get activeUpper => 'ACTIVE';
 
   @override
   String get draftUpper => 'DRAFT';
+
+  @override
+  String get closedUpper => 'CLOSED';
 
   @override
   String get rejectedUpper => 'REJECTED';
@@ -285,6 +291,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statusDraft => 'Draft';
+
+  @override
+  String get statusComplete => 'Complete';
+
+  @override
+  String get statusDeployed => 'Deployed';
+
+  @override
+  String get statusClosed => 'Closed';
 
   @override
   String get statusProposed => 'Proposed';

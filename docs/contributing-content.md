@@ -52,3 +52,25 @@ Current GitHub Pages target:
 https://dado-hash.github.io/Sato-Wiki/content/en/latest/manifest.json
 https://dado-hash.github.io/Sato-Wiki/content/en/{version}/bundle.json
 ```
+
+## Sync automatico Code
+
+La sezione Code viene preparata da `tool/sync_code_content.dart`, che legge
+fonti ufficiali Bitcoin (`bitcoin/bips` e release notes Bitcoin Core), genera
+bozze EN/IT con Gemini e apre una PR draft tramite
+`.github/workflows/sync-code-content.yml`.
+
+Configurazione richiesta:
+
+- secret GitHub `GEMINI_API_KEY`;
+- variabile opzionale `GEMINI_MODEL`, default `gemini-3.1-flash-lite-preview`.
+
+Esecuzione manuale locale:
+
+```bash
+GEMINI_API_KEY=... /Users/davide/development/flutter/bin/dart run tool/sync_code_content.dart --require-ai --languages en,it --report build/code-content-sync-report.md
+```
+
+I record generati contengono `automation.needsReview: true`: prima del merge
+serve review tecnica/editoriale. Dopo review, portare `needsReview` a `false`
+o rimuoverlo se si vuole preservare il testo nei sync successivi.

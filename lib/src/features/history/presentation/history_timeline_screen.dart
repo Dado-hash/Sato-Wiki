@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
@@ -70,13 +71,15 @@ class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
         const SizedBox(height: 28),
         SectionTitle(title: l10n.timelineMetadata),
         const SizedBox(height: 12),
-        for (final event in events)
+        for (int i = 0; i < events.length; i++)
           _TimelineEvent(
-            event: event,
+            event: events[i],
+            isFirst: i == 0,
+            isLast: i == events.length - 1,
             onTap: () {
               Navigator.of(
                 context,
-              ).pushNamed(AppRoutes.historyEvent(event.slug));
+              ).pushNamed(AppRoutes.historyEvent(events[i].slug));
             },
           ),
       ],
@@ -144,65 +147,119 @@ class _OnThisDayCard extends StatelessWidget {
 }
 
 class _TimelineEvent extends StatelessWidget {
-  const _TimelineEvent({required this.event, required this.onTap});
+  const _TimelineEvent({
+    required this.event,
+    required this.onTap,
+    required this.isFirst,
+    required this.isLast,
+  });
 
   final HistoryEvent event;
   final VoidCallback onTap;
+  final bool isFirst;
+  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final color = Theme.of(context).colorScheme.primary;
+    final colorScheme = Theme.of(context).colorScheme;
+    final color = colorScheme.primary;
+    final lineColor = colorScheme.outlineVariant;
+    final l10n = AppLocalizations.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+    return IntrinsicHeight(
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            width: 56,
-            child: Text(
-              '${event.date.year}',
-              style: textTheme.labelLarge?.copyWith(
-                fontWeight: FontWeight.w800,
+            width: 76,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 2),
+                child: Text(
+                  DateFormat.yMMMd(l10n.localeName).format(event.date),
+                  style: textTheme.labelSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
-          Column(
-            children: [
-              Container(
-                width: 14,
-                height: 14,
-                decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-              ),
-              Container(
-                width: 2,
-                height: 76,
-                color: Theme.of(context).colorScheme.outlineVariant,
-              ),
-            ],
+          SizedBox(
+            width: 40,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: isFirst
+                        ? const SizedBox()
+                        : Container(width: 2, color: lineColor),
+                  ),
+                ),
+                SizedBox(
+                  height: 14,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Center(child: Container(width: 2, color: lineColor)),
+                      Row(
+                        children: [
+                          const SizedBox(width: 13),
+                          Container(
+                            width: 14,
+                            height: 14,
+                            decoration: BoxDecoration(
+                              color: color,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 6),
+                              child: Container(height: 2, color: lineColor),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: isLast
+                        ? const SizedBox()
+                        : Container(width: 2, color: lineColor),
+                  ),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(width: 14),
+          const SizedBox(width: 12),
           Expanded(
-            child: ContentCard(
-              onTap: onTap,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    event.category,
-                    style: textTheme.labelMedium?.copyWith(color: color),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    event.title,
-                    style: textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: ContentCard(
+                onTap: onTap,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      event.category,
+                      style: textTheme.labelMedium?.copyWith(color: color),
                     ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(event.summary, style: textTheme.bodyMedium),
-                ],
+                    const SizedBox(height: 6),
+                    Text(
+                      event.title,
+                      style: textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(event.summary, style: textTheme.bodyMedium),
+                  ],
+                ),
               ),
             ),
           ),

@@ -6,10 +6,13 @@ import '../theme/app_colors.dart';
 enum ContentStatus {
   active(AppColors.success),
   finalStatus(AppColors.success),
+  complete(AppColors.success),
+  deployed(AppColors.success),
   draft(AppColors.warning),
   proposed(AppColors.warning),
   withdrawn(AppColors.error),
   rejected(AppColors.error),
+  closed(AppColors.muted),
   major(AppColors.warning),
   minor(AppColors.success);
 
@@ -69,10 +72,13 @@ String _statusLabel(ContentStatus status, AppLocalizations l10n) {
   return switch (status) {
     ContentStatus.active => l10n.statusActive.toUpperCase(),
     ContentStatus.finalStatus => l10n.statusFinal.toUpperCase(),
+    ContentStatus.complete => l10n.statusComplete.toUpperCase(),
+    ContentStatus.deployed => l10n.statusDeployed.toUpperCase(),
     ContentStatus.draft => l10n.statusDraft.toUpperCase(),
     ContentStatus.proposed => l10n.statusProposed.toUpperCase(),
     ContentStatus.withdrawn => l10n.statusWithdrawn.toUpperCase(),
     ContentStatus.rejected => l10n.statusRejected.toUpperCase(),
+    ContentStatus.closed => l10n.statusClosed.toUpperCase(),
     ContentStatus.major => l10n.statusMajor.toUpperCase(),
     ContentStatus.minor => l10n.statusMinor.toUpperCase(),
   };

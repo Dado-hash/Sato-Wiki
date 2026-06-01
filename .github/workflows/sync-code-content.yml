@@ -1,0 +1,93 @@
+name: Sync Code Content
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-code-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.32.6
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Sync BIPs and Bitcoin Core releases
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.1-flash-lite-preview' }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: dart run tool/sync_code_content.dart --require-ai --languages en,it --report build/code-content-sync-report.md
+
+      - name: Check formatting
+        run: dart format --set-exit-if-changed lib test tool
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Validate English content bundle
+        run: dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+
+      - name: Validate Italian content bundle
+        run: dart run tool/validate_content.dart assets/content/seed_bundle_it.json
+
+      - name: Test
+        run: flutter test
+
+      - name: Commit sync changes
+        id: commit
+        run: |
+          if git diff --quiet -- assets/content/seed_bundle_en.json assets/content/seed_bundle_it.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          BRANCH_NAME="automation/code-content-$(date -u +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH_NAME"
+          git add assets/content/seed_bundle_en.json assets/content/seed_bundle_it.json
+          git commit -m "chore: sync code content"
+          git push --force-with-lease origin "$BRANCH_NAME"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "branch=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Open draft pull request
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH_NAME: ${{ steps.commit.outputs.branch }}
+        run: |
+          {
+            cat build/code-content-sync-report.md
+            echo
+            echo "This PR was generated automatically from official BIP and Bitcoin Core sources."
+            echo "AI-generated fields are marked with automation.needsReview and require maintainer review before merge."
+          } > build/code-content-pr-body.md
+
+          existing_pr="$(gh pr list --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // ""')"
+          if [ -n "$existing_pr" ]; then
+            gh pr edit "$existing_pr" --body-file build/code-content-pr-body.md
+          else
+            gh pr create \
+              --draft \
+              --base main \
+              --head "$BRANCH_NAME" \
+              --title "chore: sync BIP and Bitcoin Core content" \
+              --body-file build/code-content-pr-body.md
+          fi

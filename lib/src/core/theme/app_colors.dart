@@ -36,4 +36,5 @@ abstract final class AppColors {
   static const success = Color(0xFF34C759);
   static const warning = Color(0xFFFF9500);
   static const error = Color(0xFFFF3B30);
+  static const muted = Color(0xFF8E8E93);
 }

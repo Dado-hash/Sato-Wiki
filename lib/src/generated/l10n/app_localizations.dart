@@ -560,6 +560,12 @@ abstract class AppLocalizations {
   /// **'BIP Tracker'**
   String get bipTracker;
 
+  /// No description provided for @deployedUpper.
+  ///
+  /// In en, this message translates to:
+  /// **'DEPLOYED'**
+  String get deployedUpper;
+
   /// No description provided for @activeUpper.
   ///
   /// In en, this message translates to:
@@ -571,6 +577,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'DRAFT'**
   String get draftUpper;
+
+  /// No description provided for @closedUpper.
+  ///
+  /// In en, this message translates to:
+  /// **'CLOSED'**
+  String get closedUpper;
 
   /// No description provided for @rejectedUpper.
   ///
@@ -619,6 +631,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Draft'**
   String get statusDraft;
+
+  /// No description provided for @statusComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get statusComplete;
+
+  /// No description provided for @statusDeployed.
+  ///
+  /// In en, this message translates to:
+  /// **'Deployed'**
+  String get statusDeployed;
+
+  /// No description provided for @statusClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed'**
+  String get statusClosed;
 
   /// No description provided for @statusProposed.
   ///

@@ -27,7 +27,7 @@ void main() {
   });
 
   test('store filters BIPs by status', () async {
-    final active = await store.listBipsByStatus(BipStatus.active);
+    final active = await store.listBipsByStatus(BipStatus.deployed);
 
     expect(active.single.number, 341);
   });

@@ -181,11 +181,35 @@ Gli eventi sono append-only: correzioni ammesse solo per factual fix tracciati.
 Status ammessi:
 
 - `draft`
-- `proposed`
-- `active`
-- `final`
-- `withdrawn`
-- `rejected`
+- `complete`
+- `deployed`
+- `closed`
+
+Il parser dell'app accetta ancora alias legacy nei bundle esistenti:
+`proposed` -> `draft`, `final` -> `complete`, `active` -> `deployed`,
+`withdrawn`/`rejected` -> `closed`. I bundle generati dalla pipeline devono
+pubblicare solo gli stati canonici sopra.
+
+I record BIP e release possono includere un oggetto opzionale `automation`
+ignorato dal runtime app e usato dalla pipeline contenuti:
+
+```json
+{
+  "automation": {
+    "source": "sync_code_content.dart",
+    "upstreamSha": "official-source-sha",
+    "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+    "aiModel": "gemini-3.1-flash-lite-preview",
+    "aiPromptVersion": "code-sync-v1",
+    "generatedAt": "2026-06-01T00:00:00Z",
+    "needsReview": true
+  }
+}
+```
+
+Quando `needsReview` e `true`, la pipeline puo rigenerare i campi editoriali
+da Gemini. Dopo review umana, il maintainer puo rimuovere `needsReview` o
+portarlo a `false` per preservare il testo curato nei sync successivi.
 
 ## ReleaseNote
 

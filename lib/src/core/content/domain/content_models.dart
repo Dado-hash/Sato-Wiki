@@ -171,21 +171,26 @@ final class HistoryEvent {
 
 enum BipStatus {
   draft,
-  proposed,
-  active,
-  finalStatus,
-  withdrawn,
-  rejected;
+  complete,
+  deployed,
+  closed;
 
   static BipStatus? fromJson(String value) {
-    return switch (value) {
-      'draft' => BipStatus.draft,
-      'proposed' => BipStatus.proposed,
-      'active' => BipStatus.active,
-      'final' => BipStatus.finalStatus,
-      'withdrawn' => BipStatus.withdrawn,
-      'rejected' => BipStatus.rejected,
+    return switch (value.trim().toLowerCase().replaceAll(' ', '-')) {
+      'draft' || 'proposed' || 'bip-number-allocated' => BipStatus.draft,
+      'complete' || 'final' => BipStatus.complete,
+      'deployed' || 'active' => BipStatus.deployed,
+      'closed' || 'withdrawn' || 'rejected' => BipStatus.closed,
       _ => null,
+    };
+  }
+
+  String get storageValue {
+    return switch (this) {
+      BipStatus.draft => 'draft',
+      BipStatus.complete => 'complete',
+      BipStatus.deployed => 'deployed',
+      BipStatus.closed => 'closed',
     };
   }
 }

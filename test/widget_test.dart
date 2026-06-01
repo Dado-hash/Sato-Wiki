@@ -169,7 +169,7 @@ void main() {
         lessThan(tester.getTopLeft(find.text('BIP 1')).dy),
       );
 
-      await tester.tap(find.text('Rejected'));
+      await tester.tap(find.text('Closed'));
       await tester.pumpAndSettle();
 
       expect(find.text('BIP 400'), findsNothing);
