@@ -17,8 +17,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Nel marzo 2018, la Lightning Network (LN) divenne operativa sulla mainnet di Bitcoin con il rilascio di LND 0.4-beta, la prima implementazione della rete in grado di competere su scala produttiva. Sviluppato da Lightning Labs, LND forniva un nodo completo con gestione dei canali, routing ed elaborazione dei pagamenti.
-![Grafico che mostra la crescita del numero di nodi e canali della Lightning Network dal 2018 in poi.](media/history/lightning-mainnet/ln-network-growth.webp "Grafico crescita Lightning Network")
 
+![Grafico che mostra la crescita del numero di nodi e canali della Lightning Network dal 2018 in poi.](media/history/lightning-mainnet/ln-network-growth.webp "Grafico crescita Lightning Network")
 
 La Lightning Network affrontava i limiti di scalabilità di Bitcoin abilitando canali di pagamento off-chain. Gli utenti potevano aprire canali bidirezionali vincolando fondi a un indirizzo multi-firma sulla blockchain di Bitcoin, quindi condurre transazioni illimitate off-chain con regolamento istantaneo. Solo lo stato finale del canale veniva trasmesso alla catena principale.
 

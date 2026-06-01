@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On December 5, 2024, Bitcoin surpassed $100,000 for the first time in its history, reaching a new all-time high approximately 236% above its November 2021 peak of $69,000. The milestone was the culmination of a remarkable year driven by several transformative developments.
-![Bitcoin price chart and celebration graphic as it crosses the historic $100,000 milestone.](media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp "Bitcoin $100,000 milestone")
 
+![Bitcoin price chart and celebration graphic as it crosses the historic $100,000 milestone.](media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp "Bitcoin $100,000 milestone")
 
 The primary catalyst was the massive inflow of capital through spot Bitcoin ETFs, which had accumulated over $50 billion in assets under management within their first year. These funds provided a consistent and growing demand stream, absorbing newly mined Bitcoin and creating supply-side pressure. The fourth halving in April had reduced daily new issuance from approximately 900 BTC to 450 BTC, amplifying the impact of ETF demand.
 

@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On May 11, 2020, at block height 630,000, the third Bitcoin halving occurred. The block subsidy dropped from 12.5 BTC to 6.25 BTC per block, reducing the annual inflation rate from approximately 3.6% to 1.8% — below the long-term average inflation target of most central banks.
-![Block 630,000 as displayed on a block explorer at the moment of the third Bitcoin halving.](media/history/third-halving/block-630000-explorer.webp "Block 630,000 — third halving")
 
+![Block 630,000 as displayed on a block explorer at the moment of the third Bitcoin halving.](media/history/third-halving/block-630000-explorer.webp "Block 630,000 — third halving")
 
 The halving took place against an unusual backdrop. The COVID-19 pandemic had triggered global economic uncertainty, with central banks printing trillions in stimulus. Bitcoin's programmed scarcity stood in stark contrast, attracting attention from investors seeking a hedge against monetary debasement.
 

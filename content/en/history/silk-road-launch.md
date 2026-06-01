@@ -37,8 +37,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 In February 2011, an anonymous developer operating under the pseudonym "Dread Pirate Roberts" launched Silk Road, a marketplace accessible only through the Tor anonymity network. Silk Road enabled users to buy and sell goods — primarily controlled substances, but also digital goods and services — using Bitcoin as the exclusive payment method. The marketplace would dramatically accelerate Bitcoin's adoption while also attracting intense scrutiny from law enforcement.
-![Silk Road marketplace screenshot](media/history/silk-road-launch/silk-road-interface.webp "The Silk Road marketplace interface as it appeared in 2011-2013, showing the anonymous online marketplace concept.")
 
+![Silk Road marketplace screenshot](media/history/silk-road-launch/silk-road-interface.webp "The Silk Road marketplace interface as it appeared in 2011-2013, showing the anonymous online marketplace concept.")
 
 ## How Silk Road Worked
 

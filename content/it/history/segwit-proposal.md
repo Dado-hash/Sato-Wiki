@@ -20,8 +20,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Nel dicembre 2015, Pieter Wuille introdusse Segregated Witness (SegWit) attraverso tre Bitcoin Improvement Proposals: BIP 141, BIP 143 e BIP 144. SegWit proponeva un soft fork che avrebbe separato (segregato) i dati witness (firme e script) dai dati della transazione, ristrutturando efficacemente il modo in cui i blocchi memorizzano le informazioni.
-![Diagramma che illustra la struttura di una transazione SegWit che mostra la separazione dei dati witness dal corpo della transazione.](media/history/segwit-proposal/segwit-structure-diagram.webp "Diagramma struttura SegWit")
 
+![Diagramma che illustra la struttura di una transazione SegWit che mostra la separazione dei dati witness dal corpo della transazione.](media/history/segwit-proposal/segwit-structure-diagram.webp "Diagramma struttura SegWit")
 
 Gli obiettivi principali di SegWit erano due. Primo, risolveva la malleabilità delle transazioni, un bug di lunga data che permetteva a terze parti di alterare gli identificatori delle transazioni prima della conferma. Questo era un requisito fondamentale per protocolli di secondo livello come la Lightning Network. Secondo, spostando i dati witness fuori dalla struttura principale del blocco, SegWit aumentava effettivamente il limite di dimensione del blocco da 1 MB a circa 4 MB, fornendo un miglioramento della scalabilità.
 

@@ -37,8 +37,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On January 12, 2009, just three days after the release of Bitcoin v0.1, Satoshi Nakamoto sent 10 bitcoin to Hal Finney. This was the first transaction on the Bitcoin network involving a recipient other than the miner of a block. The transaction was included in block 170, approximately 8.5 hours after the block was mined.
-![Hal Finney portrait](media/history/first-bitcoin-transaction/hal-finney-portrait.webp "Hal Finney, cryptographer and the first recipient of a Bitcoin transaction.")
 
+![Hal Finney portrait](media/history/first-bitcoin-transaction/hal-finney-portrait.webp "Hal Finney, cryptographer and the first recipient of a Bitcoin transaction.")
 
 ## Hal Finney
 

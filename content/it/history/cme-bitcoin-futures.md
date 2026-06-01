@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 18 dicembre 2017, il Chicago Mercantile Exchange (CME) lanciò i contratti futures su Bitcoin, segnando il primo derivato Bitcoin regolamentato su un importante exchange tradizionale. Il lancio arrivò solo un giorno dopo il picco del ciclo di Bitcoin e seguì il lancio di un prodotto simile da parte del CBOE il 10 dicembre.
-![Specifiche del contratto futures Bitcoin del CME Group e interfaccia di trading.](media/history/cme-bitcoin-futures/cme-futures-contract.webp "Contratto futures Bitcoin CME")
 
+![Specifiche del contratto futures Bitcoin del CME Group e interfaccia di trading.](media/history/cme-bitcoin-futures/cme-futures-contract.webp "Contratto futures Bitcoin CME")
 
 I futures Bitcoin del CME permisero agli investitori istituzionali di ottenere esposizione a Bitcoin attraverso uno strumento finanziario regolamentato e ben compreso. I contratti erano regolati in contanti sulla base del CME CF Bitcoin Reference Rate (BRR), un indice calcolato dai principali exchange spot. Questo forniva un meccanismo di prezzo trasparente che gli investitori tradizionali apprezzavano.
 

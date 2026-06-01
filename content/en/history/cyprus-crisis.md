@@ -38,8 +38,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 In March 2013, the Mediterranean island nation of Cyprus was plunged into a severe banking crisis. The Eurozone finance ministers, in coordination with the International Monetary Fund, proposed a bailout package that included an unprecedented measure: a levy on all bank deposits, including those under €100,000 that were supposed to be guaranteed by the state. The proposed "bail-in" would seize up to 9.9% of deposits to recapitalize the failing banks.
-![Cyprus bank queue](media/history/cyprus-crisis/cyprus-bank-queue.webp "People queuing outside a bank in Cyprus during the 2013 banking crisis.")
 
+![Cyprus bank queue](media/history/cyprus-crisis/cyprus-bank-queue.webp "People queuing outside a bank in Cyprus during the 2013 banking crisis.")
 
 ## The Bail-In Proposal
 

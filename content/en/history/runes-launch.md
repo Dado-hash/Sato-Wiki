@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 In April 2024, Casey Rodarmor launched the Runes protocol, a new standard for creating fungible tokens on the Bitcoin blockchain. Runes launched concurrently with the fourth halving at block 840,000, in a coordinated event that generated significant attention and activity.
-![Example of a Runes protocol transaction showing OP_RETURN token operation encoding.](media/history/runes-launch/runes-transaction-example.webp "Runes transaction example")
 
+![Example of a Runes protocol transaction showing OP_RETURN token operation encoding.](media/history/runes-launch/runes-transaction-example.webp "Runes transaction example")
 
 Runes addressed limitations of earlier Bitcoin token protocols. Unlike BRC-20, which relied on Ordinals inscriptions and created significant blockchain bloat through its off-chain state model, Runes used Bitcoin's native UTXO model directly. Each Rune token balance was committed to a Bitcoin transaction output, enabling clean integration with Bitcoin's existing infrastructure.
 

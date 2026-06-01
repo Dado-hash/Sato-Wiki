@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
@@ -177,6 +178,45 @@ List<Bip> _sortBips(Iterable<Bip> bips, _BipSortOrder order) {
   });
 
   return sorted;
+}
+
+String _formatBipLabel(String value) {
+  final normalized = value.trim().toLowerCase();
+  if (normalized.isEmpty) return value;
+
+  const knownLabels = {
+    'bip-process': 'BIP Process',
+    'low-sigop': 'Low SigOp',
+    'm-of-n': 'M-of-N',
+    'multi-sig': 'Multi-Sig',
+    'op-eval': 'OP_EVAL',
+    'p2sh': 'P2SH',
+    'qr-code': 'QR Code',
+    'soft-fork': 'Soft Fork',
+    'standard-transaction': 'Standard Transaction',
+    'uri': 'URI',
+    'user-agent': 'User Agent',
+    'version-bits': 'Version Bits',
+  };
+
+  final knownLabel = knownLabels[normalized];
+  if (knownLabel != null) return knownLabel;
+
+  return normalized.split('-').map(_formatBipLabelPart).join(' ');
+}
+
+String _formatBipLabelPart(String value) {
+  return switch (value) {
+    'bip' => 'BIP',
+    'chv' => 'CHV',
+    'op' => 'OP',
+    'p2sh' => 'P2SH',
+    'qr' => 'QR',
+    'sigop' => 'SigOp',
+    'uri' => 'URI',
+    _ when value.isNotEmpty => '${value[0].toUpperCase()}${value.substring(1)}',
+    _ => value,
+  };
 }
 
 class _StatusFilters extends StatelessWidget {
@@ -504,112 +544,130 @@ class _BipCard extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(16),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: colorScheme.surfaceContainerHighest,
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: colorScheme.outlineVariant),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        child: Text(
-                          'BIP ${bip.number}',
-                          style: textTheme.labelSmall?.copyWith(
-                            fontFamily: 'JetBrains Mono',
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: colorScheme.surfaceContainerHighest,
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                              color: colorScheme.outlineVariant,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            child: Text(
+                              'BIP ${bip.number}',
+                              style: textTheme.labelSmall?.copyWith(
+                                fontFamily: 'JetBrains Mono',
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        if (categoryTag.isNotEmpty)
+                          Container(
+                            decoration: BoxDecoration(
+                              color: colorScheme.surface,
+                              borderRadius: BorderRadius.circular(999),
+                              border: Border.all(
+                                color: colorScheme.outlineVariant,
+                              ),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                            child: Text(
+                              _formatBipLabel(categoryTag),
+                              style: textTheme.labelSmall?.copyWith(
+                                color: colorScheme.primary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: dotColor.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(999),
+                            border: Border.all(
+                              color: dotColor.withValues(alpha: 0.3),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 6,
+                                  height: 6,
+                                  decoration: BoxDecoration(
+                                    color: dotColor,
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  bip.status.label(l10n).toUpperCase(),
+                                  style: textTheme.labelSmall?.copyWith(
+                                    color: dotColor,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            bip.title,
-                            style: textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            bip.summary,
-                            style: textTheme.bodyMedium?.copyWith(
-                              color: colorScheme.onSurfaceVariant,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+                    const SizedBox(height: 10),
+                    Text(
+                      bip.title,
+                      style: textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        height: 1.2,
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      bip.summary,
+                      style: textTheme.bodyMedium?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        height: 1.35,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),
               ),
               const SizedBox(width: 12),
-              if (categoryTag.isNotEmpty)
-                Container(
-                  decoration: BoxDecoration(
-                    color: colorScheme.surface,
-                    borderRadius: BorderRadius.circular(999),
-                    border: Border.all(color: colorScheme.outlineVariant),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 3,
-                  ),
-                  child: Text(
-                    _capitalize(categoryTag),
-                    style: textTheme.labelSmall?.copyWith(
-                      color: colorScheme.primary,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              const SizedBox(width: 8),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: dotColor.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(999),
-                  border: Border.all(color: dotColor.withValues(alpha: 0.3)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 6,
-                        height: 6,
-                        decoration: BoxDecoration(
-                          color: dotColor,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const SizedBox(width: 5),
-                      Text(
-                        bip.status.label(l10n).toUpperCase(),
-                        style: textTheme.labelSmall?.copyWith(
-                          color: dotColor,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
+              SizedBox(
+                width: 24,
+                height: 44,
+                child: Icon(
+                  Icons.chevron_right,
+                  color: colorScheme.onSurfaceVariant,
                 ),
               ),
-              const SizedBox(width: 4),
-              Icon(Icons.chevron_right, color: colorScheme.onSurfaceVariant),
             ],
           ),
         ),
@@ -623,11 +681,6 @@ class _BipCard extends StatelessWidget {
       BipStatus.draft => colors.primary,
       BipStatus.closed => colors.onSurfaceVariant,
     };
-  }
-
-  String _capitalize(String s) {
-    if (s.isEmpty) return s;
-    return '${s[0].toUpperCase()}${s.substring(1)}';
   }
 }
 
@@ -698,24 +751,31 @@ class BipDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              child: Wrap(
-                spacing: 24,
-                runSpacing: 12,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _MetaColumn(
-                    label: l10n.authors,
-                    value: bip.authors.join(', '),
-                    useMono: false,
+                  Expanded(
+                    child: _MetaColumn(
+                      label: l10n.authors,
+                      value: bip.authors.join(', '),
+                      useMono: false,
+                    ),
                   ),
-                  _MetaColumn(
-                    label: l10n.created,
-                    value: bip.createdAt.toIso8601String().split('T').first,
-                    useMono: true,
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _MetaColumn(
+                      label: l10n.created,
+                      value: bip.createdAt.toIso8601String().split('T').first,
+                      useMono: true,
+                    ),
                   ),
-                  _MetaColumn(
-                    label: l10n.layer,
-                    value: _capitalize(bip.category),
-                    useMono: false,
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _MetaColumn(
+                      label: l10n.layer,
+                      value: _formatBipLabel(bip.category),
+                      useMono: false,
+                    ),
                   ),
                 ],
               ),
@@ -786,11 +846,6 @@ class BipDetailScreen extends StatelessWidget {
       ),
     );
   }
-
-  String _capitalize(String s) {
-    if (s.isEmpty) return s;
-    return '${s[0].toUpperCase()}${s.substring(1)}';
-  }
 }
 
 class _StatusPill extends StatelessWidget {
@@ -850,10 +905,11 @@ class _MetaColumn extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           label,
+          textAlign: TextAlign.center,
           style: textTheme.labelSmall?.copyWith(
             color: colorScheme.onSurfaceVariant,
             fontFamily: 'JetBrains Mono',
@@ -862,12 +918,11 @@ class _MetaColumn extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           value,
-          style: useMono
-              ? textTheme.labelSmall?.copyWith(
-                  color: colorScheme.onSurface,
-                  fontFamily: 'JetBrains Mono',
-                )
-              : textTheme.bodyMedium?.copyWith(color: colorScheme.onSurface),
+          textAlign: TextAlign.center,
+          style: textTheme.bodyMedium?.copyWith(
+            color: colorScheme.onSurface,
+            fontFamily: useMono ? 'JetBrains Mono' : null,
+          ),
         ),
       ],
     );
@@ -980,7 +1035,8 @@ class _FooterLink extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
-      onTap: () {},
+      onTap: () =>
+          launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),
         child: Row(

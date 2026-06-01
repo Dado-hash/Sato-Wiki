@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Nell'agosto 2017, Joseph Poon e Thaddeus Dryja pubblicarono "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments," introducendo un protocollo di secondo livello progettato per affrontare le sfide di scalabilità di Bitcoin. Sebbene bozze iniziali circolassero già alla fine del 2015 e all'inizio del 2016, il whitepaper canonico è datato a questo periodo.
-![Diagramma di una rete di canali di pagamento Lightning Network che instrada un pagamento attraverso più partecipanti.](media/history/lightning-whitepaper/lightning-network-diagram.webp "Diagramma routing Lightning Network")
 
+![Diagramma di una rete di canali di pagamento Lightning Network che instrada un pagamento attraverso più partecipanti.](media/history/lightning-whitepaper/lightning-network-diagram.webp "Diagramma routing Lightning Network")
 
 Il whitepaper proponeva una rete di canali di pagamento bidirezionali in grado di instradare pagamenti attraverso più partecipanti senza regolare ogni transazione sulla blockchain di Bitcoin. Spostando la maggior parte delle transazioni off-chain e regolando solo il saldo finale, la Lightning Network poteva teoricamente elaborare milioni di transazioni al secondo con finalità quasi immediata e commissioni minime.
 

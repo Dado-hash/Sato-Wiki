@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On April 20, 2024, at block height 840,000, the fourth Bitcoin halving occurred. The block subsidy dropped from 6.25 BTC to 3.125 BTC per block, reducing Bitcoin's annualized inflation rate to approximately 0.85% — below gold's long-term supply inflation of roughly 1.5%.
-![Block 840,000 as displayed on a block explorer at the moment of the fourth Bitcoin halving.](media/history/fourth-halving/block-840000-explorer.webp "Block 840,000 — fourth halving")
 
+![Block 840,000 as displayed on a block explorer at the moment of the fourth Bitcoin halving.](media/history/fourth-halving/block-840000-explorer.webp "Block 840,000 — fourth halving")
 
 The halving took place in a radically different environment than previous ones. Bitcoin had just reached a new all-time high months before the halving — the first time this had occurred — driven by the launch of spot ETFs in the United States. Institutional demand through the ETFs created a new demand dynamic that many analysts believed would amplify the supply reduction effect.
 

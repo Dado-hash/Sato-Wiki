@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 21 gennaio 2023, Casey Rodarmor lanciò il protocollo Ordinals, introducendo un sistema innovativo per assegnare identificatori unici ai singoli satoshi e inscrivere dati arbitrari su di essi. Ordinals sfruttava l'aggiornamento Taproot e SegWit di Bitcoin per incorporare dati — immagini, testo, audio o applicazioni — direttamente nella blockchain di Bitcoin.
-![Un esempio di iscrizione Ordinals che mostra opera d'arte incorporata permanentemente sulla blockchain Bitcoin.](media/history/ordinals-launch/ordinals-inscription-example.webp "Esempio iscrizione Ordinals")
 
+![Un esempio di iscrizione Ordinals che mostra opera d'arte incorporata permanentemente sulla blockchain Bitcoin.](media/history/ordinals-launch/ordinals-inscription-example.webp "Esempio iscrizione Ordinals")
 
 Il protocollo funzionava attraverso due innovazioni chiave. Primo, la Teoria Ordinale assegnava a ogni satoshi un numero unico basato sull'ordine in cui era stato minato, creando un sistema in cui i singoli satoshi potevano essere tracciati e trasferiti. Secondo, le iscrizioni utilizzavano i dati witness di Taproot per memorizzare il contenuto, con l'intero dato inscritto impegnato in un output di transazione Bitcoin che poteva essere speso e trasferito.
 

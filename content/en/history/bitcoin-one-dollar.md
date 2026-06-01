@@ -35,8 +35,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On February 9, 2011, the price of one bitcoin reached $1 for the first time on the Mt. Gox exchange. This milestone marked Bitcoin's transition from a sub-cent experiment to a currency with tangible monetary value. At this point, the total market capitalization of all bitcoin in circulation exceeded $10 million for the first time.
-![Bitcoin price chart early 2011](media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp "Bitcoin price chart from 2010-2011 showing the climb from sub-cent levels to $1 parity.")
 
+![Bitcoin price chart early 2011](media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp "Bitcoin price chart from 2010-2011 showing the climb from sub-cent levels to $1 parity.")
 
 ## The Journey to $1
 

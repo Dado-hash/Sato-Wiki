@@ -17,8 +17,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 10 gennaio 2024, la Securities and Exchange Commission (SEC) degli Stati Uniti approvò 11 spot Bitcoin Exchange-Traded Funds (ETF), ponendo fine a un decennio di stallo normativo. Importanti gestori patrimoniali tra cui BlackRock, Fidelity, Ark Invest e Grayscale ricevettero l'approvazione per quotare ETF Bitcoin sulle borse statunitensi.
-![Grafico che mostra il volume di scambio cumulativo degli spot Bitcoin ETF nei mesi successivi all'approvazione SEC.](media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp "Grafico volume ETF Bitcoin")
 
+![Grafico che mostra il volume di scambio cumulativo degli spot Bitcoin ETF nei mesi successivi all'approvazione SEC.](media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp "Grafico volume ETF Bitcoin")
 
 L'approvazione seguì una vittoria legale fondamentale: nell'agosto 2023, Grayscale vinse una causa contro la SEC, con la Corte d'Appello del Distretto di Columbia che stabilì che il rifiuto della SEC della domanda ETF di Grayscale era arbitrario e capriccioso. Questa sentenza costrinse la SEC a riconsiderare la sua posizione e portò infine all'ondata di approvazioni.
 

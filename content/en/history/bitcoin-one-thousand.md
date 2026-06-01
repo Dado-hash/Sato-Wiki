@@ -36,8 +36,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On November 29, 2013, the price of one bitcoin surpassed $1,000 for the first time on the Mt. Gox exchange, reaching an all-time high of approximately $1,150. This milestone marked Bitcoin's transition from a sub-$1,000 digital curiosity to an asset with a market capitalization exceeding $10 billion. At its peak, a single bitcoin was worth more than an ounce of gold.
-![Bitcoin price chart 2013](media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp "Bitcoin price chart from 2013 showing the rapid ascent from $100 to over $1,000.")
 
+![Bitcoin price chart 2013](media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp "Bitcoin price chart from 2013 showing the rapid ascent from $100 to over $1,000.")
 
 ## The Road to $1,000
 

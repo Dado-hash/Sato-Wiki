@@ -37,8 +37,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On May 22, 2010, Laszlo Hanyecz, a Florida-based programmer and early Bitcoin adopter, posted on the BitcoinTalk forum an offer to pay 10,000 bitcoin for two pizzas. He had been mining bitcoin on his GPU and wanted to test whether the digital currency could be used for real-world purchases. A 19-year-old in England named Jeremy "Jercos" Sturdivant took the offer, ordering two large pizzas from Papa John's and having them delivered to Hanyecz's home. The transaction was completed: 10,000 BTC changed hands for two pizzas worth about $41 at the time.
-![Two pepperoni pizzas](media/history/bitcoin-pizza-day/pizza-day-pizzas.webp "Two large pizzas, the type Laszlo Hanyecz purchased with 10,000 BTC in 2010.")
 
+![Two pepperoni pizzas](media/history/bitcoin-pizza-day/pizza-day-pizzas.webp "Two large pizzas, the type Laszlo Hanyecz purchased with 10,000 BTC in 2010.")
 
 ## The BitcoinTalk Post
 

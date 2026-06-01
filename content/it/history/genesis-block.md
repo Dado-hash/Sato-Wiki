@@ -37,8 +37,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 3 gennaio 2009, Satoshi Nakamoto minò il blocco 0 della blockchain Bitcoin — il blocco genesis. Questo fu il primo blocco in assoluto, la radice dell'intera catena da cui tutti i blocchi successivi sarebbero discesi. Il blocco conteneva un messaggio speciale incorporato nella transazione coinbase: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
-![Pietra miliare del blocco genesis](media/history/genesis-block/genesis-block-landmark.webp "Il blocco genesis come appare su un block explorer, con zero conferme e nessun hash di blocco precedente.")
 
+![Pietra miliare del blocco genesis](media/history/genesis-block/genesis-block-landmark.webp "Il blocco genesis come appare su un block explorer, con zero conferme e nessun hash di blocco precedente.")
 
 ## Il Significato del Messaggio
 

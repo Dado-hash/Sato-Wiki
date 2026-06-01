@@ -36,8 +36,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 29 novembre 2013, il prezzo di un bitcoin superò $1.000 per la prima volta sull'exchange Mt. Gox, raggiungendo un massimo storico di circa $1.150. Questo traguardo segnò la transizione di Bitcoin da curiosità digitale sotto i $1.000 ad asset con una capitalizzazione di mercato superiore a $10 miliardi. Al suo picco, un singolo bitcoin valeva più di un'oncia d'oro.
-![Grafico del prezzo Bitcoin 2013](media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp "Grafico del prezzo Bitcoin del 2013 che mostra la rapida ascesa da $100 a oltre $1.000.")
 
+![Grafico del prezzo Bitcoin 2013](media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp "Grafico del prezzo Bitcoin del 2013 che mostra la rapida ascesa da $100 a oltre $1.000.")
 
 ## Il Viaggio Verso $1.000
 

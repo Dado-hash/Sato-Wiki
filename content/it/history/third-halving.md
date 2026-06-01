@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 L'11 maggio 2020, all'altezza blocco 630.000, si verificò il terzo halving di Bitcoin. Il block subsidy scese da 12,5 BTC a 6,25 BTC per blocco, riducendo il tasso di inflazione annuo da circa il 3,6% all'1,8% — al di sotto dell'obiettivo di inflazione a lungo termine della maggior parte delle banche centrali.
-![Blocco 630.000 mostrato su un block explorer al momento del terzo halving di Bitcoin.](media/history/third-halving/block-630000-explorer.webp "Blocco 630.000 — terzo halving")
 
+![Blocco 630.000 mostrato su un block explorer al momento del terzo halving di Bitcoin.](media/history/third-halving/block-630000-explorer.webp "Blocco 630.000 — terzo halving")
 
 L'halving ebbe luogo in uno scenario insolito. La pandemia di COVID-19 aveva innescato un'incertezza economica globale, con le banche centrali che stampavano trilioni in stimoli. La scarsità programmata di Bitcoin contrastava nettamente, attirando l'attenzione degli investitori in cerca di una copertura contro il deprezzamento monetario.
 

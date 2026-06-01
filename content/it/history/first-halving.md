@@ -34,8 +34,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 28 novembre 2012, Bitcoin raggiunse l'altezza blocco 210.000, attivando la prima riduzione programmata delle ricompense di mining. Il block subsidy passò da 50 a 25 bitcoin per blocco, dimezzando il tasso di immissione di nuovi bitcoin in circolazione. Questo evento, oggi noto come "halving", era stato hardcodato nelle regole di consenso di Bitcoin da Satoshi Nakamoto e si verifica ogni 210.000 blocchi — circa ogni quattro anni.
-![Blocco del primo halving 210000](media/history/first-halving/first-halving-block.webp "Il blocco 210.000 su un block explorer, che segna il primo halving con subsidy a 25 BTC.")
 
+![Blocco del primo halving 210000](media/history/first-halving/first-halving-block.webp "Il blocco 210.000 su un block explorer, che segna il primo halving con subsidy a 25 BTC.")
 
 ## Il Meccanismo dell'Halving
 

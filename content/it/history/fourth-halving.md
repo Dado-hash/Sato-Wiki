@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 20 aprile 2024, all'altezza blocco 840.000, si verificò il quarto halving di Bitcoin. Il block subsidy scese da 6,25 BTC a 3,125 BTC per blocco, riducendo il tasso di inflazione annualizzato di Bitcoin a circa lo 0,85% — al di sotto dell'inflazione dell'offerta a lungo termine dell'oro, che è di circa l'1,5%.
-![Blocco 840.000 mostrato su un block explorer al momento del quarto halving di Bitcoin.](media/history/fourth-halving/block-840000-explorer.webp "Blocco 840.000 — quarto halving")
 
+![Blocco 840.000 mostrato su un block explorer al momento del quarto halving di Bitcoin.](media/history/fourth-halving/block-840000-explorer.webp "Blocco 840.000 — quarto halving")
 
 L'halving ebbe luogo in un ambiente radicalmente diverso rispetto ai precedenti. Bitcoin aveva appena raggiunto un nuovo massimo storico mesi prima dell'halving — la prima volta che accadeva — trainato dal lancio degli spot ETF negli Stati Uniti. La domanda istituzionale attraverso gli ETF creò una nuova dinamica di domanda che molti analisti ritenevano avrebbe amplificato l'effetto di riduzione dell'offerta.
 

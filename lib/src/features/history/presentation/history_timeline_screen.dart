@@ -333,7 +333,21 @@ class HistoryEventScreen extends StatelessWidget {
             const SizedBox(height: 24),
             MarkdownText(event.bodyMarkdown),
             const SizedBox(height: 24),
-            RelatedLinksGrid(links: relatedLinks(event.related)),
+            RelatedLinksGrid(
+              links: relatedLinks(
+                event.related,
+                onTap: (id) {
+                  final route = id.startsWith('wiki.')
+                      ? AppRoutes.wikiEntry(id)
+                      : id.startsWith('history.')
+                          ? AppRoutes.historyEvent(id)
+                          : null;
+                  if (route != null) {
+                    Navigator.of(context).pushNamed(route);
+                  }
+                },
+              ),
+            ),
             const SizedBox(height: 24),
             SourcesDisclosure(sources: sourceReferences(event.sources)),
           ],

@@ -19,8 +19,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 23 agosto 2017, Segregated Witness (SegWit) si attivò sulla mainnet di Bitcoin all'altezza blocco 481.824. L'attivazione seguì mesi di dibattito acceso e un innovativo meccanismo di governance: lo User-Activated Soft Fork (UASF), formalizzato nel BIP 148.
-![Chart showing miner signaling percentages during the SegWit UASF activation period in mid-2017.](media/history/segwit-activation/uasf-signaling-chart.webp "SegWit UASF miner signaling chart")
 
+![Chart showing miner signaling percentages during the SegWit UASF activation period in mid-2017.](media/history/segwit-activation/uasf-signaling-chart.webp "SegWit UASF miner signaling chart")
 
 La strategia UASF richiedeva che i nodi completi imponessero il signaling di SegWit entro una scadenza specifica, applicando pressione economica sui miner affinché esprimessero supporto. Questo approccio bypassava l'attivazione tradizionale guidata dai miner, dimostrando che la governance di Bitcoin risiede in ultima analisi negli operatori dei nodi e negli utenti. Sotto questa pressione, i miner iniziarono a segnalare la disponibilità per SegWit, raggiungendo la soglia di attivazione richiesta del 95%.
 

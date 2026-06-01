@@ -19,8 +19,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 9 luglio 2016, all'altezza blocco 420.000, si verificò il secondo halving di Bitcoin. Il block subsidy scese da 25 BTC a 12,5 BTC per blocco, continuando la riduzione programmata dell'emissione che avviene ogni 210.000 blocchi (circa ogni quattro anni).
-![Blocco 420.000 mostrato su un block explorer al momento del secondo halving di Bitcoin.](media/history/second-halving/block-420000-explorer.webp "Blocco 420.000 — secondo halving")
 
+![Blocco 420.000 mostrato su un block explorer al momento del secondo halving di Bitcoin.](media/history/second-halving/block-420000-explorer.webp "Blocco 420.000 — secondo halving")
 
 Al momento dell'halving, Bitcoin veniva scambiato intorno ai $650, con una capitalizzazione di mercato di circa $10 miliardi. A differenza del primo halving del 2012, avvenuto quando Bitcoin era ancora relativamente sconosciuto, il secondo halving attirò notevole attenzione mediatica e analisi.
 

@@ -41,8 +41,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On January 9, 2009, six days after mining the genesis block, Satoshi Nakamoto released Bitcoin v0.1 on SourceForge. This was the first working implementation of the Bitcoin protocol, written in C++ and released as open-source software. The announcement was made on the same cryptography mailing list where the whitepaper had been posted two months earlier.
-![Bitcoin v0.1 screenshot](media/history/bitcoin-v01/bitcoin-v01-screenshot.webp "The Bitcoin v0.1 Windows client interface, showing the simple UI with a single address and basic controls.")
 
+![Bitcoin v0.1 screenshot](media/history/bitcoin-v01/bitcoin-v01-screenshot.webp "The Bitcoin v0.1 Windows client interface, showing the simple UI with a single address and basic controls.")
 
 ## The Software
 

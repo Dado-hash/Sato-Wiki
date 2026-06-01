@@ -18,8 +18,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On August 11, 2020, MicroStrategy, a publicly traded business intelligence company, announced the purchase of 21,454 BTC for $250 million as its primary treasury reserve asset. Led by CEO Michael Saylor, MicroStrategy became the first publicly traded company to adopt Bitcoin as a corporate treasury asset.
-![Michael Saylor presenting MicroStrategy's Bitcoin treasury strategy at a conference.](media/history/microstrategy-treasury/michael-saylor-presentation.webp "Michael Saylor Bitcoin strategy")
 
+![Michael Saylor presenting MicroStrategy's Bitcoin treasury strategy at a conference.](media/history/microstrategy-treasury/michael-saylor-presentation.webp "Michael Saylor Bitcoin strategy")
 
 Saylor's thesis was that Bitcoin's monetary properties — absolute scarcity, portability, durability, and decentralization — made it a superior store of value compared to cash, which was being debased by unprecedented money printing. MicroStrategy's board authorized the company to invest excess cash reserves into Bitcoin as a hedge against inflation.
 

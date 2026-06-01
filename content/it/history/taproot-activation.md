@@ -20,8 +20,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 14 novembre 2021, Taproot si attivò sulla mainnet di Bitcoin all'altezza blocco 709.632. L'aggiornamento introdusse tre Bitcoin Improvement Proposals: BIP 340 (firme Schnorr), BIP 341 (Taproot) e BIP 342 (Tapscript).
-![Blocco 709.632 su un block explorer che segna l'attivazione di Taproot sulla mainnet di Bitcoin.](media/history/taproot-activation/taproot-activation-block.webp "Blocco attivazione Taproot")
 
+![Blocco 709.632 su un block explorer che segna l'attivazione di Taproot sulla mainnet di Bitcoin.](media/history/taproot-activation/taproot-activation-block.webp "Blocco attivazione Taproot")
 
 Taproot rappresentò l'aggiornamento del protocollo più significativo di Bitcoin dopo SegWit. Introdusse tre innovazioni chiave. Primo, le firme Schnorr sostituirono ECDSA, consentendo l'aggregazione delle firme — più parti potevano produrre un'unica firma per una transazione multi-firma, riducendo i dati e migliorando la privacy. Secondo, MAST permetteva che contratti intelligenti complessi venissero rivelati solo parzialmente all'esecuzione, rendendo le transazioni semplici indistinguibili da quelle complesse. Terzo, il nuovo linguaggio di scripting di Taproot — Tapscript — migliorò efficienza e flessibilità.
 

@@ -5,9 +5,15 @@ void main(List<String> args) {
   final lang = args.isNotEmpty ? args[0] : 'en';
   final seedPath = 'assets/content/seed_bundle_$lang.json';
   final wikiDir = Directory('content/$lang/wiki');
+  final historyDir = Directory('content/$lang/history');
 
   if (!wikiDir.existsSync()) {
     stderr.writeln('Directory not found: $wikiDir');
+    exitCode = 1;
+    return;
+  }
+  if (!historyDir.existsSync()) {
+    stderr.writeln('Directory not found: $historyDir');
     exitCode = 1;
     return;
   }
@@ -22,9 +28,16 @@ void main(List<String> args) {
           .where((f) => f.path.endsWith('.md'))
           .toList()
         ..sort((a, b) => a.path.compareTo(b.path));
+  final historyMdFiles =
+      historyDir
+          .listSync()
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.md'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
 
   final idToTitle = <String, String>{};
-  for (final file in mdFiles) {
+  for (final file in [...mdFiles, ...historyMdFiles]) {
     final meta = parseFrontmatterOnly(file);
     if (meta != null) {
       final id = meta['id'] as String?;
@@ -47,14 +60,35 @@ void main(List<String> args) {
       return;
     }
   }
+  final historyEntries = <Map<String, Object?>>[];
+  for (final file in historyMdFiles) {
+    try {
+      final entry = parseHistoryMarkdown(file, lang, idToTitle);
+      historyEntries.add(entry);
+      stdout.writeln('  ${entry['id']} ← ${file.path}');
+    } catch (e) {
+      stderr.writeln('ERROR ${file.path}: $e');
+      exitCode = 1;
+      return;
+    }
+  }
+  historyEntries.sort((a, b) {
+    final byDate = (a['date'] as String).compareTo(b['date'] as String);
+    if (byDate != 0) return byDate;
+    return (a['slug'] as String).compareTo(b['slug'] as String);
+  });
 
   existingData['wiki'] = wikiEntries;
-  existingData['version'] = '2026.05.27';
-  existingData['generatedAt'] = '2026-05-27T00:00:00Z';
+  existingData['history'] = historyEntries;
+  existingData['historyCount'] = historyEntries.length;
 
   final json = const JsonEncoder.withIndent('  ').convert(existingData);
   File(seedPath).writeAsStringSync('$json\n');
-  stdout.writeln('\n✓ Wrote $seedPath (${wikiEntries.length} wiki entries)');
+  stdout.writeln(
+    '\n✓ Wrote $seedPath '
+    '(${wikiEntries.length} wiki entries, '
+    '${historyEntries.length} history events)',
+  );
 }
 
 Map<String, Object?>? parseFrontmatterOnly(File file) {
@@ -99,6 +133,39 @@ Map<String, Object?> parseWikiMarkdown(
     },
     'difficulty': meta['difficulty'] as String? ?? 'advanced',
     'readTimeMinutes': meta['readTimeMinutes'] as int? ?? 8,
+    'tags': _strList(meta['tags']),
+    'sources': _srcList(meta['sources']),
+    'related': _relList(meta['related'], idToTitle),
+    'updatedAt': meta['updatedAt'] as String? ?? '2026-05-27T00:00:00Z',
+  };
+}
+
+Map<String, Object?> parseHistoryMarkdown(
+  File file,
+  String lang,
+  Map<String, String> idToTitle,
+) {
+  final text = file.readAsStringSync();
+
+  final fmMatch = RegExp('^---\n(.*?)\n---', dotAll: true).firstMatch(text);
+  if (fmMatch == null) {
+    throw FormatException('Missing frontmatter (---)');
+  }
+
+  final frontmatter = fmMatch.group(1)!;
+  final bodyStart = fmMatch.end;
+  final bodyRaw = text.substring(bodyStart).trim();
+  final meta = _parseFrontmatter(frontmatter);
+
+  return {
+    'id': meta['id'] as String,
+    'slug': meta['slug'] as String,
+    'language': meta['language'] as String? ?? lang,
+    'date': meta['date'] as String,
+    'title': meta['title'] as String,
+    'category': meta['category'] as String,
+    'summary': meta['summary'] as String,
+    'bodyMarkdown': bodyRaw,
     'tags': _strList(meta['tags']),
     'sources': _srcList(meta['sources']),
     'related': _relList(meta['related'], idToTitle),
