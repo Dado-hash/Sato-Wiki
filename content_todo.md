@@ -118,7 +118,12 @@ Le immagini vanno inserite nel path indicato, formato `.webp`.
 - [ ] `media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp`
 - [ ] `media/history/fourth-halving/block-840000-explorer.webp`
 - [ ] `media/history/runes-launch/runes-transaction-example.webp`
-- [ ] `media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp`
+- [x] `media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp`
+- [ ] `media/history/el-salvador-bitcoin-law-reform/el-salvador-assembly-vote.webp`
+- [ ] `media/history/us-strategic-bitcoin-reserve/white-house-signing-ceremony.webp`
+- [ ] `media/history/new-hampshire-bitcoin-reserve-law/new-hampshire-state-house.webp`
+- [ ] `media/history/bitcoin-ath-2025/bitcoin-2025-price-chart.webp`
+- [ ] `media/history/bitcoin-core-30-release/bitcoin-core-terminal.webp`
 
 Le fasi successive aggiungeranno altre voci a questa lista.
 
@@ -299,6 +304,52 @@ con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
   `2024-12-05` | `market`
   Bitcoin supera $100.000 per la prima volta, trainato dall'afflusso degli
   ETF.
+
+### Backlog 2025–2026 — Completati
+
+- [x] El Salvador reforms Bitcoin Law after IMF agreement -
+  `history.el-salvador-bitcoin-law-reform`
+  `2025-01-29` | `regulation`
+  Articoli creati in EN e IT. Immagine suggerita:
+  `media/history/el-salvador-bitcoin-law-reform/el-salvador-assembly-vote.webp`
+  — foto dell'Assemblea Legislativa salvadoregna o sessione di voto.
+
+- [x] U.S. Strategic Bitcoin Reserve executive order -
+  `history.us-strategic-bitcoin-reserve`
+  `2025-03-06` | `regulation`
+  Articoli creati in EN e IT. Immagine suggerita:
+  `media/history/us-strategic-bitcoin-reserve/white-house-signing-ceremony.webp`
+  — foto della firma dell'ordine esecutivo alla Casa Bianca o della facciata
+  della Casa Bianca.
+
+- [x] New Hampshire approves first U.S. state crypto reserve law -
+  `history.new-hampshire-bitcoin-reserve-law`
+  `2025-05-06` | `regulation`
+  Articoli creati in EN e IT. Immagine suggerita:
+  `media/history/new-hampshire-bitcoin-reserve-law/new-hampshire-state-house.webp`
+  — foto del New Hampshire State House (Campidoglio).
+
+- [x] Bitcoin reaches new all-time high above $125,000 -
+  `history.bitcoin-ath-2025`
+  `2025-10-05` | `market`
+  Articoli creati in EN e IT. Immagine suggerita:
+  `media/history/bitcoin-ath-2025/bitcoin-2025-price-chart.webp`
+  — grafico del prezzo di Bitcoin che mostra il rally 2024-2025.
+
+- [x] Bitcoin Core 30.0 released -
+  `history.bitcoin-core-30-release`
+  `2025-10-10` | `protocol`
+  Articoli creati in EN e IT. Inserito nella timeline storica (non solo
+  Code/changelog) per la rilevanza del dibattito su relay policy e datacarrier.
+  Immagine suggerita:
+  `media/history/bitcoin-core-30-release/bitcoin-core-terminal.webp`
+  — schermata terminale di Bitcoin Core o logo del progetto.
+
+Note al `2026-06-01`: non ho trovato un evento 2026 già abbastanza stabile e
+centrale da aggiungere subito alla timeline principale. Continuare a monitorare
+eventuali sviluppi su reserve policy, ETF/market structure, hashrate/difficulty
+e release Bitcoin Core, ma inserirli solo se diventano chiaramente storici e non
+solo metriche temporanee.
 
 ---
 
