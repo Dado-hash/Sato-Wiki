@@ -5663,9 +5663,648 @@
       ],
       "statusHistory": [],
       "updatedAt": "2012-01-03"
+    },
+    {
+      "id": "bip.21.en",
+      "number": 21,
+      "language": "en",
+      "title": "URI Scheme",
+      "summary": "Defines the 'bitcoin:' URI scheme for making payments via clickable links and QR codes.",
+      "summaryMarkdown": "BIP 21 specifies the 'bitcoin:' URI scheme for encoding payment requests. It simplifies the earlier BIP 20 design by removing the version parameter and alternative payment amount encoding. The format is `bitcoin:<address>?amount=<value>&label=<text>&message=<text>`. This scheme enables one-click payments from webpages, email links, and QR code scanning.\n\nThis BIP replaces BIP 20 and was later superseded by BIP 321.",
+      "impactMarkdown": "BIP 21 is the universally adopted standard for Bitcoin payment URIs. Every major wallet supports the 'bitcoin:' URI scheme, enabling seamless payment initiation from any application. It was foundational for QR code payments and remains the most widely implemented payment URI standard.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Nils Schneider",
+        "Matt Corallo"
+      ],
+      "createdAt": "2012-01-29",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki",
+      "tags": [
+        "uri",
+        "payment",
+        "qr-code"
+      ],
+      "sources": [],
+      "related": [
+        "bip.321"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2018-01-01"
+    },
+    {
+      "id": "bip.22.en",
+      "number": 22,
+      "language": "en",
+      "title": "getblocktemplate - Fundamentals",
+      "summary": "Defines the getblocktemplate JSON-RPC method for smart Bitcoin mining.",
+      "summaryMarkdown": "BIP 22 specifies the getblocktemplate JSON-RPC method that replaces the older getwork protocol. Instead of sending a simple block header for hashing, the entire block structure is sent to the miner, allowing it to optionally customize and assemble the block. This enables miners to select transactions, add extra data, and optimize their mining strategy.\n\nThe template includes the block version, previous block hash, coinbase value, transactions, and target difficulty.",
+      "impactMarkdown": "BIP 22 revolutionized Bitcoin mining by enabling smart miners to select their own transactions and customize blocks. It became the foundation for modern mining pool protocols and was essential for the development of efficient, decentralized mining infrastructure.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2012-02-28",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki",
+      "tags": [
+        "mining",
+        "json-rpc",
+        "block-template"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-02-28"
+    },
+    {
+      "id": "bip.23.en",
+      "number": 23,
+      "language": "en",
+      "title": "getblocktemplate - Pooled Mining",
+      "summary": "Extends getblocktemplate with pooled mining support including long polling and block proposal.",
+      "summaryMarkdown": "BIP 23 extends BIP 22 with features necessary for pooled mining. It introduces long polling support, allowing miners to receive new templates immediately when transactions arrive. It also defines a block proposal mechanism where miners can submit proposed blocks for validation before committing hash power.\n\nAdditional features include summary support levels (Level 1, 2, 3) for incremental implementation and enhanced mutation tracking.",
+      "impactMarkdown": "BIP 23 enabled efficient pooled mining by allowing mining pools to quickly distribute new block templates to miners. Long polling reduced the time miners spent working on outdated templates, improving overall mining efficiency and pool coordination.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2012-02-28",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki",
+      "tags": [
+        "mining",
+        "json-rpc",
+        "pooled-mining"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-02-28"
+    },
+    {
+      "id": "bip.30.en",
+      "number": 30,
+      "language": "en",
+      "title": "Duplicate Transactions",
+      "summary": "Fixes a consensus bug where duplicate transactions could cause block chain reorganizations.",
+      "summaryMarkdown": "BIP 30 addresses a vulnerability in Bitcoin's consensus rules where duplicate transactions (transactions with the same txid) could cause issues during block chain reorganizations. The proposal adds a consensus rule that a transaction is not valid if a previous transaction with the same txid exists and has any unspent outputs.\n\nThis was deployed as a soft fork to prevent potential fork scenarios caused by duplicate coinbase transactions or other duplicate txid situations.",
+      "impactMarkdown": "BIP 30 closed a subtle but important consensus vulnerability. While the reference implementation was patched, the BIP formalized the rule that duplicate transactions are only valid if the earlier one has no spendable outputs remaining, providing a clear specification for all implementations.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Pieter Wuille"
+      ],
+      "createdAt": "2012-02-22",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki",
+      "tags": [
+        "consensus",
+        "duplicate-transactions",
+        "soft-fork"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-02-22"
+    },
+    {
+      "id": "bip.31.en",
+      "number": 31,
+      "language": "en",
+      "title": "Pong Message",
+      "summary": "Adds a pong message to the Bitcoin protocol for detecting dead peer connections.",
+      "summaryMarkdown": "BIP 31 adds a 'pong' message to the Bitcoin peer-to-peer protocol. When a peer sends a 'ping' message with a random nonce, the receiving peer responds with a 'pong' containing the same nonce. This allows clients to detect dead connections (e.g., after sleep/wake cycles on mobile devices), measure latency, and identify overloaded peers.\n\nThe protocol version was bumped to 60002 to support this feature.",
+      "impactMarkdown": "BIP 31's ping/pong mechanism became essential for mobile Bitcoin wallets and laptops that frequently suspend. It improved network reliability by enabling timely detection of stale connections and provided a standardized latency measurement tool for peer selection algorithms.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Mike Hearn"
+      ],
+      "createdAt": "2012-04-11",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0031.mediawiki",
+      "tags": [
+        "protocol",
+        "ping-pong",
+        "peer-services"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-04-11"
+    },
+    {
+      "id": "bip.32.en",
+      "number": 32,
+      "language": "en",
+      "title": "Hierarchical Deterministic Wallets",
+      "summary": "Defines hierarchical deterministic (HD) wallets for generating a tree of keypairs from a single seed.",
+      "summaryMarkdown": "BIP 32 specifies the standard for hierarchical deterministic wallets (HD wallets). It enables deriving a tree of keypairs from a single master seed, allowing selective sharing of public keys without exposing private keys. The specification covers master key generation, child key derivation (normal and hardened), and serialization formats for extended public/private keys (xpub/xprv).\n\nHD wallets eliminate the need for frequent backups, enable deterministic address generation, and allow webshops to generate receive addresses without access to private keys.",
+      "impactMarkdown": "BIP 32 is one of the most impactful standards in cryptocurrency. It made wallet backups a one-time operation, enabled hierarchical account structures (BIP 44), and became the foundation for virtually all modern cryptocurrency wallets. Its xpub/xprv key format is universal across the industry.",
+      "status": "deployed",
+      "category": "informational",
+      "authors": [
+        "Pieter Wuille"
+      ],
+      "createdAt": "2012-02-11",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+      "tags": [
+        "hd-wallets",
+        "deterministic",
+        "key-derivation"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-02-11"
+    },
+    {
+      "id": "bip.33.en",
+      "number": 33,
+      "language": "en",
+      "title": "Stratized Nodes",
+      "summary": "Proposes specialized blockchain service nodes to offload validation from lightweight clients.",
+      "summaryMarkdown": "BIP 33 introduces the concept of 'stratized nodes' — specialized Bitcoin nodes that provide blockchain data services to lightweight clients. It defines two new service flags: NODE_SERVICE (for nodes that respond to getoutputs/getspends queries) and NODE_STRATIZED (for nodes providing full validation services). This proposal aimed to address blockchain scalability for portable and low-end devices.\n\nThe proposal was an early attempt at solving the lightweight client problem before BIP 37 (Bloom filtering) became the standard approach.",
+      "impactMarkdown": "BIP 33 was not adopted as a standard, as BIP 37's Bloom filter approach provided a simpler and more privacy-preserving solution for lightweight clients. However, the concept of specialized service nodes influenced later infrastructure developments like Electrum servers and Bitcoin Core's simplified payment verification.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Amir Taaki"
+      ],
+      "createdAt": "2012-05-15",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0033.mediawiki",
+      "tags": [
+        "lightweight-clients",
+        "blockchain-service",
+        "peer-services"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-05-15"
+    },
+    {
+      "id": "bip.34.en",
+      "number": 34,
+      "language": "en",
+      "title": "Block v2, Height in Coinbase",
+      "summary": "Introduces block version 2 and requires the block height to be included in the coinbase transaction.",
+      "summaryMarkdown": "BIP 34 introduces block version 2 and requires miners to include the block height as the first element in the coinbase transaction's scriptSig. This change enforces block and transaction uniqueness, assists unconnected block validation, and provides a clear upgrade path for versioned blocks.\n\nActivation followed a two-phase process: a 75% threshold (750 of last 1000 blocks version 2+) for rejecting invalid v2 blocks, followed by a 95% threshold for rejecting all version 1 blocks.",
+      "impactMarkdown": "BIP 34 was the first soft fork to use miner signalling for activation, establishing the pattern that would be refined by BIP 9. It also solved the duplicate coinbase transaction problem and made block height universally accessible from the coinbase, simplifying block validation for all implementations.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Gavin Andresen"
+      ],
+      "createdAt": "2012-07-06",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki",
+      "tags": [
+        "consensus",
+        "block-version",
+        "coinbase"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-07-06"
+    },
+    {
+      "id": "bip.35.en",
+      "number": 35,
+      "language": "en",
+      "title": "mempool Message",
+      "summary": "Adds a mempool message to expose a node's transaction memory pool to the network.",
+      "summaryMarkdown": "BIP 35 adds a 'mempool' message to the Bitcoin protocol, allowing peers to request the contents of a node's unconfirmed transaction memory pool. Nodes respond with an 'inv' message listing all MSG_TX hashes in their mempool. This enables SPV clients to discover zero-confirmation transactions, miners to recover transactions after restart, and remote network diagnostics.\n\nThe feature is enabled when a node advertises protocol version >= 60002 and has the NODE_NETWORK service bit set.",
+      "impactMarkdown": "BIP 35 became essential for various network operations. Miners use it to repopulate their mempool after restarts, ensuring they don't miss fee-paying transactions. SPV clients benefit from discovering relevant unconfirmed transactions. It also enabled network monitoring tools to analyze mempool statistics.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Jeff Garzik"
+      ],
+      "createdAt": "2012-08-16",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0035.mediawiki",
+      "tags": [
+        "protocol",
+        "mempool",
+        "peer-services"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-08-16"
+    },
+    {
+      "id": "bip.36.en",
+      "number": 36,
+      "language": "en",
+      "title": "Custom Services",
+      "summary": "Adds extensible service fields to the version message for announcing custom protocol extensions.",
+      "summaryMarkdown": "BIP 36 proposes adding new fields to the 'version' message — service_count and service_list — allowing nodes to announce custom services without polluting the limited 64-bit services field. It provides a framework for protocol extensions like DHT, distributed pools, lightweight client support, and custom transports.\n\nThe goal was to encourage experimentation with custom services while avoiding collisions between different protocol extensions.",
+      "impactMarkdown": "BIP 36 was not widely adopted. The Bitcoin ecosystem instead favored simpler approaches like dedicated service bits for major features and out-of-protocol negotiation for custom services. However, it represented an early attempt to formalize protocol extensibility.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Stefan Thomas"
+      ],
+      "createdAt": "2012-08-03",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0036.mediawiki",
+      "tags": [
+        "protocol",
+        "custom-services",
+        "extensions"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-08-03"
+    },
+    {
+      "id": "bip.37.en",
+      "number": 37,
+      "language": "en",
+      "title": "Connection Bloom Filtering",
+      "summary": "Adds Bloom filter-based transaction filtering for SPV clients to reduce bandwidth usage.",
+      "summaryMarkdown": "BIP 37 introduces connection-level Bloom filtering to the Bitcoin peer-to-peer protocol. SPV clients can set a Bloom filter on each connection after the version handshake, and peers will only send transactions matching the filter. The probabilistic nature of Bloom filters provides tunable privacy (false positive rate chosen by the client) while reducing bandwidth.\n\nThree new messages are added: filterload (set filter), filteradd (add data to filter), and filterclear (remove filter). This was the primary mechanism for SPV wallet synchronization for years.",
+      "impactMarkdown": "BIP 37 was transformative for mobile Bitcoin wallets, reducing bandwidth usage by orders of magnitude. It enabled the 'Bitcoin Wallet' Android app and similar SPV clients to synchronize quickly on metered connections. However, privacy concerns later led to its deprecation in favor of BIP 157/158 (compact block filters).",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Mike Hearn",
+        "Matt Corallo"
+      ],
+      "createdAt": "2012-10-24",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki",
+      "tags": [
+        "bloom-filter",
+        "spv",
+        "lightweight-clients"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-10-24"
+    },
+    {
+      "id": "bip.38.en",
+      "number": 38,
+      "language": "en",
+      "title": "Passphrase-Protected Private Key",
+      "summary": "Standardizes encryption of private keys with a passphrase for paper wallets and physical bitcoins.",
+      "summaryMarkdown": "BIP 38 specifies a method for encrypting Bitcoin private keys with a passphrase, producing a 58-character Base58Check-encoded string that can be printed on paper wallets or physical bitcoins. The encryption uses scrypt key derivation with salting to resist brute-force attacks.\n\nTwo encoding schemes are defined: one for encrypting any known private key, and another for shared creation where the manufacturer never learns the full passphrase. The format includes a 32-bit address hash for correlation without decryption.",
+      "impactMarkdown": "BIP 38 enabled a new category of two-factor paper wallets and physical bitcoins. Users could store encrypted keys publicly while keeping only a passphrase secret. It found significant use in physical Bitcoin products, paper wallet generators, and offline storage solutions, though its complexity limited mainstream adoption.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Mike Caldwell",
+        "Aaron Voisine"
+      ],
+      "createdAt": "2012-11-20",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki",
+      "tags": [
+        "encryption",
+        "private-key",
+        "paper-wallet"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-11-20"
+    },
+    {
+      "id": "bip.39.en",
+      "number": 39,
+      "language": "en",
+      "title": "Mnemonic Code for Generating Deterministic Keys",
+      "summary": "Defines a mnemonic word phrase for human-friendly backup of deterministic wallet seeds.",
+      "summaryMarkdown": "BIP 39 specifies the standard for generating mnemonic sentences (typically 12 or 24 words) from a random seed, which can then be used to generate deterministic wallets via BIP 32 or similar methods. A wordlist of 2048 carefully chosen words is provided, with support for multiple languages.\n\nThe process has two parts: generating the mnemonic from entropy (with optional passphrase), and converting it to a binary seed using PBKDF2 with 2048 hash rounds.",
+      "impactMarkdown": "BIP 39 is arguably the most user-facing improvement in cryptocurrency wallet technology. The 12/24-word mnemonic phrase is now the universal standard for wallet backup across thousands of applications. It replaced error-prone hex backups with human-readable phrases that can be written on paper or memorized.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Marek Palatinus",
+        "Pavol Rusnak",
+        "Aaron Voisine",
+        "Sean Bowe"
+      ],
+      "createdAt": "2013-09-10",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+      "tags": [
+        "mnemonic",
+        "wallet-backup",
+        "deterministic"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2013-09-10"
+    },
+    {
+      "id": "bip.42.en",
+      "number": 42,
+      "language": "en",
+      "title": "A Finite Monetary Supply for Bitcoin",
+      "summary": "An April Fools' BIP humorously addressing the 'problem' of Bitcoin's supposedly infinite monetary supply.",
+      "summaryMarkdown": "BIP 42 is an April Fools' Day BIP that humorously addresses the 'issue' that Bitcoin's subsidy calculation uses C++ undefined behavior — specifically, shifting a 64-bit integer beyond its size, which in C++ is undefined behavior. On most platforms this results in the subsidy cycling through zero forever rather than staying at zero.\n\nThe BIP 'proposes' to fix this to ensure Bitcoin's monetary supply is finite, playing on the irony that Bitcoin's actual code would eventually create infinite coins due to the undefined behavior, while everyone believes supply is capped at 21 million.",
+      "impactMarkdown": "BIP 42 is one of Bitcoin's most famous humor BIPs. It highlights the difference between Bitcoin's intended monetary policy (21 million cap) and what the code technically does (eventually cycles back to nonzero subsidies due to undefined behavior in C++). It serves as a reminder that even well-audited code can have subtle issues.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Pieter Wuille"
+      ],
+      "createdAt": "2014-04-01",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0042.mediawiki",
+      "tags": [
+        "april-fools",
+        "monetary-supply",
+        "humor"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2014-04-01"
+    },
+    {
+      "id": "bip.43.en",
+      "number": 43,
+      "language": "en",
+      "title": "Purpose Field for Deterministic Wallets",
+      "summary": "Introduces a purpose field in HD wallet derivation paths to enable multiple wallet standards.",
+      "summaryMarkdown": "BIP 43 introduces a 'purpose' field as the first level of the BIP 32 derivation path (`m / purpose' / *`). This allows different wallet standards to have dedicated, non-overlapping derivation paths. The purpose number typically matches the BIP number, ensuring unique paths for each standard.\n\nThis simple addition solved the interoperability problem where different wallets using BIP 32 would produce incompatible address structures.",
+      "impactMarkdown": "BIP 43 was essential for wallet standardization. It enabled multiple derivation standards (BIP 44 for multi-account, BIP 49 for SegWit, BIP 84 for native SegWit, BIP 86 for Taproot) to coexist without conflict. Without it, wallet interoperability would be far more fragmented.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Marek Palatinus",
+        "Pavol Rusnak"
+      ],
+      "createdAt": "2014-04-24",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki",
+      "tags": [
+        "hd-wallets",
+        "derivation-path",
+        "purpose-field"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2014-04-24"
+    },
+    {
+      "id": "bip.44.en",
+      "number": 44,
+      "language": "en",
+      "title": "Multi-Account Hierarchy for Deterministic Wallets",
+      "summary": "Defines a multi-account hierarchy for HD wallets with support for multiple coins and accounts.",
+      "summaryMarkdown": "BIP 44 builds on BIP 32 and BIP 43 to define a comprehensive 5-level derivation path: `m / purpose' / coin_type' / account' / change / address_index`. This structure supports multiple cryptocurrencies (via coin_type), multiple accounts per user, internal/external chains for each account, and millions of addresses per chain.\n\nThis is a particular application of BIP 43 with purpose value 44'. It requires BIP 32 for key derivation and BIP 43 for the purpose field.",
+      "impactMarkdown": "BIP 44 became the de facto standard for HD wallet structure across the entire cryptocurrency industry. Almost every hardware wallet, software wallet, and exchange uses BIP 44 derivation paths. It enabled interoperable wallets where users can restore their entire wallet structure from a single seed phrase.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Marek Palatinus",
+        "Pavol Rusnak"
+      ],
+      "createdAt": "2014-04-24",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki",
+      "tags": [
+        "hd-wallets",
+        "derivation-path",
+        "multi-account"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2014-04-24"
+    },
+    {
+      "id": "bip.45.en",
+      "number": 45,
+      "language": "en",
+      "title": "Structure for Deterministic P2SH Multisignature Wallets",
+      "summary": "Defines a derivation structure for hierarchical deterministic multi-party multi-signature wallets.",
+      "summaryMarkdown": "BIP 45 defines a derivation structure for HD P2SH multi-party multi-signature (HDPM) wallets based on BIP 32 and BIP 43. It uses the path `m / purpose' / cosigner_index / change / address_index`, where `purpose` is 45'. Multiple parties each generate master keys independently, then derive shared multisig addresses without communication.\n\nThe standard supports m-of-n wallets where address generation requires no interaction between parties, but transaction creation and signing requires communication.",
+      "impactMarkdown": "BIP 45 enabled standardized multi-signature wallets where multiple parties could generate addresses independently. It was used by BitPay and other multi-sig services, though its adoption was limited compared to BIP 44's single-signature standard.",
+      "status": "complete",
+      "category": "specification",
+      "authors": [
+        "Manuel Araoz",
+        "Ryan X. Charles",
+        "Matias Alejo Garcia"
+      ],
+      "createdAt": "2014-04-25",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0045.mediawiki",
+      "tags": [
+        "hd-wallets",
+        "multisig",
+        "p2sh"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2014-04-25"
+    },
+    {
+      "id": "bip.46.en",
+      "number": 46,
+      "language": "en",
+      "title": "Address Scheme for Timelocked Fidelity Bonds",
+      "summary": "Defines HD wallet derivation for timelocked addresses used in fidelity bonds to resist Sybil attacks.",
+      "summaryMarkdown": "BIP 46 defines a derivation scheme for HD wallets that create timelocked addresses using OP_CHECKLOCKTIMEVERIFY for fidelity bonds. The path follows the pattern of BIP 49/84/86 for ease of implementation. Fidelity bonds resist Sybil attacks in decentralized protocols by requiring value to be locked up, sacrificing the time-value of money.\n\nUsers can back up all their fidelity bonds by storing only the HD seed and a reference to this BIP, without needing to backup individual timelock values.",
+      "impactMarkdown": "BIP 46 enables a novel privacy and security mechanism. Fidelity bonds created with this standard allow decentralized protocols like JoinMarket to resist Sybil attacks while keeping private keys in cold storage. The deterministic derivation ensures recoverability without individual bond backups.",
+      "status": "draft",
+      "category": "specification",
+      "authors": [
+        "Chris Belcher",
+        "Thebora Kompanioni"
+      ],
+      "createdAt": "2022-04-01",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0046.mediawiki",
+      "tags": [
+        "fidelity-bonds",
+        "timelock",
+        "sybil-resistance"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2022-04-01"
+    },
+    {
+      "id": "bip.47.en",
+      "number": 47,
+      "language": "en",
+      "title": "Reusable Payment Codes for HD Wallets",
+      "summary": "Defines reusable payment codes that enable private, non-reusable Bitcoin payments without address reuse.",
+      "summaryMarkdown": "BIP 47 introduces reusable payment codes — publicly shareable codes that allow senders to generate unique, non-reusable Bitcoin addresses for each payment without requiring the receiver to be online. Each payment uses a different derived address, preventing address reuse privacy leaks while maintaining a single public identifier.\n\nPayment codes provide privacy benefits similar to stealth addresses but work with SPV clients and don't require blockchain storage for notification transactions.",
+      "impactMarkdown": "BIP 47 addresses a fundamental privacy problem: the tension between advertising a single payment identifier and avoiding address reuse. It enables merchants to publish one code while customers generate unique addresses per transaction. Though conceptually influential, adoption was limited by complexity and the rise of Lightning Network.",
+      "status": "deployed",
+      "category": "informational",
+      "authors": [
+        "Justus Ranvier"
+      ],
+      "createdAt": "2015-04-24",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0047.mediawiki",
+      "tags": [
+        "payment-codes",
+        "privacy",
+        "hd-wallets"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2015-04-24"
+    },
+    {
+      "id": "bip.48.en",
+      "number": 48,
+      "language": "en",
+      "title": "Multi-Script Hierarchy for Multi-Sig Wallets",
+      "summary": "Defines a derivation path for deterministic multi-signature wallets supporting multiple script types.",
+      "summaryMarkdown": "BIP 48 defines a logical hierarchy for deterministic multi-sig wallets using the derivation path `m/48'`. It extends BIP 43 and BIP 44 to support multiple script types (P2SH, P2WSH, etc.) within a single multi-sig framework, and formalizes the existing industry practice of using `m/48'` paths.\n\nThis BIP allows future script types to be added without requiring a new BIP for each one, and supports multiple accounts, chains, and address indices.",
+      "impactMarkdown": "BIP 48 standardized the `m/48'` derivation path already in use by several multi-sig wallet implementations. By supporting multiple script types, it provided forward compatibility for new address formats while maintaining interoperability between existing wallets.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Fontaine"
+      ],
+      "createdAt": "2020-12-16",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0048.mediawiki",
+      "tags": [
+        "hd-wallets",
+        "multisig",
+        "derivation-path"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2020-12-16"
+    },
+    {
+      "id": "bip.49.en",
+      "number": 49,
+      "language": "en",
+      "title": "Derivation Scheme for P2WPKH-nested-in-P2SH Accounts",
+      "summary": "Defines HD wallet derivation for SegWit addresses nested in P2SH (compatible SegWit).",
+      "summaryMarkdown": "BIP 49 defines the derivation scheme for HD wallets using P2WPKH-nested-in-P2SH (SegWit addresses backward-compatible with older wallets). The derivation path is `m/49'/coin_type'/account'/change/address_index`. This was the standard for SegWit wallets before native SegWit (BIP 84) became widely supported.\n\nUsing dedicated accounts for SegWit ensures that non-BIP 49 wallets either see the full account or nothing at all, preventing silent missing-UTXO issues.",
+      "impactMarkdown": "BIP 49 was crucial during the SegWit transition period. It enabled backward-compatible SegWit addresses (starting with '3') that worked with older wallets while already benefiting from SegWit's transaction malleability fix and lower fees. It was the most widely used SegWit standard until native SegWit (bech32) gained universal support.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Daniel Weigl"
+      ],
+      "createdAt": "2016-05-19",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki",
+      "tags": [
+        "segwit",
+        "derivation-path",
+        "hd-wallets"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2016-05-19"
+    },
+    {
+      "id": "bip.50.en",
+      "number": 50,
+      "language": "en",
+      "title": "March 2013 Chain Fork Post-Mortem",
+      "summary": "Documents the March 2013 chain fork incident and its root cause in Berkeley DB lock configuration.",
+      "summaryMarkdown": "BIP 50 is a post-mortem analysis of the March 11-12, 2013 chain fork, one of Bitcoin's most significant network incidents. A block with an unusually large number of transaction inputs was mined, which Bitcoin 0.8 nodes could process but pre-0.8 nodes (using Berkeley DB with insufficient lock limits) rejected, causing a chain split.\n\nThe fork was resolved when major mining pools (BTCGuild and Slush) downgraded to Bitcoin 0.7 to place majority hashpower on the pre-0.8 chain. A double-spend was successfully executed during the incident, though it was experimental rather than malicious.",
+      "impactMarkdown": "BIP 50 documents Bitcoin's first major chain fork incident. The post-mortem led to critical improvements: the switch from BDB to LevelDB, better testing of edge-case blocks, and development of emergency response procedures. It remains a key reference for understanding consensus safety in decentralized systems.",
+      "status": "deployed",
+      "category": "informational",
+      "authors": [
+        "Gavin Andresen"
+      ],
+      "createdAt": "2013-03-20",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki",
+      "tags": [
+        "post-mortem",
+        "chain-fork",
+        "consensus"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2013-03-20"
+    },
+    {
+      "id": "bip.52.en",
+      "number": 52,
+      "language": "en",
+      "title": "Durable, Low Energy Bitcoin PoW",
+      "summary": "Proposes optical proof-of-work (oPoW) to decouple Bitcoin mining from energy consumption.",
+      "summaryMarkdown": "BIP 52 proposes replacing Bitcoin's Hashcash proof-of-work with optical proof-of-work (oPoW), designed to be most efficiently computed using photonic processors. The goal is to shift mining operating expenses from electricity (OPEX) to hardware (CAPEX), making mining feasible outside of low-electricity-cost regions and reducing Bitcoin's environmental impact.\n\nThis would require a hard fork and would significantly change Bitcoin's mining economics. The proposal remains in Draft status.",
+      "impactMarkdown": "BIP 52 addresses Bitcoin's energy consumption criticism but proposes a fundamental change to the security model. As a hard fork requiring near-universal consensus and introducing a completely new PoW algorithm, it has not advanced beyond Draft status. It remains a reference point for discussions about alternative PoW designs.",
+      "status": "draft",
+      "category": "specification",
+      "authors": [
+        "Michael Dubrovsky",
+        "Bogdan Penkovsky"
+      ],
+      "createdAt": "2021-05-13",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0052.mediawiki",
+      "tags": [
+        "proof-of-work",
+        "energy",
+        "hard-fork"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2021-05-13"
+    },
+    {
+      "id": "bip.53.en",
+      "number": 53,
+      "language": "en",
+      "title": "Disallow 64-byte Transactions",
+      "summary": "Proposes disallowing 64-byte transactions to fix Merkle tree weaknesses and block malleability.",
+      "summaryMarkdown": "BIP 53 proposes disallowing Bitcoin transactions serialized to exactly 64 bytes (without witness). Transactions of this size have the same serialized length as two concatenated SHA256 hashes, which can be exploited to create fake Merkle proof attacks against light clients and introduce block malleability.\n\nThe 64-byte minimum was already enforced by Bitcoin Core's relay policy since 2018 (minimum 65 bytes), and this BIP proposes making it a consensus rule.",
+      "impactMarkdown": "BIP 53 addresses a real cryptographic weakness in Bitcoin's Merkle tree construction. The block malleability and light client attack vectors are well-understood, but making this a consensus rule rather than just relay policy requires careful consideration. It represents ongoing efforts to harden Bitcoin's security model.",
+      "status": "draft",
+      "category": "specification",
+      "authors": [
+        "Chris Stewart"
+      ],
+      "createdAt": "2025-04-11",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0053.mediawiki",
+      "tags": [
+        "consensus",
+        "merkle-tree",
+        "transaction-size"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2025-04-11"
+    },
+    {
+      "id": "bip.60.en",
+      "number": 60,
+      "language": "en",
+      "title": "Fixed Length 'version' Message",
+      "summary": "Proposes making the version message fixed-length by integrating the relay transactions flag into the protocol.",
+      "summaryMarkdown": "BIP 60 addresses an inconsistency introduced by BIP 37, which added an optional RelayTransactions field to the version message. This broke the fixed-length property of Bitcoin protocol messages. BIP 60 proposes integrating this flag into the protocol itself, restoring fixed-length message semantics for simpler deserialization and validation.\n\nThe proposal was motivated by concerns that optional fields make message format checking harder and complicate parser implementations.",
+      "impactMarkdown": "BIP 60 was not adopted; the Bitcoin protocol continued to use variable-length version messages. The RelayTransactions field from BIP 37 remained as an optional extension. This BIP represents a viewpoint favoring strict message format discipline that was not shared by the broader development community.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Amir Taaki"
+      ],
+      "createdAt": "2013-06-16",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0060.mediawiki",
+      "tags": [
+        "protocol",
+        "version-message",
+        "message-format"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2013-06-16"
     }
   ],
   "changelogs": [],
-  "totalRecords": 113,
+  "totalRecords": 138,
   "historyCount": 35
 }
