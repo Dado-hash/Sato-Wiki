@@ -8139,15 +8139,15 @@
       "number": 101,
       "language": "it",
       "title": "Increase maximum block size",
-      "summary": "BIP 101: Increase maximum block size.",
+      "summary": "Propone di aumentare il limite massimo della dimensione dei blocchi da 1 MB come hard fork per accomodare la crescita della rete.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Gavin Andresen"
       ],
       "createdAt": "2015-06-22",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 101 proponeva un incremento iniziale a 8 MB, raddoppiando ogni due anni con un hard fork attivato dal signaling dei miner. Richiedeva il 75% di supporto dei miner per l'attivazione.\n\nFaceva parte dell'intenso dibattito sulla dimensione dei blocchi del 2015-2017 proposto da Gavin Andresen.",
+      "impactMarkdown": "BIP 101 non è mai stato adottato. È storicamente significativo come una delle prime proposte di aumento del limite dei blocchi.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0101.mediawiki",
       "tags": [
         "BIP",
@@ -8166,10 +8166,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "db30145be0a446aba0522058c516f858c270311c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0101.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8177,15 +8174,15 @@
       "number": 102,
       "language": "it",
       "title": "Block size increase to 2MB",
-      "summary": "BIP 102: Block size increase to 2MB.",
+      "summary": "Propone di aumentare il limite della dimensione dei blocchi a 2 MB con un'altezza di attivazione fissa.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Jeff Garzik"
       ],
       "createdAt": "2015-06-23",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 102 suggeriva un aumento più conservativo a 2 MB con attivazione hard fork a un'altezza di blocco predeterminata, senza signaling dei miner.",
+      "impactMarkdown": "BIP 102 non è stato adottato. Rappresentava la posizione conservativa nel dibattito sulla dimensione dei blocchi.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0102.mediawiki",
       "tags": [
         "BIP",
@@ -8204,10 +8201,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ab7aef5fe3460df2edf7d293a7a620df22674dc6",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0102.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8215,15 +8209,15 @@
       "number": 103,
       "language": "it",
       "title": "Block size following technological growth",
-      "summary": "BIP 103: Block size following technological growth.",
+      "summary": "Propone un limite della dimensione dei blocchi che segue la crescita tecnologica usando una formula basata sulla legge di Moore.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Pieter Wuille"
       ],
       "createdAt": "2015-07-21",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 103 introduceva un approccio basato su formula per l'aggiustamento della dimensione dei blocchi, utilizzando la legge di Moore come proxy del progresso tecnologico con un aumento del ~34% annuo.",
+      "impactMarkdown": "BIP 103 non è stato adottato ma il suo approccio basato su formula ha influenzato discussioni successive.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0103.mediawiki",
       "tags": [
         "BIP",
@@ -8242,10 +8236,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "471a0ab7b02d96001a3bc01a1f7a57e1e0369b06",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0103.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8253,15 +8244,15 @@
       "number": 104,
       "language": "it",
       "title": "'Block75' - Max block size like difficulty",
-      "summary": "BIP 104: 'Block75' - Max block size like difficulty.",
+      "summary": "Propone Block75, un algoritmo dinamico per la dimensione dei blocchi che si adatta in base al riempimento recente dei blocchi.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "t.khan"
       ],
       "createdAt": "2017-01-13",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 104 specificava Block75, un algoritmo che aggiusta il limite massimo basato sulla dimensione mediana dei blocchi recenti, simile all'aggiustamento della difficoltà, puntando a un riempimento del 75%.",
+      "impactMarkdown": "BIP 104 non è stato adottato. L'approccio autoregolante è stato ampiamente discusso ma il dibattito ha converguto su SegWit.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0104.mediawiki",
       "tags": [
         "BIP",
@@ -8280,10 +8271,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "296ca2e813cd794afec6356d933edcd89f55b79c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0104.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8291,15 +8279,15 @@
       "number": 105,
       "language": "it",
       "title": "Consensus based block size retargeting algorithm",
-      "summary": "BIP 105: Consensus based block size retargeting algorithm.",
+      "summary": "Propone un algoritmo basato sul consenso in cui il limite della dimensione dei blocchi si aggiusta in base al signaling dei miner dei valori preferiti.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "BtcDrak"
       ],
       "createdAt": "2015-08-21",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 105 introduceva un meccanismo in cui i miner votano la dimensione dei blocchi includendo il loro valore preferito nelle transazioni coinbase, con la rete che calcola una mediana.",
+      "impactMarkdown": "BIP 105 non è stato adottato per la preoccupazione di dare troppo controllo ai miner.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0105.mediawiki",
       "tags": [
         "BIP",
@@ -8318,10 +8306,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "4e72d7e76ee59ea4dc0cf4556bd9d13a120e7cd1",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0105.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8329,15 +8314,15 @@
       "number": 106,
       "language": "it",
       "title": "Dynamically Controlled Bitcoin Block Size Max Cap",
-      "summary": "BIP 106: Dynamically Controlled Bitcoin Block Size Max Cap.",
+      "summary": "Propone un limite massimo della dimensione dei blocchi controllato dinamicamente usando un algoritmo basato su commissioni e riempimento dei blocchi.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Upal Chakraborty"
       ],
       "createdAt": "2015-08-24",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 106 suggeriva un algoritmo che considera sia il riempimento dei blocchi che le condizioni del mercato delle fee, aumentando il limite quando le fee rimangono alte nonostante blocchi pieni.",
+      "impactMarkdown": "BIP 106 non è stato adottato a causa della sua complessità e dell'opposizione generale alle proposte di scaling on-chain.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0106.mediawiki",
       "tags": [
         "BIP",
@@ -8356,10 +8341,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6dc8dd83982a59f4bdfc2fb57b3e91ca7f4c1645",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0106.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8367,15 +8349,15 @@
       "number": 107,
       "language": "it",
       "title": "Dynamic limit on the block size",
-      "summary": "BIP 107: Dynamic limit on the block size.",
+      "summary": "Propone un limite dinamico sulla dimensione dei blocchi usando lo stesso periodo di aggiustamento della difficoltà con un tasso di crescita limitato.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Washington Y. Sanchez"
       ],
       "createdAt": "2015-09-11",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 107 proponeva un aggiustamento ogni 2016 blocchi, utilizzando un tasso di crescita limitato derivato dalle dimensioni recenti dei blocchi con limiti di sicurezza.",
+      "impactMarkdown": "BIP 107 non è stato adottato, come molte proposte simili durante il dibattito sulla dimensione dei blocchi.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0107.mediawiki",
       "tags": [
         "BIP",
@@ -8394,10 +8376,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6840ed9642b53a87d73aea4539c8132131483b79",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0107.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8405,15 +8384,15 @@
       "number": 109,
       "language": "it",
       "title": "Two million byte size limit with sigop and sighash limits",
-      "summary": "BIP 109: Two million byte size limit with sigop and sighash limits.",
+      "summary": "Propone un limite di due milioni di byte con limiti sigop e sighash aggiustati per un'elaborazione proporzionale delle transazioni.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Gavin Andresen"
       ],
       "createdAt": "2016-01-28",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 109 suggeriva di raddoppiare la dimensione dei blocchi a 2 MB aggiustando anche i limiti di sigop e sighash per rimanere proporzionali.",
+      "impactMarkdown": "BIP 109 non è stato adottato ma ha contribuito alla comprensione che le modifiche alla dimensione dei blocchi richiedono una considerazione attenta delle risorse di validazione.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0109.mediawiki",
       "tags": [
         "BIP",
@@ -8432,10 +8411,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c72dee05c34be891cca97ac7ff34e761acc73d7f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0109.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8443,15 +8419,15 @@
       "number": 110,
       "language": "it",
       "title": "Reduced Data Temporary Softfork",
-      "summary": "BIP 110: Reduced Data Temporary Softfork.",
+      "summary": "Propone un soft fork temporaneo per ridurre la dimensione massima dei blocchi da 1 MB a 500 KB come misura a breve termine.",
       "status": "draft",
       "category": "consensus",
       "authors": [
         "Dathon Ohm"
       ],
       "createdAt": "2025-12-03",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 110 proponeva di ridurre il limite a 500 KB come soft fork temporaneo, a differenza delle altre proposte che miravano ad aumentare la capacità.",
+      "impactMarkdown": "BIP 110 è rimasto in Draft senza essere adottato.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki",
       "tags": [
         "BIP",
@@ -8470,10 +8446,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "5bc6dea841bb3ee4f5b774ddb594e55281be2d11",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8481,7 +8454,7 @@
       "number": 111,
       "language": "it",
       "title": "NODE_BLOOM service bit",
-      "summary": "BIP 111: NODE_BLOOM service bit.",
+      "summary": "Ripristina il bit di servizio NODE_BLOOM rimosso da Bitcoin Core, consentendo ai nodi di pubblicizzare il supporto al Bloom filtering.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
@@ -8489,8 +8462,8 @@
         "Peter Todd"
       ],
       "createdAt": "2015-08-20",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 111 ripristina il bit di servizio NODE_BLOOM nel protocollo Bitcoin, consentendo ai client SPV di scoprire quali nodi completi supportano il Bloom filtering.",
+      "impactMarkdown": "BIP 111 è stato implementato in Bitcoin Core e il bit NODE_BLOOM rimane parte del protocollo.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0111.mediawiki",
       "tags": [
         "BIP",
@@ -8509,10 +8482,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0a41af2f2a141cce533b8a4f5c650265cd46ef46",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0111.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8520,7 +8490,7 @@
       "number": 112,
       "language": "it",
       "title": "CHECKSEQUENCEVERIFY",
-      "summary": "BIP 112: CHECKSEQUENCEVERIFY.",
+      "summary": "Introduce OP_CHECKSEQUENCEVERIFY (CSV), un opcode per l'imposizione di lock-time relativo in Bitcoin Script.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -8529,8 +8499,8 @@
         "Eric Lombrozo"
       ],
       "createdAt": "2015-08-10",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 112 aggiunge OP_CHECKSEQUENCEVERIFY ridefinendo l'opcode NOP3. CSV consente a uno script di imporre un lock-time relativo, abilitando contratti time-constrained tra cui i canali di pagamento e la Lightning Network.\n\nCSV è la controparte script di BIP 68 (lock-time relativo nei sequence number) e insieme a CLTV (BIP 65) costituisce la base per i protocolli off-chain.",
+      "impactMarkdown": "CSV è stato attivato nel pacchetto di soft fork del 2016 ed è fondamentale per la Lightning Network, dove abilita i timeout HTLC.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki",
       "tags": [
         "BIP",
@@ -8549,10 +8519,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "085ec730fc46079c72a2931049fcd0e8d7157651",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8560,7 +8527,7 @@
       "number": 113,
       "language": "it",
       "title": "Median time-past as endpoint for lock-time calculations",
-      "summary": "BIP 113: Median time-past as endpoint for lock-time calculations.",
+      "summary": "Definisce il median time-past (MTP) come riferimento per i calcoli di lock-time, sostituendo il timestamp del blocco con una misura più stabile.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -8568,8 +8535,8 @@
         "Mark Friedenbach"
       ],
       "createdAt": "2015-08-10",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 113 specifica che per i calcoli di lock-time i nodi devono usare la mediana dei timestamp degli ultimi 11 blocchi (MTP) invece del timestamp del blocco corrente, prevenendo la manipolazione dei tempi da parte dei miner.",
+      "impactMarkdown": "BIP 113 è stato attivato nel 2016 ed è essenziale per il corretto funzionamento dei contratti time-locked.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki",
       "tags": [
         "BIP",
@@ -8588,10 +8555,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "5ae089682ec3729854e9808591a4e505a7046ed7",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8599,15 +8563,15 @@
       "number": 114,
       "language": "it",
       "title": "Merkelized Abstract Syntax Tree",
-      "summary": "BIP 114: Merkelized Abstract Syntax Tree.",
+      "summary": "Propone Merkelized Abstract Syntax Trees (MAST) per migliorare la privacy e l'efficienza degli script Bitcoin usando strutture Merkle.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Johnson Lau"
       ],
       "createdAt": "2016-04-02",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 114 introduceva MAST, una tecnica per strutturare le condizioni degli script Bitcoin in un Merkle tree. Solo il ramo effettivamente eseguito viene rivelato, migliorando privacy ed efficienza.\n\nMAST è stato successivamente superato da Taproot (BIP 341).",
+      "impactMarkdown": "BIP 114 è stato chiuso perché superato da Taproot. L'uso di strutture Merkle per le condizioni script è stato fondamentale per il design di Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0114.mediawiki",
       "tags": [
         "BIP",
@@ -8626,10 +8590,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "9c9dee0bc4bc870e0c8879bcfe002edcba83131b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0114.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8637,15 +8598,15 @@
       "number": 115,
       "language": "it",
       "title": "Generic anti-replay protection using Script",
-      "summary": "BIP 115: Generic anti-replay protection using Script.",
+      "summary": "Propone un meccanismo generico di protezione anti-replay per Bitcoin usando la validazione basata su script degli output delle transazioni.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Luke Dashjr"
       ],
       "createdAt": "2016-09-23",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 115 descriveva un metodo per prevenire attacchi replay durante i chain split, utilizzando il sistema script per imporre che le transazioni includano output validi solo su una chain specifica.",
+      "impactMarkdown": "BIP 115 è stato chiuso ma le sue tecniche rimangono rilevanti per scenari futuri di chain split.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0115.mediawiki",
       "tags": [
         "BIP",
@@ -8664,10 +8625,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6c271ca2d0132122b94b922271f36b166cfa4b10",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0115.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8675,7 +8633,7 @@
       "number": 116,
       "language": "it",
       "title": "MERKLEBRANCHVERIFY",
-      "summary": "BIP 116: MERKLEBRANCHVERIFY.",
+      "summary": "Propone OP_MERKLEBRANCHVERIFY, un opcode per la verifica efficiente di rami Merkle all'interno di Bitcoin Script.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -8684,8 +8642,8 @@
         "BtcDrak"
       ],
       "createdAt": "2017-08-25",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 116 aggiunge un opcode che consente agli script di verificare prove Merkle on-chain, abilitando contratti avanzati come la prova di inclusione di dati in un Merkle tree.",
+      "impactMarkdown": "BIP 116 è in stato Draft e non è stato adottato.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0116.mediawiki",
       "tags": [
         "BIP",
@@ -8704,10 +8662,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3f10e01a2cef49d562f8a4588c706aae62735d37",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0116.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8715,7 +8670,7 @@
       "number": 117,
       "language": "it",
       "title": "Tail Call Execution Semantics",
-      "summary": "BIP 117: Tail Call Execution Semantics.",
+      "summary": "Propone semantica di chiamata in coda (tail call) per Bitcoin Script, abilitando pattern simili a ricorsione senza aumenti significativi di complessità.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -8724,8 +8679,8 @@
         "BtcDrak"
       ],
       "createdAt": "2017-08-25",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 117 introduce semantica tail call per Bitcoin Script, consentendo pattern di contratto più complessi con logica iterativa senza consumo illimitato di risorse.",
+      "impactMarkdown": "BIP 117 è in stato Draft e non è stato adottato.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0117.mediawiki",
       "tags": [
         "BIP",
@@ -8744,10 +8699,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "b301083f383951391cdffdc0a6b6473b2670256f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0117.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8755,7 +8707,7 @@
       "number": 118,
       "language": "it",
       "title": "SIGHASH_ANYPREVOUT for Taproot Scripts",
-      "summary": "BIP 118: SIGHASH_ANYPREVOUT for Taproot Scripts.",
+      "summary": "Propone SIGHASH_ANYPREVOUT, un nuovo tipo di hash per firme che consente di spendere qualsiasi output con script corrispondente, abilitando contratti avanzati.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -8763,8 +8715,8 @@
         "Anthony Towns"
       ],
       "createdAt": "2017-02-28",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 118 introduce SIGHASH_ANYPREVOUT (APO) che consente a una firma di impegnarsi per una transazione senza impegnarsi per output precedenti specifici, abilitando canali LN stile Eltoo.\n\nFunziona con Taproot (BIP 341) e firme Schnorr (BIP 340).",
+      "impactMarkdown": "BIP 118 è in Draft ma ha interesse significativo come abilitatore chiave per l'aggiornamento Eltoo della Lightning Network.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0118.mediawiki",
       "tags": [
         "BIP",
@@ -8783,10 +8735,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "695e6feb8a624c2528607603f239383cea447608",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0118.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8794,15 +8743,15 @@
       "number": 119,
       "language": "it",
       "title": "CHECKTEMPLATEVERIFY",
-      "summary": "BIP 119: CHECKTEMPLATEVERIFY.",
+      "summary": "Propone OP_CHECKTEMPLATEVERIFY (CTV), un opcode che consente restrizioni simili a covenant su come un output di transazione può essere speso.",
       "status": "draft",
       "category": "consensus",
       "authors": [
         "Jeremy Rubin"
       ],
       "createdAt": "2020-01-06",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 119 introduce OP_CHECKTEMPLATEVERIFY che consente di specificare condizioni esatte di spesa future: numero di output, importi e script. Abilita batching, payment pool e vault.\n\nCTV utilizza l'opcode NOP4 esistente e richiede un soft fork.",
+      "impactMarkdown": "BIP 119 è in Draft ma ha supporto significativo nella comunità di sviluppo Bitcoin.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0119.mediawiki",
       "tags": [
         "BIP",
@@ -8821,10 +8770,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c686db73b9385a1729049bfe7777cddcb946375a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0119.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -8832,15 +8778,15 @@
       "number": 120,
       "language": "it",
       "title": "Proof of Payment",
-      "summary": "BIP 120: Proof of Payment.",
+      "summary": "Descrive un protocollo di prova di pagamento che consente a un beneficiario di dimostrare di aver ricevuto un pagamento Bitcoin senza rivelare i dettagli completi della transazione.",
       "status": "closed",
       "category": "applications",
       "authors": [
         "Kalle Rosenbaum"
       ],
       "createdAt": "2015-07-28",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 120 definisce un protocollo per generare e verificare prove di pagamento utilizzando l'ID della transazione e la chiave pubblica del destinatario, dimostrando il controllo sull'indirizzo senza esporre l'intera transazione.",
+      "impactMarkdown": "BIP 120 è stato chiuso senza un'adozione diffusa.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0120.mediawiki",
       "tags": [
         "BIP",
@@ -8859,10 +8805,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "01ea192834826d5aec06a16e32f84e4456b01af4",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0120.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
