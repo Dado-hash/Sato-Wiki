@@ -16,7 +16,7 @@ void main() {
 
     expect(result.warnings, isEmpty);
     expect(bundle.schemaVersion, 1);
-    expect(bundle.version, '2026.05.27');
+    expect(bundle.version, '2026.06.01');
     final proofOfWork = bundle.wiki.firstWhere(
       (entry) => entry.id == 'wiki.proof-of-work',
     );

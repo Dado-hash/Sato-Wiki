@@ -41,17 +41,33 @@ final class LocalFirstContentBundleRepository
     final normalizedLanguageCode = AppLocale.normalizeLanguageCode(
       languageCode,
     );
+    final seedResult = await _loadSeedBundle(normalizedLanguageCode);
     final updatedJson = _preferences.getString(
       _updatedBundleKey(normalizedLanguageCode),
     );
     if (updatedJson != null) {
       try {
-        return _parseLanguageBundle(updatedJson, normalizedLanguageCode);
+        final updatedResult = _parseLanguageBundle(
+          updatedJson,
+          normalizedLanguageCode,
+        );
+        if (!_isNewerVersion(
+          seedResult.bundle.version,
+          updatedResult.bundle.version,
+        )) {
+          return updatedResult;
+        }
       } on Object {
         // Bad updates must not block offline seed content.
       }
     }
 
+    return seedResult;
+  }
+
+  Future<ContentBundleParseResult> _loadSeedBundle(
+    String normalizedLanguageCode,
+  ) async {
     final seedAssetPath =
         seedAssetPaths[normalizedLanguageCode] ??
         seedAssetPaths[defaultLanguageCode]!;
@@ -74,6 +90,43 @@ final class LocalFirstContentBundleRepository
 
   static String _updatedBundleKey(String languageCode) {
     return '$_updatedBundleKeyPrefix.$languageCode';
+  }
+
+  static bool _isNewerVersion(String candidate, String current) {
+    final candidateParts = _versionParts(candidate);
+    final currentParts = _versionParts(current);
+    if (candidateParts != null && currentParts != null) {
+      final length = candidateParts.length > currentParts.length
+          ? candidateParts.length
+          : currentParts.length;
+      for (var i = 0; i < length; i++) {
+        final candidateValue = i < candidateParts.length
+            ? candidateParts[i]
+            : 0;
+        final currentValue = i < currentParts.length ? currentParts[i] : 0;
+        if (candidateValue != currentValue) {
+          return candidateValue > currentValue;
+        }
+      }
+
+      return false;
+    }
+
+    return candidate.compareTo(current) > 0;
+  }
+
+  static List<int>? _versionParts(String version) {
+    final parts = version.split('.');
+    final values = <int>[];
+    for (final part in parts) {
+      final value = int.tryParse(part);
+      if (value == null) {
+        return null;
+      }
+      values.add(value);
+    }
+
+    return values;
   }
 
   static ContentBundleParseResult _parseLanguageBundle(

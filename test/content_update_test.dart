@@ -72,6 +72,30 @@ void main() {
     expect(fallbackResult.bundle.language, 'it');
   });
 
+  test(
+    'local repository prefers newer bundled seed over older update',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      final preferences = await SharedPreferences.getInstance();
+      final repository = LocalFirstContentBundleRepository(
+        preferences: preferences,
+        assetBundle: _FakeAssetBundle(
+          _bundleJson(version: '2026.06.01'),
+          itJson: _bundleJson(version: '2026.06.01', language: 'it'),
+        ),
+      );
+
+      await repository.saveUpdatedBundleJson(
+        'en',
+        _bundleJson(version: '2026.05.26'),
+      );
+
+      final result = await repository.load('en');
+
+      expect(result.bundle.version, '2026.06.01');
+    },
+  );
+
   test('updater installs newer valid bundle', () async {
     final updateJson = _bundleJson(version: '2026.05.26');
     final updater = await _updaterFor(
