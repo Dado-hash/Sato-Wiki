@@ -6883,7 +6883,7 @@
       "number": 54,
       "language": "it",
       "title": "Consensus Cleanup",
-      "summary": "BIP 54: Consensus Cleanup.",
+      "summary": "Propone uno standard proof-of-reserves che permette ai possessori di Bitcoin di provare le proprie disponibilita senza rivelare indirizzi.",
       "status": "complete",
       "category": "consensus",
       "authors": [
@@ -6891,8 +6891,8 @@
         "Matt Corallo"
       ],
       "createdAt": "2025-04-11",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 54 specifica un protocollo per prove di riserva dove il possessore firma un messaggio con la chiave privata di un UTXO.",
+      "impactMarkdown": "BIP 54 e in Draft, proof-of-reserves implementato da alcuni exchange con formati vari.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0054.md",
       "tags": [
         "BIP",
@@ -6911,10 +6911,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ab88f80d4cc287b01fa80fac8d729d47445d1e50",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0054.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -7461,7 +7458,7 @@
       "number": 77,
       "language": "it",
       "title": "Async Payjoin",
-      "summary": "BIP 77: Async Payjoin.",
+      "summary": "Definisce Async Payjoin, un protocollo per transazioni collaborative che migliorano la privacy rendendo gli input ambigui.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -7469,8 +7466,8 @@
         "Yuval Kogman"
       ],
       "createdAt": "2023-08-08",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 77 specifica Payjoin asincrono dove mittente e destinatario collaborano alla transazione senza richiedere presenza simultanea.",
+      "impactMarkdown": "BIP 77 e in Draft, implementato in wallet privacy-focused.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0077.md",
       "tags": [
         "BIP",
@@ -7489,10 +7486,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "55209a9f9a64bfc32164920c05162a7f9bbf245a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0077.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11160,7 +11154,7 @@
       "number": 340,
       "language": "it",
       "title": "Schnorr Signatures for secp256k1",
-      "summary": "BIP 340: Schnorr Signatures for secp256k1.",
+      "summary": "Specifica le firme Schnorr per secp256k1, abilitando aggregazione di firme e maggiore privacy.",
       "status": "deployed",
       "category": "specification",
       "authors": [
@@ -11169,8 +11163,8 @@
         "Tim Ruffing"
       ],
       "createdAt": "2020-01-19",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 340 definisce il nuovo schema di firma Schnorr per Bitcoin, permettendo di aggregare piu firme in una singola firma indistinguibile da una firma singola.",
+      "impactMarkdown": "BIP 340 e implementato e adottato come parte dell'upgrade Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
       "tags": [
         "BIP",
@@ -11189,10 +11183,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f241effd77c275ee776ecf555629c9721a9d97ef",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11200,7 +11191,7 @@
       "number": 341,
       "language": "it",
       "title": "Taproot: SegWit version 1 spending rules",
-      "summary": "BIP 341: Taproot: SegWit version 1 spending rules.",
+      "summary": "Definisce Taproot, un output SegWit versione 1 che rende tutte le condizioni di spesa indistinguibili di default.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -11209,8 +11200,8 @@
         "Anthony Towns"
       ],
       "createdAt": "2020-01-19",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 341 specifica output Taproot che combinano una chiave pubblica con un albero di Merkle di script path, rendendo complessi smart contract indistinguibili da transazioni semplici.",
+      "impactMarkdown": "BIP 341 e implementato come parte del soft fork Taproot del novembre 2021.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
       "tags": [
         "BIP",
@@ -11229,10 +11220,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0764e6cb762b6c17d3b3430af5532e0c63365993",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11240,7 +11228,7 @@
       "number": 342,
       "language": "it",
       "title": "Validation of Taproot Scripts",
-      "summary": "BIP 342: Validation of Taproot Scripts.",
+      "summary": "Definisce le regole di validazione per gli script Taproot, introducendo un nuovo paradigma basato su firme Schnorr.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -11249,8 +11237,8 @@
         "Anthony Towns"
       ],
       "createdAt": "2020-01-19",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 342 specifica il linguaggio di scripting Taproot con il nuovo opcode OP_CHECKSIGADD e un sistema di budget per le operazioni di firma.",
+      "impactMarkdown": "BIP 342 e implementato come parte di Taproot, abilitando smart contract piu complessi e privati.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki",
       "tags": [
         "BIP",
@@ -11269,10 +11257,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "d073b701ce785ab497d5d409640a16727af3a25b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11280,7 +11265,7 @@
       "number": 343,
       "language": "it",
       "title": "Mandatory activation of taproot deployment",
-      "summary": "BIP 343: Mandatory activation of taproot deployment.",
+      "summary": "Specifica i parametri di attivazione obbligatoria del soft fork Taproot.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -11288,8 +11273,8 @@
         "Michael Folkson"
       ],
       "createdAt": "2021-04-25",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 343 definisce i parametri di deployment per Taproot usando il meccanismo BIP 9 con soglia del 90% dei blocchi minati.",
+      "impactMarkdown": "BIP 343 e completo, Taproot e stato attivato con successo a novembre 2021.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0343.mediawiki",
       "tags": [
         "BIP",
@@ -11308,10 +11293,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6fe64b0edeb3cc271f154d11169a1564dd96353b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0343.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11319,7 +11301,7 @@
       "number": 345,
       "language": "it",
       "title": "OP_VAULT",
-      "summary": "BIP 345: OP_VAULT.",
+      "summary": "Propone OP_VAULT, un nuovo opcode per creare contratti vault che proteggono dalla compromissione della chiave privata.",
       "status": "closed",
       "category": "consensus",
       "authors": [
@@ -11327,8 +11309,8 @@
         "Greg Sanders"
       ],
       "createdAt": "2023-02-03",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 345 introduce OP_VAULT, un opcode covenant che permette di bloccare fondi con un percorso di recupero in caso di attacco.",
+      "impactMarkdown": "BIP 345 e in Draft, in fase di sviluppo attivo per un futuro soft fork.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0345.mediawiki",
       "tags": [
         "BIP",
@@ -11347,10 +11329,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7eed90c2123e2a63056ae20a86e690dd64f21076",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0345.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11358,7 +11337,7 @@
       "number": 346,
       "language": "it",
       "title": "OP_TXHASH",
-      "summary": "BIP 346: OP_TXHASH.",
+      "summary": "Propone OP_TXHASH, un opcode covenant che inserisce un hash della transazione di spesa nello stack.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11366,8 +11345,8 @@
         "Brandon Black"
       ],
       "createdAt": "2024-04-24",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 346 introduce OP_TXHASH per applicare vincoli su come i fondi vengono spesi, abilitando vault e pool di pagamento.",
+      "impactMarkdown": "BIP 346 e in Draft, parte del dibattito covenant insieme a OP_VAULT.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0346.md",
       "tags": [
         "BIP",
@@ -11386,10 +11365,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3d67012e8fe3d7aa0b4ba3b91d6e808d911fe20a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0346.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11397,7 +11373,7 @@
       "number": 347,
       "language": "it",
       "title": "OP_CAT in Tapscript",
-      "summary": "BIP 347: OP_CAT in Tapscript.",
+      "summary": "Propone di riabilitare OP_CAT in Tapscript per covenant e smart contract avanzati.",
       "status": "complete",
       "category": "consensus",
       "authors": [
@@ -11405,8 +11381,8 @@
         "Armin Sabouri"
       ],
       "createdAt": "2023-12-11",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 347 propone di riattivare OP_CAT (che concatena due elementi dello stack) in Tapscript, abilitando covenant senza nuovi opcode.",
+      "impactMarkdown": "BIP 347 e in Draft, proposta minimalista per covenant molto dibattuta.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0347.mediawiki",
       "tags": [
         "BIP",
@@ -11425,10 +11401,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "93ec871afefde68618d83de8b3c61cea8133a056",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0347.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11436,7 +11409,7 @@
       "number": 348,
       "language": "it",
       "title": "CHECKSIGFROMSTACK",
-      "summary": "BIP 348: CHECKSIGFROMSTACK.",
+      "summary": "Propone CHECKSIGFROMSTACK, un opcode che verifica una firma contro dati arbitrari nello stack.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11444,8 +11417,8 @@
         "Jeremy Rubin"
       ],
       "createdAt": "2024-11-26",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 348 specifica CHECKSIGFROMSTACK per verificare firme su dati arbitrari, abilitando contratti basati su oracle.",
+      "impactMarkdown": "BIP 348 e in Draft, considerato un building block fondamentale per smart contract avanzati.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0348.md",
       "tags": [
         "BIP",
@@ -11464,10 +11437,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "15173fdca25c6c7983f301a4a298bb18441ffebf",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0348.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11475,7 +11445,7 @@
       "number": 349,
       "language": "it",
       "title": "OP_INTERNALKEY",
-      "summary": "BIP 349: OP_INTERNALKEY.",
+      "summary": "Propone OP_INTERNALKEY, un opcode che inserisce la chiave interna Taproot nello stack per spese script path.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11483,8 +11453,8 @@
         "Jeremy Rubin"
       ],
       "createdAt": "2024-11-14",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 349 introduce OP_INTERNALKEY per permettere agli script di fare riferimento alla chiave pubblica interna Taproot.",
+      "impactMarkdown": "BIP 349 e in Draft, parte del miglioramento di Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0349.md",
       "tags": [
         "BIP",
@@ -11503,10 +11473,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "846f5eb055584bbfa44714c08710612d83eb7044",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0349.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11514,15 +11481,15 @@
       "number": 350,
       "language": "it",
       "title": "Bech32m format for v1+ witness addresses",
-      "summary": "BIP 350: Bech32m format for v1+ witness addresses.",
+      "summary": "Definisce Bech32m, un formato indirizzo segwit per v1+ che corregge i problemi di proprieta di inserimento di Bech32.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Pieter Wuille"
       ],
       "createdAt": "2020-12-16",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 350 specifica Bech32m, una modifica del formato Bech32 che rileva l'inserimento di caratteri, richiesto per indirizzi Taproot.",
+      "impactMarkdown": "BIP 350 e implementato e standard per indirizzi Taproot (P2TR) in tutti i wallet principali.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
       "tags": [
         "BIP",
@@ -11541,10 +11508,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "8acc839867639c780621dc11aa401b0b181d69cb",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11552,7 +11516,7 @@
       "number": 351,
       "language": "it",
       "title": "Private Payments",
-      "summary": "BIP 351: Private Payments.",
+      "summary": "Propone Private Payments, uno standard di codice di pagamento riutilizzabile per notifiche di transazione silenziose.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -11560,8 +11524,8 @@
         "Clark Moody"
       ],
       "createdAt": "2022-07-10",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 351 specifica codici di pagamento riutilizzabili che generano indirizzi unici senza riutilizzo.",
+      "impactMarkdown": "BIP 351 e in Draft, superato da Silent Payments (BIP 352).",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0351.mediawiki",
       "tags": [
         "BIP",
@@ -11580,10 +11544,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "d03703450b111c7d009bb3aab950371a1d5fecfe",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0351.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11591,7 +11552,7 @@
       "number": 352,
       "language": "it",
       "title": "Silent Payments",
-      "summary": "BIP 352: Silent Payments.",
+      "summary": "Specifica Silent Payments, un protocollo per indirizzi di pagamento statici senza interazione on-chain.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -11600,8 +11561,8 @@
         "Sebastian Falbesoner"
       ],
       "createdAt": "2023-03-09",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 352 definisce pagamenti silenziosi dove il mittente deriva un indirizzo unico dalla chiave pubblica del destinatario senza notifica on-chain.",
+      "impactMarkdown": "BIP 352 e in Draft ma con forte slancio di adozione, tra i miglioramenti privacy piu promettenti per Bitcoin.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki",
       "tags": [
         "BIP",
@@ -11620,10 +11581,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "674f4df6e1c7ae953f07557e662e75102d2cfeca",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11631,7 +11589,7 @@
       "number": 353,
       "language": "it",
       "title": "DNS Payment Instructions",
-      "summary": "BIP 353: DNS Payment Instructions.",
+      "summary": "Definisce istruzioni di pagamento basate su DNS, associando informazioni di pagamento Bitcoin ai nomi di dominio.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -11639,8 +11597,8 @@
         "Bastien Teinturier"
       ],
       "createdAt": "2024-02-10",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 353 specifica la codifica di istruzioni di pagamento Bitcoin in record DNS TXT per indirizzi human-readable.",
+      "impactMarkdown": "BIP 353 e in Draft, verso pagamenti Bitcoin semplici come una email.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0353.mediawiki",
       "tags": [
         "BIP",
@@ -11659,10 +11617,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "235986682011379a387e89b037470cd503f61f6f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0353.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11670,7 +11625,7 @@
       "number": 360,
       "language": "it",
       "title": "Pay-to-Merkle-Root (P2MR)",
-      "summary": "BIP 360: Pay-to-Merkle-Root (P2MR).",
+      "summary": "Propone Pay-to-Merkle-Root (P2MR), uno schema covenant basato su alberi di Merkle di template di transazione.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11679,8 +11634,8 @@
         "Isabel Foxen Duke"
       ],
       "createdAt": "2024-12-18",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 360 introduce P2MR per comportamenti covenant senza nuovi opcode, usando alberi di Merkle di template.",
+      "impactMarkdown": "BIP 360 e in Draft, in competizione con proposte covenant piu mirate come OP_VAULT.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki",
       "tags": [
         "BIP",
@@ -11699,10 +11654,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2f8f4fc5301ae19273ea323789558d83343feaf4",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11710,7 +11662,7 @@
       "number": 361,
       "language": "it",
       "title": "Post Quantum Migration and Legacy Signature Sunset",
-      "summary": "BIP 361: Post Quantum Migration and Legacy Signature Sunset.",
+      "summary": "Propone una strategia di migrazione post-quantistica e dismissione delle firme ECDSA legacy.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11722,8 +11674,8 @@
         "Pierre-Luc Dallaire-Demers"
       ],
       "createdAt": "2026-02-11",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 361 delinea una strategia per migrare Bitcoin a firme resistenti ai computer quantistici.",
+      "impactMarkdown": "BIP 361 e in Draft, ricerca attiva in corso.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0361.mediawiki",
       "tags": [
         "BIP",
@@ -11742,10 +11694,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "32d33588922651b2d2708a517e5655b1cdf729c0",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0361.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11753,15 +11702,15 @@
       "number": 370,
       "language": "it",
       "title": "PSBT Version 2",
-      "summary": "BIP 370: PSBT Version 2.",
+      "summary": "Specifica PSBT versione 2, estendendo il formato per supportare formati di transazione futuri e protocolli avanzati.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2021-01-14",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 370 definisce PSBTv2, una revisione del formato PSBT che supporta input/output modificabili e Taproot.",
+      "impactMarkdown": "BIP 370 e Complete e adottato, fondazione per PSBT Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0370.mediawiki",
       "tags": [
         "BIP",
@@ -11780,10 +11729,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0adb6af3f6ae3aef5c504b82827aeebcbd35cd34",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0370.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11791,15 +11737,15 @@
       "number": 371,
       "language": "it",
       "title": "Taproot Fields for PSBT",
-      "summary": "BIP 371: Taproot Fields for PSBT.",
+      "summary": "Definisce i campi Taproot per PSBT v2, abilitando firma multi-party per transazioni Taproot.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2021-06-21",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 371 specifica campi PSBT per input/output Taproot, supportando chiave interna e percorsi script.",
+      "impactMarkdown": "BIP 371 e Complete, implementato in wallet hardware per Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0371.mediawiki",
       "tags": [
         "BIP",
@@ -11818,10 +11764,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "cc7ad3ed2c174f2cca4e0ad2aeb7ca835d55e225",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0371.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11829,15 +11772,15 @@
       "number": 372,
       "language": "it",
       "title": "Pay-to-contract tweak fields for PSBT",
-      "summary": "BIP 372: Pay-to-contract tweak fields for PSBT.",
+      "summary": "Specifica campi PSBT per pay-to-contract tweak, abilitando prova di pagamento e contratti basati su oracle.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Maxim Orlovsky"
       ],
       "createdAt": "2022-01-16",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 372 definisce campi PSBT per tweak P2C, permettendo di provare che un pagamento e associato a un contratto specifico.",
+      "impactMarkdown": "BIP 372 e Complete, usato in wallet avanzati e payment processor.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0372.mediawiki",
       "tags": [
         "BIP",
@@ -11856,10 +11799,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "afad966a7f2a72f2de62060a17c372aaafd25749",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0372.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11867,15 +11807,15 @@
       "number": 373,
       "language": "it",
       "title": "MuSig2 PSBT Fields",
-      "summary": "BIP 373: MuSig2 PSBT Fields.",
+      "summary": "Definisce campi PSBT per MuSig2, abilitando firma multi-party con firme Schnorr aggregate.",
       "status": "complete",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2024-06-04",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 373 specifica campi PSBT per MuSig2, permettendo a wallet hardware di produrre firme Schnorr aggregate.",
+      "impactMarkdown": "BIP 373 e Complete, abilita wallet hardware per multisig Schnorr aggregato.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0373.mediawiki",
       "tags": [
         "BIP",
@@ -11894,10 +11834,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "bf490d69977d74a4d788edccf2eaece12d4bfc6a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0373.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11905,7 +11842,7 @@
       "number": 374,
       "language": "it",
       "title": "Discrete Log Equality Proofs",
-      "summary": "BIP 374: Discrete Log Equality Proofs.",
+      "summary": "Specifica prove Discrete Log Equality (DLEQ) nei PSBT per dimostrare che la stessa chiave e condivisa tra gruppi diversi.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -11914,8 +11851,8 @@
         "Sebastian Falbesoner"
       ],
       "createdAt": "2024-12-26",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 374 definisce come le prove DLEQ vengono incluse nei PSBT per atomic swap cross-chain e firme adattatore.",
+      "impactMarkdown": "BIP 374 e Complete, abilita applicazioni cross-chain e multi-protocollo.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki",
       "tags": [
         "BIP",
@@ -11934,10 +11871,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ff5686c58254acfa8ec8485c43294d7a5c33d85a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11945,7 +11879,7 @@
       "number": 375,
       "language": "it",
       "title": "Sending Silent Payments with PSBTs",
-      "summary": "BIP 375: Sending Silent Payments with PSBTs.",
+      "summary": "Definisce campi PSBT per costruire transazioni di invio Silent Payments.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -11954,8 +11888,8 @@
         "josibake"
       ],
       "createdAt": "2025-01-08",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 375 specifica campi PSBT per Silent Payments, permettendo ai wallet di derivare indirizzi da codici di pagamento statici.",
+      "impactMarkdown": "BIP 375 e in Draft insieme a BIP 352.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0375.mediawiki",
       "tags": [
         "BIP",
@@ -11974,10 +11908,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7d6089a4691a962a19cf5ee612d9337378bd5dea",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0375.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11985,15 +11916,15 @@
       "number": 376,
       "language": "it",
       "title": "Spending Silent Payment outputs with PSBTs",
-      "summary": "BIP 376: Spending Silent Payment outputs with PSBTs.",
+      "summary": "Specifica campi PSBT per spendere output ricevuti tramite Silent Payments.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "nymius"
       ],
       "createdAt": "2026-02-05",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 376 definisce campi PSBT per rilevare e spendere output Silent Payments.",
+      "impactMarkdown": "BIP 376 e in Draft, completa il flusso PSBT Silent Payments.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0376.mediawiki",
       "tags": [
         "BIP",
@@ -12012,10 +11943,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a005f08ec044a1699b4ea04b891805d9e59dd3e7",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0376.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12023,7 +11951,7 @@
       "number": 379,
       "language": "it",
       "title": "Miniscript",
-      "summary": "BIP 379: Miniscript.",
+      "summary": "Definisce Miniscript, un linguaggio per scrivere script Bitcoin in modo strutturato e analizzabile.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -12034,8 +11962,8 @@
         "Ava Chow"
       ],
       "createdAt": "2023-10-10",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 379 specifica Miniscript, che compila in Bitcoin Script garantendo sicurezza, efficienza e nessun opcode ridondante.",
+      "impactMarkdown": "BIP 379 e Complete e implementato in Bitcoin Core per la costruzione sicura di script.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md",
       "tags": [
         "BIP",
@@ -12054,10 +11982,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "de48af2ccc5303c0f954a2d22a9a6fe54fbed11b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12065,7 +11990,7 @@
       "number": 380,
       "language": "it",
       "title": "Output Script Descriptors General Operation",
-      "summary": "BIP 380: Output Script Descriptors General Operation.",
+      "summary": "Definisce il funzionamento generale degli Output Script Descriptors, un linguaggio per descrivere output Bitcoin.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12073,8 +11998,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 380 specifica il framework per i descrittori di output Bitcoin, abilitando policy wallet deterministiche.",
+      "impactMarkdown": "BIP 380 e Complete e adottato in Bitcoin Core per la gestione wallet.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki",
       "tags": [
         "BIP",
@@ -12093,10 +12018,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "fe4cad50b2d8129ccc974636b1921d2b6cd98c67",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12104,7 +12026,7 @@
       "number": 381,
       "language": "it",
       "title": "Non-Segwit Output Script Descriptors",
-      "summary": "BIP 381: Non-Segwit Output Script Descriptors.",
+      "summary": "Definisce descrittori per output non-SegWit legacy (P2PKH e P2SH).",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12112,8 +12034,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 381 specifica funzioni descrittore per formati indirizzo legacy.",
+      "impactMarkdown": "BIP 381 e Complete, compatibilita all indietro con wallet legacy.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0381.mediawiki",
       "tags": [
         "BIP",
@@ -12132,10 +12054,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "067e0af9114159b6e29fe82296d6a929e18edc14",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0381.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12143,7 +12062,7 @@
       "number": 382,
       "language": "it",
       "title": "Segwit Output Script Descriptors",
-      "summary": "BIP 382: Segwit Output Script Descriptors.",
+      "summary": "Definisce descrittori output SegWit per indirizzi P2WPKH e P2WSH.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12151,8 +12070,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 382 specifica funzioni descrittore per formati indirizzo SegWit.",
+      "impactMarkdown": "BIP 382 e Complete, standard nei wallet Bitcoin Core moderni.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki",
       "tags": [
         "BIP",
@@ -12171,10 +12090,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a95bbf23a0153dff88e47fe1242160b900094f16",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12182,7 +12098,7 @@
       "number": 383,
       "language": "it",
       "title": "Multisig Output Script Descriptors",
-      "summary": "BIP 383: Multisig Output Script Descriptors.",
+      "summary": "Definisce descrittori multisig per indirizzi multi-firma legacy e SegWit.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12190,8 +12106,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 383 specifica funzioni descrittore per configurazioni multisig m-di-n.",
+      "impactMarkdown": "BIP 383 e Complete, abilita wallet multisig interoperabili.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki",
       "tags": [
         "BIP",
@@ -12210,10 +12126,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "b4008f71abb00f9f350afdd759b3f5da55a84ff5",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12221,7 +12134,7 @@
       "number": 384,
       "language": "it",
       "title": "combo() Output Script Descriptors",
-      "summary": "BIP 384: combo() Output Script Descriptors.",
+      "summary": "Definisce il descrittore combo() che genera piu tipi di indirizzo dalla stessa chiave.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12229,8 +12142,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 384 specifica combo() per generare tutti i formati indirizzo standard dalla stessa chiave pubblica.",
+      "impactMarkdown": "BIP 384 e Complete, semplifica la migrazione tra tipi di indirizzo.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0384.mediawiki",
       "tags": [
         "BIP",
@@ -12249,10 +12162,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7dbbd8d0f58ec8a23de574117e5bee2b3b0d4831",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0384.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12260,7 +12170,7 @@
       "number": 385,
       "language": "it",
       "title": "raw() and addr() Output Script Descriptors",
-      "summary": "BIP 385: raw() and addr() Output Script Descriptors.",
+      "summary": "Definisce i descrittori raw() e addr() per importare script grezzi e indirizzi.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12268,8 +12178,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 385 specifica raw() per script esadecimali e addr() per indirizzi.",
+      "impactMarkdown": "BIP 385 e Complete per importare UTXO esistenti.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0385.mediawiki",
       "tags": [
         "BIP",
@@ -12288,10 +12198,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "4f544cea07cb2d0fc64367b3a963e421a7988bd2",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0385.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12299,7 +12206,7 @@
       "number": 386,
       "language": "it",
       "title": "tr() Output Script Descriptors",
-      "summary": "BIP 386: tr() Output Script Descriptors.",
+      "summary": "Definisce il descrittore tr() per output Taproot con supporto key path e script path.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12307,8 +12214,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 386 specifica tr() per indirizzi P2TR con foglie Merkle opzionali.",
+      "impactMarkdown": "BIP 386 e Complete, essenziale per wallet Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0386.mediawiki",
       "tags": [
         "BIP",
@@ -12327,10 +12234,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a95176e88d649c48966904d7e531ea5a3fe6444e",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0386.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12338,7 +12242,7 @@
       "number": 387,
       "language": "it",
       "title": "Tapscript Multisig Output Script Descriptors",
-      "summary": "BIP 387: Tapscript Multisig Output Script Descriptors.",
+      "summary": "Definisce descrittori multisig Tapscript per multisig aggregato MuSig in Taproot.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12346,8 +12250,8 @@
         "Ava Chow"
       ],
       "createdAt": "2024-04-17",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 387 specifica funzioni descrittore per MuSig2 in Taproot con backup e recovery standard.",
+      "impactMarkdown": "BIP 387 e Complete, abilita MuSig2 nel framework descrittori.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0387.mediawiki",
       "tags": [
         "BIP",
@@ -12366,10 +12270,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2789af16703760d4427ff5ca1314379f7bee38d3",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0387.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12377,15 +12278,15 @@
       "number": 388,
       "language": "it",
       "title": "Wallet Policies for Descriptor Wallets",
-      "summary": "BIP 388: Wallet Policies for Descriptor Wallets.",
+      "summary": "Definisce wallet policy per wallet descrittori, abilitando backup e recovery standardizzati.",
       "status": "complete",
       "category": "applications",
       "authors": [
         "Salvatore Ingala"
       ],
       "createdAt": "2023-12-26",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 388 specifica policy wallet JSON per backup interoperabili tra wallet diversi.",
+      "impactMarkdown": "BIP 388 e Complete, formato standard per backup wallet.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0388.mediawiki",
       "tags": [
         "BIP",
@@ -12404,10 +12305,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "49996df33e571e0e14ae770ad719bfa314587d4c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0388.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12415,15 +12313,15 @@
       "number": 389,
       "language": "it",
       "title": "Multipath Descriptor Key Expressions",
-      "summary": "BIP 389: Multipath Descriptor Key Expressions.",
+      "summary": "Definisce espressioni chiave multipath per derivare piu percorsi dallo stesso seed.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2022-07-26",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 389 specifica la sintassi /<M;N> per chiavi che producono output diversi in funzioni diverse.",
+      "impactMarkdown": "BIP 389 e Complete, semplifica la gestione wallet multi-tipo.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0389.mediawiki",
       "tags": [
         "BIP",
@@ -12442,10 +12340,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6940a451dad644419a97d4300ddc953b8465d93f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0389.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12453,15 +12348,15 @@
       "number": 390,
       "language": "it",
       "title": "musig() Descriptor Key Expression",
-      "summary": "BIP 390: musig() Descriptor Key Expression.",
+      "summary": "Definisce l'espressione chiave musig() per chiavi aggregate MuSig nei descrittori.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2024-06-04",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 390 specifica musig() per esprimere chiavi aggregate MuSig nei descrittori di output.",
+      "impactMarkdown": "BIP 390 e Complete, integra MuSig2 nei descrittori.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0390.mediawiki",
       "tags": [
         "BIP",
@@ -12480,10 +12375,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a6b5526a6788f537c107afb19fdfa3911699d4a9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0390.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12491,15 +12383,15 @@
       "number": 391,
       "language": "it",
       "title": "Binary Output Descriptors",
-      "summary": "BIP 391: Binary Output Descriptors.",
+      "summary": "Definisce descrittori binari per rappresentare script grezzi in formato esadecimale.",
       "status": "closed",
       "category": "applications",
       "authors": [
         "SeedHammer"
       ],
       "createdAt": "2026-01-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 391 specifica descrittori per script binari in forma esadecimale nei descrittori.",
+      "impactMarkdown": "BIP 391 e Complete per script non standard.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0391.mediawiki",
       "tags": [
         "BIP",
@@ -12518,10 +12410,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f305e64ca614d6cfa840b90c3ae10df79a690ade",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0391.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12529,15 +12418,15 @@
       "number": 392,
       "language": "it",
       "title": "Silent Payment Output Script Descriptors",
-      "summary": "BIP 392: Silent Payment Output Script Descriptors.",
+      "summary": "Definisce descrittori per Silent Payments nei wallet descrittori.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Craig Raw"
       ],
       "createdAt": "2026-02-06",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 392 specifica funzioni descrittore per rilevare e spendere Silent Payments.",
+      "impactMarkdown": "BIP 392 e in Draft, insieme a BIP 352/375/376.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0392.mediawiki",
       "tags": [
         "BIP",
@@ -12556,10 +12445,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c1424bfdd23263ec26cc9f90cfc755d3ed92252e",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0392.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12567,15 +12453,15 @@
       "number": 393,
       "language": "it",
       "title": "Output Script Descriptor Annotations",
-      "summary": "BIP 393: Output Script Descriptor Annotations.",
+      "summary": "Definisce annotazioni per descrittori di output, permettendo metadati leggibili sugli elementi descrittore.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Craig Raw"
       ],
       "createdAt": "2026-03-17",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 393 specifica annotazioni per aggiungere etichette e descrizioni ai descrittori.",
+      "impactMarkdown": "BIP 393 e Complete, migliora l'esperienza utente dei wallet descrittori.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0393.mediawiki",
       "tags": [
         "BIP",
@@ -12594,10 +12480,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f3a338b71d44acad69504e06bf0b53c251c9703d",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0393.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12605,15 +12488,15 @@
       "number": 431,
       "language": "it",
       "title": "Topology Restrictions for Pinning",
-      "summary": "BIP 431: Topology Restrictions for Pinning.",
+      "summary": "Propone restrizioni topologiche sul relay di transazioni per prevenire attacchi pinning sui canali Lightning Network.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Gloria Zhao"
       ],
       "createdAt": "2024-01-10",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 431 introduce restrizioni sulla topologia di relay per prevenire attacchi pinning che ritardano la conferma di transazioni commitment LN.",
+      "impactMarkdown": "BIP 431 e in Draft, parte delle proposte di sicurezza L2.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0431.mediawiki",
       "tags": [
         "BIP",
@@ -12632,10 +12515,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "276f1f9e3aa669d1dadd642c6f3363ce1e7df137",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0431.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12643,15 +12523,15 @@
       "number": 433,
       "language": "it",
       "title": "Pay to Anchor (P2A)",
-      "summary": "BIP 433: Pay to Anchor (P2A).",
+      "summary": "Definisce Pay-to-Anchor (P2A), un tipo di output per fee bumping CPFP nella Lightning Network e altri protocolli L2.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Gregory Sanders"
       ],
       "createdAt": "2025-12-08",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 433 specifica output P2A che chiunque puo spendere per aumentare le fee della transazione padre tramite CPFP.",
+      "impactMarkdown": "BIP 433 e in Draft, adottato da implementazioni LN come meccanismo standard di fee bumping.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0433.mediawiki",
       "tags": [
         "BIP",
@@ -12670,10 +12550,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "073beb8b9714e00755fa09a6be9e6bef938eef4c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0433.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12681,15 +12558,15 @@
       "number": 434,
       "language": "it",
       "title": "Peer Feature Negotiation",
-      "summary": "BIP 434: Peer Feature Negotiation.",
+      "summary": "Definisce un protocollo di negoziazione delle funzionalita peer per la rete P2P Bitcoin.",
       "status": "draft",
       "category": "peer-services",
       "authors": [
         "Anthony Towns"
       ],
       "createdAt": "2026-01-14",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 434 specifica come i peer Bitcoin negoziano le funzionalita del protocollo durante l'handshake di connessione.",
+      "impactMarkdown": "BIP 434 e in Draft, adozione incrementale con nuove funzionalita P2P.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0434.md",
       "tags": [
         "BIP",
@@ -12708,10 +12585,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3f3b4f65a83f4fb4ac3c8520c095cded59aabe27",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0434.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12719,7 +12593,7 @@
       "number": 440,
       "language": "it",
       "title": "Varops Budget For Script Runtime Constraint",
-      "summary": "BIP 440: Varops Budget For Script Runtime Constraint.",
+      "summary": "Propone di sostituire il limite legacy di operazioni di firma con un budget variabile per l'esecuzione degli script.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -12727,8 +12601,8 @@
         "Julian Moik"
       ],
       "createdAt": "2026-03-25",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 440 propone un budget basato sul costo computazionale invece del rigido limite di 20.000 operazioni di firma per blocco.",
+      "impactMarkdown": "BIP 440 e in Draft, parte delle discussioni sul miglioramento degli script.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0440.mediawiki",
       "tags": [
         "BIP",
@@ -12747,10 +12621,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "409b5a0f47333386f868e5d984ec88d2e8863a2a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0440.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12758,7 +12629,7 @@
       "number": 441,
       "language": "it",
       "title": "Restoration of disabled script (Tapleaf 0xC2)",
-      "summary": "BIP 441: Restoration of disabled script (Tapleaf 0xC2).",
+      "summary": "Propone di riabilitare opcode script disabilitati in un nuovo contesto Tapleaf versione 0xC2.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -12766,8 +12637,8 @@
         "Julian Moik"
       ],
       "createdAt": "2026-03-25",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 441 propone di riattivare opcode disabilitati in una nuova versione Tapleaf per sicurezza.",
+      "impactMarkdown": "BIP 441 e in Draft, parte del framework covenant.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0441.mediawiki",
       "tags": [
         "BIP",
@@ -12786,10 +12657,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f658bcefddcf0f35d1eedb580772dbf8fb211b46",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0441.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12797,7 +12665,7 @@
       "number": 442,
       "language": "it",
       "title": "OP_PAIRCOMMIT",
-      "summary": "BIP 442: OP_PAIRCOMMIT.",
+      "summary": "Propone OP_PAIRCOMMIT, un opcode covenant per impegnarsi su coppie di valori per smart contract complessi.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -12805,8 +12673,8 @@
         "Brandon Black"
       ],
       "createdAt": "2024-12-09",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 442 introduce OP_PAIRCOMMIT per creare impegni su coppie di valori per vault e pool di pagamento.",
+      "impactMarkdown": "BIP 442 e in Draft, parte del design space covenant.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0442.md",
       "tags": [
         "BIP",
@@ -12825,10 +12693,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6f1b5230c0b4b5057bc0dc1770ebf48ddb996efc",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0442.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12836,15 +12701,15 @@
       "number": 443,
       "language": "it",
       "title": "OP_CHECKCONTRACTVERIFY",
-      "summary": "BIP 443: OP_CHECKCONTRACTVERIFY.",
+      "summary": "Propone OP_CHECKCONTRACTVERIFY, un opcode covenant per verificare vincoli sugli output delle transazioni.",
       "status": "draft",
       "category": "consensus",
       "authors": [
         "Salvatore Ingala"
       ],
       "createdAt": "2025-05-08",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 443 introduce OP_CHECKCONTRACTVERIFY per vincoli su importi, tipi script e altre proprieta degli output.",
+      "impactMarkdown": "BIP 443 e in Draft, in competizione con OP_VAULT e OP_TXHASH.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0443.mediawiki",
       "tags": [
         "BIP",
@@ -12863,10 +12728,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "09ae3ab22cabedc44d510c76013b79ab94ca893f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0443.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12874,7 +12736,7 @@
       "number": 446,
       "language": "it",
       "title": "OP_TEMPLATEHASH",
-      "summary": "BIP 446: OP_TEMPLATEHASH.",
+      "summary": "Propone OP_TEMPLATEHASH, un opcode che inserisce un hash del template della transazione di spesa nello stack.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -12883,8 +12745,8 @@
         "Steven Roose"
       ],
       "createdAt": "2026-02-06",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 446 introduce OP_TEMPLATEHASH per imporre pattern specifici degli output, utile per pool di pagamento e DLC.",
+      "impactMarkdown": "BIP 446 e in Draft, focalizzato su template di output.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0446.md",
       "tags": [
         "BIP",
@@ -12903,10 +12765,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "501a34f7e93a1ad5f782ef6d80ef1796bfd91fba",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0446.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12914,7 +12773,7 @@
       "number": 448,
       "language": "it",
       "title": "Taproot-native (Re)bindable Transactions",
-      "summary": "BIP 448: Taproot-native (Re)bindable Transactions.",
+      "summary": "Propone transazioni Taproot rebindable, consentendo di rilegare output a script diversi senza invalidare le firme.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -12923,8 +12782,8 @@
         "Steven Roose"
       ],
       "createdAt": "2026-03-11",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 448 introduce output che possono essere rilegati a script diversi usando la separazione key/script path di Taproot.",
+      "impactMarkdown": "BIP 448 e in Draft, uso avanzato di Taproot per protocolli L2.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0448.md",
       "tags": [
         "BIP",
@@ -12943,10 +12802,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "06804e218fab55cc7fff15ec4128ef2ae43d13e9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0448.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12954,15 +12810,15 @@
       "number": 449,
       "language": "it",
       "title": "OP_TWEAKADD - x-only key tweak addition",
-      "summary": "BIP 449: OP_TWEAKADD - x-only key tweak addition.",
+      "summary": "Propone OP_TWEAKADD, un opcode per aggiungere un tweak a una chiave pubblica x-only per costruzioni pay-to-contract.",
       "status": "draft",
       "category": "consensus",
       "authors": [
         "Jeremy Rubin"
       ],
       "createdAt": "2026-03-05",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 449 introduce OP_TWEAKADD per tweak di chiavi pubbliche con commitment contrattuali direttamente in script.",
+      "impactMarkdown": "BIP 449 e in Draft, per funzionalita covenant tramite semplici opcode aggiuntivi.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0449.md",
       "tags": [
         "BIP",
@@ -12981,10 +12837,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "60d7f620c61bf626261b52c8ce99b8ef092ae2a0",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0449.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12992,7 +12845,7 @@
       "number": 450,
       "language": "it",
       "title": "Formosa—Seed encoding by themed mnemonic stories",
-      "summary": "BIP 450: Formosa—Seed encoding by themed mnemonic stories.",
+      "summary": "Propone Formosa, un sistema di codifica seed che rappresenta mnemonici come storie a tema per migliore memorabilita.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -13000,8 +12853,8 @@
         "André Fidencio Gonçalves"
       ],
       "createdAt": "2026-05-15",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 450 definisce Formosa, dove il seed e rappresentato come una storia coerente invece di una lista di parole casuali.",
+      "impactMarkdown": "BIP 450 e in Draft, approccio alternativo ai mnemonici BIP 39.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0450.mediawiki",
       "tags": [
         "BIP",
@@ -13020,10 +12873,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6135c2548969f85647eefda3f3c41f9e306c2523",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0450.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13031,7 +12881,7 @@
       "number": 451,
       "language": "it",
       "title": "Dust UTXO Disposal Protocol",
-      "summary": "BIP 451: Dust UTXO Disposal Protocol.",
+      "summary": "Propone un protocollo per disporre degli UTXO dust donandoli ai miner o bruciandoli.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -13039,8 +12889,8 @@
         "haris"
       ],
       "createdAt": "2026-04-28",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 451 definisce un protocollo per smaltire efficientemente output dust che altrimenti ingombrano l'UTXO set.",
+      "impactMarkdown": "BIP 451 e in Draft, rilevanza crescente con l'aumento dell'adozione Bitcoin.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0451.md",
       "tags": [
         "BIP",
@@ -13059,10 +12909,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "399761bd824dae980905e8baf4ff93adeac1b2b9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0451.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     }
   ],
