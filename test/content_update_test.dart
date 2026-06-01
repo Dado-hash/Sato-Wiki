@@ -187,6 +187,55 @@ void main() {
     );
   });
 
+  test('updater does not redownload existing media during repair', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp(
+      'satowiki_media_repair_existing',
+    );
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final currentJson = _bundleJson(
+      version: '2026.05.25',
+      wikiBody:
+          '![Existing](media/wiki/proof-of-work/pow-mining-loop.svg)\n'
+          '![Missing](media/wiki/proof-of-work/accumulated-work.svg)',
+    );
+    final existingFile = File(
+      '${mediaRoot.path}/en/2026.05.25/'
+      'media/wiki/proof-of-work/pow-mining-loop.svg',
+    );
+    await existingFile.parent.create(recursive: true);
+    await existingFile.writeAsBytes([1, 2, 3]);
+
+    final missingMediaUrl =
+        'https://example.com/content/en/2026.05.25/'
+        'media/wiki/proof-of-work/accumulated-work.svg';
+    final fixture = await _updaterFixtureFor(
+      seedJson: currentJson,
+      manifest: _manifest(version: '2026.05.25', json: currentJson),
+      mediaStore: ContentMediaStore(
+        rootDirectory: mediaRoot,
+        downloader: _FakeMediaDownloader({
+          missingMediaUrl: [4, 5, 6],
+        }),
+      ),
+    );
+
+    final result = await fixture.updater.checkForUpdates('en');
+
+    expect(result?.bundle.version, '2026.05.25');
+    expect(existingFile.readAsBytesSync(), [1, 2, 3]);
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.25/'
+        'media/wiki/proof-of-work/accumulated-work.svg',
+      ).readAsBytesSync(),
+      [4, 5, 6],
+    );
+  });
+
   test('updater keeps previous bundle when referenced media fails', () async {
     final mediaRoot = await Directory.systemTemp.createTemp(
       'satowiki_media_failure',

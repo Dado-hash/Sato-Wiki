@@ -168,6 +168,37 @@ final class ContentMediaStore {
       language: bundle.language,
       version: bundle.version,
     );
+    if (versionDirectory.existsSync()) {
+      final missingSources = sources
+          .where(
+            (source) => !_fileFor(
+              language: bundle.language,
+              version: bundle.version,
+              source: source,
+            ).existsSync(),
+          )
+          .toList(growable: false);
+      if (missingSources.isEmpty) {
+        return;
+      }
+
+      for (var i = 0; i < missingSources.length; i++) {
+        final source = missingSources[i];
+        onMediaProgress?.call(i, missingSources.length);
+        final mediaUrl = bundleUrl.resolve(source);
+        final bytes = await _downloader.downloadMedia(mediaUrl);
+        final targetFile = _fileFor(
+          language: bundle.language,
+          version: bundle.version,
+          source: source,
+        );
+        await targetFile.parent.create(recursive: true);
+        await targetFile.writeAsBytes(bytes, flush: true);
+      }
+      onMediaProgress?.call(missingSources.length, missingSources.length);
+      return;
+    }
+
     final temporaryDirectory = Directory('${versionDirectory.path}.tmp');
 
     if (temporaryDirectory.existsSync()) {
@@ -185,6 +216,7 @@ final class ContentMediaStore {
         await targetFile.parent.create(recursive: true);
         await targetFile.writeAsBytes(bytes, flush: true);
       }
+      onMediaProgress?.call(sources.length, sources.length);
 
       if (versionDirectory.existsSync()) {
         await versionDirectory.delete(recursive: true);
