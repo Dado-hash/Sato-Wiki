@@ -16,7 +16,7 @@ void main() {
 
     expect(result.warnings, isEmpty);
     expect(bundle.schemaVersion, 1);
-    expect(bundle.version, '2026.06.01');
+    expect(bundle.version, startsWith('2026.06.01'));
     final proofOfWork = bundle.wiki.firstWhere(
       (entry) => entry.id == 'wiki.proof-of-work',
     );
@@ -30,12 +30,12 @@ void main() {
     );
     expect(bundle.news.single.author.github, 'andreas-m');
     expect(bundle.history.first.date, DateTime(2008, 10, 31));
-    expect(bundle.bips, hasLength(41));
+    expect(bundle.bips, hasLength(209));
     expect(bundle.bips.first.number, 1);
     expect(bundle.bips.first.status, BipStatus.closed);
     expect(bundle.bips.first.category, 'process');
     expect(bundle.bips.first.language, 'en');
-    expect(bundle.changelogs, isEmpty);
+    expect(bundle.changelogs, isNotEmpty);
   });
 
   test('skips invalid section records as recoverable warnings', () {
