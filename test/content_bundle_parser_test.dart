@@ -30,7 +30,7 @@ void main() {
     );
     expect(bundle.news.single.author.github, 'andreas-m');
     expect(bundle.history.first.date, DateTime(2008, 10, 31));
-    expect(bundle.bips, hasLength(16));
+    expect(bundle.bips, hasLength(41));
     expect(bundle.bips.first.number, 1);
     expect(bundle.bips.first.status, BipStatus.closed);
     expect(bundle.bips.first.category, 'process');
