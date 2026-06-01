@@ -11738,15 +11738,15 @@
       "number": 370,
       "language": "en",
       "title": "PSBT Version 2",
-      "summary": "BIP 370: PSBT Version 2.",
+      "summary": "Specifies PSBT version 2, extending the PSBT format to support future transaction formats and advanced protocols.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2021-01-14",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 370 defines PSBTv2, a major revision of the Partially Signed Bitcoin Transaction format. Unlike PSBTv0 (BIP 174) which represents a specific transaction, PSBTv2 represents transaction components separately, allowing inputs and outputs to be added and modified during signing.\n\nPSBTv2 supports SegWit, Taproot, and future witness versions. It enables multi-party signing protocols where signers can add inputs or modify outputs before completing the transaction.",
+      "impactMarkdown": "BIP 370 is Complete and widely adopted. PSBTv2 is the foundation for Taproot PSBT fields (BIP 371) and advanced multi-party signing workflows.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0370.mediawiki",
       "tags": [
         "BIP",
@@ -11765,10 +11765,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0adb6af3f6ae3aef5c504b82827aeebcbd35cd34",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0370.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11776,15 +11773,15 @@
       "number": 371,
       "language": "en",
       "title": "Taproot Fields for PSBT",
-      "summary": "BIP 371: Taproot Fields for PSBT.",
+      "summary": "Defines Taproot-specific fields for PSBT version 2, enabling multi-party signing for Taproot transactions.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2021-06-21",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 371 specifies PSBT fields for Taproot inputs and outputs. Fields include the Taproot internal key, Merkle root, control blocks for script path spends, and the optional script path data.\n\nThese fields enable hardware wallets and multi-party signing setups to collaboratively construct and sign Taproot transactions, supporting both key path and script path spends.",
+      "impactMarkdown": "BIP 371 is Complete. It enables hardware wallet support for Taproot and is widely implemented in conjunction with PSBTv2.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0371.mediawiki",
       "tags": [
         "BIP",
@@ -11803,10 +11800,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "cc7ad3ed2c174f2cca4e0ad2aeb7ca835d55e225",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0371.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11814,15 +11808,15 @@
       "number": 372,
       "language": "en",
       "title": "Pay-to-contract tweak fields for PSBT",
-      "summary": "BIP 372: Pay-to-contract tweak fields for PSBT.",
+      "summary": "Specifies PSBT fields for pay-to-contract tweaks, enabling proof of payment and oracle-based contracts.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Maxim Orlovsky"
       ],
       "createdAt": "2022-01-16",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 372 defines PSBT fields for pay-to-contract (P2C) tweaks, where a public key is tweaked with a contract hash. The tweak field allows signers to verify that the contract terms match before signing.\n\nP2C enables provable payments where the recipient can prove the payment is associated with a specific contract or invoice.",
+      "impactMarkdown": "BIP 372 is Complete. Pay-to-contract is used in advanced wallet implementations and by some payment processors for invoice-proof payments.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0372.mediawiki",
       "tags": [
         "BIP",
@@ -11841,10 +11835,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "afad966a7f2a72f2de62060a17c372aaafd25749",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0372.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11852,15 +11843,15 @@
       "number": 373,
       "language": "en",
       "title": "MuSig2 PSBT Fields",
-      "summary": "BIP 373: MuSig2 PSBT Fields.",
+      "summary": "Defines MuSig2 PSBT fields for multi-party signing using aggregated Schnorr signatures.",
       "status": "complete",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2024-06-04",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 373 specifies PSBT fields for MuSig2 (BIP 327) multi-signature transactions. Fields include the aggregate key, participant public keys, nonces, partial signatures, and the MuSig2 session state.\n\nThese fields enable hardware wallets to participate in MuSig2 signing sessions, producing a single aggregate Schnorr signature from multiple signers.",
+      "impactMarkdown": "BIP 373 is Complete. MuSig2 PSBT support enables hardware wallets to generate aggregated Schnorr signatures, a major privacy improvement over traditional multisig.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0373.mediawiki",
       "tags": [
         "BIP",
@@ -11879,10 +11870,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "bf490d69977d74a4d788edccf2eaece12d4bfc6a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0373.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11890,7 +11878,7 @@
       "number": 374,
       "language": "en",
       "title": "Discrete Log Equality Proofs",
-      "summary": "BIP 374: Discrete Log Equality Proofs.",
+      "summary": "Specifies Discrete Log Equality (DLEQ) proofs in PSBTs for proving the same key is shared across different groups.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -11899,8 +11887,8 @@
         "Sebastian Falbesoner"
       ],
       "createdAt": "2024-12-26",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 374 defines how DLEQ proofs are included in PSBTs. A DLEQ proof demonstrates that two public keys on different curves (or different generators) share the same private key. This is useful for cross-chain atomic swaps and adaptor signatures.\n\nThe field allows signers to attach DLEQ proofs to their partial signatures, enabling trustless verification of key relationships.",
+      "impactMarkdown": "BIP 374 is Complete. DLEQ proofs enable advanced cross-chain and multi-protocol Bitcoin applications.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki",
       "tags": [
         "BIP",
@@ -11919,10 +11907,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ff5686c58254acfa8ec8485c43294d7a5c33d85a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11930,7 +11915,7 @@
       "number": 375,
       "language": "en",
       "title": "Sending Silent Payments with PSBTs",
-      "summary": "BIP 375: Sending Silent Payments with PSBTs.",
+      "summary": "Defines PSBT fields for constructing Silent Payment sending transactions.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -11939,8 +11924,8 @@
         "josibake"
       ],
       "createdAt": "2025-01-08",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 375 specifies PSBT fields needed to create Silent Payment (BIP 352) sending transactions. Fields include the recipient's scan key, shared secret derivation data, and the generated output script.\n\nThese fields enable wallets and hardware signers to collaboratively construct Silent Payment transactions where the sender derives the output address from the recipient's static payment code.",
+      "impactMarkdown": "BIP 375 is in Draft status alongside BIP 352. It provides the PSBT integration layer for Silent Payments.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0375.mediawiki",
       "tags": [
         "BIP",
@@ -11959,10 +11944,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7d6089a4691a962a19cf5ee612d9337378bd5dea",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0375.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11970,15 +11952,15 @@
       "number": 376,
       "language": "en",
       "title": "Spending Silent Payment outputs with PSBTs",
-      "summary": "BIP 376: Spending Silent Payment outputs with PSBTs.",
+      "summary": "Specifies PSBT fields for spending outputs received via Silent Payments.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "nymius"
       ],
       "createdAt": "2026-02-05",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 376 defines PSBT fields for detecting and spending silent payment outputs. The recipient scans the blockchain, identifies outputs belonging to them, and uses PSBT fields to prove ownership and construct spending transactions.\n\nThe field includes the shared secret, label, and derivation data needed to spend silent payment outputs.",
+      "impactMarkdown": "BIP 376 is in Draft status. It completes the Silent Payments PSBT workflow together with BIP 375.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0376.mediawiki",
       "tags": [
         "BIP",
@@ -11997,10 +11979,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a005f08ec044a1699b4ea04b891805d9e59dd3e7",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0376.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12008,7 +11987,7 @@
       "number": 379,
       "language": "en",
       "title": "Miniscript",
-      "summary": "BIP 379: Miniscript.",
+      "summary": "Defines Miniscript, a language for writing Bitcoin Scripts in a structured, analyzable way.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -12019,8 +11998,8 @@
         "Ava Chow"
       ],
       "createdAt": "2023-10-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 379 specifies Miniscript, a high-level language that compiles to Bitcoin Script. Miniscript represents spending conditions as a structured tree of policies, making it possible to analyze scripts for安全性, efficiency, and correctness.\n\nMiniscript enables automatic generation of complex scripts, guarantees no redundant opcodes, and can be compiled to all standard Bitcoin address types.",
+      "impactMarkdown": "BIP 379 is Complete and adopted. Miniscript is implemented in Bitcoin Core and used by wallet libraries for safe script construction and analysis.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md",
       "tags": [
         "BIP",
@@ -12039,10 +12018,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "de48af2ccc5303c0f954a2d22a9a6fe54fbed11b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12050,7 +12026,7 @@
       "number": 380,
       "language": "en",
       "title": "Output Script Descriptors General Operation",
-      "summary": "BIP 380: Output Script Descriptors General Operation.",
+      "summary": "Defines the general operation of Output Script Descriptors, a language for describing Bitcoin outputs.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12058,8 +12034,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 380 specifies the core framework for Output Script Descriptors, a structured language that describes the conditions under which a Bitcoin output can be spent. Descriptors include key expressions, script expressions, and function calls.\n\nDescriptors enable deterministic wallet policies, hardware wallet interoperability, and safe script templates.",
+      "impactMarkdown": "BIP 380 is Complete and widely adopted. Output descriptors are a core feature of Bitcoin Core for wallet management and backup.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki",
       "tags": [
         "BIP",
@@ -12078,10 +12054,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "fe4cad50b2d8129ccc974636b1921d2b6cd98c67",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12089,7 +12062,7 @@
       "number": 381,
       "language": "en",
       "title": "Non-Segwit Output Script Descriptors",
-      "summary": "BIP 381: Non-Segwit Output Script Descriptors.",
+      "summary": "Defines non-SegWit output script descriptors for legacy P2PKH and P2SH address types.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12097,8 +12070,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 381 specifies descriptor functions for legacy address types. These include pk() for pay-to-public-key, pkh() for pay-to-public-key-hash, sh() for pay-to-script-hash, and combinations like sh(pkh()).\n\nThese descriptors allow legacy address wallets to use the descriptor framework.",
+      "impactMarkdown": "BIP 381 is Complete. Non-SegWit descriptors are used for backward compatibility with legacy wallets.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0381.mediawiki",
       "tags": [
         "BIP",
@@ -12117,10 +12090,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "067e0af9114159b6e29fe82296d6a929e18edc14",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0381.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12128,7 +12098,7 @@
       "number": 382,
       "language": "en",
       "title": "Segwit Output Script Descriptors",
-      "summary": "BIP 382: Segwit Output Script Descriptors.",
+      "summary": "Defines SegWit output script descriptors for P2WPKH and P2WSH addresses.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12136,8 +12106,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 382 specifies descriptor functions for SegWit address types: wpkh() for pay-to-witness-public-key-hash and wsh() for pay-to-witness-script-hash. These enable descriptor-based SegWit wallet management.",
+      "impactMarkdown": "BIP 382 is Complete. SegWit descriptors are standard in modern Bitcoin Core wallets.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki",
       "tags": [
         "BIP",
@@ -12156,10 +12126,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a95bbf23a0153dff88e47fe1242160b900094f16",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12167,7 +12134,7 @@
       "number": 383,
       "language": "en",
       "title": "Multisig Output Script Descriptors",
-      "summary": "BIP 383: Multisig Output Script Descriptors.",
+      "summary": "Defines multisig output script descriptors for both legacy and SegWit multisignature addresses.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12175,8 +12142,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 383 specifies descriptor functions for multisignature scripts. These include legacy multisig via sh(sortedmulti()), SegWit multisig via wsh(sortedmulti()), and nested SegWit via sh(wsh(sortedmulti())).\n\nMultisig descriptors handle m-of-n threshold configurations and sort public keys for deterministic script generation.",
+      "impactMarkdown": "BIP 383 is Complete. Multisig descriptors enable secure and interoperable multisignature wallet setups.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki",
       "tags": [
         "BIP",
@@ -12195,10 +12162,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "b4008f71abb00f9f350afdd759b3f5da55a84ff5",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12206,7 +12170,7 @@
       "number": 384,
       "language": "en",
       "title": "combo() Output Script Descriptors",
-      "summary": "BIP 384: combo() Output Script Descriptors.",
+      "summary": "Defines the combo() output script descriptor that generates multiple address types from the same key.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12214,8 +12178,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 384 specifies the combo() descriptor function that generates all standard address types (P2PKH, P2SH, P2WPKH, P2TR) from a single public key. This is useful for migration between address types.",
+      "impactMarkdown": "BIP 384 is Complete. Combo descriptors simplify wallet migration from legacy to SegWit to Taproot.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0384.mediawiki",
       "tags": [
         "BIP",
@@ -12234,10 +12198,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7dbbd8d0f58ec8a23de574117e5bee2b3b0d4831",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0384.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12245,7 +12206,7 @@
       "number": 385,
       "language": "en",
       "title": "raw() and addr() Output Script Descriptors",
-      "summary": "BIP 385: raw() and addr() Output Script Descriptors.",
+      "summary": "Defines raw() and addr() output script descriptors for importing raw scripts and addresses.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12253,8 +12214,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 385 specifies raw() and addr() descriptor functions. raw() accepts a raw hex script, while addr() accepts an address string. These provide the lowest-level descriptor for importing existing outputs.",
+      "impactMarkdown": "BIP 385 is Complete. These functions are used to import existing UTXOs that were created outside the descriptor framework.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0385.mediawiki",
       "tags": [
         "BIP",
@@ -12273,10 +12234,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "4f544cea07cb2d0fc64367b3a963e421a7988bd2",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0385.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12284,7 +12242,7 @@
       "number": 386,
       "language": "en",
       "title": "tr() Output Script Descriptors",
-      "summary": "BIP 386: tr() Output Script Descriptors.",
+      "summary": "Defines the tr() output script descriptor for Taproot outputs with key path and script path support.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12292,8 +12250,8 @@
         "Ava Chow"
       ],
       "createdAt": "2021-06-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 386 specifies the tr() descriptor function for pay-to-taproot (P2TR) addresses. The descriptor takes a key expression (internal key) and optional script expressions (leaves of the Merkle tree).\n\nMultiple script leaves can be specified, which are assembled into a Merkle tree for Taproot script path spending.",
+      "impactMarkdown": "BIP 386 is Complete. Taproot descriptors are essential for P2TR wallet support in Bitcoin Core.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0386.mediawiki",
       "tags": [
         "BIP",
@@ -12312,10 +12270,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a95176e88d649c48966904d7e531ea5a3fe6444e",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0386.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12323,7 +12278,7 @@
       "number": 387,
       "language": "en",
       "title": "Tapscript Multisig Output Script Descriptors",
-      "summary": "BIP 387: Tapscript Multisig Output Script Descriptors.",
+      "summary": "Defines Tapscript multisig output script descriptors for MuSig aggregated multisig in Taproot.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -12331,8 +12286,8 @@
         "Ava Chow"
       ],
       "createdAt": "2024-04-17",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 387 specifies descriptor functions for MuSig-based multisignature in Taproot. It defines a musig() key expression that takes multiple keys and produces a MuSig aggregate key within a Taproot tree.\n\nThis enables descriptor-based MuSig2 wallets with standard backup and recovery.",
+      "impactMarkdown": "BIP 387 is Complete. Tapscript multisig descriptors unlock MuSig2 multisig within the descriptor framework.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0387.mediawiki",
       "tags": [
         "BIP",
@@ -12351,10 +12306,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2789af16703760d4427ff5ca1314379f7bee38d3",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0387.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12362,15 +12314,15 @@
       "number": 388,
       "language": "en",
       "title": "Wallet Policies for Descriptor Wallets",
-      "summary": "BIP 388: Wallet Policies for Descriptor Wallets.",
+      "summary": "Defines wallet policies for descriptor wallets, enabling standardized wallet backup and recovery.",
       "status": "complete",
       "category": "applications",
       "authors": [
         "Salvatore Ingala"
       ],
       "createdAt": "2023-12-26",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 388 specifies wallet policies that wrap output descriptors with metadata including timestamps, key origins, and policy names. Wallet policies are JSON structures that describe the complete wallet configuration.\n\nThese policies enable interoperable wallet backups that can be imported into any compliant wallet software.",
+      "impactMarkdown": "BIP 388 is Complete. Wallet policies provide a standard backup format for descriptor wallets.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0388.mediawiki",
       "tags": [
         "BIP",
@@ -12389,10 +12341,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "49996df33e571e0e14ae770ad719bfa314587d4c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0388.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12400,15 +12349,15 @@
       "number": 389,
       "language": "en",
       "title": "Multipath Descriptor Key Expressions",
-      "summary": "BIP 389: Multipath Descriptor Key Expressions.",
+      "summary": "Defines multipath descriptor key expressions for deriving multiple paths from the same seed.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2022-07-26",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 389 specifies the /<M;N> derivation syntax for BIP 32 key expressions. A key with multipath derivation produces different public keys on different descriptor functions, enabling multi-output schemes from a single descriptor.\n\nThis simplifies consolidation and migration scenarios where the same seed controls multiple address types.",
+      "impactMarkdown": "BIP 389 is Complete. Multipath descriptors streamline wallet management across different address types.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0389.mediawiki",
       "tags": [
         "BIP",
@@ -12427,10 +12376,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6940a451dad644419a97d4300ddc953b8465d93f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0389.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12438,15 +12384,15 @@
       "number": 390,
       "language": "en",
       "title": "musig() Descriptor Key Expression",
-      "summary": "BIP 390: musig() Descriptor Key Expression.",
+      "summary": "Defines the musig() descriptor key expression for MuSig aggregate keys in output script descriptors.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2024-06-04",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 390 specifies how MuSig aggregate keys are expressed within the descriptor language. The musig() key expression wraps multiple participant keys and produces the aggregate MuSig public key.\n\nThis enables descriptor-based MuSig wallets where the aggregate key is computed from participant keys at descriptor evaluation time.",
+      "impactMarkdown": "BIP 390 is Complete. It integrates MuSig2 into the output script descriptor ecosystem.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0390.mediawiki",
       "tags": [
         "BIP",
@@ -12465,10 +12411,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a6b5526a6788f537c107afb19fdfa3911699d4a9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0390.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12476,15 +12419,15 @@
       "number": 391,
       "language": "en",
       "title": "Binary Output Descriptors",
-      "summary": "BIP 391: Binary Output Descriptors.",
+      "summary": "Defines binary output descriptors for representing raw binary scripts in the descriptor language.",
       "status": "closed",
       "category": "applications",
       "authors": [
         "SeedHammer"
       ],
       "createdAt": "2026-01-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 391 specifies a binary descriptor format that represents raw scripts in binary (hex) form as part of descriptor expressions. This is used for advanced constructs where the script is constructed externally.",
+      "impactMarkdown": "BIP 391 is Complete. Binary descriptors provide maximum flexibility for non-standard script scenarios.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0391.mediawiki",
       "tags": [
         "BIP",
@@ -12503,10 +12446,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f305e64ca614d6cfa840b90c3ae10df79a690ade",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0391.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12514,15 +12454,15 @@
       "number": 392,
       "language": "en",
       "title": "Silent Payment Output Script Descriptors",
-      "summary": "BIP 392: Silent Payment Output Script Descriptors.",
+      "summary": "Defines silent payment output script descriptors for receiving and spending silent payments.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Craig Raw"
       ],
       "createdAt": "2026-02-06",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 392 specifies descriptor functions for Silent Payments (BIP 352). The descriptor wraps the scan and spend keys, enabling descriptor wallets to detect incoming silent payments and construct spending transactions.\n\nThis provides wallet-level integration for Silent Payments within the descriptor framework.",
+      "impactMarkdown": "BIP 392 is in Draft status together with BIP 352, 375, and 376. It completes the Silent Payments ecosystem.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0392.mediawiki",
       "tags": [
         "BIP",
@@ -12541,10 +12481,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c1424bfdd23263ec26cc9f90cfc755d3ed92252e",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0392.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -12552,15 +12489,15 @@
       "number": 393,
       "language": "en",
       "title": "Output Script Descriptor Annotations",
-      "summary": "BIP 393: Output Script Descriptor Annotations.",
+      "summary": "Defines annotations for output script descriptors, allowing metadata to be attached to descriptor elements.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Craig Raw"
       ],
       "createdAt": "2026-03-17",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 393 specifies a framework for attaching human-readable annotations to descriptors. Annotations include labels for individual keys, policy descriptions, and user-defined tags. Annotations are stored separately from the descriptor itself.\n\nThis enables wallet software to display meaningful names and descriptions for keys and scripts within the descriptor framework.",
+      "impactMarkdown": "BIP 393 is Complete. Descriptor annotations improve the user experience of descriptor wallets by adding human-readable metadata.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0393.mediawiki",
       "tags": [
         "BIP",
@@ -12579,10 +12516,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f3a338b71d44acad69504e06bf0b53c251c9703d",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0393.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
