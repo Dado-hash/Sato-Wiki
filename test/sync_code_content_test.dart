@@ -133,11 +133,11 @@ Policy
 
       final draft = GeminiCodeContentDraftClient.parseResponse(
         response,
-        model: 'gemini-3.1-flash-lite-preview',
+        model: 'gemini-3.1-flash-lite',
       );
 
       expect(draft.summary, 'Short summary.');
-      expect(draft.model, 'gemini-3.1-flash-lite-preview');
+      expect(draft.model, 'gemini-3.1-flash-lite');
     });
 
     test('rejects incomplete structured response JSON', () {
@@ -161,7 +161,7 @@ Policy
       expect(
         () => GeminiCodeContentDraftClient.parseResponse(
           response,
-          model: 'gemini-3.1-flash-lite-preview',
+          model: 'gemini-3.1-flash-lite',
         ),
         throwsFormatException,
       );

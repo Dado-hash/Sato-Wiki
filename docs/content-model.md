@@ -199,7 +199,7 @@ ignorato dal runtime app e usato dalla pipeline contenuti:
     "source": "sync_code_content.dart",
     "upstreamSha": "official-source-sha",
     "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-    "aiModel": "gemini-3.1-flash-lite-preview",
+    "aiModel": "gemini-3.1-flash-lite",
     "aiPromptVersion": "code-sync-v1",
     "generatedAt": "2026-06-01T00:00:00Z",
     "needsReview": true

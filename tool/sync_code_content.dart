@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 const codeAutomationPromptVersion = 'code-sync-v1';
-const defaultGeminiModel = 'gemini-3.1-flash-lite-preview';
+const defaultGeminiModel = 'gemini-3.1-flash-lite';
 
 typedef JsonMap = Map<String, Object?>;
 

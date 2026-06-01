@@ -30,7 +30,7 @@ jobs:
       - name: Sync BIPs and Bitcoin Core releases
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.1-flash-lite-preview' }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.1-flash-lite' }}
           GITHUB_TOKEN: ${{ github.token }}
         run: dart run tool/sync_code_content.dart --require-ai --languages en,it --report build/code-content-sync-report.md
 

@@ -63,7 +63,7 @@ bozze EN/IT con Gemini e apre una PR draft tramite
 Configurazione richiesta:
 
 - secret GitHub `GEMINI_API_KEY`;
-- variabile opzionale `GEMINI_MODEL`, default `gemini-3.1-flash-lite-preview`.
+- variabile opzionale `GEMINI_MODEL`, default `gemini-3.1-flash-lite`.
 
 Esecuzione manuale locale:
 
