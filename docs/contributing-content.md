@@ -74,3 +74,6 @@ GEMINI_API_KEY=... /Users/davide/development/flutter/bin/dart run tool/sync_code
 I record generati contengono `automation.needsReview: true`: prima del merge
 serve review tecnica/editoriale. Dopo review, portare `needsReview` a `false`
 o rimuoverlo se si vuole preservare il testo nei sync successivi.
+
+Per recuperare lo storico dei BIP senza consumare credito Gemini, seguire la
+guida per agent in `docs/code-bip-backfill-opencode.md`.

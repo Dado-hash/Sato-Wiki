@@ -278,6 +278,30 @@ abstract class AppLocalizations {
   /// **'Difficulty'**
   String get categoryDifficulty;
 
+  /// No description provided for @categoryAdoption.
+  ///
+  /// In en, this message translates to:
+  /// **'Adoption'**
+  String get categoryAdoption;
+
+  /// No description provided for @categoryOrigin.
+  ///
+  /// In en, this message translates to:
+  /// **'Origin'**
+  String get categoryOrigin;
+
+  /// No description provided for @categoryRegulation.
+  ///
+  /// In en, this message translates to:
+  /// **'Regulation'**
+  String get categoryRegulation;
+
+  /// No description provided for @categorySecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get categorySecurity;
+
   /// No description provided for @wikiEntriesInCategory.
   ///
   /// In en, this message translates to:

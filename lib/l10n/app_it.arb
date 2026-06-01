@@ -30,6 +30,10 @@
   "categoryChannels": "Canali",
   "categoryHalving": "Halving",
   "categoryDifficulty": "Difficoltà",
+  "categoryAdoption": "Adozione",
+  "categoryOrigin": "Origine",
+  "categoryRegulation": "Regolamentazione",
+  "categorySecurity": "Sicurezza",
   "wikiEntriesInCategory": "Voci Wiki in {category}.",
   "@wikiEntriesInCategory": {
     "placeholders": {

@@ -257,9 +257,11 @@ final class CodeContentSync {
     required String language,
   }) async {
     final existingAutomation = _automation(existing);
-    final generated = _isAiManaged(existing) || existing == null;
-    final upstreamChanged = existingAutomation['upstreamSha'] != source.sha;
-    final shouldGenerateDraft = generated || upstreamChanged;
+    final aiManaged = _isAiManaged(existing);
+    final upstreamChanged =
+        existing != null && existingAutomation['upstreamSha'] != source.sha;
+    final shouldGenerateDraft =
+        existing == null || (aiManaged && upstreamChanged);
     final draft = shouldGenerateDraft
         ? await draftClient.generateBipDraft(source, language)
         : null;
@@ -309,12 +311,18 @@ final class CodeContentSync {
       'related': _preserveList(existing, 'related', const []),
       'statusHistory': statusHistory,
       'updatedAt': now.toIso8601String(),
-      'automation': _automationMetadata(
-        upstreamSha: source.sha,
-        upstreamUrl: source.officialUrl,
-        draft: draft,
-        needsReview: shouldGenerateDraft,
-      ),
+      'automation': shouldGenerateDraft
+          ? _automationMetadata(
+              upstreamSha: source.sha,
+              upstreamUrl: source.officialUrl,
+              draft: draft,
+              needsReview: true,
+            )
+          : _syncedAutomationMetadata(
+              existingAutomation: existingAutomation,
+              upstreamSha: source.sha,
+              upstreamUrl: source.officialUrl,
+            ),
     };
   }
 
@@ -324,9 +332,11 @@ final class CodeContentSync {
     required String language,
   }) async {
     final existingAutomation = _automation(existing);
-    final generated = _isAiManaged(existing) || existing == null;
-    final upstreamChanged = existingAutomation['upstreamSha'] != source.sha;
-    final shouldGenerateDraft = generated || upstreamChanged;
+    final aiManaged = _isAiManaged(existing);
+    final upstreamChanged =
+        existing != null && existingAutomation['upstreamSha'] != source.sha;
+    final shouldGenerateDraft =
+        existing == null || (aiManaged && upstreamChanged);
     final draft = shouldGenerateDraft
         ? await draftClient.generateReleaseDraft(source, language)
         : null;
@@ -376,12 +386,18 @@ final class CodeContentSync {
       ]),
       'related': _preserveList(existing, 'related', const []),
       'updatedAt': now.toIso8601String(),
-      'automation': _automationMetadata(
-        upstreamSha: source.sha,
-        upstreamUrl: source.releaseNotesUrl,
-        draft: draft,
-        needsReview: shouldGenerateDraft,
-      ),
+      'automation': shouldGenerateDraft
+          ? _automationMetadata(
+              upstreamSha: source.sha,
+              upstreamUrl: source.releaseNotesUrl,
+              draft: draft,
+              needsReview: true,
+            )
+          : _syncedAutomationMetadata(
+              existingAutomation: existingAutomation,
+              upstreamSha: source.sha,
+              upstreamUrl: source.releaseNotesUrl,
+            ),
     };
   }
 
@@ -459,6 +475,19 @@ final class CodeContentSync {
       'generatedAt': now.toIso8601String(),
       'needsReview': needsReview,
     }..removeWhere((_, value) => value == null);
+  }
+
+  JsonMap _syncedAutomationMetadata({
+    required JsonMap existingAutomation,
+    required String upstreamSha,
+    required String upstreamUrl,
+  }) {
+    final metadata = JsonMap.from(existingAutomation)
+      ..['source'] = 'sync_code_content.dart'
+      ..['upstreamSha'] = upstreamSha
+      ..['upstreamUrl'] = upstreamUrl;
+    metadata.putIfAbsent('needsReview', () => false);
+    return metadata;
   }
 }
 

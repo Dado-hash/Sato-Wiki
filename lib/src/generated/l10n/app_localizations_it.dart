@@ -104,6 +104,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get categoryDifficulty => 'Difficoltà';
 
   @override
+  String get categoryAdoption => 'Adozione';
+
+  @override
+  String get categoryOrigin => 'Origine';
+
+  @override
+  String get categoryRegulation => 'Regolamentazione';
+
+  @override
+  String get categorySecurity => 'Sicurezza';
+
+  @override
   String wikiEntriesInCategory(String category) {
     return 'Voci Wiki in $category.';
   }

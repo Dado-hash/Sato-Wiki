@@ -30,6 +30,10 @@
   "categoryChannels": "Channels",
   "categoryHalving": "Halving",
   "categoryDifficulty": "Difficulty",
+  "categoryAdoption": "Adoption",
+  "categoryOrigin": "Origin",
+  "categoryRegulation": "Regulation",
+  "categorySecurity": "Security",
   "wikiEntriesInCategory": "Wiki entries in {category}.",
   "@wikiEntriesInCategory": {
     "placeholders": {

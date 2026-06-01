@@ -45,6 +45,9 @@ class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
         )
         .toList(growable: false);
     final events = _events;
+    final allCategories =
+        widget.store.bundle.history.map((e) => e.category).toSet().toList()
+          ..sort();
     final l10n = AppLocalizations.of(context);
 
     return ListView(
@@ -64,6 +67,7 @@ class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
         _OnThisDayCard(event: onThisDay.firstOrNull),
         const SizedBox(height: 28),
         _HistoryFilters(
+          categories: allCategories,
           selected: _selectedCategory,
           onSelected: (category) =>
               setState(() => _selectedCategory = category),
@@ -87,26 +91,43 @@ class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
   }
 }
 
-class _HistoryFilters extends StatelessWidget {
-  const _HistoryFilters({required this.selected, required this.onSelected});
+String _categoryLabel(String key, AppLocalizations l10n) {
+  return switch (key) {
+    'protocol' => l10n.categoryProtocol,
+    'cryptography' => l10n.categoryCryptography,
+    'lightning network' => l10n.categoryLightningNetwork,
+    'economics' => l10n.categoryEconomics,
+    'market' => l10n.market,
+    'community' => l10n.community,
+    'origin' => l10n.categoryOrigin,
+    'security' => l10n.categorySecurity,
+    'adoption' => l10n.categoryAdoption,
+    'regulation' => l10n.categoryRegulation,
+    _ => key[0].toUpperCase() + key.substring(1),
+  };
+}
 
+class _HistoryFilters extends StatelessWidget {
+  const _HistoryFilters({
+    required this.categories,
+    required this.selected,
+    required this.onSelected,
+  });
+
+  final List<String> categories;
   final String? selected;
   final ValueChanged<String?> onSelected;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final items = [null, ...categories];
 
     return FilterChipBar<String?>(
-      items: const [null, 'protocol', 'economics', 'community'],
+      items: items,
       selectedItem: selected,
-      labelFor: (item) => switch (item) {
-        null => l10n.allEvents,
-        'protocol' => l10n.categoryProtocol,
-        'economics' => l10n.categoryEconomics,
-        'community' => l10n.community,
-        _ => item,
-      },
+      labelFor: (item) =>
+          item == null ? l10n.allEvents : _categoryLabel(item, l10n),
       onSelected: onSelected,
     );
   }
@@ -166,24 +187,22 @@ class _TimelineEvent extends StatelessWidget {
     final color = colorScheme.primary;
     final lineColor = colorScheme.outlineVariant;
     final l10n = AppLocalizations.of(context);
+    final isItalian = l10n.localeName.startsWith('it');
+    final dateFormat = isItalian ? 'dd/MM/yy' : 'MM/dd/yy';
 
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            width: 76,
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 2),
-                child: Text(
-                  DateFormat.yMMMd(l10n.localeName).format(event.date),
-                  style: textTheme.labelSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textAlign: TextAlign.center,
+            width: 80,
+            child: Center(
+              child: Text(
+                DateFormat(dateFormat).format(event.date),
+                style: textTheme.labelMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
@@ -246,7 +265,7 @@ class _TimelineEvent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      event.category,
+                      _categoryLabel(event.category, l10n),
                       style: textTheme.labelMedium?.copyWith(color: color),
                     ),
                     const SizedBox(height: 6),

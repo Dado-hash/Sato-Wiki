@@ -30,8 +30,8 @@ void main() {
     );
     expect(bundle.news.single.author.github, 'andreas-m');
     expect(bundle.history.first.date, DateTime(2008, 10, 31));
-    expect(bundle.bips.single.status, BipStatus.deployed);
-    expect(bundle.changelogs.single.importance, ReleaseImportance.major);
+    expect(bundle.bips, isEmpty);
+    expect(bundle.changelogs, isEmpty);
   });
 
   test('skips invalid section records as recoverable warnings', () {

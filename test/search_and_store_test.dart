@@ -27,16 +27,54 @@ void main() {
   });
 
   test('store filters BIPs by status', () async {
-    final active = await store.listBipsByStatus(BipStatus.deployed);
+    final codeBundle = ContentBundleParser.parseJson(_codeFixtureJson).bundle;
+    final codeStore = ContentStore(codeBundle);
+    final active = await codeStore.listBipsByStatus(BipStatus.deployed);
 
     expect(active.single.number, 341);
   });
 
   test('search matches title tags and summary with section filter', () {
-    final taproot = index.search('taproot', sections: {SearchSection.code});
+    final codeBundle = ContentBundleParser.parseJson(_codeFixtureJson).bundle;
+    final codeIndex = SearchIndex.fromBundle(codeBundle);
+    final taproot = codeIndex.search('taproot', sections: {SearchSection.code});
     final mining = index.search('mining');
 
     expect(taproot.first.route, '/code/bips/341');
     expect(mining.first.route, '/wiki/entries/mining-energy-economics');
   });
 }
+
+const _codeFixtureJson = '''
+{
+  "schemaVersion": 1,
+  "version": "test",
+  "language": "en",
+  "generatedAt": "2026-05-25T00:00:00Z",
+  "wiki": [],
+  "news": [],
+  "history": [],
+  "bips": [
+    {
+      "id": "code.bip.341",
+      "number": 341,
+      "language": "en",
+      "title": "Taproot",
+      "summary": "SegWit version 1 spending rules.",
+      "status": "deployed",
+      "category": "consensus",
+      "authors": ["Pieter Wuille"],
+      "createdAt": "2020-01-19",
+      "summaryMarkdown": "Summary.",
+      "impactMarkdown": "Impact.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+      "tags": ["Taproot"],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-05-25T00:00:00Z"
+    }
+  ],
+  "changelogs": []
+}
+''';

@@ -92,29 +92,30 @@ class _UpdateProgressDialogState extends State<UpdateProgressDialog> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: colorScheme.primaryContainer,
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: Icon(
-                    progress.state == UpdateState.done
-                        ? Icons.check_circle
-                        : progress.state == UpdateState.error
-                        ? Icons.error_outline
-                        : Icons.download_outlined,
-                    color: progress.state == UpdateState.done
-                        ? Colors.green
-                        : progress.state == UpdateState.error
-                        ? colorScheme.error
-                        : colorScheme.primary,
-                    size: 28,
+              if (progress.state == UpdateState.done)
+                const Icon(Icons.check_circle, color: Colors.green, size: 48)
+              else
+                Container(
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: progress.state == UpdateState.error
+                        ? colorScheme.errorContainer
+                        : colorScheme.primaryContainer,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Icon(
+                      progress.state == UpdateState.error
+                          ? Icons.error_outline
+                          : Icons.download_outlined,
+                      color: progress.state == UpdateState.error
+                          ? colorScheme.error
+                          : colorScheme.primary,
+                      size: 28,
+                    ),
                   ),
                 ),
-              ),
               const SizedBox(height: 16),
               Text(
                 l10n.contentUpdateTitle,

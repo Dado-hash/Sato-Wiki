@@ -5067,91 +5067,12 @@
           "author": "Bitcoin BIPs"
         }
       ],
-      "related": [
-        "code.bip.341"
-      ],
+      "related": [],
       "updatedAt": "2026-05-25T00:00:00Z"
     }
   ],
-  "bips": [
-    {
-      "id": "code.bip.341",
-      "number": 341,
-      "language": "it",
-      "title": "Taproot",
-      "summary": "Regole di spesa SegWit versione 1.",
-      "status": "active",
-      "category": "consensus",
-      "authors": [
-        "Pieter Wuille",
-        "Jonas Nick",
-        "Anthony Towns"
-      ],
-      "createdAt": "2020-01-19",
-      "summaryMarkdown": "Taproot combina firme Schnorr e percorsi script Merkle.",
-      "impactMarkdown": "Spese complesse possono apparire come normali spese key-path.",
-      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-      "tags": [
-        "Taproot",
-        "Consenso"
-      ],
-      "sources": [
-        {
-          "title": "BIP 341",
-          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-          "author": "Bitcoin BIPs"
-        }
-      ],
-      "related": [
-        "wiki.taproot",
-        "news.taproot-retrospective"
-      ],
-      "statusHistory": [
-        {
-          "date": "2020-01-19",
-          "status": "draft",
-          "note": "Bozza iniziale pubblicata."
-        },
-        {
-          "date": "2021-11-14",
-          "status": "active",
-          "note": "Attivato al blocco 709.632."
-        }
-      ],
-      "updatedAt": "2026-05-25T00:00:00Z"
-    }
-  ],
-  "changelogs": [
-    {
-      "id": "release.bitcoin-core.27.0",
-      "slug": "bitcoin-core-27-0",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "27.0",
-      "title": "Bitcoin Core 27.0",
-      "summary": "Release maggiore di Bitcoin Core con miglioramenti a rete e wallet.",
-      "releasedAt": "2024-04-16",
-      "importance": "major",
-      "userImpactMarkdown": "Gli utenti ottengono miglioramenti nel comportamento di wallet e peer.",
-      "technicalChangesMarkdown": "La release include modifiche a P2P, RPC e sistema di build.",
-      "officialUrl": "https://bitcoincore.org/en/releases/27.0/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Note di rilascio Bitcoin Core 27.0",
-          "url": "https://bitcoincore.org/en/releases/27.0/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [
-        "code.bip.324"
-      ],
-      "updatedAt": "2026-05-25T00:00:00Z"
-    }
-  ],
+  "bips": [],
+  "changelogs": [],
   "totalRecords": 90,
   "historyCount": 26
 }
