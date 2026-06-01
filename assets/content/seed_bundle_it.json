@@ -1186,6 +1186,181 @@
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.el-salvador-bitcoin-law-reform",
+      "slug": "el-salvador-bitcoin-law-reform",
+      "date": "2025-01-29",
+      "title": "El Salvador Riforma la Bitcoin Law Dopo l'Accordo con il FMI",
+      "category": "regulation",
+      "summary": "El Salvador modifica la Bitcoin Law, rendendo volontaria l'accettazione e rimuovendo lo status di moneta legale, come condizione del prestito di $1,4 miliardi del FMI.",
+      "bodyMarkdown": "Il 29 gennaio 2025, l'Assemblea Legislativa salvadoregna ha riformato la Bitcoin Law che dal 2021 riconosceva Bitcoin come moneta a corso legale, attuando le modifiche richieste dal Fondo Monetario Internazionale come condizione per un prestito di $1,4 miliardi. Bitcoin ha cessato di essere riconosciuto come valuta: la sua accettazione come pagamento è diventata volontaria per le imprese e non può più essere utilizzato per pagare le tasse. La riforma ha modificato sei articoli e ne ha abrogati altri tre, entrando in vigore pochi giorni prima della scadenza del 31 gennaio imposta dal FMI.\n\n![Votazione dell'Assemblea Legislativa salvadoregna sulla riforma della Bitcoin Law nel gennaio 2025.](media/history/el-salvador-bitcoin-law-reform/el-salvador-assembly-vote.webp \"Votazione riforma Bitcoin Law El Salvador\")\n\nLa decisione ha segnato un'inversione drammatica del pionieristico esperimento salvadoregno. Il presidente Nayib Bukele aveva promosso l'adozione di Bitcoin dal settembre 2021, quando il paese era diventato la prima nazione a riconoscere Bitcoin come moneta legale. La legge obbligava tutti gli agenti economici ad accettare Bitcoin, istituiva il Chivo Wallet statale con un bonus di $30 per ogni cittadino ed esentava Bitcoin dall'imposta sulle plusvalenze. Tuttavia, l'adozione rimase scarsa: uno studio dell'economista di Yale David Argente ha rilevato che solo il 20% degli utenti Chivo continuò a usare il portafoglio dopo aver speso il bonus iniziale e meno del 10% lo utilizzava specificamente per transazioni in Bitcoin.\n\nL'accordo con il FMI, raggiunto nel dicembre 2024, richiedeva a El Salvador di ridurre il coinvolgimento del settore pubblico nelle attività legate a Bitcoin e rendere volontaria l'accettazione da parte del settore privato. In cambio, il paese ha ottenuto un prestito di $1,4 miliardi nell'ambito dell'Extended Fund Facility, volto a rafforzare le riserve bancarie, la sostenibilità fiscale e le prospettive di crescita. Il governo si è anche impegnato a ridurre il deficit di bilancio di 3,5 punti percentuali del PIL in tre anni.\n\nNonostante la riforma, l'amministrazione Bukele ha mantenuto il suo impegno verso Bitcoin come asset di riserva strategica. Il governo ha continuato ad acquistare un Bitcoin al giorno — accelerando gli acquisti dopo l'accordo con il FMI, acquisendo monete aggiuntive in quello che gli analisti hanno interpretato come un segnale di sfida. Tether, il maggiore emittente di stablecoin, ha annunciato il trasferimento della sua sede in El Salvador subito dopo la riforma, sottolineando ulteriormente il rapporto continuo del paese con l'industria crypto. La riforma ha quindi rappresentato meno un abbandono di Bitcoin e più un compromesso tattico: una concessione sullo status di moneta legale per ottenere i finanziamenti del FMI, preservando al contempo Bitcoin come riserva nazionale.",
+      "sources": [
+        {
+          "title": "IMF Staff-Level Agreement with El Salvador",
+          "url": "https://www.imf.org/es/News/Articles/2024/12/18/pr-24485-el-salvador-imf-reaches-staff-level-agreement-on-an-eff-arrangement"
+        },
+        {
+          "title": "El bitcoin deja de ser moneda de curso legal en El Salvador — Cinco Días",
+          "url": "https://cincodias.elpais.com/criptoactivos/2025-02-06/el-bitcoin-deja-de-ser-moneda-de-curso-legal-en-el-salvador-es-el-fin-de-un-criptoestado.html"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        }
+      ],
+      "tags": [
+        "El Salvador",
+        "Regolamentazione",
+        "FMI"
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.us-strategic-bitcoin-reserve",
+      "slug": "us-strategic-bitcoin-reserve",
+      "date": "2025-03-06",
+      "title": "Gli Stati Uniti Istituiscono la Riserva Strategica di Bitcoin",
+      "category": "regulation",
+      "summary": "Il presidente Trump firma un ordine esecutivo che crea la Strategic Bitcoin Reserve, capitalizzata con Bitcoin confiscati in procedimenti penali e civili.",
+      "bodyMarkdown": "Il 6 marzo 2025, il presidente Donald Trump ha firmato un ordine esecutivo che istituisce la Strategic Bitcoin Reserve e una separata United States Digital Asset Stockpile. L'ordine ha incaricato il Segretario al Tesoro di creare conti di custodia per tutti i Bitcoin detenuti dal Dipartimento del Tesoro che erano stati definitivamente confiscati attraverso procedimenti di forfeiture penali o civili. Fondamentalmente, l'ordine ha dichiarato che i Bitcoin depositati nella Riserva \"non saranno venduti\" e saranno mantenuti come un asset di riserva nazionale permanente.\n\n![Cerimonia di firma alla Casa Bianca per l'ordine esecutivo sulla Riserva Strategica di Bitcoin.](media/history/us-strategic-bitcoin-reserve/white-house-signing-ceremony.webp \"Firma Riserva Strategica Bitcoin Casa Bianca\")\n\nL'ordine esecutivo è stato il culmine di una promessa elettorale e di un cambiamento politico che si stava costruendo fin dalle elezioni presidenziali del 2024. La Riserva è stata capitalizzata con circa 200.000 BTC già detenuti dal governo statunitense, principalmente confiscati in operazioni contro Silk Road, l'hack di Bitfinex e altri casi penali. Una Digital Asset Stockpile separata è stata creata per le altre criptovalute detenute dal governo, sebbene l'ordine abbia esplicitamente proibito future acquisizioni di asset digitali non-Bitcoin al di fuori dei procedimenti di forfeiture.\n\nL'ordine ha definito Bitcoin come un asset strategicamente unico, chiamandolo \"la criptovaluta originale\" e notando che il suo protocollo \"limita permanentemente l'offerta totale a 21 milioni di monete e non è mai stato hackerato.\" Ha descritto Bitcoin come \"oro digitale\" sostenendo che \"c'è un vantaggio strategico nell'essere tra le prime nazioni a creare una riserva strategica di bitcoin.\" Ai Segretari del Tesoro e del Commercio è stato ordinato di sviluppare strategie a bilancio neutro per acquisire ulteriori Bitcoin.\n\nL'impatto è stato immediato e di vasta portata. L'ordine ha segnalato che gli Stati Uniti non avrebbero seguito la via della Cina, che aveva vietato le criptovalute, o di altre nazioni che avevano trattato Bitcoin principalmente come una questione regolatoria. Invece, ha elevato Bitcoin allo status di asset di riserva nazionale accanto alle riserve strategiche di oro e petrolio. Il cambiamento politico ha riverberato attraverso i mercati finanziari, con il prezzo di Bitcoin che ha reagito positivamente alla notizia. Diverse altre nazioni e stati USA hanno iniziato a esplorare la propria legislazione sulle riserve di Bitcoin, catalizzati dall'approvazione federale di Bitcoin come asset strategico.",
+      "sources": [
+        {
+          "title": "White House Executive Order — Establishment of the Strategic Bitcoin Reserve",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/03/establishment-of-the-strategic-bitcoin-reserve-and-united-states-digital-asset-stockpile/"
+        },
+        {
+          "title": "White House Fact Sheet",
+          "url": "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-establishes-the-strategic-bitcoin-reserve-and-u-s-digital-asset-stockpile/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.store-of-value",
+          "title": "Store of Value"
+        },
+        {
+          "id": "wiki.scarcity",
+          "title": "Scarcity"
+        }
+      ],
+      "tags": [
+        "Stati Uniti",
+        "Regolamentazione",
+        "Riserva Strategica",
+        "Ordine Esecutivo"
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.new-hampshire-bitcoin-reserve-law",
+      "slug": "new-hampshire-bitcoin-reserve-law",
+      "date": "2025-05-06",
+      "title": "Il New Hampshire Approva la Prima Legge Statale USA sulla Riserva Bitcoin",
+      "category": "regulation",
+      "summary": "Il New Hampshire diventa il primo stato USA ad autorizzare l'investimento di fondi pubblici in asset digitali, consentendo fino al 5% di allocazione in Bitcoin.",
+      "bodyMarkdown": "Il 6 maggio 2025, la governatrice del New Hampshire Kelly Ayotte ha firmato una legge che autorizza lo stato a investire fino al 5% dei suoi fondi pubblici disponibili in asset digitali con una capitalizzazione di mercato superiore a $500 miliardi — una soglia che, al momento della firma, solo Bitcoin soddisfaceva. La legislazione ha reso il New Hampshire il primo stato USA a stabilire un quadro normativo per una riserva strategica di criptovalute, superando un'ondata di iniziative simili in tutto il paese.\n\n![Campidoglio del New Hampshire, dove è stata firmata la legge sulla riserva crypto.](media/history/new-hampshire-bitcoin-reserve-law/new-hampshire-state-house.webp \"Campidoglio New Hampshire\")\n\nLa legge, proposta dal rappresentante statale Keith Ammon, è stata il risultato di una campagna coordinata dal Satoshi Action Fund, un gruppo di advocacy no-profit che promuove legislazione statale sulle riserve di Bitcoin a livello nazionale. Dennis Porter, fondatore del Satoshi Action Fund, ha definito la vittoria del New Hampshire una svolta critica: \"La prima è di gran lunga la più difficile. Avere uno stato che ci è già riuscito aumenterà notevolmente lo slancio politico.\"\n\nIl successo del New Hampshire è stato in netto contrasto con gli insuccessi in altri stati. L'Arizona era stata la prima a portare un provvedimento simile sulla scrivania del governatore, ma la governatrice Katie Hobbs lo ha posto il veto, definendo le criptovalute un \"investimento non testato\". La Florida ha ritirato la sua legislazione sulla riserva. Altri stati, tra cui Carolina del Nord e Utah, hanno visto progressi di varia entità, ma nessuno era arrivato al traguardo prima del New Hampshire. La legge ha posizionato lo stato come pioniere nell'investimento pubblico in asset digitali e ha creato un modello per altri stati da seguire.",
+      "sources": [
+        {
+          "title": "New Hampshire Becomes First State to Approve Crypto Reserve Law — CoinDesk",
+          "url": "https://www.coindesk.com/policy/2025/05/06/new-hampshire-becomes-first-state-to-approve-crypto-reserve-law"
+        },
+        {
+          "title": "New Hampshire HB 302 — Bill Text",
+          "url": "https://gc.nh.gov/bill_status/legacy/bs2016/billText.aspx?sy=2025&v=SP&id=707"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.us-strategic-bitcoin-reserve",
+          "title": "U.S. Establishes Strategic Bitcoin Reserve"
+        }
+      ],
+      "tags": [
+        "New Hampshire",
+        "Legislazione Statale",
+        "Riserva Bitcoin",
+        "Satoshi Action Fund"
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-ath-2025",
+      "slug": "bitcoin-ath-2025",
+      "date": "2025-10-05",
+      "title": "Bitcoin Raggiunge un Nuovo Massimo Storico Sopra $125.000",
+      "category": "market",
+      "summary": "Bitcoin stabilisce un nuovo record sopra $125.000, trainato dai flussi istituzionali degli ETF, dalla Riserva Strategica USA e da un contesto macroeconomico favorevole.",
+      "bodyMarkdown": "Il 5 ottobre 2025, Bitcoin ha superato $125.000 per la prima volta, raggiungendo un nuovo massimo storico di $125.245. La tappa ha segnato un guadagno di quasi l'80% rispetto al superamento dei $100.000 nel dicembre 2024 e un nuovo capitolo nella scoperta del prezzo di Bitcoin dopo un anno di sviluppi trasformativi.\n\n![Grafico del prezzo di Bitcoin che mostra il rally dal 2024 al 2025 da $100.000 a $125.000.](media/history/bitcoin-ath-2025/bitcoin-2025-price-chart.webp \"Rally prezzo Bitcoin 2025\")\n\nIl rally si è basato su diversi fattori convergenti. La Riserva Strategica di Bitcoin degli Stati Uniti, istituita nel marzo 2025, aveva segnalato il riconoscimento formale del governo di Bitcoin come asset strategico. I flussi degli spot Bitcoin ETF continuavano a un ritmo record, con investitori istituzionali — fondi pensione, fondi di dotazione e fondi sovrani — che allocavano porzioni crescenti dei loro portafogli in Bitcoin. La riduzione dell'offerta del quarto halving continuava a cumularsi, con l'emissione giornaliera limitata a 450 BTC mentre la domanda istituzionale assorbiva costantemente l'offerta disponibile.\n\nAnche il contesto macroeconomico era favorevole. Il dollaro USA si è indebolito in mezzo all'incertezza sulla politica fiscale e ai dibattiti sul finanziamento del governo, spingendo gli investitori verso riserve di valore alternative. La narrazione dell'offerta fissa di Bitcoin ha risuonato potentemente in questo ambiente, attirando acquirenti sia al dettaglio che istituzionali in cerca di protezione dal deprezzamento della valuta. La tappa dei $125.000 ha rappresentato non solo un record numerico ma una conferma che l'integrazione istituzionale di Bitcoin — avviata dalle approvazioni degli ETF e accelerata dall'adozione sovrana — aveva fondamentalmente rimodellato le sue dinamiche di mercato.",
+      "sources": [
+        {
+          "title": "Bitcoin Hits All-Time High Above $125,000 — Reuters/Investing.com",
+          "url": "https://m.investing.com/news/forex-news/bitcoin-hits-alltime-high-above-125000-4271437?ampMode=1"
+        },
+        {
+          "title": "CoinDesk Price Index",
+          "url": "https://www.coindesk.com/price/bitcoin/"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bitcoin-one-hundred-thousand",
+          "title": "Bitcoin Breaks $100,000"
+        },
+        {
+          "id": "wiki.volatility",
+          "title": "Volatility"
+        }
+      ],
+      "tags": [
+        "Prezzo",
+        "Massimo Storico",
+        "$125.000",
+        "Mercato Rialzista"
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.bitcoin-core-30-release",
+      "slug": "bitcoin-core-30-release",
+      "date": "2025-10-10",
+      "title": "Rilasciato Bitcoin Core 30.0",
+      "category": "protocol",
+      "summary": "Bitcoin Core 30.0 viene rilasciato, introducendo modifiche alle policy di relay e accendendo il dibattito su OP_RETURN, limiti datacarrier e comportamento operativo dei nodi.",
+      "bodyMarkdown": "Il 10 ottobre 2025 è stato rilasciato Bitcoin Core 30.0, segnando un aggiornamento significativo all'implementazione software di riferimento di Bitcoin. Pur non essendo un cambiamento a livello di consenso — non alterava cioè le regole fondamentali della blockchain — il rilascio ha introdotto modifiche notevoli alla policy di relay e al comportamento dei nodi che hanno generato discussioni in tutta la comunità di sviluppo Bitcoin.\n\n![Terminale Bitcoin Core 30.0 durante la compilazione o l'operatività del nodo.](media/history/bitcoin-core-30-release/bitcoin-core-terminal.webp \"Terminale Bitcoin Core 30.0\")\n\nI dibattiti chiave del rilascio riguardavano le policy OP_RETURN e datacarrier — i meccanismi con cui i dati possono essere incorporati nelle transazioni Bitcoin. Dall'introduzione di OP_RETURN in Bitcoin Core 0.9 (2014), gli output di transazione che utilizzano questo opcode sono stati usati per tutto, dalle colored coins e l'emissione di asset (Omni, Counterparty) alle inscription Ordinals e all'archiviazione generale di dati. Bitcoin Core 30.0 ha rivisto i limiti predefiniti della dimensione datacarrier e il comportamento di relay, stimolando discussioni su quali tipi di transazioni dati la rete dovrebbe ritrasmettere per impostazione predefinita.\n\nPer gli operatori di nodi, il rilascio includeva miglioramenti delle prestazioni e perfezionamenti alla policy del mempool — le regole che determinano quali transazioni un nodo accetterà e ritrasmetterà. Questi cambiamenti hanno influenzato il modo in cui i nodi gestiscono la sostituzione delle transazioni (BIP 125), la stima delle fee e la gestione delle risorse del mempool. Il rilascio ha anche continuato il lavoro in corso di Bitcoin Core sul package relay e altri miglioramenti del mempool che beneficiano l'efficienza complessiva dell'elaborazione delle transazioni della rete.\n\nIl significato di Bitcoin Core 30.0 per la timeline storica era duplice. In primo luogo, ha dimostrato la continua vitalità del processo di sviluppo di Bitcoin, con contributori che iterano sulla policy di rete anni dopo la creazione del protocollo. In secondo luogo, i dibattiti sulle policy di relay e sui limiti datacarrier hanno evidenziato le tensioni all'interno della comunità Bitcoin sull'uso appropriato dello spazio della blockchain — un tema ricorrente nella governance di Bitcoin, dalla block size war a Ordinals fino a ogni parametro policy che modella quali transazioni sono economicamente sostenibili.",
+      "sources": [
+        {
+          "title": "Bitcoin Core 30.0 Release Announcement",
+          "url": "https://bitcoincore.org/en/2025/10/10/release-30.0/"
+        },
+        {
+          "title": "Bitcoin Core 30.0 Release Notes",
+          "url": "https://bitcoincore.org/en/releases/30.0/"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
+        },
+        {
+          "id": "wiki.mempool",
+          "title": "Mempool"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
+        }
+      ],
+      "tags": [
+        "Bitcoin Core",
+        "Rilascio Software",
+        "Relay Policy",
+        "OP_RETURN"
+      ],
+      "updatedAt": "2026-05-28T00:00:00Z"
     }
   ],
   "wiki": [
@@ -5071,8 +5246,426 @@
       "updatedAt": "2026-05-25T00:00:00Z"
     }
   ],
-  "bips": [],
+  "bips": [
+    {
+      "id": "bip.1.it",
+      "number": 1,
+      "language": "it",
+      "title": "Scopo e Linee Guida dei BIP",
+      "summary": "Definisce lo scopo, le tipologie e il flusso di lavoro delle Bitcoin Improvement Proposal.",
+      "summaryMarkdown": "BIP 1 è il documento fondante del processo di Bitcoin Improvement Proposal. Definisce cosa è un BIP, descrive le tre categorie — Standards Track, Informational e Process — e stabilisce il flusso di lavoro per proporre modifiche a Bitcoin. Il documento specifica il formato richiesto per le proposte BIP, il ruolo degli editor e il ciclo di vita degli stati (Draft → Accepted → Final, oppure Rejected/Withdrawn).\n\nQuesto BIP ha costituito il quadro di riferimento procedurale per la comunità di sviluppo Bitcoin dal 2011 in poi. È stato successivamente sostituito da BIP 2 nel 2016.",
+      "impactMarkdown": "BIP 1 ha istituito il processo formale per proporre modifiche a Bitcoin, permettendo la standardizzazione guidata dalla comunità. Ha gettato le basi per tutti i BIP successivi e rimane storicamente significativo come fondamento procedurale dello sviluppo di Bitcoin.",
+      "status": "closed",
+      "category": "process",
+      "authors": [
+        "Amir Taaki"
+      ],
+      "createdAt": "2011-09-19",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki",
+      "tags": [
+        "process",
+        "bip-process"
+      ],
+      "sources": [],
+      "related": [
+        "bip.2"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2016-02-03"
+    },
+    {
+      "id": "bip.2.it",
+      "number": 2,
+      "language": "it",
+      "title": "Processo BIP, Revisionato",
+      "summary": "Rivede e sostituisce il processo BIP originale con un flusso di lavoro più dettagliato e formalizzato.",
+      "summaryMarkdown": "BIP 2 sostituisce BIP 1 con un processo BIP più chiaramente definito. Raffina il flusso di lavoro, aggiunge linee guida esplicite per gli editor BIP e le loro responsabilità, e formalizza il trasferimento di proprietà dei BIP. Introduce inoltre il requisito di doppia licenza (BSD-2-Clause o Open Publication License) per i nuovi BIP.\n\nQuesto BIP è stato il documento processuale di riferimento dal 2016 fino alla sua sostituzione con BIP 3 nel 2025.",
+      "impactMarkdown": "BIP 2 ha fornito un decennio di stabilità procedurale per lo sviluppo di Bitcoin. Formalizzando le responsabilità degli editor, i trasferimenti di proprietà e i requisiti di licenza, ha ridotto l'ambiguità nel processo BIP.",
+      "status": "closed",
+      "category": "process",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2016-02-03",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0002.mediawiki",
+      "tags": [
+        "process",
+        "bip-process"
+      ],
+      "sources": [],
+      "related": [
+        "bip.3"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2025-01-09"
+    },
+    {
+      "id": "bip.3.it",
+      "number": 3,
+      "language": "it",
+      "title": "Processo BIP Aggiornato",
+      "summary": "Razionalizza il processo BIP e chiarisce il ruolo e i limiti dei BIP nell'ecosistema Bitcoin.",
+      "summaryMarkdown": "BIP 3 sostituisce BIP 2 con un processo snellito che incorpora le lezioni apprese dal 2016. Le modifiche principali includono la riduzione dei giudizi discrezionali assegnati agli editor BIP, una delineazione più chiara delle tipologie di BIP, e l'enfasi sul fatto che i singoli BIP non rappresentano il consenso della comunità — bensì raccomandazioni dei loro autori. Introduce inoltre il concetto di Deputati (proprietari supplenti) e generalizza il flusso di lavoro.\n\nQuesto BIP richiede BIP 123 per l'implementazione e rappresenta il processo attualmente attivo dal 2025.",
+      "impactMarkdown": "BIP 3 modernizza il processo BIP per l'era corrente dello sviluppo di Bitcoin. Riducendo la discrezionalità degli editor e chiarendo che i BIP sono raccomandazioni degli autori, mira ad abbassare le barriere di contribuzione mantenendo standard di qualità.",
+      "status": "deployed",
+      "category": "process",
+      "authors": [
+        "Murch"
+      ],
+      "createdAt": "2025-01-09",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0003.mediawiki",
+      "tags": [
+        "process",
+        "bip-process"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2025-01-09"
+    },
+    {
+      "id": "bip.8.it",
+      "number": 8,
+      "language": "it",
+      "title": "Version Bits con Lock-in per Altezza",
+      "summary": "Propone un'alternativa a BIP 9 usando altezze di blocco invece di timestamp per l'attivazione degli soft fork.",
+      "summaryMarkdown": "BIP 8 specifica un'alternativa al meccanismo version bits di BIP 9 per il deployment di soft fork backward-compatible. A differenza di BIP 9 che usa i timestamp median time past (MTP), BIP 8 usa le altezze di blocco sia per l'inizio che per il timeout. Introduce inoltre un parametro `lockinontimeout` che può garantire l'attivazione all'altezza di timeout anche senza supermaggioranza dei miner.\n\nLa proposta è stata motivata da preoccupazioni su una perdita improvvisa di hashrate che potrebbe interferire con l'attivazione basata su timestamp di BIP 9.",
+      "impactMarkdown": "BIP 8 rimane in stato Draft ma ha influenzato le discussioni sui meccanismi di attivazione degli soft fork, in particolare durante l'attivazione di Taproot dove il parametro LOT=true di BIP 8 è stato dibattuto.",
+      "status": "draft",
+      "category": "informational",
+      "authors": [
+        "Shaolin Fry",
+        "Luke Dashjr"
+      ],
+      "createdAt": "2017-02-01",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0008.mediawiki",
+      "tags": [
+        "soft-fork",
+        "attivazione"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2017-02-01"
+    },
+    {
+      "id": "bip.9.it",
+      "number": 9,
+      "language": "it",
+      "title": "Version Bits con Timeout e Ritardo",
+      "summary": "Definisce il meccanismo version bits per il deployment parallelo di più soft fork backward-compatible.",
+      "summaryMarkdown": "BIP 9 introduce un meccanismo per distribuire più soft fork simultaneamente interpretando il campo nVersion negli header dei blocchi come un vettore di bit. Ogni bit rappresenta un deployment separato, e l'attivazione richiede una soglia di segnalazione dei miner (tipicamente 95%) in un periodo di retarget. Il meccanismo include un timeout dopo il quale il bit può essere riutilizzato.\n\nQuesto BIP è stato il metodo principale per l'attivazione degli soft fork in Bitcoin dal 2015, usato per BIP 68 (relative lock-time), BIP 112 (CHECKSEQUENCEVERIFY), BIP 113 (median time past) e BIP 141 (SegWit).",
+      "impactMarkdown": "BIP 9 è uno dei BIP informational più importanti, avendo permesso il deployment parallelo di molteplici soft fork critici senza conflitti di coordinamento. Il suo design a bit-vector ha permesso a SegWit e altri aggiornamenti di procedere indipendentemente.",
+      "status": "deployed",
+      "category": "informational",
+      "authors": [
+        "Pieter Wuille",
+        "Peter Todd",
+        "Greg Maxwell",
+        "Rusty Russell"
+      ],
+      "createdAt": "2015-10-04",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki",
+      "tags": [
+        "soft-fork",
+        "attivazione",
+        "version-bits"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2015-10-04"
+    },
+    {
+      "id": "bip.10.it",
+      "number": 10,
+      "language": "it",
+      "title": "Distribuzione di Transazioni Multi-Firma",
+      "summary": "Standardizza la codifica e la distribuzione delle proposte di transazione multi-firma.",
+      "summaryMarkdown": "BIP 10 definisce un formato standard per codificare proposte di transazione multi-firma — chiamate Transaction Distribution Proposal (TxDP) — per facilitare la raccolta di firme e la trasmissione tra più parti. Il formato include la transazione serializzata con script di firma vuoti, le transazioni precedenti complete per la verifica senza accesso alla blockchain, e un meccanismo strutturato per la raccolta e combinazione delle firme.\n\nL'obiettivo è garantire l'interoperabilità tra diverse implementazioni di wallet e firma nella gestione delle transazioni multi-firma.",
+      "impactMarkdown": "Sebbene BIP 10 fornisca uno standard ben progettato per la distribuzione di transazioni multisig, ha visto un'adozione limitata poiché approcci multisig più semplici (BIP 11, BIP 16) hanno ottenuto maggiore implementazione.",
+      "status": "closed",
+      "category": "informational",
+      "authors": [
+        "Alan Reiner"
+      ],
+      "createdAt": "2011-10-28",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0010.mediawiki",
+      "tags": [
+        "multisig",
+        "transazione",
+        "distribuzione"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2011-10-28"
+    },
+    {
+      "id": "bip.11.it",
+      "number": 11,
+      "language": "it",
+      "title": "Transazioni Standard M-of-N",
+      "summary": "Propone transazioni multi-firma M-of-N come nuovo tipo standard usando OP_CHECKMULTISIG.",
+      "summaryMarkdown": "BIP 11 introduce transazioni standard che richiedono M-of-N firme usando l'opcode OP_CHECKMULTISIG. La proposta limita n a 3 o meno per il relay standard. Aumenta la dimensione massima dello scriptSig standard da 200 a 500 byte per ospitare le transazioni multi-firma.\n\nI casi d'uso includono servizi di protezione wallet (2-of-2) e escrow a tre parti (2-of-3). Questo BIP è stato implementato nel client Bitcoin Core.",
+      "impactMarkdown": "BIP 11 è stato il primo standard ad abilitare le transazioni multi-firma su Bitcoin, sbloccando servizi di escrow, wallet condivisi e soluzioni di custodia aziendale. Le multi-firma rimangono centrali per la sicurezza su Bitcoin.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Gavin Andresen"
+      ],
+      "createdAt": "2011-10-18",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki",
+      "tags": [
+        "multisig",
+        "m-of-n",
+        "transazione-standard"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2011-10-18"
+    },
+    {
+      "id": "bip.12.it",
+      "number": 12,
+      "language": "it",
+      "title": "OP_EVAL",
+      "summary": "Propone un nuovo opcode OP_EVAL per consentire condizioni di spesa definite dal ricevente tramite script incorporati.",
+      "summaryMarkdown": "BIP 12 propone l'aggiunta dell'opcode OP_EVAL (ridefinendo OP_NOP1) che permette al ricevente di bitcoin di specificare le condizioni di spesa invece del mittente. Quando eseguito, OP_EVAL deserializza uno script dallo stack e lo esegue, permettendo transazioni in cui il mittente ha bisogno solo di un hash di 20 byte dello script.\n\nLa proposta è stata controversa per la complessità di valutare dati come codice. OP_EVAL non è stato adottato, sostituito da P2SH (BIP 16).",
+      "impactMarkdown": "BIP 12 è stato una proposta formativa nell'evoluzione dello scripting di Bitcoin. Pur non essendo mai stato adottato, le discussioni generate hanno portato direttamente all'approccio P2SH più semplice e sicuro di BIP 16.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Gavin Andresen"
+      ],
+      "createdAt": "2011-10-18",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0012.mediawiki",
+      "tags": [
+        "op-eval",
+        "script",
+        "p2sh"
+      ],
+      "sources": [],
+      "related": [
+        "bip.16"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2012-01-03"
+    },
+    {
+      "id": "bip.13.it",
+      "number": 13,
+      "language": "it",
+      "title": "Formato Indirizzo per Pay-to-Script-Hash",
+      "summary": "Definisce il formato di indirizzo base58 per transazioni pay-to-script-hash (P2SH).",
+      "summaryMarkdown": "BIP 13 specifica la codifica degli indirizzi per le transazioni P2SH. Il nuovo tipo di indirizzo usa il byte versione 5 (mainnet) risultando in indirizzi che iniziano con '3', a differenza del tradizionale '1' per gli indirizzi pay-to-pubkey-hash. L'hash di 20 byte rappresenta l'hash di un redeem script anziché di una chiave pubblica.\n\nQuesto formato permette di inviare fondi a tipi complessi di transazione usando un singolo indirizzo.",
+      "impactMarkdown": "Il formato P2SH di BIP 13 (indirizzi '3') è diventato parte fondamentale dell'esperienza utente di Bitcoin. Ha permesso wallet multi-firma, migliorato la sicurezza degli exchange e gettato le basi per i formati SegWit.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Gavin Andresen"
+      ],
+      "createdAt": "2011-10-18",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki",
+      "tags": [
+        "p2sh",
+        "indirizzo",
+        "codifica"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2011-10-18"
+    },
+    {
+      "id": "bip.14.it",
+      "number": 14,
+      "language": "it",
+      "title": "Versione di Protocollo e User Agent",
+      "summary": "Separa la versione del protocollo Bitcoin dalla versione del client software e introduce una stringa user agent.",
+      "summaryMarkdown": "BIP 14 propone di separare il numero di versione del protocollo Bitcoin dalla versione dell'implementazione del client. Il campo version nei messaggi di protocollo diventa la versione del protocollo, mentre il campo sub_version_num diventa una stringa user-agent strutturata (formato: /Nome:Versione/.../) che identifica il software client.\n\nQuesta separazione permette a diverse implementazioni di interoperare allo stesso livello di protocollo.",
+      "impactMarkdown": "La separazione della versione di protocollo di BIP 14 è stata critica per la diversificazione delle implementazioni Bitcoin. Ha permesso a client alternativi di coesistere con Bitcoin Core senza frammentazione delle versioni.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Amir Taaki",
+        "Patrick Strateman"
+      ],
+      "createdAt": "2011-11-10",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki",
+      "tags": [
+        "protocollo",
+        "versione",
+        "user-agent"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2011-11-10"
+    },
+    {
+      "id": "bip.15.it",
+      "number": 15,
+      "language": "it",
+      "title": "Alias",
+      "summary": "Esplora metodi per creare alias Bitcoin leggibili come alternativa agli indirizzi raw.",
+      "summaryMarkdown": "BIP 15 esamina diversi approcci per la creazione di alias degli indirizzi Bitcoin: FirstBits (usando la blockchain come rubrica), record DNS TXT, servizi server e servizi web HTTPS. Valuta ciascuno in termini di sicurezza, usabilità e decentralizzazione.\n\nLa proposta nota che gli alias richiederebbero una modifica significativa del protocollo. Le analisi di BIP 15 hanno informato il successivo lavoro sul protocollo di pagamento (BIP 70).",
+      "impactMarkdown": "BIP 15 non è stato adottato come standard, ma la sua analisi dei sistemi di alias ha informato direttamente lo sviluppo di BIP 70 (Payment Protocol).",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Amir Taaki"
+      ],
+      "createdAt": "2011-12-10",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0015.mediawiki",
+      "tags": [
+        "alias",
+        "indirizzo",
+        "usabilita"
+      ],
+      "sources": [],
+      "related": [
+        "bip.70"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2013-07-29"
+    },
+    {
+      "id": "bip.16.it",
+      "number": 16,
+      "language": "it",
+      "title": "Pay to Script Hash",
+      "summary": "Definisce il tipo di transazione pay-to-script-hash (P2SH) che sposta la responsabilità delle condizioni di spesa al riscattatore.",
+      "summaryMarkdown": "BIP 16 introduce P2SH come nuovo tipo di transazione standard usando OP_HASH160. Un output P2SH blocca i fondi all'hash di uno script, e il mittente fornisce sia lo script che le firme che lo soddisfano. La validazione richiede che lo script fornito corrisponda all'hash dell'output.\n\nAttivato come soft fork il 1° aprile 2012 (timestamp blocco >= 1333238400). BIP 16 ha sostituito le proposte P2SH precedenti.",
+      "impactMarkdown": "BIP 16 è uno degli soft fork di maggior impatto nella storia di Bitcoin. P2SH ha permesso wallet multi-firma, servizi di escrow e tipi complessi di transazione senza modifiche al protocollo. Ha stabilito il pattern di hashing degli script per gli indirizzi.",
+      "status": "deployed",
+      "category": "specification",
+      "authors": [
+        "Gavin Andresen"
+      ],
+      "createdAt": "2012-01-03",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki",
+      "tags": [
+        "p2sh",
+        "soft-fork",
+        "multi-firma"
+      ],
+      "sources": [],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2012-01-03"
+    },
+    {
+      "id": "bip.17.it",
+      "number": 17,
+      "language": "it",
+      "title": "OP_CHECKHASHVERIFY (CHV)",
+      "summary": "Propone un'implementazione alternativa di P2SH usando un nuovo opcode OP_CHECKHASHVERIFY.",
+      "summaryMarkdown": "BIP 17 propone di implementare pay-to-script-hash tramite un nuovo opcode OP_CHECKHASHVERIFY (ridefinendo OP_NOP2). A differenza di BIP 16 che usa OP_HASH160 ... OP_EQUAL, CHV calcola l'hash della porzione script dello scriptSig e lo confronta con un hash fornito sullo stack.\n\nQuesta era una proposta P2SH concorrente a BIP 16. Non è stata adottata.",
+      "impactMarkdown": "BIP 17 è stato il concorrente perdente nel processo di standardizzazione P2SH. Il suo approccio era più flessibile ma anche più complesso. La mancata adozione ha rafforzato la preferenza della comunità per soft fork più semplici.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2012-01-18",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0017.mediawiki",
+      "tags": [
+        "p2sh",
+        "checkhashverify",
+        "script"
+      ],
+      "sources": [],
+      "related": [
+        "bip.16"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2013-07-29"
+    },
+    {
+      "id": "bip.18.it",
+      "number": 18,
+      "language": "it",
+      "title": "hashScriptCheck",
+      "summary": "Propone un redesign fondamentale degli input e output delle transazioni Bitcoin, sostituendo scriptSig e scriptPubKey.",
+      "summaryMarkdown": "BIP 18 propone di sostituire scriptSig e scriptPubKey con tre nuovi elementi: dataSig (elementi dati serializzati negli input), scriptCheck (l'elemento finale di dataSig, eseguito con i dati precedenti precaricati) e hashScriptCheck (che sostituisce scriptPubKey).\n\nQuesto rappresentava un redesign più radicale degli approcci P2SH concorrenti. Ha raggiunto lo stato Complete ma non è stato adottato.",
+      "impactMarkdown": "BIP 18 rappresenta un percorso di design alternativo considerato durante la standardizzazione P2SH. Pur non adottato, le sue idee sulla separazione tra dati ed esecuzione degli script hanno influenzato il pensiero successivo sull'architettura di Bitcoin.",
+      "status": "complete",
+      "category": "specification",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2012-01-27",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0018.mediawiki",
+      "tags": [
+        "p2sh",
+        "script",
+        "consenso"
+      ],
+      "sources": [],
+      "related": [
+        "bip.16"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2013-07-29"
+    },
+    {
+      "id": "bip.19.it",
+      "number": 19,
+      "language": "it",
+      "title": "Transazioni Standard M-of-N (Low SigOp)",
+      "summary": "Propone multi-firma M-of-N usando catene OP_CHECKSIG invece di OP_CHECKMULTISIG per ridurre i costi di sigop.",
+      "summaryMarkdown": "BIP 19 propone un approccio alternativo alla multi-firma M-of-N che usa catene di OP_CHECKSIG e OP_CHECKSIGVERIFY invece dell'opcode OP_CHECKMULTISIG. Questo evita la penalità di 20 sigop per transazione, permettendo più transazioni multi-firma per blocco.\n\nVengono definiti due pattern: N-of-N (tutte le firme richieste) e M-of-N (sottoinsieme richiesto).",
+      "impactMarkdown": "BIP 19 affrontava una preoccupazione pratica dell'approccio di BIP 11: la penalità di contabilità dei sigop. Sebbene BIP 11 sia diventato lo standard, l'analisi di BIP 19 ha influenzato i successivi miglioramenti alle regole di conteggio sigop di Bitcoin.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2012-01-30",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0019.mediawiki",
+      "tags": [
+        "multisig",
+        "low-sigop",
+        "transazione-standard"
+      ],
+      "sources": [],
+      "related": [
+        "bip.11"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2013-07-29"
+    },
+    {
+      "id": "bip.20.it",
+      "number": 20,
+      "language": "it",
+      "title": "Schema URI",
+      "summary": "Propone uno schema URI 'bitcoin:' per effettuare pagamenti Bitcoin tramite link cliccabili e codici QR.",
+      "summaryMarkdown": "BIP 20 specifica uno schema URI con il prefisso 'bitcoin:' per codificare richieste di pagamento. Il formato include un indirizzo Bitcoin e parametri opzionali per importo, etichetta, messaggio e istruzioni di invio.\n\nQuesto BIP è stato sostituito da BIP 21, che ha semplificato lo schema rimuovendo il parametro versione.",
+      "impactMarkdown": "BIP 20 ha stabilito il concetto di uno schema URI Bitcoin standardizzato, abilitando il protocollo 'bitcoin:' ora universalmente supportato dai wallet. Sebbene sostituito da BIP 21, ha gettato le basi concettuali.",
+      "status": "closed",
+      "category": "specification",
+      "authors": [
+        "Luke Dashjr"
+      ],
+      "createdAt": "2011-01-10",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0020.mediawiki",
+      "tags": [
+        "uri",
+        "pagamento",
+        "qr-code"
+      ],
+      "sources": [],
+      "related": [
+        "bip.21"
+      ],
+      "statusHistory": [],
+      "updatedAt": "2012-01-03"
+    }
+  ],
   "changelogs": [],
-  "totalRecords": 90,
-  "historyCount": 26
+  "totalRecords": 113,
+  "historyCount": 35
 }
