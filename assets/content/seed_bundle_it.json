@@ -9451,7 +9451,7 @@
       "number": 141,
       "language": "it",
       "title": "Segregated Witness (Consensus layer)",
-      "summary": "BIP 141: Segregated Witness (Consensus layer).",
+      "summary": "Introduce Segregated Witness (SegWit), un soft fork che separa le firme delle transazioni dai dati della transazione, risolvendo la malleabilità e aumentando la capacità dei blocchi.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -9460,8 +9460,8 @@
         "Pieter Wuille"
       ],
       "createdAt": "2015-12-21",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 141 definisce il livello di consenso di SegWit. Sposta i dati witness (firme e script) in una struttura separata, eliminando la malleabilità delle transazioni. Introduce un sistema di weight unit che aumenta la capacità effettiva dei blocchi fino a ~4 MB senza hard fork.\n\nSegWit è stato attivato ad agosto 2017 dopo il UASF BIP 148.",
+      "impactMarkdown": "SegWit è stato l'aggiornamento più impattante prima di Taproot. Ha abilitato la Lightning Network, aumentato la capacità dei blocchi e introdotto un sistema di versionamento degli script.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
       "tags": [
         "BIP",
@@ -9480,10 +9480,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "442d9dd8bfc9816414ebc129dacd7e462f5d8c8a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9491,15 +9488,15 @@
       "number": 142,
       "language": "it",
       "title": "Address Format for Segregated Witness",
-      "summary": "BIP 142: Address Format for Segregated Witness.",
+      "summary": "Propone un nuovo formato di indirizzo per output SegWit usando una codifica base58 estesa.",
       "status": "closed",
       "category": "applications",
       "authors": [
         "Johnson Lau"
       ],
       "createdAt": "2015-12-24",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 142 specificava un formato indirizzo per SegWit con base58 esteso. Chiuso in favore di BIP 173 (Bech32) per gli indirizzi SegWit nativi.",
+      "impactMarkdown": "BIP 142 è stato chiuso in favore di BIP 173.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0142.mediawiki",
       "tags": [
         "BIP",
@@ -9518,10 +9515,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "4081eb0ceefb954f98111f4ff875405e53cf0513",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0142.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9529,7 +9523,7 @@
       "number": 143,
       "language": "it",
       "title": "Transaction Signature Verification for Version 0 Witness Program",
-      "summary": "BIP 143: Transaction Signature Verification for Version 0 Witness Program.",
+      "summary": "Definisce il nuovo algoritmo di verifica delle firme per programmi witness SegWit versione 0, risolvendo l'hashing quadratico e semplificando la firma.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -9537,8 +9531,8 @@
         "Pieter Wuille"
       ],
       "createdAt": "2016-01-03",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 143 specifica il nuovo algoritmo di hash delle firme per SegWit, eliminando l'hashing quadratico O(n²) nelle transazioni multisig e semplificando la firma su hardware wallet.",
+      "impactMarkdown": "BIP 143 è stato implementato come parte del soft fork SegWit.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki",
       "tags": [
         "BIP",
@@ -9557,10 +9551,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "5d451c221fa9ef052325c42086b8a7097b942556",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9568,7 +9559,7 @@
       "number": 144,
       "language": "it",
       "title": "Segregated Witness (Peer Services)",
-      "summary": "BIP 144: Segregated Witness (Peer Services).",
+      "summary": "Definisce le modifiche al protocollo peer-to-peer per SegWit, inclusi nuovi tipi di messaggio e regole di relay.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
@@ -9576,8 +9567,8 @@
         "Pieter Wuille"
       ],
       "createdAt": "2016-01-08",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 144 specifica il livello P2P di SegWit: bit di servizio NODE_WITNESS, messaggi witness per blocchi e transazioni, e regole di relay backward-compatible.",
+      "impactMarkdown": "BIP 144 è stato implementato insieme a BIP 141 e BIP 143.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki",
       "tags": [
         "BIP",
@@ -9596,10 +9587,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0c555fd767007fdc97c5a8b4019a86d1fc9afcb8",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9607,15 +9595,15 @@
       "number": 145,
       "language": "it",
       "title": "getblocktemplate Updates for Segregated Witness",
-      "summary": "BIP 145: getblocktemplate Updates for Segregated Witness.",
+      "summary": "Aggiorna il protocollo mining getblocktemplate per supportare la selezione delle transazioni e l'assemblaggio dei blocchi SegWit.",
       "status": "deployed",
       "category": "api-rpc",
       "authors": [
         "Luke Dashjr"
       ],
       "createdAt": "2016-01-30",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 145 aggiorna getblocktemplate (BIP 22) per SegWit, definendo come il software di mining richiede transazioni con witness e costruisce blocchi SegWit.",
+      "impactMarkdown": "BIP 145 è stato implementato come parte di SegWit.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki",
       "tags": [
         "BIP",
@@ -9634,10 +9622,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "eec525005ade4d96a2978c51e7514dea188772b0",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9645,7 +9630,7 @@
       "number": 146,
       "language": "it",
       "title": "Dealing with signature encoding malleability",
-      "summary": "BIP 146: Dealing with signature encoding malleability.",
+      "summary": "Propone ulteriori regole di consenso per eliminare la malleabilità delle firme non completamente risolta da BIP 66.",
       "status": "closed",
       "category": "consensus",
       "authors": [
@@ -9653,8 +9638,8 @@
         "Pieter Wuille"
       ],
       "createdAt": "2016-08-16",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 146 identificava forme residue di malleabilità dopo BIP 66. Chiuso perché le sue disposizioni sono state incorporate in BIP 147 e SegWit.",
+      "impactMarkdown": "BIP 146 è stato chiuso. Le sue preoccupazioni sono state affrontate da BIP 147 e SegWit.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki",
       "tags": [
         "BIP",
@@ -9673,10 +9658,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "5d1c4418fd08e1faa28251209cdf63b1fb6d79df",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9684,15 +9666,15 @@
       "number": 147,
       "language": "it",
       "title": "Dealing with dummy stack element malleability",
-      "summary": "BIP 147: Dealing with dummy stack element malleability.",
+      "summary": "Risolve un vettore di malleabilità che coinvolge l'elemento dummy in OP_CHECKMULTISIG.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
         "Johnson Lau"
       ],
       "createdAt": "2016-09-02",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 147 richiede che l'elemento dummy in OP_CHECKMULTISIG sia esattamente `OP_0` nelle transazioni SegWit, eliminando quella fonte di malleabilità.",
+      "impactMarkdown": "BIP 147 è stato implementato come parte del soft fork SegWit.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki",
       "tags": [
         "BIP",
@@ -9711,10 +9693,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "92ae72e2ad8ef9949ee5a71b69fc0fd41bf21ebc",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9722,15 +9701,15 @@
       "number": 148,
       "language": "it",
       "title": "Mandatory activation of segwit deployment",
-      "summary": "BIP 148: Mandatory activation of segwit deployment.",
+      "summary": "Specifica un user-activated soft fork (UASF) per imporre l'attivazione di SegWit entro una data specifica, rompendo lo stallo di attivazione.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
         "Shaolin Fry"
       ],
       "createdAt": "2017-03-12",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 148 specificava che dopo il 1 agosto 2017 i nodi avrebbero rifiutato blocchi non SegWit-ready. Ha creato una UASF che ha sbloccato l'attivazione di SegWit.\n\nNon si è mai attivato perché SegWit ha raggiunto la soglia del 95% prima della scadenza.",
+      "impactMarkdown": "BIP 148 è ampiamente riconosciuto come fattore che ha sbloccato l'attivazione di SegWit fornendo una credibile minaccia UASF.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki",
       "tags": [
         "BIP",
@@ -9749,10 +9728,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "11aac27d8662b14b5f16e4425f87ac3988716afa",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9760,15 +9736,15 @@
       "number": 149,
       "language": "it",
       "title": "Segregated Witness (second deployment)",
-      "summary": "BIP 149: Segregated Witness (second deployment).",
+      "summary": "Propone un secondo meccanismo di deployment per SegWit come fallback se il deployment BIP 9 iniziale falliva.",
       "status": "closed",
       "category": "consensus",
       "authors": [
         "Shaolin Fry"
       ],
       "createdAt": "2017-04-14",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 149 specificava un piano di backup per l'attivazione di SegWit. Chiuso perché non necessario dopo l'attivazione riuscita di SegWit.",
+      "impactMarkdown": "BIP 149 è stato chiuso perché non necessario.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0149.mediawiki",
       "tags": [
         "BIP",
@@ -9787,10 +9763,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3663dd9c93408f8d86b44107d19a3ed2df3f97d7",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0149.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9798,15 +9771,15 @@
       "number": 150,
       "language": "it",
       "title": "Peer Authentication",
-      "summary": "BIP 150: Peer Authentication.",
+      "summary": "Propone autenticazione dei peer per la rete P2P di Bitcoin utilizzando crittografia a curva ellittica.",
       "status": "closed",
       "category": "peer-services",
       "authors": [
         "Jonas Schnelli"
       ],
       "createdAt": "2016-03-23",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 150 specificava un protocollo di autenticazione peer opzionale per la rete P2P con firme ECDSA.",
+      "impactMarkdown": "BIP 150 è stato chiuso senza adozione.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0150.mediawiki",
       "tags": [
         "BIP",
@@ -9825,10 +9798,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "989bf782157dc4ef23ce9f66eca1a5e22b5e9310",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0150.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9836,15 +9806,15 @@
       "number": 151,
       "language": "it",
       "title": "Peer-to-Peer Communication Encryption",
-      "summary": "BIP 151: Peer-to-Peer Communication Encryption.",
+      "summary": "Propone crittografia per le comunicazioni peer-to-peer di Bitcoin per proteggersi dalla sorveglianza passiva.",
       "status": "closed",
       "category": "peer-services",
       "authors": [
         "Jonas Schnelli"
       ],
       "createdAt": "2016-03-23",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 151 definiva un protocollo per crittografare i messaggi P2P usando scambio di chiavi Diffie-Hellman.",
+      "impactMarkdown": "BIP 151 è stato chiuso senza adozione.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki",
       "tags": [
         "BIP",
@@ -9863,10 +9833,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "cb290042dce66186f755f1b45fdebee34db01a28",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9874,15 +9841,15 @@
       "number": 152,
       "language": "it",
       "title": "Compact Block Relay",
-      "summary": "BIP 152: Compact Block Relay.",
+      "summary": "Introduce il compact block relay (BIP 152), riducendo la larghezza di banda per la propagazione dei blocchi inviando ID di transazione brevi invece di transazioni complete.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
         "Matt Corallo"
       ],
       "createdAt": "2016-04-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 152 specifica due modalità per il relay compatto dei blocchi, riducendo drasticamente la larghezza di banda: un blocco compatto tipico è 3-10 KB contro 1+ MB.\n\nIl ricevente ricostruisce il blocco completo abbinando gli ID brevi con la propria mempool.",
+      "impactMarkdown": "BIP 152 è implementato in Bitcoin Core e nella maggior parte dei nodi, migliorando significativamente l'efficienza della propagazione dei blocchi.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki",
       "tags": [
         "BIP",
@@ -9901,10 +9868,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ee098e0147e941072362f29788c202f8451b777b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9912,15 +9876,15 @@
       "number": 154,
       "language": "it",
       "title": "Rate Limiting via peer specified challenges",
-      "summary": "BIP 154: Rate Limiting via peer specified challenges.",
+      "summary": "Propone limitazione della velocità delle connessioni peer usando challenge proof-of-work.",
       "status": "closed",
       "category": "peer-services",
       "authors": [
         "Karl-Johan Alm"
       ],
       "createdAt": "2017-04-12",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 154 specificava un meccanismo per limitare le connessioni peer con challenge crittografici.",
+      "impactMarkdown": "BIP 154 è stato chiuso senza adozione.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0154.mediawiki",
       "tags": [
         "BIP",
@@ -9939,10 +9903,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "d491036ae17827eb400a2870a99a8f2202d764bf",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0154.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9950,15 +9911,15 @@
       "number": 155,
       "language": "it",
       "title": "addrv2 message",
-      "summary": "BIP 155: addrv2 message.",
+      "summary": "Introduce il messaggio addrv2, estendendo addr per supportare indirizzi di rete più lunghi come Tor v3 e I2P.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
         "Wladimir J. van der Laan"
       ],
       "createdAt": "2019-02-27",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 155 definisce un nuovo messaggio `addrv2` che supporta ID di rete a lunghezza variabile per Tor v3, I2P e CJDNS, oltre a IPv4/IPv6.",
+      "impactMarkdown": "BIP 155 è implementato in Bitcoin Core, abilitando nodi su reti Tor v3 e I2P.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki",
       "tags": [
         "BIP",
@@ -9977,10 +9938,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ba13a5c688860a02848ca2d357c1b44cf7faafb7",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9988,7 +9946,7 @@
       "number": 156,
       "language": "it",
       "title": "Dandelion - Privacy Enhancing Routing",
-      "summary": "BIP 156: Dandelion - Privacy Enhancing Routing.",
+      "summary": "Propone Dandelion, un protocollo di relay transazioni che migliora la privacy oscurando l'origine delle transazioni.",
       "status": "closed",
       "category": "peer-services",
       "authors": [
@@ -10000,8 +9958,8 @@
         "Pramod Viswanath"
       ],
       "createdAt": "2017-06-09",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 156 specificava Dandelion, che invia le transazioni attraverso un percorso anonimo (stem) prima di inondare la rete (fluff), rendendo difficile determinare l'origine.",
+      "impactMarkdown": "BIP 156 è stato chiuso senza implementazione.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0156.mediawiki",
       "tags": [
         "BIP",
@@ -10020,10 +9978,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "093ee5f6101333935b0b940d058510fbb7a5c029",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0156.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10031,7 +9986,7 @@
       "number": 157,
       "language": "it",
       "title": "Client Side Block Filtering",
-      "summary": "BIP 157: Client Side Block Filtering.",
+      "summary": "Specifica il filtering lato client dei blocchi, consentendo ai client leggeri di filtrare efficientemente i blocchi per transazioni rilevanti.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
@@ -10040,8 +9995,8 @@
         "Jim Posen"
       ],
       "createdAt": "2017-05-24",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 157 definisce un protocollo in cui i nodi completi generano filtri compatti per ogni blocco. I client leggeri scaricano i filtri e verificano localmente senza rivelare i propri indirizzi.",
+      "impactMarkdown": "BIP 157 è implementato in Bitcoin Core come alternativa privata ai filtri Bloom.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki",
       "tags": [
         "BIP",
@@ -10060,10 +10015,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "8b8d3bac250ea77c56addf4788f4dda479d304e9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10071,7 +10023,7 @@
       "number": 158,
       "language": "it",
       "title": "Compact Block Filters for Light Clients",
-      "summary": "BIP 158: Compact Block Filters for Light Clients.",
+      "summary": "Definisce il formato per i filtri compatti dei blocchi usati nel protocollo di filtering lato client BIP 157.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
@@ -10079,8 +10031,8 @@
         "Alex Akselrod"
       ],
       "createdAt": "2017-05-24",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 158 specifica il formato GCS (Golomb-coded set) per i filtri dei blocchi, con filtri tipicamente di 10-15 KB per blocco e tasso di falsi positivi configurabile.",
+      "impactMarkdown": "BIP 158 è implementato insieme a BIP 157 come formato standard per i filtri.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki",
       "tags": [
         "BIP",
@@ -10099,10 +10051,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "9456809fbc24ed8399c46a868b1627def270ecb3",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10110,15 +10059,15 @@
       "number": 159,
       "language": "it",
       "title": "NODE_NETWORK_LIMITED service bit",
-      "summary": "BIP 159: NODE_NETWORK_LIMITED service bit.",
+      "summary": "Introduce il bit di servizio NODE_NETWORK_LIMITED, consentendo ai nodi pruned di servire un numero limitato di blocchi recenti ai peer.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
         "Jonas Schnelli"
       ],
       "createdAt": "2017-05-11",
-      "summaryMarkdown": "Bozza generata dai metadati ufficiali del BIP. Richiede revisione tecnica prima della pubblicazione editoriale.",
-      "impactMarkdown": "Impatto da verificare durante la review del maintainer.",
+      "summaryMarkdown": "Il BIP 159 definisce un bit di servizio P2P che permette ai nodi pruned di servire gli ultimi ~288 blocchi, aumentando la disponibilità di nodi per la sincronizzazione dei nuovi peer.",
+      "impactMarkdown": "BIP 159 è implementato in Bitcoin Core e migliora la salute della rete.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki",
       "tags": [
         "BIP",
@@ -10137,10 +10086,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "aff114436c672188d1254021762933827238f53f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
