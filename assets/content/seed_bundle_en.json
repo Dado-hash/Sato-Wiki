@@ -10477,7 +10477,7 @@
       "number": 197,
       "language": "en",
       "title": "Hashed Time-Locked Collateral Contract",
-      "summary": "BIP 197: Hashed Time-Locked Collateral Contract.",
+      "summary": "Defines Hashed Time-Locked Collateral Contracts (HTLCC) for cross-chain atomic swaps using collateral.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -10485,8 +10485,8 @@
         "Tony Cai"
       ],
       "createdAt": "2019-03-19",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 197 specifies HTLCC, a contract type where collateral is locked alongside the payment to enforce honest behavior in cross-chain atomic swaps. If one party defaults, the collateral compensates the other.\n\nThis enables trustless cross-chain trading where both parties have financial incentive to complete the swap.",
+      "impactMarkdown": "BIP 197 is in Draft status. Cross-chain atomic swaps have been implemented through other mechanisms, with HTLCC remaining a proposal.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0197.mediawiki",
       "tags": [
         "BIP",
@@ -10505,10 +10505,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "b7252f60c3bba0b68cc680eb7f47c8d7e60feb8b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0197.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10516,7 +10513,7 @@
       "number": 199,
       "language": "en",
       "title": "Hashed Time-Locked Contract transactions",
-      "summary": "BIP 199: Hashed Time-Locked Contract transactions.",
+      "summary": "Defines Hashed Time-Locked Contract (HTLC) transactions for Bitcoin, enabling atomic swaps and Lightning Network payments.",
       "status": "closed",
       "category": "applications",
       "authors": [
@@ -10524,8 +10521,8 @@
         "Daira Hopwood"
       ],
       "createdAt": "2017-03-27",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 199 specifies the standard HTLC transaction format for Bitcoin. An HTLC requires the recipient to acknowledge receipt before a deadline by revealing a cryptographic hash preimage, or the funds return to the sender. This is the fundamental building block for routed payments in the Lightning Network.\n\nThe BIP defines the script structure, timeout handling, and transaction formats for both successful claims and refunds.",
+      "impactMarkdown": "BIP 199 was closed after its HTLC specification was implemented as part of the Lightning Network. HTLCs are now a core component of LN and other off-chain protocols.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0199.mediawiki",
       "tags": [
         "BIP",
@@ -10544,10 +10541,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "74bf6d6b1386d690562f6b96b2c5dca5e15c4454",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0199.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10555,7 +10549,7 @@
       "number": 300,
       "language": "en",
       "title": "Hashrate Escrows (Consensus layer)",
-      "summary": "BIP 300: Hashrate Escrows (Consensus layer).",
+      "summary": "Proposes Hashrate Escrows, a soft fork enabling miners to enforce smart contracts based on hashrate voting.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -10563,8 +10557,8 @@
         "CryptAxe"
       ],
       "createdAt": "2017-08-14",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 300 introduces Hashrate Escrows (HE), allowing the Bitcoin protocol to record structured data via miner coinbase outputs. Miners vote to ratify escrows that lock and release funds based on conditions embedded in the blockchain. Uses include sidechain peg mechanisms and DAO-like structures secured by mining power.\n\nThe proposal requires a soft fork and includes a two-way peg mechanism for sidechains.",
+      "impactMarkdown": "BIP 300 is in Draft status. It has been discussed in the context of Drivechain sidechains but has not been adopted. The BIP remains controversial due to concerns about miner power expansion.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0300.mediawiki",
       "tags": [
         "BIP",
@@ -10583,10 +10577,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a09c635445e73ab1409881f04920d442f52647db",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0300.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10594,7 +10585,7 @@
       "number": 301,
       "language": "en",
       "title": "Blind Merged Mining (Consensus layer)",
-      "summary": "BIP 301: Blind Merged Mining (Consensus layer).",
+      "summary": "Proposes Blind Merged Mining, a soft fork allowing sidechains to be secured by Bitcoin mining without requiring miner awareness of sidechain content.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -10602,8 +10593,8 @@
         "CryptAxe"
       ],
       "createdAt": "2019-07-23",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 301 introduces Blind Merged Mining (BMM), enabling sidechains to receive Bitcoin-level security through merged mining. Unlike traditional merged mining where miners see sidechain data, BMM uses Hashrate Escrows (BIP 300) to let miners commit to sidechain work without seeing the content.\n\nThis is designed to work alongside BIP 300 for secure sidechain peg mechanisms.",
+      "impactMarkdown": "BIP 301 is in Draft status alongside BIP 300. It remains part of the Drivechain proposal set but has not been adopted.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0301.mediawiki",
       "tags": [
         "BIP",
@@ -10622,10 +10613,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "aabd41e271d5133df6710e138738344b04e5e3fb",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0301.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10633,7 +10621,7 @@
       "number": 310,
       "language": "en",
       "title": "Stratum protocol extensions",
-      "summary": "BIP 310: Stratum protocol extensions.",
+      "summary": "Proposes extensions to the Stratum mining protocol for improved efficiency and capabilities.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -10641,8 +10629,8 @@
         "Jan Čapek"
       ],
       "createdAt": "2018-03-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 310 specifies extensions to the Stratum protocol used for communication between mining pools and miners. Extensions include improved job negotiation, better version-rolling support, and enhanced error reporting.",
+      "impactMarkdown": "BIP 310 is in Draft status. Stratum protocol improvements have continued through industry standards rather than formal BIPs.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0310.mediawiki",
       "tags": [
         "BIP",
@@ -10661,10 +10649,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6b3b0d17360a9466cf977be379bcd11d3ec4e4b3",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0310.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10672,15 +10657,15 @@
       "number": 320,
       "language": "en",
       "title": "nVersion bits for general purpose use",
-      "summary": "BIP 320: nVersion bits for general purpose use.",
+      "summary": "Proposes using the nVersion field bits for general-purpose signaling beyond BIP 9 deployment mechanism.",
       "status": "draft",
       "category": "specification",
       "authors": [
         "BtcDrak"
       ],
       "createdAt": "2018-03-01",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 320 generalizes the use of nVersion field bits in block headers. BIP 9 reserved specific bits for soft fork signaling, but BIP 320 proposes making the remaining bits available for other consensus-related signaling purposes.",
+      "impactMarkdown": "BIP 320 is in Draft status. The use of version bits remains primarily governed by BIP 9 conventions.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0320.mediawiki",
       "tags": [
         "BIP",
@@ -10699,10 +10684,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "120822f58626dce5afcb214d0e16768bec007d22",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0320.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10710,15 +10692,15 @@
       "number": 321,
       "language": "en",
       "title": "URI Scheme",
-      "summary": "BIP 321: URI Scheme.",
+      "summary": "Defines a URI scheme for Bitcoin-related resources beyond payment requests.",
       "status": "complete",
       "category": "applications",
       "authors": [
         "Matt Corallo"
       ],
       "createdAt": "2024-11-15",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 321 specifies a URI scheme for referencing Bitcoin resources, extending the bitcoin: scheme beyond simple payments. The format supports referencing blocks, transactions, addresses, and other blockchain data.",
+      "impactMarkdown": "BIP 321 is Complete as a standard. Adoption has been limited, with most applications using custom URL schemes.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0321.mediawiki",
       "tags": [
         "BIP",
@@ -10737,10 +10719,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "74a8689fda65d5da497f114ef8456527964aa7be",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0321.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10748,7 +10727,7 @@
       "number": 322,
       "language": "en",
       "title": "Generic Signed Message Format",
-      "summary": "BIP 322: Generic Signed Message Format.",
+      "summary": "Standardizes a generic signed message format supporting all address types including SegWit and Taproot.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -10756,8 +10735,8 @@
         "Oliver Gugger"
       ],
       "createdAt": "2018-09-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 322 defines a unified message signing format that works across address types. Unlike BIP 137 which focused on legacy addresses, BIP 322 supports P2PKH, P2SH, P2WPKH, P2WSH, and P2TR addresses. The format uses a PSBT-like structure to encapsulate signatures.",
+      "impactMarkdown": "BIP 322 is Complete. Adoption has been gradual, with wallets adding support for the generalized signing format alongside or replacing legacy message signing.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki",
       "tags": [
         "BIP",
@@ -10776,10 +10755,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ff4a3ffade7089842c4e173c8cd7cd75c416cccd",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10787,15 +10763,15 @@
       "number": 323,
       "language": "en",
       "title": "24 nVersion bits for general purpose use",
-      "summary": "BIP 323: 24 nVersion bits for general purpose use.",
+      "summary": "Proposes using 24 bits of the nVersion field for general-purpose signaling, extending BIP 320 approach.",
       "status": "draft",
       "category": "specification",
       "authors": [
         "Matt Corallo"
       ],
       "createdAt": "2026-04-22",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 323 extends BIP 320 by proposing to use up to 24 bits of the nVersion field for signaling. This provides more signaling capacity than BIP 320 approach while maintaining backward compatibility.",
+      "impactMarkdown": "BIP 323 is in Draft status. Like BIP 320, it has not been adopted as the Bitcoin community has not needed additional version bit capacity.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0323.mediawiki",
       "tags": [
         "BIP",
@@ -10814,10 +10790,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7cbba721a8725743a92a4eee51c9f57c8b243f1a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0323.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10825,7 +10798,7 @@
       "number": 324,
       "language": "en",
       "title": "Version 2 P2P Encrypted Transport Protocol",
-      "summary": "BIP 324: Version 2 P2P Encrypted Transport Protocol.",
+      "summary": "Specifies v2 P2P transport protocol with opportunistic encryption, replacing plaintext Bitcoin P2P messages.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
@@ -10835,8 +10808,8 @@
         "Pieter Wuille"
       ],
       "createdAt": "2019-03-08",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 324 defines a new version of the Bitcoin P2P transport protocol (v2) that adds opportunistic encryption. The protocol uses a lightweight handshake with elliptic curve Diffie-Hellman (ECDH) to establish encrypted communication between peers. It introduces a new message format with short message types.\n\nThe encryption protects against passive surveillance and traffic analysis of the Bitcoin network. The protocol is designed as a drop-in replacement for the existing v1 transport, supporting both encrypted and unencrypted connections.",
+      "impactMarkdown": "BIP 324 is deployed in Bitcoin Core 26.0+. The v2 P2P transport is one of the most significant network-level upgrades, improving privacy for all Bitcoin users. Adoption is growing as nodes upgrade to newer versions.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0324.mediawiki",
       "tags": [
         "BIP",
@@ -10855,10 +10828,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "e0bdd8a58420626693da25ff48d20039766e8928",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0324.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10866,7 +10836,7 @@
       "number": 325,
       "language": "en",
       "title": "Signet",
-      "summary": "BIP 325: Signet.",
+      "summary": "Defines Signet, a test network with centralized block signing for more reliable Bitcoin testing.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -10874,8 +10844,8 @@
         "Anthony Towns"
       ],
       "createdAt": "2019-03-20",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 325 specifies Signet, a new test network where blocks are signed by a centralized authority. Unlike Testnet proof-of-work, Signet blocks require a valid signature from the network signing key. This prevents the block generation inflation and chain bloat problems of Testnet.\n\nSignet provides developers with a more stable testing environment: blocks are produced at predictable intervals, the chain stays compact, and test coins cannot be mined in infinite quantities.",
+      "impactMarkdown": "BIP 325 is Complete and widely adopted. Signet has become the preferred test network for Bitcoin application development, replacing Testnet for most development scenarios.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0325.mediawiki",
       "tags": [
         "BIP",
@@ -10894,10 +10864,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "d8485d620e47e22e9402e195b152a6e5e6a7da12",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0325.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10905,15 +10872,15 @@
       "number": 326,
       "language": "en",
       "title": "Anti-fee-sniping in taproot transactions",
-      "summary": "BIP 326: Anti-fee-sniping in taproot transactions.",
+      "summary": "Proposes anti-fee-sniping in Taproot transactions using nLockTime to prevent fee sniping attacks.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Chris Belcher"
       ],
       "createdAt": "2021-06-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 326 suggests best practices for Taproot transactions to include nLockTime or nSequence values that prevent miners from selectively reordering transactions to extract fees (fee sniping). By setting a locktime to the current block height, the transaction cannot be included in earlier blocks, limiting miner flexibility.\n\nThe proposal is particularly relevant for Taproot outputs and includes specific recommendations for wallet implementation.",
+      "impactMarkdown": "BIP 326 is in Draft status. Many wallets now include nLockTime to prevent fee sniping as a standard practice, regardless of Taproot usage.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0326.mediawiki",
       "tags": [
         "BIP",
@@ -10932,10 +10899,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "ef71d626e1f6217c0f5127daf8494bb5b922f114",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0326.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10943,7 +10907,7 @@
       "number": 327,
       "language": "en",
       "title": "MuSig2 for BIP340-compatible Multi-Signatures",
-      "summary": "BIP 327: MuSig2 for BIP340-compatible Multi-Signatures.",
+      "summary": "Defines MuSig2, a multi-signature scheme using BIP 340 Schnorr signatures for efficient and privacy-preserving multisig.",
       "status": "deployed",
       "category": "informational",
       "authors": [
@@ -10952,8 +10916,8 @@
         "Elliott Jin"
       ],
       "createdAt": "2022-03-22",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 327 specifies MuSig2, a multi-signature protocol that allows multiple signers to produce a single aggregate Schnorr signature. Unlike traditional multisig (where m-of-n signatures are all visible on-chain), MuSig2 produces a single signature that looks identical to a single-party signature.\n\nMuSig2 requires only two communication rounds between signers. It supports arbitrary signer sets and threshold configurations. The aggregated signature saves block space and improves privacy since observers cannot distinguish multisig from single-sig transactions.",
+      "impactMarkdown": "BIP 327 is deployed and widely adopted. MuSig2 is used by advanced wallet setups and FROST threshold signature implementations. It represents a significant improvement over OP_CHECKMULTISIG for multisignature transactions.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki",
       "tags": [
         "BIP",
@@ -10972,10 +10936,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2ed08ba744b12bdfc15dd7ec28ec7f031365efa9",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10983,15 +10944,15 @@
       "number": 328,
       "language": "en",
       "title": "Derivation Scheme for MuSig2 Aggregate Keys",
-      "summary": "BIP 328: Derivation Scheme for MuSig2 Aggregate Keys.",
+      "summary": "Defines the derivation scheme for MuSig2 aggregate keys in BIP 32 hierarchical deterministic wallets.",
       "status": "complete",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2024-06-04",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 328 specifies how MuSig2 aggregate public keys are derived within BIP 32 HD wallets. It defines the key derivation paths and the algorithm for computing aggregate keys from multiple participant public keys.\n\nThis standard ensures that MuSig2 multisig wallets can be recovered from seed phrases, similar to how BIP 44 defines derivation for single-sig wallets.",
+      "impactMarkdown": "BIP 328 is Complete. It provides the necessary HD wallet integration for MuSig2, enabling deterministic recovery of multisig wallets using aggregated Schnorr signatures.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0328.mediawiki",
       "tags": [
         "BIP",
@@ -11010,10 +10971,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "b0c0218b477f46e736befc03e3ab5fcfc8f5fad0",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0328.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11021,15 +10979,15 @@
       "number": 329,
       "language": "en",
       "title": "Wallet Labels Export Format",
-      "summary": "BIP 329: Wallet Labels Export Format.",
+      "summary": "Defines a format for exporting wallet transaction labels and metadata for portability between wallets.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Craig Raw"
       ],
       "createdAt": "2022-08-23",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 329 specifies a JSON format for exporting wallet labels, notes, and categorization data. Users can annotate transactions with descriptions, categories, and tags in one wallet, then import that metadata into another wallet.\n\nThe format standardizes the label data structure, making wallet migration and multi-wallet usage more practical.",
+      "impactMarkdown": "BIP 329 is in Draft status but has been adopted by several wallets including Bitcoin Core and Specter for label export/import functionality.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0329.mediawiki",
       "tags": [
         "BIP",
@@ -11048,10 +11006,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "c8b2e76fa0c08fa5a773b2d143b9cf396212dc78",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0329.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11059,7 +11014,7 @@
       "number": 330,
       "language": "en",
       "title": "Transaction announcements reconciliation",
-      "summary": "BIP 330: Transaction announcements reconciliation.",
+      "summary": "Proposes transaction announcement reconciliation (Erlay), reducing transaction relay bandwidth by 40%+ using set reconciliation.",
       "status": "draft",
       "category": "peer-services",
       "authors": [
@@ -11067,8 +11022,8 @@
         "Pieter Wuille"
       ],
       "createdAt": "2019-09-25",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 330 introduces Erlay, a protocol for efficient transaction relay using set reconciliation. Instead of announcing transactions to all peers individually, nodes periodically reconcile their transaction pools using a bandwidth-efficient set reconciliation protocol.\n\nThis reduces the bandwidth overhead of transaction relay by 40-80%, particularly for nodes with many peers.",
+      "impactMarkdown": "BIP 330 is in Draft status but has significant development interest. Erlay has been prototyped in Bitcoin Core and testing shows substantial bandwidth reductions.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0330.mediawiki",
       "tags": [
         "BIP",
@@ -11087,10 +11042,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "1469892fbe282f54d62b79b40b4eec939d906786",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0330.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11098,15 +11050,15 @@
       "number": 331,
       "language": "en",
       "title": "Ancestor Package Relay",
-      "summary": "BIP 331: Ancestor Package Relay.",
+      "summary": "Proposes ancestor package relay, allowing transactions with unconfirmed ancestors to propagate together.",
       "status": "draft",
       "category": "peer-services",
       "authors": [
         "Gloria Zhao"
       ],
       "createdAt": "2022-08-08",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 331 specifies package relay, where a child transaction and its unconfirmed ancestors are relayed together as a package. Currently, a child transaction cannot be relayed if its parent is not yet in the mempool, causing issues for CPFP (child-pays-for-parent) fee bumping.\n\nPackage relay enables CPFP fee bumping across peers, improving transaction reliability during congestion.",
+      "impactMarkdown": "BIP 331 is in Draft status. Package relay has been implemented in Bitcoin Core for testing and is expected to improve transaction relay robustness.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0331.mediawiki",
       "tags": [
         "BIP",
@@ -11125,10 +11077,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "18ec81d80b27a9b66de2deeef54180b73491c69b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0331.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11136,15 +11085,15 @@
       "number": 337,
       "language": "en",
       "title": "Compressed Transactions",
-      "summary": "BIP 337: Compressed Transactions.",
+      "summary": "Defines a compressed transaction format for more efficient block space usage and faster relay.",
       "status": "draft",
       "category": "api-rpc",
       "authors": [
         "Tom Briar"
       ],
       "createdAt": "2024-02-01",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 337 specifies a compressed format for Bitcoin transactions. The compression uses techniques including short transaction ID references, input/output deduplication, and variable-length integer encoding to reduce transaction size by 25-40%.\n\nThe format is designed for relay and mempool but must be decompressed for consensus validation.",
+      "impactMarkdown": "BIP 337 is in Draft status. Transaction compression has not been adopted as the practical benefits are limited by SegWit existing weight discount.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0337.mediawiki",
       "tags": [
         "BIP",
@@ -11163,10 +11112,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "e740b18e46f9f3256bf28596066afa69acf89340",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0337.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11174,15 +11120,15 @@
       "number": 338,
       "language": "en",
       "title": "Disable transaction relay message",
-      "summary": "BIP 338: Disable transaction relay message.",
+      "summary": "Proposes a protocol message to disable transaction relay on specific peer connections.",
       "status": "closed",
       "category": "peer-services",
       "authors": [
         "Suhas Daftuar"
       ],
       "createdAt": "2020-09-03",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 338 specifies a message that allows a node to signal to a peer that it should not send transactions. This is useful for pruned nodes or specialized nodes that only need block relay.",
+      "impactMarkdown": "BIP 338 was closed. The approach was not adopted, and nodes that do not want transaction relay can configure their software accordingly.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0338.mediawiki",
       "tags": [
         "BIP",
@@ -11201,10 +11147,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "fea0c3fc74892c8195faf73068c55e583e23640d",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0338.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11212,15 +11155,15 @@
       "number": 339,
       "language": "en",
       "title": "WTXID-based transaction relay",
-      "summary": "BIP 339: WTXID-based transaction relay.",
+      "summary": "Defines WTXID-based transaction relay, using witness transaction IDs for improved transaction announcements.",
       "status": "deployed",
       "category": "peer-services",
       "authors": [
         "Suhas Daftuar"
       ],
       "createdAt": "2020-02-03",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 339 specifies that nodes should use wtxid (witness transaction ID) instead of txid for transaction relay. Since SegWit, transactions have two identifiers: txid (without witness) and wtxid (with witness). Using wtxid for relay prevents transaction replacement ambiguity and improves mempool consistency across peers.\n\nThe change affects how transactions are announced via inv messages and how compact blocks (BIP 152) identify transactions.",
+      "impactMarkdown": "BIP 339 is deployed in Bitcoin Core. WTXID-based relay is now standard, providing more reliable transaction tracking and reducing potential confusion between transactions with the same txid but different witness data.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0339.mediawiki",
       "tags": [
         "BIP",
@@ -11239,10 +11182,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "a50c7e06506eacc2d42b341bac6afd3d2813249e",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0339.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
