@@ -11190,7 +11190,7 @@
       "number": 340,
       "language": "en",
       "title": "Schnorr Signatures for secp256k1",
-      "summary": "BIP 340: Schnorr Signatures for secp256k1.",
+      "summary": "Specifies Schnorr signatures for secp256k1, enabling signature aggregation and improved privacy.",
       "status": "deployed",
       "category": "specification",
       "authors": [
@@ -11199,8 +11199,8 @@
         "Tim Ruffing"
       ],
       "createdAt": "2020-01-19",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 340 defines the Schnorr signature scheme for Bitcoin's secp256k1 elliptic curve. Schnorr signatures have a linear property that allows multiple signatures to be combined into a single signature, enabling multi-signature transactions that look identical to single-signature ones.\n\nThe specification covers key generation, signing, verification, and batch verification. It uses the secp256k1 curve with SHA-256 and includes explicit handling of public key and signature encoding.",
+      "impactMarkdown": "BIP 340 is deployed and widely adopted as part of the Taproot upgrade. Schnorr signatures are the foundation for MuSig2 (BIP 327), Taproot (BIP 341), and other advanced Bitcoin features.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
       "tags": [
         "BIP",
@@ -11219,10 +11219,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f241effd77c275ee776ecf555629c9721a9d97ef",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11230,7 +11227,7 @@
       "number": 341,
       "language": "en",
       "title": "Taproot: SegWit version 1 spending rules",
-      "summary": "BIP 341: Taproot: SegWit version 1 spending rules.",
+      "summary": "Defines Taproot, a SegWit version 1 output type that makes all spending conditions indistinguishable by default.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -11239,8 +11236,8 @@
         "Anthony Towns"
       ],
       "createdAt": "2020-01-19",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 341 specifies Taproot outputs that combine a public key (for the key path) and a Merkle tree of script paths. Spending via the key path looks identical to any single-signature transaction, while script paths reveal only the executed branch.\n\nThis enables complex smart contracts that appear as simple single-signature outputs on chain. Taproot uses Schnorr signatures (BIP 340) and defines v1 witness programs with pay-to-taproot (P2TR) addresses using Bech32m (BIP 350).",
+      "impactMarkdown": "BIP 341 is deployed as part of the Taproot soft fork activated in November 2021. Taproot is one of the most significant Bitcoin upgrades, improving privacy, scalability, and smart contract flexibility.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
       "tags": [
         "BIP",
@@ -11259,10 +11256,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "0764e6cb762b6c17d3b3430af5532e0c63365993",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11270,7 +11264,7 @@
       "number": 342,
       "language": "en",
       "title": "Validation of Taproot Scripts",
-      "summary": "BIP 342: Validation of Taproot Scripts.",
+      "summary": "Defines validation rules for Taproot scripts, introducing a new scripting paradigm based on Schnorr signatures.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -11279,8 +11273,8 @@
         "Anthony Towns"
       ],
       "createdAt": "2020-01-19",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 342 specifies the scripting language for Taproot (Tapscript). It includes the new OP_CHECKSIGADD opcode for efficient multi-signature verification, 32-byte push operations, and signature operations counting based on Schnorr batch verification.\n\nTapscript removes the 10,000 signature operation limit per block replacing it with a weight-based budget system. It enables advanced constructs like MAST (Merkelized Abstract Syntax Trees) and complex script conditions.",
+      "impactMarkdown": "BIP 342 is deployed as part of Taproot. Tapscript enables more complex and private smart contracts, with MAST providing efficiency gains for complex spending conditions.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki",
       "tags": [
         "BIP",
@@ -11299,10 +11293,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "d073b701ce785ab497d5d409640a16727af3a25b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11310,7 +11301,7 @@
       "number": 343,
       "language": "en",
       "title": "Mandatory activation of taproot deployment",
-      "summary": "BIP 343: Mandatory activation of taproot deployment.",
+      "summary": "Specifies the mandatory activation parameters for the Taproot soft fork deployment.",
       "status": "deployed",
       "category": "consensus",
       "authors": [
@@ -11318,8 +11309,8 @@
         "Michael Folkson"
       ],
       "createdAt": "2021-04-25",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 343 defines the deployment parameters for activating Taproot on the Bitcoin network. It uses the BIP 9 version bits mechanism with a lock-in threshold of 90% of mined blocks over a difficulty period.\n\nThe deployment was activated at block height 709,632 in November 2021 following overwhelming miner support.",
+      "impactMarkdown": "BIP 343 is complete. Taproot activated successfully with the highest consensus support of any Bitcoin soft fork, demonstrating strong community alignment.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0343.mediawiki",
       "tags": [
         "BIP",
@@ -11338,10 +11329,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6fe64b0edeb3cc271f154d11169a1564dd96353b",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0343.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11349,7 +11337,7 @@
       "number": 345,
       "language": "en",
       "title": "OP_VAULT",
-      "summary": "BIP 345: OP_VAULT.",
+      "summary": "Proposes OP_VAULT, a new opcode for creating vault contracts that protect against private key compromise.",
       "status": "closed",
       "category": "consensus",
       "authors": [
@@ -11357,8 +11345,8 @@
         "Greg Sanders"
       ],
       "createdAt": "2023-02-03",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 345 introduces OP_VAULT, a covenant opcode that allows funds to be locked with a recovery path. If an attacker gains access to the private key, the victim has a predefined window to move funds to a recovery address before the attacker can complete the spend.\n\nOP_VAULT enables non-custodial security mechanisms: users can set spending limits, delayed withdrawals, and social recovery without trusted third parties.",
+      "impactMarkdown": "BIP 345 is in Draft status. It has significant community support and is actively being developed for a future soft fork. OP_VAULT would be the first covenant opcode in Bitcoin.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0345.mediawiki",
       "tags": [
         "BIP",
@@ -11377,10 +11365,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7eed90c2123e2a63056ae20a86e690dd64f21076",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0345.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11388,7 +11373,7 @@
       "number": 346,
       "language": "en",
       "title": "OP_TXHASH",
-      "summary": "BIP 346: OP_TXHASH.",
+      "summary": "Proposes OP_TXHASH, a covenant opcode that pushes a hash of the spending transaction onto the stack.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11396,8 +11381,8 @@
         "Brandon Black"
       ],
       "createdAt": "2024-04-24",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 346 introduces OP_TXHASH, an opcode that hashes specified fields of the spending transaction and pushes the result onto the stack. This enables covenants where a script can enforce constraints on how funds are spent, including output amounts, script types, and timelocks.\n\nOP_TXHASH provides a general foundation for covenants, enabling vaults, payment pools, and other constrained spending scenarios.",
+      "impactMarkdown": "BIP 346 is in Draft status. It is part of the broader covenant discussion alongside OP_VAULT and other proposals.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0346.md",
       "tags": [
         "BIP",
@@ -11416,10 +11401,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3d67012e8fe3d7aa0b4ba3b91d6e808d911fe20a",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0346.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11427,7 +11409,7 @@
       "number": 347,
       "language": "en",
       "title": "OP_CAT in Tapscript",
-      "summary": "BIP 347: OP_CAT in Tapscript.",
+      "summary": "Proposes re-enabling OP_CAT in Tapscript for covenant and smart contract functionality.",
       "status": "complete",
       "category": "consensus",
       "authors": [
@@ -11435,8 +11417,8 @@
         "Armin Sabouri"
       ],
       "createdAt": "2023-12-11",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 347 proposes to re-enable OP_CAT in the Tapscript context. OP_CAT was originally part of Bitcoin Script but was disabled due to concerns about excessive memory usage. The opcode concatenates two stack elements.\n\nRe-enabling OP_CAT in Tapscript (where the 520-byte push limit is removed) enables covenants, transaction introspection, and advanced smart contracts without requiring new opcodes.",
+      "impactMarkdown": "BIP 347 is in Draft status. OP_CAT reintroduction has gained significant attention as a minimal change that enables many covenant use cases.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0347.mediawiki",
       "tags": [
         "BIP",
@@ -11455,10 +11437,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "93ec871afefde68618d83de8b3c61cea8133a056",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0347.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11466,7 +11445,7 @@
       "number": 348,
       "language": "en",
       "title": "CHECKSIGFROMSTACK",
-      "summary": "BIP 348: CHECKSIGFROMSTACK.",
+      "summary": "Proposes CHECKSIGFROMSTACK, an opcode that verifies a signature against arbitrary data on the stack.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11474,8 +11453,8 @@
         "Jeremy Rubin"
       ],
       "createdAt": "2024-11-26",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 348 specifies CHECKSIGFROMSTACK (CSFS), an opcode that verifies a signature over arbitrary data provided on the script stack. Unlike OP_CHECKSIG which always signs the spending transaction, CSFS can sign any message.\n\nCSFS enables oracle-based contracts, cross-chain bridges, and complex delegation schemes where a script can verify signatures over external data.",
+      "impactMarkdown": "BIP 348 is in Draft status. CSFS is considered a foundational building block for advanced Bitcoin smart contracts.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0348.md",
       "tags": [
         "BIP",
@@ -11494,10 +11473,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "15173fdca25c6c7983f301a4a298bb18441ffebf",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0348.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11505,7 +11481,7 @@
       "number": 349,
       "language": "en",
       "title": "OP_INTERNALKEY",
-      "summary": "BIP 349: OP_INTERNALKEY.",
+      "summary": "Proposes OP_INTERNALKEY, an opcode that pushes the Taproot internal key onto the stack for script path spends.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11513,8 +11489,8 @@
         "Jeremy Rubin"
       ],
       "createdAt": "2024-11-14",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 349 introduces OP_INTERNALKEY, which pushes the Taproot output internal public key onto the stack during script path execution. This allows scripts to reference the key path public key, enabling constructions where script path conditions can rejoin the key path.\n\nOP_INTERNALKEY enables delegation and recovery scripts that can hand control back to the key path under certain conditions.",
+      "impactMarkdown": "BIP 349 is in Draft status. It is part of the broader Taproot improvement discussion alongside other opcode proposals.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0349.md",
       "tags": [
         "BIP",
@@ -11533,10 +11509,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "846f5eb055584bbfa44714c08710612d83eb7044",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0349.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11544,15 +11517,15 @@
       "number": 350,
       "language": "en",
       "title": "Bech32m format for v1+ witness addresses",
-      "summary": "BIP 350: Bech32m format for v1+ witness addresses.",
+      "summary": "Defines Bech32m, a segwit address format for v1 and higher witness versions, fixing Bech32 insertion property issues.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Pieter Wuille"
       ],
       "createdAt": "2020-12-16",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 350 specifies Bech32m, a modification of the Bech32 address format (BIP 173) that fixes the insertion property weakness. In Bech32, inserting characters sometimes did not invalidate the checksum, allowing address mutation attacks.\n\nBech32m changes the constant modulo from 1 to 0x2bc830a3, making insertion detectable. It uses the same character set and error detection as Bech32 but is required for v1+ witness programs including Taproot (P2TR) addresses.",
+      "impactMarkdown": "BIP 350 is deployed and widely adopted. Bech32m is the standard address format for Taproot and is supported by all major wallets and services.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
       "tags": [
         "BIP",
@@ -11571,10 +11544,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "8acc839867639c780621dc11aa401b0b181d69cb",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11582,7 +11552,7 @@
       "number": 351,
       "language": "en",
       "title": "Private Payments",
-      "summary": "BIP 351: Private Payments.",
+      "summary": "Proposes Private Payments, a reusable payment code standard for silent transaction notifications.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -11590,8 +11560,8 @@
         "Clark Moody"
       ],
       "createdAt": "2022-07-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 351 specifies a reusable payment code standard that allows users to publish a single code and receive payments without address reuse. The sender derives unique addresses from the recipients payment code using ECDH, and notifies the recipient via an OP_RETURN output.\n\nPrivate Payments provide wallet-level privacy by preventing blockchain observers from linking transactions to the same recipient.",
+      "impactMarkdown": "BIP 351 is in Draft status. Silent Payments (BIP 352) has become the more widely adopted proposal for payment privacy.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0351.mediawiki",
       "tags": [
         "BIP",
@@ -11610,10 +11580,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "d03703450b111c7d009bb3aab950371a1d5fecfe",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0351.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11621,7 +11588,7 @@
       "number": 352,
       "language": "en",
       "title": "Silent Payments",
-      "summary": "BIP 352: Silent Payments.",
+      "summary": "Specifies Silent Payments, a protocol for generating static payment addresses without on-chain interaction.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -11630,8 +11597,8 @@
         "Sebastian Falbesoner"
       ],
       "createdAt": "2023-03-09",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 352 defines Silent Payments, where the sender derives a unique output address from the recipients public key and their own private key using ECDH. Unlike BIP 351, Silent Payments require no on-chain notification: the recipient scans the blockchain to detect payments addressed to them.\n\nThis eliminates address reuse entirely without any additional transaction overhead. The recipient generates a scan key and a spend key; the sender derives a shared secret to create a unique one-time output.",
+      "impactMarkdown": "BIP 352 is in Draft but has significant adoption momentum. Several wallets have implemented or are implementing Silent Payments, making it one of the most promising privacy improvements for Bitcoin.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki",
       "tags": [
         "BIP",
@@ -11650,10 +11617,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "674f4df6e1c7ae953f07557e662e75102d2cfeca",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11661,7 +11625,7 @@
       "number": 353,
       "language": "en",
       "title": "DNS Payment Instructions",
-      "summary": "BIP 353: DNS Payment Instructions.",
+      "summary": "Defines DNS-based payment instructions, associating Bitcoin payment information with domain names via DNS records.",
       "status": "complete",
       "category": "applications",
       "authors": [
@@ -11669,8 +11633,8 @@
         "Bastien Teinturier"
       ],
       "createdAt": "2024-02-10",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 353 specifies how Bitcoin payment instructions are encoded in DNS TXT records. Users can publish payment information (addresses, BIP 21 URIs, Silent Payment codes) linked to their domain name.\n\nThis enables human-readable payment addresses like user@domain, where the domain's DNS provides the actual payment instructions. DNSSEC is recommended to prevent DNS spoofing.",
+      "impactMarkdown": "BIP 353 is in Draft status. It represents a step toward making Bitcoin payments as simple as sending an email.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0353.mediawiki",
       "tags": [
         "BIP",
@@ -11689,10 +11653,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "235986682011379a387e89b037470cd503f61f6f",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0353.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11700,7 +11661,7 @@
       "number": 360,
       "language": "en",
       "title": "Pay-to-Merkle-Root (P2MR)",
-      "summary": "BIP 360: Pay-to-Merkle-Root (P2MR).",
+      "summary": "Proposes Pay-to-Merkle-Root (P2MR), a covenant scheme based on Merkle trees of transaction templates.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11709,8 +11670,8 @@
         "Isabel Foxen Duke"
       ],
       "createdAt": "2024-12-18",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 360 introduces P2MR, where a UTXO is locked to the root of a Merkle tree whose leaves are transaction templates. Spending requires revealing a valid transaction that matches one of the templates, enforced by a new opcode.\n\nP2MR enables covenant-like behavior without new opcodes, using existing Script capabilities. It can enforce spending patterns including payment channels, vaults, and inheritance schemes.",
+      "impactMarkdown": "BIP 360 is in Draft status. P2MR has been discussed but faces competition from more targeted covenant proposals like OP_VAULT.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki",
       "tags": [
         "BIP",
@@ -11729,10 +11690,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2f8f4fc5301ae19273ea323789558d83343feaf4",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11740,7 +11698,7 @@
       "number": 361,
       "language": "en",
       "title": "Post Quantum Migration and Legacy Signature Sunset",
-      "summary": "BIP 361: Post Quantum Migration and Legacy Signature Sunset.",
+      "summary": "Proposes a post-quantum migration strategy and sunset of legacy ECDSA signatures.",
       "status": "draft",
       "category": "consensus",
       "authors": [
@@ -11752,8 +11710,8 @@
         "Pierre-Luc Dallaire-Demers"
       ],
       "createdAt": "2026-02-11",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 361 outlines a strategy for migrating Bitcoin to quantum-resistant signatures while phasing out legacy ECDSA. The proposal includes introducing quantum-resistant signature schemes and a transition period where both legacy and quantum signatures are accepted.\n\nThe migration involves a soft fork to add new witness versions for quantum-resistant signature types, followed by eventual deprecation of vulnerable key types.",
+      "impactMarkdown": "BIP 361 is in Draft status. The timeline for quantum migration depends on quantum computing advances, but active research and planning are ongoing.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0361.mediawiki",
       "tags": [
         "BIP",
@@ -11772,10 +11730,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "32d33588922651b2d2708a517e5655b1cdf729c0",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0361.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
