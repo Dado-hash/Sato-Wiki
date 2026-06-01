@@ -340,8 +340,8 @@ class HistoryEventScreen extends StatelessWidget {
                   final route = id.startsWith('wiki.')
                       ? AppRoutes.wikiEntry(id)
                       : id.startsWith('history.')
-                          ? AppRoutes.historyEvent(id)
-                          : null;
+                      ? AppRoutes.historyEvent(id)
+                      : null;
                   if (route != null) {
                     Navigator.of(context).pushNamed(route);
                   }
