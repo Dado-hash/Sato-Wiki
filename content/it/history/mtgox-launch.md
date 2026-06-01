@@ -35,6 +35,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 17 luglio 2010, Jed McCaleb lanciò Mt. Gox (acronimo di "Magic: The Gathering Online Exchange"), un sito web che sarebbe diventato il primo exchange Bitcoin dominante. Originariamente costruito come piattaforma per il trading di carte del gioco Magic: The Gathering, McCaleb riconvertì il dominio e il codice per creare un mercato dove le persone potessero comprare e vendere bitcoin per dollari USA. In poche settimane, Mt. Gox divenne la sede principale per la scoperta del prezzo di Bitcoin.
+![Screenshot del sito Mt. Gox](media/history/mtgox-launch/mtgox-website.webp "L'interfaccia dell'exchange Mt. Gox come appariva nel 2011, con l'order book e l'interfaccia di trading.")
+
 
 ## Il Primo Exchange
 
@@ -60,4 +62,3 @@ Il lancio di Mt. Gox fu un momento cruciale per Bitcoin. Trasformò la criptoval
 
 Il lancio di Mt. Gox segnò l'inizio dell'integrazione di Bitcoin con il sistema finanziario tradizionale, nel bene e nel male.
 
-![Screenshot del sito Mt. Gox](media/history/mtgox-launch/mtgox-website.webp "L'interfaccia dell'exchange Mt. Gox come appariva nel 2011, con l'order book e l'interfaccia di trading.")

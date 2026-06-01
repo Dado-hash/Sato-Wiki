@@ -36,6 +36,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On October 31, 2008, an individual or group using the pseudonym Satoshi Nakamoto posted a nine-page whitepaper to the cryptography mailing list at metzdowd.com. The paper, titled "Bitcoin: A Peer-to-Peer Electronic Cash System," proposed a decentralized digital currency that would operate without any central authority or trusted intermediaries.
+![Bitcoin whitepaper cover page](media/history/bitcoin-whitepaper/whitepaper-cover.webp "The original Bitcoin whitepaper title page as published by Satoshi Nakamoto in October 2008.")
+
 
 The whitepaper solved a problem that had eluded researchers for decades: the double-spending problem. Earlier attempts at digital cash — from David Chaum's eCash to Nick Szabo's Bit Gold and Wei Dai's b-money — all required a trusted third party to prevent the same digital token from being spent twice. Nakamoto's breakthrough was combining several existing cryptographic primitives into a novel system: proof of work for timestamping transactions, a peer-to-peer network for propagating them, and cryptographic signatures for authorization.
 
@@ -62,4 +64,3 @@ The whitepaper itself contained no code, no implementation, and no commitment to
 
 The Bitcoin whitepaper has been cited tens of thousands of times in academic literature, referenced in regulatory documents worldwide, and translated into dozens of languages. It remains the single most important document in the history of cryptocurrency. The paper's influence extends beyond finance into computer science, economics, political philosophy, and legal theory. Its core insight — that consensus can be achieved without trust — has inspired thousands of projects and fundamentally changed how we think about money and coordination on the internet.
 
-![Bitcoin whitepaper cover page](media/history/bitcoin-whitepaper/whitepaper-cover.webp "The original Bitcoin whitepaper title page as published by Satoshi Nakamoto in October 2008.")

@@ -37,6 +37,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 22 maggio 2010, Laszlo Hanyecz, un programmatore della Florida e uno dei primi ad adottare Bitcoin, pubblicò su BitcoinTalk un'offerta: avrebbe pagato 10.000 bitcoin per due pizze. Aveva minato bitcoin con la sua GPU e voleva testare se la valuta digitale potesse essere usata per acquisti reali. Un diciannovenne inglese di nome Jeremy "Jercos" Sturdivant accettò l'offerta: ordinò due pizze grandi da Papa John's e le fece consegnare a casa di Hanyecz. La transazione fu completata: 10.000 BTC passarono di mano per due pizze dal valore di circa $41 all'epoca.
+![Due pizze al peperoni](media/history/bitcoin-pizza-day/pizza-day-pizzas.webp "Due pizze grandi, del tipo che Laszlo Hanyecz acquistò con 10.000 BTC nel 2010.")
+
 
 ## Il Post su BitcoinTalk
 
@@ -56,4 +58,3 @@ Il 22 maggio è celebrato ogni anno come Bitcoin Pizza Day dalla comunità delle
 
 Laszlo Hanyecz continua a essere coinvolto nella comunità Bitcoin e ha parlato a conferenze delle sue prime esperienze con il mining e della famosa transazione delle pizze.
 
-![Due pizze al peperoni](media/history/bitcoin-pizza-day/pizza-day-pizzas.webp "Due pizze grandi, del tipo che Laszlo Hanyecz acquistò con 10.000 BTC nel 2010.")

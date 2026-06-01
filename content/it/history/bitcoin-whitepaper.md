@@ -36,6 +36,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Il 31 ottobre 2008, un individuo o un gruppo sotto lo pseudonimo di Satoshi Nakamoto pubblicò un whitepaper di nove pagine sulla mailing list di crittografia di metzdowd.com. Il documento, intitolato "Bitcoin: A Peer-to-Peer Electronic Cash System", proponeva una valuta digitale decentralizzata che funzionasse senza alcuna autorità centrale o intermediari fidati.
+![Copertina del whitepaper Bitcoin](media/history/bitcoin-whitepaper/whitepaper-cover.webp "La pagina del titolo del whitepaper originale di Bitcoin pubblicato da Satoshi Nakamoto nell'ottobre 2008.")
+
 
 Il whitepaper risolveva un problema che aveva eluso i ricercatori per decenni: il problema della doppia spesa. I precedenti tentativi di creare moneta digitale — dall'eCash di David Chaum al Bit Gold di Nick Szabo e al b-money di Wei Dai — richiedevano tutti una terza parte fidata per impedire che lo stesso token digitale venisse speso due volte. L'intuizione di Nakamoto fu combinare diversi primitivi crittografici esistenti in un sistema innovativo: la proof of work per timestampare le transazioni, una rete peer-to-peer per propagarle e firme crittografiche per l'autorizzazione.
 
@@ -62,4 +64,3 @@ Il whitepaper non conteneva codice, né implementazione, né impegno a costruire
 
 Il whitepaper di Bitcoin è stato citato decine di migliaia di volte in letteratura accademica, menzionato in documenti normativi in tutto il mondo e tradotto in dozzine di lingue. Rimane il documento più importante nella storia delle criptovalute. L'influenza del documento si estende oltre la finanza all'informatica, all'economia, alla filosofia politica e alla teoria giuridica. L'intuizione centrale — che il consenso può essere raggiunto senza fiducia — ha ispirato migliaia di progetti e cambiato fondamentalmente il modo in cui pensiamo al denaro e al coordinamento su internet.
 
-![Copertina del whitepaper Bitcoin](media/history/bitcoin-whitepaper/whitepaper-cover.webp "La pagina del titolo del whitepaper originale di Bitcoin pubblicato da Satoshi Nakamoto nell'ottobre 2008.")

@@ -38,6 +38,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 In February 2014, Mt. Gox — once handling over 70% of all Bitcoin trades worldwide — collapsed in spectacular fashion. The exchange revealed that it had lost approximately 850,000 bitcoin, worth over $450 million at the time, due to a combination of security breaches, software bugs, and gross mismanagement. The collapse was the single most catastrophic event in Bitcoin's history up to that point and remains one of the largest financial frauds ever recorded.
+![Mt. Gox logo](media/history/mtgox-collapse/mtgox-collapse-logo.webp "The Mt. Gox logo, once the dominant Bitcoin exchange, now a cautionary tale.")
+
 
 ## The Years of Neglect
 
@@ -69,4 +71,3 @@ Despite the devastation, the Bitcoin network itself was never compromised. The M
 
 The collapse led to significant improvements in the cryptocurrency ecosystem. Exchanges implemented cold storage, multi-signature wallets, regular audits, and insurance. Developers deployed Segregated Witness in 2017, which fixed the transaction malleability issue at the protocol level. The lessons of Mt. Gox shaped the development of the entire industry.
 
-![Mt. Gox logo](media/history/mtgox-collapse/mtgox-collapse-logo.webp "The Mt. Gox logo, once the dominant Bitcoin exchange, now a cautionary tale.")

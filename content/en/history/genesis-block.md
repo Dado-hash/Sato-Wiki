@@ -37,6 +37,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On January 3, 2009, Satoshi Nakamoto mined block 0 of the Bitcoin blockchain — the genesis block. This was the first block in existence, the root of the entire chain from which all subsequent blocks would descend. The block carried a special message embedded in the coinbase transaction: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
+![Genesis block landmark](media/history/genesis-block/genesis-block-landmark.webp "The genesis block as displayed on a block explorer, showing zero confirmations and no previous block hash.")
+
 
 ## The Timestamp Message
 
@@ -60,4 +62,3 @@ The genesis block contained only the coinbase transaction — no other transacti
 
 For the Bitcoin community, the genesis block has become a symbol of the project's origins and ideals. The embedded newspaper headline is frequently cited as evidence of Bitcoin's purpose: a response to monetary instability and the failure of fractional-reserve banking. Every Bitcoin block that follows — hundreds of thousands of them — traces its lineage back to this single block. Block explorers display it with special reverence, and cryptocurrency enthusiasts often visit it as a pilgrimage of sorts.
 
-![Genesis block landmark](media/history/genesis-block/genesis-block-landmark.webp "The genesis block as displayed on a block explorer, showing zero confirmations and no previous block hash.")

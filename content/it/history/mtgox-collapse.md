@@ -38,6 +38,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Nel febbraio 2014, Mt. Gox — un tempo gestiva oltre il 70% di tutti gli scambi di Bitcoin a livello mondiale — crollò in modo spettacolare. L'exchange rivelò di aver perso circa 850.000 bitcoin, per un valore di oltre $450 milioni all'epoca, a causa di una combinazione di violazioni della sicurezza, bug software e grave cattiva gestione. Il crollo fu l'evento più catastrofico nella storia di Bitcoin fino a quel momento e rimane una delle più grandi frodi finanziarie mai registrate.
+![Logo Mt. Gox](media/history/mtgox-collapse/mtgox-collapse-logo.webp "Il logo di Mt. Gox, un tempo exchange Bitcoin dominante, ora monito per il settore.")
+
 
 ## Anni di Incuria
 
@@ -69,4 +71,3 @@ Nonostante la devastazione, la rete Bitcoin stessa non fu mai compromessa. Il cr
 
 Il crollo portò a miglioramenti significativi nell'ecosistema delle criptovalute. Gli exchange implementarono cold storage, wallet multi-firma, audit regolari e assicurazioni. Gli sviluppatori implementarono Segregated Witness nel 2017, che risolse il problema della malleabilità delle transazioni a livello di protocollo. Le lezioni di Mt. Gox hanno plasmato lo sviluppo dell'intero settore.
 
-![Logo Mt. Gox](media/history/mtgox-collapse/mtgox-collapse-logo.webp "Il logo di Mt. Gox, un tempo exchange Bitcoin dominante, ora monito per il settore.")

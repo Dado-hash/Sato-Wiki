@@ -34,6 +34,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 On November 28, 2012, Bitcoin reached block height 210,000, triggering the first programmed reduction in mining rewards. The block subsidy decreased from 50 to 25 bitcoin per block, cutting the rate at which new bitcoins entered circulation by half. This event, now known as a "halving," was hardcoded into Bitcoin's consensus rules by Satoshi Nakamoto and occurs every 210,000 blocks — approximately every four years.
+![First halving block 210000](media/history/first-halving/first-halving-block.webp "Block 210,000 as displayed on a block explorer, marking the first halving at 25 BTC subsidy.")
+
 
 ## The Halving Mechanism
 
@@ -59,4 +61,3 @@ The first halving was a landmark event that validated Bitcoin's monetary policy.
 
 Every halving since has drawn increasing attention, with the 2020 and 2024 halvings being major media events. The first halving, while less noticed by the mainstream at the time, was the crucial test that proved Bitcoin's monetary policy was not just theoretical — it was inevitable.
 
-![First halving block 210000](media/history/first-halving/first-halving-block.webp "Block 210,000 as displayed on a block explorer, marking the first halving at 25 BTC subsidy.")

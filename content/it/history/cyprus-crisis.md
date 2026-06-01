@@ -38,6 +38,8 @@ updatedAt: 2026-05-28T00:00:00Z
 ---
 
 Nel marzo 2013, la nazione insulare di Cipro, nel Mediterraneo, fu precipitata in una grave crisi bancaria. I ministri delle finanze dell'Eurozona, in coordinamento con il Fondo Monetario Internazionale, proposero un pacchetto di salvataggio che includeva una misura senza precedenti: un prelievo forzoso su tutti i depositi bancari, inclusi quelli sotto i €100.000 che avrebbero dovuto essere garantiti dallo stato. Il proposto "bail-in" avrebbe sequestrato fino al 9,9% dei depositi per ricapitalizzare le banche in fallimento.
+![Coda alla banca di Cipro](media/history/cyprus-crisis/cyprus-bank-queue.webp "Persone in coda fuori da una banca a Cipro durante la crisi del 2013.")
+
 
 ## La Proposta di Bail-In
 
@@ -63,4 +65,3 @@ La crisi di Cipro segnò la transizione di Bitcoin da curiosità internet di nic
 
 La crisi avviò anche una conversazione sulla natura del denaro e dell'attività bancaria che continua ancora oggi. Per molte persone, Cipro fu il momento in cui si chiesero per la prima volta: "Se la mia banca può prendere i miei soldi, quanto vale veramente il denaro?"
 
-![Coda alla banca di Cipro](media/history/cyprus-crisis/cyprus-bank-queue.webp "Persone in coda fuori da una banca a Cipro durante la crisi del 2013.")
