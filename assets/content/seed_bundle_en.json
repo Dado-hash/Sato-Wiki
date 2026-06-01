@@ -10148,15 +10148,15 @@
       "number": 171,
       "language": "en",
       "title": "Currency/exchange rate information API",
-      "summary": "BIP 171: Currency/exchange rate information API.",
+      "summary": "Defines a REST API for querying Bitcoin exchange rates and currency information.",
       "status": "closed",
       "category": "applications",
       "authors": [
         "Luke Dashjr"
       ],
       "createdAt": "2017-03-04",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 171 specifies a standardized REST API for retrieving Bitcoin exchange rates relative to fiat currencies. The API returns current and historical rates from multiple sources, with consistent JSON formatting. It includes endpoints for rate queries, currency metadata, and provider information.\n\nThe standard aims to reduce fragmentation in how wallets and services fetch exchange rate data, promoting consistent rate display across Bitcoin applications.",
+      "impactMarkdown": "BIP 171 was closed without widespread adoption. Exchange rate APIs remain fragmented across providers, with no single standard gaining universal acceptance.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0171.mediawiki",
       "tags": [
         "BIP",
@@ -10175,10 +10175,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "8f02ca7e52433859a009ce7db5d968d7fd9af271",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0171.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10186,15 +10183,15 @@
       "number": 172,
       "language": "en",
       "title": "Define Bitcoin Subunits as Satoshis",
-      "summary": "BIP 172: Define Bitcoin Subunits as Satoshis.",
+      "summary": "Proposes defining Bitcoin's base unit as satoshis in user interfaces and technical specifications.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "OceanSlim"
       ],
       "createdAt": "2025-05-01",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 172 recommends that Bitcoin applications standardize on ‘satoshis’ as the base unit of account instead of bitcoin (BTC). The proposal includes guidelines for display formatting, input parsing, and API conventions to ensure consistent handling of the smallest unit.\n\nThis addresses confusion caused by different wallets using different decimal places and unit conventions.",
+      "impactMarkdown": "BIP 172 is a Draft standard. While many wallets and services now use satoshis internally, display conventions still vary. The Lightning Network’s use of millisatoshis adds another layer to the unit discussion.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0172.mediawiki",
       "tags": [
         "BIP",
@@ -10213,10 +10210,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "f65b4b7b112edcf877fcd738471cd5157e0444bd",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0172.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10224,7 +10218,7 @@
       "number": 173,
       "language": "en",
       "title": "Base32 address format for native v0-16 witness outputs",
-      "summary": "BIP 173: Base32 address format for native v0-16 witness outputs.",
+      "summary": "Defines the Bech32 address format for native SegWit outputs, providing all-lowercase encoding with robust error detection.",
       "status": "deployed",
       "category": "applications",
       "authors": [
@@ -10232,8 +10226,8 @@
         "Greg Maxwell"
       ],
       "createdAt": "2017-03-20",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 173 specifies the Bech32 address format for native SegWit witness programs (version 0 to 16). Bech32 uses a 32-character alphabet (excluding confusing characters like 1, b, i, o) with a BCH code checksum that can detect up to 4 character errors and locate 1 to 3 errors.\n\nThe format was designed for SegWit outputs where the witness version and program are encoded directly. Bech32 addresses start with ‘bc1’ for mainnet and are entirely lowercase, making them easier to read and less error-prone than base58 addresses. The robust error detection prevents users from sending funds to invalid addresses due to transcription errors.",
+      "impactMarkdown": "BIP 173 is deployed and widely adopted. Bech32 (native SegWit) addresses are now the default in most modern wallets. The format was later extended by BIP 350 (Bech32m) for Taproot addresses, fixing a weakness in Bech32’s error detection for variable-length data.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki",
       "tags": [
         "BIP",
@@ -10252,10 +10246,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "5bcc4a5255bc85c78f3a4abaa7f4782f8acf6477",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10263,15 +10254,15 @@
       "number": 174,
       "language": "en",
       "title": "Partially Signed Bitcoin Transaction Format",
-      "summary": "BIP 174: Partially Signed Bitcoin Transaction Format.",
+      "summary": "Defines the Partially Signed Bitcoin Transaction (PSBT) format, enabling multiple parties to collaboratively sign a transaction.",
       "status": "deployed",
       "category": "applications",
       "authors": [
         "Ava Chow"
       ],
       "createdAt": "2017-07-12",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 174 specifies the PSBT (Partially Signed Bitcoin Transaction) format, a data structure that represents a Bitcoin transaction in various stages of signing. A PSBT contains the unsigned transaction, input information (UTXOs, scripts, derivations), and partially completed signatures. It can be passed between signers, each adding their signatures until the transaction is complete.\n\nPSBT is designed for multi-signature wallets, hardware wallets, and coinjoin protocols where multiple parties must sign. The format is extensible via custom fields and supports all output types (legacy, SegWit, Taproot). It includes key derivation paths for HD wallets, allowing signing devices to identify which keys to use.",
+      "impactMarkdown": "BIP 174 is deployed and widely adopted. PSBT has become the standard interchange format for partially signed transactions across virtually all Bitcoin wallet software, hardware wallets, and signing services.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
       "tags": [
         "BIP",
@@ -10290,10 +10281,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "9cbbe254c04897c4e1c7897b7a25e9200986cfe7",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10301,7 +10289,7 @@
       "number": 175,
       "language": "en",
       "title": "Pay to Contract Protocol",
-      "summary": "BIP 175: Pay to Contract Protocol.",
+      "summary": "Defines a pay-to-contract protocol using deterministic key derivation for creating contractual agreements on Bitcoin.",
       "status": "closed",
       "category": "applications",
       "authors": [
@@ -10309,8 +10297,8 @@
         "Nicholas Gregory"
       ],
       "createdAt": "2017-07-17",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 175 specifies a protocol for pay-to-contract transactions, where a payment is made to a derived key that commits to a specific contract. The contract terms are embedded in the key derivation path, linking the payment to the agreement without requiring OP_RETURN or other data-bearing outputs.\n\nThis enables legally or contractually binding payments while maintaining privacy — the blockchain only sees a standard transaction, but the parties can prove the payment is associated with specific terms.",
+      "impactMarkdown": "BIP 175 was closed without widespread adoption. The concept of pay-to-contract influenced later proposals for discreet log contracts and oracle-based systems.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0175.mediawiki",
       "tags": [
         "BIP",
@@ -10329,10 +10317,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "9f48dab0f242250aaac0668cc0e672982d0f3eee",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0175.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10340,15 +10325,15 @@
       "number": 176,
       "language": "en",
       "title": "Bits Denomination",
-      "summary": "BIP 176: Bits Denomination.",
+      "summary": "Proposes ‘bits’ as a user-friendly denomination for Bitcoin, where 1 bit = 100 satoshis.",
       "status": "complete",
       "category": "informational",
       "authors": [
         "Jimmy Song"
       ],
       "createdAt": "2017-12-12",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 176 suggests introducing ‘bits’ as an intermediate unit between bitcoin and satoshis (1 bit = 100 satoshis = 0.000001 BTC). The proposal argues that bits are a more human-friendly denomination for everyday transactions than bitcoins (too large) or satoshis (too small for typical prices).\n\nThe BIP is purely informational and does not require protocol changes.",
+      "impactMarkdown": "BIP 176 is a Completed informational standard. The ‘bits’ denomination saw limited adoption, with most wallets and services settling on bitcoins or satoshis rather than intermediate units.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0176.mediawiki",
       "tags": [
         "BIP",
@@ -10367,10 +10352,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "33706b6e2b64d75ac795fa23c24581ef40b495d3",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0176.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10378,15 +10360,15 @@
       "number": 177,
       "language": "en",
       "title": "Redefine Bitcoin's Base Unit",
-      "summary": "BIP 177: Redefine Bitcoin's Base Unit.",
+      "summary": "Proposes redefining Bitcoin’s base unit from BTC to satoshis in all user-facing interfaces.",
       "status": "draft",
       "category": "informational",
       "authors": [
         "John Carvalho"
       ],
       "createdAt": "2025-04-23",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 177 recommends that wallets and exchanges display amounts in satoshis instead of bitcoins by default. The proposal argues that using the smallest unit eliminates decimal confusion and makes amounts more intuitive, especially for newer users.\n\nThe BIP includes specific recommendations for display formatting, rounding, and API conventions.",
+      "impactMarkdown": "BIP 177 is a Draft standard. While the satoshi-as-standard approach has been adopted by some wallets and Lightning Network applications, BTC remains the dominant display unit in most interfaces.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0177.mediawiki",
       "tags": [
         "BIP",
@@ -10405,10 +10387,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "2a0e969280348b8cfc96bdb5d460989fac75f82c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0177.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10416,15 +10395,15 @@
       "number": 178,
       "language": "en",
       "title": "Version Extended WIF",
-      "summary": "BIP 178: Version Extended WIF.",
+      "summary": "Defines an extended version of the Wallet Import Format (WIF) supporting additional key metadata.",
       "status": "draft",
       "category": "applications",
       "authors": [
         "Karl-Johan Alm"
       ],
       "createdAt": "2018-04-04",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 178 specifies a Version Extended WIF format that extends the standard WIF private key format with additional metadata including key type, creation time, and derivation path information.\n\nThe extended format enables wallets to store more key information alongside the private key data, improving wallet interoperability and key management.",
+      "impactMarkdown": "BIP 178 is a Draft standard. Adoption has been limited as most wallets have moved to HD key derivation (BIP 32) and PSBT (BIP 174) for key exchange, reducing the need for enhanced WIF formats.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0178.mediawiki",
       "tags": [
         "BIP",
@@ -10443,10 +10422,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "6b5b7435212db2e7b5f6505ec6ce3800852f999c",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0178.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10454,7 +10430,7 @@
       "number": 179,
       "language": "en",
       "title": "Name for payment recipient identifiers",
-      "summary": "BIP 179: Name for payment recipient identifiers.",
+      "summary": "Proposes a naming scheme for payment recipient identifiers (PayNyms) to simplify Bitcoin payments.",
       "status": "draft",
       "category": "informational",
       "authors": [
@@ -10462,8 +10438,8 @@
         "Luke Dashjr"
       ],
       "createdAt": "2019-10-17",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 179 defines a standard for human-readable payment identifiers (PayNyms). A PayNym is a name that maps to a Bitcoin address or payment code (BIP 47), making it easier for users to send payments without handling raw addresses.\n\nThe proposal includes a resolution mechanism that converts a PayNym to the underlying payment information, similar to how DNS resolves domain names to IP addresses.",
+      "impactMarkdown": "BIP 179 is a Draft standard. The concept of human-readable payment identifiers has been explored by several services (PayNym via Samourai, Lightning addresses) but no single standard has achieved universal adoption.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0179.mediawiki",
       "tags": [
         "BIP",
@@ -10482,10 +10458,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "4344ed39b7a92d6f64c6b0933a30d728650f9815",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0179.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -10493,15 +10466,15 @@
       "number": 180,
       "language": "en",
       "title": "Block size/weight fraud proof",
-      "summary": "BIP 180: Block size/weight fraud proof.",
+      "summary": "Proposes a fraud proof mechanism that allows nodes to verify block size/weight rule violations without processing the full block.",
       "status": "closed",
       "category": "peer-services",
       "authors": [
         "Luke Dashjr"
       ],
       "createdAt": "2017-03-17",
-      "summaryMarkdown": "Draft generated from official BIP metadata. Requires technical review before editorial publication.",
-      "impactMarkdown": "Impact to be verified during maintainer review.",
+      "summaryMarkdown": "BIP 180 describes a fraud proof system for block size and weight limit violations. If a miner produces a block exceeding the size or weight limits, a fraud proof can be constructed that demonstrates the violation using only a subset of the block data.\n\nThe proposal enables light clients and SPV nodes to detect certain consensus violations without running a full node. The fraud proof uses Merkle proofs to show that the total size or weight of transactions exceeds the allowed limit.",
+      "impactMarkdown": "BIP 180 was closed without adoption. Fraud proofs for block size have not been implemented, as the Bitcoin ecosystem has focused on full node validation rather than fraud proof systems for light clients.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0180.mediawiki",
       "tags": [
         "BIP",
@@ -10520,10 +10493,7 @@
       "updatedAt": "2026-06-01T12:34:49.460164Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "7cd4e2506a1877969703019fc718de12c77dcaee",
-        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0180.mediawiki",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
