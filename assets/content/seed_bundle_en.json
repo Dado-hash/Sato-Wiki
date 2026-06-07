@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.06.01.123449",
+  "version": "2026.06.07.201956",
   "language": "en",
-  "generatedAt": "2026-06-01T12:34:49.460164Z",
+  "generatedAt": "2026-06-07T20:19:56.087074Z",
   "history": [
     {
       "id": "history.bitcoin-whitepaper",
@@ -5280,7 +5280,7 @@
         "bip.2"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5321,7 +5321,7 @@
         "bip.3"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5360,7 +5360,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5400,7 +5400,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5443,7 +5443,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5483,7 +5483,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5523,7 +5523,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5565,7 +5565,7 @@
         "bip.16"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5605,7 +5605,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5646,7 +5646,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5688,7 +5688,7 @@
         "bip.70"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5728,7 +5728,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5770,7 +5770,7 @@
         "bip.16"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5812,7 +5812,7 @@
         "bip.16"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5854,7 +5854,7 @@
         "bip.11"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5896,7 +5896,7 @@
         "bip.21"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5939,7 +5939,7 @@
         "bip.321"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5979,7 +5979,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6019,7 +6019,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6059,7 +6059,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6099,7 +6099,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6139,7 +6139,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6179,7 +6179,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6219,7 +6219,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6259,7 +6259,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6299,7 +6299,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6340,7 +6340,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6381,7 +6381,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6424,7 +6424,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6464,7 +6464,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6505,7 +6505,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6546,7 +6546,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6588,7 +6588,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6629,7 +6629,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6669,7 +6669,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6709,7 +6709,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6749,7 +6749,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6789,7 +6789,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6830,7 +6830,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6870,7 +6870,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6908,10 +6908,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ab88f80d4cc287b01fa80fac8d729d47445d1e50",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0054.md"
       }
     },
     {
@@ -6946,7 +6948,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6983,10 +6985,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "8f4646d9e9a92f1e81ac45b05599a2c074cf9d4b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0061.mediawiki"
       }
     },
     {
@@ -7018,10 +7022,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9d44ecb0405dfb8e4603c8004740250efb2523e1",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki"
       }
     },
     {
@@ -7053,10 +7059,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "85ffeb7b355773f6d457b747a017097918250b8f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0064.mediawiki"
       }
     },
     {
@@ -7088,10 +7096,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "4bd292f8b45a2b2b68013b24f45c23e354b70e4f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki"
       }
     },
     {
@@ -7123,10 +7133,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "aa41b75713e0b4e7fe22318237ca568d34920cbc",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki"
       }
     },
     {
@@ -7160,10 +7172,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c21da80bec381ceb435fb8c3be3005677c1347d6",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0067.mediawiki"
       }
     },
     {
@@ -7198,10 +7212,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "5b4c6d66311a28325cd5cb27f4977f1c137dc6ad",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki"
       }
     },
     {
@@ -7233,10 +7249,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "e28759afefdc482e9ed50300e032c057602d28ca",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki"
       }
     },
     {
@@ -7269,10 +7287,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "fc9d1ca48f8b2dd96b32e9e40e75b4878f66b693",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki"
       }
     },
     {
@@ -7304,10 +7324,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0232af02a5308373a291920ed27562d4d4cb2776",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0071.mediawiki"
       }
     },
     {
@@ -7339,10 +7361,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "500ff7ffed9f94c8ad65e8dad0a63f448e9df839",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0072.mediawiki"
       }
     },
     {
@@ -7374,10 +7398,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9f59aa3ff7ebb7415db2eb9c1b3faf18973b43f1",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0073.mediawiki"
       }
     },
     {
@@ -7409,10 +7435,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "83e31780918752e98f2ae9033b43b2906220a8c2",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0074.mediawiki"
       }
     },
     {
@@ -7447,10 +7475,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0a2b35c82650bae8252fca5b2bc2bbb6ddab8ab9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0075.mediawiki"
       }
     },
     {
@@ -7483,10 +7513,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "55209a9f9a64bfc32164920c05162a7f9bbf245a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0077.md"
       }
     },
     {
@@ -7518,10 +7550,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "782737322e933abe690ba4bddcf04563df7e8a0d",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0078.mediawiki"
       }
     },
     {
@@ -7553,10 +7587,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "3c34220646cdc4a203f202b13f2ce24f5ffdb717",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0079.mediawiki"
       }
     },
     {
@@ -7589,10 +7625,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "1120560569ba55d93c27b7d8b1ef6bbac9da3031",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0080.mediawiki"
       }
     },
     {
@@ -7625,10 +7663,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0f4ef4d50f92f85c9159b50ab640e71509e1c6d7",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0081.mediawiki"
       }
     },
     {
@@ -7660,10 +7700,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "381d04e7f606541b3fae0aaf29f6b5aabb59c3a1",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0083.mediawiki"
       }
     },
     {
@@ -7695,10 +7737,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f266a1455317e3cfb69e477f24fe9f23577a5433",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki"
       }
     },
     {
@@ -7731,10 +7775,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b0f00abbef67a8fd889d839fa2f50a8692394b7c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0085.mediawiki"
       }
     },
     {
@@ -7766,10 +7812,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "43c692a56e68913827a99b99964c35814cce121c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki"
       }
     },
     {
@@ -7801,10 +7849,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "440ad2a1b9e202792001c4717aec49ad3babd398",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0087.mediawiki"
       }
     },
     {
@@ -7836,10 +7886,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0a705212b96bdb30c03bd7ba0b3e2710e299f62b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0088.mediawiki"
       }
     },
     {
@@ -7872,10 +7924,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b5ef080d21690c1cfd73be251d599d4d63c716ad",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0089.mediawiki"
       }
     },
     {
@@ -7907,10 +7961,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "3b31e84e0a524d0b98a81c826d0edea0cd1e44fb",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0090.mediawiki"
       }
     },
     {
@@ -7942,10 +7998,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ebdc0cdfc62acb3be9420f3048a6ac215ef90bd0",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0091.mediawiki"
       }
     },
     {
@@ -7978,10 +8036,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "193eb8729c0b08a7268527734bf960ca93ad85d9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0093.mediawiki"
       }
     },
     {
@@ -8013,10 +8073,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "d90b1676945e345854b455a5cb728e16dde62fc2",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0094.mediawiki"
       }
     },
     {
@@ -8050,10 +8112,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "d63fd38dc9ce39f51ebecca67ec60f43bc6b0ee9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0098.mediawiki"
       }
     },
     {
@@ -8085,10 +8149,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "acf66b310a2250b004f1847e494a4215338b89ff",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0099.mediawiki"
       }
     },
     {
@@ -8122,10 +8188,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "cce4643f6f352b36c30eeb58ef1d9483fa38752a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0100.mediawiki"
       }
     },
     {
@@ -8157,10 +8225,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "db30145be0a446aba0522058c516f858c270311c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0101.mediawiki"
       }
     },
     {
@@ -8192,10 +8262,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ab7aef5fe3460df2edf7d293a7a620df22674dc6",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0102.mediawiki"
       }
     },
     {
@@ -8227,10 +8299,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "471a0ab7b02d96001a3bc01a1f7a57e1e0369b06",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0103.mediawiki"
       }
     },
     {
@@ -8262,10 +8336,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "296ca2e813cd794afec6356d933edcd89f55b79c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0104.mediawiki"
       }
     },
     {
@@ -8297,10 +8373,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "4e72d7e76ee59ea4dc0cf4556bd9d13a120e7cd1",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0105.mediawiki"
       }
     },
     {
@@ -8332,10 +8410,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6dc8dd83982a59f4bdfc2fb57b3e91ca7f4c1645",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0106.mediawiki"
       }
     },
     {
@@ -8367,10 +8447,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6840ed9642b53a87d73aea4539c8132131483b79",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0107.mediawiki"
       }
     },
     {
@@ -8402,10 +8484,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c72dee05c34be891cca97ac7ff34e761acc73d7f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0109.mediawiki"
       }
     },
     {
@@ -8437,10 +8521,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "5bc6dea841bb3ee4f5b774ddb594e55281be2d11",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki"
       }
     },
     {
@@ -8473,10 +8559,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0a41af2f2a141cce533b8a4f5c650265cd46ef46",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0111.mediawiki"
       }
     },
     {
@@ -8510,10 +8598,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "085ec730fc46079c72a2931049fcd0e8d7157651",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki"
       }
     },
     {
@@ -8546,10 +8636,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "5ae089682ec3729854e9808591a4e505a7046ed7",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki"
       }
     },
     {
@@ -8581,10 +8673,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9c9dee0bc4bc870e0c8879bcfe002edcba83131b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0114.mediawiki"
       }
     },
     {
@@ -8616,10 +8710,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6c271ca2d0132122b94b922271f36b166cfa4b10",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0115.mediawiki"
       }
     },
     {
@@ -8653,10 +8749,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "3f10e01a2cef49d562f8a4588c706aae62735d37",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0116.mediawiki"
       }
     },
     {
@@ -8690,10 +8788,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b301083f383951391cdffdc0a6b6473b2670256f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0117.mediawiki"
       }
     },
     {
@@ -8726,10 +8826,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "695e6feb8a624c2528607603f239383cea447608",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0118.mediawiki"
       }
     },
     {
@@ -8761,10 +8863,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c686db73b9385a1729049bfe7777cddcb946375a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0119.mediawiki"
       }
     },
     {
@@ -8796,10 +8900,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "01ea192834826d5aec06a16e32f84e4456b01af4",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0120.mediawiki"
       }
     },
     {
@@ -8831,10 +8937,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c10b6c12d0b0d974161503a8f2ce2611e0001c64",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0121.mediawiki"
       }
     },
     {
@@ -8866,10 +8974,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0f230904cf77b43dafa4f58fbbfe727b866a580f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0122.mediawiki"
       }
     },
     {
@@ -8901,10 +9011,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9358e1dacd1deb0a88cce9a9d377fc14d4f06cd9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0123.mediawiki"
       }
     },
     {
@@ -8937,10 +9049,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "e48844593afa5a48b3b6b41968830d42269349ae",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0124.mediawiki"
       }
     },
     {
@@ -8973,10 +9087,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ff54969ae4896efd294276241f852b424c21ea08",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki"
       }
     },
     {
@@ -9008,10 +9124,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "1bc19cb4ed73c4c434e61cce659346217d436248",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0126.mediawiki"
       }
     },
     {
@@ -9020,7 +9138,7 @@
       "language": "en",
       "title": "Simple Proof-of-Reserves Transactions",
       "summary": "Describes a simple proof-of-reserves transaction format that allows custodians to demonstrate ownership of Bitcoin funds.",
-      "status": "draft",
+      "status": "complete",
       "category": "applications",
       "authors": [
         "Steven Roose"
@@ -9032,7 +9150,8 @@
       "tags": [
         "BIP",
         "Applications",
-        "Draft"
+        "Draft",
+        "Complete"
       ],
       "sources": [
         {
@@ -9042,11 +9161,19 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "statusHistory": [
+        {
+          "date": "2026-06-07",
+          "status": "complete",
+          "note": "Status observed as Complete in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "4187d4d2702a180c7a0f49b7860308134ebeb1de",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0127.mediawiki"
       }
     },
     {
@@ -9078,10 +9205,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c89ef32032dc1072a97ac67560c6dcd9d7b99356",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0128.mediawiki"
       }
     },
     {
@@ -9117,10 +9246,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b1d054662b9d6f86d408d9f26505f13256e015ab",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki"
       }
     },
     {
@@ -9152,10 +9283,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "1476d5871a0755d87a9ae5d0ece396c996ce73ad",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki"
       }
     },
     {
@@ -9187,10 +9320,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "2077f634532e5b92799917727aa64de43c21b65e",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0131.mediawiki"
       }
     },
     {
@@ -9222,10 +9357,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "12036935d745a07e8b69435b4dd10bf691509a49",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0132.mediawiki"
       }
     },
     {
@@ -9257,10 +9394,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6f3e04899435134b0a8fedbce13d54bc34c4c19a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki"
       }
     },
     {
@@ -9292,10 +9431,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f34a9f6b60359b2d0e64f5ca4e90136aaeb864cf",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki"
       }
     },
     {
@@ -9327,10 +9468,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "1d7978b51a65e78a7649885f28e68c18f3beddc3",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0135.mediawiki"
       }
     },
     {
@@ -9364,10 +9507,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "e1224af148f0aa0f8ccaedf41381590f9ca275af",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0136.mediawiki"
       }
     },
     {
@@ -9399,10 +9544,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f748045e40e0b52f4f8641841690a3ba1939f131",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0137.mediawiki"
       }
     },
     {
@@ -9434,10 +9581,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "983e3bf11596ab9dc982f5348fc67d9892215b65",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0140.mediawiki"
       }
     },
     {
@@ -9471,10 +9620,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "442d9dd8bfc9816414ebc129dacd7e462f5d8c8a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki"
       }
     },
     {
@@ -9506,10 +9657,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "4081eb0ceefb954f98111f4ff875405e53cf0513",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0142.mediawiki"
       }
     },
     {
@@ -9542,10 +9695,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "5d451c221fa9ef052325c42086b8a7097b942556",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki"
       }
     },
     {
@@ -9578,10 +9733,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0c555fd767007fdc97c5a8b4019a86d1fc9afcb8",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki"
       }
     },
     {
@@ -9613,10 +9770,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "eec525005ade4d96a2978c51e7514dea188772b0",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki"
       }
     },
     {
@@ -9649,10 +9808,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "5d1c4418fd08e1faa28251209cdf63b1fb6d79df",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki"
       }
     },
     {
@@ -9684,10 +9845,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "92ae72e2ad8ef9949ee5a71b69fc0fd41bf21ebc",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki"
       }
     },
     {
@@ -9719,10 +9882,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "11aac27d8662b14b5f16e4425f87ac3988716afa",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki"
       }
     },
     {
@@ -9754,10 +9919,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "3663dd9c93408f8d86b44107d19a3ed2df3f97d7",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0149.mediawiki"
       }
     },
     {
@@ -9789,10 +9956,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "989bf782157dc4ef23ce9f66eca1a5e22b5e9310",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0150.mediawiki"
       }
     },
     {
@@ -9824,10 +9993,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "cb290042dce66186f755f1b45fdebee34db01a28",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki"
       }
     },
     {
@@ -9859,10 +10030,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ee098e0147e941072362f29788c202f8451b777b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki"
       }
     },
     {
@@ -9894,10 +10067,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "d491036ae17827eb400a2870a99a8f2202d764bf",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0154.mediawiki"
       }
     },
     {
@@ -9929,10 +10104,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ba13a5c688860a02848ca2d357c1b44cf7faafb7",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki"
       }
     },
     {
@@ -9969,10 +10146,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "093ee5f6101333935b0b940d058510fbb7a5c029",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0156.mediawiki"
       }
     },
     {
@@ -10006,10 +10185,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "8b8d3bac250ea77c56addf4788f4dda479d304e9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki"
       }
     },
     {
@@ -10042,10 +10223,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9456809fbc24ed8399c46a868b1627def270ecb3",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki"
       }
     },
     {
@@ -10077,10 +10260,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "aff114436c672188d1254021762933827238f53f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki"
       }
     },
     {
@@ -10112,10 +10297,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "8f02ca7e52433859a009ce7db5d968d7fd9af271",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0171.mediawiki"
       }
     },
     {
@@ -10147,10 +10334,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f65b4b7b112edcf877fcd738471cd5157e0444bd",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0172.mediawiki"
       }
     },
     {
@@ -10183,10 +10372,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "5bcc4a5255bc85c78f3a4abaa7f4782f8acf6477",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki"
       }
     },
     {
@@ -10218,10 +10409,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9cbbe254c04897c4e1c7897b7a25e9200986cfe7",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki"
       }
     },
     {
@@ -10254,10 +10447,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "9f48dab0f242250aaac0668cc0e672982d0f3eee",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0175.mediawiki"
       }
     },
     {
@@ -10289,10 +10484,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "33706b6e2b64d75ac795fa23c24581ef40b495d3",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0176.mediawiki"
       }
     },
     {
@@ -10324,10 +10521,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "2a0e969280348b8cfc96bdb5d460989fac75f82c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0177.mediawiki"
       }
     },
     {
@@ -10359,10 +10558,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6b5b7435212db2e7b5f6505ec6ce3800852f999c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0178.mediawiki"
       }
     },
     {
@@ -10395,10 +10596,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "4344ed39b7a92d6f64c6b0933a30d728650f9815",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0179.mediawiki"
       }
     },
     {
@@ -10430,10 +10633,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "7cd4e2506a1877969703019fc718de12c77dcaee",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0180.mediawiki"
       }
     },
     {
@@ -10466,10 +10671,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b7252f60c3bba0b68cc680eb7f47c8d7e60feb8b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0197.mediawiki"
       }
     },
     {
@@ -10502,10 +10709,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "74bf6d6b1386d690562f6b96b2c5dca5e15c4454",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0199.mediawiki"
       }
     },
     {
@@ -10538,10 +10747,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "a09c635445e73ab1409881f04920d442f52647db",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0300.mediawiki"
       }
     },
     {
@@ -10574,10 +10785,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "aabd41e271d5133df6710e138738344b04e5e3fb",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0301.mediawiki"
       }
     },
     {
@@ -10610,10 +10823,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6b3b0d17360a9466cf977be379bcd11d3ec4e4b3",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0310.mediawiki"
       }
     },
     {
@@ -10645,10 +10860,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "120822f58626dce5afcb214d0e16768bec007d22",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0320.mediawiki"
       }
     },
     {
@@ -10680,10 +10897,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "74a8689fda65d5da497f114ef8456527964aa7be",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0321.mediawiki"
       }
     },
     {
@@ -10716,10 +10935,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "66fd047f6783c76e9e6ec938218349f4fb967c60",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki"
       }
     },
     {
@@ -10751,10 +10972,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "7cbba721a8725743a92a4eee51c9f57c8b243f1a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0323.mediawiki"
       }
     },
     {
@@ -10789,10 +11012,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "e0bdd8a58420626693da25ff48d20039766e8928",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0324.mediawiki"
       }
     },
     {
@@ -10825,10 +11050,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "d8485d620e47e22e9402e195b152a6e5e6a7da12",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0325.mediawiki"
       }
     },
     {
@@ -10860,10 +11087,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ef71d626e1f6217c0f5127daf8494bb5b922f114",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0326.mediawiki"
       }
     },
     {
@@ -10897,10 +11126,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "2ed08ba744b12bdfc15dd7ec28ec7f031365efa9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki"
       }
     },
     {
@@ -10932,10 +11163,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b0c0218b477f46e736befc03e3ab5fcfc8f5fad0",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0328.mediawiki"
       }
     },
     {
@@ -10967,10 +11200,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c8b2e76fa0c08fa5a773b2d143b9cf396212dc78",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0329.mediawiki"
       }
     },
     {
@@ -11003,10 +11238,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "1469892fbe282f54d62b79b40b4eec939d906786",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0330.mediawiki"
       }
     },
     {
@@ -11038,10 +11275,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "18ec81d80b27a9b66de2deeef54180b73491c69b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0331.mediawiki"
       }
     },
     {
@@ -11073,10 +11312,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "e740b18e46f9f3256bf28596066afa69acf89340",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0337.mediawiki"
       }
     },
     {
@@ -11108,10 +11349,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "fea0c3fc74892c8195faf73068c55e583e23640d",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0338.mediawiki"
       }
     },
     {
@@ -11143,10 +11386,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "a50c7e06506eacc2d42b341bac6afd3d2813249e",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0339.mediawiki"
       }
     },
     {
@@ -11180,10 +11425,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f241effd77c275ee776ecf555629c9721a9d97ef",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki"
       }
     },
     {
@@ -11217,10 +11464,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0764e6cb762b6c17d3b3430af5532e0c63365993",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki"
       }
     },
     {
@@ -11254,10 +11503,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "d073b701ce785ab497d5d409640a16727af3a25b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki"
       }
     },
     {
@@ -11266,7 +11517,7 @@
       "language": "en",
       "title": "Mandatory activation of taproot deployment",
       "summary": "Specifies the mandatory activation parameters for the Taproot soft fork deployment.",
-      "status": "deployed",
+      "status": "closed",
       "category": "consensus",
       "authors": [
         "Shinobius",
@@ -11279,7 +11530,8 @@
       "tags": [
         "BIP",
         "Consensus",
-        "Deployed"
+        "Deployed",
+        "Closed"
       ],
       "sources": [
         {
@@ -11289,11 +11541,19 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "statusHistory": [
+        {
+          "date": "2026-06-07",
+          "status": "closed",
+          "note": "Status observed as Closed in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "2ef77a238e7db9b28f662917e4275c7ad957f398",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0343.mediawiki"
       }
     },
     {
@@ -11326,10 +11586,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "7eed90c2123e2a63056ae20a86e690dd64f21076",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0345.mediawiki"
       }
     },
     {
@@ -11362,10 +11624,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "3d67012e8fe3d7aa0b4ba3b91d6e808d911fe20a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0346.md"
       }
     },
     {
@@ -11398,10 +11662,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "93ec871afefde68618d83de8b3c61cea8133a056",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0347.mediawiki"
       }
     },
     {
@@ -11434,10 +11700,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "15173fdca25c6c7983f301a4a298bb18441ffebf",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0348.md"
       }
     },
     {
@@ -11470,10 +11738,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "846f5eb055584bbfa44714c08710612d83eb7044",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0349.md"
       }
     },
     {
@@ -11505,10 +11775,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "8acc839867639c780621dc11aa401b0b181d69cb",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki"
       }
     },
     {
@@ -11541,10 +11813,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "d03703450b111c7d009bb3aab950371a1d5fecfe",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0351.mediawiki"
       }
     },
     {
@@ -11578,10 +11852,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "674f4df6e1c7ae953f07557e662e75102d2cfeca",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki"
       }
     },
     {
@@ -11614,10 +11890,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "235986682011379a387e89b037470cd503f61f6f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0353.mediawiki"
       }
     },
     {
@@ -11651,10 +11929,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "2f8f4fc5301ae19273ea323789558d83343feaf4",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki"
       }
     },
     {
@@ -11691,10 +11971,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "32d33588922651b2d2708a517e5655b1cdf729c0",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0361.mediawiki"
       }
     },
     {
@@ -11726,10 +12008,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "0adb6af3f6ae3aef5c504b82827aeebcbd35cd34",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0370.mediawiki"
       }
     },
     {
@@ -11761,10 +12045,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "cc7ad3ed2c174f2cca4e0ad2aeb7ca835d55e225",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0371.mediawiki"
       }
     },
     {
@@ -11796,10 +12082,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "afad966a7f2a72f2de62060a17c372aaafd25749",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0372.mediawiki"
       }
     },
     {
@@ -11831,10 +12119,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "bf490d69977d74a4d788edccf2eaece12d4bfc6a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0373.mediawiki"
       }
     },
     {
@@ -11868,10 +12158,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "ff5686c58254acfa8ec8485c43294d7a5c33d85a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki"
       }
     },
     {
@@ -11905,10 +12197,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "7d6089a4691a962a19cf5ee612d9337378bd5dea",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0375.mediawiki"
       }
     },
     {
@@ -11940,10 +12234,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "a005f08ec044a1699b4ea04b891805d9e59dd3e7",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0376.mediawiki"
       }
     },
     {
@@ -11979,10 +12275,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "de48af2ccc5303c0f954a2d22a9a6fe54fbed11b",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md"
       }
     },
     {
@@ -12015,10 +12313,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "fe4cad50b2d8129ccc974636b1921d2b6cd98c67",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki"
       }
     },
     {
@@ -12051,10 +12351,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "067e0af9114159b6e29fe82296d6a929e18edc14",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0381.mediawiki"
       }
     },
     {
@@ -12087,10 +12389,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "a95bbf23a0153dff88e47fe1242160b900094f16",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki"
       }
     },
     {
@@ -12123,10 +12427,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "b4008f71abb00f9f350afdd759b3f5da55a84ff5",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki"
       }
     },
     {
@@ -12159,10 +12465,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "7dbbd8d0f58ec8a23de574117e5bee2b3b0d4831",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0384.mediawiki"
       }
     },
     {
@@ -12195,10 +12503,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "4f544cea07cb2d0fc64367b3a963e421a7988bd2",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0385.mediawiki"
       }
     },
     {
@@ -12231,10 +12541,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "a95176e88d649c48966904d7e531ea5a3fe6444e",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0386.mediawiki"
       }
     },
     {
@@ -12267,10 +12579,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "2789af16703760d4427ff5ca1314379f7bee38d3",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0387.mediawiki"
       }
     },
     {
@@ -12302,10 +12616,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "49996df33e571e0e14ae770ad719bfa314587d4c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0388.mediawiki"
       }
     },
     {
@@ -12337,10 +12653,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6940a451dad644419a97d4300ddc953b8465d93f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0389.mediawiki"
       }
     },
     {
@@ -12372,10 +12690,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "a6b5526a6788f537c107afb19fdfa3911699d4a9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0390.mediawiki"
       }
     },
     {
@@ -12407,10 +12727,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f305e64ca614d6cfa840b90c3ae10df79a690ade",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0391.mediawiki"
       }
     },
     {
@@ -12442,10 +12764,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "c1424bfdd23263ec26cc9f90cfc755d3ed92252e",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0392.mediawiki"
       }
     },
     {
@@ -12477,10 +12801,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f3a338b71d44acad69504e06bf0b53c251c9703d",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0393.mediawiki"
       }
     },
     {
@@ -12512,10 +12838,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "276f1f9e3aa669d1dadd642c6f3363ce1e7df137",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0431.mediawiki"
       }
     },
     {
@@ -12547,10 +12875,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "073beb8b9714e00755fa09a6be9e6bef938eef4c",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0433.mediawiki"
       }
     },
     {
@@ -12582,10 +12912,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "3f3b4f65a83f4fb4ac3c8520c095cded59aabe27",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0434.md"
       }
     },
     {
@@ -12618,10 +12950,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "409b5a0f47333386f868e5d984ec88d2e8863a2a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0440.mediawiki"
       }
     },
     {
@@ -12654,10 +12988,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "f658bcefddcf0f35d1eedb580772dbf8fb211b46",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0441.mediawiki"
       }
     },
     {
@@ -12690,10 +13026,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6f1b5230c0b4b5057bc0dc1770ebf48ddb996efc",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0442.md"
       }
     },
     {
@@ -12725,10 +13063,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "09ae3ab22cabedc44d510c76013b79ab94ca893f",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0443.mediawiki"
       }
     },
     {
@@ -12762,10 +13102,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "501a34f7e93a1ad5f782ef6d80ef1796bfd91fba",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0446.md"
       }
     },
     {
@@ -12799,10 +13141,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T20:56:05.236Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "06804e218fab55cc7fff15ec4128ef2ae43d13e9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0448.md"
       }
     },
     {
@@ -12834,10 +13178,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "60d7f620c61bf626261b52c8ce99b8ef092ae2a0",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0449.md"
       }
     },
     {
@@ -12870,10 +13216,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "6135c2548969f85647eefda3f3c41f9e306c2523",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0450.mediawiki"
       }
     },
     {
@@ -12906,10 +13254,12 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "needsReview": false
+        "needsReview": false,
+        "upstreamSha": "399761bd824dae980905e8baf4ff93adeac1b2b9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0451.md"
       }
     }
   ],
@@ -12944,7 +13294,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "7246702a905509a40500c1d7fec8ee76371245f0",
@@ -12983,7 +13333,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "888b3f919c366ad463fcb7e8a11e07dc8f0f3669",
@@ -13022,7 +13372,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "3299af4efaa978d9c1b52f67fa49807f410d5c38",
@@ -13061,7 +13411,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "a855d10cc98c1ceb149e84a949d967d6daffac72",
@@ -13100,7 +13450,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "98713c6ceaa407bc58fb92bffb25dc73a0881082",
@@ -13139,7 +13489,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "b981b8a7f54609be828167e5ce551a1689ac148d",
@@ -13178,7 +13528,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "2c66622795e5c15a07070c871d4c6e3af96615fc",
@@ -13217,7 +13567,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "582cc7e885fb2c5af7b79fc8799a3c95df764f2a",
@@ -13256,7 +13606,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "b6af01a4b742e9bb77d95891025950ff521ee273",
@@ -13295,7 +13645,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "eefeedf7d2614559be8ccb40687f45d41924f131",
@@ -13334,7 +13684,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "057b1b43d8e33bc9ba05dfa6d1f4526759011d80",
@@ -13373,7 +13723,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-01T12:34:49.460164Z",
+      "updatedAt": "2026-06-07T20:19:56.087074Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "de3b8c5a06d6a612826636f8b05ab58c95e7eafa",
