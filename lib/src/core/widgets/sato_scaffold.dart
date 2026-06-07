@@ -112,9 +112,7 @@ class SatoScaffold extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                RadioListTile<AppLocalePreference>(
-                  title: Text(l10n.languageSystemDefault),
-                  value: const AppLocalePreference.system(),
+                RadioGroup<AppLocalePreference>(
                   groupValue: localePreference,
                   onChanged: (preference) {
                     if (preference != null) {
@@ -122,28 +120,23 @@ class SatoScaffold extends StatelessWidget {
                     }
                     Navigator.of(context).pop();
                   },
-                ),
-                RadioListTile<AppLocalePreference>(
-                  title: Text(l10n.languageEnglish),
-                  value: const AppLocalePreference.language('en'),
-                  groupValue: localePreference,
-                  onChanged: (preference) {
-                    if (preference != null) {
-                      onLocalePreferenceChanged(preference);
-                    }
-                    Navigator.of(context).pop();
-                  },
-                ),
-                RadioListTile<AppLocalePreference>(
-                  title: Text(l10n.languageItalian),
-                  value: const AppLocalePreference.language('it'),
-                  groupValue: localePreference,
-                  onChanged: (preference) {
-                    if (preference != null) {
-                      onLocalePreferenceChanged(preference);
-                    }
-                    Navigator.of(context).pop();
-                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      RadioListTile<AppLocalePreference>(
+                        title: Text(l10n.languageSystemDefault),
+                        value: const AppLocalePreference.system(),
+                      ),
+                      RadioListTile<AppLocalePreference>(
+                        title: Text(l10n.languageEnglish),
+                        value: const AppLocalePreference.language('en'),
+                      ),
+                      RadioListTile<AppLocalePreference>(
+                        title: Text(l10n.languageItalian),
+                        value: const AppLocalePreference.language('it'),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
