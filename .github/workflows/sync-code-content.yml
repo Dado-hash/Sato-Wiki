@@ -76,6 +76,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           BRANCH_NAME: ${{ steps.commit.outputs.branch }}
         run: |
+          manual_pr_url="https://github.com/${GITHUB_REPOSITORY}/pull/new/${BRANCH_NAME}"
+
           {
             cat build/code-content-sync-report.md
             echo
@@ -83,14 +85,48 @@ jobs:
             echo "AI-generated fields are marked with automation.needsReview and require maintainer review before merge."
           } > build/code-content-pr-body.md
 
-          existing_pr="$(gh pr list --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // ""')"
+          if ! existing_pr="$(gh pr list --head "$BRANCH_NAME" --state open --json number --jq '.[0].number // ""')"; then
+            echo "::warning::Could not inspect existing pull requests. The branch was pushed successfully: $manual_pr_url"
+            {
+              echo "### Code content sync"
+              echo
+              echo "Branch pushed: \`$BRANCH_NAME\`"
+              echo "Open the pull request manually: $manual_pr_url"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
           if [ -n "$existing_pr" ]; then
-            gh pr edit "$existing_pr" --body-file build/code-content-pr-body.md
+            if gh pr edit "$existing_pr" --body-file build/code-content-pr-body.md; then
+              exit 0
+            fi
+
+            echo "::warning::Could not update PR #$existing_pr. The branch was pushed successfully."
+            {
+              echo "### Code content sync"
+              echo
+              echo "Branch pushed: \`$BRANCH_NAME\`"
+              echo "Existing PR: #$existing_pr"
+              echo "Could not update the PR body automatically."
+            } >> "$GITHUB_STEP_SUMMARY"
           else
-            gh pr create \
+            if gh pr create \
               --draft \
               --base main \
               --head "$BRANCH_NAME" \
               --title "chore: sync BIP and Bitcoin Core content" \
-              --body-file build/code-content-pr-body.md
+              --body-file build/code-content-pr-body.md; then
+              exit 0
+            fi
+
+            echo "::warning::GitHub Actions could not create a pull request. The branch was pushed successfully: $manual_pr_url"
+            {
+              echo "### Code content sync"
+              echo
+              echo "Branch pushed: \`$BRANCH_NAME\`"
+              echo "Open the pull request manually: $manual_pr_url"
+              echo
+              echo "To enable automatic PR creation, turn on:"
+              echo "\`Settings > Actions > General > Workflow permissions > Allow GitHub Actions to create and approve pull requests\`."
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
