@@ -34,69 +34,68 @@
   </g>
 
   <g opacity="0.12" fill="none" stroke="#F7931A" stroke-width="3">
-    <circle cx="300" cy="270" r="60"/>
-    <circle cx="300" cy="270" r="120"/>
+    <circle cx="300" cy="290" r="58"/>
+    <circle cx="300" cy="290" r="112"/>
   </g>
 
   <g opacity="0.08" fill="none" stroke="#F7931A" stroke-width="2">
-    <circle cx="300" cy="270" r="180"/>
-    <circle cx="300" cy="270" r="240"/>
+    <circle cx="300" cy="290" r="166"/>
+    <circle cx="300" cy="290" r="220"/>
   </g>
 
   <g filter="url(#soft)">
-    <circle cx="300" cy="270" r="32" fill="#203327" stroke="#22C55E" stroke-width="2.5" filter="url(#glow-orange)"/>
-    <text x="300" y="274" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">M</text>
+    <circle cx="300" cy="290" r="32" fill="#203327" stroke="#22C55E" stroke-width="2.5" filter="url(#glow-orange)"/>
+    <text x="300" y="294" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">M</text>
 
-    <circle cx="300" cy="150" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="300" y="154" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="300" cy="170" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="300" y="174" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="160" cy="200" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="160" y="204" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="160" cy="220" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="160" y="224" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="450" cy="190" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="450" y="194" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="450" cy="210" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="450" y="214" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="140" cy="340" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="140" y="344" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="140" cy="360" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="140" y="364" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="460" cy="360" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="460" y="364" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="460" cy="380" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="460" y="384" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="300" cy="390" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="300" y="394" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="300" cy="410" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="300" y="414" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="640" cy="240" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
-    <text x="640" y="244" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="640" cy="260" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
+    <text x="640" y="264" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="720" cy="350" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
-    <text x="720" y="354" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="720" cy="370" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
+    <text x="720" y="374" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
 
-    <circle cx="580" cy="140" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
-    <text x="580" y="144" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
+    <circle cx="580" cy="160" r="22" fill="#1E2A1F" stroke="#22C55E" stroke-width="2"/>
+    <text x="580" y="164" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">N</text>
   </g>
 
   <g stroke="#22C55E" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="6 5">
-    <path d="M300 238V172"/>
-    <path d="M268 240L172 208"/>
-    <path d="M330 242L436 208"/>
-    <path d="M268 298L160 332"/>
-    <path d="M330 296L440 348"/>
-    <path d="M300 302V368"/>
-    <path d="M322 250L618 250"/>
-    <path d="M690 258L700 338"/>
-    <path d="M580 162L618 228"/>
+    <path d="M300 258V192"/>
+    <path d="M270 260L181 227"/>
+    <path d="M329 263L429 218"/>
+    <path d="M269 300L161 352"/>
+    <path d="M329 305L440 369"/>
+    <path d="M300 322V388"/>
+    <path d="M332 285L618 263"/>
+    <path d="M653 278L707 352"/>
+    <path d="M591 179L629 241"/>
   </g>
 
   <g stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.25">
-    <path d="M160 222L140 318" stroke="#B7B1A8"/>
-    <path d="M450 212L442 338" stroke="#B7B1A8"/>
-    <path d="M580 162L640 218" stroke="#B7B1A8"/>
+    <path d="M156 242L144 338" stroke="#B7B1A8"/>
+    <path d="M452 232L458 358" stroke="#B7B1A8"/>
   </g>
 
-  <rect x="698" y="430" width="216" height="38" rx="12" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-  <circle cx="716" cy="449" r="5" fill="#22C55E"/>
-  <text x="730" y="454" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">relayed block</text>
+  <rect x="698" y="418" width="216" height="62" rx="12" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
+  <circle cx="716" cy="440" r="5" fill="#22C55E"/>
+  <text x="730" y="445" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">relayed block</text>
 
-  <circle cx="810" cy="449" r="5" fill="#46505C"/>
-  <text x="824" y="454" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">not yet relayed</text>
+  <circle cx="716" cy="460" r="5" fill="#46505C"/>
+  <text x="730" y="465" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">not yet relayed</text>
 </svg>

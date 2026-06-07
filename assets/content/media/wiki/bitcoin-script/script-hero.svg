@@ -3,10 +3,10 @@
   <desc id="desc">The unlocking script (scriptSig or witness) satisfies conditions set by the locking script (scriptPubKey).</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
@@ -35,27 +35,28 @@
     <rect x="116" y="260" width="180" height="24" rx="12" fill="#171B21" stroke="#22C55E" stroke-width="1" opacity="0.6"/>
     <text x="206" y="277" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13">&lt;sig&gt; &lt;pubKey&gt;</text>
 
-    <rect x="86" y="320" width="240" height="104" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="206" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Locking Script</text>
-    <text x="206" y="378" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">scriptPubKey</text>
-    <rect x="100" y="394" width="212" height="24" rx="12" fill="#171B21" stroke="#F7931A" stroke-width="1" opacity="0.6"/>
-    <text x="206" y="411" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">OP_DUP OP_HASH160 &lt;hash&gt; OP_EQUALVERIFY OP_CHECKSIG</text>
+    <rect x="86" y="314" width="240" height="120" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="206" y="344" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Locking Script</text>
+    <text x="206" y="368" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">scriptPubKey</text>
+    <rect x="100" y="384" width="212" height="22" rx="11" fill="#171B21" stroke="#F7931A" stroke-width="1" opacity="0.6"/>
+    <text x="206" y="399" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">OP_DUP OP_HASH160 &lt;hash&gt;</text>
+    <rect x="100" y="410" width="212" height="22" rx="11" fill="#171B21" stroke="#F7931A" stroke-width="1" opacity="0.6"/>
+    <text x="206" y="425" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">OP_EQUALVERIFY OP_CHECKSIG</text>
   </g>
 
   <g filter="url(#soft)">
-    <rect x="370" y="226" width="224" height="60" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="482" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Combined execution</text>
-    <text x="482" y="276" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">unlock + lock run together</text>
+    <rect x="370" y="244" width="224" height="60" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="482" y="274" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Combined execution</text>
+    <text x="482" y="294" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">unlock + lock run together</text>
   </g>
 
-  <path d="M340 238H358" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M340 372H358" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M334 238H346V274" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M334 374H346V274" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M346 274H360" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M356 265L370 274L356 283" fill="none" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <line x1="482" y1="300" x2="482" y2="356" stroke="#7C8794" stroke-width="3" stroke-dasharray="6 8"/>
-
-  <text x="482" y="316" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">validates</text>
-
-  <path d="M608 256H648" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M604 274H656" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M652 265L666 274L652 283" fill="none" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
   <g filter="url(#soft)">
     <rect x="666" y="176" width="202" height="52" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
