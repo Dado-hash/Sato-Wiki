@@ -112,31 +112,44 @@ class SatoScaffold extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                RadioGroup<AppLocalePreference>(
+                RadioListTile<AppLocalePreference>(
+                  title: Text(l10n.languageSystemDefault),
+                  value: const AppLocalePreference.system(),
+                  // ignore: deprecated_member_use
                   groupValue: localePreference,
+                  // ignore: deprecated_member_use
                   onChanged: (preference) {
                     if (preference != null) {
                       onLocalePreferenceChanged(preference);
                     }
                     Navigator.of(context).pop();
                   },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      RadioListTile<AppLocalePreference>(
-                        title: Text(l10n.languageSystemDefault),
-                        value: const AppLocalePreference.system(),
-                      ),
-                      RadioListTile<AppLocalePreference>(
-                        title: Text(l10n.languageEnglish),
-                        value: const AppLocalePreference.language('en'),
-                      ),
-                      RadioListTile<AppLocalePreference>(
-                        title: Text(l10n.languageItalian),
-                        value: const AppLocalePreference.language('it'),
-                      ),
-                    ],
-                  ),
+                ),
+                RadioListTile<AppLocalePreference>(
+                  title: Text(l10n.languageEnglish),
+                  value: const AppLocalePreference.language('en'),
+                  // ignore: deprecated_member_use
+                  groupValue: localePreference,
+                  // ignore: deprecated_member_use
+                  onChanged: (preference) {
+                    if (preference != null) {
+                      onLocalePreferenceChanged(preference);
+                    }
+                    Navigator.of(context).pop();
+                  },
+                ),
+                RadioListTile<AppLocalePreference>(
+                  title: Text(l10n.languageItalian),
+                  value: const AppLocalePreference.language('it'),
+                  // ignore: deprecated_member_use
+                  groupValue: localePreference,
+                  // ignore: deprecated_member_use
+                  onChanged: (preference) {
+                    if (preference != null) {
+                      onLocalePreferenceChanged(preference);
+                    }
+                    Navigator.of(context).pop();
+                  },
                 ),
               ],
             ),
