@@ -38,12 +38,12 @@
 
   <!-- Top: Hash rate up -->
   <g filter="url(#soft)">
-    <rect x="330" y="170" width="300" height="56" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="480" y="193" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Hash rate increases</text>
-    <text x="480" y="214" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">More miners / better hardware</text>
+    <rect x="130" y="170" width="300" height="56" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="280" y="193" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Hash rate increases</text>
+    <text x="280" y="214" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">More miners / better hardware</text>
   </g>
 
-  <path d="M480 232V296" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M280 226V252H208V298" stroke="#F7931A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
 
   <!-- Left: Blocks too fast -->
   <g filter="url(#soft)">
@@ -52,7 +52,7 @@
     <text x="208" y="350" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">&lt; 10 min average</text>
   </g>
 
-  <path d="M330 334H296" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M208 362V398H752V370" stroke="#F7931A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
 
   <!-- Right: Difficulty up -->
   <g filter="url(#soft)">
@@ -61,23 +61,17 @@
     <text x="752" y="350" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">Target ↓</text>
   </g>
 
-  <path d="M480 362V398 C480 410, 546 410, 546 398 L546 372" stroke="#7C8794" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-
-  <path d="M286 334H260 C248 334, 248 362, 260 362H300" stroke="#F7931A" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-  <path d="M700 334H674" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M674 334H638" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
 
   <!-- Bottom: Blocks slower -->
   <g filter="url(#soft)">
-    <rect x="130" y="170" width="156" height="56" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="208" y="193" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Blocks too slow</text>
-    <text x="208" y="214" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">&gt; 10 min average</text>
+    <rect x="474" y="170" width="156" height="56" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="552" y="193" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Blocks too slow</text>
+    <text x="552" y="214" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">&gt; 10 min average</text>
   </g>
 
   <!-- Loop arrows -->
-  <path d="M208 226V262 C208 278, 480 278, 480 262 V240" stroke="#22C55E" stroke-width="2" fill="none" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-
-  <path d="M674 226V198 C674 186, 630 186, 630 198 V240" stroke="#22C55E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M630 198H750V234" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
 
   <!-- Result box -->
   <g filter="url(#soft)">
@@ -86,7 +80,7 @@
     <text x="750" y="214" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">Target ↑</text>
   </g>
 
-  <path d="M630 198H636" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M750 226V268H600V298" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
 
   <!-- Formula -->
   <g filter="url(#soft)">
