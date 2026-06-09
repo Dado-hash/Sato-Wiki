@@ -18,7 +18,7 @@
   </g>
   <!-- Left: Block anatomy -->
   <g filter="url(#soft)">
-    <rect x="64" y="170" width="380" height="262" rx="20" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="64" y="170" width="380" height="282" rx="20" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="254" y="206" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Coinbase Transaction</text>
     <rect x="90" y="228" width="328" height="1" fill="#343A44"/>
     <rect x="90" y="250" width="328" height="48" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
@@ -31,17 +31,21 @@
   </g>
   <!-- Right: Explanation -->
   <g filter="url(#soft)">
-    <rect x="480" y="170" width="416" height="262" rx="20" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <rect x="480" y="170" width="416" height="282" rx="20" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
     <text x="688" y="206" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">How It Works</text>
-    <rect x="506" y="228" width="364" height="1" fill="#343A44"/>
-    <g font-family="Inter, Arial, sans-serif" font-size="15" fill="#F4EAD8">
-      <text x="520" y="260">The coinbase is the first</text>
-      <text x="520" y="282">transaction in every block.</text>
-      <text x="520" y="314">It has no inputs — it creates</text>
-      <text x="520" y="336">bitcoin from nothing (within</text>
-      <text x="520" y="358">protocol limits).</text>
-      <text x="520" y="390" fill="#22C55E">The subsidy halves every</text>
-      <text x="520" y="412" fill="#22C55E">210,000 blocks (~4 years).</text>
+    <rect x="504" y="228" width="368" height="1" fill="#343A44"/>
+    <g font-family="Inter, Arial, sans-serif" font-size="12" fill="#F4EAD8">
+      <text x="500" y="252" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">01 / FIRST TRANSACTION</text>
+      <text x="500" y="274">The coinbase is first in every block. It has no previous outputs</text>
+      <text x="500" y="292">and pays the miner.</text>
+
+      <text x="500" y="322" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">02 / NEW SUPPLY LIMIT</text>
+      <text x="500" y="344">Consensus allows new coins only up to the current subsidy plus</text>
+      <text x="500" y="362">transaction fees. Even 1 extra satoshi makes the block invalid.</text>
+
+      <text x="500" y="394" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">03 / HALVING SCHEDULE</text>
+      <text x="500" y="416">It halves every 210,000 blocks, so fees gradually become the</text>
+      <text x="500" y="434">long-term reward.</text>
     </g>
   </g>
   <text x="480" y="500" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">
