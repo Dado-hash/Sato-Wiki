@@ -3,8 +3,8 @@
   <desc id="desc">A block header commits to the previous block and the transaction list, beginning with the coinbase transaction.</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M2 2L9 5L2 8" fill="none" stroke="#F7931A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
@@ -37,9 +37,9 @@
       <rect x="264" y="266" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
       <text x="334" y="292" text-anchor="middle">prev hash</text>
       <rect x="100" y="326" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
-      <text x="170" y="352" text-anchor="middle">Merkle root</text>
+      <text x="170" y="352" text-anchor="middle">time</text>
       <rect x="264" y="326" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
-      <text x="334" y="352" text-anchor="middle">time</text>
+      <text x="334" y="352" text-anchor="middle">Merkle root</text>
       <rect x="100" y="386" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
       <text x="170" y="412" text-anchor="middle">nBits</text>
       <rect x="264" y="386" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
@@ -47,11 +47,9 @@
     </g>
   </g>
 
-  <path d="M446 314H510" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-
   <g filter="url(#soft)">
     <rect x="530" y="170" width="354" height="288" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="707" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Transactions</text>
+    <text x="707" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Transactions</text>
     <rect x="568" y="246" width="278" height="46" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
     <text x="707" y="276" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">coinbase first</text>
     <rect x="568" y="310" width="278" height="46" rx="12" fill="#171B21" stroke="#46505C"/>
@@ -60,6 +58,7 @@
     <text x="707" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16">tx 2 ... tx n</text>
   </g>
 
-  <path d="M698 246C652 206 584 199 434 222" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-orange)"/>
-  <text x="558" y="190" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">Merkle commitment</text>
+  <path d="M404 347C444 328 486 316 530 306" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-orange)"/>
+  <text x="479" y="274" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">Merkle</text>
+  <text x="479" y="292" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">commitment</text>
 </svg>
