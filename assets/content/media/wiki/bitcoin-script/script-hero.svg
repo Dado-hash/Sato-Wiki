@@ -55,24 +55,26 @@
   <path d="M346 274H360" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
   <path d="M356 265L370 274L356 283" fill="none" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <path d="M604 274H656" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
-  <path d="M652 265L666 274L652 283" fill="none" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M604 280H656" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M652 271L666 280L652 289" fill="none" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
   <g filter="url(#soft)">
-    <rect x="666" y="176" width="202" height="52" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="767" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Stack starts empty</text>
-    <text x="767" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">[ ]</text>
+    <rect x="666" y="160" width="202" height="52" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="767" y="184" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Stack starts empty</text>
+    <text x="767" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">[ ]</text>
 
-    <rect x="666" y="248" width="202" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="767" y="272" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script runs</text>
-    <text x="767" y="290" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">opcode by opcode</text>
+    <rect x="666" y="254" width="202" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="767" y="278" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script runs</text>
+    <text x="767" y="296" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">opcode by opcode</text>
 
-    <rect x="666" y="320" width="202" height="52" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="767" y="344" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Stack ends with</text>
-    <text x="767" y="362" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">TRUE</text>
+    <rect x="666" y="348" width="202" height="52" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="767" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Stack ends with</text>
+    <text x="767" y="390" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">TRUE</text>
   </g>
 
-  <path d="M767 422V452" stroke="#7C8794" stroke-width="2" stroke-linecap="round"/>
+  <path d="M767 212V246" stroke="#F7931A" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M767 306V340" stroke="#22C55E" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M767 400V444" stroke="#22C55E" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow-green)"/>
   <rect x="710" y="452" width="114" height="36" rx="18" fill="#241E31" stroke="#7C5CFF" stroke-width="1.6"/>
   <text x="767" y="475" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">spend confirmed</text>
 </svg>
