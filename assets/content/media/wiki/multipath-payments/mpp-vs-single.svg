@@ -2,20 +2,20 @@
   <title id="title">MPP vs Single-Path Payment</title>
   <desc id="desc">Comparison: top shows a single path Alice → Bob → Carol where Bob's insufficient liquidity causes the entire payment to fail. Bottom shows MPP with three thinner paths where even if one path fails, the other two succeed. MPP improves success rate from ~85% to ~95%+.</desc>
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-red" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#EF4444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-blue" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#60A5FA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>

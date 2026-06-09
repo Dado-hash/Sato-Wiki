@@ -3,8 +3,8 @@
   <desc id="desc">Left panel shows a soft fork where old nodes and new nodes both accept all blocks. Right panel shows a hard fork where old nodes reject blocks created under new rules.</desc>
 
   <defs>
-    <marker id="arrow-gray" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>

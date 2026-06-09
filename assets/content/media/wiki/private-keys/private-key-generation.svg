@@ -3,14 +3,14 @@
   <desc id="desc">A private key is generated from entropy, produces a random 256-bit number, and must fall between 0x1 and the secp256k1 order n. The key space is approximately 2^256.</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
@@ -61,7 +61,7 @@
 
   <!-- Step 3: 256-bit Private Key (big box) -->
   <g filter="url(#soft)">
-    <rect x="648" y="164" width="260" height="126" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2.4"/>
+    <rect x="648" y="164" width="260" height="126" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
     <text x="778" y="196" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">256-bit Private Key</text>
 
     <!-- Hex representation box -->

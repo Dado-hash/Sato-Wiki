@@ -3,14 +3,14 @@
   <desc id="desc">A private key scalar is multiplied by the secp256k1 generator point G to produce the public key point K = k*G on the elliptic curve. This operation is one-way: the private key cannot be recovered from the public key.</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
@@ -30,7 +30,7 @@
 
   <!-- Private key box (orange) -->
   <g filter="url(#soft)">
-    <rect x="76" y="170" width="280" height="130" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2.4"/>
+    <rect x="76" y="170" width="280" height="130" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
     <text x="216" y="200" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Private Key</text>
     <rect x="94" y="214" width="244" height="30" rx="6" fill="#111418" stroke="#343A44" stroke-width="1"/>
     <text x="216" y="235" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">0xE9 87 3D 79 ... C1 A5 2B 40</text>
@@ -47,7 +47,7 @@
 
   <!-- Public key box (green) -->
   <g filter="url(#soft)">
-    <rect x="426" y="162" width="320" height="148" rx="14" fill="#0A1F16" stroke="#22C55E" stroke-width="2.4"/>
+    <rect x="426" y="162" width="320" height="148" rx="14" fill="#0A1F16" stroke="#22C55E" stroke-width="1.8"/>
     <text x="586" y="192" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Public Key</text>
 
     <!-- x-coordinate -->

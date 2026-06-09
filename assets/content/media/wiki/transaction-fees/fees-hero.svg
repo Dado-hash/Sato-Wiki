@@ -3,17 +3,17 @@
   <desc id="desc">Three inputs feed into a transaction, two outputs go out, and the surplus flows to the miner as the fee.</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#22C55E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-purple" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C5CFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C5CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
@@ -54,7 +54,7 @@
   <path d="M282 412C335 412 350 388 400 388" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <g filter="url(#soft)">
-    <rect x="402" y="192" width="170" height="240" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
+    <rect x="402" y="192" width="170" height="240" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
     <text x="487" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700">Transaction</text>
     <rect x="442" y="260" width="90" height="32" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
     <text x="487" y="282" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">sign inputs</text>

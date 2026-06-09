@@ -3,11 +3,11 @@
   <desc id="desc">A Bitcoin transaction is split into transaction data (inputs, outputs, locktime) and witness data (signatures). The txid is computed only from the non-witness part, making it non-malleable.</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
-    <marker id="arrow-muted" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#7C8794" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
@@ -26,7 +26,7 @@
   </g>
 
   <g filter="url(#soft)">
-    <rect x="260" y="176" width="440" height="116" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
+    <rect x="260" y="176" width="440" height="116" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
     <rect x="480" y="200" text-anchor="middle" x="480" width="0" height="0"/>
     <text x="480" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Bitcoin Transaction</text>
 
