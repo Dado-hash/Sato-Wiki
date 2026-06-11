@@ -26,12 +26,12 @@
   <!-- Divider lines -->
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
-    <path d="M76 408H884"/>
-    <path d="M480 148V490"/>
+    <path d="M76 424H884"/>
+    <path d="M480 148V428"/>
   </g>
 
   <text x="278" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">SIGNING</text>
-  <text x="742" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">VERIFICATION</text>
+  <text x="707" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">VERIFICATION</text>
 
   <!-- ===== LEFT COLUMN: Signing ===== -->
 
@@ -56,22 +56,22 @@
 
   <!-- Signing box -->
   <g filter="url(#soft)">
-    <rect x="64" y="266" width="352" height="192" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <rect x="64" y="266" width="352" height="148" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
 
-    <text x="86" y="298" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="86" y="286" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
       <tspan fill="#7C8794">// pick random nonce</tspan>
     </text>
-    <text x="86" y="322" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="86" y="308" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
       <tspan fill="#F7931A">k</tspan>
       <tspan fill="#B7B1A8"> = random(1, </tspan>
       <tspan fill="#7C8794">n</tspan>
       <tspan fill="#B7B1A8">-1)</tspan>
     </text>
 
-    <text x="86" y="353" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="86" y="332" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
       <tspan fill="#7C8794">// compute commitment</tspan>
     </text>
-    <text x="86" y="377" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="86" y="354" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
       <tspan fill="#F7931A">R</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#F7931A">k</tspan>
@@ -87,10 +87,10 @@
       <tspan fill="#B7B1A8">.x</tspan>
     </text>
 
-    <text x="86" y="410" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="86" y="374" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
       <tspan fill="#7C8794">// signature scalar</tspan>
     </text>
-    <text x="86" y="438" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="22" font-weight="600">
+    <text x="86" y="394" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18" font-weight="600">
       <tspan fill="#F7931A">s</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#F7931A">k</tspan>
@@ -109,17 +109,17 @@
   </g>
 
   <!-- Arrow: sign box to signature -->
-  <path d="M240 460V480" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M240 414V428" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <!-- Signature output -->
   <g filter="url(#soft)">
-    <rect x="128" y="488" width="224" height="60" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="240" y="516" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Signature</text>
-    <text x="240" y="538" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">(r, s) pair</text>
+    <rect x="128" y="432" width="224" height="48" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="240" y="452" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Signature</text>
+    <text x="240" y="468" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">(r, s) pair</text>
   </g>
 
   <!-- Divider -->
-  <rect x="470" y="158" width="2" height="392" rx="1" fill="#343A44"/>
+  <rect x="470" y="158" width="2" height="322" rx="1" fill="#343A44"/>
 
   <!-- ===== RIGHT COLUMN: Verification ===== -->
 
@@ -140,23 +140,23 @@
   <path d="M806 222V258" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 
   <!-- Signature input from left -->
-  <path d="M352 518H480V294H498" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M352 456H480V294H561" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <!-- Verification box -->
   <g filter="url(#soft)">
-    <rect x="498" y="266" width="418" height="192" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <rect x="567" y="266" width="280" height="148" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
 
-    <text x="520" y="298" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="587" y="288" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
       <tspan fill="#7C8794">// compute helpers</tspan>
     </text>
-    <text x="520" y="326" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="587" y="310" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
       <tspan fill="#22C55E">u₁</tspan>
       <tspan fill="#B7B1A8"> = z </tspan>
       <tspan fill="#7C8794">·</tspan>
       <tspan fill="#B7B1A8"> s⁻¹ mod </tspan>
       <tspan fill="#7C8794">n</tspan>
     </text>
-    <text x="520" y="354" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="587" y="334" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
       <tspan fill="#22C55E">u₂</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#7C8794">r</tspan>
@@ -166,10 +166,10 @@
       <tspan fill="#7C8794">n</tspan>
     </text>
 
-    <text x="520" y="387" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="587" y="356" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
       <tspan fill="#7C8794">// compute candidate point</tspan>
     </text>
-    <text x="520" y="420" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="22" font-weight="600">
+    <text x="587" y="378" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18" font-weight="600">
       <tspan fill="#F7931A">R'</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#22C55E">u₁</tspan>
@@ -187,13 +187,13 @@
   </g>
 
   <!-- Arrow down to result -->
-  <path d="M707 460V488" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M707 414V428" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 
   <!-- Verification result -->
   <g filter="url(#soft)">
-    <rect x="546" y="496" width="322" height="52" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="707" y="522" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Check: R'.x == r ?</text>
-    <text x="707" y="540" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">valid if equal, invalid otherwise</text>
+    <rect x="546" y="432" width="322" height="48" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="707" y="454" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Check: R'.x == r ?</text>
+    <text x="707" y="470" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">valid if equal, invalid otherwise</text>
   </g>
 
 </svg>
