@@ -1,4 +1,4 @@
-<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="960" height="518" viewBox="0 0 960 518" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Bitcoin Halving Timeline</title>
   <desc id="desc">A timeline of Bitcoin halving events from 2009 to 2140, showing how the block subsidy decreases from 50 BTC to fractions of a satoshi over time.</desc>
 
@@ -11,80 +11,80 @@
     </marker>
   </defs>
 
-  <rect width="960" height="540" rx="28" fill="#111418"/>
-  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <rect width="960" height="518" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="462" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Halving Events</text>
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Every 210,000 blocks the block subsidy is cut in half.</text>
 
   <!-- Timeline -->
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
-    <path d="M76 160H884"/>
-    <path d="M76 320H884"/>
-    <path d="M76 430H884"/>
+    <path d="M76 138H884"/>
+    <path d="M76 298H884"/>
+    <path d="M76 408H884"/>
   </g>
 
   <!-- Timeline arrow line -->
-  <path d="M80 240H880" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-right)"/>
+  <path d="M80 218H880" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-right)"/>
 
   <!-- Halving events -->
   <g filter="url(#soft)">
     <!-- 2009: 50 BTC -->
-    <rect x="70" y="200" width="120" height="80" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="130" y="232" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2009</text>
-    <text x="130" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">50 BTC</text>
+    <rect x="70" y="178" width="120" height="80" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="130" y="210" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2009</text>
+    <text x="130" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">50 BTC</text>
 
     <!-- 2012: 25 BTC -->
-    <rect x="220" y="200" width="120" height="80" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="280" y="232" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2012</text>
-    <text x="280" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">25 BTC</text>
+    <rect x="220" y="178" width="120" height="80" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="280" y="210" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2012</text>
+    <text x="280" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">25 BTC</text>
 
     <!-- 2016: 12.5 BTC -->
-    <rect x="380" y="200" width="120" height="80" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="440" y="232" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2016</text>
-    <text x="440" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">12.5 BTC</text>
+    <rect x="380" y="178" width="120" height="80" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="440" y="210" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2016</text>
+    <text x="440" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">12.5 BTC</text>
 
     <!-- 2020: 6.25 BTC -->
-    <rect x="540" y="200" width="120" height="80" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="600" y="232" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2020</text>
-    <text x="600" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">6.25 BTC</text>
+    <rect x="540" y="178" width="120" height="80" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="600" y="210" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2020</text>
+    <text x="600" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">6.25 BTC</text>
 
     <!-- 2024: 3.125 BTC -->
-    <rect x="700" y="200" width="120" height="80" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="760" y="232" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2024</text>
-    <text x="760" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">3.125 BTC</text>
+    <rect x="700" y="178" width="120" height="80" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="760" y="210" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">2024</text>
+    <text x="760" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">3.125 BTC</text>
   </g>
 
   <!-- Future halvings table -->
   <g filter="url(#soft)">
-    <rect x="86" y="330" width="788" height="142" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
+    <rect x="86" y="308" width="788" height="142" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
 
-    <text x="480" y="362" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Future Halvings</text>
+    <text x="480" y="340" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Future Halvings</text>
 
     <g font-family="JetBrains Mono, monospace" font-size="14">
-      <text x="120" y="398" fill="#7C8794">Year</text>
-      <text x="250" y="398" fill="#7C8794">Block Height</text>
-      <text x="420" y="398" fill="#7C8794">Subsidy</text>
-      <text x="610" y="398" fill="#7C8794">Circulating Supply</text>
+      <text x="120" y="376" fill="#7C8794">Year</text>
+      <text x="250" y="376" fill="#7C8794">Block Height</text>
+      <text x="420" y="376" fill="#7C8794">Subsidy</text>
+      <text x="610" y="376" fill="#7C8794">Circulating Supply</text>
 
-      <rect x="100" y="408" width="750" height="1" fill="#343A44"/>
+      <rect x="100" y="386" width="750" height="1" fill="#343A44"/>
 
-      <text x="120" y="438" fill="#B7B1A8">~2028</text>
-      <text x="250" y="438" fill="#B7B1A8">1,050,000</text>
-      <text x="420" y="438" fill="#F4EAD8">1.5625 BTC</text>
-      <text x="610" y="438" fill="#B7B1A8">~20.1M BTC</text>
+      <text x="120" y="416" fill="#B7B1A8">~2028</text>
+      <text x="250" y="416" fill="#B7B1A8">1,050,000</text>
+      <text x="420" y="416" fill="#F4EAD8">1.5625 BTC</text>
+      <text x="610" y="416" fill="#B7B1A8">~20.1M BTC</text>
 
-      <rect x="100" y="442" width="750" height="1" fill="#343A44" opacity="0.5"/>
+      <rect x="100" y="420" width="750" height="1" fill="#343A44" opacity="0.5"/>
 
-      <text x="120" y="462" fill="#B7B1A8">~2032</text>
-      <text x="250" y="462" fill="#B7B1A8">1,260,000</text>
-      <text x="420" y="462" fill="#F4EAD8">0.78125 BTC</text>
-      <text x="610" y="462" fill="#B7B1A8">~20.6M BTC</text>
+      <text x="120" y="440" fill="#B7B1A8">~2032</text>
+      <text x="250" y="440" fill="#B7B1A8">1,260,000</text>
+      <text x="420" y="440" fill="#F4EAD8">0.78125 BTC</text>
+      <text x="610" y="440" fill="#B7B1A8">~20.6M BTC</text>
     </g>
   </g>
 
   <!-- Bottom note -->
-  <text x="480" y="500" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">
+  <text x="480" y="478" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">
     After 64 halvings the subsidy rounds to zero. The final satoshi is mined around 2140.
   </text>
 </svg>
