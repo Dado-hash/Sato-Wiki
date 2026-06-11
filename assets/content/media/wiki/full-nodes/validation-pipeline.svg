@@ -44,16 +44,16 @@
   <g filter="url(#soft)">
     <rect x="330" y="178" width="300" height="204" rx="20" fill="#20252D" stroke="#F7931A" stroke-width="2.2"/>
     <text x="480" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Full node</text>
-    <rect x="362" y="248" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
-    <text x="480" y="270" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">headers + proof of work</text>
-    <rect x="362" y="298" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
-    <text x="480" y="320" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">transactions + scripts</text>
-    <rect x="362" y="348" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
-    <text x="480" y="370" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">consensus rules</text>
+    <rect x="362" y="236" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
+    <text x="480" y="258" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">headers + proof of work</text>
+    <rect x="362" y="284" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
+    <text x="480" y="306" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">transactions + scripts</text>
+    <rect x="362" y="332" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
+    <text x="480" y="354" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">consensus rules</text>
   </g>
 
-  <path d="M646 252H716" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M646 334H716" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M646 240H716" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M646 322H716" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <g filter="url(#soft)">
     <rect x="734" y="190" width="154" height="92" rx="18" fill="#203327" stroke="#22C55E" stroke-width="2"/>
