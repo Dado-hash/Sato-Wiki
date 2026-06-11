@@ -62,18 +62,17 @@
   <g filter="url(#soft)">
     <rect x="480" y="168" width="420" height="224" rx="20" fill="#20252D" stroke="#7C5CFF" stroke-width="2"/>
     <text x="690" y="212" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Traditional Money</text>
-    <rect x="506" y="240" width="368" height="4" rx="2" fill="#7C5CFF" opacity="0.3"/>
 
     <g stroke="#7C5CFF" stroke-opacity="0.3" stroke-width="2">
-      <line x1="510" y1="278" x2="870" y2="278"/>
-      <line x1="510" y1="310" x2="870" y2="310"/>
-      <line x1="510" y1="342" x2="870" y2="342"/>
-      <line x1="510" y1="374" x2="870" y2="374"/>
+      <line x1="510" y1="268" x2="870" y2="268"/>
+      <line x1="510" y1="300" x2="870" y2="300"/>
+      <line x1="510" y1="332" x2="870" y2="332"/>
+      <line x1="510" y1="364" x2="870" y2="364"/>
     </g>
-    <text x="690" y="280" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">No supply cap</text>
-    <text x="690" y="312" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Central bank discretion</text>
-    <text x="690" y="344" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Inflation by design</text>
-    <text x="690" y="376" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Purchasing power erodes</text>
+    <text x="690" y="260" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">No supply cap</text>
+    <text x="690" y="292" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Central bank discretion</text>
+    <text x="690" y="324" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Inflation by design</text>
+    <text x="690" y="356" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Purchasing power erodes</text>
 
     <text x="690" y="440" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">
       Unlimited supply controlled by policy
