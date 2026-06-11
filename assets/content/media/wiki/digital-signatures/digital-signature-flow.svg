@@ -29,8 +29,8 @@
     <path d="M480 150V490"/>
   </g>
 
-  <text x="278" y="141" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">SIGNING</text>
-  <text x="742" y="141" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">VERIFICATION</text>
+  <text x="258" y="141" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">SIGNING</text>
+  <text x="698" y="141" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">VERIFICATION</text>
 
   <!-- LEFT COLUMN: Signing -->
   <g filter="url(#soft)">
@@ -48,57 +48,57 @@
   <path d="M248 200H272" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <g filter="url(#soft)">
-    <rect x="128" y="270" width="216" height="48" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
-    <text x="236" y="294" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Signing Algorithm</text>
-    <text x="236" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ECDSA / Schnorr</text>
+    <rect x="118" y="270" width="280" height="48" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="258" y="294" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Signing Algorithm</text>
+    <text x="258" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ECDSA / Schnorr</text>
   </g>
 
   <path d="M156 232V262" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <path d="M366 232V262" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
 
   <g filter="url(#soft)">
-    <rect x="128" y="356" width="216" height="64" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="236" y="382" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Digital Signature</text>
-    <text x="236" y="402" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">(r, s) pair</text>
+    <rect x="150" y="356" width="216" height="64" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="258" y="382" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Digital Signature</text>
+    <text x="258" y="402" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">(r, s) pair</text>
   </g>
 
-  <path d="M236 322V348" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M258 322V348" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <!-- Divider -->
   <rect x="470" y="160" width="2" height="330" rx="1" fill="#343A44"/>
 
   <!-- RIGHT COLUMN: Verification -->
   <g filter="url(#soft)">
-    <rect x="520" y="168" width="172" height="64" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
-    <text x="606" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Transaction</text>
-    <text x="606" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">same tx data</text>
+    <rect x="496" y="168" width="172" height="64" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
+    <text x="582" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Transaction</text>
+    <text x="582" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">same tx data</text>
   </g>
 
   <g filter="url(#soft)">
-    <rect x="724" y="168" width="184" height="64" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="816" y="196" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Public Key</text>
-    <text x="816" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">derived from private key</text>
+    <rect x="680" y="168" width="220" height="64" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="790" y="196" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Public Key</text>
+    <text x="790" y="218" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">derived from private key</text>
   </g>
 
-  <path d="M606 232V262" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
-  <path d="M816 232V262" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M582 232V262" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M790 232V262" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 
   <!-- Signature comes from left column -->
-  <path d="M344 388H480V294H506" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <text x="480" y="326" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">signature</text>
+  <path d="M366 388H480V294H540" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <text x="420" y="378" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">signature</text>
 
   <g filter="url(#soft)">
-    <rect x="560" y="270" width="216" height="48" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.4"/>
-    <text x="668" y="294" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Verification Algorithm</text>
-    <text x="668" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ECDSA / Schnorr</text>
+    <rect x="546" y="270" width="304" height="48" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.4"/>
+    <text x="698" y="294" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Verification Algorithm</text>
+    <text x="698" y="310" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">ECDSA / Schnorr</text>
   </g>
 
-  <path d="M668 322V348" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M698 322V348" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 
   <g filter="url(#soft)">
-    <rect x="560" y="356" width="216" height="64" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="668" y="382" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Result</text>
-    <text x="668" y="404" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">VALID / INVALID</text>
+    <rect x="590" y="356" width="216" height="64" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="698" y="382" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Result</text>
+    <text x="698" y="404" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">VALID / INVALID</text>
   </g>
 
   <!-- Bottom note -->
