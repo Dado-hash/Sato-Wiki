@@ -24,71 +24,63 @@
     <path d="M480 148V490"/>
   </g>
   <text x="278" y="144" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">ON-CHAIN TRANSACTION</text>
-  <text x="742" y="144" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">LIGHTNING PAYMENT</text>
+  <text x="586" y="144" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">LIGHTNING PAYMENT</text>
   <g filter="url(#soft)">
     <rect x="64" y="170" width="196" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
     <text x="162" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Transaction created</text>
     <text x="162" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Alice signs tx to Bob</text>
   </g>
-  <path d="M276 205H340" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <path d="M276 205H322" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
-    <rect x="352" y="170" width="104" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="404" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Mempool</text>
-    <text x="404" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">waits ~10-60 min</text>
+    <rect x="334" y="170" width="104" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="386" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Mempool</text>
+    <text x="386" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">waits ~10-60 min</text>
   </g>
-  <path d="M404 244V258H490" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
-  <text x="445" y="308" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">~300-500 bytes</text>
-  <text x="445" y="326" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">block weight limit</text>
+  <path d="M438 205H488" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
-    <rect x="506" y="170" width="196" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="604" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block confirmation</text>
-    <text x="604" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">miner includes tx</text>
+    <rect x="488" y="170" width="196" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="586" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block confirmation</text>
+    <text x="586" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">miner includes tx</text>
   </g>
-  <path d="M718 205H760" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <path d="M700 205H742" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
-    <rect x="772" y="170" width="164" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="854" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Settled</text>
-    <text x="854" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">~10-60 min finality</text>
+    <rect x="754" y="170" width="164" height="70" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="836" y="200" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Settled</text>
+    <text x="836" y="220" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">~10-60 min finality</text>
   </g>
   <g filter="url(#soft)">
-    <rect x="500" y="280" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="586" y="304" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Open channel</text>
-    <text x="586" y="322" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">funding tx on-chain</text>
+    <rect x="500" y="260" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="586" y="284" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Open channel</text>
+    <text x="586" y="302" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">funding tx on-chain</text>
   </g>
-  <path d="M586 339V366" stroke="#22C55E" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <path d="M586 315V350" stroke="#22C55E" stroke-width="4" marker-end="url(#arrow-green)"/>
   <g filter="url(#soft)">
-    <rect x="500" y="375" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="586" y="399" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Update balance</text>
-    <text x="586" y="417" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">off-chain, instant</text>
+    <rect x="500" y="350" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="586" y="374" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Update balance</text>
+    <text x="586" y="392" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">off-chain, instant</text>
   </g>
+  <path d="M440 378H500" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrow-green)"/>
+  <text x="430" y="374" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="end">x 1000+ payments</text>
+  <path d="M586 405V440" stroke="#22C55E" stroke-width="4" marker-end="url(#arrow-green)"/>
   <g filter="url(#soft)">
-    <rect x="500" y="376" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2" opacity="0"/>
-  </g>
-  <path d="M572 414H536" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)" fill="none"/>
-  <text x="460" y="406" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="end">x 1000+ payments</text>
-  <path d="M586 434V458" stroke="#22C55E" stroke-width="4" marker-end="url(#arrow-green)"/>
-  <g filter="url(#soft)">
-    <rect x="500" y="466" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="586" y="490" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Close channel</text>
-    <text x="586" y="508" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">closing tx on-chain</text>
+    <rect x="500" y="440" width="172" height="55" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="586" y="464" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Close channel</text>
+    <text x="586" y="482" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">closing tx on-chain</text>
   </g>
   <g filter="url(#soft)">
-    <rect x="64" y="280" width="400" height="230" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="264" y="310" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">On-chain characteristics</text>
+    <rect x="64" y="260" width="400" height="230" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="264" y="290" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">On-chain characteristics</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
-      <path d="M80 322H416"/>
+      <path d="M80 302H416"/>
     </g>
-    <text x="100" y="348" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Speed</text>
-    <text x="100" y="368" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">10-60 minutes for first confirmation</text>
-    <text x="100" y="394" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Cost</text>
-    <text x="100" y="414" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">~$0.50-$10+ per tx (fee market dependent)</text>
-    <text x="100" y="440" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Finality</text>
-    <text x="100" y="460" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Full settlement after 6+ confirmations (1 hour)</text>
-    <text x="100" y="486" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Throughput</text>
-    <text x="100" y="506" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">~7 transactions per second (global limit)</text>
-  </g>
-  <g filter="url(#soft)">
-    <rect x="508" y="504" width="0" height="0" rx="14" fill="none"/>
+    <text x="100" y="328" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Speed</text>
+    <text x="100" y="348" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">10-60 minutes for first confirmation</text>
+    <text x="100" y="374" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Cost</text>
+    <text x="100" y="394" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">~$0.50-$10+ per tx (fee market dependent)</text>
+    <text x="100" y="420" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Finality</text>
+    <text x="100" y="440" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Full settlement after 6+ confirmations (1 hour)</text>
+    <text x="100" y="466" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Throughput</text>
+    <text x="100" y="486" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">~7 transactions per second (global limit)</text>
   </g>
   <g stroke="#28313B" stroke-width="1" opacity="0.4">
     <path d="M480 310V490"/>
