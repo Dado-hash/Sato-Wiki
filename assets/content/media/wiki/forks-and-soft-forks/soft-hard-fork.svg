@@ -72,9 +72,6 @@
   <g stroke-width="3" stroke-linecap="round" fill="none">
     <path d="M196 246H212" stroke="#6B7280"/>
     <path d="M308 246H324" stroke="#6B7280"/>
-    <path d="M420 246V420" stroke="#6B7280"/>
-    <path d="M420 272H436" stroke="#6B7280"/>
-    <path d="M420 344H436" stroke="#6B7280"/>
   </g>
 
   <g filter="url(#soft)" font-family="Inter, Arial, sans-serif" text-anchor="middle">
@@ -91,17 +88,17 @@
     <rect x="764" y="220" width="96" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="812" y="252" fill="#F4EAD8" font-size="18" font-weight="700">B2</text>
 
-    <rect x="652" y="292" width="96" height="52" rx="14" fill="#2A2331" stroke="#7C5CFF" stroke-width="2"/>
+    <rect x="652" y="292" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
     <text x="700" y="324" fill="#F4EAD8" font-size="18" font-weight="700">B3</text>
 
-    <rect x="764" y="292" width="96" height="52" rx="14" fill="#2A2331" stroke="#7C5CFF" stroke-width="2"/>
+    <rect x="764" y="292" width="96" height="52" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
     <text x="812" y="324" fill="#F4EAD8" font-size="18" font-weight="700">B4</text>
 
-    <rect x="540" y="292" width="96" height="32" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
-    <text x="588" y="312" fill="#EF4444" font-size="12">✗ old rejects</text>
+    <rect x="540" y="292" width="96" height="32" rx="6" fill="#1A2522" stroke="#22C55E" stroke-width="1"/>
+    <text x="588" y="312" fill="#22C55E" font-size="12">✓ new accepts</text>
 
-    <rect x="540" y="340" width="96" height="32" rx="6" fill="#1A2522" stroke="#22C55E" stroke-width="1"/>
-    <text x="588" y="360" fill="#22C55E" font-size="12">✓ new accepts</text>
+    <rect x="540" y="364" width="96" height="32" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
+    <text x="588" y="384" fill="#EF4444" font-size="12">✗ old rejects</text>
 
     <rect x="652" y="364" width="96" height="52" rx="14" fill="#20252D" stroke="#B91C1C" stroke-width="2"/>
     <text x="700" y="396" fill="#EF4444" font-size="18" font-weight="700">B3</text>
@@ -109,17 +106,12 @@
     <rect x="764" y="364" width="96" height="52" rx="14" fill="#20252D" stroke="#B91C1C" stroke-width="2"/>
     <text x="812" y="396" fill="#EF4444" font-size="18" font-weight="700">B4</text>
 
-    <line x1="652" y1="344" x2="652" y2="364" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 4"/>
-    <line x1="812" y1="344" x2="812" y2="364" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 4"/>
   </g>
 
   <g stroke-width="3" stroke-linecap="round" fill="none">
     <path d="M636 246H652" stroke="#6B7280"/>
     <path d="M748 246H764" stroke="#6B7280"/>
-    <path d="M860 246V292" stroke="#7C5CFF"/>
-    <path d="M860 246V364" stroke="#EF4444"/>
-    <path d="M748 292H764" stroke="#7C5CFF" marker-end="url(#arrow-gray)"/>
-    <path d="M860 292H764" stroke="#7C5CFF"/>
+    <path d="M748 292H764" stroke="#22C55E" marker-end="url(#arrow-gray)"/>
     <path d="M748 364H764" stroke="#EF4444" marker-end="url(#arrow-gray)"/>
   </g>
 
