@@ -23,16 +23,17 @@
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Bitcoin mining</text>
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Assembling a block candidate from the mempool</text>
 
+  <!-- Griglia di sfondo corretta (allineata ai centri dei blocchi e alle frecce) -->
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 152H884"/>
-    <path d="M76 320H884"/>
+    <path d="M76 289H884"/>
     <path d="M76 432H884"/>
-    <path d="M192 152V432"/>
-    <path d="M468 152V432"/>
-    <path d="M726 152V432"/>
+    <path d="M180 152V432"/>
+    <path d="M472 152V432"/>
+    <path d="M760 152V432"/>
   </g>
 
-  <g transform="translate(-12 0)">
+  <g transform="translate(-24 0)">
 
     <!-- Mempool -->
     <g filter="url(#soft)">
@@ -40,17 +41,18 @@
       <text x="192" y="212" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Mempool</text>
       <text x="192" y="236" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">unconfirmed transactions</text>
 
+      <!-- Fix testo sovrapposto: coordinate x sistemate e font-size adattato a 13 -->
       <rect x="100" y="262" width="184" height="38" rx="10" fill="#171B21" stroke="#46505C"/>
-      <text x="148" y="288" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14">tx: a4f1...</text>
-      <text x="268" y="288" text-anchor="end" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">42 sat/vB</text>
+      <text x="112" y="286" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">tx: a4f1...</text>
+      <text x="272" y="286" text-anchor="end" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">42 sat/vB</text>
 
       <rect x="100" y="310" width="184" height="38" rx="10" fill="#171B21" stroke="#46505C"/>
-      <text x="148" y="336" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14">tx: b3e9...</text>
-      <text x="268" y="336" text-anchor="end" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">18 sat/vB</text>
+      <text x="112" y="334" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">tx: b3e9...</text>
+      <text x="272" y="334" text-anchor="end" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">18 sat/vB</text>
 
       <rect x="100" y="358" width="184" height="38" rx="10" fill="#171B21" stroke="#46505C"/>
-      <text x="148" y="384" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14">tx: c7d2...</text>
-      <text x="268" y="384" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">4 sat/vB</text>
+      <text x="112" y="382" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">tx: c7d2...</text>
+      <text x="272" y="382" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">4 sat/vB</text>
     </g>
 
     <path d="M326 290H388" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
@@ -89,17 +91,18 @@
       <rect x="660" y="174" width="224" height="230" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
       <text x="772" y="212" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Block candidate</text>
 
+      <!-- Spaziature interne simmetriche: Allineamento destro corretto a 844 (padding 12px) -->
       <rect x="688" y="240" width="168" height="34" rx="8" fill="#171B21" stroke="#46505C"/>
       <text x="700" y="263" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">prev hash</text>
-      <text x="848" y="263" text-anchor="end" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">0000...a1b2</text>
+      <text x="844" y="263" text-anchor="end" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">0000...a1b2</text>
 
       <rect x="688" y="282" width="168" height="34" rx="8" fill="#171B21" stroke="#46505C"/>
       <text x="700" y="305" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Merkle root</text>
-      <text x="848" y="305" text-anchor="end" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">f3e4...</text>
+      <text x="844" y="305" text-anchor="end" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">f3e4...</text>
 
       <rect x="688" y="324" width="168" height="34" rx="8" fill="#171B21" stroke="#46505C"/>
       <text x="700" y="347" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">nonce</text>
-      <text x="848" y="347" text-anchor="end" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">???</text>
+      <text x="844" y="347" text-anchor="end" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">???</text>
 
       <rect x="688" y="366" width="168" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
       <text x="772" y="386" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">searching...</text>
