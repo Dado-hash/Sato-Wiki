@@ -27,11 +27,12 @@
     <rect x="90" y="252" width="328" height="1" fill="#343A44"/>
     <g font-family="Inter, Arial, sans-serif" font-size="16" fill="#F4EAD8">
       <text x="100" y="288">Source:</text>
-      <text x="200" y="288" fill="#F7931A">Protocol emission schedule</text>
+      <text x="205" y="288" fill="#F7931A">Protocol emission schedule</text>
       <text x="100" y="318">Predictable:</text>
-      <text x="280" y="318" fill="#22C55E">Known decades in advance</text>
+      <text x="205" y="318" fill="#22C55E">Known decades in advance</text>
       <text x="100" y="348">Trend:</text>
-      <text x="230" y="348" fill="#F7931A">Halves every 4 years → zero by 2140</text>
+      <text x="205" y="348" fill="#F7931A">Halves every 4 years →</text>
+      <text x="205" y="368" fill="#F7931A">zero by 2140</text>
     </g>
   </g>
   <!-- Right: Fees -->
@@ -51,9 +52,10 @@
   </g>
   <!-- Bottom: Combined security -->
   <g filter="url(#soft)">
-    <rect x="220" y="418" width="520" height="60" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="480" y="446" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Subsidy + Fees = Miner Revenue → Network Security</text>
-    <text x="480" y="466" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Miners are profit-maximizers. Their competition to collect rewards makes the chain immutable.</text>
+    <rect x="220" y="418" width="520" height="72" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="480" y="442" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Subsidy + Fees = Miner Revenue → Network Security</text>
+    <text x="480" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Miners are profit-maximizers. Their competition to collect rewards</text>
+    <text x="480" y="480" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">makes the chain immutable.</text>
   </g>
   <path d="M254 390V410" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <path d="M688 390V410" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
