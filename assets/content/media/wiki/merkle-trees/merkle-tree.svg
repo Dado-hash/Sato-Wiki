@@ -33,77 +33,77 @@
   <!-- Connecting lines between nodes -->
   <g stroke-width="3" stroke-linecap="round" fill="none">
     <!-- Tx0 + Tx1 -> H01 -->
-    <path d="M216 388L312 314" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
-    <path d="M408 388L312 314" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
+    <path d="M216 378L312 304" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
+    <path d="M408 378L312 304" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
     <!-- Tx2 + Tx3 -> H23 -->
-    <path d="M552 388L648 314" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
-    <path d="M744 388L648 314" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
+    <path d="M568 378L648 304" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
+    <path d="M760 378L648 304" stroke="#7C8794" marker-end="url(#arrow-muted)"/>
     <!-- H01 + H23 -> Root -->
-    <path d="M344 274L480 188" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
-    <path d="M616 274L480 188" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <path d="M344 264L480 178" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+    <path d="M616 264L480 178" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
   </g>
 
   <!-- Hash operation labels -->
-  <rect x="254" y="348" width="100" height="20" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1"/>
-  <text x="304" y="362" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">SHA256d</text>
-  <rect x="590" y="348" width="100" height="20" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1"/>
-  <text x="640" y="362" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">SHA256d</text>
+  <rect x="254" y="358" width="100" height="20" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1"/>
+  <text x="304" y="372" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">SHA256d</text>
+  <rect x="614" y="358" width="100" height="20" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1"/>
+  <text x="664" y="372" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">SHA256d</text>
   <rect x="422" y="232" width="100" height="20" rx="6" fill="#20252D" stroke="#22C55E" stroke-width="1"/>
   <text x="472" y="246" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11">SHA256d</text>
 
   <!-- + labels between paired tx hashes -->
-  <text x="320" y="421" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">+</text>
-  <text x="656" y="421" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">+</text>
-  <text x="448" y="248" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">+</text>
+  <text x="312" y="411" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">+</text>
+  <text x="664" y="411" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">+</text>
+  <text x="510" y="248" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">+</text>
 
   <!-- Root node -->
   <g filter="url(#soft)">
-    <rect x="380" y="156" width="200" height="56" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2.5"/>
-    <text x="480" y="176" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Merkle Root</text>
-    <text x="480" y="198" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13">7d4e3a...c91f</text>
+    <rect x="380" y="146" width="200" height="56" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2.5"/>
+    <text x="480" y="166" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Merkle Root</text>
+    <text x="480" y="188" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13">7d4e3a...c91f</text>
   </g>
 
   <!-- Intermediate nodes -->
   <g filter="url(#soft)">
-    <rect x="268" y="268" width="166" height="50" rx="12" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="351" y="287" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">H01 = H(Tx0 + Tx1)</text>
-    <text x="351" y="306" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">b1f4c9...a3d2</text>
+    <rect x="268" y="258" width="166" height="50" rx="12" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="351" y="277" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">H01 = H(Tx0 + Tx1)</text>
+    <text x="351" y="296" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">b1f4c9...a3d2</text>
   </g>
   <g filter="url(#soft)">
-    <rect x="526" y="268" width="166" height="50" rx="12" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="609" y="287" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">H23 = H(Tx2 + Tx3)</text>
-    <text x="609" y="306" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">e7a2b8...4f61</text>
+    <rect x="526" y="258" width="166" height="50" rx="12" fill="#203327" stroke="#22C55E" stroke-width="2"/>
+    <text x="609" y="277" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">H23 = H(Tx2 + Tx3)</text>
+    <text x="609" y="296" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">e7a2b8...4f61</text>
   </g>
 
   <!-- Transaction leaf nodes -->
   <g filter="url(#soft)">
-    <rect x="146" y="396" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
-    <text x="216" y="415" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx0</text>
-    <text x="216" y="432" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">a1b2c3...d4e5</text>
+    <rect x="146" y="386" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
+    <text x="216" y="405" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx0</text>
+    <text x="216" y="422" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">a1b2c3...d4e5</text>
   </g>
   <g filter="url(#soft)">
-    <rect x="338" y="396" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
-    <text x="408" y="415" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx1</text>
-    <text x="408" y="432" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">f6e7d8...c9b0</text>
+    <rect x="338" y="386" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
+    <text x="408" y="405" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx1</text>
+    <text x="408" y="422" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">f6e7d8...c9b0</text>
   </g>
   <g filter="url(#soft)">
-    <rect x="482" y="396" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
-    <text x="552" y="415" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx2</text>
-    <text x="552" y="432" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">9a8b7c...6d5e</text>
+    <rect x="498" y="386" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
+    <text x="568" y="405" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx2</text>
+    <text x="568" y="422" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">9a8b7c...6d5e</text>
   </g>
   <g filter="url(#soft)">
-    <rect x="674" y="396" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
-    <text x="744" y="415" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx3</text>
-    <text x="744" y="432" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">4e5f6a...7b8c</text>
+    <rect x="690" y="386" width="140" height="46" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.8"/>
+    <text x="760" y="405" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">Tx3</text>
+    <text x="760" y="422" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">4e5f6a...7b8c</text>
   </g>
 
   <!-- Merkle proof callout -->
-  <rect x="38" y="460" width="260" height="44" rx="10" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-  <text x="168" y="478" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Merkle proof for Tx2: Tx3 + H01</text>
-  <text x="168" y="496" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">log2(n) hashes needed per proof</text>
+  <rect x="38" y="450" width="260" height="44" rx="10" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="168" y="468" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Merkle proof for Tx2: Tx3 + H01</text>
+  <text x="168" y="486" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">log2(n) hashes needed per proof</text>
 
   <!-- SPV callout -->
-  <rect x="660" y="460" width="260" height="44" rx="10" fill="#2A2331" stroke="#7C5CFF" stroke-width="1.5"/>
-  <text x="790" y="478" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">SPV: verify without full block</text>
-  <text x="790" y="496" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">keep only block headers + proofs</text>
+  <rect x="660" y="450" width="260" height="44" rx="10" fill="#2A2331" stroke="#7C5CFF" stroke-width="1.5"/>
+  <text x="790" y="468" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">SPV: verify without full block</text>
+  <text x="790" y="486" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">keep only block headers + proofs</text>
 </svg>
