@@ -39,24 +39,24 @@
     <path d="M202 226L174 226" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
     <path d="M758 240L786 240" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
     <path d="M786 226L758 226" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
-    <rect x="212" y="200" width="538" height="44" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <rect x="212" y="200" width="538" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
-    <text x="481" y="228" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">A: 1.0 BTC — B: 0.0 BTC</text>
-    <path d="M481 244V262" stroke="#7C5CFF" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
-    <text x="495" y="257" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">Commit tx #1</text>
-    <rect x="212" y="268" width="538" height="44" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <rect x="212" y="268" width="376" height="44" rx="10" fill="#2A2116" opacity="0.5"/>
-    <rect x="588" y="268" width="162" height="44" rx="10" fill="#14321E" opacity="0.5"/>
-    <rect x="212" y="268" width="538" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
-    <rect x="588" y="268" width="162" height="10" rx="5" fill="#22C55E" opacity="0.8"/>
-    <text x="481" y="296" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">A: 0.7 BTC — B: 0.3 BTC</text>
-    <path d="M481 312V330" stroke="#7C5CFF" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
-    <text x="495" y="325" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">Commit tx #2</text>
-    <rect x="212" y="336" width="538" height="44" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <rect x="212" y="336" width="269" height="44" rx="10" fill="#2A2116" opacity="0.5"/>
-    <rect x="481" y="336" width="269" height="44" rx="10" fill="#14321E" opacity="0.5"/>
-    <rect x="212" y="336" width="269" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
-    <rect x="481" y="336" width="269" height="10" rx="5" fill="#22C55E" opacity="0.8"/>
-    <text x="481" y="364" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">A: 0.5 BTC — B: 0.5 BTC</text>
+    <rect x="212" y="216" width="538" height="44" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
+    <rect x="212" y="216" width="538" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
+    <text x="481" y="244" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">A: 1.0 BTC — B: 0.0 BTC</text>
+    <path d="M481 260V294" stroke="#7C5CFF" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
+    <text x="495" y="281" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">Commit tx #1</text>
+    <rect x="212" y="300" width="538" height="44" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
+    <rect x="212" y="300" width="376" height="44" rx="10" fill="#2A2116" opacity="0.5"/>
+    <rect x="588" y="300" width="162" height="44" rx="10" fill="#14321E" opacity="0.5"/>
+    <rect x="212" y="300" width="538" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
+    <rect x="588" y="300" width="162" height="10" rx="5" fill="#22C55E" opacity="0.8"/>
+    <text x="481" y="328" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">A: 0.7 BTC — B: 0.3 BTC</text>
+    <path d="M481 344V378" stroke="#7C5CFF" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
+    <text x="495" y="365" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">Commit tx #2</text>
+    <rect x="212" y="384" width="538" height="44" rx="10" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
+    <rect x="212" y="384" width="269" height="44" rx="10" fill="#2A2116" opacity="0.5"/>
+    <rect x="481" y="384" width="269" height="44" rx="10" fill="#14321E" opacity="0.5"/>
+    <rect x="212" y="384" width="269" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
+    <rect x="481" y="384" width="269" height="10" rx="5" fill="#22C55E" opacity="0.8"/>
+    <text x="481" y="412" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">A: 0.5 BTC — B: 0.5 BTC</text>
   </g>
 </svg>
