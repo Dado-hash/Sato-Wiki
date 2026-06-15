@@ -21,132 +21,140 @@
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
     </filter>
   </defs>
+
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">MPP vs Single-Path Payment</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Splitting a payment across multiple paths increases reliability and utilizes network capacity better</text>
+  
+  <text x="64" y="74" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">MPP vs Single-Path Payment</text>
+  <text x="64" y="108" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Splitting a payment across multiple paths increases reliability and utilizes network capacity better</text>
+  
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
-    <path d="M76 148H884"/>
+    <path d="M76 136H884"/>
   </g>
 
   <!-- ========== SINGLE PATH (TOP) ========== -->
-  <rect x="40" y="156" width="880" height="160" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
-  <text x="68" y="182" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Single-Path Payment (fails)</text>
+  <rect x="40" y="140" width="880" height="165" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+  <text x="68" y="166" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Single-Path Payment (fails)</text>
+
+  <!-- Success rate callout -->
+  <rect x="640" y="148" width="240" height="28" rx="8" fill="#203327" stroke="#22C55E" stroke-width="1"/>
+  <text x="760" y="167" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Success rate: ~85% → ~95%+</text>
 
   <!-- Alice -->
   <g filter="url(#soft)">
-    <rect x="80" y="200" width="140" height="80" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
-    <circle cx="108" cy="240" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
-    <text x="108" y="245" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">A</text>
-    <text x="170" y="237" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice</text>
-    <text x="170" y="256" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">200,000 sats</text>
+    <rect x="80" y="184" width="140" height="80" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
+    <circle cx="110" cy="224" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
+    <text x="110" y="228" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">A</text>
+    <text x="136" y="220" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice</text>
+    <text x="136" y="236" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">200,000 sats</text>
   </g>
 
   <!-- Bob -->
   <g filter="url(#soft)">
-    <rect x="410" y="200" width="140" height="80" rx="12" fill="#332020" stroke="#EF4444" stroke-width="1.6"/>
-    <circle cx="438" cy="240" r="16" fill="#332020" stroke="#EF4444" stroke-width="1.6"/>
-    <text x="438" y="245" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">B</text>
-    <text x="500" y="237" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Bob</text>
-    <text x="500" y="256" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="10">Insufficient liquidity</text>
+    <rect x="395" y="184" width="170" height="80" rx="12" fill="#332020" stroke="#EF4444" stroke-width="1.6"/>
+    <circle cx="420" cy="224" r="16" fill="#332020" stroke="#EF4444" stroke-width="1.6"/>
+    <text x="420" y="228" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">B</text>
+    <text x="446" y="220" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Bob</text>
+    <text x="446" y="236" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="10">Insufficient liquidity</text>
   </g>
 
   <!-- Carol -->
   <g filter="url(#soft)">
-    <rect x="740" y="200" width="140" height="80" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
-    <circle cx="768" cy="240" r="16" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
-    <text x="768" y="245" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">C</text>
-    <text x="830" y="237" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Carol</text>
-    <text x="830" y="256" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Payment failed</text>
+    <rect x="740" y="184" width="140" height="80" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
+    <circle cx="765" cy="224" r="16" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
+    <text x="765" y="228" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">C</text>
+    <text x="791" y="220" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Carol</text>
+    <text x="791" y="236" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Payment failed</text>
   </g>
 
-  <!-- Arrow single path -->
+  <!-- Arrows single path -->
   <g stroke="#EF4444" stroke-width="4.5" marker-end="url(#arrow-red)">
-    <path d="M220 240L405 240"/>
+    <path d="M225 224L390 224"/>
   </g>
   <g stroke="#EF4444" stroke-width="4.5" marker-end="url(#arrow-red)">
-    <path d="M550 240L735 240"/>
+    <path d="M570 224L735 224"/>
   </g>
-  <text x="312" y="233" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">FAIL</text>
-  <text x="642" y="233" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">FAIL</text>
-  <rect x="310" y="282" width="300" height="26" rx="6" fill="#332020" stroke="#EF4444" stroke-width="1"/>
-  <text x="460" y="300" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11">One bottleneck blocks the entire payment</text>
+  <text x="308" y="217" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">FAIL</text>
+  <text x="653" y="217" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">FAIL</text>
+  
+  <!-- Bottleneck warning (Red pill) -->
+  <rect x="330" y="270" width="300" height="26" rx="6" fill="#332020" stroke="#EF4444" stroke-width="1"/>
+  <text x="480" y="288" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11">One bottleneck blocks the entire payment</text>
 
   <!-- ========== MPP (BOTTOM) ========== -->
-  <rect x="40" y="328" width="880" height="170" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.2"/>
-  <text x="68" y="354" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Multi-Path Payment (succeeds despite failures)</text>
+  <rect x="40" y="314" width="880" height="182" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="68" y="334" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Multi-Path Payment (succeeds despite failures)</text>
 
   <!-- Alice -->
   <g filter="url(#soft)">
-    <rect x="80" y="370" width="140" height="90" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
-    <circle cx="108" cy="410" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
-    <text x="108" y="415" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">A</text>
-    <text x="170" y="407" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice</text>
-    <text x="170" y="426" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Splits into 3 parts</text>
-    <text x="170" y="442" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">200,000 sats</text>
+    <rect x="80" y="348" width="150" height="145" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
+    <circle cx="106" cy="420" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
+    <text x="106" y="424" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">A</text>
+    <text x="132" y="401" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice</text>
+    <text x="132" y="421" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Splits into 3 parts</text>
+    <text x="132" y="437" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">200,000 sats</text>
   </g>
 
   <!-- Path 1: Alice → Bob → Carol (fails) -->
-  <rect x="290" y="370" width="100" height="60" rx="8" fill="#332020" stroke="#EF4444" stroke-width="1.2"/>
-  <text x="340" y="400" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">BOB</text>
-  <text x="340" y="420" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="10">Insufficient</text>
+  <rect x="300" y="360" width="100" height="38" rx="8" fill="#332020" stroke="#EF4444" stroke-width="1.2"/>
+  <text x="350" y="375" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">BOB</text>
+  <text x="350" y="389" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="10">Insufficient</text>
 
-  <rect x="420" y="370" width="100" height="60" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
-  <text x="470" y="400" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">BOB</text>
-  <text x="470" y="420" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Retry route</text>
+  <rect x="430" y="360" width="100" height="38" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
+  <text x="480" y="375" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">BOB</text>
+  <text x="480" y="389" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Retry route</text>
 
-  <g stroke="#EF4444" stroke-width="2" marker-end="url(#arrow-red)">
-    <path d="M220 395L285 395"/>
+  <g stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrow-red)">
+    <path d="M235 379L295 379"/>
   </g>
-  <g stroke="#EF4444" stroke-width="2" marker-end="url(#arrow-red)">
-    <path d="M390 400L415 400"/>
+  <g stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrow-red)">
+    <path d="M405 379L425 379"/>
   </g>
-  <g stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-red)">
-    <path d="M520 400L730 400"/>
+  <g stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-red)">
+    <path d="M535 379L725 379"/>
   </g>
-  <text x="460" y="363" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono, monospace" font-size="9">failed</text>
-  <text x="555" y="394" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="9">retried</text>
+  <text x="350" y="356" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono, monospace" font-size="9">failed</text>
+  <text x="630" y="374" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="9">retried</text>
 
   <!-- Path 2: Alice → Dave → Carol (succeeds) -->
-  <rect x="290" y="440" width="100" height="50" rx="8" fill="#20252D" stroke="#60A5FA" stroke-width="1.2"/>
-  <text x="340" y="462" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">DAVE</text>
-  <text x="340" y="480" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Path 2</text>
+  <rect x="300" y="407" width="100" height="38" rx="8" fill="#20252D" stroke="#60A5FA" stroke-width="1.2"/>
+  <text x="350" y="422" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">DAVE</text>
+  <text x="350" y="436" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Path 2</text>
 
-  <g stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-blue)">
-    <path d="M220 465L285 465"/>
+  <g stroke="#60A5FA" stroke-width="2.5" marker-end="url(#arrow-blue)">
+    <path d="M235 426L295 426"/>
   </g>
-  <g stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-blue)">
-    <path d="M390 465L730 465"/>
+  <g stroke="#60A5FA" stroke-width="2.5" marker-end="url(#arrow-blue)">
+    <path d="M405 426L725 426"/>
   </g>
 
   <!-- Path 3: Alice → Eve → Carol (succeeds) -->
-  <rect x="290" y="496" width="100" height="40" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="1.2"/>
-  <text x="340" y="515" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">EVE</text>
-  <text x="340" y="530" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Path 3</text>
+  <rect x="300" y="454" width="100" height="38" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="1.2"/>
+  <text x="350" y="469" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">EVE</text>
+  <text x="350" y="483" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Path 3</text>
 
-  <g stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-green)">
-    <path d="M220 514L285 514"/>
+  <g stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)">
+    <path d="M235 473L295 473"/>
   </g>
-  <g stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-green)">
-    <path d="M390 514L730 514"/>
+  <g stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)">
+    <path d="M405 473L725 473"/>
   </g>
 
   <!-- Carol -->
   <g filter="url(#soft)">
-    <rect x="740" y="370" width="140" height="120" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
-    <circle cx="768" cy="410" r="16" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
-    <text x="768" y="415" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">C</text>
-    <text x="830" y="407" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Carol</text>
-    <text x="830" y="426" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10">Payment received</text>
-    <text x="810" y="450" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Path 2: 70,000 sats</text>
-    <text x="810" y="466" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Path 3: 50,000 sats</text>
+    <rect x="730" y="348" width="150" height="145" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
+    <circle cx="805" cy="370" r="16" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
+    <text x="805" y="374" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">C</text>
+    <text x="805" y="403" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Carol</text>
+    <text x="805" y="419" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10">Payment received</text>
+    
+    <text x="805" y="437" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Path 2: 70,000 sats</text>
+    <text x="805" y="451" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Path 3: 50,000 sats</text>
+    
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
-      <path d="M756 478H864"/>
+      <path d="M745 464H865"/>
     </g>
-    <text x="810" y="482" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">120,000 received ✓</text>
+    <text x="805" y="480" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">120,000 received ✓</text>
   </g>
 
-  <!-- Success rate callout -->
-  <rect x="620" y="156" width="290" height="34" rx="8" fill="#203327" stroke="#22C55E" stroke-width="1"/>
-  <text x="765" y="178" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Success rate: ~85% → ~95%+</text>
 </svg>
