@@ -47,7 +47,7 @@
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 150H884"/>
-    <path d="M76 396H884"/>
+    <path d="M76 390H884"/>
   </g>
 
   <!-- ===== TOP SECTION: Comparison Bars ===== -->
@@ -56,95 +56,95 @@
   <g>
     <text x="80" y="188" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Bitcoin Mining</text>
     <text x="80" y="206" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~140 TWh/yr</text>
-    <rect x="240" y="180" width="250" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
-    <rect x="240" y="180" width="250" height="28" rx="14" fill="url(#bar-btc)" opacity="0.85"/>
-    <rect x="240" y="180" width="250" height="28" rx="14" fill="none" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="510" y="200" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">$1–2T network secured</text>
+    <rect x="240" y="180" width="132" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
+    <rect x="240" y="180" width="132" height="28" rx="14" fill="url(#bar-btc)" opacity="0.85"/>
+    <rect x="240" y="180" width="132" height="28" rx="14" fill="none" stroke="#F7931A" stroke-width="1.5"/>
+    <text x="387" y="200" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">$1–2T network secured</text>
   </g>
 
   <!-- Gold mining bar -->
   <g>
     <text x="80" y="242" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Gold Mining</text>
     <text x="80" y="260" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~270 TWh/yr</text>
-    <rect x="240" y="234" width="480" height="28" rx="14" fill="#2A281A" stroke="#FFD700" stroke-width="1.5"/>
-    <rect x="240" y="234" width="480" height="28" rx="14" fill="url(#bar-gold)" opacity="0.5"/>
-    <rect x="240" y="234" width="480" height="28" rx="14" fill="none" stroke="#FFD700" stroke-width="1.5"/>
-    <text x="740" y="254" fill="#FFD700" font-family="JetBrains Mono, monospace" font-size="13">~15T mkt cap</text>
+    <rect x="240" y="234" width="254" height="28" rx="14" fill="#2A281A" stroke="#FFD700" stroke-width="1.5"/>
+    <rect x="240" y="234" width="254" height="28" rx="14" fill="url(#bar-gold)" opacity="0.5"/>
+    <rect x="240" y="234" width="254" height="28" rx="14" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+    <text x="509" y="254" fill="#FFD700" font-family="JetBrains Mono, monospace" font-size="13">~15T mkt cap</text>
   </g>
 
   <!-- Banking system bar -->
   <g>
     <text x="80" y="296" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Banking System</text>
     <text x="80" y="314" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~200 TWh/yr</text>
-    <rect x="240" y="288" width="360" height="28" rx="14" fill="#24202E" stroke="#7C5CFF" stroke-width="1.5"/>
-    <rect x="240" y="288" width="360" height="28" rx="14" fill="url(#bar-bank)" opacity="0.5"/>
-    <rect x="240" y="288" width="360" height="28" rx="14" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
-    <text x="620" y="308" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">Global financial system</text>
+    <rect x="240" y="288" width="188" height="28" rx="14" fill="#24202E" stroke="#7C5CFF" stroke-width="1.5"/>
+    <rect x="240" y="288" width="188" height="28" rx="14" fill="url(#bar-bank)" opacity="0.5"/>
+    <rect x="240" y="288" width="188" height="28" rx="14" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
+    <text x="443" y="308" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">Global financial system</text>
   </g>
 
   <!-- Data centers bar -->
   <g>
     <text x="80" y="350" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Data Centers</text>
     <text x="80" y="368" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~500 TWh/yr</text>
-    <rect x="240" y="342" width="600" height="28" rx="14" fill="#1A242E" stroke="#3B82F6" stroke-width="1.5"/>
-    <rect x="240" y="342" width="600" height="28" rx="14" fill="url(#bar-dc)" opacity="0.35"/>
-    <rect x="240" y="342" width="600" height="28" rx="14" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-    <text x="860" y="362" fill="#3B82F6" font-family="JetBrains Mono, monospace" font-size="13">Internet infrastructure</text>
+    <rect x="240" y="342" width="470" height="28" rx="14" fill="#1A242E" stroke="#3B82F6" stroke-width="1.5"/>
+    <rect x="240" y="342" width="470" height="28" rx="14" fill="url(#bar-dc)" opacity="0.35"/>
+    <rect x="240" y="342" width="470" height="28" rx="14" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="725" y="362" fill="#3B82F6" font-family="JetBrains Mono, monospace" font-size="13">Internet infrastructure</text>
   </g>
 
   <!-- ===== BOTTOM SECTION: Flow Diagram ===== -->
 
   <!-- Row labels -->
-  <text x="64" y="430" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">How mining energy economics work:</text>
+  <text x="80" y="412" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">How mining energy economics work:</text>
 
-  <g transform="translate(0, 420)">
+  <g transform="translate(0, 402)">
 
     <!-- Energy -->
     <g filter="url(#soft)">
-      <rect x="56" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-      <text x="111" y="38" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Energy In</text>
-      <text x="111" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Electricity</text>
+      <rect x="106" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+      <text x="161" y="38" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Energy In</text>
+      <text x="161" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Electricity</text>
     </g>
 
-    <path d="M176 40H208" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+    <path d="M226 40H258" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
     <!-- ASIC -->
     <g filter="url(#soft)">
-      <rect x="218" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
-      <text x="273" y="38" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">ASIC</text>
-      <text x="273" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">SHA-256 hashing</text>
+      <rect x="268" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+      <text x="323" y="38" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">ASIC</text>
+      <text x="323" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">SHA-256 hashing</text>
     </g>
 
-    <path d="M338 40H370" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+    <path d="M388 40H420" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
     <!-- Hash Rate -->
     <g filter="url(#soft)">
-      <rect x="380" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
-      <text x="435" y="38" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Hash Rate</text>
-      <text x="435" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">EH/s</text>
+      <rect x="430" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+      <text x="485" y="38" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Hash Rate</text>
+      <text x="485" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">EH/s</text>
     </g>
 
-    <path d="M500 40H532" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+    <path d="M550 40H582" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 
     <!-- Block Reward -->
     <g filter="url(#soft)">
-      <rect x="542" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
-      <text x="597" y="38" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Reward</text>
-      <text x="597" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">BTC + fees</text>
+      <rect x="592" y="18" width="110" height="44" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="647" y="38" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Reward</text>
+      <text x="647" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">BTC + fees</text>
     </g>
 
-    <path d="M662 40H694" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+    <path d="M712 40H744" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 
     <!-- Revenue -->
     <g filter="url(#soft)">
-      <rect x="704" y="18" width="100" height="44" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
-      <text x="754" y="38" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Revenue</text>
-      <text x="754" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">USD</text>
+      <rect x="754" y="18" width="100" height="44" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="804" y="38" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Revenue</text>
+      <text x="804" y="54" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">USD</text>
     </g>
 
     <!-- Feedback arrow: Revenue back to Energy -->
-    <path d="M754 62V78H111V68" stroke="#7C8794" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 3" fill="none" marker-end="url(#arrow-muted)"/>
-    <text x="432" y="92" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Revenue funds energy cost → incentive loop</text>
+    <path d="M804 62V74H161V68" stroke="#7C8794" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 3" fill="none" marker-end="url(#arrow-muted)"/>
+    <text x="482" y="86" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Revenue funds energy cost → incentive loop</text>
 
   </g>
 </svg>
