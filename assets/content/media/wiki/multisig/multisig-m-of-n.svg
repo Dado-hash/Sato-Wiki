@@ -53,9 +53,9 @@
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M80 372H904"/>
     </g>
-    <text x="492" y="400" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">OP_2 &lt;pubKeyA&gt; &lt;pubKeyB&gt; &lt;pubKeyC&gt; OP_3 OP_CHECKMULTISIG</text>
-    <text x="492" y="432" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">To spend: provide 2 valid signatures (from any of the 3 participants)</text>
-    <text x="492" y="456" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Unlocking: OP_0 &lt;sigA&gt; &lt;sigC&gt; (OP_0 is historical bug workaround)</text>
-    <text x="492" y="470" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">P2SH or P2WSH wraps the script in a hash for efficiency</text>
+    <text x="492" y="396" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">OP_2 &lt;pubKeyA&gt; &lt;pubKeyB&gt; &lt;pubKeyC&gt; OP_3 OP_CHECKMULTISIG</text>
+    <text x="492" y="424" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">To spend: provide 2 valid signatures (from any of the 3 participants)</text>
+    <text x="492" y="444" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Unlocking: OP_0 &lt;sigA&gt; &lt;sigC&gt; (OP_0 is historical bug workaround)</text>
+    <text x="492" y="464" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">P2SH or P2WSH wraps the script in a hash for efficiency</text>
   </g>
 </svg>
