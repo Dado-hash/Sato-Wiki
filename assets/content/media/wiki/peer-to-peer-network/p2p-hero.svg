@@ -36,7 +36,6 @@
     <line x1="215" y1="302" x2="255" y2="422"/>
     <line x1="215" y1="302" x2="530" y2="228"/>
     <line x1="330" y1="238" x2="530" y2="228"/>
-    <line x1="330" y1="238" x2="280" y2="136"/>
     <line x1="330" y1="238" x2="580" y2="364"/>
     <line x1="530" y1="228" x2="620" y2="134"/>
     <line x1="530" y1="228" x2="580" y2="364"/>
@@ -50,14 +49,13 @@
     <line x1="690" y1="420" x2="830" y2="314"/>
     <line x1="720" y1="174" x2="830" y2="314"/>
     <line x1="620" y1="134" x2="720" y2="174"/>
-    <line x1="280" y1="136" x2="620" y2="134"/>
   </g>
 
   <!-- Relay path highlight -->
   <g stroke="#F7931A" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.85">
-    <path d="M215 302H330" marker-end="url(#arrow-orange)"/>
-    <path d="M330 238H530" marker-end="url(#arrow-orange)"/>
-    <path d="M530 228H720" marker-end="url(#arrow-orange)"/>
+    <path d="M215 302L330 238" marker-end="url(#arrow-orange)"/>
+    <path d="M330 238L530 228" marker-end="url(#arrow-orange)"/>
+    <path d="M530 228L720 174" marker-end="url(#arrow-orange)"/>
     <path d="M720 174L830 314" marker-end="url(#arrow-orange)"/>
   </g>
 
@@ -95,9 +93,6 @@
 
     <circle cx="620" cy="134" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
     <text x="620" y="140" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N9</text>
-
-    <circle cx="280" cy="136" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="280" y="142" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N10</text>
 
     <circle cx="720" cy="174" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
     <text x="720" y="180" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N11</text>
