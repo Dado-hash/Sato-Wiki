@@ -20,54 +20,54 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Public Key Derivation</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Elliptic curve multiplication is one-way — you cannot go back from K to k.</text>
+  <text x="64" y="72" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Public Key Derivation</text>
+  <text x="64" y="106" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Elliptic curve multiplication is one-way — you cannot go back from K to k.</text>
 
   <!-- Separator -->
-  <line x1="76" y1="144" x2="884" y2="144" stroke="#28313B" stroke-width="1" opacity="0.55"/>
+  <line x1="76" y1="130" x2="884" y2="130" stroke="#28313B" stroke-width="1" opacity="0.55"/>
 
   <!-- ====== TOP HALF: Private Key → × G → Public Key ====== -->
 
   <!-- Private key box (orange) -->
   <g filter="url(#soft)">
-    <rect x="76" y="170" width="280" height="130" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="216" y="200" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Private Key</text>
-    <rect x="94" y="214" width="244" height="30" rx="6" fill="#111418" stroke="#343A44" stroke-width="1"/>
-    <text x="216" y="235" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">0xE9 87 3D 79 ... C1 A5 2B 40</text>
-    <text x="216" y="270" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">scalar k <tspan fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">[256 bits]</tspan></text>
-    <text x="216" y="290" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">known only to the owner</text>
+    <rect x="76" y="150" width="280" height="130" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
+    <text x="216" y="180" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Private Key</text>
+    <rect x="94" y="194" width="244" height="30" rx="6" fill="#111418" stroke="#343A44" stroke-width="1"/>
+    <text x="216" y="215" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">0xE9 87 3D 79 ... C1 A5 2B 40</text>
+    <text x="216" y="250" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">scalar k <tspan fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">[256 bits]</tspan></text>
+    <text x="216" y="270" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">known only to the owner</text>
   </g>
 
   <!-- × G arrow -->
-  <path d="M356 235L416 235" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M356 215L530 215" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <!-- Multiplication label on arrow -->
-  <rect x="356" y="166" width="60" height="28" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
-  <text x="386" y="185" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">× G</text>
+  <rect x="418" y="146" width="60" height="28" rx="6" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
+  <text x="448" y="165" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">× G</text>
 
   <!-- Public key box (green) -->
   <g filter="url(#soft)">
-    <rect x="426" y="162" width="320" height="148" rx="14" fill="#0A1F16" stroke="#22C55E" stroke-width="1.8"/>
-    <text x="586" y="192" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Public Key</text>
+    <rect x="540" y="142" width="320" height="148" rx="14" fill="#0A1F16" stroke="#22C55E" stroke-width="1.8"/>
+    <text x="700" y="172" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Public Key</text>
 
     <!-- x-coordinate -->
-    <text x="444" y="220" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">x = 0x79BE667E ... F2FC984A</text>
+    <text x="558" y="200" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">x = 0x79BE667E ... F2FC984A</text>
     <!-- y-coordinate -->
-    <text x="444" y="242" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">y = 0x483ADA77 ... 51C0E0E7</text>
+    <text x="558" y="222" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">y = 0x483ADA77 ... 51C0E0E7</text>
 
-    <line x1="444" y1="254" x2="728" y2="254" stroke="#28313B" stroke-width="1" opacity="0.4"/>
+    <line x1="558" y1="234" x2="842" y2="234" stroke="#28313B" stroke-width="1" opacity="0.4"/>
 
-    <text x="586" y="278" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">point K = k × G <tspan fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">(x, y)</tspan></text>
-    <text x="586" y="300" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">safe to share · derived deterministically</text>
+    <text x="700" y="258" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">point K = k × G <tspan fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">(x, y)</tspan></text>
+    <text x="700" y="280" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">safe to share · derived deterministically</text>
   </g>
 
   <!-- ====== BOTTOM HALF: Elliptic Curve with point P = k×G ====== -->
 
-  <line x1="76" y1="340" x2="884" y2="340" stroke="#28313B" stroke-width="1" opacity="0.55"/>
+  <line x1="76" y1="310" x2="884" y2="310" stroke="#28313B" stroke-width="1" opacity="0.55"/>
 
   <!-- Elliptic curve SVG plot -->
   <!-- Coordinate axes -->
-  <g transform="translate(480, 440)">
+  <g transform="translate(340, 385)">
     <!-- Axes -->
     <line x1="-280" y1="0" x2="280" y2="0" stroke="#46505C" stroke-width="1.2"/>
     <line x1="0" y1="70" x2="0" y2="-70" stroke="#46505C" stroke-width="1.2"/>
@@ -114,11 +114,11 @@
     <text x="-40" y="20" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">G</text>
 
     <!-- Annotation: confirmed by the curve equation -->
-    <text x="0" y="105" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">secp256k1: y² = x³ + 7  (mod p)</text>
+    <text x="0" y="85" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">secp256k1: y² = x³ + 7  (mod p)</text>
   </g>
 
   <!-- Right side: details panel -->
-  <g transform="translate(626, 360)">
+  <g transform="translate(580, 340)">
     <rect x="0" y="0" width="280" height="130" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.4"/>
     <text x="140" y="28" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Key Properties</text>
     <line x1="16" y1="40" x2="264" y2="40" stroke="#28313B" stroke-width="1" opacity="0.5"/>
@@ -134,6 +134,6 @@
   </g>
 
   <!-- Footer legend -->
-  <text x="64" y="524" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">K = k × G  ·  Discrete logarithm problem  ·  secp256k1</text>
-  <text x="600" y="524" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">For wallet: Private key → Public key → Address (hash)</text>
+  <text x="64" y="490" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">K = k × G  ·  Discrete logarithm problem  ·  secp256k1</text>
+  <text x="884" y="490" text-anchor="end" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">For wallet: Private key → Public key → Address (hash)</text>
 </svg>
