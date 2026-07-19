@@ -15,7 +15,7 @@
   </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
-  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <rect x="28" y="28" width="904" height="496" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Segregated Witness</text>
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Signatures separated from transaction data — txid is no longer malleable.</text>
@@ -27,7 +27,6 @@
 
   <g filter="url(#soft)">
     <rect x="260" y="176" width="440" height="116" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
-    <rect x="480" y="200" text-anchor="middle" x="480" width="0" height="0"/>
     <text x="480" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Bitcoin Transaction</text>
 
     <rect x="282" y="240" width="180" height="34" rx="12" fill="#171B21" stroke="#46505C"/>

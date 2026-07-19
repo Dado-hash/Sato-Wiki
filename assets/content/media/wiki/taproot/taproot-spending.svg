@@ -18,7 +18,7 @@
   </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
-  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <rect x="28" y="28" width="904" height="506" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Taproot spending</text>
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Key path or script path — only what is used appears on-chain.</text>
@@ -27,11 +27,11 @@
   <line x1="480" y1="150" x2="480" y2="490" stroke="#28313B" stroke-width="1.5" opacity="0.4"/>
 
   <!-- Column headers -->
-  <rect x="76" y="146" width="170" height="36" rx="18" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
-  <text x="161" y="170" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Key Path Spend</text>
+  <rect x="155" y="146" width="170" height="36" rx="18" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
+  <text x="240" y="170" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Key Path Spend</text>
 
-  <rect x="714" y="146" width="170" height="36" rx="18" fill="#241E31" stroke="#7C5CFF" stroke-width="1.8"/>
-  <text x="799" y="170" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script Path Spend</text>
+  <rect x="635" y="146" width="170" height="36" rx="18" fill="#241E31" stroke="#7C5CFF" stroke-width="1.8"/>
+  <text x="720" y="170" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script Path Spend</text>
 
   <!-- ======== LEFT COLUMN — Key Path ======== -->
 
@@ -134,5 +134,5 @@
   </g>
 
   <!-- Script path: data size label -->
-  <text x="720" y="514" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">larger witness · script + proof revealed</text>
+  <text x="720" y="524" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">larger witness · script + proof revealed</text>
 </svg>

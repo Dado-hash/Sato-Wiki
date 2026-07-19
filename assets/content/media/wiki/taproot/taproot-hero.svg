@@ -18,7 +18,7 @@
   </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
-  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <rect x="28" y="28" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Taproot</text>
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">One output key commits to a Merkle tree of scripts off-chain.</text>
@@ -101,10 +101,8 @@
   <text x="775" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">D</text>
 
   <!-- Key path label -->
-  <text x="64" y="472" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Key path:</text>
-  <text x="64" y="492" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">cooperative, single sig</text>
+  <text x="110" y="516" font-family="Inter, Arial, sans-serif" font-size="13"><tspan fill="#B7B1A8">Key path: </tspan><tspan fill="#7C8794">cooperative, single sig</tspan></text>
 
   <!-- Script path label -->
-  <text x="284" y="472" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Script paths:</text>
-  <text x="284" y="492" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">revealed only when needed</text>
+  <text x="595" y="516" font-family="Inter, Arial, sans-serif" font-size="13"><tspan fill="#B7B1A8">Script paths: </tspan><tspan fill="#7C8794">revealed only when needed</tspan></text>
 </svg>

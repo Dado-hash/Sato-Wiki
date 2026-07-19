@@ -9,6 +9,9 @@
     <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
     </filter>
@@ -21,88 +24,89 @@
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Transactions compete by feerate. Block space is fixed at ~1M vB per block.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
-    <path d="M76 160H884"/>
-    <path d="M76 290H884"/>
-    <path d="M76 420H884"/>
-    <path d="M360 150V442"/>
-    <path d="M640 150V442"/>
+    <path d="M97 160H905"/>
+    <path d="M97 290H905"/>
+    <path d="M97 420H905"/>
+    <path d="M381 150V466"/>
+    <path d="M661 150V466"/>
   </g>
 
-  <text x="218" y="152" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">MEMPOOL</text>
-  <text x="500" y="152" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">BLOCK TEMPLATE</text>
-  <text x="784" y="152" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">CONFIRMED BLOCK</text>
+  <text x="239" y="152" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">MEMPOOL</text>
+  <text x="484" y="152" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">BLOCK TEMPLATE</text>
+  <text x="776" y="152" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="0.5">CONFIRMED BLOCK</text>
 
   <g filter="url(#soft)">
-    <rect x="48" y="180" width="300" height="260" rx="16" fill="#20252D" stroke="#46505C" stroke-width="1.6"/>
+    <rect x="69" y="180" width="300" height="280" rx="16" fill="#20252D" stroke="#46505C" stroke-width="1.6"/>
 
-    <rect x="66" y="193" width="100" height="32" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1.2"/>
-    <text x="116" y="214" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">80 sat/vB</text>
+    <rect x="87" y="193" width="100" height="32" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1.2"/>
+    <text x="137" y="214" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">80 sat/vB</text>
 
-    <rect x="176" y="193" width="100" height="32" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1.2"/>
-    <text x="226" y="214" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">75 sat/vB</text>
+    <rect x="197" y="193" width="100" height="32" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1.2"/>
+    <text x="247" y="214" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">75 sat/vB</text>
 
-    <rect x="66" y="237" width="220" height="32" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1.2"/>
-    <text x="176" y="258" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">68 sat/vB</text>
+    <rect x="87" y="237" width="220" height="32" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1.2"/>
+    <text x="197" y="258" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">68 sat/vB</text>
 
-    <rect x="66" y="281" width="190" height="32" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1.2"/>
-    <text x="161" y="302" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">52 sat/vB</text>
+    <rect x="87" y="281" width="190" height="32" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1.2"/>
+    <text x="182" y="302" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">52 sat/vB</text>
 
-    <rect x="66" y="325" width="140" height="32" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1.2"/>
-    <text x="136" y="346" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">35 sat/vB</text>
+    <rect x="87" y="325" width="140" height="32" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1.2"/>
+    <text x="157" y="346" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">35 sat/vB</text>
 
-    <rect x="66" y="369" width="260" height="32" rx="8" fill="#1E293B" stroke="#7C8794" stroke-width="1.2"/>
-    <text x="196" y="390" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">18 sat/vB</text>
+    <rect x="87" y="369" width="260" height="32" rx="8" fill="#1E293B" stroke="#7C8794" stroke-width="1.2"/>
+    <text x="217" y="390" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">18 sat/vB</text>
 
-    <rect x="66" y="413" width="200" height="32" rx="8" fill="#1E293B" stroke="#7C8794" stroke-width="1.2"/>
-    <text x="166" y="434" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">8 sat/vB</text>
+    <rect x="87" y="413" width="200" height="32" rx="8" fill="#1E293B" stroke="#7C8794" stroke-width="1.2"/>
+    <text x="187" y="434" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">8 sat/vB</text>
   </g>
 
-  <path d="M360 220L395 220C405 220 418 196 432 196" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M360 252L395 252C405 252 418 220 432 220" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M360 298L395 298C405 298 418 244 432 244" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M360 340L395 340C405 340 418 268 432 268" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M360 382L395 382C410 382 420 290 432 290" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#arrow-muted)"/>
-  <path d="M360 430L395 430C410 430 420 310 432 310" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#arrow-muted)"/>
+  <path d="M303 200C342 200 375 265 414 265" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M303 218C342 218 375 303 414 303" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M313 253C348 253 379 341 414 341" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M283 297C329 297 368 379 414 379" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M233 341C380 341 380 417 414 417" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#arrow-muted)"/>
+  <path d="M353 385C373 385 390 417 410 417" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#arrow-muted)"/>
+  <path d="M293 429C333 429 366 417 406 417" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#arrow-muted)"/>
 
   <g filter="url(#soft)">
-    <rect x="434" y="180" width="194" height="270" rx="16" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="531" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block template</text>
-    <text x="531" y="232" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~1M vB limit</text>
+    <rect x="418" y="180" width="194" height="270" rx="16" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+    <text x="515" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block template</text>
+    <text x="515" y="232" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">~1M vB limit</text>
 
-    <rect x="456" y="250" width="150" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
-    <text x="531" y="270" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">80 sat/vB</text>
+    <rect x="440" y="250" width="150" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
+    <text x="515" y="270" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">80 sat/vB</text>
 
-    <rect x="456" y="288" width="150" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
-    <text x="531" y="308" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">75 sat/vB</text>
+    <rect x="440" y="288" width="150" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
+    <text x="515" y="308" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">75 sat/vB</text>
 
-    <rect x="456" y="326" width="150" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
-    <text x="531" y="346" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">68 sat/vB</text>
+    <rect x="440" y="326" width="150" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
+    <text x="515" y="346" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">68 sat/vB</text>
 
-    <rect x="456" y="364" width="150" height="30" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1"/>
-    <text x="531" y="384" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">52 sat/vB</text>
+    <rect x="440" y="364" width="150" height="30" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1"/>
+    <text x="515" y="384" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">52 sat/vB</text>
 
-    <rect x="456" y="402" width="150" height="30" rx="8" fill="#1E293B" stroke="#7C8794" stroke-width="1"/>
-    <text x="531" y="422" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">35 sat/vB — cut off</text>
+    <rect x="440" y="402" width="150" height="30" rx="8" fill="#1E293B" stroke="#7C8794" stroke-width="1"/>
+    <text x="515" y="422" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">35 sat/vB — cut off</text>
   </g>
 
-  <rect x="640" y="200" width="284" height="230" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2" filter="url(#soft)"/>
-  <text x="782" y="232" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Mined block</text>
-  <text x="782" y="254" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Coinbase = subsidy + fees</text>
+  <rect x="661" y="200" width="230" height="230" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2" filter="url(#soft)"/>
+  <text x="776" y="232" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Mined block</text>
+  <text x="776" y="254" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Coinbase = subsidy + fees</text>
 
-  <rect x="668" y="275" width="120" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
-  <text x="728" y="295" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">80 sat/vB</text>
+  <rect x="716" y="275" width="120" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
+  <text x="776" y="295" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">80 sat/vB</text>
 
-  <rect x="668" y="313" width="120" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
-  <text x="728" y="333" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">75 sat/vB</text>
+  <rect x="716" y="313" width="120" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
+  <text x="776" y="333" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">75 sat/vB</text>
 
-  <rect x="668" y="351" width="120" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
-  <text x="728" y="371" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">68 sat/vB</text>
+  <rect x="716" y="351" width="120" height="30" rx="8" fill="#1E293B" stroke="#22C55E" stroke-width="1"/>
+  <text x="776" y="371" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">68 sat/vB</text>
 
-  <rect x="668" y="389" width="120" height="30" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1"/>
-  <text x="728" y="409" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">52 sat/vB</text>
+  <rect x="716" y="389" width="120" height="30" rx="8" fill="#1E293B" stroke="#F7931A" stroke-width="1"/>
+  <text x="776" y="409" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">52 sat/vB</text>
 
-  <path d="M640 240C620 240 538 230 538 210" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M640 270C620 270 538 260 538 230" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M640 300C620 300 538 290 538 250" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M640 330C620 330 538 320 538 270" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M614 265C632 265 671 290 714 290" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M614 303C632 303 671 328 714 328" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M614 341C632 341 671 366 714 366" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M614 379C632 379 671 404 714 404" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>
 </svg>

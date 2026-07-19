@@ -28,8 +28,8 @@
   <g filter="url(#soft)">
     <rect x="64" y="156" width="150" height="54" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="78" y="168" width="26" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="110" y="184" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13">A</text>
-    <text x="124" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Alice</text>
+    <text x="91" y="184" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13">A</text>
+    <text x="118" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Alice</text>
     <text x="80" y="200" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Sender</text>
   </g>
   <text x="88" y="240" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600">Sends</text>
@@ -37,14 +37,14 @@
 
   <!-- Arrow Alice → Bob -->
   <line x1="214" y1="189" x2="282" y2="189" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
-  <text x="220" y="175" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">100,000 sats</text>
+  <text x="286" y="175" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">100,000 sats</text>
 
   <!-- Bob (hop 1) -->
   <g filter="url(#soft)">
     <rect x="292" y="156" width="150" height="54" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="306" y="168" width="26" height="22" rx="6" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
-    <text x="338" y="184" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">B</text>
-    <text x="352" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Bob</text>
+    <text x="319" y="184" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">B</text>
+    <text x="346" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Bob</text>
     <text x="308" y="200" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Hop 1</text>
   </g>
   <!-- Bob fee card -->
@@ -59,14 +59,14 @@
 
   <!-- Arrow Bob → Carol -->
   <line x1="442" y1="189" x2="510" y2="189" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
-  <text x="448" y="175" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">99,990 sats</text>
+  <text x="514" y="175" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">99,990 sats</text>
 
   <!-- Carol (hop 2) -->
   <g filter="url(#soft)">
     <rect x="520" y="156" width="150" height="54" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="534" y="168" width="26" height="22" rx="6" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
-    <text x="566" y="184" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">C</text>
-    <text x="580" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Carol</text>
+    <text x="547" y="184" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="13">C</text>
+    <text x="574" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Carol</text>
     <text x="536" y="200" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Hop 2</text>
   </g>
   <!-- Carol fee card -->
@@ -81,14 +81,14 @@
 
   <!-- Arrow Carol → Diana -->
   <line x1="670" y1="189" x2="738" y2="189" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
-  <text x="676" y="175" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">99,985 sats</text>
+  <text x="742" y="175" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">99,985 sats</text>
 
   <!-- Diana (recipient) -->
   <g filter="url(#soft)">
     <rect x="748" y="156" width="150" height="54" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="762" y="168" width="26" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
-    <text x="794" y="184" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13">D</text>
-    <text x="808" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Diana</text>
+    <text x="775" y="184" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13">D</text>
+    <text x="802" y="184" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Diana</text>
     <text x="764" y="200" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Recipient</text>
   </g>
   <text x="762" y="240" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600">Receives</text>
@@ -96,10 +96,11 @@
 
   <!-- Total fees callout -->
   <g filter="url(#soft)">
-    <rect x="64" y="352" width="420" height="72" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <rect x="64" y="352" width="460" height="96" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="80" y="376" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">FORMULA</text>
-    <text x="80" y="398" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13">Total fee = base_fee × hops + amount × proportional_rate ÷ 1,000,000</text>
-    <text x="80" y="416" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">= (10+5) + (100,000×100 + 99,990×50) / 1,000,000 = 15 sats</text>
+    <text x="80" y="396" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">Total fee = base_fee × hops +</text>
+    <text x="80" y="414" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12">amount × proportional_rate ÷ 1,000,000</text>
+    <text x="80" y="436" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">= (10+5) + (100,000×100 + 99,990×50) / 1,000,000 = 15 sats</text>
   </g>
 
   <!-- Fee distribution -->

@@ -24,28 +24,29 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Watchtower in Action</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">A watchtower monitors the blockchain on behalf of an offline node and publishes a penalty transaction if the channel peer cheats.</text>
+  <text x="64" y="106" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">A watchtower monitors the blockchain on behalf of an offline node</text>
+  <text x="64" y="128" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">and publishes a penalty transaction if the channel peer cheats.</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
-    <path d="M76 148H884"/>
+    <path d="M76 160H884"/>
   </g>
 
   <!-- Section labels -->
-  <text x="170" y="142" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">CHANNEL PEERS</text>
-  <text x="600" y="142" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">WATCHTOWER</text>
-  <text x="760" y="142" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">CHANNEL PEERS</text>
+  <text x="170" y="154" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">CHANNEL PEERS</text>
+  <text x="600" y="154" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">WATCHTOWER</text>
+  <text x="760" y="154" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">CHANNEL PEERS</text>
 
   <!-- Alice (Mobile) card -->
   <g filter="url(#soft)">
     <rect x="64" y="170" width="230" height="120" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="80" y="184" width="60" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="110" y="200" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">NODE</text>
-    <text x="202" y="200" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Alice (Mobile)</text>
+    <text x="150" y="200" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Alice (Mobile)</text>
     <text x="80" y="228" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Going offline</text>
     <text x="80" y="252" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Hands off encrypted</text>
     <text x="80" y="268" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">justice transaction data</text>
     <!-- Phone icon -->
-    <rect x="248" y="190" width="14" height="24" rx="3" fill="#343A44" stroke="#46505C" stroke-width="1"/>
-    <circle cx="255" cy="210" r="2" fill="#7C8794"/>
+    <rect x="256" y="250" width="14" height="24" rx="3" fill="#343A44" stroke="#46505C" stroke-width="1"/>
+    <circle cx="263" cy="270" r="2" fill="#7C8794"/>
   </g>
 
   <!-- Bob card -->
@@ -64,15 +65,15 @@
     <rect x="380" y="176" width="240" height="128" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="396" y="190" width="72" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="432" y="206" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">TOWER</text>
-    <text x="510" y="206" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Watchtower</text>
+    <text x="486" y="206" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Watchtower</text>
     <text x="396" y="234" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Constantly monitoring</text>
     <text x="396" y="252" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Bitcoin blockchain</text>
     <text x="396" y="278" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Scanning for revoked txids</text>
     <!-- Server icon -->
-    <rect x="570" y="192" width="20" height="16" rx="3" fill="#343A44" stroke="#46505C" stroke-width="1"/>
-    <path d="M575 200H585" stroke="#7C8794" stroke-width="1.5" stroke-linecap="round"/>
-    <rect x="572" y="222" width="16" height="12" rx="2" fill="#343A44" stroke="#46505C" stroke-width="1"/>
-    <path d="M576 228H584" stroke="#7C8794" stroke-width="1" stroke-linecap="round"/>
+    <rect x="582" y="250" width="20" height="16" rx="3" fill="#343A44" stroke="#46505C" stroke-width="1"/>
+    <path d="M587 258H597" stroke="#7C8794" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="584" y="272" width="16" height="12" rx="2" fill="#343A44" stroke="#46505C" stroke-width="1"/>
+    <path d="M588 278H596" stroke="#7C8794" stroke-width="1" stroke-linecap="round"/>
   </g>
 
   <!-- Arrow: Alice to Watchtower -->
@@ -127,11 +128,11 @@
 
   <!-- Arrow: Blockchain to Watchtower (detection) -->
   <path d="M600 360L600 330C600 320 600 310 600 306" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrow-green-solid)"/>
-  <text x="612" y="340" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10">Detects revoked tx</text>
+  <text x="610" y="354" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10">Detects revoked tx</text>
 
   <!-- Arrow: Watchtower to Blockchain (penalty tx) -->
-  <path d="M480 304L480 330C480 340 480 350 480 358" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
-  <text x="458" y="340" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="10">Publishes penalty tx</text>
+  <path d="M580 304C650 316 705 332 735 358" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+  <text x="656" y="324" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="10">Publishes penalty tx</text>
 
   <!-- Footer note -->
   <text x="480" y="490" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">The watchtower needs only the revoked commitment txid and the penalty signature — it never learns channel balances or payment details.</text>

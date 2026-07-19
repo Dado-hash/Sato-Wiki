@@ -33,7 +33,7 @@
   <g filter="url(#soft)">
     <rect x="80" y="168" width="230" height="100" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
     <rect x="96" y="182" width="34" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
-    <text x="124" y="197" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">$</text>
+    <text x="113" y="197" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">$</text>
     <text x="140" y="197" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Cheap Router</text>
     <text x="96" y="222" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">Base fee:  1 msat</text>
     <text x="96" y="240" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">PPM:       1 ppm</text>
@@ -58,7 +58,7 @@
   <g filter="url(#soft)">
     <rect x="365" y="168" width="230" height="100" rx="14" fill="#20252D" stroke="#7C5CFF" stroke-width="2"/>
     <rect x="381" y="182" width="34" height="22" rx="6" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
-    <text x="409" y="197" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="12">$$</text>
+    <text x="398" y="197" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="12">$$</text>
     <text x="425" y="197" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Balanced Router</text>
     <text x="381" y="222" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">Base fee:  10 msat</text>
     <text x="381" y="240" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">PPM:       100 ppm</text>
@@ -79,7 +79,7 @@
   <g filter="url(#soft)">
     <rect x="650" y="168" width="230" height="100" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
     <rect x="666" y="182" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="694" y="197" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">$$$</text>
+    <text x="683" y="197" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">$$$</text>
     <text x="710" y="197" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Premium Router</text>
     <text x="666" y="222" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">Base fee:  1,000 msat</text>
     <text x="666" y="240" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">PPM:       5,000 ppm</text>
@@ -124,8 +124,8 @@
     <rect x="420" y="414" width="80" height="26" rx="4" fill="#7C5CFF" opacity="0.8"/>
     <text x="460" y="432" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Volume</text>
   </g>
-  <rect x="420" y="397" width="80" height="43" rx="4" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
-  <text x="460" y="425" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">1M</text>
+  <rect x="420" y="390" width="80" height="24" rx="4" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
+  <text x="460" y="407" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">1M</text>
   <text x="460" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Payments</text>
 
   <!-- Premium bar -->
@@ -133,8 +133,8 @@
     <rect x="680" y="414" width="80" height="26" rx="4" fill="#F7931A" opacity="0.8"/>
     <text x="720" y="432" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Volume</text>
   </g>
-  <rect x="680" y="414" width="80" height="26" rx="4" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-  <text x="720" y="433" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">10K</text>
+  <rect x="680" y="396" width="80" height="18" rx="4" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+  <text x="720" y="409" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">10K</text>
   <text x="720" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10">Payments</text>
 
   <!-- Revenue bars on top -->

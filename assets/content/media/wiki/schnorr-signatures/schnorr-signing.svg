@@ -78,8 +78,8 @@
     <text x="86" y="392" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">(R, s) — 64 bytes</text>
   </g>
 
-  <!-- Arrow: sign → verify -->
-  <path d="M264 402V434" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <!-- Arrow: sign → aggregation -->
+  <path d="M480 402V428" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <!-- ===== RIGHT — Verification ===== -->
 

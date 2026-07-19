@@ -79,7 +79,7 @@
     <text x="779" y="334" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="15">60,000 sats</text>
   </g>
 
-  <path d="M487 444V472H825" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-purple)"/>
+  <path d="M487 444V472H779V452" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-purple)"/>
 
   <g filter="url(#soft)">
     <rect x="684" y="390" width="190" height="56" rx="28" fill="#241E31" stroke="#7C5CFF" stroke-width="1.7"/>

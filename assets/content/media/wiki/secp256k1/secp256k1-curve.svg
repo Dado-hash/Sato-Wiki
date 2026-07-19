@@ -22,7 +22,7 @@
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
     <path d="M76 390H884"/>
-    <path d="M481 148V490"/>
+    <path d="M481 148V390"/>
   </g>
   <text x="278" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">CURVE PARAMETERS</text>
   <text x="742" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">KEY DERIVATION</text>
@@ -33,11 +33,12 @@
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M80 246H456"/>
     </g>
-    <text x="268" y="272" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Prime order p</text>
-    <text x="268" y="296" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE</text>
-    <text x="268" y="316" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">BAAEDCE6AF48A03BBFD25E8CD0364141</text>
-    <text x="268" y="348" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Order n</text>
-    <text x="268" y="370" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</text>
+    <text x="268" y="266" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Prime order p</text>
+    <text x="268" y="286" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</text>
+    <text x="268" y="304" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC2F</text>
+    <text x="268" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Order n</text>
+    <text x="268" y="346" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE</text>
+    <text x="268" y="364" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">BAAEDCE6AF48A03BBFD25E8CD0364141</text>
   </g>
   <g filter="url(#soft)">
     <rect x="512" y="162" width="408" height="216" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
@@ -45,15 +46,18 @@
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M528 214H904"/>
     </g>
-    <rect x="568" y="234" width="100" height="40" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="618" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">k</text>
-    <text x="618" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">private key</text>
-    <text x="700" y="258" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="24">×</text>
-    <rect x="728" y="234" width="100" height="40" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
-    <text x="778" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">G</text>
-    <text x="778" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">generator point</text>
-    <text x="852" y="258" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="24">=</text>
-    <text x="680" y="368" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">ECDSA / Schnorr signatures prove k is known</text>
+    <rect x="528" y="234" width="100" height="40" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
+    <text x="578" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">k</text>
+    <text x="578" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">private key</text>
+    <text x="647" y="258" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="24">×</text>
+    <rect x="666" y="234" width="100" height="40" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+    <text x="716" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">G</text>
+    <text x="716" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">generator point</text>
+    <text x="785" y="258" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="24">=</text>
+    <rect x="804" y="234" width="100" height="40" rx="10" fill="#0A1F16" stroke="#22C55E" stroke-width="1.5"/>
+    <text x="854" y="260" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">K</text>
+    <text x="854" y="306" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">public key</text>
+    <text x="716" y="368" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">ECDSA / Schnorr signatures prove k is known</text>
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="404" width="856" height="82" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>

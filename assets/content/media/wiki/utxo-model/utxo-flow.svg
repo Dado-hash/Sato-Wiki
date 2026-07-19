@@ -46,7 +46,7 @@
     <rect x="390" y="220" width="180" height="150" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="480" y="260" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Spend whole</text>
     <text x="480" y="290" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">outputs</text>
-    <rect x="424" y="318" width="112" height="30" rx="15" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <rect x="405" y="318" width="150" height="30" rx="15" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
     <text x="480" y="339" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">no partial coin</text>
   </g>
 

@@ -24,97 +24,97 @@
   </g>
 
   <!-- Splice-in section (top) -->
-  <text x="64" y="188" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">SPLICE-IN</text>
-  <text x="64" y="208" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Alice adds funds to the open channel</text>
+  <text x="64" y="172" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">SPLICE-IN</text>
+  <text x="64" y="192" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Alice adds funds to the open channel</text>
 
   <g filter="url(#soft)">
-    <rect x="64" y="226" width="170" height="80" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="1"/>
-    <text x="149" y="256" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice's Wallet</text>
-    <text x="149" y="278" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">+ 0.5 BTC</text>
+    <rect x="64" y="210" width="170" height="80" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="1"/>
+    <text x="149" y="240" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice's Wallet</text>
+    <text x="149" y="262" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">+ 0.5 BTC</text>
   </g>
 
-  <path d="M250 266H320" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
-  <text x="285" y="256" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">Splice-in tx</text>
-  <text x="285" y="274" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">on-chain</text>
+  <path d="M246 250H316" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="281" y="240" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">Splice-in tx</text>
+  <text x="281" y="258" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">on-chain</text>
 
   <!-- Center: Channel Card -->
   <g filter="url(#soft)">
-    <rect x="334" y="210" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <rect x="354" y="226" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="382" y="241" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">&#x26A1;</text>
-    <text x="400" y="241" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Open Channel</text>
-    <text x="400" y="259" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Alice &#x2194; Bob</text>
+    <rect x="326" y="194" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <rect x="346" y="210" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <text x="363" y="225" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">&#x26A1;</text>
+    <text x="392" y="225" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Open Channel</text>
+    <text x="392" y="243" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Alice &#x2194; Bob</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
-      <path d="M354 276H594"/>
+      <path d="M346 260H586"/>
     </g>
-    <text x="474" y="296" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">1.0 BTC capacity</text>
-    <text x="474" y="312" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Stays open during splice</text>
+    <text x="466" y="280" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">1.0 BTC capacity</text>
+    <text x="466" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Stays open during splice</text>
   </g>
 
-  <path d="M630 266H700" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
-  <text x="665" y="256" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">confirmed</text>
+  <path d="M617 250H687" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="652" y="240" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">confirmed</text>
 
   <!-- Splice-in result -->
   <g filter="url(#soft)">
-    <rect x="714" y="226" width="200" height="80" rx="14" fill="#203327" stroke="#22C55E" stroke-width="1"/>
-    <text x="814" y="256" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">1.5 BTC</text>
-    <text x="814" y="278" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">New channel capacity</text>
-    <text x="814" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Channel stays open</text>
-  </g>
-
-  <!-- Splice-out section (bottom) -->
-  <text x="64" y="388" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">SPLICE-OUT</text>
-  <text x="64" y="408" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Alice removes funds, channel stays open</text>
-
-  <g filter="url(#soft)">
-    <rect x="64" y="426" width="170" height="80" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="1"/>
-    <text x="149" y="456" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice's Wallet</text>
-    <text x="149" y="478" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13">- 0.3 BTC</text>
-  </g>
-
-  <path d="M250 466H320" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
-  <text x="285" y="456" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">Splice-out tx</text>
-  <text x="285" y="474" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">on-chain</text>
-
-  <!-- Channel (same center) -->
-  <g filter="url(#soft)">
-    <rect x="334" y="410" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2" opacity="0.4"/>
-  </g>
-  <g filter="url(#soft)">
-    <rect x="334" y="410" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <rect x="354" y="426" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="382" y="441" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">&#x26A1;</text>
-    <text x="400" y="441" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Open Channel</text>
-    <text x="400" y="459" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Alice &#x2194; Bob</text>
-    <g stroke="#28313B" stroke-width="1" opacity="0.4">
-      <path d="M354 476H594"/>
-    </g>
-    <text x="474" y="496" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">1.0 BTC capacity</text>
-    <text x="474" y="512" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Stays open during splice</text>
-  </g>
-
-  <path d="M630 466H700" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
-
-  <!-- Splice-out result -->
-  <g filter="url(#soft)">
-    <rect x="714" y="426" width="200" height="80" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="814" y="456" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">0.7 BTC</text>
-    <text x="814" y="478" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">New channel capacity</text>
-    <text x="814" y="496" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Channel stays open</text>
+    <rect x="696" y="210" width="200" height="80" rx="14" fill="#203327" stroke="#22C55E" stroke-width="1"/>
+    <text x="796" y="240" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">1.5 BTC</text>
+    <text x="796" y="262" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">New channel capacity</text>
+    <text x="796" y="280" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Channel stays open</text>
   </g>
 
   <!-- Comparison callout -->
   <g filter="url(#soft)">
-    <rect x="64" y="306" width="412" height="60" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1" stroke-dasharray="4 3"/>
-    <text x="80" y="330" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Without splicing:</text>
-    <text x="80" y="350" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Close channel &#x2192; reopen new channel (2 on-chain txs)</text>
+    <rect x="64" y="308" width="412" height="44" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="80" y="324" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Without splicing:</text>
+    <text x="80" y="342" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Close channel &#x2192; reopen new channel (2 on-chain txs)</text>
   </g>
 
-  <!-- Legend bottom -->
-  <line x1="540" y1="336" x2="596" y2="336" stroke="#7C8794" stroke-width="2" stroke-dasharray="4 3"/>
-  <text x="604" y="340" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Comparison callout</text>
-  <path d="M738 336H770" stroke="#F7931A" stroke-width="2"/>
-  <text x="778" y="340" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Splice-out</text>
-  <path d="M862 336H894" stroke="#22C55E" stroke-width="2"/>
-  <text x="900" y="340" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Splice-in</text>
+  <!-- Legend -->
+  <line x1="486" y1="320" x2="522" y2="320" stroke="#7C8794" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="530" y="324" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Comparison callout</text>
+  <path d="M676 320H704" stroke="#F7931A" stroke-width="2"/>
+  <text x="712" y="324" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Splice-out</text>
+  <path d="M800 320H828" stroke="#22C55E" stroke-width="2"/>
+  <text x="836" y="324" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Splice-in</text>
+
+  <!-- Splice-out section (bottom) -->
+  <text x="64" y="372" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">SPLICE-OUT</text>
+  <text x="64" y="392" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Alice removes funds, channel stays open</text>
+
+  <g filter="url(#soft)">
+    <rect x="64" y="410" width="170" height="80" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="1"/>
+    <text x="149" y="440" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Alice's Wallet</text>
+    <text x="149" y="462" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13">- 0.3 BTC</text>
+  </g>
+
+  <path d="M246 450H316" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="281" y="440" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">Splice-out tx</text>
+  <text x="281" y="458" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">on-chain</text>
+
+  <!-- Channel (same center) -->
+  <g filter="url(#soft)">
+    <rect x="326" y="394" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2" opacity="0.4"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="326" y="394" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <rect x="346" y="410" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <text x="363" y="425" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">&#x26A1;</text>
+    <text x="392" y="425" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">Open Channel</text>
+    <text x="392" y="443" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Alice &#x2194; Bob</text>
+    <g stroke="#28313B" stroke-width="1" opacity="0.4">
+      <path d="M346 460H586"/>
+    </g>
+    <text x="466" y="480" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">1.0 BTC capacity</text>
+    <text x="466" y="496" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Stays open during splice</text>
+  </g>
+
+  <path d="M617 450H687" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+
+  <!-- Splice-out result -->
+  <g filter="url(#soft)">
+    <rect x="696" y="410" width="200" height="80" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
+    <text x="796" y="440" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">0.7 BTC</text>
+    <text x="796" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">New channel capacity</text>
+    <text x="796" y="480" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Channel stays open</text>
+  </g>
 </svg>

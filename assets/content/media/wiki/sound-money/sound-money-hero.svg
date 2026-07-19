@@ -9,7 +9,7 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
   <text x="64" y="82" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Sound Money</text>
-  <text x="480" y="82" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">6 Properties &middot; 3 Assets</text>
+  <text x="480" y="82" text-anchor="end" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">6 Properties · 3 Assets</text>
   <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Six classical properties that define a monetary asset — compared across Bitcoin, Gold, and Fiat.</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 210H884"/><path d="M76 484H884"/>
@@ -20,25 +20,25 @@
     <rect x="64" y="144" width="270" height="54" rx="10" fill="#20252D"/>
     <rect x="64" y="144" width="4" height="54" rx="2" fill="#22C55E"/>
     <text x="86" y="170" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Bitcoin</text>
-    <text x="86" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">5 of 6 properties &mdash; hardest money</text>
+    <text x="86" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">5 of 6 properties — hardest money</text>
   </g>
   <!-- Gold card (orange) -->
   <g filter="url(#soft)">
     <rect x="350" y="144" width="270" height="54" rx="10" fill="#20252D"/>
     <rect x="350" y="144" width="4" height="54" rx="2" fill="#F7931A"/>
     <text x="372" y="170" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Gold</text>
-    <text x="372" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">3 of 6 properties &mdash; historically strong</text>
+    <text x="372" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">3 of 6 properties — historically strong</text>
   </g>
   <!-- Fiat card (violet) -->
   <g filter="url(#soft)">
     <rect x="636" y="144" width="270" height="54" rx="10" fill="#20252D"/>
     <rect x="636" y="144" width="4" height="54" rx="2" fill="#7C5CFF"/>
     <text x="658" y="170" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Fiat</text>
-    <text x="658" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">3 of 6 properties &mdash; inflated away</text>
+    <text x="658" y="186" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="12">3 of 6 properties — inflated away</text>
   </g>
   <!-- Comparison table -->
   <g filter="url(#soft)">
-    <rect x="64" y="218" width="832" height="252" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+    <rect x="64" y="218" width="832" height="276" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
     <!-- Header -->
     <rect x="64" y="218" width="832" height="40" rx="14" fill="#171B21"/>
     <rect x="64" y="242" width="832" height="16" fill="#171B21"/>
@@ -52,35 +52,35 @@
     <path d="M352,281 L357,286 L368,275" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M552,281 L557,286 L568,275" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M754,280 L766,292 M766,280 L754,292" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <line x1="70" y1="302" x2="890" y2="302" stroke="#28313B" stroke-width="1"/>
+    <line x1="70" y1="299" x2="890" y2="299" stroke="#28313B" stroke-width="1"/>
     <!-- Row 2: Portable -->
-    <text x="80" y="330" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Portable</text>
-    <path d="M352,325 L357,330 L368,319" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M554,324 L566,336 M566,324 L554,336" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M752,325 L757,330 L768,319" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="70" y1="346" x2="890" y2="346" stroke="#28313B" stroke-width="1"/>
+    <text x="80" y="325" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Portable</text>
+    <path d="M352,320 L357,325 L368,314" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M554,319 L566,331 M566,319 L554,331" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M752,320 L757,325 L768,314" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="70" y1="338" x2="890" y2="338" stroke="#28313B" stroke-width="1"/>
     <!-- Row 3: Divisible -->
-    <text x="80" y="374" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Divisible</text>
-    <path d="M352,369 L357,374 L368,363" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M554,368 L566,380 M566,368 L554,380" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M752,369 L757,374 L768,363" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="70" y1="390" x2="890" y2="390" stroke="#28313B" stroke-width="1"/>
+    <text x="80" y="364" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Divisible</text>
+    <path d="M352,359 L357,364 L368,353" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M554,358 L566,370 M566,358 L554,370" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M752,359 L757,364 L768,353" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="70" y1="377" x2="890" y2="377" stroke="#28313B" stroke-width="1"/>
     <!-- Row 4: Verifiable -->
-    <text x="80" y="418" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Verifiable</text>
-    <path d="M352,413 L357,418 L368,407" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="560" y="418" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
-    <path d="M754,412 L766,424 M766,412 L754,424" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <line x1="70" y1="434" x2="890" y2="434" stroke="#28313B" stroke-width="1"/>
+    <text x="80" y="403" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Verifiable</text>
+    <path d="M352,398 L357,403 L368,392" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="560" y="403" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
+    <path d="M754,397 L766,409 M766,397 L754,409" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="70" y1="416" x2="890" y2="416" stroke="#28313B" stroke-width="1"/>
     <!-- Row 5: Scarce -->
-    <text x="80" y="462" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Scarce</text>
-    <path d="M352,457 L357,462 L368,451" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="560" y="462" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
-    <path d="M754,456 L766,468 M766,456 L754,468" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <line x1="70" y1="466" x2="890" y2="466" stroke="#28313B" stroke-width="1"/>
+    <text x="80" y="442" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Scarce</text>
+    <path d="M352,437 L357,442 L368,431" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="560" y="442" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
+    <path d="M754,436 L766,448 M766,436 L754,448" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="70" y1="455" x2="890" y2="455" stroke="#28313B" stroke-width="1"/>
     <!-- Row 6: Fungible -->
-    <text x="80" y="508" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Fungible</text>
-    <text x="360" y="508" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
-    <path d="M552,503 L557,508 L568,497" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M752,503 L757,508 L768,497" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="80" y="481" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Fungible</text>
+    <text x="360" y="481" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16">~</text>
+    <path d="M552,476 L557,481 L568,470" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M752,476 L757,481 L768,470" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>
