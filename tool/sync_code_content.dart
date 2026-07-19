@@ -912,7 +912,10 @@ ${source.releaseNotesMarkdown}
     );
     final request = await _client.postUrl(uri);
     request.headers.set('x-goog-api-key', apiKey);
-    request.headers.set(HttpHeaders.contentTypeHeader, 'application/json');
+    request.headers.set(
+      HttpHeaders.contentTypeHeader,
+      'application/json; charset=utf-8',
+    );
     final body = {
       'contents': [
         {
