@@ -148,6 +148,59 @@ void main() {
     );
   });
 
+  test(
+    'updater reuses unchanged media across versions using manifest hashes',
+    () async {
+      final mediaRoot = await Directory.systemTemp.createTemp(
+        'satowiki_media_reuse',
+      );
+      addTearDown(() {
+        if (mediaRoot.existsSync()) {
+          mediaRoot.deleteSync(recursive: true);
+        }
+      });
+
+      const mediaBytes = [7, 8, 9];
+      final mediaHash = sha256.convert(mediaBytes).toString();
+      final existingFile = File(
+        '${mediaRoot.path}/en/2026.05.25/'
+        'media/wiki/utxo-model/utxo-flow.png',
+      );
+      await existingFile.create(recursive: true);
+      await existingFile.writeAsBytes(mediaBytes);
+
+      final updateJson = _bundleJson(
+        version: '2026.05.26',
+        wikiBody:
+            '![UTXO diagram](media/wiki/utxo-model/utxo-flow.png "UTXO flow")',
+      );
+
+      final fixture = await _updaterFixtureFor(
+        manifest: _manifest(
+          version: '2026.05.26',
+          json: updateJson,
+          mediaHashes: {'media/wiki/utxo-model/utxo-flow.png': mediaHash},
+        ),
+        downloadJson: updateJson,
+        mediaStore: ContentMediaStore(
+          rootDirectory: mediaRoot,
+          downloader: const _FakeMediaDownloader({}),
+        ),
+      );
+
+      final result = await fixture.updater.checkForUpdates('en');
+
+      expect(result?.bundle.version, '2026.05.26');
+      expect(
+        File(
+          '${mediaRoot.path}/en/2026.05.26/'
+          'media/wiki/utxo-model/utxo-flow.png',
+        ).readAsBytesSync(),
+        mediaBytes,
+      );
+    },
+  );
+
   test('updater repairs missing media for current bundle version', () async {
     final mediaRoot = await Directory.systemTemp.createTemp(
       'satowiki_media_repair',
@@ -338,6 +391,7 @@ ContentManifest _manifest({
   required String json,
   int schemaVersion = 1,
   String? sha256Override,
+  Map<String, String> mediaHashes = const {},
 }) {
   return ContentManifest(
     version: version,
@@ -345,6 +399,7 @@ ContentManifest _manifest({
     language: 'en',
     bundleUrl: Uri.parse('https://example.com/content/en/$version/bundle.json'),
     sha256: sha256Override ?? sha256.convert(utf8.encode(json)).toString(),
+    media: mediaHashes,
   );
 }
 

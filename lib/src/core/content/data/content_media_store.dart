@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -146,9 +147,16 @@ final class ContentMediaStore {
     }
   }
 
+  /// Downloads media referenced by [bundle] into its version directory.
+  ///
+  /// [mediaHashes] (source path -> sha256, from the remote manifest) lets
+  /// files that are byte-identical to a version already cached on disk be
+  /// reused instead of re-downloaded, since a content version bump does not
+  /// imply every referenced image actually changed.
   Future<void> prefetchBundleMedia({
     required ContentBundle bundle,
     required Uri bundleUrl,
+    Map<String, String> mediaHashes = const {},
     void Function(int current, int total)? onMediaProgress,
   }) async {
     final references = ContentMedia.referencesFromBundle(bundle);
@@ -179,11 +187,13 @@ final class ContentMediaStore {
       for (var i = 0; i < sources.length; i++) {
         final source = sources[i];
         onMediaProgress?.call(i, sources.length);
-        final mediaUrl = bundleUrl.resolve(source);
-        final bytes = await _downloader.downloadMedia(mediaUrl);
-        final targetFile = File('${temporaryDirectory.path}/$source');
-        await targetFile.parent.create(recursive: true);
-        await targetFile.writeAsBytes(bytes, flush: true);
+        await _fetchMediaInto(
+          temporaryDirectory: temporaryDirectory,
+          language: bundle.language,
+          source: source,
+          bundleUrl: bundleUrl,
+          expectedHash: mediaHashes[source],
+        );
       }
 
       if (versionDirectory.existsSync()) {
@@ -196,6 +206,62 @@ final class ContentMediaStore {
       }
       rethrow;
     }
+  }
+
+  Future<void> _fetchMediaInto({
+    required Directory temporaryDirectory,
+    required String language,
+    required String source,
+    required Uri bundleUrl,
+    String? expectedHash,
+  }) async {
+    final targetFile = File('${temporaryDirectory.path}/$source');
+    await targetFile.parent.create(recursive: true);
+
+    if (expectedHash != null) {
+      final cachedBytes = _findCachedMediaMatching(
+        language: language,
+        source: source,
+        expectedHash: expectedHash,
+      );
+      if (cachedBytes != null) {
+        await targetFile.writeAsBytes(cachedBytes, flush: true);
+        return;
+      }
+    }
+
+    final mediaUrl = bundleUrl.resolve(source);
+    final bytes = await _downloader.downloadMedia(mediaUrl);
+    await targetFile.writeAsBytes(bytes, flush: true);
+  }
+
+  /// Scans previously cached content versions for [language] and returns
+  /// the bytes of [source] if a copy on disk already matches [expectedHash].
+  List<int>? _findCachedMediaMatching({
+    required String language,
+    required String source,
+    required String expectedHash,
+  }) {
+    final languageDirectory = Directory('${_rootDirectory.path}/$language');
+    if (!languageDirectory.existsSync()) {
+      return null;
+    }
+
+    for (final entity in languageDirectory.listSync()) {
+      if (entity is! Directory || entity.path.endsWith('.tmp')) {
+        continue;
+      }
+      final file = File('${entity.path}/$source');
+      if (!file.existsSync()) {
+        continue;
+      }
+      final bytes = file.readAsBytesSync();
+      if (sha256.convert(bytes).toString() == expectedHash) {
+        return bytes;
+      }
+    }
+
+    return null;
   }
 
   File _fileFor({

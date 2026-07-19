@@ -64,8 +64,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      # Content-bundle version stamps are timestamp-based, so re-publishing
+      # on every push (even unrelated app-code commits) makes every install
+      # think there's a new content version and forces a full media
+      # re-download. Only redeploy Pages when the seed bundles themselves
+      # changed in this push.
+      - name: Check content changes
+        id: content_check
+        run: |
+          if git rev-parse HEAD^ >/dev/null 2>&1 && \
+             git diff --quiet HEAD^ HEAD -- assets/content/seed_bundle_en.json assets/content/seed_bundle_it.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Set up Flutter
+        if: steps.content_check.outputs.changed == 'true'
         uses: subosito/flutter-action@v2
         with:
           flutter-version: 3.32.6
@@ -73,22 +91,28 @@ jobs:
           cache: true
 
       - name: Install dependencies
+        if: steps.content_check.outputs.changed == 'true'
         run: flutter pub get
 
       - name: Generate Pages content
+        if: steps.content_check.outputs.changed == 'true'
         run: dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_en.json build/pages
 
       - name: Generate Italian Pages content
+        if: steps.content_check.outputs.changed == 'true'
         run: dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
 
       - name: Configure Pages
+        if: steps.content_check.outputs.changed == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        if: steps.content_check.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: build/pages
 
       - name: Deploy Pages
         id: deployment
+        if: steps.content_check.outputs.changed == 'true'
         uses: actions/deploy-pages@v4

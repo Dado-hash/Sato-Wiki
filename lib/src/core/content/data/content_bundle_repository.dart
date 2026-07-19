@@ -152,6 +152,7 @@ final class ContentManifest {
     required this.language,
     required this.bundleUrl,
     required this.sha256,
+    this.media = const {},
   });
 
   final String version;
@@ -159,6 +160,11 @@ final class ContentManifest {
   final String language;
   final Uri bundleUrl;
   final String sha256;
+
+  /// Maps a media source path (e.g. `media/wiki/x.png`) to its sha256 hash,
+  /// letting the client skip re-downloading files that are unchanged from a
+  /// version it already has cached.
+  final Map<String, String> media;
 
   static ContentManifest fromJson(JsonMap json, String languageCode) {
     final version = json['version'];
@@ -193,12 +199,25 @@ final class ContentManifest {
       );
     }
 
+    final mediaField = json['media'];
+    final media = <String, String>{};
+    if (mediaField is Map) {
+      for (final entry in mediaField.entries) {
+        final key = entry.key;
+        final value = entry.value;
+        if (key is String && value is String) {
+          media[key] = value;
+        }
+      }
+    }
+
     return ContentManifest(
       version: version,
       schemaVersion: schemaVersion,
       language: language.toLowerCase(),
       bundleUrl: Uri.parse(bundleUrl),
       sha256: sha256.toLowerCase(),
+      media: media,
     );
   }
 }
@@ -345,6 +364,7 @@ final class VerifiedBackgroundContentUpdater
       await _mediaStore.prefetchBundleMedia(
         bundle: current.bundle,
         bundleUrl: manifest.bundleUrl,
+        mediaHashes: manifest.media,
         onMediaProgress: onMediaProgress,
       );
 
@@ -367,6 +387,7 @@ final class VerifiedBackgroundContentUpdater
     await _mediaStore?.prefetchBundleMedia(
       bundle: parsed.bundle,
       bundleUrl: manifest.bundleUrl,
+      mediaHashes: manifest.media,
       onMediaProgress: onMediaProgress,
     );
     await _localRepository.saveUpdatedBundleJson(normalizedLanguageCode, json);

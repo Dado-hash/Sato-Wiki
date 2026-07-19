@@ -50,6 +50,17 @@ void main(List<String> args) {
 
   final sha = sha256.convert(utf8.encode(normalizedJson)).toString();
   final bundleUrl = '$baseUrl/${bundle.language}/${bundle.version}/bundle.json';
+  final mediaHashes = <String, String>{};
+  if (outputMediaRoot.existsSync()) {
+    for (final entity in outputMediaRoot.listSync(recursive: true)) {
+      if (entity is File) {
+        final relativePath = entity.path.substring(versionRoot.path.length + 1);
+        mediaHashes[relativePath] = sha256
+            .convert(entity.readAsBytesSync())
+            .toString();
+      }
+    }
+  }
   final manifest = <String, Object?>{
     'version': bundle.version,
     'schemaVersion': bundle.schemaVersion,
@@ -57,6 +68,7 @@ void main(List<String> args) {
     'bundleUrl': bundleUrl,
     'sha256': sha,
     'generatedAt': bundle.generatedAt.toUtc().toIso8601String(),
+    'media': mediaHashes,
   };
   final manifestJson = const JsonEncoder.withIndent('  ').convert(manifest);
   File('${latestRoot.path}/manifest.json').writeAsStringSync('$manifestJson\n');
