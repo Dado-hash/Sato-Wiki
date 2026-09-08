@@ -927,7 +927,7 @@ ${source.releaseNotesMarkdown}
       'generationConfig': {
         'temperature': 0.2,
         'responseFormat': {
-          'text': {'mimeType': 'application/json', 'schema': schema},
+          'text': {'mimeType': 'APPLICATION_JSON', 'schema': schema},
         },
       },
     };
