@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.06.20.071041",
+  "version": "2026.09.13.082159",
   "language": "it",
-  "generatedAt": "2026-06-20T07:10:41.226435Z",
+  "generatedAt": "2026-09-13T08:21:59.813079Z",
   "history": [
     {
       "id": "history.bitcoin-whitepaper",
@@ -5280,7 +5280,7 @@
         "bip.2"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5321,7 +5321,7 @@
         "bip.3"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5360,11 +5360,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "1261500b92fa918e9a948d5884fdb186437768d5",
+        "upstreamSha": "fc2216002dc1c366573be6658b920a65a4a83e4f",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0003.md"
       }
     },
@@ -5374,7 +5374,7 @@
       "language": "it",
       "title": "Version bits with lock-in by height",
       "summary": "Propone un'alternativa a BIP 9 usando altezze di blocco invece di timestamp per l'attivazione degli soft fork.",
-      "status": "draft",
+      "status": "complete",
       "category": "informational",
       "authors": [
         "Shaolin Fry",
@@ -5389,7 +5389,8 @@
         "attivazione",
         "BIP",
         "Informational",
-        "Draft"
+        "Draft",
+        "Complete"
       ],
       "sources": [
         {
@@ -5399,12 +5400,18 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "statusHistory": [
+        {
+          "date": "2026-09-13",
+          "status": "complete",
+          "note": "Status observed as Complete in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "7cbb5fbc876c79695451aaa2b490c74234e3a1bd",
+        "upstreamSha": "91379f039894fe16182c66de588565f3bad678ed",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0008.mediawiki"
       }
     },
@@ -5443,7 +5450,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5483,7 +5490,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5523,7 +5530,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5565,7 +5572,7 @@
         "bip.16"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5605,7 +5612,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5646,7 +5653,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5688,7 +5695,7 @@
         "bip.70"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5728,7 +5735,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5770,7 +5777,7 @@
         "bip.16"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5812,7 +5819,7 @@
         "bip.16"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5854,7 +5861,7 @@
         "bip.11"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5896,7 +5903,7 @@
         "bip.21"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5939,7 +5946,7 @@
         "bip.321"
       ],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -5979,7 +5986,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6019,7 +6026,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6059,7 +6066,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6099,7 +6106,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6139,7 +6146,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6179,7 +6186,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6219,7 +6226,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6259,7 +6266,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6299,7 +6306,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6340,7 +6347,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6381,7 +6388,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6424,11 +6431,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "2a68b5e684d8250c727b90a67db595de80146273",
+        "upstreamSha": "2a6118b26a2acc72351b659f77eb1a24e16e554a",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki"
       }
     },
@@ -6464,7 +6471,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6505,7 +6512,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6546,7 +6553,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6588,7 +6595,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6629,7 +6636,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6669,11 +6676,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "0ccaf533522187a05fa2ac4f36b1929e07efc2cc",
+        "upstreamSha": "fcfd3b72b679b02cdfc8cedf9969b78b8a857c26",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0047.mediawiki"
       }
     },
@@ -6709,7 +6716,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6749,7 +6756,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6789,7 +6796,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6837,7 +6844,7 @@
           "note": "Status observed as Closed in bitcoin/bips."
         }
       ],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6877,7 +6884,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6915,11 +6922,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "ab88f80d4cc287b01fa80fac8d729d47445d1e50",
+        "upstreamSha": "eafef13dd821b63bb9160746975e08af784004a9",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0054.md"
       }
     },
@@ -6955,7 +6962,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -6992,7 +6999,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7029,7 +7036,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7066,7 +7073,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7103,7 +7110,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7140,7 +7147,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7179,7 +7186,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7219,7 +7226,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7256,7 +7263,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7294,7 +7301,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7331,7 +7338,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7368,7 +7375,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7405,7 +7412,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7442,7 +7449,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7482,7 +7489,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7520,7 +7527,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7557,7 +7564,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7594,7 +7601,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7632,7 +7639,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7670,7 +7677,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7707,7 +7714,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7744,7 +7751,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7782,11 +7789,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "b0f00abbef67a8fd889d839fa2f50a8692394b7c",
+        "upstreamSha": "c6a7d2b8f3e6603c2c273c857bda95d68375ed34",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0085.mediawiki"
       }
     },
@@ -7819,7 +7826,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7856,7 +7863,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7893,7 +7900,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -7907,7 +7914,7 @@
       "language": "it",
       "title": "Chain Code Delegation",
       "summary": "Propone un meccanismo di delega per i chain code BIP 32, concedendo diritti limitati di derivazione delle chiavi a terze parti.",
-      "status": "draft",
+      "status": "deployed",
       "category": "applications",
       "authors": [
         "Jesse Posner",
@@ -7920,7 +7927,8 @@
       "tags": [
         "BIP",
         "Applications",
-        "Draft"
+        "Draft",
+        "Deployed"
       ],
       "sources": [
         {
@@ -7930,12 +7938,18 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "statusHistory": [
+        {
+          "date": "2026-09-13",
+          "status": "deployed",
+          "note": "Status observed as Deployed in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "b5ef080d21690c1cfd73be251d599d4d63c716ad",
+        "upstreamSha": "ac81d8dc133b9e05dcf30377ae2e384108d1d413",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0089.mediawiki"
       }
     },
@@ -7968,7 +7982,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8005,7 +8019,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8043,11 +8057,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "193eb8729c0b08a7268527734bf960ca93ad85d9",
+        "upstreamSha": "cde2e95032fb354c31592c883ec9f67f753ec2e7",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0093.mediawiki"
       }
     },
@@ -8080,12 +8094,53 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
         "upstreamSha": "d90b1676945e345854b455a5cb728e16dde62fc2",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0094.mediawiki"
+      }
+    },
+    {
+      "id": "code.bip.95",
+      "number": 95,
+      "language": "it",
+      "title": "Testnet 5",
+      "summary": "Il BIP 95 definisce 'Testnet 5', una nuova rete di test progettata per sostituire Testnet 4, eliminando l'eccezione sulla difficoltà di mining e implementando le regole di consenso del BIP 54 fin dal blocco di genesi.",
+      "status": "draft",
+      "category": "applications",
+      "authors": [
+        "Pol Espinasa",
+        "Fabian Jahr"
+      ],
+      "createdAt": "2026-06-22",
+      "summaryMarkdown": "Il **BIP 95** introduce **Testnet 5**, una nuova rete di test destinata a sostituire [Testnet 4](/bip-0094). L'obiettivo principale è risolvere i problemi di stabilità causati dallo sfruttamento sistematico dell'eccezione sulla difficoltà di mining presente nelle versioni precedenti, garantendo un ambiente che rispecchi più fedelmente il comportamento della rete principale (mainnet).",
+      "impactMarkdown": "L'adozione di Testnet 5 comporta l'abbandono delle regole di mining agevolato. La rete impone una difficoltà minima più elevata e integra nativamente le regole di 'Consensus Cleanup' definite nel [BIP 54](/bip-0054) fin dal primo blocco, rendendo l'ambiente di test più rigoroso e coerente con le specifiche di consenso attuali.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0095.md",
+      "tags": [
+        "BIP",
+        "Applications",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 95",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0095.md",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "12dc04a1eb7c3a85f9471506e8f23692d7d2ed79",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0095.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-09-13T08:21:59.813079Z",
+        "needsReview": true
       }
     },
     {
@@ -8119,7 +8174,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8156,7 +8211,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8195,7 +8250,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8232,7 +8287,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8269,7 +8324,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8306,7 +8361,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8343,7 +8398,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8380,7 +8435,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8417,7 +8472,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8454,7 +8509,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8491,7 +8546,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8505,7 +8560,7 @@
       "language": "it",
       "title": "Reduced Data Temporary Softfork",
       "summary": "Propone un soft fork temporaneo per ridurre la dimensione massima dei blocchi da 1 MB a 500 KB come misura a breve termine.",
-      "status": "draft",
+      "status": "closed",
       "category": "consensus",
       "authors": [
         "Dathon Ohm"
@@ -8517,7 +8572,8 @@
       "tags": [
         "BIP",
         "Consensus",
-        "Draft"
+        "Draft",
+        "Closed"
       ],
       "sources": [
         {
@@ -8527,12 +8583,18 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "statusHistory": [
+        {
+          "date": "2026-09-13",
+          "status": "closed",
+          "note": "Status observed as Closed in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "5bc6dea841bb3ee4f5b774ddb594e55281be2d11",
+        "upstreamSha": "7794193ef4c6eeb9fa7f18d75bf6ae62682e4a98",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0110.mediawiki"
       }
     },
@@ -8566,7 +8628,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8605,7 +8667,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8643,7 +8705,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8680,7 +8742,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8717,7 +8779,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8756,7 +8818,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8795,7 +8857,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8833,7 +8895,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8870,7 +8932,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8907,7 +8969,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8944,7 +9006,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -8981,7 +9043,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9018,7 +9080,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9056,7 +9118,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9094,7 +9156,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9131,7 +9193,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9175,7 +9237,7 @@
           "note": "Status observed as Complete in bitcoin/bips."
         }
       ],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9212,7 +9274,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9253,7 +9315,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9290,7 +9352,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9327,7 +9389,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9364,7 +9426,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9401,7 +9463,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9438,7 +9500,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9475,7 +9537,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9514,7 +9576,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9551,7 +9613,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9588,7 +9650,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9627,7 +9689,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9664,7 +9726,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9702,7 +9764,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9740,7 +9802,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9777,7 +9839,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9815,7 +9877,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9852,7 +9914,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9889,7 +9951,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9926,7 +9988,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -9963,7 +10025,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10000,7 +10062,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10037,7 +10099,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10074,7 +10136,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10111,11 +10173,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "ba13a5c688860a02848ca2d357c1b44cf7faafb7",
+        "upstreamSha": "f3b0f347f35f262c1f06be760a3dc771b3ca4a44",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki"
       }
     },
@@ -10153,7 +10215,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10192,7 +10254,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10230,7 +10292,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10267,7 +10329,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10304,7 +10366,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10341,7 +10403,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10379,7 +10441,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10416,11 +10478,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "9cbbe254c04897c4e1c7897b7a25e9200986cfe7",
+        "upstreamSha": "454a1db5fa351ff13b4045eb97cba78a1ef1194b",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki"
       }
     },
@@ -10454,7 +10516,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10491,7 +10553,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10528,7 +10590,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10565,7 +10627,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10579,7 +10641,7 @@
       "language": "it",
       "title": "Name for payment recipient identifiers",
       "summary": "Propone uno schema di denominazione per identificatori di pagamento (PayNyms) per semplificare i pagamenti Bitcoin.",
-      "status": "draft",
+      "status": "complete",
       "category": "informational",
       "authors": [
         "Emil Engler",
@@ -10592,7 +10654,8 @@
       "tags": [
         "BIP",
         "Informational",
-        "Draft"
+        "Draft",
+        "Complete"
       ],
       "sources": [
         {
@@ -10602,12 +10665,18 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "statusHistory": [
+        {
+          "date": "2026-09-13",
+          "status": "complete",
+          "note": "Status observed as Complete in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "4344ed39b7a92d6f64c6b0933a30d728650f9815",
+        "upstreamSha": "5e5e23186c90d993d92f33107b55b470c2cac1c6",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0179.mediawiki"
       }
     },
@@ -10640,7 +10709,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10678,7 +10747,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10716,7 +10785,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10754,7 +10823,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10792,7 +10861,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10830,7 +10899,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10867,7 +10936,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10904,11 +10973,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "74a8689fda65d5da497f114ef8456527964aa7be",
+        "upstreamSha": "34604daec877bbd616ebb336749c1d5b337e77c6",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0321.mediawiki"
       }
     },
@@ -10942,7 +11011,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -10979,7 +11048,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11019,11 +11088,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "e0bdd8a58420626693da25ff48d20039766e8928",
+        "upstreamSha": "6ea9d0331bf295ddde34a158c10f9b68d77fef8a",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0324.mediawiki"
       }
     },
@@ -11057,7 +11126,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11094,7 +11163,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11133,11 +11202,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "2ed08ba744b12bdfc15dd7ec28ec7f031365efa9",
+        "upstreamSha": "117d6c7b6363514723928655fed2aabf75f18dfc",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki"
       }
     },
@@ -11170,7 +11239,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11207,7 +11276,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11245,7 +11314,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11282,12 +11351,54 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
         "upstreamSha": "18ec81d80b27a9b66de2deeef54180b73491c69b",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0331.mediawiki"
+      }
+    },
+    {
+      "id": "code.bip.332",
+      "number": 332,
+      "language": "it",
+      "title": "Stale Tip Relay",
+      "summary": "Il BIP 332 introduce il messaggio P2P 'staletip' per la segnalazione facoltativa di blocchi orfani (stale blocks) tra i nodi, migliorando l'osservabilità della rete e accelerando potenzialmente la gestione dei riorganizzamenti della catena.",
+      "status": "draft",
+      "category": "peer-services",
+      "authors": [
+        "Anthony Towns",
+        "w0xlt",
+        "Ram"
+      ],
+      "createdAt": "2026-08-21",
+      "summaryMarkdown": "Il **BIP 332** definisce un nuovo messaggio P2P opzionale, `staletip`, utilizzato per annunciare ai peer l'esistenza di rami di blocchi validi che non fanno parte della catena attiva del nodo (blocchi orfani o *stale blocks*).",
+      "impactMarkdown": "L'adozione di questo BIP permette ai nodi di monitorare meglio la salute della rete e la propagazione dei blocchi. Inoltre, facilita una gestione più efficiente dei riorganizzamenti della catena (*reorg*), poiché i nodi possono scaricare e validare i blocchi di un ramo concorrente prima che questo diventi la catena principale.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0332.md",
+      "tags": [
+        "BIP",
+        "Peer Services",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 332",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0332.md",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "b159918467933bd4194a73ea142e0d30d42a2fc9",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0332.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-09-13T08:21:59.813079Z",
+        "needsReview": true
       }
     },
     {
@@ -11319,7 +11430,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11356,7 +11467,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11393,7 +11504,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11432,7 +11543,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11471,7 +11582,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11510,7 +11621,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11555,7 +11666,7 @@
           "note": "Status observed as Closed in bitcoin/bips."
         }
       ],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11593,7 +11704,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11631,7 +11742,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11669,7 +11780,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11707,7 +11818,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11745,7 +11856,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11782,7 +11893,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -11796,7 +11907,7 @@
       "language": "it",
       "title": "Private Payments",
       "summary": "Propone Private Payments, uno standard di codice di pagamento riutilizzabile per notifiche di transazione silenziose.",
-      "status": "draft",
+      "status": "closed",
       "category": "applications",
       "authors": [
         "Alfred Hodler",
@@ -11809,7 +11920,8 @@
       "tags": [
         "BIP",
         "Applications",
-        "Draft"
+        "Draft",
+        "Closed"
       ],
       "sources": [
         {
@@ -11819,12 +11931,18 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "statusHistory": [
+        {
+          "date": "2026-09-13",
+          "status": "closed",
+          "note": "Status observed as Closed in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "d03703450b111c7d009bb3aab950371a1d5fecfe",
+        "upstreamSha": "fcf57b46a3d05672d6b88b6fdef299448c938661",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0351.mediawiki"
       }
     },
@@ -11859,11 +11977,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "674f4df6e1c7ae953f07557e662e75102d2cfeca",
+        "upstreamSha": "8bb971bdae2f86eaf61c174d79134cddb140b6da",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki"
       }
     },
@@ -11897,11 +12015,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "235986682011379a387e89b037470cd503f61f6f",
+        "upstreamSha": "da6846b4057f014245814189710aeef26b5da583",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0353.mediawiki"
       }
     },
@@ -11936,11 +12054,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "3ee5e341c5638ec7fb4ca369362b6ef5a3b50878",
+        "upstreamSha": "796aa4f25c9b6706470dc71c64a33416324c8318",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki"
       }
     },
@@ -11978,7 +12096,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12015,7 +12133,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12052,7 +12170,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12089,7 +12207,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12126,7 +12244,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12165,7 +12283,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12204,7 +12322,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12241,7 +12359,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12282,11 +12400,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "de48af2ccc5303c0f954a2d22a9a6fe54fbed11b",
+        "upstreamSha": "a2b5d1fe6a86579cf9220bd052dfcff19f90d38b",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md"
       }
     },
@@ -12320,7 +12438,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12358,7 +12476,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12396,7 +12514,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12434,11 +12552,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "b4008f71abb00f9f350afdd759b3f5da55a84ff5",
+        "upstreamSha": "2ff792cd737f02ea80a4c9afc8fc2fdbe82af441",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0383.mediawiki"
       }
     },
@@ -12472,7 +12590,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12510,7 +12628,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12548,11 +12666,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "a95176e88d649c48966904d7e531ea5a3fe6444e",
+        "upstreamSha": "6cf5d74a22f74f649173bb8caeac8e139dd95a5e",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0386.mediawiki"
       }
     },
@@ -12586,7 +12704,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12623,7 +12741,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12660,11 +12778,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "6940a451dad644419a97d4300ddc953b8465d93f",
+        "upstreamSha": "43497061ddaf80f0260d4c7c32e33d653473017b",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0389.mediawiki"
       }
     },
@@ -12697,11 +12815,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "a6b5526a6788f537c107afb19fdfa3911699d4a9",
+        "upstreamSha": "31c819ab2dc92392d70b7266a34f9251b631b515",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0390.mediawiki"
       }
     },
@@ -12734,7 +12852,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12771,7 +12889,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12808,7 +12926,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12845,7 +12963,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12882,7 +13000,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12926,7 +13044,7 @@
           "note": "Status observed as Complete in bitcoin/bips."
         }
       ],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -12964,11 +13082,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "409b5a0f47333386f868e5d984ec88d2e8863a2a",
+        "upstreamSha": "7b5493ca07a3fe933116cfa1b6be5ec3a5be9538",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0440.mediawiki"
       }
     },
@@ -13002,11 +13120,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "f658bcefddcf0f35d1eedb580772dbf8fb211b46",
+        "upstreamSha": "18e18ae481c4b9f5124e28236ca4ed31959aef7c",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0441.mediawiki"
       }
     },
@@ -13040,7 +13158,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -13077,7 +13195,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -13116,7 +13234,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -13155,7 +13273,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -13192,7 +13310,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -13230,11 +13348,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "6135c2548969f85647eefda3f3c41f9e306c2523",
+        "upstreamSha": "6d16acc1a823c8c7bef357d820d1fdb0a3713b4d",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0450.mediawiki"
       }
     },
@@ -13268,7 +13386,7 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
@@ -13278,6 +13396,47 @@
     }
   ],
   "changelogs": [
+    {
+      "id": "release.bitcoin-core.31.1",
+      "slug": "bitcoin-core-31-1",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "31.1",
+      "title": "Bitcoin Core 31.1",
+      "summary": "Bitcoin Core 31.1 è una release di manutenzione che corregge una vulnerabilità di privacy nel broadcast privato, migliora la validazione e la gestione del portafoglio e include vari miglioramenti tecnici e di test.",
+      "releasedAt": "2026-07-08",
+      "importance": "major",
+      "userImpactMarkdown": "Gli utenti che utilizzano la modalità `-privatebroadcast` devono aggiornare per evitare che le connessioni vengano instradate erroneamente sulla rete clearnet invece che attraverso la rete di privacy configurata.",
+      "technicalChangesMarkdown": "### Principali modifiche tecniche\n\n* **Privacy:** Risolto un bug in `-privatebroadcast` che causava la fuga dell'indirizzo IP tramite connessioni clearnet.\n* **Validazione:** Ottimizzata la compattazione periodica dello stato della catena (chainstate) e corretta la gestione del ciclo di vita dei dati precalcolati delle transazioni.\n* **Wallet:** Migliorata la verifica del LSN (Log Sequence Number) durante la migrazione dei wallet BDB e ottimizzata la stima della dimensione degli input.\n* **P2P:** Migliorata la gestione dei proxy nelle riconnessioni v2->v1 e impedita la modifica dell'addrman per le connessioni a broadcast privato.\n* **LevelDB:** Disabilitata la compattazione 'seek' per migliorare la stabilità.\n* **Altro:** Risolti problemi di compilazione con Boost >= 1.91 e migliorata la gestione degli errori di scrittura per `settings.json`.",
+      "officialUrl": "https://bitcoincore.org/en/releases/31.1/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 31.1 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.1.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 31.1",
+          "url": "https://bitcoincore.org/en/releases/31.1/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "e57950bac9966426e3809b6cc563f4260183e32f",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.1.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-09-13T08:21:59.813079Z",
+        "needsReview": true
+      }
+    },
     {
       "id": "release.bitcoin-core.31.0",
       "slug": "bitcoin-core-31-0",
@@ -13308,12 +13467,53 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "7246702a905509a40500c1d7fec8ee76371245f0",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.0.md",
         "generatedAt": "2026-06-01T12:34:49.460164Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "release.bitcoin-core.30.3",
+      "slug": "bitcoin-core-30-3",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "30.3",
+      "title": "Bitcoin Core 30.3",
+      "summary": "Bitcoin Core 30.3 è una release di manutenzione che introduce miglioramenti alle prestazioni del database chainstate, correzioni di bug nel wallet e aggiornamenti alla build e ai test.",
+      "releasedAt": "2026-07-10",
+      "importance": "major",
+      "userImpactMarkdown": "Gli utenti noteranno una maggiore stabilità operativa grazie alla riduzione del carico di I/O sul disco. Sono state inoltre risolte diverse problematiche nel wallet, tra cui bug relativi alla rimozione di fondi potati (pruned funds), errori di calcolo nelle commissioni e crash durante il bump delle fee.",
+      "technicalChangesMarkdown": "### Principali modifiche tecniche\n- **Database:** Risolto un problema di riscrittura eccessiva del chainstate e disabilitata la compattazione 'seek' in LevelDB.\n- **Wallet:** Corretti bug in `removeprunedfunds`, migliorata la stima della dimensione degli input e risolti crash nel `feebumper`.\n- **PSBT:** Migliorata la validazione delle chiavi pubbliche in MuSig2 e corretti i limiti di asserzione in `PSBTInputSignedAndVerified`.\n- **Build & Test:** Aggiornamenti per la compatibilità con GCC 16, migrazione da SQLite3 deprecato e miglioramenti generali alla suite di test (inclusa la gestione del GIL Python).",
+      "officialUrl": "https://bitcoincore.org/en/releases/30.3/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 30.3 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.3.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 30.3",
+          "url": "https://bitcoincore.org/en/releases/30.3/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "f8ccd6615c1a88618dc10036e8c3c308a3a8914c",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.3.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-09-13T08:21:59.813079Z",
         "needsReview": true
       }
     },
@@ -13347,7 +13547,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "888b3f919c366ad463fcb7e8a11e07dc8f0f3669",
@@ -13386,7 +13586,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "3299af4efaa978d9c1b52f67fa49807f410d5c38",
@@ -13425,12 +13625,53 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "a855d10cc98c1ceb149e84a949d967d6daffac72",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.0.md",
         "generatedAt": "2026-06-01T12:34:49.460164Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "release.bitcoin-core.29.4",
+      "slug": "bitcoin-core-29-4",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "29.4",
+      "title": "Bitcoin Core 29.4",
+      "summary": "Bitcoin Core 29.4 è una release di manutenzione che corregge un problema di scrittura eccessiva nel database chainstate e include vari miglioramenti tecnici e di documentazione.",
+      "releasedAt": "2026-07-10",
+      "importance": "major",
+      "userImpactMarkdown": "Gli utenti noteranno una riduzione delle operazioni di lettura/scrittura su disco durante il normale funzionamento del nodo. Non sono richieste azioni specifiche oltre alla consueta procedura di aggiornamento.",
+      "technicalChangesMarkdown": "### Modifiche principali\n- **Database (Chainstate):** Risolto un problema che causava la riscrittura ripetuta di ampie porzioni del database chainstate, ottimizzando le operazioni di I/O.\n- **Livello di astrazione (LevelDB):** Disabilitata la compattazione durante le operazioni di ricerca (*seek compaction*).\n- **Wallet:** Migliorata la stima della dimensione degli input utilizzando l'outpoint.\n- **Build e CI:** Migliorata la compatibilità con CMake, aggiornati i processi di integrazione continua e risolti problemi di compilazione con versioni recenti di Boost (>= 1.91).",
+      "officialUrl": "https://bitcoincore.org/en/releases/29.4/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 29.4 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.4.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 29.4",
+          "url": "https://bitcoincore.org/en/releases/29.4/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "3ff905db0573e4d96721766e63bf692b212cb86a",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.4.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-09-13T08:21:59.813079Z",
         "needsReview": true
       }
     },
@@ -13464,7 +13705,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "98713c6ceaa407bc58fb92bffb25dc73a0881082",
@@ -13503,7 +13744,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "b981b8a7f54609be828167e5ce551a1689ac148d",
@@ -13542,7 +13783,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "2c66622795e5c15a07070c871d4c6e3af96615fc",
@@ -13581,7 +13822,7 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "582cc7e885fb2c5af7b79fc8799a3c95df764f2a",
@@ -13620,128 +13861,11 @@
         }
       ],
       "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-09-13T08:21:59.813079Z",
       "automation": {
         "source": "sync_code_content.dart",
         "upstreamSha": "b6af01a4b742e9bb77d95891025950ff521ee273",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
-      }
-    },
-    {
-      "id": "release.bitcoin-core.28.3",
-      "slug": "bitcoin-core-28-3",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "28.3",
-      "title": "Bitcoin Core 28.3",
-      "summary": "Release Bitcoin Core 28.3.",
-      "releasedAt": "2025-10-30",
-      "importance": "major",
-      "userImpactMarkdown": "Bozza generata dalle note ufficiali. Richiede review.",
-      "technicalChangesMarkdown": "Modifiche tecniche da sintetizzare durante la review.",
-      "officialUrl": "https://bitcoincore.org/en/releases/28.3/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 28.3 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.3.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 28.3",
-          "url": "https://bitcoincore.org/en/releases/28.3/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "eefeedf7d2614559be8ccb40687f45d41924f131",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.3.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
-      }
-    },
-    {
-      "id": "release.bitcoin-core.28.2",
-      "slug": "bitcoin-core-28-2",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "28.2",
-      "title": "Bitcoin Core 28.2",
-      "summary": "Release Bitcoin Core 28.2.",
-      "releasedAt": "2025-06-26",
-      "importance": "major",
-      "userImpactMarkdown": "Bozza generata dalle note ufficiali. Richiede review.",
-      "technicalChangesMarkdown": "Modifiche tecniche da sintetizzare durante la review.",
-      "officialUrl": "https://bitcoincore.org/en/releases/28.2/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 28.2 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.2.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 28.2",
-          "url": "https://bitcoincore.org/en/releases/28.2/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "057b1b43d8e33bc9ba05dfa6d1f4526759011d80",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.2.md",
-        "generatedAt": "2026-06-01T12:34:49.460164Z",
-        "needsReview": true
-      }
-    },
-    {
-      "id": "release.bitcoin-core.28.1",
-      "slug": "bitcoin-core-28-1",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "28.1",
-      "title": "Bitcoin Core 28.1",
-      "summary": "Release Bitcoin Core 28.1.",
-      "releasedAt": "2025-01-15",
-      "importance": "major",
-      "userImpactMarkdown": "Bozza generata dalle note ufficiali. Richiede review.",
-      "technicalChangesMarkdown": "Modifiche tecniche da sintetizzare durante la review.",
-      "officialUrl": "https://bitcoincore.org/en/releases/28.1/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 28.1 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.1.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 28.1",
-          "url": "https://bitcoincore.org/en/releases/28.1/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "de3b8c5a06d6a612826636f8b05ab58c95e7eafa",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.1.md",
         "generatedAt": "2026-06-01T12:34:49.460164Z",
         "needsReview": true
       }
