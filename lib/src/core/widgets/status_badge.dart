@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../generated/l10n/app_localizations.dart';
 import '../theme/app_colors.dart';
+import '../theme/app_tokens.dart';
+import '../theme/sato_colors.dart';
 
 enum ContentStatus {
   active(AppColors.success),
@@ -32,41 +34,52 @@ class StatusBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context);
+    final color = _colorFor(context, status);
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: status.color.withValues(alpha: 0.16),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: status.color.withValues(alpha: 0.5)),
+        color: color.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(AppRadii.pill),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             if (showDot) ...[
               Container(
-                width: 7,
-                height: 7,
-                decoration: BoxDecoration(
-                  color: status.color,
-                  shape: BoxShape.circle,
-                ),
+                width: 6,
+                height: 6,
+                decoration: BoxDecoration(color: color, shape: BoxShape.circle),
               ),
               const SizedBox(width: 6),
             ],
             Text(
               _statusLabel(status, l10n),
-              style: textTheme.labelSmall?.copyWith(
-                color: status.color,
-                fontWeight: FontWeight.w700,
-              ),
+              style: textTheme.labelSmall?.copyWith(color: color),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+Color _colorFor(BuildContext context, ContentStatus status) {
+  final colorScheme = Theme.of(context).colorScheme;
+  final sato = context.sato;
+
+  return switch (status) {
+    ContentStatus.active ||
+    ContentStatus.finalStatus ||
+    ContentStatus.deployed ||
+    ContentStatus.minor => sato.statusDeployed,
+    ContentStatus.complete => sato.statusComplete,
+    ContentStatus.draft || ContentStatus.proposed => sato.statusDraft,
+    ContentStatus.major => colorScheme.primary,
+    ContentStatus.withdrawn || ContentStatus.rejected => colorScheme.error,
+    ContentStatus.closed || ContentStatus.patch => sato.statusClosed,
+  };
 }
 
 String _statusLabel(ContentStatus status, AppLocalizations l10n) {

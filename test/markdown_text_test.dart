@@ -98,7 +98,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(InteractiveViewer), findsOneWidget);
-    expect(find.byIcon(Icons.close), findsOneWidget);
+    expect(find.byIcon(Icons.close_rounded), findsOneWidget);
   });
 
   testWidgets('taps open http and https links and ignore other schemes', (

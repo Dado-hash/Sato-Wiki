@@ -39,19 +39,21 @@ lib/
       localization/
       navigation/
       search/
-      settings/
-      theme/
+      settings/              # AppSettingsController, AppSettingsScope, preferenze
+      theme/                 # AppTheme, AppTokens, SatoColors
       widgets/
     features/
       shell/
+      today/
       wiki/
       news/
       history/
       code/
       search/
+      settings/              # Impostazioni e segnalibri
 assets/
   content/                 # seed_bundle_en.json, seed_bundle_it.json, media/
-  fonts/                   # Inter, JetBrains Mono
+  fonts/                   # Space Grotesk, Inter, JetBrains Mono
 content/                   # sorgenti Markdown (en, it) e template
 tool/                      # script dei contenuti (validazione, generazione, sync, seed)
 test/
@@ -77,12 +79,12 @@ La dark mode e canonica. I token sono definiti in `lib/src/core/theme/` e descri
 Regole pratiche:
 
 - Material 3 custom, estetica editoriale tecnica, non crypto/neon.
-- Inter per display/body; JetBrains Mono per label tecniche, BIP, read time, status.
+- Space Grotesk per titoli, Inter per il corpo, JetBrains Mono solo per dati ed etichette maiuscole.
 - Card senza ombre pesanti: usare tonal surface e bordo sottile.
 - Touch target minimo 44dp.
-- Bottom nav: Wiki, News, History, Code.
-- Testi e colori devono venire dal tema quando possibile.
-- Evitare hex locali nei componenti; aggiungere token in `AppColors` quando serve.
+- Tab bar flottante con cinque tab: Oggi, Wiki, News, History, Code. Nessun AppBar: schermate a tab con `ScreenHeader`, schermate push con `DetailScaffold`.
+- Testi e colori devono venire dal tema quando possibile: `colorScheme`, `context.sato`, `textTheme`.
+- Evitare hex locali nei componenti; spaziature e raggi da `AppSpacing` e `AppRadii` in `app_tokens.dart`.
 
 ## Coding Rules
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_tokens.dart';
+
 class HeroMedia extends StatelessWidget {
   const HeroMedia({
     required this.icon,
@@ -16,6 +18,7 @@ class HeroMedia extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final radius = BorderRadius.circular(AppRadii.media);
 
     return Semantics(
       label: label,
@@ -25,29 +28,29 @@ class HeroMedia extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: colorScheme.surfaceContainerLow,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: radius,
             border: Border.all(color: colorScheme.outlineVariant),
           ),
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              CustomPaint(painter: _HeroMediaPainter(colorScheme: colorScheme)),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(icon, color: colorScheme.primary, size: 40),
-                    const SizedBox(height: 10),
-                    Text(
-                      label,
-                      style: textTheme.labelLarge?.copyWith(
-                        color: colorScheme.onSurface,
-                      ),
-                    ),
-                  ],
+          child: ClipRRect(
+            borderRadius: radius,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                CustomPaint(
+                  painter: _HeroMediaPainter(colorScheme: colorScheme),
                 ),
-              ),
-            ],
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(icon, color: colorScheme.primary, size: 40),
+                      const SizedBox(height: 10),
+                      Text(label, style: textTheme.labelMedium),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

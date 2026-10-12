@@ -7,6 +7,7 @@ import '../../../core/widgets/sato_scaffold.dart';
 import '../../code/presentation/code_dashboard_screen.dart';
 import '../../history/presentation/history_timeline_screen.dart';
 import '../../news/presentation/news_feed_screen.dart';
+import '../../today/presentation/today_screen.dart';
 import '../../wiki/presentation/wiki_overview_screen.dart';
 
 class SatoWikiShell extends StatefulWidget {
@@ -56,6 +57,7 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
     final selectedTab = widget.settingsController.lastTab;
     final appContent = widget.contentController.content;
     final screens = [
+      TodayScreen(store: appContent.store, settings: widget.settingsController),
       WikiOverviewScreen(
         store: appContent.store,
         selectedLevel: widget.settingsController.readingLevel,
@@ -75,10 +77,6 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
         // Tabs live in one IndexedStack, so switching keeps each tab's
         // filters and scroll position.
         onTabSelected: widget.settingsController.setLastTab,
-        localePreference: widget.settingsController.localePreference,
-        onLocalePreferenceChanged: (preference) {
-          widget.settingsController.setLocalePreference(preference);
-        },
         body: IndexedStack(index: selectedTab.index, children: screens),
       ),
     );

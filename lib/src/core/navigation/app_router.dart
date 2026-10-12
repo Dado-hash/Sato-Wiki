@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../features/code/presentation/code_dashboard_screen.dart';
+import '../../features/code/presentation/release_list_screen.dart';
 import '../../features/history/presentation/history_timeline_screen.dart';
 import '../../features/news/presentation/news_feed_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
+import '../../features/settings/presentation/bookmarks_screen.dart';
+import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
 import '../../features/wiki/presentation/wiki_overview_screen.dart';
 import '../content/app_content.dart';
 import '../content/application/app_content_controller.dart';
 import '../settings/app_settings_controller.dart';
 import '../widgets/content_media_scope.dart';
+import '../widgets/detail_scaffold.dart';
 import '../../generated/l10n/app_localizations.dart';
 import 'app_routes.dart';
 import 'sato_wiki_tab.dart';
@@ -37,6 +41,36 @@ abstract final class AppRouter {
           animation: contentController,
           builder: (_, _) =>
               SearchScreen(searchIndex: contentController.content.searchIndex),
+        ),
+      );
+    }
+
+    if (routeName == AppRoutes.settings) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => SettingsScreen(
+          settings: settingsController,
+          content: contentController,
+        ),
+      );
+    }
+
+    if (routeName == AppRoutes.bookmarks) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => AnimatedBuilder(
+          animation: contentController,
+          builder: (_, _) {
+            final appContent = contentController.content;
+
+            return ContentMediaScope(
+              resolver: appContent.mediaResolver,
+              child: BookmarksScreen(
+                store: appContent.store,
+                settings: settingsController,
+              ),
+            );
+          },
         ),
       );
     }
@@ -135,6 +169,12 @@ abstract final class AppRouter {
       return BipListScreen(store: appContent.store);
     }
 
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'changelogs') {
+      return ReleaseListScreen(store: appContent.store);
+    }
+
     if (segments.length == 3 &&
         segments[0] == 'code' &&
         segments[1] == 'bips') {
@@ -196,6 +236,12 @@ final class DeepLinkTarget {
       return DeepLinkTarget(routeName: routeName);
     }
 
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'changelogs') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
     if (segments.length == 3 &&
         segments[0] == 'code' &&
         segments[1] == 'bips') {
@@ -222,21 +268,9 @@ class UnknownRouteScreen extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context);
 
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.appTitle)),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(l10n.routeNotFound, style: textTheme.headlineLarge),
-              const SizedBox(height: 8),
-              Text(routeName, style: textTheme.labelLarge),
-            ],
-          ),
-        ),
-      ),
+    return DetailScaffold(
+      title: l10n.routeNotFound,
+      children: [Text(routeName, style: textTheme.labelMedium)],
     );
   }
 }

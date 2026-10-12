@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'content_card.dart';
+import '../theme/app_tokens.dart';
 
 class RelatedLinksGrid extends StatelessWidget {
   const RelatedLinksGrid({required this.links, super.key});
@@ -9,48 +9,85 @@ class RelatedLinksGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textScaler = MediaQuery.textScalerOf(context);
+    final textScale = MediaQuery.textScalerOf(context).scale(1);
+    final columns = textScale > 1.3 ? 1 : 2;
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final columns = constraints.maxWidth >= 620 ? 2 : 1;
-
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: links.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: columns,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            mainAxisExtent: textScaler.scale(76),
-          ),
-          itemBuilder: (context, index) {
-            final link = links[index];
-
-            return ContentCard(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-              onTap: link.onTap,
-              trailing: link.onTap == null
-                  ? null
-                  : const Icon(Icons.chevron_right),
-              child: Row(
-                children: [
-                  Icon(link.icon, size: 22),
-                  const SizedBox(width: 12),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (var start = 0; start < links.length; start += columns) ...[
+          if (start > 0) const SizedBox(height: AppSpacing.md),
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(child: _RelatedLinkTile(link: links[start])),
+                if (columns == 2) ...[
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
-                    child: Text(
-                      link.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    child: start + 1 < links.length
+                        ? _RelatedLinkTile(link: links[start + 1])
+                        : const SizedBox.shrink(),
                   ),
                 ],
-              ),
-            );
-          },
-        );
-      },
+              ],
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _RelatedLinkTile extends StatelessWidget {
+  const _RelatedLinkTile({required this.link});
+
+  final RelatedLink link;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
+    return Material(
+      color: colorScheme.surfaceContainerLow,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadii.card),
+        side: BorderSide(color: colorScheme.outlineVariant),
+      ),
+      child: InkWell(
+        onTap: link.onTap,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 72),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.lg,
+              vertical: 14,
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    link.title,
+                    style: textTheme.titleMedium,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                if (link.onTap != null) ...[
+                  const SizedBox(width: AppSpacing.sm),
+                  Icon(
+                    Icons.chevron_right,
+                    size: 20,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -95,35 +95,37 @@ lib/
   main.dart
   l10n/                             # ARB files (en, it)
   src/
-    app.dart                        # SatoWikiApp root
+    app.dart                        # SatoWikiApp root (light and dark themes, AppSettingsScope)
     core/
       content/                      # bundle loading and updates
         application/                # AppContentController
         data/                       # parser, migrator, repository, media store
         domain/                     # models, ContentStore, media rules
-      localization/                 # AppLocale, localized labels
-      navigation/                   # AppRouter, AppRoutes, SatoWikiTab
+      localization/                 # AppLocale, localized labels, content labels
+      navigation/                   # AppRouter, AppRoutes, SatoWikiTab, content_routes
       search/                       # in-memory SearchIndex
-      settings/                     # AppSettingsController, preferences
-      theme/                        # Material 3 theming (AppTheme, AppColors)
-      widgets/                      # reusable UI (FilterChipBar, StatusBadge, ContentCard)
+      settings/                     # AppSettingsController, repository, AppSettingsScope, ThemePreference
+      theme/                        # AppTheme, AppColors, AppTokens (spacing, radii, fonts), SatoColors
+      widgets/                      # reusable UI (ScreenHeader, DetailScaffold, SatoTabBar, ContentCard, StatusPill, ...)
     features/
-      shell/presentation/           # tab shell
+      shell/presentation/           # tab shell and SatoTabBar host
+      today/presentation/           # Today (home) tab
       wiki/                         # domain/repositories, presentation
       news/                         # domain/repositories, presentation
       history/                      # domain/repositories, presentation
       code/                         # domain/repositories, presentation (BIPs and releases)
       search/presentation/          # search screen
+      settings/presentation/        # Settings and Bookmarks
 ```
 
 Feature `domain/` holds repository interfaces; the data layer for content lives in `core/content/data/`. Feature `presentation/` holds screens and widgets.
 
 ### Key Systems
 
-**Navigation:** Routes are defined in `lib/src/core/navigation/app_routes.dart`. Tab names and routes are centralized via `SatoWikiTab` enum. Deep links are handled by named routes in `app_router.dart`.
+**Navigation:** Routes are defined in `lib/src/core/navigation/app_routes.dart`. Tab routes come from the `SatoWikiTab` enum (`/today`, `/wiki`, `/news`, `/history`, `/code`) and are drawn by `SatoTabBar` in the shell. Detail, search, settings, bookmarks and the full release list are named routes resolved in `app_router.dart` and opened with `pushNamed`. Content ids map to routes in `content_routes.dart`. Tab screens start with `ScreenHeader`; pushed screens use `DetailScaffold`. No screen uses an AppBar.
 
 **State & Persistence:**
-- `AppSettingsController` — UI preferences (last tab, reading level, locale) via `shared_preferences`
+- `AppSettingsController` — user preferences and reading state (last tab, reading level, locale, theme, reader text scale, bookmarks, reading progress, recent searches) via `shared_preferences`, keys under `settings.*`. `AppSettingsScope` makes it available to the widget tree; `AppSettingsScope.maybeOf` returns null when no scope is present (for example in tests).
 - `AppContentController` — bundle loading and content updates
 - Updated bundles are stored as JSON in `shared_preferences`, one key per language; media files are kept in the application support directory; search index generated in-memory at startup
 
@@ -140,10 +142,11 @@ Feature `domain/` holds repository interfaces; the data layer for content lives 
 
 ### Styling & Theme
 
-- Material 3 via `AppTheme` (`lib/src/core/theme/app_theme.dart`)
-- Dark-first; design rules in `docs/design-system.md`
-- Custom colors in `AppColors` — always read from theme, not hex literals
-- Font assets: Inter (UI) and JetBrains Mono (code) bundled locally in `assets/fonts/`
+- Material 3 via `AppTheme.light()` and `AppTheme.dark()` (`lib/src/core/theme/app_theme.dart`); the user picks system, light or dark in Settings (default dark)
+- Dark is the reference theme; design rules in `docs/design-system.md`
+- Colors: read from `Theme.of(context).colorScheme` and `context.sato` (`SatoColors`); no hex literals or `Colors.*` in widgets (except `Colors.transparent`). The raw palette lives in `AppColors`
+- Tokens: `AppSpacing`, `AppRadii` and `AppFonts` in `lib/src/core/theme/app_tokens.dart`
+- Font assets bundled locally in `assets/fonts/`: Space Grotesk (titles), Inter (body), JetBrains Mono (data and uppercase labels only)
 - Icons: Material Symbols via `Icons.*` until a dedicated icon set is introduced
 
 ### Content Models
@@ -190,6 +193,8 @@ Full schema in `docs/content-model.md`.
 - Unit tests for bundle parsing, search, filters, content validation and sync logic
 - Golden tests for cards, chips, status badges, reader header, timeline items
 - Integration tests for vertical slices (e.g., Wiki offline flow): not implemented yet, there is no `integration_test/` directory
+
+Test files in `test/`: `app_settings_controller_test.dart`, `code_screens_test.dart`, `content_bundle_parser_test.dart`, `content_media_test.dart`, `content_seed_media_assets_test.dart`, `content_update_test.dart`, `content_version_test.dart`, `core_new_widgets_test.dart`, `core_widgets_golden_test.dart`, `generate_bundle_test.dart`, `markdown_text_test.dart`, `reader_screens_test.dart`, `search_and_store_test.dart`, `search_screen_test.dart`, `settings_screen_test.dart`, `shell_navigation_test.dart`, `sync_code_content_test.dart`, `today_screen_test.dart`, `validate_content_test.dart`, `widget_test.dart`. Golden images are in `test/goldens/`.
 
 All tests use the standard Flutter test harness. See `test/` for examples.
 

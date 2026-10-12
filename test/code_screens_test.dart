@@ -7,12 +7,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sato_wiki/src/core/content/application/app_content_controller.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_repository.dart';
+import 'package:sato_wiki/src/core/content/domain/content_models.dart';
 import 'package:sato_wiki/src/core/content/domain/content_store.dart';
 import 'package:sato_wiki/src/core/localization/app_locale.dart';
 import 'package:sato_wiki/src/core/navigation/app_router.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_controller.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_repository.dart';
 import 'package:sato_wiki/src/core/theme/app_theme.dart';
+import 'package:sato_wiki/src/core/widgets/filter_chip_bar.dart';
 import 'package:sato_wiki/src/features/code/presentation/code_dashboard_screen.dart';
 import 'package:sato_wiki/src/generated/l10n/app_localizations.dart';
 
@@ -27,7 +29,7 @@ void main() {
     );
 
     // Fixture: 3 complete, 1 deployed, 2 draft, 4 closed (10 BIPs in total).
-    expect(find.text('COMPLETE'), findsOneWidget);
+    expect(find.text('Complete'), findsOneWidget);
     expect(find.text('3'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
     expect(find.text('2'), findsOneWidget);
@@ -45,7 +47,12 @@ void main() {
     expect(find.text('BIP 410'), findsOneWidget);
     expect(find.text('BIP 404'), findsOneWidget);
 
-    await tester.tap(find.widgetWithText(FilterChip, 'Complete'));
+    await tester.tap(
+      find.descendant(
+        of: find.byType(FilterChipBar<BipStatus?>),
+        matching: find.text('Complete'),
+      ),
+    );
     await tester.pumpAndSettle();
 
     expect(find.text('BIP 401'), findsOneWidget);
@@ -85,7 +92,7 @@ void main() {
 
     expect(find.text('PATCH'), findsOneWidget);
     expect(find.text('MINOR'), findsNothing);
-    expect(find.text('Jun 1, 2026'), findsOneWidget);
+    expect(find.text('June 1, 2026'), findsOneWidget);
     expect(find.byTooltip('Back'), findsOneWidget);
   });
 
@@ -99,8 +106,8 @@ void main() {
       home: (store) => CodeDashboardScreen(store: store),
     );
 
-    expect(find.text('COMPLETO'), findsOneWidget);
-    expect(find.text('COMPLETE'), findsNothing);
+    expect(find.text('Completo'), findsOneWidget);
+    expect(find.text('Complete'), findsNothing);
 
     await _pumpScreen(
       tester,

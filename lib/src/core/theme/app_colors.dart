@@ -2,39 +2,41 @@ import 'package:flutter/material.dart';
 
 abstract final class AppColors {
   static const bitcoinOrange = Color(0xFFF7931A);
+  static const white = Color(0xFFFFFFFF);
+  static const onAccent = Color(0xFF1A0E00);
 
-  static const primaryDark = Color(0xFFFFB874);
-  static const onPrimaryDark = Color(0xFF4B2800);
-  static const primaryContainerDark = Color(0xFFF7931A);
-  static const onPrimaryContainerDark = Color(0xFF603500);
-  static const surfaceDark = Color(0xFF131313);
-  static const surfaceContainerLowestDark = Color(0xFF0E0E0E);
-  static const surfaceContainerLowDark = Color(0xFF1C1B1B);
-  static const surfaceContainerDark = Color(0xFF201F1F);
-  static const surfaceContainerHighDark = Color(0xFF2A2A2A);
-  static const surfaceContainerHighestDark = Color(0xFF353534);
-  static const onSurfaceDark = Color(0xFFE5E2E1);
-  static const onSurfaceVariantDark = Color(0xFFDBC2AE);
-  static const outlineDark = Color(0xFFA38D7B);
-  static const outlineVariantDark = Color(0xFF554335);
+  static const success = Color(0xFF4ADE80);
+  static const warning = Color(0xFFFBBF24);
+  static const error = Color(0xFFFF5A4F);
+  static const muted = Color(0xFFA9A49B);
 
-  static const primaryContainerLight = Color(0xFFFFDCBF);
-  static const onPrimaryContainerLight = Color(0xFF2D1600);
-  static const surfaceLight = Color(0xFFFFFBFF);
-  static const surfaceContainerLowestLight = Color(0xFFFFFFFF);
-  static const surfaceContainerLowLight = Color(0xFFFAF1EC);
-  static const surfaceContainerLight = Color(0xFFF4EBE6);
-  static const surfaceContainerHighLight = Color(0xFFEEE6E0);
-  static const surfaceContainerHighestLight = Color(0xFFE8E0DB);
-  static const onSurfaceLight = Color(0xFF201A18);
-  static const onSurfaceVariantLight = Color(0xFF52443D);
-  static const outlineLight = Color(0xFF85736B);
-  static const outlineVariantLight = Color(0xFFD7C2B9);
+  // Dark theme.
+  static const darkGround = Color(0xFF0B0D10);
+  static const darkCard = Color(0xFF14171C);
+  static const darkRaised = Color(0xFF1C2027);
+  static const darkBorder = Color(0xFF262B33);
+  static const darkBorderStrong = Color(0xFF2E343D);
+  static const darkText = Color(0xFFF2EDE4);
+  static const darkTextSecondary = Color(0xFFA9A49B);
+  static const darkAccent = Color(0xFFF7931A);
+  static const darkAccentTint = Color(0xFF2C2011);
+  static const darkStatusDeployed = Color(0xFF4ADE80);
+  static const darkStatusComplete = Color(0xFF7DD3FC);
+  static const darkStatusDraft = Color(0xFFFBBF24);
+  static const darkStatusClosed = Color(0xFFA9A49B);
 
-  static const secondary = Color(0xFF1A1A2E);
-  static const secondaryLight = Color(0xFFBFC2FF);
-  static const success = Color(0xFF34C759);
-  static const warning = Color(0xFFFF9500);
-  static const error = Color(0xFFFF3B30);
-  static const muted = Color(0xFF8E8E93);
+  // Light theme.
+  static const lightGround = Color(0xFFFAF7F2);
+  static const lightCard = Color(0xFFFFFFFF);
+  static const lightRaised = Color(0xFFF1ECE4);
+  static const lightBorder = Color(0xFFE4DDD2);
+  static const lightBorderStrong = Color(0xFFD6CEC1);
+  static const lightText = Color(0xFF1A1613);
+  static const lightTextSecondary = Color(0xFF5F5850);
+  static const lightAccentText = Color(0xFFB35C00);
+  static const lightAccentTint = Color(0xFFFFF0DC);
+  static const lightStatusDeployed = Color(0xFF15803D);
+  static const lightStatusComplete = Color(0xFF0369A1);
+  static const lightStatusDraft = Color(0xFFA16207);
+  static const lightStatusClosed = Color(0xFF5F5850);
 }

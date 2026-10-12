@@ -6,6 +6,7 @@ import 'package:sato_wiki/src/app.dart';
 import 'package:sato_wiki/src/core/content/application/app_content_controller.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_repository.dart';
+import 'package:sato_wiki/src/core/content/domain/content_models.dart';
 import 'package:sato_wiki/src/core/content/reading_level.dart';
 import 'package:sato_wiki/src/core/localization/app_locale.dart';
 import 'package:sato_wiki/src/core/navigation/app_router.dart';
@@ -14,6 +15,11 @@ import 'package:sato_wiki/src/core/navigation/sato_wiki_tab.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_controller.dart';
 import 'package:sato_wiki/src/core/settings/app_settings_repository.dart';
 import 'package:sato_wiki/src/core/theme/app_theme.dart';
+import 'package:sato_wiki/src/core/widgets/filter_chip_bar.dart';
+import 'package:sato_wiki/src/core/widgets/sato_tab_bar.dart';
+import 'package:sato_wiki/src/features/code/presentation/code_dashboard_screen.dart';
+import 'package:sato_wiki/src/features/today/presentation/today_screen.dart';
+import 'package:sato_wiki/src/features/wiki/presentation/wiki_overview_screen.dart';
 import 'package:sato_wiki/src/generated/l10n/app_localizations.dart';
 
 void main() {
@@ -28,18 +34,25 @@ void main() {
         contentController: contentController,
       ),
     );
-
-    expect(find.text('SatoWiki'), findsOneWidget);
-    expect(find.text('The Orange Book'), findsOneWidget);
-    expect(find.text('Wiki'), findsOneWidget);
-    expect(find.text('News'), findsOneWidget);
-    expect(find.text('History'), findsOneWidget);
-    expect(find.text('Code'), findsOneWidget);
-
-    await tester.tap(find.text('Code'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Code Dashboard'), findsWidgets);
+    final tabBar = find.byType(SatoTabBar);
+    for (final label in ['Today', 'Wiki', 'News', 'History', 'Code']) {
+      expect(
+        find.descendant(of: tabBar, matching: find.text(label)),
+        findsOneWidget,
+      );
+    }
+
+    // A fresh install opens the Today tab first.
+    expect(find.byType(TodayScreen), findsOneWidget);
+    expect(find.byType(CodeDashboardScreen), findsNothing);
+
+    await tester.tap(find.descendant(of: tabBar, matching: find.text('Code')));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(CodeDashboardScreen), findsOneWidget);
+    expect(find.byType(TodayScreen), findsNothing);
     expect(await repository.loadLastTab(), SatoWikiTab.code);
   });
 
@@ -60,8 +73,17 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text('The Orange Book'), findsOneWidget);
-    expect(find.text('Knowledge Base'), findsOneWidget);
+    expect(find.byType(WikiOverviewScreen), findsOneWidget);
+    final advancedSegment = find.ancestor(
+      of: find.text('Advanced'),
+      matching: find.byWidgetPredicate(
+        (widget) =>
+            widget is Semantics &&
+            widget.properties.button == true &&
+            widget.properties.selected == true,
+      ),
+    );
+    expect(advancedSegment, findsOneWidget);
     await tester.scrollUntilVisible(find.text('Protocol'), 300);
     expect(find.text('Protocol'), findsOneWidget);
   });
@@ -100,9 +122,13 @@ void main() {
     expect(find.text('Status History'), findsOneWidget);
   });
 
-  testWidgets('SatoWiki persists locale preference from language sheet', (
+  testWidgets('SatoWiki persists locale preference from settings screen', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(390 * 3, 844 * 3);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+
     final repository = InMemoryAppSettingsRepository();
     final settingsController = await AppSettingsController.load(repository);
     final contentController = await _testContentController();
@@ -113,10 +139,13 @@ void main() {
         contentController: contentController,
       ),
     );
-
-    await tester.tap(find.byIcon(Icons.language));
     await tester.pumpAndSettle();
 
+    await tester.tap(find.byTooltip('Settings'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Settings'), findsWidgets);
+    await tester.scrollUntilVisible(find.text('Italiano'), 300);
     expect(find.text('Italiano'), findsOneWidget);
 
     await tester.tap(find.text('Italiano'));
@@ -126,6 +155,8 @@ void main() {
       await repository.loadLocalePreference(),
       const AppLocalePreference.language('it'),
     );
+    // The settings title is localized once the Italian locale is active.
+    expect(find.text('Impostazioni'), findsOneWidget);
   });
 
   testWidgets(
@@ -157,8 +188,8 @@ void main() {
       expect(find.text('BIP 342'), findsOneWidget);
       expect(find.text('BIP 1'), findsNothing);
 
-      await tester.scrollUntilVisible(find.text('All'), -300);
-      await tester.tap(find.text('All'));
+      await tester.scrollUntilVisible(find.text('All 4'), -300);
+      await tester.tap(find.text('All 4'));
       await tester.pumpAndSettle();
 
       expect(find.text('All BIPs'), findsWidgets);
@@ -167,7 +198,12 @@ void main() {
         lessThan(tester.getTopLeft(find.text('BIP 1')).dy),
       );
 
-      await tester.tap(find.text('Closed'));
+      await tester.tap(
+        find.descendant(
+          of: find.byType(FilterChipBar<BipStatus?>),
+          matching: find.text('Closed'),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('BIP 400'), findsNothing);

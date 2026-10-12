@@ -24,9 +24,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get codeTab => 'Code';
 
   @override
-  String get languageSelectorTooltip => 'Language';
-
-  @override
   String get searchTooltip => 'Search';
 
   @override
@@ -42,66 +39,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageItalian => 'Italiano';
 
   @override
-  String get orangeBookTitle => 'The Orange Book';
-
-  @override
-  String get wikiOverviewSubtitle =>
-      'A technical encyclopedia for Bitcoin readers.';
-
-  @override
-  String get knowledgeBase => 'Knowledge Base';
-
-  @override
   String get categoryProtocol => 'Protocol';
-
-  @override
-  String get categoryProtocolDescription =>
-      'Core consensus rules, node architecture, and network topography.';
 
   @override
   String get categoryCryptography => 'Cryptography';
 
   @override
-  String get categoryCryptographyDescription =>
-      'Elliptic curve mathematics, hash functions, and signature schemes.';
-
-  @override
   String get categoryLightningNetwork => 'Lightning Network';
-
-  @override
-  String get categoryLightningNetworkDescription =>
-      'Layer 2 scaling, payment channels, and routing mechanisms.';
 
   @override
   String get categoryEconomics => 'Economics';
 
   @override
-  String get categoryEconomicsDescription =>
-      'Game theory, incentives, difficulty adjustment, and supply issuance.';
-
-  @override
-  String get categoryBips => 'BIPs';
-
-  @override
   String get categoryConsensus => 'Consensus';
-
-  @override
-  String get categorySecp256k1 => 'Secp256k1';
-
-  @override
-  String get categorySha256 => 'SHA-256';
-
-  @override
-  String get categoryBolts => 'BOLTs';
-
-  @override
-  String get categoryChannels => 'Channels';
-
-  @override
-  String get categoryHalving => 'Halving';
-
-  @override
-  String get categoryDifficulty => 'Difficulty';
 
   @override
   String get categoryAdoption => 'Adoption';
@@ -116,23 +66,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categorySecurity => 'Security';
 
   @override
-  String wikiEntriesInCategory(String category) {
-    return 'Wiki entries in $category.';
-  }
-
-  @override
-  String get wikiEntriesInThisCategory => 'Wiki entries in this category.';
-
-  @override
   String get all => 'All';
-
-  @override
-  String get coreConcept => 'Core Concept';
-
-  @override
-  String minRead(int minutes) {
-    return '$minutes min read';
-  }
 
   @override
   String shortMin(int minutes) {
@@ -154,10 +88,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get readingLevelBase => 'Base';
 
   @override
-  String get readingLevelMedium => 'Medio';
+  String get readingLevelMedium => 'Medium';
 
   @override
-  String get readingLevelAdvanced => 'Avanzato';
+  String get readingLevelAdvanced => 'Advanced';
 
   @override
   String get sourcesAndReferences => 'Sources & References';
@@ -169,32 +103,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newsSubtitle => 'Long-form Bitcoin analysis from the community.';
 
   @override
-  String get editorial => 'Editorial';
-
-  @override
-  String get latestAnalysis => 'Latest analysis';
-
-  @override
   String get articleNotFound => 'Article not found';
 
   @override
-  String get lightningTip => 'Lightning Tip';
-
-  @override
-  String get lightningTipDescription =>
-      'Mock only. Payment wiring waits for privacy and UX definition.';
-
-  @override
-  String get lightningTipMockTitle => 'Lightning Tip mock';
-
-  @override
-  String get noLightningAddress => 'No Lightning address configured.';
-
-  @override
   String get close => 'Close';
-
-  @override
-  String get sendTip => 'Send Tip';
 
   @override
   String get market => 'Market';
@@ -215,19 +127,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get historySubtitle => 'Milestones and context from Bitcoin time.';
 
   @override
-  String get timelineMetadata => 'Timeline';
-
-  @override
-  String get onThisDay => 'On this day';
-
-  @override
-  String get noEventToday => 'No event today';
-
-  @override
-  String get noEventTodayDescription =>
-      'Historic events connected to the current date will be surfaced here.';
-
-  @override
   String get allEvents => 'All Events';
 
   @override
@@ -237,24 +136,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get historyEventNotFound => 'History event not found';
 
   @override
-  String get codeDashboardTitle => 'Code Dashboard';
-
-  @override
-  String get codeDashboardSubtitle =>
-      'Track Bitcoin Improvement Proposals (BIPs) and recent core changes.';
-
-  @override
-  String get filter => 'Filter';
-
-  @override
   String get recentBips => 'Recent BIPs';
 
   @override
   String get allBipsTitle => 'All BIPs';
-
-  @override
-  String get allBipsSubtitle =>
-      'Browse Bitcoin Improvement Proposals by status and number.';
 
   @override
   String get noBipsMatchFilter => 'No BIPs match this filter.';
@@ -267,24 +152,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bipNumberAscending => 'Lowest BIP #';
-
-  @override
-  String get bipTracker => 'BIP Tracker';
-
-  @override
-  String get deployedUpper => 'DEPLOYED';
-
-  @override
-  String get activeUpper => 'ACTIVE';
-
-  @override
-  String get draftUpper => 'DRAFT';
-
-  @override
-  String get closedUpper => 'CLOSED';
-
-  @override
-  String get rejectedUpper => 'REJECTED';
 
   @override
   String get changelog => 'Changelog';
@@ -344,19 +211,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get created => 'Created';
 
   @override
-  String get layer => 'Layer';
-
-  @override
-  String get plainEnglishSummary => 'Plain English Summary';
-
-  @override
   String get practicalImpact => 'Practical Impact';
 
   @override
   String get statusHistory => 'Status History';
-
-  @override
-  String get viewOfficialTextOnGitHub => 'View Official Text on GitHub';
 
   @override
   String get userImpact => 'User Impact';
@@ -365,40 +223,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get technicalChanges => 'Technical Changes';
 
   @override
-  String get searchTitle => 'Search';
-
-  @override
-  String get searchSubtitle => 'Find local content by title, tag and summary.';
-
-  @override
   String get searchHint => 'Search Bitcoin knowledge';
 
   @override
   String get noLocalResultFound => 'No local result found.';
 
   @override
-  String get trySearchExamples => 'Try: Proof of Work, Taproot, Pizza Day';
-
-  @override
   String get routeNotFound => 'Route not found';
-
-  @override
-  String get wikiCategoryTitle => 'Wiki category';
-
-  @override
-  String get wikiEntryTitle => 'Wiki entry';
-
-  @override
-  String get newsArticleTitle => 'News article';
-
-  @override
-  String get historyEventTitle => 'History event';
-
-  @override
-  String get bipDetailTitle => 'BIP detail';
-
-  @override
-  String get changelogTitle => 'Changelog';
 
   @override
   String get contentUpdateTitle => 'Content Update';
@@ -428,4 +259,237 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contentUpdateError => 'Update failed. Content is unchanged.';
+
+  @override
+  String get todayTab => 'Today';
+
+  @override
+  String get todayHeadlineLead => 'The orange book of';
+
+  @override
+  String get todayHeadlineAccent => 'Bitcoin';
+
+  @override
+  String get continueReading => 'Continue reading';
+
+  @override
+  String minutesLeft(int minutes) {
+    return '$minutes min left';
+  }
+
+  @override
+  String readPercent(int percent) {
+    return '$percent% read';
+  }
+
+  @override
+  String get featured => 'Featured';
+
+  @override
+  String get allEntries => 'All entries';
+
+  @override
+  String get nextAnniversary => 'Next anniversary';
+
+  @override
+  String get onThisDayTitle => 'On this day';
+
+  @override
+  String inDays(int days) {
+    return 'in $days days';
+  }
+
+  @override
+  String get tomorrow => 'tomorrow';
+
+  @override
+  String get today => 'today';
+
+  @override
+  String get fromTheCode => 'From the code';
+
+  @override
+  String get seeAll => 'See all';
+
+  @override
+  String get latestNews => 'Latest news';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsTooltip => 'Settings';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String entriesInCategories(int entries, int categories) {
+    return '$entries entries in $categories categories';
+  }
+
+  @override
+  String entriesCount(int count) {
+    return '$count entries';
+  }
+
+  @override
+  String get searchWikiHint => 'Search the wiki';
+
+  @override
+  String get readingLevelTitle => 'Reading level';
+
+  @override
+  String get readingLevelAppliesToAll => 'Applies to every entry';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get toExplore => 'To explore';
+
+  @override
+  String eventsFromTo(int count, int from, int to) {
+    return '$count events from $from to $to';
+  }
+
+  @override
+  String codeSummary(int bips, int releases) {
+    return '$bips BIPs and $releases Bitcoin Core releases';
+  }
+
+  @override
+  String get bipStatusTitle => 'BIP status';
+
+  @override
+  String totalCount(int count) {
+    return '$count total';
+  }
+
+  @override
+  String allCount(int count) {
+    return 'All $count';
+  }
+
+  @override
+  String get releases => 'Releases';
+
+  @override
+  String get allReleasesTitle => 'All releases';
+
+  @override
+  String get bipType => 'Type';
+
+  @override
+  String get inPlainWords => 'In plain words';
+
+  @override
+  String get readMoreInWiki => 'Read more in the wiki';
+
+  @override
+  String get officialTextOnGitHub => 'Official text on GitHub';
+
+  @override
+  String get officialReleaseNotes => 'Official release notes';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get released => 'Released';
+
+  @override
+  String get textSize => 'Text size';
+
+  @override
+  String get saveBookmark => 'Save to bookmarks';
+
+  @override
+  String get removeBookmark => 'Remove from bookmarks';
+
+  @override
+  String get bookmarks => 'Bookmarks';
+
+  @override
+  String get noBookmarks => 'Nothing saved yet.';
+
+  @override
+  String get noBookmarksHint => 'Tap the bookmark on an entry to find it here.';
+
+  @override
+  String get clearSearch => 'Clear search';
+
+  @override
+  String get recentSearches => 'Recent searches';
+
+  @override
+  String get suggestedSearches => 'Suggestions';
+
+  @override
+  String get clearRecentSearches => 'Clear';
+
+  @override
+  String noResultsFor(String query) {
+    return 'No results for \"$query\".';
+  }
+
+  @override
+  String get settingsReading => 'Reading';
+
+  @override
+  String get defaultLevel => 'Default level';
+
+  @override
+  String get settingsAppearance => 'Appearance';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get settingsContent => 'Content';
+
+  @override
+  String get contentVersion => 'Content version';
+
+  @override
+  String get upToDate => 'Up to date';
+
+  @override
+  String get updating => 'Updating';
+
+  @override
+  String get checkForUpdates => 'Check for updates';
+
+  @override
+  String get settingsAbout => 'About';
+
+  @override
+  String get openSourceLicenses => 'Open source licenses';
+
+  @override
+  String get categoryApplications => 'Applications';
+
+  @override
+  String get categoryPeerServices => 'Peer services';
+
+  @override
+  String get categoryInformational => 'Informational';
+
+  @override
+  String get categoryProcess => 'Process';
+
+  @override
+  String get categoryApiRpc => 'API/RPC';
+
+  @override
+  String get categorySpecification => 'Specification';
 }

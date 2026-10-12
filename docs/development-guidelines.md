@@ -22,13 +22,20 @@
 - Widget pubblici riusabili in `lib/src/core/widgets`.
 - Widget privati di schermata nello stesso file se sono piccoli e non condivisi.
 - Estrarre un widget solo quando migliora leggibilita, testabilita o riuso reale.
-- I componenti visuali devono leggere colori e testo dal tema, non da hex locali.
-
+- I componenti visuali devono leggere colori e testo dal tema, non da hex locali:
+  - colori da `Theme.of(context).colorScheme` e da `context.sato` (`SatoColors`);
+  - testo da `Theme.of(context).textTheme`, con i ruoli di `docs/design-system.md`;
+  - spaziature e raggi da `AppSpacing` e `AppRadii` in `lib/src/core/theme/app_tokens.dart`.
+- Nei widget non si scrivono hex e `Colors.*`. Fanno eccezione `Colors.transparent` e i valori in `lib/src/core/theme/`.
+- Scaffolding delle schermate:
+  - schermate a tab: nessuno `Scaffold` proprio; iniziano con `ScreenHeader` e chiudono con padding inferiore `AppSpacing.tabBarClearance`;
+  - schermate push: `DetailScaffold`, con pulsante indietro e titolo opzionale;
+  - nessun `AppBar`.
 ## Frontend
 
 - Seguire il design system in `docs/design-system.md`.
 - Usare Material Symbols equivalenti tramite `Icons.*` finche non viene introdotto un icon set dedicato.
-- Ogni touch target deve essere almeno 44dp.
+- Ogni touch target deve essere almeno 44dp (`RoundIconButton` e i bottoni del tema rispettano il minimo).
 - I testi devono poter andare a capo; truncation solo su metadata secondari e liste dense.
 - Usare skeleton o contenuti cached per loading oltre 300ms.
 - Ogni stato vuoto deve spiegare cosa manca e quale azione e possibile.

@@ -3,7 +3,11 @@ import 'sato_wiki_tab.dart';
 abstract final class AppRoutes {
   static const root = '/';
   static const search = '/search';
+  static const settings = '/settings';
+  static const bookmarks = '/bookmarks';
+  static const codeChangelogs = '/code/changelogs';
 
+  static String get today => SatoWikiTab.today.routePath;
   static String get wiki => SatoWikiTab.wiki.routePath;
   static String get news => SatoWikiTab.news.routePath;
   static String get history => SatoWikiTab.history.routePath;

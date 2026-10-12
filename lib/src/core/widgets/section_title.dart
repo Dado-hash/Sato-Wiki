@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_tokens.dart';
+
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
     required this.title,
@@ -14,18 +16,32 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
 
     return Row(
       children: [
         Expanded(
-          child: Text(
-            title,
-            style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+          child: Semantics(
+            header: true,
+            child: Text(title, style: textTheme.titleLarge),
           ),
         ),
         if (actionLabel != null)
-          TextButton(onPressed: onAction, child: Text(actionLabel!)),
+          TextButton(
+            onPressed: onAction,
+            style: TextButton.styleFrom(
+              minimumSize: const Size(44, 44),
+              padding: const EdgeInsets.only(left: AppSpacing.md),
+              tapTargetSize: MaterialTapTargetSize.padded,
+            ),
+            child: Text(
+              actionLabel!,
+              style: textTheme.labelLarge?.copyWith(
+                color: theme.colorScheme.primary,
+              ),
+            ),
+          ),
       ],
     );
   }

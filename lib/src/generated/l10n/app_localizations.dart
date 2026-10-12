@@ -128,12 +128,6 @@ abstract class AppLocalizations {
   /// **'Code'**
   String get codeTab;
 
-  /// No description provided for @languageSelectorTooltip.
-  ///
-  /// In en, this message translates to:
-  /// **'Language'**
-  String get languageSelectorTooltip;
-
   /// No description provided for @searchTooltip.
   ///
   /// In en, this message translates to:
@@ -164,35 +158,11 @@ abstract class AppLocalizations {
   /// **'Italiano'**
   String get languageItalian;
 
-  /// No description provided for @orangeBookTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'The Orange Book'**
-  String get orangeBookTitle;
-
-  /// No description provided for @wikiOverviewSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'A technical encyclopedia for Bitcoin readers.'**
-  String get wikiOverviewSubtitle;
-
-  /// No description provided for @knowledgeBase.
-  ///
-  /// In en, this message translates to:
-  /// **'Knowledge Base'**
-  String get knowledgeBase;
-
   /// No description provided for @categoryProtocol.
   ///
   /// In en, this message translates to:
   /// **'Protocol'**
   String get categoryProtocol;
-
-  /// No description provided for @categoryProtocolDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Core consensus rules, node architecture, and network topography.'**
-  String get categoryProtocolDescription;
 
   /// No description provided for @categoryCryptography.
   ///
@@ -200,23 +170,11 @@ abstract class AppLocalizations {
   /// **'Cryptography'**
   String get categoryCryptography;
 
-  /// No description provided for @categoryCryptographyDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Elliptic curve mathematics, hash functions, and signature schemes.'**
-  String get categoryCryptographyDescription;
-
   /// No description provided for @categoryLightningNetwork.
   ///
   /// In en, this message translates to:
   /// **'Lightning Network'**
   String get categoryLightningNetwork;
-
-  /// No description provided for @categoryLightningNetworkDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Layer 2 scaling, payment channels, and routing mechanisms.'**
-  String get categoryLightningNetworkDescription;
 
   /// No description provided for @categoryEconomics.
   ///
@@ -224,59 +182,11 @@ abstract class AppLocalizations {
   /// **'Economics'**
   String get categoryEconomics;
 
-  /// No description provided for @categoryEconomicsDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Game theory, incentives, difficulty adjustment, and supply issuance.'**
-  String get categoryEconomicsDescription;
-
-  /// No description provided for @categoryBips.
-  ///
-  /// In en, this message translates to:
-  /// **'BIPs'**
-  String get categoryBips;
-
   /// No description provided for @categoryConsensus.
   ///
   /// In en, this message translates to:
   /// **'Consensus'**
   String get categoryConsensus;
-
-  /// No description provided for @categorySecp256k1.
-  ///
-  /// In en, this message translates to:
-  /// **'Secp256k1'**
-  String get categorySecp256k1;
-
-  /// No description provided for @categorySha256.
-  ///
-  /// In en, this message translates to:
-  /// **'SHA-256'**
-  String get categorySha256;
-
-  /// No description provided for @categoryBolts.
-  ///
-  /// In en, this message translates to:
-  /// **'BOLTs'**
-  String get categoryBolts;
-
-  /// No description provided for @categoryChannels.
-  ///
-  /// In en, this message translates to:
-  /// **'Channels'**
-  String get categoryChannels;
-
-  /// No description provided for @categoryHalving.
-  ///
-  /// In en, this message translates to:
-  /// **'Halving'**
-  String get categoryHalving;
-
-  /// No description provided for @categoryDifficulty.
-  ///
-  /// In en, this message translates to:
-  /// **'Difficulty'**
-  String get categoryDifficulty;
 
   /// No description provided for @categoryAdoption.
   ///
@@ -302,35 +212,11 @@ abstract class AppLocalizations {
   /// **'Security'**
   String get categorySecurity;
 
-  /// No description provided for @wikiEntriesInCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'Wiki entries in {category}.'**
-  String wikiEntriesInCategory(String category);
-
-  /// No description provided for @wikiEntriesInThisCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'Wiki entries in this category.'**
-  String get wikiEntriesInThisCategory;
-
   /// No description provided for @all.
   ///
   /// In en, this message translates to:
   /// **'All'**
   String get all;
-
-  /// No description provided for @coreConcept.
-  ///
-  /// In en, this message translates to:
-  /// **'Core Concept'**
-  String get coreConcept;
-
-  /// No description provided for @minRead.
-  ///
-  /// In en, this message translates to:
-  /// **'{minutes} min read'**
-  String minRead(int minutes);
 
   /// No description provided for @shortMin.
   ///
@@ -365,13 +251,13 @@ abstract class AppLocalizations {
   /// No description provided for @readingLevelMedium.
   ///
   /// In en, this message translates to:
-  /// **'Medio'**
+  /// **'Medium'**
   String get readingLevelMedium;
 
   /// No description provided for @readingLevelAdvanced.
   ///
   /// In en, this message translates to:
-  /// **'Avanzato'**
+  /// **'Advanced'**
   String get readingLevelAdvanced;
 
   /// No description provided for @sourcesAndReferences.
@@ -392,59 +278,17 @@ abstract class AppLocalizations {
   /// **'Long-form Bitcoin analysis from the community.'**
   String get newsSubtitle;
 
-  /// No description provided for @editorial.
-  ///
-  /// In en, this message translates to:
-  /// **'Editorial'**
-  String get editorial;
-
-  /// No description provided for @latestAnalysis.
-  ///
-  /// In en, this message translates to:
-  /// **'Latest analysis'**
-  String get latestAnalysis;
-
   /// No description provided for @articleNotFound.
   ///
   /// In en, this message translates to:
   /// **'Article not found'**
   String get articleNotFound;
 
-  /// No description provided for @lightningTip.
-  ///
-  /// In en, this message translates to:
-  /// **'Lightning Tip'**
-  String get lightningTip;
-
-  /// No description provided for @lightningTipDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Mock only. Payment wiring waits for privacy and UX definition.'**
-  String get lightningTipDescription;
-
-  /// No description provided for @lightningTipMockTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Lightning Tip mock'**
-  String get lightningTipMockTitle;
-
-  /// No description provided for @noLightningAddress.
-  ///
-  /// In en, this message translates to:
-  /// **'No Lightning address configured.'**
-  String get noLightningAddress;
-
   /// No description provided for @close.
   ///
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
-
-  /// No description provided for @sendTip.
-  ///
-  /// In en, this message translates to:
-  /// **'Send Tip'**
-  String get sendTip;
 
   /// No description provided for @market.
   ///
@@ -482,30 +326,6 @@ abstract class AppLocalizations {
   /// **'Milestones and context from Bitcoin time.'**
   String get historySubtitle;
 
-  /// No description provided for @timelineMetadata.
-  ///
-  /// In en, this message translates to:
-  /// **'Timeline'**
-  String get timelineMetadata;
-
-  /// No description provided for @onThisDay.
-  ///
-  /// In en, this message translates to:
-  /// **'On this day'**
-  String get onThisDay;
-
-  /// No description provided for @noEventToday.
-  ///
-  /// In en, this message translates to:
-  /// **'No event today'**
-  String get noEventToday;
-
-  /// No description provided for @noEventTodayDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Historic events connected to the current date will be surfaced here.'**
-  String get noEventTodayDescription;
-
   /// No description provided for @allEvents.
   ///
   /// In en, this message translates to:
@@ -524,24 +344,6 @@ abstract class AppLocalizations {
   /// **'History event not found'**
   String get historyEventNotFound;
 
-  /// No description provided for @codeDashboardTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Code Dashboard'**
-  String get codeDashboardTitle;
-
-  /// No description provided for @codeDashboardSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Track Bitcoin Improvement Proposals (BIPs) and recent core changes.'**
-  String get codeDashboardSubtitle;
-
-  /// No description provided for @filter.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter'**
-  String get filter;
-
   /// No description provided for @recentBips.
   ///
   /// In en, this message translates to:
@@ -553,12 +355,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All BIPs'**
   String get allBipsTitle;
-
-  /// No description provided for @allBipsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Browse Bitcoin Improvement Proposals by status and number.'**
-  String get allBipsSubtitle;
 
   /// No description provided for @noBipsMatchFilter.
   ///
@@ -583,42 +379,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Lowest BIP #'**
   String get bipNumberAscending;
-
-  /// No description provided for @bipTracker.
-  ///
-  /// In en, this message translates to:
-  /// **'BIP Tracker'**
-  String get bipTracker;
-
-  /// No description provided for @deployedUpper.
-  ///
-  /// In en, this message translates to:
-  /// **'DEPLOYED'**
-  String get deployedUpper;
-
-  /// No description provided for @activeUpper.
-  ///
-  /// In en, this message translates to:
-  /// **'ACTIVE'**
-  String get activeUpper;
-
-  /// No description provided for @draftUpper.
-  ///
-  /// In en, this message translates to:
-  /// **'DRAFT'**
-  String get draftUpper;
-
-  /// No description provided for @closedUpper.
-  ///
-  /// In en, this message translates to:
-  /// **'CLOSED'**
-  String get closedUpper;
-
-  /// No description provided for @rejectedUpper.
-  ///
-  /// In en, this message translates to:
-  /// **'REJECTED'**
-  String get rejectedUpper;
 
   /// No description provided for @changelog.
   ///
@@ -734,18 +494,6 @@ abstract class AppLocalizations {
   /// **'Created'**
   String get created;
 
-  /// No description provided for @layer.
-  ///
-  /// In en, this message translates to:
-  /// **'Layer'**
-  String get layer;
-
-  /// No description provided for @plainEnglishSummary.
-  ///
-  /// In en, this message translates to:
-  /// **'Plain English Summary'**
-  String get plainEnglishSummary;
-
   /// No description provided for @practicalImpact.
   ///
   /// In en, this message translates to:
@@ -757,12 +505,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Status History'**
   String get statusHistory;
-
-  /// No description provided for @viewOfficialTextOnGitHub.
-  ///
-  /// In en, this message translates to:
-  /// **'View Official Text on GitHub'**
-  String get viewOfficialTextOnGitHub;
 
   /// No description provided for @userImpact.
   ///
@@ -776,18 +518,6 @@ abstract class AppLocalizations {
   /// **'Technical Changes'**
   String get technicalChanges;
 
-  /// No description provided for @searchTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Search'**
-  String get searchTitle;
-
-  /// No description provided for @searchSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Find local content by title, tag and summary.'**
-  String get searchSubtitle;
-
   /// No description provided for @searchHint.
   ///
   /// In en, this message translates to:
@@ -800,53 +530,11 @@ abstract class AppLocalizations {
   /// **'No local result found.'**
   String get noLocalResultFound;
 
-  /// No description provided for @trySearchExamples.
-  ///
-  /// In en, this message translates to:
-  /// **'Try: Proof of Work, Taproot, Pizza Day'**
-  String get trySearchExamples;
-
   /// No description provided for @routeNotFound.
   ///
   /// In en, this message translates to:
   /// **'Route not found'**
   String get routeNotFound;
-
-  /// No description provided for @wikiCategoryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Wiki category'**
-  String get wikiCategoryTitle;
-
-  /// No description provided for @wikiEntryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Wiki entry'**
-  String get wikiEntryTitle;
-
-  /// No description provided for @newsArticleTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'News article'**
-  String get newsArticleTitle;
-
-  /// No description provided for @historyEventTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'History event'**
-  String get historyEventTitle;
-
-  /// No description provided for @bipDetailTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'BIP detail'**
-  String get bipDetailTitle;
-
-  /// No description provided for @changelogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Changelog'**
-  String get changelogTitle;
 
   /// No description provided for @contentUpdateTitle.
   ///
@@ -901,6 +589,432 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update failed. Content is unchanged.'**
   String get contentUpdateError;
+
+  /// No description provided for @todayTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get todayTab;
+
+  /// No description provided for @todayHeadlineLead.
+  ///
+  /// In en, this message translates to:
+  /// **'The orange book of'**
+  String get todayHeadlineLead;
+
+  /// No description provided for @todayHeadlineAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'Bitcoin'**
+  String get todayHeadlineAccent;
+
+  /// No description provided for @continueReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue reading'**
+  String get continueReading;
+
+  /// No description provided for @minutesLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min left'**
+  String minutesLeft(int minutes);
+
+  /// No description provided for @readPercent.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% read'**
+  String readPercent(int percent);
+
+  /// No description provided for @featured.
+  ///
+  /// In en, this message translates to:
+  /// **'Featured'**
+  String get featured;
+
+  /// No description provided for @allEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'All entries'**
+  String get allEntries;
+
+  /// No description provided for @nextAnniversary.
+  ///
+  /// In en, this message translates to:
+  /// **'Next anniversary'**
+  String get nextAnniversary;
+
+  /// No description provided for @onThisDayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'On this day'**
+  String get onThisDayTitle;
+
+  /// No description provided for @inDays.
+  ///
+  /// In en, this message translates to:
+  /// **'in {days} days'**
+  String inDays(int days);
+
+  /// No description provided for @tomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'tomorrow'**
+  String get tomorrow;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'today'**
+  String get today;
+
+  /// No description provided for @fromTheCode.
+  ///
+  /// In en, this message translates to:
+  /// **'From the code'**
+  String get fromTheCode;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get seeAll;
+
+  /// No description provided for @latestNews.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest news'**
+  String get latestNews;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTooltip;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @entriesInCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'{entries} entries in {categories} categories'**
+  String entriesInCategories(int entries, int categories);
+
+  /// No description provided for @entriesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} entries'**
+  String entriesCount(int count);
+
+  /// No description provided for @searchWikiHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the wiki'**
+  String get searchWikiHint;
+
+  /// No description provided for @readingLevelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading level'**
+  String get readingLevelTitle;
+
+  /// No description provided for @readingLevelAppliesToAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Applies to every entry'**
+  String get readingLevelAppliesToAll;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @toExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'To explore'**
+  String get toExplore;
+
+  /// No description provided for @eventsFromTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} events from {from} to {to}'**
+  String eventsFromTo(int count, int from, int to);
+
+  /// No description provided for @codeSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{bips} BIPs and {releases} Bitcoin Core releases'**
+  String codeSummary(int bips, int releases);
+
+  /// No description provided for @bipStatusTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'BIP status'**
+  String get bipStatusTitle;
+
+  /// No description provided for @totalCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} total'**
+  String totalCount(int count);
+
+  /// No description provided for @allCount.
+  ///
+  /// In en, this message translates to:
+  /// **'All {count}'**
+  String allCount(int count);
+
+  /// No description provided for @releases.
+  ///
+  /// In en, this message translates to:
+  /// **'Releases'**
+  String get releases;
+
+  /// No description provided for @allReleasesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'All releases'**
+  String get allReleasesTitle;
+
+  /// No description provided for @bipType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get bipType;
+
+  /// No description provided for @inPlainWords.
+  ///
+  /// In en, this message translates to:
+  /// **'In plain words'**
+  String get inPlainWords;
+
+  /// No description provided for @readMoreInWiki.
+  ///
+  /// In en, this message translates to:
+  /// **'Read more in the wiki'**
+  String get readMoreInWiki;
+
+  /// No description provided for @officialTextOnGitHub.
+  ///
+  /// In en, this message translates to:
+  /// **'Official text on GitHub'**
+  String get officialTextOnGitHub;
+
+  /// No description provided for @officialReleaseNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Official release notes'**
+  String get officialReleaseNotes;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get version;
+
+  /// No description provided for @released.
+  ///
+  /// In en, this message translates to:
+  /// **'Released'**
+  String get released;
+
+  /// No description provided for @textSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get textSize;
+
+  /// No description provided for @saveBookmark.
+  ///
+  /// In en, this message translates to:
+  /// **'Save to bookmarks'**
+  String get saveBookmark;
+
+  /// No description provided for @removeBookmark.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from bookmarks'**
+  String get removeBookmark;
+
+  /// No description provided for @bookmarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmarks'**
+  String get bookmarks;
+
+  /// No description provided for @noBookmarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing saved yet.'**
+  String get noBookmarks;
+
+  /// No description provided for @noBookmarksHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the bookmark on an entry to find it here.'**
+  String get noBookmarksHint;
+
+  /// No description provided for @clearSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear search'**
+  String get clearSearch;
+
+  /// No description provided for @recentSearches.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent searches'**
+  String get recentSearches;
+
+  /// No description provided for @suggestedSearches.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggestions'**
+  String get suggestedSearches;
+
+  /// No description provided for @clearRecentSearches.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearRecentSearches;
+
+  /// No description provided for @noResultsFor.
+  ///
+  /// In en, this message translates to:
+  /// **'No results for \"{query}\".'**
+  String noResultsFor(String query);
+
+  /// No description provided for @settingsReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading'**
+  String get settingsReading;
+
+  /// No description provided for @defaultLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Default level'**
+  String get defaultLevel;
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearance;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @settingsContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Content'**
+  String get settingsContent;
+
+  /// No description provided for @contentVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Content version'**
+  String get contentVersion;
+
+  /// No description provided for @upToDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to date'**
+  String get upToDate;
+
+  /// No description provided for @updating.
+  ///
+  /// In en, this message translates to:
+  /// **'Updating'**
+  String get updating;
+
+  /// No description provided for @checkForUpdates.
+  ///
+  /// In en, this message translates to:
+  /// **'Check for updates'**
+  String get checkForUpdates;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingsAbout;
+
+  /// No description provided for @openSourceLicenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Open source licenses'**
+  String get openSourceLicenses;
+
+  /// No description provided for @categoryApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Applications'**
+  String get categoryApplications;
+
+  /// No description provided for @categoryPeerServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Peer services'**
+  String get categoryPeerServices;
+
+  /// No description provided for @categoryInformational.
+  ///
+  /// In en, this message translates to:
+  /// **'Informational'**
+  String get categoryInformational;
+
+  /// No description provided for @categoryProcess.
+  ///
+  /// In en, this message translates to:
+  /// **'Process'**
+  String get categoryProcess;
+
+  /// No description provided for @categoryApiRpc.
+  ///
+  /// In en, this message translates to:
+  /// **'API/RPC'**
+  String get categoryApiRpc;
+
+  /// No description provided for @categorySpecification.
+  ///
+  /// In en, this message translates to:
+  /// **'Specification'**
+  String get categorySpecification;
 }
 
 class _AppLocalizationsDelegate

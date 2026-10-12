@@ -183,9 +183,14 @@ flutter:
     - family: Inter
       fonts:
         - asset: assets/fonts/inter/InterVariable.ttf
+    - family: Space Grotesk
+      fonts:
+        - asset: assets/fonts/space_grotesk/SpaceGrotesk-Variable.ttf
     - family: JetBrains Mono
       fonts:
         - asset: assets/fonts/jetbrains_mono/JetBrainsMono-Regular.ttf
           weight: 400
         - asset: assets/fonts/jetbrains_mono/JetBrainsMono-Medium.ttf
           weight: 500
+        - asset: assets/fonts/jetbrains_mono/JetBrainsMono-Bold.ttf
+          weight: 700
