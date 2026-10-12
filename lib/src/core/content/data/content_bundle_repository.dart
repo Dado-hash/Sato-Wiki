@@ -7,9 +7,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../localization/app_locale.dart';
 import '../domain/content_models.dart';
+import '../domain/content_version.dart';
 import 'content_bundle_errors.dart';
 import 'content_bundle_migrator.dart';
 import 'content_bundle_parser.dart';
+import 'content_http_deadline.dart';
 import 'content_media_store.dart';
 
 abstract interface class ContentBundleRepository {
@@ -18,8 +20,13 @@ abstract interface class ContentBundleRepository {
   Future<void> saveUpdatedBundleJson(String languageCode, String json);
 }
 
+/// Repositories that can drop a stored update, so that the seed takes over.
+abstract interface class DiscardableContentBundleRepository {
+  Future<void> discardUpdatedBundle(String languageCode);
+}
+
 final class LocalFirstContentBundleRepository
-    implements ContentBundleRepository {
+    implements ContentBundleRepository, DiscardableContentBundleRepository {
   LocalFirstContentBundleRepository({
     required SharedPreferences preferences,
     AssetBundle? assetBundle,
@@ -51,7 +58,7 @@ final class LocalFirstContentBundleRepository
           updatedJson,
           normalizedLanguageCode,
         );
-        if (!_isNewerVersion(
+        if (!isNewerContentVersion(
           seedResult.bundle.version,
           updatedResult.bundle.version,
         )) {
@@ -88,45 +95,16 @@ final class LocalFirstContentBundleRepository
     );
   }
 
+  @override
+  Future<void> discardUpdatedBundle(String languageCode) async {
+    final normalizedLanguageCode = AppLocale.normalizeLanguageCode(
+      languageCode,
+    );
+    await _preferences.remove(_updatedBundleKey(normalizedLanguageCode));
+  }
+
   static String _updatedBundleKey(String languageCode) {
     return '$_updatedBundleKeyPrefix.$languageCode';
-  }
-
-  static bool _isNewerVersion(String candidate, String current) {
-    final candidateParts = _versionParts(candidate);
-    final currentParts = _versionParts(current);
-    if (candidateParts != null && currentParts != null) {
-      final length = candidateParts.length > currentParts.length
-          ? candidateParts.length
-          : currentParts.length;
-      for (var i = 0; i < length; i++) {
-        final candidateValue = i < candidateParts.length
-            ? candidateParts[i]
-            : 0;
-        final currentValue = i < currentParts.length ? currentParts[i] : 0;
-        if (candidateValue != currentValue) {
-          return candidateValue > currentValue;
-        }
-      }
-
-      return false;
-    }
-
-    return candidate.compareTo(current) > 0;
-  }
-
-  static List<int>? _versionParts(String version) {
-    final parts = version.split('.');
-    final values = <int>[];
-    for (final part in parts) {
-      final value = int.tryParse(part);
-      if (value == null) {
-        return null;
-      }
-      values.add(value);
-    }
-
-    return values;
   }
 
   static ContentBundleParseResult _parseLanguageBundle(
@@ -161,9 +139,9 @@ final class ContentManifest {
   final Uri bundleUrl;
   final String sha256;
 
-  /// Maps a media source path (e.g. `media/wiki/x.png`) to its sha256 hash,
-  /// letting the client skip re-downloading files that are unchanged from a
-  /// version it already has cached.
+  /// Maps a media source path (e.g. `media/wiki/x.png`) to its sha256 hash.
+  /// Downloaded media is checked against it, and files that are byte-identical
+  /// to a version already cached on disk are reused instead of re-downloaded.
   final Map<String, String> media;
 
   static ContentManifest fromJson(JsonMap json, String languageCode) {
@@ -178,6 +156,11 @@ final class ContentManifest {
         'Manifest version must be a non-empty string.',
       );
     }
+    if (!isValidContentVersion(version)) {
+      throw const ContentBundleParseException(
+        'Manifest version must be dot-separated numbers, such as 2026.06.20.',
+      );
+    }
     if (schemaVersion is! int) {
       throw const ContentBundleParseException(
         'Manifest schemaVersion must be an integer.',
@@ -188,9 +171,12 @@ final class ContentManifest {
         'Manifest language must be a non-empty string.',
       );
     }
-    if (bundleUrl is! String || Uri.tryParse(bundleUrl)?.isAbsolute != true) {
+    final bundleUri = bundleUrl is String ? Uri.tryParse(bundleUrl) : null;
+    if (bundleUri == null ||
+        !bundleUri.isAbsolute ||
+        !_isAllowedBundleUri(bundleUri)) {
       throw const ContentBundleParseException(
-        'Manifest bundleUrl must be an absolute URI.',
+        'Manifest bundleUrl must be an absolute https URI.',
       );
     }
     if (sha256 is! String || sha256.isEmpty) {
@@ -206,7 +192,7 @@ final class ContentManifest {
         final key = entry.key;
         final value = entry.value;
         if (key is String && value is String) {
-          media[key] = value;
+          media[key] = value.toLowerCase();
         }
       }
     }
@@ -215,10 +201,21 @@ final class ContentManifest {
       version: version,
       schemaVersion: schemaVersion,
       language: language.toLowerCase(),
-      bundleUrl: Uri.parse(bundleUrl),
+      bundleUrl: bundleUri,
       sha256: sha256.toLowerCase(),
       media: media,
     );
+  }
+
+  /// https is required. Plain http is accepted only for a local server, so
+  /// tests and local development keep working.
+  static bool _isAllowedBundleUri(Uri uri) {
+    if (uri.scheme == 'https') {
+      return true;
+    }
+
+    return uri.scheme == 'http' &&
+        (uri.host == 'localhost' || uri.host == '127.0.0.1');
   }
 }
 
@@ -231,8 +228,12 @@ abstract interface class ContentBundleDownloader {
 }
 
 abstract interface class BackgroundContentUpdater {
+  /// Checks the remote manifest and installs a newer bundle or repairs the
+  /// media of the current one. [onWorkStarted] runs once something is known
+  /// to download, before the first download begins.
   Future<ContentBundleParseResult?> checkForUpdates(
     String languageCode, {
+    void Function()? onWorkStarted,
     void Function(int current, int total)? onMediaProgress,
   });
 
@@ -246,9 +247,13 @@ final class GitHubPagesContentManifestRepository
       'SATO_WIKI_CONTENT_BASE_URL',
       defaultValue: 'https://dado-hash.github.io/Sato-Wiki/content',
     ),
+    this.responseTimeout = const Duration(seconds: 10),
   });
 
   final String baseUri;
+
+  /// Overall deadline for the manifest request and its body.
+  final Duration responseTimeout;
 
   @override
   Future<ContentManifest?> fetchManifest(String languageCode) async {
@@ -274,40 +279,51 @@ final class GitHubPagesContentManifestRepository
     }
   }
 
-  Future<String> _readUri(Uri uri) async {
+  Future<String> _readUri(Uri uri) {
     final client = HttpClient()..connectionTimeout = const Duration(seconds: 5);
-    try {
-      final request = await client.getUrl(uri);
-      final response = await request.close();
-      if (response.statusCode != HttpStatus.ok) {
-        throw const ContentBundleParseException('Manifest fetch failed.');
-      }
 
-      return await response.transform(utf8.decoder).join();
-    } finally {
-      client.close(force: true);
-    }
+    return readWithDeadline(
+      client: client,
+      deadline: responseTimeout,
+      read: () async {
+        final request = await client.getUrl(uri);
+        final response = await request.close();
+        if (response.statusCode != HttpStatus.ok) {
+          throw const ContentBundleParseException('Manifest fetch failed.');
+        }
+
+        return response.transform(utf8.decoder).join();
+      },
+    );
   }
 }
 
 final class HttpContentBundleDownloader implements ContentBundleDownloader {
-  const HttpContentBundleDownloader();
+  const HttpContentBundleDownloader({
+    this.responseTimeout = const Duration(seconds: 30),
+  });
+
+  /// Overall deadline for the bundle request and its body.
+  final Duration responseTimeout;
 
   @override
-  Future<String> downloadBundle(Uri bundleUrl) async {
+  Future<String> downloadBundle(Uri bundleUrl) {
     final client = HttpClient()
       ..connectionTimeout = const Duration(seconds: 10);
-    try {
-      final request = await client.getUrl(bundleUrl);
-      final response = await request.close();
-      if (response.statusCode != HttpStatus.ok) {
-        throw const ContentBundleParseException('Bundle download failed.');
-      }
 
-      return await response.transform(utf8.decoder).join();
-    } finally {
-      client.close(force: true);
-    }
+    return readWithDeadline(
+      client: client,
+      deadline: responseTimeout,
+      read: () async {
+        final request = await client.getUrl(bundleUrl);
+        final response = await request.close();
+        if (response.statusCode != HttpStatus.ok) {
+          throw const ContentBundleParseException('Bundle download failed.');
+        }
+
+        return response.transform(utf8.decoder).join();
+      },
+    );
   }
 }
 
@@ -331,6 +347,7 @@ final class VerifiedBackgroundContentUpdater
   @override
   Future<ContentBundleParseResult?> checkForUpdates(
     String languageCode, {
+    void Function()? onWorkStarted,
     void Function(int current, int total)? onMediaProgress,
   }) async {
     final normalizedLanguageCode = AppLocale.normalizeLanguageCode(
@@ -347,30 +364,42 @@ final class VerifiedBackgroundContentUpdater
       return null;
     }
 
-    final isNewerVersion = _isNewerVersion(
+    final isNewerVersion = isNewerContentVersion(
       manifest.version,
       current.bundle.version,
     );
     final canRepairCurrentMedia =
         manifest.version == current.bundle.version &&
         _mediaStore != null &&
-        !_mediaStore.hasBundleMedia(current.bundle);
+        !_mediaStore.hasBundleMedia(current.bundle) &&
+        _mediaStore.canAttemptMediaRepair(
+          language: current.bundle.language,
+          version: current.bundle.version,
+        );
 
     if (!isNewerVersion && !canRepairCurrentMedia) {
       return null;
     }
 
     if (canRepairCurrentMedia) {
-      await _mediaStore.prefetchBundleMedia(
+      onWorkStarted?.call();
+      final failedSources = await _mediaStore.prefetchBundleMedia(
         bundle: current.bundle,
         bundleUrl: manifest.bundleUrl,
         mediaHashes: manifest.media,
         onMediaProgress: onMediaProgress,
       );
+      if (failedSources.isNotEmpty) {
+        await _mediaStore.recordIncompleteMediaRepair(
+          language: current.bundle.language,
+          version: current.bundle.version,
+        );
+      }
 
       return _localRepository.load(normalizedLanguageCode);
     }
 
+    onWorkStarted?.call();
     final json = await _downloader.downloadBundle(manifest.bundleUrl);
     final actualSha256 = sha256.convert(utf8.encode(json)).toString();
     if (actualSha256 != manifest.sha256) {
@@ -384,6 +413,8 @@ final class VerifiedBackgroundContentUpdater
         '$normalizedLanguageCode.',
       );
     }
+    // Media failures do not block the verified text. Missing files are
+    // retried by the repair path on a later launch.
     await _mediaStore?.prefetchBundleMedia(
       bundle: parsed.bundle,
       bundleUrl: manifest.bundleUrl,
@@ -398,42 +429,5 @@ final class VerifiedBackgroundContentUpdater
   @override
   Future<ContentManifest?> fetchManifest(String languageCode) async {
     return _manifestRepository.fetchManifest(languageCode);
-  }
-
-  bool _isNewerVersion(String candidate, String current) {
-    final candidateParts = _versionParts(candidate);
-    final currentParts = _versionParts(current);
-    if (candidateParts != null && currentParts != null) {
-      final length = candidateParts.length > currentParts.length
-          ? candidateParts.length
-          : currentParts.length;
-      for (var i = 0; i < length; i++) {
-        final candidateValue = i < candidateParts.length
-            ? candidateParts[i]
-            : 0;
-        final currentValue = i < currentParts.length ? currentParts[i] : 0;
-        if (candidateValue != currentValue) {
-          return candidateValue > currentValue;
-        }
-      }
-
-      return false;
-    }
-
-    return candidate.compareTo(current) > 0;
-  }
-
-  List<int>? _versionParts(String version) {
-    final parts = version.split('.');
-    final values = <int>[];
-    for (final part in parts) {
-      final value = int.tryParse(part);
-      if (value == null) {
-        return null;
-      }
-      values.add(value);
-    }
-
-    return values;
   }
 }

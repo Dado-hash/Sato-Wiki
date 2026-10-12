@@ -100,4 +100,41 @@ void main() {
     expect(find.byType(InteractiveViewer), findsOneWidget);
     expect(find.byIcon(Icons.close), findsOneWidget);
   });
+
+  testWidgets('taps open http and https links and ignore other schemes', (
+    tester,
+  ) async {
+    final opened = <Uri>[];
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.dark(),
+        onGenerateRoute: (settings) => MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => Text('opened ${settings.name}'),
+        ),
+        home: Scaffold(
+          body: MarkdownText(
+            '[Bitcoin](https://bitcoin.org)\n\n'
+            '[Mail](mailto:satowiki@example.com)\n\n'
+            '[Hash](wiki.sha-256)',
+            openLink: (_, uri) async => opened.add(uri),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Mail'));
+    await tester.pumpAndSettle();
+    expect(opened, isEmpty);
+
+    await tester.tap(find.text('Bitcoin'));
+    await tester.pumpAndSettle();
+    expect(opened, [Uri.parse('https://bitcoin.org')]);
+
+    await tester.tap(find.text('Hash'));
+    await tester.pumpAndSettle();
+    expect(find.text('opened /wiki/entries/sha-256'), findsOneWidget);
+    expect(opened, hasLength(1));
+  });
 }

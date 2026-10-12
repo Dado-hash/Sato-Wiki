@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:crypto/crypto.dart';
+
+import 'package:sato_wiki/src/core/content/data/content_bundle_errors.dart';
 import 'package:sato_wiki/src/core/content/data/content_media_store.dart';
 import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 import 'package:sato_wiki/src/core/content/domain/content_media.dart';
@@ -124,9 +127,308 @@ void main() {
       [1, 2, 3],
     );
   });
+
+  test('seed media with a missing asset is skipped without failing', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp(
+      'satowiki_no_asset',
+    );
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final bundle = ContentBundleParser.parseJson(
+      _bundleJson(
+        wiki: '![Missing](media/wiki/entry/missing.svg)',
+        news: '',
+        history: '',
+        bipSummary: '',
+        bipImpact: '',
+        releaseUserImpact: '',
+        releaseTechnicalChanges: '',
+      ),
+    ).bundle;
+
+    await ContentMediaStore(
+      rootDirectory: mediaRoot,
+    ).installBundleMediaFromAssets(
+      bundle: bundle,
+      assetBundle: _FakeAssetBundle({}),
+    );
+
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.25/media/wiki/entry/missing.svg',
+      ).existsSync(),
+      isFalse,
+    );
+  });
+
+  test('prefetch returns failed sources and installs the rest', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp('satowiki_partial');
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final bundleUrl = Uri.parse('https://example.com/content/en/bundle.json');
+    final bundle = ContentBundleParser.parseJson(
+      _bundleJson(
+        wiki: '![A](media/wiki/entry/a.svg) ![B](media/wiki/entry/b.svg)',
+        news: '',
+        history: '',
+        bipSummary: '',
+        bipImpact: '',
+        releaseUserImpact: '',
+        releaseTechnicalChanges: '',
+      ),
+    ).bundle;
+    final store = ContentMediaStore(
+      rootDirectory: mediaRoot,
+      downloader: _FakeMediaDownloader({
+        'https://example.com/content/en/media/wiki/entry/a.svg': [1],
+      }),
+    );
+
+    final failed = await store.prefetchBundleMedia(
+      bundle: bundle,
+      bundleUrl: bundleUrl,
+    );
+
+    expect(failed, ['media/wiki/entry/b.svg']);
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.25/media/wiki/entry/a.svg',
+      ).readAsBytesSync(),
+      [1],
+    );
+    expect(
+      Directory('${mediaRoot.path}/en/2026.05.25.tmp').existsSync(),
+      isFalse,
+    );
+  });
+
+  test('repair keeps installed media and waits before retrying', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp('satowiki_repair');
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final bundleUrl = Uri.parse('https://example.com/content/en/bundle.json');
+    final bundle = ContentBundleParser.parseJson(
+      _bundleJson(
+        wiki: '![A](media/wiki/entry/a.svg) ![B](media/wiki/entry/b.svg)',
+        news: '',
+        history: '',
+        bipSummary: '',
+        bipImpact: '',
+        releaseUserImpact: '',
+        releaseTechnicalChanges: '',
+      ),
+    ).bundle;
+    var now = DateTime.utc(2026, 10, 12, 9);
+    final first = ContentMediaStore(
+      rootDirectory: mediaRoot,
+      clock: () => now,
+      downloader: _FakeMediaDownloader({
+        'https://example.com/content/en/media/wiki/entry/a.svg': [1],
+      }),
+    );
+    await first.prefetchBundleMedia(bundle: bundle, bundleUrl: bundleUrl);
+
+    // The server no longer has a.svg either; the installed copy must survive.
+    final second = ContentMediaStore(
+      rootDirectory: mediaRoot,
+      clock: () => now,
+      downloader: const _FakeMediaDownloader({}),
+    );
+    final failed = await second.prefetchBundleMedia(
+      bundle: bundle,
+      bundleUrl: bundleUrl,
+    );
+
+    expect(failed, ['media/wiki/entry/b.svg']);
+    expect(
+      File(
+        '${mediaRoot.path}/en/2026.05.25/media/wiki/entry/a.svg',
+      ).readAsBytesSync(),
+      [1],
+    );
+
+    expect(
+      second.canAttemptMediaRepair(language: 'en', version: '2026.05.25'),
+      isTrue,
+    );
+    await second.recordIncompleteMediaRepair(
+      language: 'en',
+      version: '2026.05.25',
+    );
+    expect(
+      second.canAttemptMediaRepair(language: 'en', version: '2026.05.25'),
+      isFalse,
+    );
+    expect(
+      second.canAttemptMediaRepair(language: 'en', version: '2026.05.26'),
+      isTrue,
+    );
+
+    now = now.add(ContentMediaStore.mediaRepairCooldown);
+    expect(
+      second.canAttemptMediaRepair(language: 'en', version: '2026.05.25'),
+      isTrue,
+    );
+  });
+
+  test(
+    'prefetch rejects media that does not match its manifest hash',
+    () async {
+      final mediaRoot = await Directory.systemTemp.createTemp(
+        'satowiki_badhash',
+      );
+      addTearDown(() {
+        if (mediaRoot.existsSync()) {
+          mediaRoot.deleteSync(recursive: true);
+        }
+      });
+      final bundle = ContentBundleParser.parseJson(
+        _bundleJson(
+          wiki: '![A](media/wiki/entry/a.svg)',
+          news: '',
+          history: '',
+          bipSummary: '',
+          bipImpact: '',
+          releaseUserImpact: '',
+          releaseTechnicalChanges: '',
+        ),
+      ).bundle;
+      final store = ContentMediaStore(
+        rootDirectory: mediaRoot,
+        downloader: _FakeMediaDownloader({
+          'https://example.com/content/en/media/wiki/entry/a.svg': [9, 9],
+        }),
+      );
+
+      final failed = await store.prefetchBundleMedia(
+        bundle: bundle,
+        bundleUrl: Uri.parse('https://example.com/content/en/bundle.json'),
+        mediaHashes: {
+          'media/wiki/entry/a.svg': sha256.convert([1, 2, 3]).toString(),
+        },
+      );
+
+      expect(failed, ['media/wiki/entry/a.svg']);
+      expect(
+        File(
+          '${mediaRoot.path}/en/2026.05.25/media/wiki/entry/a.svg',
+        ).existsSync(),
+        isFalse,
+      );
+    },
+  );
+
+  test(
+    'prefetch reuses old media, then deletes old versions and stale tmp',
+    () async {
+      final mediaRoot = await Directory.systemTemp.createTemp('satowiki_prune');
+      addTearDown(() {
+        if (mediaRoot.existsSync()) {
+          mediaRoot.deleteSync(recursive: true);
+        }
+      });
+      const mediaBytes = [7, 8, 9];
+      final oldFile = File(
+        '${mediaRoot.path}/en/2026.05.24/media/wiki/entry/a.svg',
+      );
+      await oldFile.create(recursive: true);
+      await oldFile.writeAsBytes(mediaBytes);
+      final staleTmp = File(
+        '${mediaRoot.path}/en/2026.05.25.tmp/media/wiki/entry/stale.svg',
+      );
+      await staleTmp.create(recursive: true);
+      await staleTmp.writeAsBytes([1]);
+      final bundle = ContentBundleParser.parseJson(
+        _bundleJson(
+          version: '2026.05.26',
+          wiki: '![A](media/wiki/entry/a.svg)',
+          news: '',
+          history: '',
+          bipSummary: '',
+          bipImpact: '',
+          releaseUserImpact: '',
+          releaseTechnicalChanges: '',
+        ),
+      ).bundle;
+      final store = ContentMediaStore(
+        rootDirectory: mediaRoot,
+        downloader: const _FakeMediaDownloader({}),
+      );
+
+      final failed = await store.prefetchBundleMedia(
+        bundle: bundle,
+        bundleUrl: Uri.parse('https://example.com/content/en/bundle.json'),
+        mediaHashes: {
+          'media/wiki/entry/a.svg': sha256.convert(mediaBytes).toString(),
+        },
+      );
+
+      expect(failed, isEmpty);
+      expect(
+        File(
+          '${mediaRoot.path}/en/2026.05.26/media/wiki/entry/a.svg',
+        ).readAsBytesSync(),
+        mediaBytes,
+      );
+      expect(
+        Directory(
+          '${mediaRoot.path}/en',
+        ).listSync().map((entity) => entity.path.split('/').last),
+        ['2026.05.26'],
+      );
+    },
+  );
+
+  test('media store refuses versions that are not dotted numbers', () async {
+    final mediaRoot = await Directory.systemTemp.createTemp('satowiki_badver');
+    addTearDown(() {
+      if (mediaRoot.existsSync()) {
+        mediaRoot.deleteSync(recursive: true);
+      }
+    });
+    final bundle = ContentBundleParser.parseJson(
+      _bundleJson(
+        version: '../escape',
+        wiki: '![A](media/wiki/entry/a.svg)',
+        news: '',
+        history: '',
+        bipSummary: '',
+        bipImpact: '',
+        releaseUserImpact: '',
+        releaseTechnicalChanges: '',
+      ),
+    ).bundle;
+    final store = ContentMediaStore(rootDirectory: mediaRoot);
+
+    expect(
+      store
+          .resolverFor(language: 'en', version: '../escape')
+          .resolve('media/wiki/entry/a.svg'),
+      isNull,
+    );
+    expect(store.hasBundleMedia(bundle), isFalse);
+    await expectLater(
+      store.installBundleMediaFromAssets(
+        bundle: bundle,
+        assetBundle: _FakeAssetBundle({}),
+      ),
+      throwsA(isA<ContentBundleParseException>()),
+    );
+    expect(mediaRoot.listSync(), isEmpty);
+  });
 }
 
 String _bundleJson({
+  String version = '2026.05.25',
   required String wiki,
   required String news,
   required String history,
@@ -137,7 +439,7 @@ String _bundleJson({
 }) {
   final data = {
     'schemaVersion': 1,
-    'version': '2026.05.25',
+    'version': version,
     'language': 'en',
     'generatedAt': '2026-05-25T00:00:00Z',
     'wiki': [
@@ -255,5 +557,21 @@ final class _FakeAssetBundle extends AssetBundle {
 
     final data = Uint8List.fromList(bytes);
     return ByteData.view(data.buffer);
+  }
+}
+
+final class _FakeMediaDownloader implements ContentMediaDownloader {
+  const _FakeMediaDownloader(this.media);
+
+  final Map<String, List<int>> media;
+
+  @override
+  Future<List<int>> downloadMedia(Uri mediaUrl) async {
+    final bytes = media[mediaUrl.toString()];
+    if (bytes == null) {
+      throw const ContentBundleParseException('Media missing.');
+    }
+
+    return bytes;
   }
 }

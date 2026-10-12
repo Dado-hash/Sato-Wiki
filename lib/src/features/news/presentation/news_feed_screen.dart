@@ -26,10 +26,22 @@ class NewsFeedScreen extends StatefulWidget {
 class _NewsFeedScreenState extends State<NewsFeedScreen> {
   String? _selectedCategory;
 
+  List<String> get _categories {
+    final categories = widget.store.bundle.news
+        .map((article) => article.category)
+        .toSet()
+        .toList(growable: false);
+
+    return [...categories]..sort();
+  }
+
   List<NewsArticle> get _articles {
-    if (_selectedCategory == null) return widget.store.bundle.news;
-    return widget.store.bundle.news
-        .where((a) => a.category == _selectedCategory)
+    final sorted = [...widget.store.bundle.news]
+      ..sort((a, b) => b.publishedAt.compareTo(a.publishedAt));
+    if (_selectedCategory == null) return sorted;
+
+    return sorted
+        .where((article) => article.category == _selectedCategory)
         .toList(growable: false);
   }
 
@@ -50,6 +62,7 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
         ),
         const SizedBox(height: 24),
         _CategoryFilters(
+          categories: _categories,
           selected: _selectedCategory,
           onSelected: (category) =>
               setState(() => _selectedCategory = category),
@@ -57,6 +70,7 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
         const SizedBox(height: 24),
         SectionTitle(title: l10n.latestAnalysis),
         const SizedBox(height: 12),
+        if (articles.isEmpty) ContentCard(child: Text(l10n.noLocalResultFound)),
         for (final article in articles) ...[
           _ArticleCard(
             article: article,
@@ -125,55 +139,15 @@ class NewsArticleScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            MarkdownText(article.bodyMarkdown),
+            MarkdownText(article.bodyMarkdown, store: store),
             const SizedBox(height: 24),
-            ContentCard(
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.bolt,
-                    color: Theme.of(context).colorScheme.primary,
-                    size: 36,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    l10n.lightningTip,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    l10n.lightningTipDescription,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 12),
-                  FilledButton.icon(
-                    onPressed: () {
-                      showDialog<void>(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text(l10n.lightningTipMockTitle),
-                          content: Text(
-                            article.author.lightningAddress ??
-                                l10n.noLightningAddress,
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: Text(l10n.close),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.payments_outlined),
-                    label: Text(l10n.sendTip),
-                  ),
-                ],
+            RelatedLinksGrid(
+              links: relatedLinks(
+                article.related,
+                store: store,
+                onOpen: (route) => Navigator.of(context).pushNamed(route),
               ),
             ),
-            const SizedBox(height: 24),
-            RelatedLinksGrid(links: relatedLinks(article.related)),
             const SizedBox(height: 24),
             SourcesDisclosure(sources: sourceReferences(article.sources)),
           ],
@@ -233,8 +207,13 @@ class _ArticleCard extends StatelessWidget {
 }
 
 class _CategoryFilters extends StatelessWidget {
-  const _CategoryFilters({required this.selected, required this.onSelected});
+  const _CategoryFilters({
+    required this.categories,
+    required this.selected,
+    required this.onSelected,
+  });
 
+  final List<String> categories;
   final String? selected;
   final ValueChanged<String?> onSelected;
 
@@ -243,25 +222,22 @@ class _CategoryFilters extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
 
     return FilterChipBar<String?>(
-      items: const [
-        null,
-        'protocol',
-        'market',
-        'regulatory',
-        'culture',
-        'development',
-      ],
+      items: [null, ...categories],
       selectedItem: selected,
-      labelFor: (item) => switch (item) {
-        null => l10n.all,
-        'protocol' => l10n.categoryProtocol,
-        'market' => l10n.market,
-        'regulatory' => l10n.regulatory,
-        'culture' => l10n.culture,
-        'development' => l10n.development,
-        _ => item,
-      },
+      labelFor: (item) => item == null ? l10n.all : _categoryLabel(item, l10n),
       onSelected: onSelected,
     );
   }
+}
+
+String _categoryLabel(String key, AppLocalizations l10n) {
+  return switch (key) {
+    'protocol' => l10n.categoryProtocol,
+    'market' => l10n.market,
+    'regulatory' => l10n.regulatory,
+    'culture' => l10n.culture,
+    'development' => l10n.development,
+    _ when key.isEmpty => key,
+    _ => key[0].toUpperCase() + key.substring(1),
+  };
 }

@@ -260,6 +260,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noBipsMatchFilter => 'No BIPs match this filter.';
 
   @override
+  String get noBipsAvailable => 'No BIPs available yet.';
+
+  @override
   String get bipNumberDescending => 'Highest BIP #';
 
   @override
@@ -296,6 +299,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get releaseNotFound => 'Release not found';
 
   @override
+  String get openLinkFailed => 'Could not open the link.';
+
+  @override
   String get statusActive => 'Active';
 
   @override
@@ -327,6 +333,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statusMinor => 'Minor';
+
+  @override
+  String get statusPatch => 'Patch';
 
   @override
   String get authors => 'Authors';

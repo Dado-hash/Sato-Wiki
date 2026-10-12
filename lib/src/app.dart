@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -65,11 +66,13 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
   void _handleUpdateProgress() {
     final progress = widget.contentController.updateProgress;
     switch (progress.state) {
-      case UpdateState.checking:
+      // Checking the manifest must not block the UI. The dialog appears only
+      // once a real download or repair has started.
       case UpdateState.downloadingBundle:
       case UpdateState.downloadingMedia:
       case UpdateState.installing:
         _maybeShowUpdateDialog();
+      case UpdateState.checking:
       case UpdateState.done:
       case UpdateState.error:
       case UpdateState.idle:
@@ -146,6 +149,13 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
       widget.settingsController.localePreference,
       WidgetsBinding.instance.platformDispatcher.locales,
     );
-    widget.contentController.loadLanguage(languageCode);
+    widget.contentController.loadLanguage(languageCode).catchError((
+      Object error,
+      StackTrace stackTrace,
+    ) {
+      if (kDebugMode) {
+        debugPrint('Content language load failed: $error');
+      }
+    });
   }
 }

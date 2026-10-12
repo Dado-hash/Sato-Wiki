@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/content/application/app_content_controller.dart';
-import '../../../core/navigation/sato_wiki_tab.dart';
 import '../../../core/settings/app_settings_controller.dart';
 import '../../../core/widgets/content_media_scope.dart';
 import '../../../core/widgets/sato_scaffold.dart';
@@ -73,7 +72,9 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
       resolver: appContent.mediaResolver,
       child: SatoScaffold(
         selectedTab: selectedTab,
-        onTabSelected: (tab) => _handleDestinationSelected(context, tab),
+        // Tabs live in one IndexedStack, so switching keeps each tab's
+        // filters and scroll position.
+        onTabSelected: widget.settingsController.setLastTab,
         localePreference: widget.settingsController.localePreference,
         onLocalePreferenceChanged: (preference) {
           widget.settingsController.setLocalePreference(preference);
@@ -81,15 +82,6 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
         body: IndexedStack(index: selectedTab.index, children: screens),
       ),
     );
-  }
-
-  void _handleDestinationSelected(BuildContext context, SatoWikiTab tab) {
-    widget.settingsController.setLastTab(tab);
-
-    final currentRoute = ModalRoute.of(context)?.settings.name;
-    if (currentRoute != tab.routePath) {
-      Navigator.of(context).pushReplacementNamed(tab.routePath);
-    }
   }
 
   void _handleSettingsChanged() {

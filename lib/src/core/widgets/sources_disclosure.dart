@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../generated/l10n/app_localizations.dart';
+import 'external_url.dart';
 
 class SourcesDisclosure extends StatelessWidget {
   const SourcesDisclosure({required this.sources, this.title, super.key});
@@ -39,12 +39,10 @@ class SourcesDisclosure extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 onTap: source.url == null
                     ? null
-                    : () => launchUrl(
-                        source.url!,
-                        mode: LaunchMode.externalApplication,
-                      ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                    : () => openExternalUrl(context, source.url!),
+                child: Container(
+                  constraints: const BoxConstraints(minHeight: 44),
+                  alignment: Alignment.centerLeft,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

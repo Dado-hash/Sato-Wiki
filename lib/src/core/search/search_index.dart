@@ -2,6 +2,58 @@ import '../content/domain/content_models.dart';
 
 enum SearchSection { wiki, news, history, code }
 
+const _titleWeight = 8;
+const _tagWeight = 4;
+const _summaryWeight = 2;
+const _wholeTitleBonus = 8;
+
+// Accented letters that Italian and English text use, folded to ASCII.
+const _foldedLetters = {
+  'à': 'a',
+  'á': 'a',
+  'â': 'a',
+  'ã': 'a',
+  'ä': 'a',
+  'å': 'a',
+  'ç': 'c',
+  'è': 'e',
+  'é': 'e',
+  'ê': 'e',
+  'ë': 'e',
+  'ì': 'i',
+  'í': 'i',
+  'î': 'i',
+  'ï': 'i',
+  'ñ': 'n',
+  'ò': 'o',
+  'ó': 'o',
+  'ô': 'o',
+  'õ': 'o',
+  'ö': 'o',
+  'ø': 'o',
+  'ù': 'u',
+  'ú': 'u',
+  'û': 'u',
+  'ü': 'u',
+  'ý': 'y',
+  'ÿ': 'y',
+  'ß': 'ss',
+  'æ': 'ae',
+  'œ': 'oe',
+};
+
+final _nonWordCharacters = RegExp(r'[^\p{L}\p{N}]+', unicode: true);
+
+/// Lower-cases, folds accents and turns punctuation and dashes into spaces.
+String normalizeForSearch(String text) {
+  final folded = StringBuffer();
+  for (final character in text.toLowerCase().split('')) {
+    folded.write(_foldedLetters[character] ?? character);
+  }
+
+  return folded.toString().replaceAll(_nonWordCharacters, ' ').trim();
+}
+
 final class SearchResult {
   const SearchResult({
     required this.id,
@@ -18,6 +70,29 @@ final class SearchResult {
   final SearchSection section;
   final String route;
   final List<String> tags;
+}
+
+final class _IndexedResult {
+  const _IndexedResult({
+    required this.result,
+    required this.title,
+    required this.summary,
+    required this.tags,
+  });
+
+  factory _IndexedResult.from(SearchResult result) {
+    return _IndexedResult(
+      result: result,
+      title: normalizeForSearch(result.title),
+      summary: normalizeForSearch(result.summary),
+      tags: normalizeForSearch(result.tags.join(' ')),
+    );
+  }
+
+  final SearchResult result;
+  final String title;
+  final String summary;
+  final String tags;
 }
 
 final class SearchIndex {
@@ -72,33 +147,70 @@ final class SearchIndex {
 
   final List<SearchResult> _items;
 
+  late final List<_IndexedResult> _indexed = [
+    for (final item in _items) _IndexedResult.from(item),
+  ];
+
+  /// Every query token must match the title, tags or summary.
+  ///
+  /// Each token adds the weight of every field that contains it. A query that
+  /// matches the whole title gets a bonus. Ties are broken by section (wiki,
+  /// news, history, code), then title, then id.
   List<SearchResult> search(String query, {Set<SearchSection>? sections}) {
-    final normalized = query.trim().toLowerCase();
-    if (normalized.isEmpty) {
+    final normalizedQuery = normalizeForSearch(query);
+    if (normalizedQuery.isEmpty) {
       return const [];
     }
+    final tokens = normalizedQuery.split(' ');
 
     final scored = <({SearchResult result, int score})>[];
-    for (final item in _items) {
-      if (sections != null && !sections.contains(item.section)) {
+    for (final item in _indexed) {
+      if (sections != null && !sections.contains(item.result.section)) {
         continue;
       }
 
-      final title = item.title.toLowerCase();
-      final summary = item.summary.toLowerCase();
-      final tags = item.tags.map((tag) => tag.toLowerCase()).join(' ');
-      final score =
-          (title.contains(normalized) ? 8 : 0) +
-          (tags.contains(normalized) ? 4 : 0) +
-          (summary.contains(normalized) ? 2 : 0);
-
+      final score = _scoreFor(item, tokens, normalizedQuery);
       if (score > 0) {
-        scored.add((result: item, score: score));
+        scored.add((result: item.result, score: score));
       }
     }
 
-    scored.sort((a, b) => b.score.compareTo(a.score));
+    scored.sort((a, b) {
+      final byScore = b.score.compareTo(a.score);
+      if (byScore != 0) return byScore;
+
+      final bySection = a.result.section.index.compareTo(
+        b.result.section.index,
+      );
+      if (bySection != 0) return bySection;
+
+      final byTitle = a.result.title.compareTo(b.result.title);
+      if (byTitle != 0) return byTitle;
+
+      return a.result.id.compareTo(b.result.id);
+    });
 
     return scored.map((item) => item.result).toList(growable: false);
+  }
+
+  /// Zero when any token is missing from every field.
+  int _scoreFor(_IndexedResult item, List<String> tokens, String query) {
+    var score = 0;
+    for (final token in tokens) {
+      final tokenScore =
+          (item.title.contains(token) ? _titleWeight : 0) +
+          (item.tags.contains(token) ? _tagWeight : 0) +
+          (item.summary.contains(token) ? _summaryWeight : 0);
+      if (tokenScore == 0) {
+        return 0;
+      }
+      score += tokenScore;
+    }
+
+    if (item.title.contains(query)) {
+      score += _wholeTitleBonus;
+    }
+
+    return score;
   }
 }

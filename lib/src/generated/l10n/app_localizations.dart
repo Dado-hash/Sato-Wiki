@@ -566,6 +566,12 @@ abstract class AppLocalizations {
   /// **'No BIPs match this filter.'**
   String get noBipsMatchFilter;
 
+  /// No description provided for @noBipsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No BIPs available yet.'**
+  String get noBipsAvailable;
+
   /// No description provided for @bipNumberDescending.
   ///
   /// In en, this message translates to:
@@ -638,6 +644,12 @@ abstract class AppLocalizations {
   /// **'Release not found'**
   String get releaseNotFound;
 
+  /// No description provided for @openLinkFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the link.'**
+  String get openLinkFailed;
+
   /// No description provided for @statusActive.
   ///
   /// In en, this message translates to:
@@ -703,6 +715,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Minor'**
   String get statusMinor;
+
+  /// No description provided for @statusPatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Patch'**
+  String get statusPatch;
 
   /// No description provided for @authors.
   ///

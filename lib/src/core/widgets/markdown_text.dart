@@ -5,13 +5,30 @@ import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../content/domain/content_media.dart';
+import '../content/domain/content_store.dart';
+import '../navigation/content_routes.dart';
+import 'content_mappers.dart';
 import 'content_media_scope.dart';
+import 'external_url.dart';
 
 class MarkdownText extends StatelessWidget {
-  const MarkdownText(this.markdown, {this.mediaResolver, super.key});
+  const MarkdownText(
+    this.markdown, {
+    this.mediaResolver,
+    this.store,
+    this.openLink = openExternalUrl,
+    super.key,
+  });
 
   final String markdown;
   final ContentMediaResolver? mediaResolver;
+
+  /// Loaded content. When given, a link to a record that is not loaded does
+  /// nothing instead of opening a not-found screen.
+  final ContentStore? store;
+
+  /// Opens http and https links. Injectable so tests can observe the call.
+  final Future<void> Function(BuildContext context, Uri uri) openLink;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +39,7 @@ class MarkdownText extends StatelessWidget {
     return MarkdownBody(
       data: markdown,
       selectable: false,
+      onTapLink: (_, href, _) => _handleLink(context, href),
       styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
         a: textTheme.bodyLarge?.copyWith(
           color: colorScheme.primary,
@@ -62,6 +80,28 @@ class MarkdownText extends StatelessWidget {
         );
       },
     );
+  }
+
+  /// Content ids open their detail screen; http and https open externally.
+  /// Every other scheme is ignored.
+  void _handleLink(BuildContext context, String? href) {
+    if (href == null) return;
+
+    final route = routeForContentId(href);
+    if (route != null) {
+      final store = this.store;
+      if (store == null || recordTitleFor(store, href) != null) {
+        Navigator.of(context).pushNamed(route);
+      }
+      return;
+    }
+
+    final uri = Uri.tryParse(href);
+    if (uri == null || (uri.scheme != 'http' && uri.scheme != 'https')) {
+      return;
+    }
+
+    openLink(context, uri);
   }
 }
 
@@ -239,11 +279,13 @@ class _ContentImageFullScreen extends StatelessWidget {
     final extension = ContentMedia.extensionFor(file.path);
     final closeTooltip = MaterialLocalizations.of(context).closeButtonTooltip;
 
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
+        backgroundColor: colorScheme.surface,
+        foregroundColor: colorScheme.onSurface,
         leading: IconButton(
           tooltip: closeTooltip,
           icon: const Icon(Icons.close),

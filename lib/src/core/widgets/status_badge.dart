@@ -14,7 +14,8 @@ enum ContentStatus {
   rejected(AppColors.error),
   closed(AppColors.muted),
   major(AppColors.warning),
-  minor(AppColors.success);
+  minor(AppColors.success),
+  patch(AppColors.muted);
 
   const ContentStatus(this.color);
 
@@ -81,5 +82,6 @@ String _statusLabel(ContentStatus status, AppLocalizations l10n) {
     ContentStatus.closed => l10n.statusClosed.toUpperCase(),
     ContentStatus.major => l10n.statusMajor.toUpperCase(),
     ContentStatus.minor => l10n.statusMinor.toUpperCase(),
+    ContentStatus.patch => l10n.statusPatch.toUpperCase(),
   };
 }

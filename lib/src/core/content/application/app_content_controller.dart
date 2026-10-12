@@ -7,6 +7,7 @@ import '../data/content_bundle_parser.dart';
 import '../data/content_bundle_repository.dart';
 import '../data/content_media_store.dart';
 import '../domain/content_media.dart';
+import '../domain/content_models.dart';
 import '../domain/content_store.dart';
 
 final class UpdateProgress {
@@ -42,6 +43,7 @@ final class AppContentController extends ChangeNotifier {
     ContentMediaStore? mediaStore,
   }) : _repository = repository,
        _languageCode = languageCode,
+       _requestedLanguageCode = languageCode,
        _content = content,
        _updater = updater,
        _mediaStore = mediaStore;
@@ -50,7 +52,13 @@ final class AppContentController extends ChangeNotifier {
   final BackgroundContentUpdater? _updater;
   final ContentMediaStore? _mediaStore;
 
+  /// Language whose content is applied.
   String _languageCode;
+
+  /// Most recently requested language. It differs from [_languageCode] while
+  /// a language load is in flight, and a result is applied only if it still
+  /// matches this value.
+  String _requestedLanguageCode;
   AppContent _content;
   UpdateProgress _updateProgress = const UpdateProgress(
     state: UpdateState.idle,
@@ -91,6 +99,7 @@ final class AppContentController extends ChangeNotifier {
     final normalizedLanguageCode = AppLocale.normalizeLanguageCode(
       languageCode,
     );
+    _requestedLanguageCode = normalizedLanguageCode;
     if (normalizedLanguageCode == _languageCode) {
       return;
     }
@@ -100,6 +109,11 @@ final class AppContentController extends ChangeNotifier {
       normalizedLanguageCode,
       _mediaStore,
     );
+    if (_requestedLanguageCode != normalizedLanguageCode) {
+      // A newer request arrived while this one was loading.
+      return;
+    }
+
     _languageCode = normalizedLanguageCode;
     _content = content;
     notifyListeners();
@@ -108,107 +122,132 @@ final class AppContentController extends ChangeNotifier {
   Future<void> checkForUpdates() async {
     final updater = _updater;
     if (updater == null) {
-      _updateProgress = const UpdateProgress(
-        state: UpdateState.idle,
-        progress: 0,
+      _setUpdateProgress(
+        const UpdateProgress(state: UpdateState.idle, progress: 0),
       );
-      notifyListeners();
       return;
     }
 
-    _updateProgress = const UpdateProgress(
-      state: UpdateState.checking,
-      progress: 0.05,
+    final checkedLanguageCode = _languageCode;
+    _setUpdateProgress(
+      const UpdateProgress(state: UpdateState.checking, progress: 0.05),
     );
-    notifyListeners();
 
     try {
-      final manifest = await updater.fetchManifest(_languageCode);
-      if (manifest == null) {
-        _updateProgress = const UpdateProgress(
-          state: UpdateState.idle,
-          progress: 0,
-        );
-        notifyListeners();
-        return;
-      }
-
-      final current = await _repository.load(_languageCode);
-      final isNewer = _isNewerVersion(manifest.version, current.bundle.version);
-      if (!isNewer) {
-        _updateProgress = const UpdateProgress(
-          state: UpdateState.idle,
-          progress: 0,
-        );
-        notifyListeners();
-        return;
-      }
-
-      _updateProgress = const UpdateProgress(
-        state: UpdateState.downloadingBundle,
-        progress: 0.15,
-      );
-      notifyListeners();
-
+      // The updater fetches the manifest once and decides whether there is
+      // anything to download. Only then does it report downloadingBundle.
       final result = await updater.checkForUpdates(
-        _languageCode,
+        checkedLanguageCode,
+        onWorkStarted: () {
+          _setUpdateProgress(
+            const UpdateProgress(
+              state: UpdateState.downloadingBundle,
+              progress: 0.15,
+            ),
+          );
+        },
         onMediaProgress: (current, total) {
           final mediaProgress = total > 0 ? current / total : 0.0;
-          _updateProgress = UpdateProgress(
-            state: UpdateState.downloadingMedia,
-            progress: 0.15 + 0.8 * mediaProgress,
-            mediaFilesDownloaded: current,
-            mediaFilesTotal: total,
+          _setUpdateProgress(
+            UpdateProgress(
+              state: UpdateState.downloadingMedia,
+              progress: 0.15 + 0.8 * mediaProgress,
+              mediaFilesDownloaded: current,
+              mediaFilesTotal: total,
+            ),
           );
-          notifyListeners();
         },
       );
 
-      if (result == null) {
-        _updateProgress = const UpdateProgress(
-          state: UpdateState.idle,
-          progress: 0,
+      if (checkedLanguageCode != _languageCode ||
+          checkedLanguageCode != _requestedLanguageCode) {
+        // The language changed while checking, so this result is stale.
+        _setUpdateProgress(
+          const UpdateProgress(state: UpdateState.idle, progress: 0),
         );
-        notifyListeners();
         return;
       }
 
-      _updateProgress = const UpdateProgress(
-        state: UpdateState.installing,
-        progress: 0.95,
+      if (result == null) {
+        _setUpdateProgress(
+          const UpdateProgress(state: UpdateState.idle, progress: 0),
+        );
+        return;
+      }
+
+      _setUpdateProgress(
+        const UpdateProgress(state: UpdateState.installing, progress: 0.95),
       );
-      notifyListeners();
 
       _content = _contentFromResult(result, _mediaStore);
-      _updateProgress = const UpdateProgress(
-        state: UpdateState.done,
-        progress: 1.0,
+      _setUpdateProgress(
+        const UpdateProgress(state: UpdateState.done, progress: 1.0),
       );
-      notifyListeners();
     } on Object {
-      _updateProgress = const UpdateProgress(
-        state: UpdateState.error,
-        progress: 0,
+      _setUpdateProgress(
+        const UpdateProgress(state: UpdateState.error, progress: 0),
       );
-      notifyListeners();
     }
   }
 
+  void _setUpdateProgress(UpdateProgress progress) {
+    _updateProgress = progress;
+    notifyListeners();
+  }
+
+  /// Loads the bundle for [languageCode] and installs its seed media.
+  ///
+  /// Startup must never fail because of a stored bundle. If a stored update
+  /// cannot have its media installed, it is discarded and the seed is used.
+  /// If the seed itself cannot have its media installed, its text is still
+  /// shown without the failed media.
   static Future<AppContent> _loadContent(
     ContentBundleRepository repository,
     String languageCode,
     ContentMediaStore? mediaStore,
   ) async {
-    final result = await repository.load(languageCode);
-    await mediaStore?.installBundleMediaFromAssets(bundle: result.bundle);
+    var result = await repository.load(languageCode);
+    if (mediaStore != null &&
+        !await _installBundleMedia(mediaStore, result.bundle)) {
+      if (repository
+          case final DiscardableContentBundleRepository discardable) {
+        await discardable.discardUpdatedBundle(languageCode);
+        result = await repository.load(languageCode);
+        await _installBundleMedia(mediaStore, result.bundle);
+      }
+    }
 
     return _contentFromResult(result, mediaStore);
+  }
+
+  /// Returns false instead of throwing, so one bad bundle cannot stop startup.
+  static Future<bool> _installBundleMedia(
+    ContentMediaStore mediaStore,
+    ContentBundle bundle,
+  ) async {
+    try {
+      await mediaStore.installBundleMediaFromAssets(bundle: bundle);
+
+      return true;
+    } on Object catch (error) {
+      if (kDebugMode) {
+        debugPrint('Content media could not be installed: $error');
+      }
+
+      return false;
+    }
   }
 
   static AppContent _contentFromResult(
     ContentBundleParseResult result,
     ContentMediaStore? mediaStore,
   ) {
+    if (kDebugMode) {
+      for (final warning in result.warnings) {
+        debugPrint('Content warning at ${warning.path}: ${warning.message}');
+      }
+    }
+
     final store = ContentStore(result.bundle);
 
     return AppContent(
@@ -222,42 +261,5 @@ final class AppContentController extends ChangeNotifier {
           ContentMediaResolver.empty,
       warnings: result.warnings,
     );
-  }
-
-  bool _isNewerVersion(String candidate, String current) {
-    final candidateParts = _versionParts(candidate);
-    final currentParts = _versionParts(current);
-    if (candidateParts != null && currentParts != null) {
-      final length = candidateParts.length > currentParts.length
-          ? candidateParts.length
-          : currentParts.length;
-      for (var i = 0; i < length; i++) {
-        final candidateValue = i < candidateParts.length
-            ? candidateParts[i]
-            : 0;
-        final currentValue = i < currentParts.length ? currentParts[i] : 0;
-        if (candidateValue != currentValue) {
-          return candidateValue > currentValue;
-        }
-      }
-
-      return false;
-    }
-
-    return candidate.compareTo(current) > 0;
-  }
-
-  List<int>? _versionParts(String version) {
-    final parts = version.split('.');
-    final values = <int>[];
-    for (final part in parts) {
-      final value = int.tryParse(part);
-      if (value == null) {
-        return null;
-      }
-      values.add(value);
-    }
-
-    return values;
   }
 }

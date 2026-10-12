@@ -9,6 +9,8 @@ class RelatedLinksGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textScaler = MediaQuery.textScalerOf(context);
+
     return LayoutBuilder(
       builder: (context, constraints) {
         final columns = constraints.maxWidth >= 620 ? 2 : 1;
@@ -21,7 +23,7 @@ class RelatedLinksGrid extends StatelessWidget {
             crossAxisCount: columns,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
-            mainAxisExtent: 76,
+            mainAxisExtent: textScaler.scale(76),
           ),
           itemBuilder: (context, index) {
             final link = links[index];
@@ -29,12 +31,20 @@ class RelatedLinksGrid extends StatelessWidget {
             return ContentCard(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
               onTap: link.onTap,
-              trailing: const Icon(Icons.chevron_right),
+              trailing: link.onTap == null
+                  ? null
+                  : const Icon(Icons.chevron_right),
               child: Row(
                 children: [
                   Icon(link.icon, size: 22),
                   const SizedBox(width: 12),
-                  Expanded(child: Text(link.title)),
+                  Expanded(
+                    child: Text(
+                      link.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
             );

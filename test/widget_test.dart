@@ -94,10 +94,8 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(
-      find.text('Taproot: SegWit version 1 spending rules.'),
-      findsOneWidget,
-    );
+    expect(find.text('Taproot'), findsOneWidget);
+    expect(find.text('SegWit version 1 spending rules.'), findsOneWidget);
     await tester.scrollUntilVisible(find.text('Status History'), 300);
     expect(find.text('Status History'), findsOneWidget);
   });

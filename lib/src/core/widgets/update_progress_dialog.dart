@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../generated/l10n/app_localizations.dart';
 import '../content/application/app_content_controller.dart';
+import '../theme/app_colors.dart';
 
 class UpdateProgressDialog extends StatefulWidget {
   const UpdateProgressDialog({required this.contentController, super.key});
@@ -93,7 +94,7 @@ class _UpdateProgressDialogState extends State<UpdateProgressDialog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               if (progress.state == UpdateState.done)
-                const Icon(Icons.check_circle, color: Colors.green, size: 48)
+                Icon(Icons.check_circle, color: AppColors.success, size: 48)
               else
                 Container(
                   width: 56,

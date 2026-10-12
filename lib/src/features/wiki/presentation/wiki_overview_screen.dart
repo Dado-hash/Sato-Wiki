@@ -11,6 +11,7 @@ import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/content/reading_level.dart';
 import '../../../core/navigation/app_routes.dart';
+import '../../../core/widgets/content_card.dart';
 import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/content_media_scope.dart';
 import '../../../core/widgets/hero_media.dart';
@@ -324,9 +325,10 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(widget.category),
+        title: Text(_categoryMetaFor(widget.category, l10n).title),
       ),
       body: SafeArea(
         child: ListView(
@@ -369,6 +371,8 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
                   ),
                 ),
               ),
+            if (entries.isEmpty)
+              ContentCard(child: Text(l10n.noLocalResultFound)),
             for (final entry in entries)
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
@@ -638,6 +642,7 @@ class WikiEntryScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(l10n.wikiTab),
@@ -725,7 +730,10 @@ class WikiEntryScreen extends StatelessWidget {
                 label: l10n.entryConceptualVisual(entry.title),
               ),
             const SizedBox(height: 24),
-            MarkdownText(entry.contentFor(selectedLevel).bodyMarkdown),
+            MarkdownText(
+              entry.contentFor(selectedLevel).bodyMarkdown,
+              store: store,
+            ),
             if (entry.related.isNotEmpty) ...[
               const SizedBox(height: 32),
               SectionTitle(title: l10n.relatedConcepts),
@@ -733,8 +741,8 @@ class WikiEntryScreen extends StatelessWidget {
               RelatedLinksGrid(
                 links: relatedLinks(
                   entry.related,
-                  onTap: (id) =>
-                      Navigator.of(context).pushNamed(AppRoutes.wikiEntry(id)),
+                  store: store,
+                  onOpen: (route) => Navigator.of(context).pushNamed(route),
                 ),
               ),
             ],

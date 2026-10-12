@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
 
 import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/localization/localized_labels.dart';
 import '../../../core/navigation/app_routes.dart';
+import '../../../core/widgets/external_url.dart';
 import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/status_badge.dart';
@@ -53,7 +54,7 @@ class CodeDashboardScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: Center(
               child: Text(
-                l10n.noBipsMatchFilter,
+                l10n.noBipsAvailable,
                 style: textTheme.bodyMedium?.copyWith(
                   color: colorScheme.onSurfaceVariant,
                 ),
@@ -109,6 +110,7 @@ class _BipListScreenState extends State<BipListScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(l10n.allBipsTitle),
@@ -148,7 +150,13 @@ class _BipListScreenState extends State<BipListScreen> {
             ),
             const SizedBox(height: 24),
             if (bips.isEmpty)
-              Center(child: Text(l10n.noBipsMatchFilter))
+              Center(
+                child: Text(
+                  widget.store.bundle.bips.isEmpty
+                      ? l10n.noBipsAvailable
+                      : l10n.noBipsMatchFilter,
+                ),
+              )
             else
               for (final bip in bips) ...[
                 _BipCard(
@@ -236,7 +244,12 @@ class _StatusFilters extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
-    const filters = [BipStatus.deployed, BipStatus.draft, BipStatus.closed];
+    const filters = [
+      BipStatus.deployed,
+      BipStatus.complete,
+      BipStatus.draft,
+      BipStatus.closed,
+    ];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -300,6 +313,9 @@ class _BipTrackerCard extends StatelessWidget {
     final deployedCount = bips
         .where((b) => b.status == BipStatus.deployed)
         .length;
+    final completeCount = bips
+        .where((b) => b.status == BipStatus.complete)
+        .length;
     final draftCount = bips.where((b) => b.status == BipStatus.draft).length;
     final closedCount = bips.where((b) => b.status == BipStatus.closed).length;
 
@@ -332,6 +348,14 @@ class _BipTrackerCard extends StatelessWidget {
                 child: _CountBox(
                   label: l10n.deployedUpper,
                   count: deployedCount,
+                  color: colorScheme.tertiary,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: _CountBox(
+                  label: l10n.statusComplete.toUpperCase(),
+                  count: completeCount,
                   color: colorScheme.tertiary,
                 ),
               ),
@@ -457,6 +481,12 @@ class _ChangelogSummaryCard extends StatelessWidget {
               _ChangelogItem(
                 release: store.bundle.changelogs[i],
                 isFirst: i == 0,
+                onTap: () => Navigator.of(context).pushNamed(
+                  AppRoutes.codeChangelog(
+                    store.bundle.changelogs[i].project,
+                    store.bundle.changelogs[i].version,
+                  ),
+                ),
               ),
               if (i < store.bundle.changelogs.length - 1 && i < maxItems - 1)
                 const SizedBox(height: 12),
@@ -468,9 +498,14 @@ class _ChangelogSummaryCard extends StatelessWidget {
 }
 
 class _ChangelogItem extends StatelessWidget {
-  const _ChangelogItem({required this.release, this.isFirst = false});
+  const _ChangelogItem({
+    required this.release,
+    required this.onTap,
+    this.isFirst = false,
+  });
 
   final ReleaseNote release;
+  final VoidCallback onTap;
   final bool isFirst;
 
   @override
@@ -478,41 +513,65 @@ class _ChangelogItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 6,
-          height: 6,
-          margin: const EdgeInsets.only(top: 8),
-          decoration: BoxDecoration(
-            color: isFirst ? colorScheme.primary : colorScheme.outlineVariant,
-            shape: BoxShape.circle,
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
+        onTap: onTap,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 44),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 6,
+                  height: 6,
+                  margin: const EdgeInsets.only(top: 8),
+                  decoration: BoxDecoration(
+                    color: isFirst
+                        ? colorScheme.primary
+                        : colorScheme.outlineVariant,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        release.title,
+                        style: textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        '${release.project} ${release.version}',
+                        style: textTheme.labelSmall?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
+                          fontFamily: 'JetBrains Mono',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 12),
+                SizedBox(
+                  width: 24,
+                  height: 44,
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                release.title,
-                style: textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                '${release.project} ${release.version}',
-                style: textTheme.labelSmall?.copyWith(
-                  color: colorScheme.onSurfaceVariant,
-                  fontFamily: 'JetBrains Mono',
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
@@ -712,6 +771,7 @@ class BipDetailScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(l10n.appTitle),
@@ -735,9 +795,16 @@ class BipDetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-              '${bip.title}: ${bip.summary}',
+              bip.title,
               style: textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              bip.summary,
+              style: textTheme.bodyLarge?.copyWith(
+                color: colorScheme.onSurfaceVariant,
               ),
             ),
             const SizedBox(height: 20),
@@ -809,7 +876,7 @@ class BipDetailScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  MarkdownText(bip.summaryMarkdown),
+                  MarkdownText(bip.summaryMarkdown, store: store),
                 ],
               ),
             ),
@@ -823,7 +890,7 @@ class BipDetailScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: colorScheme.outlineVariant),
               ),
-              child: MarkdownText(bip.impactMarkdown),
+              child: MarkdownText(bip.impactMarkdown, store: store),
             ),
             const SizedBox(height: 24),
             SectionTitle(title: l10n.statusHistory),
@@ -983,7 +1050,6 @@ class _StatusTimeline extends StatelessWidget {
               const SizedBox(width: 16),
               Padding(
                 padding: EdgeInsets.only(
-                  top: i == history.length - 1 ? 0 : 0,
                   bottom: i < history.length - 1 ? 24 : 0,
                 ),
                 child: Column(
@@ -1035,8 +1101,7 @@ class _FooterLink extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
-      onTap: () =>
-          launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication),
+      onTap: () => openExternalUrl(context, Uri.parse(url)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),
         child: Row(
@@ -1094,6 +1159,7 @@ class ReleaseNoteScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(l10n.appTitle),
@@ -1102,10 +1168,26 @@ class ReleaseNoteScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
           children: [
-            StatusBadge(
-              status: release.importance == ReleaseImportance.major
-                  ? ContentStatus.major
-                  : ContentStatus.minor,
+            Wrap(
+              spacing: 12,
+              runSpacing: 8,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                StatusBadge(
+                  status: switch (release.importance) {
+                    ReleaseImportance.major => ContentStatus.major,
+                    ReleaseImportance.minor => ContentStatus.minor,
+                    ReleaseImportance.patch => ContentStatus.patch,
+                  },
+                ),
+                Text(
+                  DateFormat.yMMMd(l10n.localeName).format(release.releasedAt),
+                  style: textTheme.labelMedium?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                    fontFamily: 'JetBrains Mono',
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 12),
             Text(
@@ -1124,11 +1206,11 @@ class ReleaseNoteScreen extends StatelessWidget {
             const SizedBox(height: 24),
             SectionTitle(title: l10n.userImpact),
             const SizedBox(height: 8),
-            MarkdownText(release.userImpactMarkdown),
+            MarkdownText(release.userImpactMarkdown, store: store),
             const SizedBox(height: 24),
             SectionTitle(title: l10n.technicalChanges),
             const SizedBox(height: 8),
-            MarkdownText(release.technicalChangesMarkdown),
+            MarkdownText(release.technicalChangesMarkdown, store: store),
           ],
         ),
       ),

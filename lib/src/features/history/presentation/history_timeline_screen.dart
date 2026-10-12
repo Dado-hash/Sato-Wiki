@@ -75,6 +75,7 @@ class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
         const SizedBox(height: 28),
         SectionTitle(title: l10n.timelineMetadata),
         const SizedBox(height: 12),
+        if (events.isEmpty) ContentCard(child: Text(l10n.noLocalResultFound)),
         for (int i = 0; i < events.length; i++)
           _TimelineEvent(
             event: events[i],
@@ -103,6 +104,7 @@ String _categoryLabel(String key, AppLocalizations l10n) {
     'security' => l10n.categorySecurity,
     'adoption' => l10n.categoryAdoption,
     'regulation' => l10n.categoryRegulation,
+    _ when key.isEmpty => key,
     _ => key[0].toUpperCase() + key.substring(1),
   };
 }
@@ -331,21 +333,13 @@ class HistoryEventScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            MarkdownText(event.bodyMarkdown),
+            MarkdownText(event.bodyMarkdown, store: store),
             const SizedBox(height: 24),
             RelatedLinksGrid(
               links: relatedLinks(
                 event.related,
-                onTap: (id) {
-                  final route = id.startsWith('wiki.')
-                      ? AppRoutes.wikiEntry(id)
-                      : id.startsWith('history.')
-                      ? AppRoutes.historyEvent(id)
-                      : null;
-                  if (route != null) {
-                    Navigator.of(context).pushNamed(route);
-                  }
-                },
+                store: store,
+                onOpen: (route) => Navigator.of(context).pushNamed(route),
               ),
             ),
             const SizedBox(height: 24),
