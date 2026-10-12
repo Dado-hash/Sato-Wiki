@@ -1,24 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../generated/l10n/app_localizations.dart';
 import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
+import '../../../core/localization/content_labels.dart';
 import '../../../core/navigation/app_routes.dart';
-import '../../../core/widgets/content_card.dart';
+import '../../../core/theme/app_tokens.dart';
+import '../../../core/widgets/bookmark_button.dart';
+import '../../../core/widgets/content_mappers.dart';
+import '../../../core/widgets/content_thumbnail.dart';
+import '../../../core/widgets/detail_scaffold.dart';
 import '../../../core/widgets/filter_chip_bar.dart';
 import '../../../core/widgets/markdown_text.dart';
-import '../../../core/widgets/metadata_row.dart';
-import '../../../core/widgets/reader_header.dart';
+import '../../../core/widgets/meta_line.dart';
 import '../../../core/widgets/related_links_grid.dart';
+import '../../../core/widgets/round_icon_button.dart';
+import '../../../core/widgets/screen_header.dart';
 import '../../../core/widgets/section_title.dart';
-import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/sources_disclosure.dart';
+import '../../../core/widgets/tag_pill.dart';
+import '../../../generated/l10n/app_localizations.dart';
 
 class HistoryTimelineScreen extends StatefulWidget {
-  const HistoryTimelineScreen({required this.store, super.key});
+  const HistoryTimelineScreen({required this.store, this.now, super.key});
 
   final ContentStore store;
+
+  /// Reference date for "On this day". Defaults to the current time.
+  final DateTime? now;
 
   @override
   State<HistoryTimelineScreen> createState() => _HistoryTimelineScreenState();
@@ -27,139 +36,185 @@ class HistoryTimelineScreen extends StatefulWidget {
 class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
   String? _selectedCategory;
 
-  List<HistoryEvent> get _events {
-    final sorted = [...widget.store.bundle.history]
-      ..sort((a, b) => a.date.compareTo(b.date));
-    if (_selectedCategory == null) return sorted;
-    return sorted
-        .where((e) => e.category == _selectedCategory)
-        .toList(growable: false);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    final onThisDay = widget.store.bundle.history
-        .where(
-          (event) => event.date.month == now.month && event.date.day == now.day,
-        )
-        .toList(growable: false);
-    final events = _events;
-    final allCategories =
-        widget.store.bundle.history.map((e) => e.category).toSet().toList()
-          ..sort();
     final l10n = AppLocalizations.of(context);
+    final now = widget.now ?? DateTime.now();
+    final allEvents = [...widget.store.bundle.history]
+      ..sort((a, b) => a.date.compareTo(b.date));
+    final categories = allEvents.map((event) => event.category).toSet().toList()
+      ..sort();
+    final onThisDay = allEvents
+        .where((e) => e.date.month == now.month && e.date.day == now.day)
+        .toList(growable: false);
+    final events = _selectedCategory == null
+        ? allEvents
+        : allEvents
+              .where((e) => e.category == _selectedCategory)
+              .toList(growable: false);
+    final entries = _timelineEntries(events);
 
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(16, 28, 16, 24),
-      children: [
-        ReaderHeader(
-          title: l10n.historyTitle,
-          subtitle: l10n.historySubtitle,
-          metadata: [
-            MetadataItem(
-              label: l10n.timelineMetadata,
-              icon: Icons.history_edu_outlined,
-            ),
-          ],
-        ),
-        const SizedBox(height: 24),
-        _OnThisDayCard(event: onThisDay.firstOrNull),
-        const SizedBox(height: 28),
-        _HistoryFilters(
-          categories: allCategories,
-          selected: _selectedCategory,
-          onSelected: (category) =>
-              setState(() => _selectedCategory = category),
-        ),
-        const SizedBox(height: 28),
-        SectionTitle(title: l10n.timelineMetadata),
-        const SizedBox(height: 12),
-        for (int i = 0; i < events.length; i++)
-          _TimelineEvent(
-            event: events[i],
-            isFirst: i == 0,
-            isLast: i == events.length - 1,
-            onTap: () {
-              Navigator.of(
-                context,
-              ).pushNamed(AppRoutes.historyEvent(events[i].slug));
-            },
+    final subtitle = allEvents.isEmpty
+        ? l10n.historySubtitle
+        : l10n.eventsFromTo(
+            allEvents.length,
+            allEvents.first.date.year,
+            allEvents.last.date.year,
+          );
+
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: ScreenHeader(
+            title: l10n.historyTitle,
+            subtitle: subtitle,
+            actions: [
+              RoundIconButton(
+                icon: Icons.search_rounded,
+                tooltip: l10n.searchTooltip,
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(AppRoutes.search),
+              ),
+            ],
           ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: AppSpacing.gutter,
+              left: AppSpacing.gutter,
+            ),
+            child: FilterChipBar<String?>(
+              items: [null, ...categories],
+              selectedItem: _selectedCategory,
+              labelFor: (category) => category == null
+                  ? l10n.allEvents
+                  : contentCategoryLabel(category, l10n),
+              onSelected: (category) =>
+                  setState(() => _selectedCategory = category),
+            ),
+          ),
+        ),
+        if (onThisDay.isNotEmpty)
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.gutter,
+                AppSpacing.xl,
+                AppSpacing.gutter,
+                0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SectionTitle(title: l10n.onThisDayTitle),
+                  const SizedBox(height: AppSpacing.md),
+                  for (var i = 0; i < onThisDay.length; i++) ...[
+                    if (i > 0) const SizedBox(height: AppSpacing.md),
+                    _HistoryEventCard(event: onThisDay[i], showYear: true),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.xl)),
+        if (entries.isEmpty)
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.gutter,
+                vertical: 32,
+              ),
+              child: Text(
+                l10n.noLocalResultFound,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ),
+          )
+        else
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.gutter),
+            sliver: SliverList.builder(
+              itemCount: entries.length,
+              itemBuilder: (context, index) {
+                return switch (entries[index]) {
+                  _YearEntry(:final year) => _YearHeader(
+                    year: year,
+                    isFirst: index == 0,
+                  ),
+                  _EventEntry(:final event) => _TimelineEventItem(event: event),
+                };
+              },
+            ),
+          ),
+        const SliverPadding(
+          padding: EdgeInsets.only(bottom: AppSpacing.tabBarClearance),
+          sliver: SliverToBoxAdapter(child: SizedBox.shrink()),
+        ),
       ],
     );
   }
 }
 
-String _categoryLabel(String key, AppLocalizations l10n) {
-  return switch (key) {
-    'protocol' => l10n.categoryProtocol,
-    'cryptography' => l10n.categoryCryptography,
-    'lightning network' => l10n.categoryLightningNetwork,
-    'economics' => l10n.categoryEconomics,
-    'market' => l10n.market,
-    'community' => l10n.community,
-    'origin' => l10n.categoryOrigin,
-    'security' => l10n.categorySecurity,
-    'adoption' => l10n.categoryAdoption,
-    'regulation' => l10n.categoryRegulation,
-    _ => key[0].toUpperCase() + key.substring(1),
-  };
+sealed class _TimelineEntry {
+  const _TimelineEntry();
 }
 
-class _HistoryFilters extends StatelessWidget {
-  const _HistoryFilters({
-    required this.categories,
-    required this.selected,
-    required this.onSelected,
-  });
+final class _YearEntry extends _TimelineEntry {
+  const _YearEntry(this.year);
 
-  final List<String> categories;
-  final String? selected;
-  final ValueChanged<String?> onSelected;
+  final int year;
+}
 
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final items = [null, ...categories];
+final class _EventEntry extends _TimelineEntry {
+  const _EventEntry(this.event);
 
-    return FilterChipBar<String?>(
-      items: items,
-      selectedItem: selected,
-      labelFor: (item) =>
-          item == null ? l10n.allEvents : _categoryLabel(item, l10n),
-      onSelected: onSelected,
-    );
+  final HistoryEvent event;
+}
+
+/// Flattens date-sorted events into year headers followed by their events.
+List<_TimelineEntry> _timelineEntries(List<HistoryEvent> events) {
+  final entries = <_TimelineEntry>[];
+  int? currentYear;
+  for (final event in events) {
+    if (event.date.year != currentYear) {
+      currentYear = event.date.year;
+      entries.add(_YearEntry(currentYear));
+    }
+    entries.add(_EventEntry(event));
   }
+  return entries;
 }
 
-class _OnThisDayCard extends StatelessWidget {
-  const _OnThisDayCard({required this.event});
+class _YearHeader extends StatelessWidget {
+  const _YearHeader({required this.year, required this.isFirst});
 
-  final HistoryEvent? event;
+  final int year;
+  final bool isFirst;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final l10n = AppLocalizations.of(context);
+    final colorScheme = Theme.of(context).colorScheme;
+    final labelStyle = Theme.of(context).textTheme.labelSmall?.copyWith(
+      fontSize: 13,
+      letterSpacing: 1.5,
+      color: colorScheme.primary,
+    );
 
-    return ContentCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Padding(
+      padding: EdgeInsets.only(
+        top: isFirst ? 0 : AppSpacing.xl,
+        bottom: AppSpacing.md,
+      ),
+      child: Row(
         children: [
-          Text(
-            l10n.onThisDay,
-            style: textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(event?.title ?? l10n.noEventToday, style: textTheme.titleLarge),
-          const SizedBox(height: 6),
-          Text(
-            event?.summary ?? l10n.noEventTodayDescription,
-            style: textTheme.bodyMedium,
+          Semantics(header: true, child: Text('$year', style: labelStyle)),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Container(height: 1, color: colorScheme.outlineVariant),
           ),
         ],
       ),
@@ -167,122 +222,138 @@ class _OnThisDayCard extends StatelessWidget {
   }
 }
 
-class _TimelineEvent extends StatelessWidget {
-  const _TimelineEvent({
-    required this.event,
-    required this.onTap,
-    required this.isFirst,
-    required this.isLast,
-  });
+class _TimelineEventItem extends StatelessWidget {
+  const _TimelineEventItem({required this.event});
 
   final HistoryEvent event;
-  final VoidCallback onTap;
-  final bool isFirst;
-  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
-    final color = colorScheme.primary;
-    final lineColor = colorScheme.outlineVariant;
-    final l10n = AppLocalizations.of(context);
-    final isItalian = l10n.localeName.startsWith('it');
-    final dateFormat = isItalian ? 'dd/MM/yy' : 'MM/dd/yy';
+    final lineColor = Theme.of(context).colorScheme.outlineVariant;
 
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            width: 80,
+            width: 12,
             child: Center(
-              child: Text(
-                DateFormat(dateFormat).format(event.date),
-                style: textTheme.labelMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
-                textAlign: TextAlign.center,
+              child: SizedBox(
+                width: 2,
+                height: double.infinity,
+                child: ColoredBox(color: lineColor),
               ),
             ),
           ),
-          SizedBox(
-            width: 40,
-            child: Column(
-              children: [
-                Expanded(
-                  child: Center(
-                    child: isFirst
-                        ? const SizedBox()
-                        : Container(width: 2, color: lineColor),
-                  ),
-                ),
-                SizedBox(
-                  height: 14,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Center(child: Container(width: 2, color: lineColor)),
-                      Row(
-                        children: [
-                          const SizedBox(width: 13),
-                          Container(
-                            width: 14,
-                            height: 14,
-                            decoration: BoxDecoration(
-                              color: color,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 6),
-                              child: Container(height: 2, color: lineColor),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: isLast
-                        ? const SizedBox()
-                        : Container(width: 2, color: lineColor),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 12),
+          const SizedBox(width: AppSpacing.md),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: ContentCard(
-                onTap: onTap,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      _categoryLabel(event.category, l10n),
-                      style: textTheme.labelMedium?.copyWith(color: color),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      event.title,
-                      style: textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(event.summary, style: textTheme.bodyMedium),
-                  ],
-                ),
-              ),
+              padding: const EdgeInsets.only(bottom: AppSpacing.md),
+              child: _HistoryEventCard(event: event),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _HistoryEventCard extends StatelessWidget {
+  const _HistoryEventCard({required this.event, this.showYear = false});
+
+  final HistoryEvent event;
+  final bool showYear;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+    final imageSource = firstMarkdownImageSource(event.bodyMarkdown);
+    final date = DateFormat.MMMd(l10n.localeName).format(event.date);
+    final category = contentCategoryLabel(event.category, l10n);
+
+    return Material(
+      color: colorScheme.surfaceContainerLow,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadii.card),
+        side: BorderSide(color: colorScheme.outlineVariant),
+      ),
+      child: InkWell(
+        onTap: () =>
+            Navigator.of(context).pushNamed(AppRoutes.historyEvent(event.slug)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (imageSource != null)
+              ContentThumbnail(
+                source: imageSource,
+                height: 132,
+                width: double.infinity,
+                borderRadius: 0,
+                fallbackIcon: Icons.image_outlined,
+              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      if (showYear) ...[
+                        Text(
+                          '${event.date.year}',
+                          style: textTheme.labelMedium?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: colorScheme.onSurface,
+                          ),
+                        ),
+                        const SizedBox(width: AppSpacing.sm),
+                        const ExcludeSemantics(child: Text('·')),
+                        const SizedBox(width: AppSpacing.sm),
+                      ],
+                      Text(
+                        date.toUpperCase(),
+                        style: textTheme.labelMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: colorScheme.onSurface,
+                        ),
+                      ),
+                      const SizedBox(width: AppSpacing.sm),
+                      const ExcludeSemantics(child: Text('·')),
+                      const SizedBox(width: AppSpacing.sm),
+                      Flexible(
+                        child: Text(
+                          category.toUpperCase(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: textTheme.labelSmall?.copyWith(
+                            color: colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    event.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    event.summary,
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -300,59 +371,68 @@ class HistoryEventScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final event = store.bundle.history
         .where((event) => event.slug == slug || event.id == slug)
         .firstOrNull;
 
     if (event == null) {
-      final l10n = AppLocalizations.of(context);
-      return Scaffold(
-        appBar: AppBar(title: Text(l10n.historyTitle)),
-        body: Center(child: Text(l10n.historyEventNotFound)),
+      return DetailScaffold(
+        title: l10n.historyEventNotFound,
+        children: const [],
       );
     }
-    final l10n = AppLocalizations.of(context);
 
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.historyTitle)),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            ReaderHeader(
-              title: event.title,
-              subtitle: event.summary,
-              metadata: [
-                MetadataItem(
-                  label: event.date.toIso8601String().split('T').first,
-                  icon: Icons.calendar_today_outlined,
-                ),
-                ...tagMetadata(event.tags),
-              ],
-            ),
-            const SizedBox(height: 24),
-            MarkdownText(event.bodyMarkdown),
-            const SizedBox(height: 24),
-            RelatedLinksGrid(
-              links: relatedLinks(
-                event.related,
-                onTap: (id) {
-                  final route = id.startsWith('wiki.')
-                      ? AppRoutes.wikiEntry(id)
-                      : id.startsWith('history.')
-                      ? AppRoutes.historyEvent(id)
-                      : null;
-                  if (route != null) {
-                    Navigator.of(context).pushNamed(route);
-                  }
-                },
-              ),
-            ),
-            const SizedBox(height: 24),
-            SourcesDisclosure(sources: sourceReferences(event.sources)),
-          ],
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return DetailScaffold(
+      actions: [BookmarkButton(contentId: event.id)],
+      children: [
+        MetaLine(
+          label: contentCategoryLabel(event.category, l10n),
+          parts: [DateFormat.yMMMMd(l10n.localeName).format(event.date)],
         ),
-      ),
+        const SizedBox(height: 10),
+        Semantics(
+          header: true,
+          child: Text(event.title, style: textTheme.headlineLarge),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          event.summary,
+          style: textTheme.bodyLarge?.copyWith(
+            height: 26 / 17,
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: AppSpacing.xl),
+        MarkdownText(event.bodyMarkdown, store: store),
+        if (event.tags.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.gutter),
+          Wrap(
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
+            children: [for (final tag in event.tags) TagPill(label: tag)],
+          ),
+        ],
+        if (event.related.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.section),
+          SectionTitle(title: l10n.relatedConcepts),
+          const SizedBox(height: AppSpacing.md),
+          RelatedLinksGrid(
+            links: relatedLinks(
+              event.related,
+              store: store,
+              onOpen: (route) => Navigator.of(context).pushNamed(route),
+            ),
+          ),
+        ],
+        if (event.sources.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.lg),
+          SourcesDisclosure(sources: sourceReferences(event.sources)),
+        ],
+      ],
     );
   }
 }

@@ -1,129 +1,160 @@
 # SatoWiki Design System
 
-Questo documento traduce `SatoWiki_DesignBrief.md` e le schermate locali in `stitch_satowiki_pages/` in regole applicabili in Flutter.
+Questo documento traduce `SatoWiki_DesignBrief.md` in regole applicabili in Flutter.
 
 ## Direzione
 
-SatoWiki deve sembrare una rivista tecnica editoriale, non una crypto app speculativa. La UI e dark-first, autorevole, compatta ma leggibile, con accento Bitcoin usato per priorita, stati attivi e link importanti.
+SatoWiki deve sembrare una rivista tecnica editoriale, non una crypto app speculativa. La UI è dark-first, con fondo ardesia scuro, testo caldo e un solo accento arancione. Il tema chiaro è disponibile e si sceglie in Impostazioni. L'accento Bitcoin serve per priorità, stati attivi e link importanti.
 
-Le fonti Stitch principali sono:
-
-- `stitch_satowiki_pages/satowiki_design_narrative/DESIGN.md`
-- `stitch_satowiki_pages/wiki_explore_light/code.html`
-- `stitch_satowiki_pages/wiki_proof_of_work/code.html`
-- `stitch_satowiki_pages/wiki_protocol_list_light/code.html`
-- `stitch_satowiki_pages/code_bip_tracker_light/code.html`
-- `stitch_satowiki_pages/news_article_reader_light/code.html`
-- `stitch_satowiki_pages/history_timeline_light/code.html`
+I token derivano in origine da esportazioni Stitch (design narrative e schermate di wiki, news, history e Code). Quelle esportazioni non sono più nel repository. La fonte di verità oggi sono questo documento e il codice in `lib/src/core/theme/`: se un valore qui e nel codice non coincidono, si aggiornano entrambi.
 
 ## Colori
 
-La dark mode e il riferimento canonico.
+Il tema scuro è il riferimento. Il tema chiaro usa gli stessi ruoli con valori propri. I valori sono in `lib/src/core/theme/app_colors.dart` e `lib/src/core/theme/app_theme.dart`.
 
-| Token | Dark | Light warm |
-|---|---:|---:|
-| Primary | `#ffb874` | `#f7931a` |
-| Primary container | `#f7931a` | `#ffdcbf` |
-| Surface | `#131313` | `#fffbff` |
-| Surface container lowest | `#0e0e0e` | `#ffffff` |
-| Surface container low | `#1c1b1b` | `#faf1ec` |
-| Surface container | `#201f1f` | `#f4ebe6` |
-| Surface container high | `#2a2a2a` | `#eee6e0` |
-| Surface container highest | `#353534` | `#e8e0db` |
-| On surface | `#e5e2e1` | `#201a18` |
-| On surface variant | `#dbc2ae` | `#52443d` |
-| Outline | `#a38d7b` | `#85736b` |
-| Outline variant | `#554335` | `#d7c2b9` |
+Ruoli di `ColorScheme`:
 
-Status colors:
+| Ruolo | Uso | Dark | Light |
+|---|---|---:|---:|
+| `surface` | sfondo schermata | `#0B0D10` | `#FAF7F2` |
+| `surfaceContainerLow`, `surfaceContainer` | sfondo card | `#14171C` | `#FFFFFF` |
+| `surfaceContainerHigh`, `surfaceContainerHighest` | tile dentro una card, track del segmented control, tab bar | `#1C2027` | `#F1ECE4` |
+| `outlineVariant` | bordo card, divisori | `#262B33` | `#E4DDD2` |
+| `onSurface` | testo principale | `#F2EDE4` | `#1A1613` |
+| `onSurfaceVariant` | testo secondario e meta | `#A9A49B` | `#5F5850` |
+| `primary` | accento come testo, link o icona | `#F7931A` | `#B35C00` |
+| `primaryContainer` | accento come fondo: chip e segmento selezionati, bottone primario, progresso | `#F7931A` | `#F7931A` |
+| `onPrimaryContainer` | testo o icona sul fondo accento | `#1A0E00` | `#1A0E00` |
 
-- Active / Final: green (`AppColors.success`)
-- Draft / Proposed: orange/amber (`AppColors.warning`)
-- Rejected / Withdrawn: red (`AppColors.error`)
+Colori extra in `SatoColors`, letti con `context.sato` (`lib/src/core/theme/sato_colors.dart`):
+
+| Token | Dark | Light | Uso |
+|---|---:|---:|---|
+| `accentTint` | `#2C2011` | `#FFF0DC` | tab attiva, tile icona |
+| `statusDeployed` | `#4ADE80` | `#15803D` | stato Deployed |
+| `statusComplete` | `#7DD3FC` | `#0369A1` | stato Complete |
+| `statusDraft` | `#FBBF24` | `#A16207` | stato Draft |
+| `statusClosed` | `#A9A49B` | `#5F5850` | stato Closed |
+| `borderStrong` | `#2E343D` | `#D6CEC1` | bordo della tab bar |
+
+Regole:
+
+- Nei widget i colori si leggono da `Theme.of(context).colorScheme` e da `context.sato`. Niente hex locali.
+- Lo stato non è mai indicato solo dal colore: `StatusPill`, `BipStatusPill` e `StatusBadge` mostrano sempre un testo.
+- Il colore di ogni stato BIP viene da `bipStatusColor` (`status_pill.dart`).
 
 ## Tipografia
 
-Target:
+Font, definiti in `AppFonts` (`lib/src/core/theme/app_tokens.dart`):
 
-- Inter per display, headline, title e body.
-- JetBrains Mono per label tecniche, BIP number, metadata, read time, code snippets.
+- Space Grotesk (`AppFonts.display`) per titoli e numeri grandi.
+- Inter (`AppFonts.body`) per testo corrente, label e font di base del tema.
+- JetBrains Mono (`AppFonts.mono`) solo per dati (date, versioni, conteggi) e label maiuscole.
 
-Scala:
+I tre font sono asset locali in `assets/fonts/` e sono dichiarati in `pubspec.yaml`, quindi non dipendono dai font di sistema. Space Grotesk è un file variabile.
 
-- Display: 57/64, weight 700
-- Headline: 32/40, weight 600
-- Mobile headline: 28/36, weight 600
-- Title: 22/28, weight 500
-- Body large: 18/28
-- Body medium: 16/24
-- Label mono: 14/20, weight 500
-- Code mono: 13/18
+Scala di `TextTheme` (`lib/src/core/theme/app_theme.dart`):
 
-Nota implementativa: al momento il tema dichiara `Inter` e `JetBrains Mono`. Prima della release v1, i font vanno aggiunti come asset locali nel `pubspec.yaml` per evitare fallback diversi tra piattaforme.
+| Ruolo | Font, peso | Dimensione / linea | Uso |
+|---|---|---:|---|
+| `displayLarge` | Space Grotesk 700 | 44 / 48 | riserva, non usato nelle schermate |
+| `displayMedium` | Space Grotesk 700 | 40 / 44 | riserva, non usato nelle schermate |
+| `displaySmall` | Space Grotesk 700 | 36 / 40 | titolo della schermata Oggi |
+| `headlineLarge` | Space Grotesk 700 | 32 / 36 | titolo di schermata a tab, titolo del reader |
+| `headlineMedium` | Space Grotesk 700 | 28 / 33 | titolo di dettaglio (BIP, release, impostazioni) |
+| `headlineSmall` | Space Grotesk 700 | 24 / 28 | card in evidenza, numeri grandi |
+| `titleLarge` | Space Grotesk 600 | 17 / 22 | titolo di sezione, titolo di card |
+| `titleMedium` | Space Grotesk 600 | 16 / 20 | titolo di tile piccola |
+| `titleSmall` | Inter 500 | 15 / 20 | etichetta di riga |
+| `bodyLarge` | Inter 400 | 17 / 28 | testo lungo da leggere |
+| `bodyMedium` | Inter 400 | 15 / 22 | testo corrente |
+| `bodySmall` | Inter 400 | 13 / 18, `onSurfaceVariant` | riga di meta |
+| `labelLarge` | Inter 500 | 14 / 20 | chip, bottoni, link |
+| `labelMedium` | JetBrains Mono 500 | 12 / 16, `onSurfaceVariant` | dati: date, versioni, conteggi |
+| `labelSmall` | JetBrains Mono 700 | 11 / 14 | label maiuscola di categoria, pillola di stato |
 
-## Spacing e shape
+I titoli grandi hanno un letter spacing negativo (da -0.3 su `headlineSmall` a -0.8 su `displaySmall`).
 
-- Baseline spacing: 8dp.
-- Margine mobile: 16dp.
-- Gutter: 24dp.
-- Content max width per reader/tablet: 800dp.
-- App bar: 64dp.
-- Bottom navigation: include safe area e padding inferiore generoso.
+## Spaziature, raggi e forme
 
-Radius:
+Token in `lib/src/core/theme/app_tokens.dart`:
 
-- Small: 2dp.
-- Controls: 4dp.
-- Cards and media: 8dp.
-- Bottom nav top corners: 12dp.
-- Pills/chips: fully rounded quando il componente e semanticamente un filtro o uno status.
+- `AppSpacing`: `xs` 4, `sm` 8, `md` 12, `lg` 16, `gutter` 20, `xl` 24, `section` 28.
+- `AppSpacing.gutter` (20) è il margine laterale delle schermate.
+- `AppSpacing.section` (28) è la distanza tra i blocchi di una schermata.
+- `AppSpacing.tabBarClearance` (120) è il padding inferiore delle schermate a tab, così il contenuto resta sopra la tab bar.
+- `AppRadii`: `thumb` 12, `tile` 14, `card` 20, `media` 24, `pill` 999.
+- `thumb` per le miniature, `tile` per le tile e le SnackBar, `card` per `ContentCard`, `media` per immagini principali, bottom sheet e dialog, `pill` per chip, tag, pillole di stato, segmented control e barra di progresso.
+- La tab bar usa un raggio fisso di 28.
+
+Forme e dimensioni da `AppTheme`:
+
+- Card: raggio `card`, bordo di 1 px in `outlineVariant`, nessuna elevazione.
+- Divisori: 1 px in `outlineVariant`.
+- Bottone pieno: forma a stadio, fondo `primaryContainer`, altezza minima 52.
+- Bottone di testo e icon button: dimensione minima 44 x 44.
+- Chip: forma a stadio con bordo `outlineVariant`.
+- Bottom sheet e dialog: raggio `media`.
+
+Layout delle schermate:
+
+- Schermate a tab (`ScreenHeader`): titolo in alto, padding superiore uguale al padding di sistema più 16, margine laterale `gutter`, padding inferiore `tabBarClearance`.
+- Schermate di dettaglio (`DetailScaffold`): riga con pulsante indietro di 44 px, barra di progresso opzionale sotto la riga, corpo con margine laterale `gutter` e padding inferiore 32 più il margine di sistema.
+- Tab bar: flottante, con margine di 16 su tre lati e padding interno `sm`.
 
 ## Componenti
 
-App scaffold:
+Navigazione e scaffold:
 
-- Top app bar 64dp, `surface`, bordo inferiore `outlineVariant`, titolo centrato in primary.
-- Icon button menu/search con target minimo 44dp.
-- Bottom nav a 4 tab: Wiki, News, History, Code.
-- Tab attivo: primary container, testo/icon on-primary-container, icona filled.
+- `SatoScaffold`: `Scaffold` con corpo esteso sotto la tab bar. Nessuna AppBar.
+- `SatoTabBar`: barra flottante a pillola con cinque tab (Oggi, Wiki, News, History, Code). Ogni tab mostra icona ed etichetta. La tab attiva usa `accentTint` con colore `primary`.
+- Il corpo delle tab è un `IndexedStack`: cambiare tab conserva filtri e posizione di scroll.
+- `ScreenHeader`: blocco superiore delle schermate a tab, con titolo, sottotitolo opzionale e azioni.
+- La schermata Oggi usa una propria riga superiore (`_TopBar` in `today_screen.dart`) al posto di `ScreenHeader`.
+- `DetailScaffold`: schermata push con pulsante indietro, titolo opzionale, azioni, barra di progresso opzionale e corpo scrollabile. Il padding inferiore del corpo è 32 più il margine di sistema.
+- `RoundIconButton`: cerchio di 44 px su fondo card con bordo `outlineVariant`. Ogni pulsante con sola icona ha un `tooltip`.
 
-Cards:
+Card e contenuti:
 
-- Tonal elevation, nessuna ombra pesante.
-- Bordo 1dp outline variant.
-- Padding 16/20/24 in base alla densita.
-- Hover/pressed: surface container high.
+- `ContentCard`: card tappabile con padding di default 16 e raggio `card`. Accetta un `trailing` opzionale.
+- `SatoGroupCard`: una card con righe separate da divisori di 1 px.
+- `SectionTitle`: titolo di sezione.
+- `ContentThumbnail`: copertina del contenuto con raggio `thumb`. Se il file manca, mostra un'icona su una tile.
+- `MetaLine`: label maiuscola in accento, seguita dai metadati separati da punti medi, in `labelMedium`.
+- `TagPill`: tag di sola lettura sotto i contenuti.
+- `RelatedLinksGrid`: collegamenti correlati in due colonne.
+- `SourcesDisclosure`: fonti in un blocco a scomparsa.
+- `MetadataRow`: metadati come chip.
 
-Chips:
+Filtri e selezione:
 
-- Filter chip: mono 14px, pill, padding orizzontale 16dp.
-- Tag content: `#Mining`, `#Consensus`, ecc. con testo primary e surface variant.
-- BIP/status badge: mono, uppercase, dot colorato dove utile.
+- `FilterChipBar`: filtri orizzontali a pillola.
+- `SatoSegmentedControl`: track a pillola con segmenti uguali. Il segmento selezionato usa `primaryContainer`.
+- `ReadingLevelSelector`: Base, Medio, Avanzato, costruito su `SatoSegmentedControl`. La scelta è salvata nelle impostazioni.
 
-Reader:
+Stati:
 
-- Titolo grande, metadati mono, tag sopra/sotto il titolo.
-- Hero media con radius 8dp e bordo leggero.
-- Callout con bordo sinistro primary.
-- Related links e Sources/References in fondo.
+- `StatusPill`: punto di 6 px e testo in `labelSmall`, su un fondo del colore di stato al 12% di opacità.
+- `BipStatusPill`: `StatusPill` per lo stato di un BIP.
+- `StatusBadge`: badge per lo stato di contenuti e release, con testo e punto. Il punto si può nascondere con `showDot`.
 
-Reading level selector:
+Lettura:
 
-- Tre opzioni: Base, Medio, Avanzato.
-- Selettore compatto sotto il titolo.
-- Stato attivo in primary container.
-- La preferenza utente deve essere persistita.
+- `ReaderHeader`: titolo, metadati e tag in cima ai contenuti lunghi.
+- `HeroMedia`: immagine principale con raggio `media`.
+- `MarkdownText`: corpo in Markdown. Le citazioni hanno un bordo sinistro di 3 px in `primary`.
+- `ContentImageFigure`: immagine nel corpo. Un tap apre l'anteprima a schermo intero.
+- `SatoProgressBar`: barra di progresso sottile a pillola.
+- `BookmarkButton`: `RoundIconButton` che salva o rimuove il segnalibro. Non appare se non c'è `AppSettingsScope` sopra.
 
-Implementazione Flutter:
+Ricerca:
 
-- `SatoScaffold`: app bar, bottom navigation e shell tab.
-- `ContentCard`: card tonale con bordo sottile e padding configurabile.
-- `FilterChipBar`: filtri orizzontali compatti.
-- `MetadataRow`: tag, read time, autore e metadati mono.
-- `ReadingLevelSelector`: selettore Base / Medio / Avanzato.
-- `StatusBadge`: stati BIP e release con label e dot, non solo colore.
-- `ReaderHeader`, `HeroMedia`, `SourcesDisclosure`, `RelatedLinksGrid`: blocchi reader riusabili.
-- Golden test componenti critici: `test/core_widgets_golden_test.dart`.
+- I risultati sono raggruppati per sezione (`SearchSection`).
+- La schermata mostra le ricerche recenti (massimo 6, con pulsante per cancellarle) e alcuni suggerimenti quando il campo è vuoto.
+
+Aggiornamento contenuti:
+
+- `UpdateProgressBanner`: banner in basso sopra la tab bar, non bloccante, con stato e avanzamento del download o dell'installazione. L'utente può chiuderlo; sparisce da solo a fine aggiornamento o dopo un errore.
 
 ## Regole di qualita UI
 

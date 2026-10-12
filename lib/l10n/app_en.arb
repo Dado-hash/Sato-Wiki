@@ -5,54 +5,21 @@
   "newsTab": "News",
   "historyTab": "History",
   "codeTab": "Code",
-  "languageSelectorTooltip": "Language",
   "searchTooltip": "Search",
   "languageTitle": "Language",
   "languageSystemDefault": "System Default",
   "languageEnglish": "English",
   "languageItalian": "Italiano",
-  "orangeBookTitle": "The Orange Book",
-  "wikiOverviewSubtitle": "A technical encyclopedia for Bitcoin readers.",
-  "knowledgeBase": "Knowledge Base",
   "categoryProtocol": "Protocol",
-  "categoryProtocolDescription": "Core consensus rules, node architecture, and network topography.",
   "categoryCryptography": "Cryptography",
-  "categoryCryptographyDescription": "Elliptic curve mathematics, hash functions, and signature schemes.",
   "categoryLightningNetwork": "Lightning Network",
-  "categoryLightningNetworkDescription": "Layer 2 scaling, payment channels, and routing mechanisms.",
   "categoryEconomics": "Economics",
-  "categoryEconomicsDescription": "Game theory, incentives, difficulty adjustment, and supply issuance.",
-  "categoryBips": "BIPs",
   "categoryConsensus": "Consensus",
-  "categorySecp256k1": "Secp256k1",
-  "categorySha256": "SHA-256",
-  "categoryBolts": "BOLTs",
-  "categoryChannels": "Channels",
-  "categoryHalving": "Halving",
-  "categoryDifficulty": "Difficulty",
   "categoryAdoption": "Adoption",
   "categoryOrigin": "Origin",
   "categoryRegulation": "Regulation",
   "categorySecurity": "Security",
-  "wikiEntriesInCategory": "Wiki entries in {category}.",
-  "@wikiEntriesInCategory": {
-    "placeholders": {
-      "category": {
-        "type": "String"
-      }
-    }
-  },
-  "wikiEntriesInThisCategory": "Wiki entries in this category.",
   "all": "All",
-  "coreConcept": "Core Concept",
-  "minRead": "{minutes} min read",
-  "@minRead": {
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
   "shortMin": "{minutes} min",
   "@shortMin": {
     "placeholders": {
@@ -72,52 +39,33 @@
   "relatedConcepts": "Related Concepts",
   "wikiEntryNotFound": "Wiki entry not found",
   "readingLevelBase": "Base",
-  "readingLevelMedium": "Medio",
-  "readingLevelAdvanced": "Avanzato",
+  "readingLevelMedium": "Medium",
+  "readingLevelAdvanced": "Advanced",
   "sourcesAndReferences": "Sources & References",
   "newsTitle": "News",
   "newsSubtitle": "Long-form Bitcoin analysis from the community.",
-  "editorial": "Editorial",
-  "latestAnalysis": "Latest analysis",
   "articleNotFound": "Article not found",
-  "lightningTip": "Lightning Tip",
-  "lightningTipDescription": "Mock only. Payment wiring waits for privacy and UX definition.",
-  "lightningTipMockTitle": "Lightning Tip mock",
-  "noLightningAddress": "No Lightning address configured.",
   "close": "Close",
-  "sendTip": "Send Tip",
   "market": "Market",
   "regulatory": "Regulatory",
   "culture": "Culture",
   "development": "Development",
   "historyTitle": "History",
   "historySubtitle": "Milestones and context from Bitcoin time.",
-  "timelineMetadata": "Timeline",
-  "onThisDay": "On this day",
-  "noEventToday": "No event today",
-  "noEventTodayDescription": "Historic events connected to the current date will be surfaced here.",
   "allEvents": "All Events",
   "community": "Community",
   "historyEventNotFound": "History event not found",
-  "codeDashboardTitle": "Code Dashboard",
-  "codeDashboardSubtitle": "Track Bitcoin Improvement Proposals (BIPs) and recent core changes.",
-  "filter": "Filter",
   "recentBips": "Recent BIPs",
   "allBipsTitle": "All BIPs",
-  "allBipsSubtitle": "Browse Bitcoin Improvement Proposals by status and number.",
   "noBipsMatchFilter": "No BIPs match this filter.",
+  "noBipsAvailable": "No BIPs available yet.",
   "bipNumberDescending": "Highest BIP #",
   "bipNumberAscending": "Lowest BIP #",
-  "bipTracker": "BIP Tracker",
-  "deployedUpper": "DEPLOYED",
-  "activeUpper": "ACTIVE",
-  "draftUpper": "DRAFT",
-  "closedUpper": "CLOSED",
-  "rejectedUpper": "REJECTED",
   "changelog": "Changelog",
   "noRecentReleases": "No recent releases.",
   "bipNotFound": "BIP not found",
   "releaseNotFound": "Release not found",
+  "openLinkFailed": "Could not open the link.",
   "statusActive": "Active",
   "statusFinal": "Final",
   "statusDraft": "Draft",
@@ -129,27 +77,16 @@
   "statusRejected": "Rejected",
   "statusMajor": "Major",
   "statusMinor": "Minor",
+  "statusPatch": "Patch",
   "authors": "Authors",
   "created": "Created",
-  "layer": "Layer",
-  "plainEnglishSummary": "Plain English Summary",
   "practicalImpact": "Practical Impact",
   "statusHistory": "Status History",
-  "viewOfficialTextOnGitHub": "View Official Text on GitHub",
   "userImpact": "User Impact",
   "technicalChanges": "Technical Changes",
-  "searchTitle": "Search",
-  "searchSubtitle": "Find local content by title, tag and summary.",
   "searchHint": "Search Bitcoin knowledge",
   "noLocalResultFound": "No local result found.",
-  "trySearchExamples": "Try: Proof of Work, Taproot, Pizza Day",
   "routeNotFound": "Route not found",
-  "wikiCategoryTitle": "Wiki category",
-  "wikiEntryTitle": "Wiki entry",
-  "newsArticleTitle": "News article",
-  "historyEventTitle": "History event",
-  "bipDetailTitle": "BIP detail",
-  "changelogTitle": "Changelog",
   "contentUpdateTitle": "Content Update",
   "contentUpdateAvailable": "New content is ready to download.",
   "contentUpdateChecking": "Checking for updates...",
@@ -164,5 +101,158 @@
   },
   "contentUpdateInstalling": "Installing update...",
   "contentUpdateDone": "Update complete!",
-  "contentUpdateError": "Update failed. Content is unchanged."
+  "contentUpdateError": "Update failed. Content is unchanged.",
+  "todayTab": "Today",
+  "todayHeadlineLead": "The orange book of",
+  "todayHeadlineAccent": "Bitcoin",
+  "continueReading": "Continue reading",
+  "minutesLeft": "{minutes} min left",
+  "@minutesLeft": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "readPercent": "{percent}% read",
+  "@readPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "featured": "Featured",
+  "allEntries": "All entries",
+  "nextAnniversary": "Next anniversary",
+  "onThisDayTitle": "On this day",
+  "inDays": "in {days} days",
+  "@inDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "tomorrow": "tomorrow",
+  "today": "today",
+  "fromTheCode": "From the code",
+  "seeAll": "See all",
+  "latestNews": "Latest news",
+  "settingsTitle": "Settings",
+  "settingsTooltip": "Settings",
+  "back": "Back",
+  "entriesInCategories": "{entries} entries in {categories} categories",
+  "@entriesInCategories": {
+    "placeholders": {
+      "entries": {
+        "type": "int"
+      },
+      "categories": {
+        "type": "int"
+      }
+    }
+  },
+  "entriesCount": "{count} entries",
+  "@entriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchWikiHint": "Search the wiki",
+  "readingLevelTitle": "Reading level",
+  "readingLevelAppliesToAll": "Applies to every entry",
+  "categories": "Categories",
+  "toExplore": "To explore",
+  "eventsFromTo": "{count} events from {from} to {to}",
+  "@eventsFromTo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "from": {
+        "type": "int"
+      },
+      "to": {
+        "type": "int"
+      }
+    }
+  },
+  "codeSummary": "{bips} BIPs and {releases} Bitcoin Core releases",
+  "@codeSummary": {
+    "placeholders": {
+      "bips": {
+        "type": "int"
+      },
+      "releases": {
+        "type": "int"
+      }
+    }
+  },
+  "bipStatusTitle": "BIP status",
+  "totalCount": "{count} total",
+  "@totalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "allCount": "All {count}",
+  "@allCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "releases": "Releases",
+  "allReleasesTitle": "All releases",
+  "bipType": "Type",
+  "inPlainWords": "In plain words",
+  "readMoreInWiki": "Read more in the wiki",
+  "officialTextOnGitHub": "Official text on GitHub",
+  "officialReleaseNotes": "Official release notes",
+  "version": "Version",
+  "released": "Released",
+  "textSize": "Text size",
+  "saveBookmark": "Save to bookmarks",
+  "removeBookmark": "Remove from bookmarks",
+  "bookmarks": "Bookmarks",
+  "noBookmarks": "Nothing saved yet.",
+  "noBookmarksHint": "Tap the bookmark on an entry to find it here.",
+  "clearSearch": "Clear search",
+  "recentSearches": "Recent searches",
+  "suggestedSearches": "Suggestions",
+  "clearRecentSearches": "Clear",
+  "noResultsFor": "No results for \"{query}\".",
+  "@noResultsFor": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsReading": "Reading",
+  "defaultLevel": "Default level",
+  "settingsAppearance": "Appearance",
+  "theme": "Theme",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "settingsContent": "Content",
+  "contentVersion": "Content version",
+  "upToDate": "Up to date",
+  "updating": "Updating",
+  "checkForUpdates": "Check for updates",
+  "settingsAbout": "About",
+  "openSourceLicenses": "Open source licenses",
+  "categoryApplications": "Applications",
+  "categoryPeerServices": "Peer services",
+  "categoryInformational": "Informational",
+  "categoryProcess": "Process",
+  "categoryApiRpc": "API/RPC",
+  "categorySpecification": "Specification"
 }

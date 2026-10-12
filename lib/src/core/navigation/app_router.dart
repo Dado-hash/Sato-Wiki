@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../features/code/presentation/code_dashboard_screen.dart';
+import '../../features/code/presentation/release_list_screen.dart';
 import '../../features/history/presentation/history_timeline_screen.dart';
 import '../../features/news/presentation/news_feed_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
+import '../../features/settings/presentation/bookmarks_screen.dart';
+import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
 import '../../features/wiki/presentation/wiki_overview_screen.dart';
 import '../content/app_content.dart';
 import '../content/application/app_content_controller.dart';
 import '../settings/app_settings_controller.dart';
 import '../widgets/content_media_scope.dart';
+import '../widgets/detail_scaffold.dart';
 import '../../generated/l10n/app_localizations.dart';
 import 'app_routes.dart';
 import 'sato_wiki_tab.dart';
@@ -41,10 +45,40 @@ abstract final class AppRouter {
       );
     }
 
+    if (routeName == AppRoutes.settings) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => SettingsScreen(
+          settings: settingsController,
+          content: contentController,
+        ),
+      );
+    }
+
+    if (routeName == AppRoutes.bookmarks) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => AnimatedBuilder(
+          animation: contentController,
+          builder: (_, _) {
+            final appContent = contentController.content;
+
+            return ContentMediaScope(
+              resolver: appContent.mediaResolver,
+              child: BookmarksScreen(
+                store: appContent.store,
+                settings: settingsController,
+              ),
+            );
+          },
+        ),
+      );
+    }
+
     final target = DeepLinkTarget.tryParse(routeName);
     if (target != null) {
-      settingsController.setLastTab(target.tab);
-
+      // Content screens do not change the last tab: related links push them
+      // on top of the current tab, which must stay visible behind them.
       return MaterialPageRoute<void>(
         settings: settings,
         builder: (_) => AnimatedBuilder(
@@ -80,10 +114,12 @@ abstract final class AppRouter {
       return null;
     }
 
+    // Only a deep link to another tab changes anything here: the initial
+    // route and tab taps already carry the last tab, so this is a no-op.
     settingsController.setLastTab(tab);
 
     return MaterialPageRoute<void>(
-      settings: RouteSettings(name: tab.routePath),
+      settings: const RouteSettings(name: AppRoutes.root),
       builder: (_) => SatoWikiShell(
         settingsController: settingsController,
         contentController: contentController,
@@ -133,6 +169,12 @@ abstract final class AppRouter {
       return BipListScreen(store: appContent.store);
     }
 
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'changelogs') {
+      return ReleaseListScreen(store: appContent.store);
+    }
+
     if (segments.length == 3 &&
         segments[0] == 'code' &&
         segments[1] == 'bips') {
@@ -152,21 +194,13 @@ abstract final class AppRouter {
       );
     }
 
-    return DeepLinkPlaceholderScreen(target: target);
+    return UnknownRouteScreen(routeName: target.routeName);
   }
 }
 
 final class DeepLinkTarget {
-  const DeepLinkTarget({
-    required this.tab,
-    required this.title,
-    required this.metadata,
-    required this.routeName,
-  });
+  const DeepLinkTarget({required this.routeName});
 
-  final SatoWikiTab tab;
-  final String title;
-  final String metadata;
   final String routeName;
 
   static DeepLinkTarget? tryParse(String routeName) {
@@ -175,132 +209,52 @@ final class DeepLinkTarget {
     if (segments.length == 3 &&
         segments[0] == 'wiki' &&
         segments[1] == 'categories') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.wiki,
-        title: 'Wiki category',
-        metadata: segments[2],
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
     }
 
     if (segments.length == 3 &&
         segments[0] == 'wiki' &&
         segments[1] == 'entries') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.wiki,
-        title: 'Wiki entry',
-        metadata: segments[2],
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
     }
 
     if (segments.length == 3 &&
         segments[0] == 'news' &&
         segments[1] == 'articles') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.news,
-        title: 'News article',
-        metadata: segments[2],
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
     }
 
     if (segments.length == 3 &&
         segments[0] == 'history' &&
         segments[1] == 'events') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.history,
-        title: 'History event',
-        metadata: segments[2],
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
     }
 
     if (segments.length == 2 &&
         segments[0] == 'code' &&
         segments[1] == 'bips') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.code,
-        title: 'BIP list',
-        metadata: 'All BIPs',
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'changelogs') {
+      return DeepLinkTarget(routeName: routeName);
     }
 
     if (segments.length == 3 &&
         segments[0] == 'code' &&
         segments[1] == 'bips') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.code,
-        title: 'BIP detail',
-        metadata: 'BIP ${segments[2]}',
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
     }
 
     if (segments.length == 4 &&
         segments[0] == 'code' &&
         segments[1] == 'changelogs') {
-      return DeepLinkTarget(
-        tab: SatoWikiTab.code,
-        title: 'Changelog',
-        metadata: '${segments[2]} ${segments[3]}',
-        routeName: routeName,
-      );
+      return DeepLinkTarget(routeName: routeName);
     }
 
     return null;
-  }
-}
-
-class DeepLinkPlaceholderScreen extends StatelessWidget {
-  const DeepLinkPlaceholderScreen({required this.target, super.key});
-
-  final DeepLinkTarget target;
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
-    final l10n = AppLocalizations.of(context);
-
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.appTitle)),
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 800),
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: colorScheme.surfaceContainer,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: colorScheme.outlineVariant),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      _localizedTargetTitle(target, l10n),
-                      style: textTheme.headlineLarge?.copyWith(
-                        color: colorScheme.primary,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(target.metadata, style: textTheme.titleLarge),
-                    const SizedBox(height: 12),
-                    Text(target.routeName, style: textTheme.labelLarge),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }
 
@@ -314,46 +268,9 @@ class UnknownRouteScreen extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context);
 
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.appTitle)),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(l10n.routeNotFound, style: textTheme.headlineLarge),
-              const SizedBox(height: 8),
-              Text(routeName, style: textTheme.labelLarge),
-            ],
-          ),
-        ),
-      ),
+    return DetailScaffold(
+      title: l10n.routeNotFound,
+      children: [Text(routeName, style: textTheme.labelMedium)],
     );
   }
-}
-
-String _localizedTargetTitle(DeepLinkTarget target, AppLocalizations l10n) {
-  final segments = Uri.parse(target.routeName).pathSegments;
-  if (segments.length >= 2 && segments[0] == 'wiki') {
-    return segments[1] == 'categories'
-        ? l10n.wikiCategoryTitle
-        : l10n.wikiEntryTitle;
-  }
-  if (segments.length >= 2 && segments[0] == 'news') {
-    return l10n.newsArticleTitle;
-  }
-  if (segments.length >= 2 && segments[0] == 'history') {
-    return l10n.historyEventTitle;
-  }
-  if (segments.length >= 2 && segments[0] == 'code' && segments[1] == 'bips') {
-    return segments.length == 2 ? l10n.allBipsTitle : l10n.bipDetailTitle;
-  }
-  if (segments.length >= 2 &&
-      segments[0] == 'code' &&
-      segments[1] == 'changelogs') {
-    return l10n.changelogTitle;
-  }
-
-  return target.title;
 }

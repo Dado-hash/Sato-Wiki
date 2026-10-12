@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -43,6 +44,109 @@ void main() {
     expect(taproot.first.route, '/code/bips/341');
     expect(mining.first.route, '/wiki/entries/mining-energy-economics');
   });
+
+  group('search ranking', () {
+    late SearchIndex fixture;
+
+    setUpAll(() {
+      fixture = SearchIndex.fromBundle(_searchFixtureBundle());
+    });
+
+    test('folds accents and case', () {
+      expect(_titles(fixture.search('perche')), ['Perché usare il Bitcoin']);
+      expect(_titles(fixture.search('PERCHÉ')), ['Perché usare il Bitcoin']);
+    });
+
+    test('requires every token and treats dashes as spaces', () {
+      expect(_titles(fixture.search('proof work')), ['Proof-of-work basics']);
+      expect(fixture.search('proof signature'), isEmpty);
+    });
+
+    test('ranks whole-title matches first', () {
+      final results = _titles(fixture.search('mining pool'));
+
+      expect(results, ['Mining pool basics', 'Pool of mining']);
+    });
+
+    test('orders ties by title then id and is stable across calls', () {
+      final first = fixture.search('mining', sections: {SearchSection.wiki});
+      final second = fixture.search('mining', sections: {SearchSection.wiki});
+
+      // Whole-title matches score 16 and sort by title; the summary-only
+      // match in "Pool of mining" scores lower and comes last.
+      expect(_titles(first), [
+        'Mining alpha',
+        'Mining beta',
+        'Mining beta',
+        'Mining pool basics',
+        'Pool of mining',
+      ]);
+      expect(first.map((r) => r.id).toList(), [
+        'wiki.alpha',
+        'wiki.beta-a',
+        'wiki.beta-b',
+        'wiki.pool-title',
+        'wiki.pool-summary',
+      ]);
+      expect(first.map((r) => r.id).toList(), second.map((r) => r.id).toList());
+    });
+
+    test('empty and punctuation-only queries return nothing', () {
+      expect(fixture.search('   '), isEmpty);
+      expect(fixture.search('---'), isEmpty);
+    });
+  });
+}
+
+List<String> _titles(List<SearchResult> results) =>
+    results.map((result) => result.title).toList();
+
+ContentBundle _searchFixtureBundle() {
+  Map<String, Object?> entry(
+    String id,
+    String title, {
+    String summary = 'Summary.',
+  }) {
+    const body = {'bodyMarkdown': 'Body.'};
+
+    return {
+      'id': id,
+      'slug': id.substring('wiki.'.length),
+      'language': 'en',
+      'category': 'protocol',
+      'title': title,
+      'description': summary,
+      'readingLevels': {'base': body, 'medium': body, 'advanced': body},
+      'difficulty': 'base',
+      'readTimeMinutes': 2,
+      'tags': <String>[],
+      'sources': <Object?>[],
+      'related': <Object?>[],
+      'updatedAt': '2026-05-25T00:00:00Z',
+    };
+  }
+
+  final json = jsonEncode({
+    'schemaVersion': 1,
+    'version': 'test',
+    'language': 'en',
+    'generatedAt': '2026-05-25T00:00:00Z',
+    'wiki': [
+      entry('wiki.perche', 'Perché usare il Bitcoin'),
+      entry('wiki.pow', 'Proof-of-work basics'),
+      entry('wiki.pool-title', 'Mining pool basics'),
+      entry('wiki.pool-summary', 'Pool of mining'),
+      entry('wiki.beta-b', 'Mining beta'),
+      entry('wiki.beta-a', 'Mining beta'),
+      entry('wiki.alpha', 'Mining alpha'),
+    ],
+    'news': <Object?>[],
+    'history': <Object?>[],
+    'bips': <Object?>[],
+    'changelogs': <Object?>[],
+  });
+
+  return ContentBundleParser.parseJson(json).bundle;
 }
 
 const _codeFixtureJson = '''

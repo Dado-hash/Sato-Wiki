@@ -40,7 +40,7 @@ void main() {
     );
 
     expect(find.text('Proof of Work'), findsOneWidget);
-    expect(find.text('Medio'), findsOneWidget);
+    expect(find.text('Medium'), findsOneWidget);
     expect(find.text('ACTIVE'), findsOneWidget);
     expect(find.byType(ReaderHeader), findsOneWidget);
     expect(find.byType(ReadingLevelSelector), findsOneWidget);

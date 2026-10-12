@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -5,23 +6,33 @@ const codeAutomationPromptVersion = 'code-sync-v1';
 const defaultGeminiModel = 'gemini-3.1-flash-lite';
 
 typedef JsonMap = Map<String, Object?>;
+typedef RetrySleep = Future<void> Function(Duration delay);
+
+const _connectionTimeout = Duration(seconds: 15);
+const _githubRequestTimeout = Duration(seconds: 30);
+const _geminiRequestTimeout = Duration(seconds: 120);
+const _maxRequestAttempts = 3;
+const _retryBaseDelay = Duration(seconds: 2);
+const _bipStatusTags = {'Draft', 'Complete', 'Deployed', 'Closed'};
 
 Future<void> main(List<String> args) async {
-  final options = SyncCodeContentOptions.parse(args, Platform.environment);
-  final http = HttpCodeSourceClient(
-    githubToken: Platform.environment['GITHUB_TOKEN'],
-  );
-  final draftClient = options.skipAi
-      ? NullCodeContentDraftClient()
-      : GeminiCodeContentDraftClient.fromEnvironment(Platform.environment);
-  final sync = CodeContentSync(
-    options: options,
-    sourceClient: http,
-    draftClient: draftClient,
-    now: DateTime.now().toUtc(),
-  );
-
+  SyncCodeContentOptions? options;
+  HttpCodeSourceClient? http;
   try {
+    options = SyncCodeContentOptions.parse(args, Platform.environment);
+    http = HttpCodeSourceClient(
+      githubToken: Platform.environment['GITHUB_TOKEN'],
+    );
+    final draftClient = options.skipAi
+        ? NullCodeContentDraftClient()
+        : GeminiCodeContentDraftClient.fromEnvironment(Platform.environment);
+    final sync = CodeContentSync(
+      options: options,
+      sourceClient: http,
+      draftClient: draftClient,
+      now: DateTime.now().toUtc(),
+    );
+
     final report = await sync.run();
     stdout.writeln(report.toConsoleString());
     if (options.reportPath != null) {
@@ -31,12 +42,12 @@ Future<void> main(List<String> args) async {
     }
   } on Object catch (error, stackTrace) {
     stderr.writeln('sync_code_content failed: $error');
-    if (options.verbose) {
+    if (options?.verbose ?? false) {
       stderr.writeln(stackTrace);
     }
     exitCode = 1;
   } finally {
-    http.close();
+    http?.close();
   }
 }
 
@@ -135,12 +146,14 @@ final class CodeContentSync {
     required this.sourceClient,
     required this.draftClient,
     required this.now,
+    this.bundleDirectory = 'assets/content',
   });
 
   final SyncCodeContentOptions options;
   final CodeSourceClient sourceClient;
   final CodeContentDraftClient draftClient;
   final DateTime now;
+  final String bundleDirectory;
 
   Future<CodeSyncReport> run() async {
     final bips = await sourceClient.fetchBips();
@@ -150,7 +163,7 @@ final class CodeContentSync {
     final languageReports = <LanguageSyncReport>[];
 
     for (final language in options.languages) {
-      final bundlePath = 'assets/content/seed_bundle_$language.json';
+      final bundlePath = '$bundleDirectory/seed_bundle_$language.json';
       final bundleFile = File(bundlePath);
       if (!bundleFile.existsSync()) {
         throw StateError('Missing bundle file: $bundlePath');
@@ -192,20 +205,35 @@ final class CodeContentSync {
     final existingBips = _indexedById(bundle['bips']);
     final existingReleases = _indexedById(bundle['changelogs']);
     final changes = <String>[];
+    final warnings = <String>[];
 
     final updatedBips = <JsonMap>[];
     for (final source in sourceBips) {
       final id = 'code.bip.${source.number}';
       final existing = existingBips[id];
+      if (bipStatusOrNull(source.status) == null) {
+        final action = existing == null ? 'skipped' : 'kept unchanged';
+        final warning =
+            'BIP ${source.number}: unknown status "${source.status}", '
+            'record $action.';
+        warnings.add(warning);
+        stderr.writeln('warning: $warning');
+        if (existing != null) updatedBips.add(existing);
+        continue;
+      }
       final record = await _buildBipRecord(
         source: source,
         existing: existing,
         language: language,
+        warnings: warnings,
       );
-      updatedBips.add(record);
-      if (!_jsonDeepEquals(existing, record)) {
+      final unchanged = _isUnchanged(existing, record);
+      if (unchanged) {
+        record['updatedAt'] = existing!['updatedAt'];
+      } else {
         changes.add('BIP ${source.number}: ${source.title}');
       }
+      updatedBips.add(record);
     }
     updatedBips.sort(
       (a, b) => (a['number'] as int).compareTo(b['number'] as int),
@@ -219,11 +247,15 @@ final class CodeContentSync {
         source: source,
         existing: existing,
         language: language,
+        warnings: warnings,
       );
-      updatedReleases.add(record);
-      if (!_jsonDeepEquals(existing, record)) {
+      final unchanged = _isUnchanged(existing, record);
+      if (unchanged) {
+        record['updatedAt'] = existing!['updatedAt'];
+      } else {
         changes.add('Bitcoin Core ${source.version}');
       }
+      updatedReleases.add(record);
     }
     updatedReleases.sort((a, b) {
       final aVersion = VersionParts.parse(a['version'] as String);
@@ -234,7 +266,26 @@ final class CodeContentSync {
     final changed =
         !_jsonDeepEquals(bundle['bips'], updatedBips) ||
         !_jsonDeepEquals(bundle['changelogs'], updatedReleases);
+    return _finishLanguage(
+      bundle: bundle,
+      language: language,
+      changed: changed,
+      changes: changes,
+      warnings: warnings,
+      updatedBips: updatedBips,
+      updatedReleases: updatedReleases,
+    );
+  }
 
+  LanguageSyncReport _finishLanguage({
+    required JsonMap bundle,
+    required String language,
+    required bool changed,
+    required List<String> changes,
+    required List<String> warnings,
+    required List<JsonMap> updatedBips,
+    required List<JsonMap> updatedReleases,
+  }) {
     bundle['bips'] = updatedBips;
     bundle['changelogs'] = updatedReleases;
     if (changed) {
@@ -246,6 +297,7 @@ final class CodeContentSync {
       language: language,
       changed: changed,
       changedItems: changes,
+      warnings: warnings,
       bipCount: updatedBips.length,
       releaseCount: updatedReleases.length,
     );
@@ -255,16 +307,39 @@ final class CodeContentSync {
     required SourceBip source,
     required JsonMap? existing,
     required String language,
+    required List<String> warnings,
   }) async {
     final existingAutomation = _automation(existing);
-    final aiManaged = _isAiManaged(existing);
     final upstreamChanged =
         existing != null && existingAutomation['upstreamSha'] != source.sha;
     final shouldGenerateDraft =
-        existing == null || (aiManaged && upstreamChanged);
-    final draft = shouldGenerateDraft
-        ? await draftClient.generateBipDraft(source, language)
+        existing == null ||
+        (_isAiManaged(existing) && upstreamChanged) ||
+        _stillHasPlaceholder(
+          existing,
+          'summaryMarkdown',
+          GeneratedDraft.bipFallback(source, language).summaryMarkdown,
+        );
+    final draftResult = shouldGenerateDraft
+        ? await _requestDraft(
+            () => draftClient.generateBipDraft(source, language),
+            label: 'BIP ${source.number} ($language)',
+            outcome: existing == null
+                ? 'placeholder text used'
+                : 'current text kept',
+            warnings: warnings,
+          )
         : null;
+    final draft = draftResult?.draft;
+    final upstreamSha = _upstreamShaToStore(
+      source.sha,
+      existingAutomation: existingAutomation,
+      deferred: _deferUpstream(
+        existing: existing,
+        shouldGenerateDraft: shouldGenerateDraft,
+        draftResult: draftResult,
+      ),
+    );
     final fallback = GeneratedDraft.bipFallback(source, language);
     final textDraft = draft ?? fallback;
     final statusHistory = _statusHistoryFor(
@@ -272,13 +347,19 @@ final class CodeContentSync {
       newStatus: source.status,
       sourceLabel: 'bitcoin/bips',
     );
+    final currentStatusTag = _titleCase(source.status);
 
     return {
       'id': 'code.bip.${source.number}',
       'number': source.number,
       'language': language,
       'title': source.title,
-      'summary': _preserveText(existing, 'summary', textDraft.summary),
+      'summary': _preserveText(
+        existing,
+        'summary',
+        textDraft.summary,
+        allowOverwrite: draft != null,
+      ),
       'status': source.status,
       'category': source.category,
       'authors': source.authors,
@@ -287,20 +368,22 @@ final class CodeContentSync {
         existing,
         'summaryMarkdown',
         textDraft.summaryMarkdown,
-        allowOverwrite: shouldGenerateDraft,
+        allowOverwrite: draft != null,
       ),
       'impactMarkdown': _preserveText(
         existing,
         'impactMarkdown',
         textDraft.impactMarkdown,
-        allowOverwrite: shouldGenerateDraft,
+        allowOverwrite: draft != null,
       ),
       'officialUrl': source.officialUrl,
-      'tags': _mergeTags(existing, [
-        'BIP',
-        _titleCase(source.category),
-        _titleCase(source.status),
-      ]),
+      'tags': _mergeTags(
+        existing,
+        ['BIP', _titleCase(source.category), currentStatusTag],
+        removeTags: _bipStatusTags
+            .where((tag) => tag != currentStatusTag)
+            .toSet(),
+      ),
       'sources': _preserveList(existing, 'sources', [
         {
           'title': 'BIP ${source.number}',
@@ -311,18 +394,13 @@ final class CodeContentSync {
       'related': _preserveList(existing, 'related', const []),
       'statusHistory': statusHistory,
       'updatedAt': now.toIso8601String(),
-      'automation': shouldGenerateDraft
-          ? _automationMetadata(
-              upstreamSha: source.sha,
-              upstreamUrl: source.officialUrl,
-              draft: draft,
-              needsReview: true,
-            )
-          : _syncedAutomationMetadata(
-              existingAutomation: existingAutomation,
-              upstreamSha: source.sha,
-              upstreamUrl: source.officialUrl,
-            ),
+      'automation': _recordAutomation(
+        existing: existing,
+        existingAutomation: existingAutomation,
+        draft: draft,
+        upstreamSha: upstreamSha,
+        upstreamUrl: source.officialUrl,
+      ),
     };
   }
 
@@ -330,18 +408,42 @@ final class CodeContentSync {
     required SourceRelease source,
     required JsonMap? existing,
     required String language,
+    required List<String> warnings,
   }) async {
     final existingAutomation = _automation(existing);
-    final aiManaged = _isAiManaged(existing);
     final upstreamChanged =
         existing != null && existingAutomation['upstreamSha'] != source.sha;
     final shouldGenerateDraft =
-        existing == null || (aiManaged && upstreamChanged);
-    final draft = shouldGenerateDraft
-        ? await draftClient.generateReleaseDraft(source, language)
+        existing == null ||
+        (_isAiManaged(existing) && upstreamChanged) ||
+        _stillHasPlaceholder(
+          existing,
+          'userImpactMarkdown',
+          GeneratedDraft.releaseFallback(source, language).userImpactMarkdown,
+        );
+    final draftResult = shouldGenerateDraft
+        ? await _requestDraft(
+            () => draftClient.generateReleaseDraft(source, language),
+            label: 'Bitcoin Core ${source.version} ($language)',
+            outcome: existing == null
+                ? 'placeholder text used'
+                : 'current text kept',
+            warnings: warnings,
+          )
         : null;
+    final draft = draftResult?.draft;
+    final upstreamSha = _upstreamShaToStore(
+      source.sha,
+      existingAutomation: existingAutomation,
+      deferred: _deferUpstream(
+        existing: existing,
+        shouldGenerateDraft: shouldGenerateDraft,
+        draftResult: draftResult,
+      ),
+    );
     final fallback = GeneratedDraft.releaseFallback(source, language);
     final textDraft = draft ?? fallback;
+    final existingReleasedAt = existing?['releasedAt'];
 
     return {
       'id': 'release.bitcoin-core.${source.version}',
@@ -350,8 +452,17 @@ final class CodeContentSync {
       'project': 'bitcoin-core',
       'version': source.version,
       'title': 'Bitcoin Core ${source.version}',
-      'summary': _preserveText(existing, 'summary', textDraft.summary),
-      'releasedAt': source.releasedAt ?? now.toIso8601String().split('T').first,
+      'summary': _preserveText(
+        existing,
+        'summary',
+        textDraft.summary,
+        allowOverwrite: draft != null,
+      ),
+      'releasedAt':
+          source.releasedAt ??
+          (existingReleasedAt is String
+              ? existingReleasedAt
+              : now.toIso8601String().split('T').first),
       'importance': _preserveText(
         existing,
         'importance',
@@ -362,13 +473,13 @@ final class CodeContentSync {
         existing,
         'userImpactMarkdown',
         textDraft.userImpactMarkdown,
-        allowOverwrite: shouldGenerateDraft,
+        allowOverwrite: draft != null,
       ),
       'technicalChangesMarkdown': _preserveText(
         existing,
         'technicalChangesMarkdown',
         textDraft.technicalChangesMarkdown,
-        allowOverwrite: shouldGenerateDraft,
+        allowOverwrite: draft != null,
       ),
       'officialUrl': source.officialUrl,
       'tags': _mergeTags(existing, ['Bitcoin Core', 'Release']),
@@ -386,28 +497,90 @@ final class CodeContentSync {
       ]),
       'related': _preserveList(existing, 'related', const []),
       'updatedAt': now.toIso8601String(),
-      'automation': shouldGenerateDraft
-          ? _automationMetadata(
-              upstreamSha: source.sha,
-              upstreamUrl: source.releaseNotesUrl,
-              draft: draft,
-              needsReview: true,
-            )
-          : _syncedAutomationMetadata(
-              existingAutomation: existingAutomation,
-              upstreamSha: source.sha,
-              upstreamUrl: source.releaseNotesUrl,
-            ),
+      'automation': _recordAutomation(
+        existing: existing,
+        existingAutomation: existingAutomation,
+        draft: draft,
+        upstreamSha: upstreamSha,
+        upstreamUrl: source.releaseNotesUrl,
+      ),
     };
   }
 
+  /// Runs a draft request. A thrown error is reported as a warning instead of
+  /// aborting the run; the caller decides which text to keep.
+  Future<({GeneratedDraft? draft, bool failed})> _requestDraft(
+    Future<GeneratedDraft?> Function() request, {
+    required String label,
+    required String outcome,
+    required List<String> warnings,
+  }) async {
+    try {
+      return (draft: await request(), failed: false);
+    } on Object catch (error) {
+      warnings.add(
+        '$label: AI draft failed after retries ($error); $outcome, '
+        'the next run will retry.',
+      );
+      return (draft: null, failed: true);
+    }
+  }
+
+  /// True when the draft is missing for a reason that should be retried on
+  /// the next run: an existing record whose draft was not produced, or a new
+  /// record whose draft request failed.
+  bool _deferUpstream({
+    required JsonMap? existing,
+    required bool shouldGenerateDraft,
+    required ({GeneratedDraft? draft, bool failed})? draftResult,
+  }) {
+    if (!shouldGenerateDraft) return false;
+    final draftMissing = draftResult?.draft == null;
+    if (existing != null) return draftMissing;
+    return draftResult?.failed ?? false;
+  }
+
+  String? _upstreamShaToStore(
+    String sourceSha, {
+    required JsonMap existingAutomation,
+    required bool deferred,
+  }) {
+    if (!deferred) return sourceSha;
+    final stored = existingAutomation['upstreamSha'];
+    return stored is String ? stored : null;
+  }
+
+  JsonMap _recordAutomation({
+    required JsonMap? existing,
+    required JsonMap existingAutomation,
+    required GeneratedDraft? draft,
+    required String? upstreamSha,
+    required String upstreamUrl,
+  }) {
+    if (draft != null || existing == null) {
+      return _automationMetadata(
+        upstreamSha: upstreamSha,
+        upstreamUrl: upstreamUrl,
+        draft: draft,
+        needsReview: true,
+      );
+    }
+    return _syncedAutomationMetadata(
+      existingAutomation: existingAutomation,
+      upstreamSha: upstreamSha,
+      upstreamUrl: upstreamUrl,
+    );
+  }
+
+  /// Keeps an existing non-empty text unless a new draft was generated. The
+  /// fallback is used only when the field is missing or blank.
   Object _preserveText(
     JsonMap? existing,
     String key,
     Object fallback, {
     bool allowOverwrite = false,
   }) {
-    if (allowOverwrite || _isAiManaged(existing)) {
+    if (allowOverwrite) {
       return fallback;
     }
     final value = existing?[key];
@@ -429,11 +602,19 @@ final class CodeContentSync {
     return fallback;
   }
 
-  List<Object?> _mergeTags(JsonMap? existing, List<String> defaults) {
+  List<Object?> _mergeTags(
+    JsonMap? existing,
+    List<String> defaults, {
+    Set<String> removeTags = const {},
+  }) {
     final tags = <String>{};
     final existingTags = existing?['tags'];
     if (existingTags is List<Object?>) {
-      tags.addAll(existingTags.whereType<String>());
+      tags.addAll(
+        existingTags.whereType<String>().where(
+          (tag) => !removeTags.contains(tag),
+        ),
+      );
     }
     tags.addAll(defaults);
     return tags.toList(growable: false);
@@ -461,7 +642,7 @@ final class CodeContentSync {
   }
 
   JsonMap _automationMetadata({
-    required String upstreamSha,
+    required String? upstreamSha,
     required String upstreamUrl,
     required GeneratedDraft? draft,
     required bool needsReview,
@@ -479,13 +660,17 @@ final class CodeContentSync {
 
   JsonMap _syncedAutomationMetadata({
     required JsonMap existingAutomation,
-    required String upstreamSha,
+    required String? upstreamSha,
     required String upstreamUrl,
   }) {
     final metadata = JsonMap.from(existingAutomation)
       ..['source'] = 'sync_code_content.dart'
-      ..['upstreamSha'] = upstreamSha
       ..['upstreamUrl'] = upstreamUrl;
+    if (upstreamSha == null) {
+      metadata.remove('upstreamSha');
+    } else {
+      metadata['upstreamSha'] = upstreamSha;
+    }
     metadata.putIfAbsent('needsReview', () => false);
     return metadata;
   }
@@ -498,10 +683,15 @@ abstract interface class CodeSourceClient {
 }
 
 final class HttpCodeSourceClient implements CodeSourceClient {
-  HttpCodeSourceClient({String? githubToken}) : _githubToken = githubToken;
+  HttpCodeSourceClient({
+    String? githubToken,
+    RetrySleep sleep = defaultRetrySleep,
+  }) : _githubToken = githubToken,
+       _sleep = sleep;
 
   final String? _githubToken;
-  final _client = HttpClient();
+  final RetrySleep _sleep;
+  final _client = newCodeSyncHttpClient();
 
   @override
   Future<List<SourceBip>> fetchBips() async {
@@ -613,7 +803,15 @@ final class HttpCodeSourceClient implements CodeSourceClient {
         .toList(growable: false);
   }
 
-  Future<String> _getText(Uri uri, {bool json = false}) async {
+  Future<String> _getText(Uri uri, {bool json = false}) {
+    return retryWithBackoff(
+      () => _getTextOnce(uri, json: json).timeout(_githubRequestTimeout),
+      sleep: _sleep,
+      shouldRetry: isRetryableSyncError,
+    );
+  }
+
+  Future<String> _getTextOnce(Uri uri, {required bool json}) async {
     final request = await _client.getUrl(uri);
     request.headers.set(HttpHeaders.userAgentHeader, 'SatoWiki-Code-Sync');
     if (json) {
@@ -632,9 +830,9 @@ final class HttpCodeSourceClient implements CodeSourceClient {
     final response = await request.close();
     final text = await utf8.decoder.bind(response).join();
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw HttpException(
-        'GET $uri failed with ${response.statusCode}: $text',
-        uri: uri,
+      throw CodeSyncHttpException(
+        statusCode: response.statusCode,
+        message: 'GET $uri failed with ${response.statusCode}: $text',
       );
     }
     return text;
@@ -736,7 +934,8 @@ final class SourceBip {
   }) {
     final number = int.parse(preamble['BIP']!.replaceAll('?', '').trim());
     final rawStatus = preamble['Status'] ?? 'Draft';
-    final status = normalizeBipStatus(rawStatus);
+    // An unknown status is kept as written; the sync skips or freezes that BIP.
+    final status = bipStatusOrNull(rawStatus) ?? rawStatus.trim();
     final layer = preamble['Layer'];
     final type = preamble['Type'];
     return SourceBip(
@@ -779,7 +978,7 @@ final class BitcoinCoreReleaseNoteParser {
       fileName: fileName,
       sha: sha,
       releasedAt: releasedAt,
-      importance: VersionParts.parse(version).isMajor ? 'major' : 'minor',
+      importance: VersionParts.parse(version).releaseImportance,
       officialUrl: 'https://bitcoincore.org/en/releases/$version/',
       releaseNotesUrl:
           'https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/$fileName',
@@ -845,11 +1044,14 @@ final class GeminiCodeContentDraftClient implements CodeContentDraftClient {
     required this.apiKey,
     required this.model,
     HttpClient? httpClient,
-  }) : _client = httpClient ?? HttpClient();
+    RetrySleep sleep = defaultRetrySleep,
+  }) : _client = httpClient ?? newCodeSyncHttpClient(),
+       _sleep = sleep;
 
   final String apiKey;
   final String model;
   final HttpClient _client;
+  final RetrySleep _sleep;
 
   static CodeContentDraftClient fromEnvironment(Map<String, String> env) {
     final apiKey = env['GEMINI_API_KEY'];
@@ -906,7 +1108,18 @@ ${source.releaseNotesMarkdown}
     return _generateDraft(prompt, _releaseDraftSchema);
   }
 
-  Future<GeneratedDraft?> _generateDraft(String prompt, JsonMap schema) async {
+  Future<GeneratedDraft?> _generateDraft(String prompt, JsonMap schema) {
+    return retryWithBackoff(
+      () => _generateDraftOnce(prompt, schema).timeout(_geminiRequestTimeout),
+      sleep: _sleep,
+      shouldRetry: isRetryableSyncError,
+    );
+  }
+
+  Future<GeneratedDraft?> _generateDraftOnce(
+    String prompt,
+    JsonMap schema,
+  ) async {
     final uri = Uri.parse(
       'https://generativelanguage.googleapis.com/v1beta/models/$model:generateContent',
     );
@@ -935,9 +1148,10 @@ ${source.releaseNotesMarkdown}
     final response = await request.close();
     final responseBody = await utf8.decoder.bind(response).join();
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw HttpException(
-        'Gemini request failed with ${response.statusCode}: $responseBody',
-        uri: uri,
+      throw CodeSyncHttpException(
+        statusCode: response.statusCode,
+        message:
+            'Gemini request failed with ${response.statusCode}: $responseBody',
       );
     }
     return parseResponse(responseBody, model: model);
@@ -1061,9 +1275,11 @@ final class VersionParts implements Comparable<VersionParts> {
 
   final List<int> parts;
 
-  bool get isMajor {
-    if (parts.length < 2) return true;
-    return parts.length == 2 || parts.skip(2).every((part) => part == 0);
+  /// `X.0` and `X.0.0` are major, `X.Y` with Y > 0 is minor, and a non-zero
+  /// third component is a patch release.
+  String get releaseImportance {
+    if (parts.skip(2).any((part) => part != 0)) return 'patch';
+    return parts.length < 2 || parts[1] == 0 ? 'major' : 'minor';
   }
 
   static VersionParts parse(String value) {
@@ -1112,6 +1328,9 @@ final class CodeSyncReport {
         '${language.language}: bips=${language.bipCount} '
         'releases=${language.releaseCount} changed=${language.changed}',
       );
+      for (final warning in language.warnings) {
+        buffer.writeln('${language.language} warning: $warning');
+      }
     }
     return buffer.toString().trimRight();
   }
@@ -1142,6 +1361,12 @@ final class CodeSyncReport {
           );
         }
       }
+      if (language.warnings.isNotEmpty) {
+        buffer.writeln('- Warnings:');
+        for (final warning in language.warnings) {
+          buffer.writeln('  - $warning');
+        }
+      }
       buffer.writeln();
     }
     return buffer.toString();
@@ -1153,6 +1378,7 @@ final class LanguageSyncReport {
     required this.language,
     required this.changed,
     required this.changedItems,
+    required this.warnings,
     required this.bipCount,
     required this.releaseCount,
   });
@@ -1160,19 +1386,75 @@ final class LanguageSyncReport {
   final String language;
   final bool changed;
   final List<String> changedItems;
+  final List<String> warnings;
   final int bipCount;
   final int releaseCount;
 }
 
 String normalizeBipStatus(String status) {
+  return bipStatusOrNull(status) ??
+      (throw FormatException('Unsupported BIP status: $status'));
+}
+
+/// Returns the canonical BIP status, or null when the status is not known.
+String? bipStatusOrNull(String status) {
   final normalized = status.trim().toLowerCase().replaceAll(' ', '-');
   return switch (normalized) {
     'draft' || 'proposed' || 'bip-number-allocated' => 'draft',
     'complete' || 'final' => 'complete',
     'deployed' || 'active' => 'deployed',
     'closed' || 'withdrawn' || 'rejected' => 'closed',
-    _ => throw FormatException('Unsupported BIP status: $status'),
+    _ => null,
   };
+}
+
+/// A failed HTTP response, kept typed so the retry policy can read the status.
+final class CodeSyncHttpException implements Exception {
+  const CodeSyncHttpException({
+    required this.statusCode,
+    required this.message,
+  });
+
+  final int statusCode;
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
+Future<void> defaultRetrySleep(Duration delay) => Future<void>.delayed(delay);
+
+HttpClient newCodeSyncHttpClient() {
+  return HttpClient()..connectionTimeout = _connectionTimeout;
+}
+
+/// Timeouts, dropped sockets, HTTP 429 and HTTP 5xx are transient. Other 4xx
+/// responses and parsing errors are not retried.
+bool isRetryableSyncError(Object error) {
+  if (error is CodeSyncHttpException) {
+    return error.statusCode == 429 || error.statusCode >= 500;
+  }
+  return error is TimeoutException ||
+      error is SocketException ||
+      error is HttpException;
+}
+
+/// Runs [action] up to [_maxRequestAttempts] times with exponential backoff.
+Future<T> retryWithBackoff<T>(
+  Future<T> Function() action, {
+  required RetrySleep sleep,
+  required bool Function(Object error) shouldRetry,
+  int maxAttempts = _maxRequestAttempts,
+  Duration baseDelay = _retryBaseDelay,
+}) async {
+  for (var attempt = 1; ; attempt += 1) {
+    try {
+      return await action();
+    } on Object catch (error) {
+      if (attempt >= maxAttempts || !shouldRetry(error)) rethrow;
+      await sleep(baseDelay * (1 << (attempt - 1)));
+    }
+  }
 }
 
 String normalizeBipCategory(String value) {
@@ -1227,6 +1509,15 @@ JsonMap _automation(JsonMap? existing) {
   return automation is JsonMap ? automation : const {};
 }
 
+/// True for a record that was created without a draft and never reviewed: it
+/// still shows the placeholder text, so it needs a first draft even though
+/// upstream has not changed.
+bool _stillHasPlaceholder(JsonMap existing, String key, Object? placeholder) {
+  return _automation(existing)['needsReview'] == true &&
+      placeholder is String &&
+      existing[key] == placeholder;
+}
+
 bool _isAiManaged(JsonMap? existing) {
   final automation = _automation(existing);
   return automation['needsReview'] == true || automation['aiModel'] is String;
@@ -1234,6 +1525,20 @@ bool _isAiManaged(JsonMap? existing) {
 
 bool _jsonDeepEquals(Object? a, Object? b) {
   return jsonEncode(a) == jsonEncode(b);
+}
+
+/// A record is unchanged when everything except `updatedAt` matches the
+/// stored record. Unchanged records keep their stored `updatedAt`.
+bool _isUnchanged(JsonMap? existing, JsonMap record) {
+  if (existing == null || existing['updatedAt'] is! String) return false;
+  return _jsonDeepEquals(
+    _withoutUpdatedAt(existing),
+    _withoutUpdatedAt(record),
+  );
+}
+
+JsonMap _withoutUpdatedAt(JsonMap record) {
+  return JsonMap.from(record)..remove('updatedAt');
 }
 
 String _bundleVersion(DateTime now) {

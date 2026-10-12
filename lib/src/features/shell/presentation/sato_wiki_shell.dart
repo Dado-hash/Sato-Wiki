@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/content/application/app_content_controller.dart';
-import '../../../core/navigation/sato_wiki_tab.dart';
 import '../../../core/settings/app_settings_controller.dart';
 import '../../../core/widgets/content_media_scope.dart';
 import '../../../core/widgets/sato_scaffold.dart';
 import '../../code/presentation/code_dashboard_screen.dart';
 import '../../history/presentation/history_timeline_screen.dart';
 import '../../news/presentation/news_feed_screen.dart';
+import '../../today/presentation/today_screen.dart';
 import '../../wiki/presentation/wiki_overview_screen.dart';
 
 class SatoWikiShell extends StatefulWidget {
@@ -57,6 +57,7 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
     final selectedTab = widget.settingsController.lastTab;
     final appContent = widget.contentController.content;
     final screens = [
+      TodayScreen(store: appContent.store, settings: widget.settingsController),
       WikiOverviewScreen(
         store: appContent.store,
         selectedLevel: widget.settingsController.readingLevel,
@@ -73,23 +74,12 @@ class _SatoWikiShellState extends State<SatoWikiShell> {
       resolver: appContent.mediaResolver,
       child: SatoScaffold(
         selectedTab: selectedTab,
-        onTabSelected: (tab) => _handleDestinationSelected(context, tab),
-        localePreference: widget.settingsController.localePreference,
-        onLocalePreferenceChanged: (preference) {
-          widget.settingsController.setLocalePreference(preference);
-        },
+        // Tabs live in one IndexedStack, so switching keeps each tab's
+        // filters and scroll position.
+        onTabSelected: widget.settingsController.setLastTab,
         body: IndexedStack(index: selectedTab.index, children: screens),
       ),
     );
-  }
-
-  void _handleDestinationSelected(BuildContext context, SatoWikiTab tab) {
-    widget.settingsController.setLastTab(tab);
-
-    final currentRoute = ModalRoute.of(context)?.settings.name;
-    if (currentRoute != tab.routePath) {
-      Navigator.of(context).pushReplacementNamed(tab.routePath);
-    }
   }
 
   void _handleSettingsChanged() {

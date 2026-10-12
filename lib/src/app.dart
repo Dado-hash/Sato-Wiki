@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -6,7 +7,8 @@ import 'core/localization/app_locale.dart';
 import 'core/navigation/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/settings/app_settings_controller.dart';
-import 'core/widgets/update_progress_dialog.dart';
+import 'core/settings/app_settings_scope.dart';
+import 'core/widgets/update_progress_banner.dart';
 import 'generated/l10n/app_localizations.dart';
 
 class SatoWikiApp extends StatefulWidget {
@@ -32,7 +34,6 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     widget.settingsController.addListener(_handleAppStateChanged);
     widget.contentController.addListener(_handleAppStateChanged);
-    widget.contentController.addListener(_handleUpdateProgress);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.contentController.checkForUpdates();
     });
@@ -48,8 +49,6 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     if (oldWidget.contentController != widget.contentController) {
       oldWidget.contentController.removeListener(_handleAppStateChanged);
       widget.contentController.addListener(_handleAppStateChanged);
-      oldWidget.contentController.removeListener(_handleUpdateProgress);
-      widget.contentController.addListener(_handleUpdateProgress);
     }
   }
 
@@ -58,42 +57,7 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     widget.settingsController.removeListener(_handleAppStateChanged);
     widget.contentController.removeListener(_handleAppStateChanged);
-    widget.contentController.removeListener(_handleUpdateProgress);
     super.dispose();
-  }
-
-  void _handleUpdateProgress() {
-    final progress = widget.contentController.updateProgress;
-    switch (progress.state) {
-      case UpdateState.checking:
-      case UpdateState.downloadingBundle:
-      case UpdateState.downloadingMedia:
-      case UpdateState.installing:
-        _maybeShowUpdateDialog();
-      case UpdateState.done:
-      case UpdateState.error:
-      case UpdateState.idle:
-        break;
-    }
-  }
-
-  bool _isDialogShowing = false;
-
-  void _maybeShowUpdateDialog() {
-    if (!mounted || _isDialogShowing) return;
-
-    final navigatorContext = _navigatorKey.currentContext;
-    if (navigatorContext == null) return;
-
-    _isDialogShowing = true;
-    showDialog<void>(
-      context: navigatorContext,
-      barrierDismissible: false,
-      builder: (_) =>
-          UpdateProgressDialog(contentController: widget.contentController),
-    ).then((_) {
-      _isDialogShowing = false;
-    });
   }
 
   @override
@@ -122,7 +86,25 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
       },
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
-      themeMode: ThemeMode.dark,
+      themeMode: widget.settingsController.themePreference.themeMode,
+      builder: (context, child) => AppSettingsScope(
+        controller: widget.settingsController,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            child ?? const SizedBox.shrink(),
+            Positioned(
+              left: 16,
+              right: 16,
+              // Above the floating tab bar (68 high, 16 from the bottom).
+              bottom: MediaQuery.paddingOf(context).bottom + 96,
+              child: UpdateProgressBanner(
+                contentController: widget.contentController,
+              ),
+            ),
+          ],
+        ),
+      ),
       initialRoute: widget.settingsController.lastTab.routePath,
       onGenerateRoute: (settings) {
         return AppRouter.generateRoute(
@@ -146,6 +128,13 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
       widget.settingsController.localePreference,
       WidgetsBinding.instance.platformDispatcher.locales,
     );
-    widget.contentController.loadLanguage(languageCode);
+    widget.contentController.loadLanguage(languageCode).catchError((
+      Object error,
+      StackTrace stackTrace,
+    ) {
+      if (kDebugMode) {
+        debugPrint('Content language load failed: $error');
+      }
+    });
   }
 }

@@ -85,45 +85,45 @@ italiano, con i tre livelli di lettura `base`, `medium` e `advanced`.
 
 ## History (`history`)
 
-### Media necessari (da trovare e mettere in `assets/content/media/`)
+### Media (in `assets/content/media/history/{slug}/`)
 
-Le immagini vanno inserite nel path indicato, formato `.webp`.
+I file sono in `assets/content/media/` nel path indicato, formato `.webp`.
 
-- [ ] `media/history/bitcoin-whitepaper/whitepaper-cover.webp`
-- [ ] `media/history/genesis-block/genesis-block-landmark.webp`
-- [ ] `media/history/bitcoin-v01/bitcoin-v01-screenshot.webp`
-- [ ] `media/history/first-bitcoin-transaction/hal-finney-portrait.webp`
-- [ ] `media/history/bitcoin-pizza-day/pizza-day-pizzas.webp`
-- [ ] `media/history/mtgox-launch/mtgox-website.webp`
-- [ ] `media/history/silk-road-launch/silk-road-interface.webp`
-- [ ] `media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp`
+- [x] `media/history/bitcoin-whitepaper/whitepaper-cover.webp`
+- [x] `media/history/genesis-block/genesis-block-landmark.webp`
+- [x] `media/history/bitcoin-v01/bitcoin-v01-screenshot.webp`
+- [x] `media/history/first-bitcoin-transaction/hal-finney-portrait.webp`
+- [x] `media/history/bitcoin-pizza-day/pizza-day-pizzas.webp`
+- [x] `media/history/mtgox-launch/mtgox-website.webp`
+- [x] `media/history/silk-road-launch/silk-road-interface.webp`
+- [x] `media/history/bitcoin-one-dollar/bitcoin-one-dollar-chart.webp`
 - [x] `media/history/first-halving/first-halving-block.webp`
-- [ ] `media/history/cyprus-crisis/cyprus-bank-queue.webp`
-- [ ] `media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp`
-- [ ] `media/history/mtgox-collapse/mtgox-collapse-logo.webp`
-- [ ] `media/history/segwit-proposal/segwit-structure-diagram.webp`
-- [ ] `media/history/second-halving/block-420000-explorer.webp`
-- [ ] `media/history/bitcoin-cash-fork/bitcoin-cash-split-diagram.webp`
-- [ ] `media/history/segwit-activation/uasf-signaling-chart.webp`
-- [ ] `media/history/lightning-whitepaper/lightning-network-diagram.webp`
-- [ ] `media/history/bitcoin-twenty-thousand/bitcoin-2017-price-chart.webp`
-- [ ] `media/history/cme-bitcoin-futures/cme-futures-contract.webp`
-- [ ] `media/history/lightning-mainnet/ln-network-growth.webp`
-- [ ] `media/history/third-halving/block-630000-explorer.webp`
-- [ ] `media/history/microstrategy-treasury/michael-saylor-presentation.webp`
-- [ ] `media/history/el-salvador-law/chivo-wallet-interface.webp`
-- [ ] `media/history/bitcoin-ath-2021/bitcoin-2021-price-chart.webp`
-- [ ] `media/history/taproot-activation/taproot-activation-block.webp`
-- [ ] `media/history/ordinals-launch/ordinals-inscription-example.webp`
-- [ ] `media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp`
-- [ ] `media/history/fourth-halving/block-840000-explorer.webp`
-- [ ] `media/history/runes-launch/runes-transaction-example.webp`
+- [x] `media/history/cyprus-crisis/cyprus-bank-queue.webp`
+- [x] `media/history/bitcoin-one-thousand/bitcoin-one-thousand-chart.webp`
+- [x] `media/history/mtgox-collapse/mtgox-collapse-logo.webp`
+- [x] `media/history/segwit-proposal/segwit-structure-diagram.webp`
+- [x] `media/history/second-halving/block-420000-explorer.webp`
+- [x] `media/history/bitcoin-cash-fork/bitcoin-cash-split-diagram.webp`
+- [x] `media/history/segwit-activation/uasf-signaling-chart.webp`
+- [x] `media/history/lightning-whitepaper/lightning-network-diagram.webp`
+- [x] `media/history/bitcoin-twenty-thousand/bitcoin-2017-price-chart.webp`
+- [x] `media/history/cme-bitcoin-futures/cme-futures-contract.webp`
+- [x] `media/history/lightning-mainnet/ln-network-growth.webp`
+- [x] `media/history/third-halving/block-630000-explorer.webp`
+- [x] `media/history/microstrategy-treasury/michael-saylor-presentation.webp`
+- [x] `media/history/el-salvador-law/chivo-wallet-interface.webp`
+- [x] `media/history/bitcoin-ath-2021/bitcoin-2021-price-chart.webp`
+- [x] `media/history/taproot-activation/taproot-activation-block.webp`
+- [x] `media/history/ordinals-launch/ordinals-inscription-example.webp`
+- [x] `media/history/bitcoin-etf-approval/etf-trading-volume-chart.webp`
+- [x] `media/history/fourth-halving/block-840000-explorer.webp`
+- [x] `media/history/runes-launch/runes-transaction-example.webp`
 - [x] `media/history/bitcoin-one-hundred-thousand/bitcoin-100k-milestone.webp`
-- [ ] `media/history/el-salvador-bitcoin-law-reform/el-salvador-assembly-vote.webp`
-- [ ] `media/history/us-strategic-bitcoin-reserve/white-house-signing-ceremony.webp`
-- [ ] `media/history/new-hampshire-bitcoin-reserve-law/new-hampshire-state-house.webp`
-- [ ] `media/history/bitcoin-ath-2025/bitcoin-2025-price-chart.webp`
-- [ ] `media/history/bitcoin-core-30-release/bitcoin-core-terminal.webp`
+- [x] `media/history/el-salvador-bitcoin-law-reform/el-salvador-assembly-vote.webp`
+- [x] `media/history/us-strategic-bitcoin-reserve/white-house-signing-ceremony.webp`
+- [x] `media/history/new-hampshire-bitcoin-reserve-law/new-hampshire-state-house.webp`
+- [x] `media/history/bitcoin-ath-2025/bitcoin-2025-price-chart.webp`
+- [x] `media/history/bitcoin-core-30-release/bitcoin-core-terminal.webp`
 
 Le fasi successive aggiungeranno altre voci a questa lista.
 
@@ -149,7 +149,7 @@ Categorie usate: `origin`, `community`, `protocol`, `market`, `security`,
 
 Ogni evento va creato come file Markdown in `content/{lang}/history/{slug}.md`
 con frontmatter YAML, e registrato in `seed_bundle_{lang}.json`. Immagini in
-`assets/content/media/wiki/history-{slug}/`.
+`assets/content/media/history/{slug}/`.
 
 ### Fase 1 — Origins & Whitepaper (2008–2009)
 
@@ -364,7 +364,7 @@ date: YYYY-MM-DD
 title: Titolo Evento
 category: {category}
 summary: Una frase di riepilogo.
-coverImage: media/wiki/history-{slug}/history-{slug}-hero.svg
+coverImage: media/history/{slug}/history-{slug}-hero.svg
 sources:
   - title: Fonte
     url: https://...

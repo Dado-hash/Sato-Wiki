@@ -3246,8 +3246,8 @@
           "title": "Bitcoin Script"
         },
         {
-          "id": "wiki.segwit",
-          "title": "Segwit"
+          "id": "wiki.segregated-witness",
+          "title": "Segregated Witness"
         }
       ],
       "updatedAt": "2026-05-27T00:00:00Z"
@@ -5277,7 +5277,7 @@
         }
       ],
       "related": [
-        "bip.2"
+        "code.bip.2"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5318,7 +5318,7 @@
         }
       ],
       "related": [
-        "bip.3"
+        "code.bip.3"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5562,7 +5562,7 @@
         }
       ],
       "related": [
-        "bip.16"
+        "code.bip.16"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5685,7 +5685,7 @@
         }
       ],
       "related": [
-        "bip.70"
+        "code.bip.70"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5767,7 +5767,7 @@
         }
       ],
       "related": [
-        "bip.16"
+        "code.bip.16"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5809,7 +5809,7 @@
         }
       ],
       "related": [
-        "bip.16"
+        "code.bip.16"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5851,7 +5851,7 @@
         }
       ],
       "related": [
-        "bip.11"
+        "code.bip.11"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5893,7 +5893,7 @@
         }
       ],
       "related": [
-        "bip.21"
+        "code.bip.21"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -5936,7 +5936,7 @@
         }
       ],
       "related": [
-        "bip.321"
+        "code.bip.321"
       ],
       "statusHistory": [],
       "updatedAt": "2026-06-20T07:10:41.226435Z",
@@ -6819,7 +6819,6 @@
         "hard-fork",
         "BIP",
         "Consensus",
-        "Draft",
         "Closed"
       ],
       "sources": [
@@ -9157,7 +9156,6 @@
       "tags": [
         "BIP",
         "Applications",
-        "Draft",
         "Complete"
       ],
       "sources": [
@@ -11537,7 +11535,6 @@
       "tags": [
         "BIP",
         "Consensus",
-        "Deployed",
         "Closed"
       ],
       "sources": [
@@ -12908,7 +12905,6 @@
       "tags": [
         "BIP",
         "Peer Services",
-        "Draft",
         "Complete"
       ],
       "sources": [
@@ -13326,7 +13322,7 @@
       "title": "Bitcoin Core 30.2",
       "summary": "Bitcoin Core 30.2 release.",
       "releasedAt": "2026-01-13",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/30.2/",
@@ -13365,7 +13361,7 @@
       "title": "Bitcoin Core 30.1",
       "summary": "Bitcoin Core 30.1 release.",
       "releasedAt": "2026-01-02",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/30.1/",
@@ -13443,7 +13439,7 @@
       "title": "Bitcoin Core 29.3",
       "summary": "Bitcoin Core 29.3 release.",
       "releasedAt": "2026-02-11",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/29.3/",
@@ -13482,7 +13478,7 @@
       "title": "Bitcoin Core 29.2",
       "summary": "Bitcoin Core 29.2 release.",
       "releasedAt": "2025-10-14",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/29.2/",
@@ -13521,7 +13517,7 @@
       "title": "Bitcoin Core 29.1",
       "summary": "Bitcoin Core 29.1 release.",
       "releasedAt": "2025-09-05",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/29.1/",
@@ -13599,7 +13595,7 @@
       "title": "Bitcoin Core 28.4",
       "summary": "Bitcoin Core 28.4 release.",
       "releasedAt": "2026-04-06",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/28.4/",
@@ -13638,7 +13634,7 @@
       "title": "Bitcoin Core 28.3",
       "summary": "Bitcoin Core 28.3 release.",
       "releasedAt": "2025-10-30",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/28.3/",
@@ -13677,7 +13673,7 @@
       "title": "Bitcoin Core 28.2",
       "summary": "Bitcoin Core 28.2 release.",
       "releasedAt": "2025-06-26",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/28.2/",
@@ -13716,7 +13712,7 @@
       "title": "Bitcoin Core 28.1",
       "summary": "Bitcoin Core 28.1 release.",
       "releasedAt": "2025-01-15",
-      "importance": "major",
+      "importance": "minor",
       "userImpactMarkdown": "Draft generated from official release notes. Requires review.",
       "technicalChangesMarkdown": "Technical changes to summarize during review.",
       "officialUrl": "https://bitcoincore.org/en/releases/28.1/",

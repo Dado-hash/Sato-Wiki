@@ -117,6 +117,13 @@ Regole:
 - Rimuovere `aiModel` e `aiPromptVersion` dai record revisionati.
 - Se `upstreamSha` non e noto, si puo omettere: il prossimo sync lo aggiungera
   senza chiamare Gemini, purche `needsReview` sia `false` e non ci sia `aiModel`.
+- Il sync non sostituisce un testo non vuoto gia presente, a meno che nella stessa
+  esecuzione non abbia generato una nuova bozza. Una bozza viene generata solo per
+  i record nuovi e per i record gestiti dall'AI (`needsReview: true` oppure `aiModel`)
+  il cui `upstreamSha` e cambiato. Con `needsReview: false` e senza `aiModel` il testo
+  revisionato resta invariato anche quando la fonte ufficiale cambia.
+- Per una nuova revisione del testo di un record gia revisionato, non basta
+  attendere il sync: va riscritto a mano nel bundle.
 
 ## Verifica Obbligatoria
 

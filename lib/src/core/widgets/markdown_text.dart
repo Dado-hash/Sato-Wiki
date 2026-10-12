@@ -5,13 +5,32 @@ import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../content/domain/content_media.dart';
+import '../content/domain/content_store.dart';
+import '../navigation/content_routes.dart';
+import '../theme/app_tokens.dart';
+import 'content_mappers.dart';
 import 'content_media_scope.dart';
+import 'external_url.dart';
+import 'round_icon_button.dart';
 
 class MarkdownText extends StatelessWidget {
-  const MarkdownText(this.markdown, {this.mediaResolver, super.key});
+  const MarkdownText(
+    this.markdown, {
+    this.mediaResolver,
+    this.store,
+    this.openLink = openExternalUrl,
+    super.key,
+  });
 
   final String markdown;
   final ContentMediaResolver? mediaResolver;
+
+  /// Loaded content. When given, a link to a record that is not loaded does
+  /// nothing instead of opening a not-found screen.
+  final ContentStore? store;
+
+  /// Opens http and https links. Injectable so tests can observe the call.
+  final Future<void> Function(BuildContext context, Uri uri) openLink;
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +41,23 @@ class MarkdownText extends StatelessWidget {
     return MarkdownBody(
       data: markdown,
       selectable: false,
+      onTapLink: (_, href, _) => _handleLink(context, href),
       styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
         a: textTheme.bodyLarge?.copyWith(
           color: colorScheme.primary,
           decoration: TextDecoration.underline,
-          decorationColor: colorScheme.primary,
+          decorationColor: colorScheme.primary.withValues(alpha: 0.4),
         ),
-        p: textTheme.bodyLarge?.copyWith(height: 1.6),
-        h1: textTheme.headlineMedium,
-        h2: textTheme.titleLarge,
-        h3: textTheme.titleMedium,
-        code: textTheme.bodyMedium?.copyWith(fontFamily: 'JetBrains Mono'),
+        p: textTheme.bodyLarge,
+        h1: textTheme.headlineSmall,
+        h2: textTheme.titleLarge?.copyWith(fontSize: 20, height: 26 / 20),
+        h3: textTheme.titleLarge,
+        code: TextStyle(
+          fontFamily: AppFonts.mono,
+          fontSize: 14,
+          color: colorScheme.onSurface,
+          backgroundColor: colorScheme.surfaceContainerHigh,
+        ),
         blockquote: textTheme.bodyLarge?.copyWith(
           color: colorScheme.onSurfaceVariant,
         ),
@@ -41,14 +66,15 @@ class MarkdownText extends StatelessWidget {
             left: BorderSide(color: colorScheme.primary, width: 3),
           ),
         ),
-        blockquotePadding: const EdgeInsets.only(left: 16),
+        blockquotePadding: const EdgeInsets.only(left: AppSpacing.lg),
         codeblockDecoration: BoxDecoration(
           color: colorScheme.surfaceContainerLow,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(AppRadii.tile),
           border: Border.all(color: colorScheme.outlineVariant),
         ),
-        codeblockPadding: const EdgeInsets.all(16),
-        blockSpacing: 16,
+        codeblockPadding: const EdgeInsets.all(AppSpacing.lg),
+        blockSpacing: 18,
+        listBullet: textTheme.bodyLarge,
       ),
       imageBuilder: (uri, title, alt) {
         return ContentImageFigure(
@@ -62,6 +88,28 @@ class MarkdownText extends StatelessWidget {
         );
       },
     );
+  }
+
+  /// Content ids open their detail screen; http and https open externally.
+  /// Every other scheme is ignored.
+  void _handleLink(BuildContext context, String? href) {
+    if (href == null) return;
+
+    final route = routeForContentId(href);
+    if (route != null) {
+      final store = this.store;
+      if (store == null || recordTitleFor(store, href) != null) {
+        Navigator.of(context).pushNamed(route);
+      }
+      return;
+    }
+
+    final uri = Uri.tryParse(href);
+    if (uri == null || (uri.scheme != 'http' && uri.scheme != 'https')) {
+      return;
+    }
+
+    openLink(context, uri);
   }
 }
 
@@ -91,7 +139,6 @@ class ContentImageFigure extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final resolver =
         mediaResolver ??
@@ -116,7 +163,7 @@ class ContentImageFigure extends StatelessWidget {
       button: canOpen,
       onTap: openImage,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(AppRadii.card),
         child: _sizedImage(image),
       ),
     );
@@ -137,13 +184,7 @@ class ContentImageFigure extends StatelessWidget {
           imageBox,
           if (showCaption && caption != null && caption.isNotEmpty) ...[
             const SizedBox(height: 8),
-            Text(
-              caption,
-              style: textTheme.bodySmall?.copyWith(
-                color: colorScheme.onSurfaceVariant,
-                fontFamily: 'JetBrains Mono',
-              ),
-            ),
+            Text(caption, style: textTheme.bodySmall),
           ],
         ],
       ),
@@ -239,40 +280,48 @@ class _ContentImageFullScreen extends StatelessWidget {
     final extension = ContentMedia.extensionFor(file.path);
     final closeTooltip = MaterialLocalizations.of(context).closeButtonTooltip;
 
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        leading: IconButton(
-          tooltip: closeTooltip,
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return InteractiveViewer(
-              minScale: 1,
-              maxScale: 4,
-              child: SizedBox(
-                width: constraints.maxWidth,
-                height: constraints.maxHeight,
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: _ContentImageFile(
-                    file: file,
-                    extension: extension,
-                    fit: BoxFit.contain,
-                    semanticLabel: semanticLabel,
-                    placeholder: _ImagePlaceholder(label: semanticLabel),
-                  ),
-                ),
+      backgroundColor: colorScheme.surface,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: SafeArea(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return InteractiveViewer(
+                    minScale: 1,
+                    maxScale: 4,
+                    child: SizedBox(
+                      width: constraints.maxWidth,
+                      height: constraints.maxHeight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: _ContentImageFile(
+                          file: file,
+                          extension: extension,
+                          fit: BoxFit.contain,
+                          semanticLabel: semanticLabel,
+                          placeholder: _ImagePlaceholder(label: semanticLabel),
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.paddingOf(context).top + 8,
+            left: AppSpacing.gutter,
+            child: RoundIconButton(
+              icon: Icons.close_rounded,
+              tooltip: closeTooltip,
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -290,7 +339,7 @@ class _FramedImagePlaceholder extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(AppRadii.card),
         border: Border.all(color: colorScheme.outlineVariant),
       ),
       child: _ImagePlaceholder(label: label),
@@ -325,10 +374,7 @@ class _ImagePlaceholder extends StatelessWidget {
               Text(
                 label,
                 textAlign: TextAlign.center,
-                style: textTheme.labelMedium?.copyWith(
-                  color: colorScheme.onSurfaceVariant,
-                  fontFamily: 'JetBrains Mono',
-                ),
+                style: textTheme.labelMedium,
               ),
             ],
           ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_tokens.dart';
+
 class ContentCard extends StatelessWidget {
   const ContentCard({
     required this.child,
     this.onTap,
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.all(AppSpacing.lg),
     this.trailing,
     super.key,
   });
@@ -16,14 +18,14 @@ class ContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(8);
+    final borderRadius = BorderRadius.circular(AppRadii.card);
     final colorScheme = Theme.of(context).colorScheme;
     final content = trailing == null
         ? child
         : Row(
             children: [
               Expanded(child: child),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppSpacing.md),
               IconTheme.merge(
                 data: IconThemeData(color: colorScheme.onSurfaceVariant),
                 child: trailing!,

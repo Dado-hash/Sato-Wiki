@@ -1,4 +1,5 @@
 enum SatoWikiTab {
+  today('/today'),
   wiki('/wiki'),
   news('/news'),
   history('/history'),

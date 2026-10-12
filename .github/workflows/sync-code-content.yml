@@ -15,6 +15,10 @@ env:
 jobs:
   sync-code-content:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: sync-code-content
+      cancel-in-progress: false
 
     steps:
       - name: Checkout
@@ -60,13 +64,14 @@ jobs:
             exit 0
           fi
 
-          BRANCH_NAME="automation/code-content-$(date -u +%Y%m%d)"
+          # Fixed branch: each run rebuilds it from main, so one PR is updated in place.
+          BRANCH_NAME="automation/code-content-sync"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH_NAME"
           git add assets/content/seed_bundle_en.json assets/content/seed_bundle_it.json
           git commit -m "chore: sync code content"
-          git push --force-with-lease origin "$BRANCH_NAME"
+          git push --force origin "$BRANCH_NAME"
           echo "changed=true" >> "$GITHUB_OUTPUT"
           echo "branch=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
 

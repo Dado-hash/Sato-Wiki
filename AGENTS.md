@@ -4,7 +4,7 @@ Guida rapida per agenti che lavorano su SatoWiki.
 
 ## Contesto Progetto
 
-SatoWiki e una app Flutter iOS/Android: "The Orange Book of Bitcoin". Il PRD e in `SatoWiki_PRD.md`; il design brief e in `SatoWiki_DesignBrief.md`; le schermate Stitch esportate sono in `stitch_satowiki_pages/`.
+SatoWiki e una app Flutter iOS/Android: "The Orange Book of Bitcoin". Il PRD e in `docs/SatoWiki_PRD.md`; il design brief e in `docs/SatoWiki_DesignBrief.md`. Le schermate Stitch da cui sono partiti i token non sono piu nel repository: la fonte di verita e `docs/design-system.md` insieme a `lib/src/core/theme/`.
 
 La direzione prodotto e:
 
@@ -22,7 +22,7 @@ Flutter non e necessariamente nel PATH. Usare l'SDK locale:
 /Users/davide/development/flutter/bin/flutter pub get
 /Users/davide/development/flutter/bin/flutter analyze
 /Users/davide/development/flutter/bin/flutter test
-/Users/davide/development/flutter/bin/dart format lib test
+/Users/davide/development/flutter/bin/dart format lib test tool
 ```
 
 ## Struttura
@@ -30,44 +30,61 @@ Flutter non e necessariamente nel PATH. Usare l'SDK locale:
 ```text
 lib/
   main.dart
+  l10n/                    # ARB inglese e italiano
   src/
     app.dart
+    generated/l10n/        # codice generato, non modificare a mano
     core/
-      theme/
+      content/             # bundle: application/, data/ (parser, repository, media), domain/
+      localization/
+      navigation/
+      search/
+      settings/              # AppSettingsController, AppSettingsScope, preferenze
+      theme/                 # AppTheme, AppTokens, SatoColors
       widgets/
     features/
       shell/
+      today/
       wiki/
       news/
       history/
       code/
+      search/
+      settings/              # Impostazioni e segnalibri
+assets/
+  content/                 # seed_bundle_en.json, seed_bundle_it.json, media/
+  fonts/                   # Space Grotesk, Inter, JetBrains Mono
+content/                   # sorgenti Markdown (en, it) e template
+tool/                      # script dei contenuti (validazione, generazione, sync, seed)
+test/
 docs/
-stitch_satowiki_pages/
+.github/workflows/
 ```
 
-Usare `lib/src/core/theme` per token e tema, `lib/src/core/widgets` per componenti condivisi, e `lib/src/features/*` per UI e logica specifica di sezione.
+Usare `lib/src/core/theme` per token e tema, `lib/src/core/widgets` per componenti condivisi, e `lib/src/features/*` per UI e logica specifica di sezione. Il caricamento, il parsing e la verifica dei bundle stanno in `lib/src/core/content/`, non nelle feature.
 
 ## Documentazione Da Leggere Prima Di Modificare
 
 - `docs/design-system.md` per tema, token e regole UI.
 - `docs/development-guidelines.md` per stile codice, frontend e test.
-- `docs/app-architecture.md` per struttura target, routing, offline e search.
+- `docs/app-architecture.md` per struttura, routing, offline e search.
 - `docs/content-model.md` per contratti dati.
+- `docs/contributing-content.md` per il flusso dei contenuti.
 - `docs/roadmap.md` per priorita e task sequenziali.
 
 ## Design E UI
 
-La dark mode e canonica. I token sono derivati da `stitch_satowiki_pages/satowiki_design_narrative/DESIGN.md`.
+La dark mode e canonica. I token sono definiti in `lib/src/core/theme/` e descritti in `docs/design-system.md`.
 
 Regole pratiche:
 
 - Material 3 custom, estetica editoriale tecnica, non crypto/neon.
-- Inter per display/body; JetBrains Mono per label tecniche, BIP, read time, status.
+- Space Grotesk per titoli, Inter per il corpo, JetBrains Mono solo per dati ed etichette maiuscole.
 - Card senza ombre pesanti: usare tonal surface e bordo sottile.
 - Touch target minimo 44dp.
-- Bottom nav: Wiki, News, History, Code.
-- Testi e colori devono venire dal tema quando possibile.
-- Evitare hex locali nei componenti; aggiungere token in `AppColors` quando serve.
+- Tab bar flottante con cinque tab: Oggi, Wiki, News, History, Code. Nessun AppBar: schermate a tab con `ScreenHeader`, schermate push con `DetailScaffold`.
+- Testi e colori devono venire dal tema quando possibile: `colorScheme`, `context.sato`, `textTheme`.
+- Evitare hex locali nei componenti; spaziature e raggi da `AppSpacing` e `AppRadii` in `app_tokens.dart`.
 
 ## Coding Rules
 
@@ -75,16 +92,23 @@ Regole pratiche:
 - Preferire widget piccoli e leggibili.
 - Usare `const` dove possibile.
 - Non mettere parsing dati o accesso storage dentro widget presentation.
-- Introdurre layer `domain` e `data` quando una feature supera il mock statico.
+- Il layer data dei contenuti sta in `lib/src/core/content/data/`; le feature espongono interfacce in `domain/repositories/`.
 - Usare enum per stati noti come reading level e BIP status.
 - Aggiornare docs quando si cambiano architettura, data model o design system.
+
+## Contenuti
+
+- `tool/validate_content.dart [--strict] [bundle.json]`: schema, media, riferimenti `related`, stati BIP e warning su record da rivedere o testi segnaposto.
+- `tool/generate_bundle.dart --stamp [bundle.json] [pagesRoot]`: genera il bundle statico per GitHub Pages in `build/pages`.
+- `tool/sync_code_content.dart`: sync settimanale di BIP e release Bitcoin Core dai sorgenti ufficiali, con bozze AI da rivedere. Apre una PR draft su `automation/code-content-sync`. Non sovrascrive testi gia revisionati: vedi `docs/content-model.md`.
+- `tool/build_seed_bundle.dart <lang>`: riscrive wiki e history dei seed dai Markdown. Non e in CI e, finche seed e Markdown non sono riconciliati, non va eseguito (riscriverebbe le modifiche manuali dei seed).
 
 ## File Sensibili E Artefatti
 
 - Non committare `.codex/`: puo contenere configurazioni locali e chiavi MCP.
 - Non committare `.DS_Store`, `.dart_tool/`, `build/`, `.idea/`.
 - `pubspec.lock` va mantenuto: questa repo e una app.
-- `stitch_satowiki_pages/` e una fonte progettuale utile: non eliminarla senza richiesta esplicita.
+- `assets/content/seed_bundle_*.json` e `content/` sono contenuti editoriali: modificarli seguendo `docs/contributing-content.md`.
 
 ## Verifica Minima Prima Di Chiudere
 
