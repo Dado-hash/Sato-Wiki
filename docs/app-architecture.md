@@ -153,7 +153,7 @@ Implementazione corrente:
 - `ContentMediaStore` scarica i media referenziati dal bundle e riusa quelli gia presenti quando l'hash nel manifest coincide.
 - `ContentStore` espone il bundle locale alle interfacce dei repository delle feature.
 - La lingua contenuto risolta usa la preferenza app e le locale del sistema. I seed locali attivi sono `en` e `it`, con fallback inglese per locale non supportate.
-- L'aggiornamento non blocca mai la UI. Quando inizia un download o un'installazione compare un banner in alto (`UpdateProgressBanner`), che l'utente può chiudere e che sparisce da solo a fine aggiornamento o dopo un errore. Il controllo del manifest non mostra nulla.
+- L'aggiornamento non blocca mai la UI. Quando inizia un download o un'installazione compare un banner in basso, sopra la tab bar (`UpdateProgressBanner`), che l'utente può chiudere e che sparisce da solo a fine aggiornamento o dopo un errore. Il controllo del manifest non mostra nulla.
 
 Limite noto: se un media referenziato non si scarica, l'aggiornamento del testo viene scartato e viene riprovato a ogni avvio (vedi il test `updater keeps previous bundle when referenced media fails`).
 

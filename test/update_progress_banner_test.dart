@@ -24,7 +24,7 @@ void main() {
 
     expect(find.text(l10n.contentUpdateDownloadingBundle), findsNothing);
     expect(find.byIcon(Icons.download_rounded), findsNothing);
-    expect(find.byTooltip(l10n.close), findsNothing);
+    expect(find.byIcon(Icons.close_rounded), findsNothing);
   });
 
   testWidgets('shows download progress and leaves the rest tappable', (
@@ -87,9 +87,9 @@ void main() {
 
     fixture.updater.startDownload(mediaCurrent: 2, mediaTotal: 4);
     await tester.pump();
-    expect(find.byTooltip(l10n.close), findsOneWidget);
+    expect(find.byIcon(Icons.close_rounded), findsOneWidget);
 
-    await tester.tap(find.byTooltip(l10n.close));
+    await tester.tap(find.byIcon(Icons.close_rounded));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     expect(
@@ -99,7 +99,7 @@ void main() {
 
     fixture.updater.progress(3, 4);
     await tester.pump();
-    expect(find.byTooltip(l10n.close), findsNothing);
+    expect(find.byIcon(Icons.close_rounded), findsNothing);
 
     fixture.updater.finish();
     await tester.pump();
@@ -124,25 +124,28 @@ Widget _host(AppContentController controller, {VoidCallback? underneath}) {
       GlobalCupertinoLocalizations.delegate,
     ],
     supportedLocales: const [Locale('en')],
+    // Same placement as the app: above the Navigator, where there is no
+    // Overlay. A Tooltip inside the banner would throw here.
+    builder: (context, child) => Stack(
+      fit: StackFit.expand,
+      children: [
+        child ?? const SizedBox.shrink(),
+        Positioned(
+          left: 16,
+          right: 16,
+          top: 8,
+          child: UpdateProgressBanner(contentController: controller),
+        ),
+      ],
+    ),
     home: Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: ElevatedButton(
-              key: const ValueKey('underneath-button'),
-              onPressed: underneath ?? () {},
-              child: const Text('Underneath'),
-            ),
-          ),
-          Positioned(
-            left: 16,
-            right: 16,
-            top: 8,
-            child: UpdateProgressBanner(contentController: controller),
-          ),
-        ],
+      body: Align(
+        alignment: Alignment.bottomCenter,
+        child: ElevatedButton(
+          key: const ValueKey('underneath-button'),
+          onPressed: underneath ?? () {},
+          child: const Text('Underneath'),
+        ),
       ),
     ),
   );

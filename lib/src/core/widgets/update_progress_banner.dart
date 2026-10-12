@@ -125,7 +125,7 @@ class _UpdateProgressBannerState extends State<UpdateProgressBanner> {
           opacity: animation,
           child: SlideTransition(
             position: Tween<Offset>(
-              begin: const Offset(0, -0.15),
+              begin: const Offset(0, 0.15),
               end: Offset.zero,
             ).animate(animation),
             child: child,
@@ -262,15 +262,20 @@ class _UpdateBanner extends StatelessWidget {
                     ],
                   ),
                 ),
-                IconButton(
-                  tooltip: l10n.close,
-                  onPressed: onClose,
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints.tightFor(
-                    width: 44,
-                    height: 44,
+                // No tooltip: the banner sits above the Navigator, where
+                // there is no Overlay for a Tooltip to use.
+                Semantics(
+                  button: true,
+                  label: l10n.close,
+                  child: IconButton(
+                    onPressed: onClose,
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints.tightFor(
+                      width: 44,
+                      height: 44,
+                    ),
+                    icon: const Icon(Icons.close_rounded, size: 18),
                   ),
-                  icon: const Icon(Icons.close_rounded, size: 18),
                 ),
               ],
             ),

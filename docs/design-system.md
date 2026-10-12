@@ -154,7 +154,7 @@ Ricerca:
 
 Aggiornamento contenuti:
 
-- `UpdateProgressBanner`: banner in alto, non bloccante, con stato e avanzamento del download o dell'installazione. L'utente può chiuderlo; sparisce da solo a fine aggiornamento o dopo un errore.
+- `UpdateProgressBanner`: banner in basso sopra la tab bar, non bloccante, con stato e avanzamento del download o dell'installazione. L'utente può chiuderlo; sparisce da solo a fine aggiornamento o dopo un errore.
 
 ## Regole di qualita UI
 

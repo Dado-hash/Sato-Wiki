@@ -96,7 +96,8 @@ class _SatoWikiAppState extends State<SatoWikiApp> with WidgetsBindingObserver {
             Positioned(
               left: 16,
               right: 16,
-              top: MediaQuery.paddingOf(context).top + 8,
+              // Above the floating tab bar (68 high, 16 from the bottom).
+              bottom: MediaQuery.paddingOf(context).bottom + 96,
               child: UpdateProgressBanner(
                 contentController: widget.contentController,
               ),
