@@ -46,3 +46,7 @@ app.*.map.json
 
 # Local Codex/MCP config
 .codex/
+
+release.jks
+google-services.json
+satowiki-78378-f6c277ee90f6.json
