@@ -18,7 +18,7 @@ tags:
 related:
   - wiki.transactions
   - wiki.bitcoin-script
-  - wiki.segwit
+  - wiki.segregated-witness
 sources:
   - title: "BIP 341 - Taproot: SegWit version 1 spending rules"
     url: https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki

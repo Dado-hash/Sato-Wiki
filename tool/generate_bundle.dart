@@ -6,22 +6,43 @@ import 'package:sato_wiki/src/core/content/data/content_bundle_parser.dart';
 
 void main(List<String> args) {
   final options = _GenerateBundleOptions.parse(args);
-  final source = options.source;
-  final pagesRoot = options.pagesRoot;
-  final outputRoot = '$pagesRoot/content';
-  final baseUrl = options.baseUrl;
-  final sourceJson = File(source).readAsStringSync();
-  final decoded = jsonDecode(sourceJson);
-  if (decoded is! Map<String, Object?>) {
-    stderr.writeln('Bundle root must be an object.');
+  final List<String> messages;
+  try {
+    messages = generateContentBundle(
+      source: options.source,
+      pagesRoot: options.pagesRoot,
+      baseUrl: options.baseUrl,
+      stamp: options.stamp,
+    );
+  } on FormatException catch (error) {
+    stderr.writeln(error.message);
     exitCode = 1;
     return;
   }
+  for (final message in messages) {
+    stdout.writeln(message);
+  }
+}
+
+/// Writes one language bundle under [pagesRoot] and rewrites the index page to
+/// list every language found in `content/`. Returns the status lines to print.
+List<String> generateContentBundle({
+  required String source,
+  required String pagesRoot,
+  required String baseUrl,
+  bool stamp = false,
+}) {
+  final outputRoot = '$pagesRoot/content';
+  final sourceJson = File(source).readAsStringSync();
+  final decoded = jsonDecode(sourceJson);
+  if (decoded is! Map<String, Object?>) {
+    throw const FormatException('Bundle root must be an object.');
+  }
   final data = Map<String, Object?>.from(decoded);
-  final stamp = options.stamp ? _buildStamp(DateTime.now().toUtc()) : null;
-  if (stamp != null) {
-    data['version'] = stamp.version;
-    data['generatedAt'] = stamp.generatedAt;
+  final bundleStamp = stamp ? _buildStamp(DateTime.now().toUtc()) : null;
+  if (bundleStamp != null) {
+    data['version'] = bundleStamp.version;
+    data['generatedAt'] = bundleStamp.generatedAt;
   }
   final json = const JsonEncoder.withIndent('  ').convert(data);
 
@@ -72,21 +93,15 @@ void main(List<String> args) {
   };
   final manifestJson = const JsonEncoder.withIndent('  ').convert(manifest);
   File('${latestRoot.path}/manifest.json').writeAsStringSync('$manifestJson\n');
-  _writeIndexHtml(
-    pagesRoot: pagesRoot,
-    language: bundle.language,
-    version: bundle.version,
-  );
+  _writeIndexHtml(pagesRoot: pagesRoot);
 
-  stdout.writeln('generated ${bundleFile.path}');
-  if (sourceMediaRoot.existsSync()) {
-    stdout.writeln('generated ${outputMediaRoot.path}');
-  }
-  stdout.writeln('generated ${latestRoot.path}/manifest.json');
-  stdout.writeln('generated $pagesRoot/index.html');
-  if (stamp != null) {
-    stdout.writeln('stamped version=${stamp.version}');
-  }
+  return [
+    'generated ${bundleFile.path}',
+    if (sourceMediaRoot.existsSync()) 'generated ${outputMediaRoot.path}',
+    'generated ${latestRoot.path}/manifest.json',
+    'generated $pagesRoot/index.html',
+    if (bundleStamp != null) 'stamped version=${bundleStamp.version}',
+  ];
 }
 
 final class _GenerateBundleOptions {
@@ -160,13 +175,8 @@ void _copyDirectory(Directory source, Directory target) {
   }
 }
 
-void _writeIndexHtml({
-  required String pagesRoot,
-  required String language,
-  required String version,
-}) {
-  final manifestPath = 'content/$language/latest/manifest.json';
-  final bundlePath = 'content/$language/$version/bundle.json';
+void _writeIndexHtml({required String pagesRoot}) {
+  final entries = _indexEntries(pagesRoot).join('\n      ');
   final html =
       '''
 <!doctype html>
@@ -227,10 +237,9 @@ void _writeIndexHtml({
   <main>
     <h1>SatoWiki</h1>
     <p>The Orange Book of Bitcoin content endpoint.</p>
-    <p>Current published bundle: <code>$language/$version</code></p>
+    <p>Current published bundles:</p>
     <ul>
-      <li><a href="$manifestPath">Latest manifest</a></li>
-      <li><a href="$bundlePath">Versioned bundle</a></li>
+      $entries
     </ul>
   </main>
 </body>
@@ -239,4 +248,35 @@ void _writeIndexHtml({
   File('$pagesRoot/index.html')
     ..createSync(recursive: true)
     ..writeAsStringSync(html);
+}
+
+/// One list item per language that has a `latest/manifest.json` under
+/// `content/`, read from the manifest so earlier runs are kept in the index.
+List<String> _indexEntries(String pagesRoot) {
+  final contentRoot = Directory('$pagesRoot/content');
+  if (!contentRoot.existsSync()) {
+    return const [];
+  }
+  final languageRoots = contentRoot.listSync().whereType<Directory>().toList()
+    ..sort((a, b) => a.path.compareTo(b.path));
+  final entries = <String>[];
+  for (final languageRoot in languageRoots) {
+    final language = languageRoot.path.split('/').last;
+    final manifestFile = File('${languageRoot.path}/latest/manifest.json');
+    if (!manifestFile.existsSync()) {
+      continue;
+    }
+    final manifest = jsonDecode(manifestFile.readAsStringSync());
+    if (manifest is! Map<String, Object?> || manifest['version'] is! String) {
+      continue;
+    }
+    final version = manifest['version']! as String;
+    entries.add(
+      '<li><code>$language/$version</code>: '
+      '<a href="content/$language/latest/manifest.json">Latest manifest</a> | '
+      '<a href="content/$language/$version/bundle.json">Versioned bundle</a></li>',
+    );
+  }
+
+  return entries;
 }
