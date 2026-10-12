@@ -1,20 +1,12 @@
 # SatoWiki Design System
 
-Questo documento traduce `SatoWiki_DesignBrief.md` e le schermate locali in `stitch_satowiki_pages/` in regole applicabili in Flutter.
+Questo documento traduce `SatoWiki_DesignBrief.md` in regole applicabili in Flutter.
 
 ## Direzione
 
 SatoWiki deve sembrare una rivista tecnica editoriale, non una crypto app speculativa. La UI e dark-first, autorevole, compatta ma leggibile, con accento Bitcoin usato per priorita, stati attivi e link importanti.
 
-Le fonti Stitch principali sono:
-
-- `stitch_satowiki_pages/satowiki_design_narrative/DESIGN.md`
-- `stitch_satowiki_pages/wiki_explore_light/code.html`
-- `stitch_satowiki_pages/wiki_proof_of_work/code.html`
-- `stitch_satowiki_pages/wiki_protocol_list_light/code.html`
-- `stitch_satowiki_pages/code_bip_tracker_light/code.html`
-- `stitch_satowiki_pages/news_article_reader_light/code.html`
-- `stitch_satowiki_pages/history_timeline_light/code.html`
+I token sono stati derivati in origine da esportazioni Stitch (design narrative e schermate di wiki, news, history e Code). Quelle esportazioni non sono piu nel repository. La fonte di verita oggi sono questo documento e il codice in `lib/src/core/theme/`: se un valore qui e nel codice non coincidono, si aggiornano entrambi.
 
 ## Colori
 
@@ -37,9 +29,9 @@ La dark mode e il riferimento canonico.
 
 Status colors:
 
-- Active / Final: green (`AppColors.success`)
-- Draft / Proposed: orange/amber (`AppColors.warning`)
-- Rejected / Withdrawn: red (`AppColors.error`)
+- Deployed / Complete (alias legacy Active / Final): green (`AppColors.success`)
+- Draft (alias legacy Proposed): orange/amber (`AppColors.warning`)
+- Closed (alias legacy Withdrawn / Rejected): red (`AppColors.error`)
 
 ## Tipografia
 
@@ -59,7 +51,7 @@ Scala:
 - Label mono: 14/20, weight 500
 - Code mono: 13/18
 
-Nota implementativa: al momento il tema dichiara `Inter` e `JetBrains Mono`. Prima della release v1, i font vanno aggiunti come asset locali nel `pubspec.yaml` per evitare fallback diversi tra piattaforme.
+Nota implementativa: `Inter` (variabile, `assets/fonts/inter/InterVariable.ttf`) e `JetBrains Mono` (`assets/fonts/jetbrains_mono/`, pesi 400 e 500) sono dichiarati come asset locali in `pubspec.yaml`, quindi non dipendono dai font di sistema. Le licenze sono in `assets/fonts/NOTICE.md`.
 
 ## Spacing e shape
 

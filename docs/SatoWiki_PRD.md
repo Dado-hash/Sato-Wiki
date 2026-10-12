@@ -146,6 +146,7 @@ I contributtori che scrivono voci enciclopediche sono tenuti a produrre tutti e 
 ### Contenuti
 - Licenza: Creative Commons CC BY-SA 4.0
 - Repository separata per i contenuti (satowiki-content)
+  - *Nota sull'implementazione attuale: i contenuti stanno in questa repository (sorgenti Markdown in `content/`, seed bundle e media in `assets/content/`). Il requisito sopra non cambia.*
 - PR → review → merge da parte dei maintainer autorizzati
 - I maintainer di primo livello sono nominati dal founder (Dave)
 - Template obbligatori per ogni tipo di contenuto (voce, articolo, evento, BIP summary)

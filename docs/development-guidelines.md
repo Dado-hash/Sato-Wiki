@@ -60,6 +60,6 @@ Comandi:
 ## Git e contenuti
 
 - Il codice app e i contenuti editoriali devono restare separati.
-- La repo contenuti produrra JSON statici versionati.
+- I contenuti stanno in questa repository (`content/` e `assets/content/`) e la pipeline ne produce JSON statici versionati (vedi `docs/contributing-content.md`).
 - Ogni modello app deve tollerare campi opzionali e bundle content piu vecchi.
 - Le modifiche ai contratti dati richiedono aggiornamento di `docs/content-model.md`.

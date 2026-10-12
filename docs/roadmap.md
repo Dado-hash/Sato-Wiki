@@ -48,7 +48,8 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 4. [x] Collegare selector Base/Medio/Avanzato a contenuto reale.
 5. [x] Aggiungere related concepts.
 6. [x] Aggiungere sources disclosure.
-7. [x] Testare offline, text scale e screen reader.
+7. [ ] Testare offline, text scale e screen reader.
+   > Da completare: manca il pass con screen reader su iOS e Android fisici (elencato in `docs/release/release-readiness.md`) e non risulta una verifica con text scale aumentato.
 
 ## 6. History Vertical Slice
 
@@ -67,7 +68,8 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 4. [x] Aggiungere impact cards e status history.
 5. [x] Implementare lista release per progetto.
 6. [x] Implementare detail changelog leggibile.
-7. [x] Preparare notifiche future su BIP seguiti.
+7. [ ] Preparare notifiche future su BIP seguiti.
+   > Da completare: non esiste nessuna logica di follow ne di notifiche nel codice, e nessuna persistenza dei BIP seguiti.
 
 ## 8. News Vertical Slice
 
@@ -76,7 +78,8 @@ La roadmap e organizzata per macro aree. Ogni area contiene task da completare i
 3. [x] Supportare autore GitHub e metadata.
 4. [x] Collegare inline link a Wiki/BIP.
 5. [x] Implementare Lightning Tip modal mock.
-6. [x] Collegare BTCPay/Lightning solo dopo definizione privacy e UX.
+6. [ ] Collegare BTCPay/Lightning solo dopo definizione privacy e UX.
+   > Da completare: nel codice non c'e nessuna integrazione BTCPay o Lightning. Il "Send Tip" della news e solo un dialog mock, da nascondere finche non esiste un'implementazione.
 
 ## 9. Content Pipeline
 
