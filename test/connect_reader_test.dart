@@ -21,10 +21,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('Blockchain lab, step 1'), findsOneWidget);
-    expect(
-      find.text('Type text and watch its hash change'),
-      findsOneWidget,
-    );
+    expect(find.text('Type text and watch its hash change'), findsOneWidget);
   });
 
   testWidgets('Try it rows open their routes', (tester) async {
