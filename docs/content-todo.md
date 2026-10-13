@@ -365,20 +365,20 @@ l'argomento. Le voci vanno aggiunte ai seed a mano (vedi "Seed Rebuild" in
 
 Una voce wiki per sottocategoria. Elenco confermato il 2026-10-13.
 
-- [ ] Nodi: implementazioni di full node - `wiki.node-software`
-- [ ] Software wallet - `wiki.software-wallets`
-- [ ] Software Lightning: nodi e wallet - `wiki.lightning-software`
-- [ ] Server e infrastruttura - `wiki.server-software`
-- [ ] Sistemi per nodo domestico - `wiki.node-operating-systems`
-- [ ] Software di mining: firmware, pool, Stratum - `wiki.mining-software`
-- [ ] Librerie e strumenti per sviluppatori - `wiki.developer-tools`
+- [x] Nodi: implementazioni di full node - `wiki.node-software`
+- [x] Software wallet - `wiki.software-wallets`
+- [x] Software Lightning: nodi e wallet - `wiki.lightning-software`
+- [x] Server e infrastruttura - `wiki.server-software`
+- [x] Sistemi per nodo domestico - `wiki.node-operating-systems`
+- [x] Software di mining: firmware, pool, Stratum - `wiki.mining-software`
+- [x] Librerie e strumenti per sviluppatori - `wiki.developer-tools`
 
 ### Hardware (`hardware`)
 
-- [ ] Hardware wallet - `wiki.hardware-wallets`
-- [ ] Backup del seed - `wiki.seed-backups`
-- [ ] Hardware di mining: ASIC e dispositivi domestici - `wiki.mining-hardware`
-- [ ] Hardware per nodi - `wiki.node-hardware`
+- [x] Hardware wallet - `wiki.hardware-wallets`
+- [x] Backup del seed - `wiki.seed-backups`
+- [x] Hardware di mining: ASIC e dispositivi domestici - `wiki.mining-hardware`
+- [x] Hardware per nodi - `wiki.node-hardware`
 
 ### Schede prodotto (`products`)
 
@@ -437,12 +437,12 @@ verificano quando si scrive la scheda.
 
 ### History: prima di Bitcoin e incidenti
 
-- [ ] Hashcash - `history.hashcash`
-- [ ] b-money - `history.b-money`
-- [ ] bit gold - `history.bit-gold`
-- [ ] RPOW - `history.rpow`
-- [ ] Manifesto cypherpunk - `history.cypherpunk-manifesto`
-- [ ] Value overflow, 15 agosto 2010 - `history.value-overflow-incident`
+- [x] Hashcash - `history.hashcash`
+- [x] b-money - `history.b-money`
+- [x] bit gold - `history.bit-gold`
+- [x] RPOW - `history.rpow`
+- [x] Manifesto cypherpunk - `history.cypherpunk-manifesto`
+- [x] Value overflow, 15 agosto 2010 - `history.value-overflow-incident`
 - [ ] Altri incidenti di consenso documentati
 
 ### Diagrammi

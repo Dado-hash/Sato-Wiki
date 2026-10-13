@@ -30,7 +30,7 @@ void main() {
       Uri.parse('media/wiki/proof-of-work/pow-mining-loop.svg'),
     );
     expect(bundle.news.single.author.github, 'andreas-m');
-    expect(bundle.history.first.date, DateTime(2008, 10, 31));
+    expect(bundle.history.first.date, DateTime(1993, 3, 9));
     expect(bundle.bips, hasLength(greaterThanOrEqualTo(200)));
     expect(bundle.bips.first.number, 1);
     expect(bundle.bips.first.status, BipStatus.closed);

@@ -1,9 +1,289 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.110854",
+  "version": "2026.10.13.123249",
   "language": "it",
-  "generatedAt": "2026-10-13T11:08:54.000000Z",
+  "generatedAt": "2026-10-13T12:32:49.000000Z",
   "history": [
+    {
+      "id": "history.cypherpunk-manifesto",
+      "slug": "cypherpunk-manifesto",
+      "language": "it",
+      "date": "1993-03-09",
+      "title": "Pubblicato il Manifesto Cypherpunk",
+      "category": "origin",
+      "summary": "Eric Hughes pubblica \"A Cypherpunk's Manifesto\", un breve testo che sostiene che la privacy in una società aperta richiede software che riveli il meno possibile.",
+      "bodyMarkdown": "Il 9 marzo 1993 Eric Hughes pubblicò \"A Cypherpunk's Manifesto\", un breve saggio che enuncia gli obiettivi del movimento cypherpunk. La prima frase del testo è \"Privacy is necessary for an open society in the electronic age.\" Hughes scriveva per i cypherpunk, un gruppo che il saggio descrive come dedito alla costruzione di sistemi anonimi. Il testo è una dichiarazione di principi, non un documento tecnico.\n\nL'idea centrale è che privacy non significhi segretezza. Un fatto privato è qualcosa che una persona non vuole che il mondo intero conosca, mentre un segreto è qualcosa che non vuole che nessuno conosca. Hughes sosteneva che ogni parte di una transazione conserva il ricordo dello scambio e può ripeterlo, quindi l'unica protezione reale è rivelare il meno possibile fin dall'inizio. Lo illustrava con il contante: chi compra una rivista non deve dire al negoziante chi è, e i sistemi elettronici dovrebbero essere progettati con la stessa discrezione.\n\nIl manifesto afferma anche che la comunità deve costruire da sola gli strumenti. Dichiara che i cypherpunk scrivono codice, che qualcuno deve scrivere il software e che il gruppo rilascia il proprio codice per un uso gratuito. Si oppone alla regolamentazione della crittografia e afferma che i cypherpunk lavorano attivamente per rendere le reti più sicure per la privacy. Il saggio non descrive alcun protocollo, alcuna valuta né alcun sistema per registrare le transazioni: enuncia valori e un metodo, e lascia il progetto a chi scrive il software.\n\nIl whitepaper di Bitcoin non cita questo saggio. Le sue otto referenze includono il b-money di Wei Dai e l'Hashcash di Adam Back, entrambi nati nello stesso ambiente cypherpunk, ma il manifesto non è tra queste. Il legame con Bitcoin è quindi di obiettivi e di comunità condivisi, non di citazione diretta. Il saggio è un utile sfondo per la tradizione in cui furono scritte molte prime proposte di moneta digitale e per l'idea che la privacy debba essere costruita nel software.",
+      "tags": [
+        "Cypherpunk",
+        "Privacy",
+        "Crittografia",
+        "Manifesto"
+      ],
+      "sources": [
+        {
+          "title": "A Cypherpunk's Manifesto",
+          "url": "https://www.activism.net/cypherpunk/manifesto.html",
+          "author": "Eric Hughes",
+          "publishedAt": "1993-03-09"
+        },
+        {
+          "title": "A Cypherpunk's Manifesto",
+          "url": "https://nakamotoinstitute.org/library/cypherpunk-manifesto/",
+          "author": "Eric Hughes",
+          "publishedAt": "1993-03-09"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        },
+        {
+          "id": "history.hashcash",
+          "title": "Hashcash proposto sulla mailing list cypherpunk"
+        },
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Firme Digitali"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "history.hashcash",
+      "slug": "hashcash",
+      "language": "it",
+      "date": "1997-03-28",
+      "title": "Hashcash proposto sulla mailing list cypherpunk",
+      "category": "origin",
+      "summary": "Adam Back annuncia Hashcash, un francobollo basato su proof of work pensato per rendere costoso l'invio massivo di email, sulla mailing list cypherpunk.",
+      "bodyMarkdown": "Il 28 marzo 1997 Adam Back inviò alla mailing list cypherpunk un annuncio intitolato \"[ANNOUNCE] hash cash postage implementation\". Il messaggio descriveva uno \"schema di affrancatura basato su collisioni parziali di hash\" e rimandava a una prima implementazione che chiunque poteva scaricare e provare. Back spiegò di aver discusso l'idea per alcuni giorni sulle liste di crittografia prima dell'annuncio.\n\nLo schema chiedeva al mittente di trovare un valore il cui hash inizi con un numero scelto di bit uguali. Trovarlo richiede molti tentativi, quindi il costo può essere fissato a piacere, mentre chiunque può verificare il risultato con un solo hash. Applicato alla posta elettronica, la prova viene allegata al messaggio come francobollo, e un destinatario o un server può rifiutare la posta che ne è priva. Nel dicembre 1997 Back suggerì di far spendere a uno spammer circa 20 secondi di CPU per ogni messaggio.\n\nL'idea aveva limiti evidenti. Funzionava solo se destinatari o server sceglievano di richiedere il francobollo, e uno spammer con più potenza di calcolo poteva comunque pagarne il costo. L'adozione rimase limitata. Il documento del 2002 di Back, che descrive formalmente lo schema, riporta l'esperienza iniziale di alcuni esperimenti e un elenco di applicazioni e miglioramenti proposti, più che un'adozione consolidata. Lo stesso documento colloca la proposta originale nel maggio 1997, mentre l'annuncio è datato 28 marzo 1997.\n\nHashcash conta per Bitcoin perché la sua funzione di costo basata sulla CPU è il tipo di proof of work che Bitcoin usa. Il whitepaper di Bitcoin cita il documento di Back come riferimento [6] quando descrive un sistema di proof of work simile a Hashcash, e usa la proof of work per proteggere la catena di blocchi. Anche il progetto RPOW di Hal Finney, successivo, si basò sui token hashcash. Hashcash è quindi uno dei precursori diretti del design di Bitcoin, anche se il whitepaper presenta un proprio sistema invece di adottare Hashcash così com'era.",
+      "tags": [
+        "Hashcash",
+        "Proof of Work",
+        "Email",
+        "Cypherpunk"
+      ],
+      "sources": [
+        {
+          "title": "[ANNOUNCE] hash cash postage implementation",
+          "url": "https://diswww.mit.edu/bloom-picayune/crypto/453",
+          "author": "Adam Back",
+          "publishedAt": "1997-03-28"
+        },
+        {
+          "title": "Hashcash - A Denial of Service Counter-Measure",
+          "url": "http://www.hashcash.org/papers/hashcash.pdf",
+          "author": "Adam Back",
+          "publishedAt": "2002-08-01"
+        },
+        {
+          "title": "Hashcash",
+          "url": "https://en.bitcoin.it/wiki/Hashcash",
+          "author": "Bitcoin Wiki contributors"
+        },
+        {
+          "title": "Hashcash - A Denial of Service Counter-Measure",
+          "url": "https://nakamotoinstitute.org/library/hashcash/",
+          "author": "Adam Back",
+          "publishedAt": "2002-08-01"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.hash-functions",
+          "title": "Funzioni di Hash"
+        },
+        {
+          "id": "history.rpow",
+          "title": "Hal Finney annuncia RPOW"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "history.b-money",
+      "slug": "b-money",
+      "language": "it",
+      "date": "1998-11-27",
+      "title": "Wei Dai descrive b-money",
+      "category": "origin",
+      "summary": "Wei Dai descrive b-money, una proposta con cui parti pseudonime possono pagarsi a vicenda e far rispettare contratti senza un'autorità fidata, creando nuova moneta con lavoro computazionale.",
+      "bodyMarkdown": "Il 27 novembre 1998 (UTC) Wei Dai annunciò sulla mailing list cypherpunk una proposta chiamata b-money, in un messaggio intitolato \"PipeNet 1.1 and b-money\". Il testo della proposta non riporta una data. La proposta descrive come un gruppo di pseudonimi non tracciabili possa pagarsi a vicenda e far rispettare contratti tra sé senza un'autorità esterna. Parte da una comunità \"crypto-anarchica\" che avrebbe bisogno di un mezzo di scambio e di un modo per far rispettare gli accordi.\n\nDai descrisse due protocolli. Il primo presupponeva un canale di trasmissione anonimo difficile da rendere pratico, e prevedeva un database separato dei saldi presso ogni partecipante. Il secondo usava un insieme di custodi dei conti, che detengono i saldi e in ogni periodo decidono quanta nuova moneta creare. La creazione avveniva tramite asta: chiunque poteva offrire una quantità di b-money insieme alla soluzione di un problema di una classe fissata, e le offerte più alte per unità di moneta venivano accreditate. Ogni periodo prevedeva quattro fasi: pianificazione, offerte, calcolo e creazione della moneta.\n\nIl progetto lasciava aperte domande importanti. Dipendeva da custodi dei conti che dovevano accordarsi sui saldi e sulla quantità creata in ogni periodo, e il testo precisa che la creazione sarebbe avvenuta anche senza consenso tra i custodi sulle quote. Non chiariva come i custodi avrebbero raggiunto quell'accordo, e il testo non descrive un'implementazione funzionante.\n\nIl whitepaper di Bitcoin cita b-money come riferimento [1], nel punto in cui spiega che le transazioni devono essere annunciate pubblicamente perché i partecipanti possano concordare un unico ordine dei pagamenti. Lo cita come \"W. Dai, 'b-money,' http://www.weidai.com/bmoney.txt, 1998.\" Bitcoin segue però una strada diversa: al posto dei custodi dei conti usa una catena pubblica di blocchi con proof of work, che ogni nodo può verificare. Entrambi i progetti usano il costo del calcolo come base di fiducia, ma il whitepaper elimina la necessità di un insieme fisso di custodi fidati.",
+      "tags": [
+        "b-money",
+        "Moneta digitale",
+        "Cypherpunk",
+        "Wei Dai"
+      ],
+      "sources": [
+        {
+          "title": "PipeNet 1.1 and b-money",
+          "url": "https://mailing-list-archive.cryptoanarchy.wiki/archive/1998/11/0e3ccb59b898d6b3dc41250477bb70f593e29f5519439e1ad189bd7fa9234d45",
+          "author": "Wei Dai",
+          "publishedAt": "1998-11-27"
+        },
+        {
+          "title": "b-money",
+          "url": "http://www.weidai.com/bmoney.txt",
+          "author": "Wei Dai"
+        },
+        {
+          "title": "b-money",
+          "url": "https://nakamotoinstitute.org/library/b-money/",
+          "author": "Wei Dai"
+        },
+        {
+          "title": "B-money",
+          "url": "https://en.bitcoin.it/wiki/B-money",
+          "author": "Bitcoin Wiki contributors"
+        },
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Firme Digitali"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        },
+        {
+          "id": "history.hashcash",
+          "title": "Hashcash proposto sulla mailing list cypherpunk"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "history.rpow",
+      "slug": "rpow",
+      "language": "it",
+      "date": "2004-08-15",
+      "title": "Hal Finney annuncia RPOW",
+      "category": "origin",
+      "summary": "Hal Finney annuncia Reusable Proofs of Work (RPOW), un server che scambia token hashcash con token utilizzabili ancora una volta.",
+      "bodyMarkdown": "Il 15 agosto 2004 Hal Finney annunciò RPOW, acronimo di Reusable Proofs of Work, sulla mailing list cypherpunk. L'annuncio fu ripubblicato lo stesso giorno sulla lista di crittografia ospitata da metzdowd.com. Finney descrisse RPOW come la prima implementazione pubblica di un server che permette agli utenti di scambiarsi proof of work trasformandole in nuovi token, così che un token potesse passare da una persona all'altra.\n\nIl sistema prendeva in ingresso token hashcash, valori i cui hash SHA-1 hanno molti bit alti a zero, che richiedono calcolo per essere prodotti e si verificano rapidamente. L'utente consegnava un token al server RPOW e ne riceveva uno nuovo, utilizzabile una volta e scambiabile di nuovo. Questo riutilizzo sequenziale permetteva di far passare una stessa proof of work lungo una catena, con ogni passaggio che produceva un token nuovo. Finney sosteneva che ciò rendeva le proof of work più pratiche per molti usi, mantenendo significativo il costo di creazione di un token.\n\nRPOW aveva limiti chiari. L'integrità del server dipendeva dalla fiducia nel suo hardware e nel suo software. Finney lo fece girare su un processore sicuro e permise a terzi di verificare quale programma fosse in esecuzione, ma gli utenti dovevano comunque affidarsi al server per mantenere onesti i token. Le pagine archiviate del progetto dicono che è stato terminato e sono conservate a scopo storico. Poiché un unico server emetteva e controllava ogni token, il progetto non eliminava la terza parte fidata dal sistema.\n\nIl whitepaper di Bitcoin non cita RPOW. Le sue otto referenze riguardano b-money, Hashcash e ricerche sulla marcatura temporale, e nessuna è RPOW. Bitcoin differisce per struttura: sostituisce il server centrale con una catena pubblica di blocchi con proof of work che ogni nodo verifica. Il post di Nick Szabo su bit gold, che descrive un obiettivo simile, menziona RPOW di Finney come implementazione di una delle sue varianti, quindi RPOW appartiene alla stessa linea di lavoro, e la differenza strutturale decisiva rispetto a Bitcoin è il server centrale.",
+      "tags": [
+        "RPOW",
+        "Proof of Work",
+        "Hal Finney",
+        "Moneta digitale"
+      ],
+      "sources": [
+        {
+          "title": "RPOW - Reusable Proofs of Work (cryptography list repost)",
+          "url": "https://www.metzdowd.com/pipermail/cryptography/2004-August/007362.html",
+          "author": "Hal Finney",
+          "publishedAt": "2004-08-15"
+        },
+        {
+          "title": "RPOW - Reusable Proofs of Work",
+          "url": "https://web.archive.org/web/2004/http://www.finney.org/~hal/rpow/",
+          "author": "Hal Finney"
+        },
+        {
+          "title": "RPOW - Reusable Proofs of Work",
+          "url": "https://nakamotoinstitute.org/library/rpow/",
+          "author": "Hal Finney"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "history.hashcash",
+          "title": "Hashcash proposto sulla mailing list cypherpunk"
+        },
+        {
+          "id": "history.bit-gold",
+          "title": "Nick Szabo pubblica Bit Gold"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "history.bit-gold",
+      "slug": "bit-gold",
+      "language": "it",
+      "date": "2005-12-29",
+      "title": "Nick Szabo pubblica Bit Gold",
+      "category": "origin",
+      "summary": "Nick Szabo pubblica il post \"Bit gold\" sul suo blog Unenumerated, proponendo token digitali non falsificabili costruiti con catene di proof of work e un registro distribuito dei titoli.",
+      "bodyMarkdown": "Nick Szabo pubblicò sul suo blog Unenumerated un post intitolato \"Bit gold\" nel dicembre 2005. Il giorno esatto è incerto: la pagina del post mostra una data di ripubblicazione del 27 dicembre 2008, e il Nakamoto Institute indica come data originale il 29 dicembre 2005, usata qui. Il post apre dicendo che il suo autore ha avuto \"l'idea di bit gold\" molto tempo prima, e sostiene che il valore del denaro dipende dalla fiducia in una terza parte.\n\nLa proposta era un protocollo per creare online token digitali non falsificabili. Ogni nuova stringa di bit sarebbe il risultato di un enigma computazionale, una proof of work costosa da produrre e facile da verificare. La sfida di ogni enigma è la stringa creata subito prima, così ogni token dipende da quello precedente. La prova viene marcata temporalmente da più servizi e registrata in un registro distribuito dei titoli di proprietà. La titolarità è mostrata dalla catena ininterrotta di firme digitali in quel registro, e chiunque può verificare la sfida, la prova e la marca temporale di un token.\n\nSzabo stesso elencò i limiti principali: la sicurezza dello schema dipende da quanto bene la fiducia è distribuita tra i servizi di marcatura temporale e il registro, e dal problema dell'architettura delle macchine. Il post non descrive un sistema finito con software funzionante e lascia aperta la questione di come mantenere onesto il registro nella pratica. La versione online menziona anche RPOW di Hal Finney, che è del 2004, quindi il testo è stato aggiornato dopo la prima pubblicazione.\n\nIl whitepaper di Bitcoin non cita bit gold. Le sue referenze sono b-money, Hashcash e ricerche sulla marcatura temporale, e il post di bit gold non è tra queste. Tuttavia bit gold e Bitcoin condividono uno schema di progetto: una catena di proof of work, registrazioni con marca temporale e titolarità dimostrata tramite firme. Il whitepaper di Bitcoin presenta una propria versione di questo schema, con una catena pubblica di blocchi al posto del registro dei titoli.",
+      "tags": [
+        "Bit Gold",
+        "Nick Szabo",
+        "Proof of Work",
+        "Moneta digitale"
+      ],
+      "sources": [
+        {
+          "title": "Bit gold",
+          "url": "https://unenumerated.blogspot.com/2005/12/bit-gold.html",
+          "author": "Nick Szabo"
+        },
+        {
+          "title": "Bit Gold",
+          "url": "https://nakamotoinstitute.org/library/bit-gold/",
+          "author": "Nick Szabo",
+          "publishedAt": "2005-12-29"
+        },
+        {
+          "title": "Bit Gold",
+          "url": "https://en.bitcoin.it/wiki/Bit_Gold",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Firme Digitali"
+        },
+        {
+          "id": "history.rpow",
+          "title": "Hal Finney annuncia RPOW"
+        },
+        {
+          "id": "history.b-money",
+          "title": "Wei Dai descrive b-money"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
     {
       "id": "history.bitcoin-whitepaper",
       "slug": "bitcoin-whitepaper",
@@ -340,6 +620,63 @@
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.value-overflow-incident",
+      "slug": "value-overflow-incident",
+      "language": "it",
+      "date": "2010-08-15",
+      "title": "Incidente dell'overflow di valore nel blocco 74638",
+      "category": "security",
+      "summary": "Una transazione nel blocco 74638 crea circa 184 miliardi di BTC tramite un overflow di interi; una patch rilasciata lo stesso giorno, la versione 0.3.10, rifiuta tali transazioni.",
+      "bodyMarkdown": "Il 15 agosto 2010 uno sviluppatore notò che il blocco 74638 conteneva una transazione che creava circa 184 miliardi di BTC. La transazione aveva due output di circa 92,2 miliardi di BTC ciascuno, e la loro somma superò l'intervallo dell'intero a dimensione fissa usato dal software. Il problema fu segnalato lo stesso giorno nel thread del forum bitcointalk.org intitolato \"Strange block 74638\". La falla è indicata con il codice CVE-2010-5139.\n\nIl client controllava ogni output separatamente per verificare che non fosse negativo, ma non verificava se la somma degli output andasse in overflow. Due output che singolarmente sembravano validi si sommavano in un numero negativo, che il software accettava. Il difetto stava nel codice di validazione, non nel disegno complessivo della catena.\n\nSatoshi Nakamoto pubblicò \"Version 0.3.10 - block 74638 overflow PATCH!\" il 15 agosto 2010 alle 23:48 UTC. La patch modificava le regole di consenso in modo che i nodi rifiutassero transazioni con output in overflow. La Bitcoin Wiki descrive la modifica come un soft fork. I nodi non aggiornati continuarono per un certo tempo a costruire sulla catena errata, e la rete si divise brevemente in due storie concorrenti.\n\nIl 16 agosto Satoshi scrisse che la rete aveva superato la catena errata \"somewhere around 74689\", cioè intorno al blocco 74689. La Bitcoin Wiki indica il blocco 74691 come altezza alla quale tutti i nodi accettarono la catena corretta, quindi l'altezza esatta è approssimativa nelle fonti. Quando la catena corretta divenne più lunga, la transazione e le monete che aveva creato non esistevano più nella catena principale. L'episodio mostra come le regole di consenso decidano quali transazioni contano e perché gli aggiornamenti dovessero essere rapidi.\n\nPer il disegno di Bitcoin, l'episodio mostra la regola del whitepaper secondo cui la catena più lunga di proof of work è quella autorevole. Questa regola permise alla catena corretta di sostituire quella errata senza alcuna azione centrale, anche se solo dopo che i nodi avevano aggiornato il software. La patch è inoltre un primo esempio di soft fork, un cambiamento che rende più severe le regole in modo che i nodi più vecchi continuino ad accettare i nuovi blocchi.",
+      "tags": [
+        "Sicurezza",
+        "Overflow di interi",
+        "Consenso",
+        "Soft fork"
+      ],
+      "sources": [
+        {
+          "title": "Strange block 74638",
+          "url": "https://bitcointalk.org/index.php?topic=822.0",
+          "author": "jgarzik",
+          "publishedAt": "2010-08-15"
+        },
+        {
+          "title": "Version 0.3.10 - block 74638 overflow PATCH!",
+          "url": "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/376/",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2010-08-15"
+        },
+        {
+          "title": "Re: overflow bug SERIOUS",
+          "url": "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/387/",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2010-08-16"
+        },
+        {
+          "title": "CVE-2010-5139",
+          "url": "https://en.bitcoin.it/wiki/CVE-2010-5139",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Fork e Soft Fork"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
     },
     {
       "id": "history.silk-road-launch",
@@ -5213,6 +5550,899 @@
         "wiki.fee-market"
       ],
       "updatedAt": "2026-05-28T00:00:00+00:00"
+    },
+    {
+      "id": "wiki.node-software",
+      "slug": "node-software",
+      "language": "it",
+      "category": "software",
+      "subcategory": "nodes",
+      "title": "Software per nodi",
+      "description": "I programmi che fanno girare un full node, perché esistono più implementazioni indipendenti e come verificare ciò che si installa.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Il software per nodi è il programma che fa girare un full node. Un full node controlla ogni blocco e ogni transazione rispetto alle regole di consenso prima di accettarli, poi inoltra i dati validi agli altri nodi. Se ne gestisci uno, non devi fidarti della lista dei pagamenti validi di qualcun altro.\n\nPiù programmi possono svolgere questo compito. Ognuno è un'implementazione: codice proprio, scritto per seguire le stesse regole. Bitcoin Core è l'implementazione che usa la maggior parte delle persone. Bitcoin Knots è un derivato di Core. Lo sviluppo avviene in genere in Core e viene riportato in Knots a ogni release, e Knots aggiunge modifiche proprie. btcd è un'implementazione alternativa scritta in Go, quindi non condivide affatto il codice di Core.\n\nPoiché il software decide che cosa accetta il tuo nodo, verifica da dove arriva prima di eseguirlo. Bitcoin Core pubblica checksum e firme per le sue release, e puoi confrontare il file scaricato con questi dati. Anche aggiornare alla release più recente conta, perché le correzioni al codice di validazione arrivano al tuo nodo solo quando le installi."
+        },
+        "medium": {
+          "bodyMarkdown": "Un'implementazione risponde a una sola domanda: come legge questo programma le regole? Le implementazioni serie puntano ad accettare gli stessi blocchi, ma sono scritte da persone diverse, in linguaggi diversi, con percorsi di codice diversi. Nella maggior parte dei casi concordano. Quando non concordano su una regola di consenso, due nodi possono trattare lo stesso blocco in modo diverso e seguire catene diverse. Avere più implementazioni significa che un bug in una di esse non definisce da solo la visione dell'intera rete, ma ognuna va controllata e corretta per conto proprio.\n\nLa policy è un livello separato. Le regole di consenso decidono se un blocco è valido. Le impostazioni di policy decidono quali transazioni il nodo conserva nella mempool e inoltra ai peer. Bitcoin.org descrive una modalità blocks-only, in cui il nodo smette di richiedere e inoltrare transazioni sciolte e accetta le transazioni solo quando arrivano dentro un blocco. È una scelta di policy, non un cambio di ciò che è valido. Due nodi con policy diverse possono comunque accettare la stessa chain.\n\nAnche lo storage è una scelta. Un nodo archival conserva l'intera storia dei blocchi e può servire blocchi vecchi ad altri peer. Un nodo pruned scarica e valida comunque la chain, ma elimina i vecchi dati dei blocchi per risparmiare spazio su disco. Il pruning è incompatibile con alcuni indici opzionali, come l'indice delle transazioni che Bitcoin Core costruisce con l'opzione txindex, quindi la scelta influisce su ciò che altro software può fare con il tuo nodo.\n\nL'ultimo passo è la verifica della release. Il processo di build Guix di Bitcoin Core è pensato perché builder indipendenti possano produrre binari identici, e ciascun builder firma un'attestazione degli hash che ha ottenuto. Se confronti il tuo file con queste attestazioni, controlli il binario stesso, non solo il sito che lo offre. Le build riproducibili riducono la necessità di fidarsi di una sola macchina di build."
+        },
+        "advanced": {
+          "bodyMarkdown": "La differenza tra consenso e policy conta soprattutto quando osservi che cosa fa un nodo. Le regole di consenso decidono se un blocco può appartenere alla best chain. La policy decide che cosa un nodo inoltra e conserva prima che un blocco venga minato. Una transazione che un nodo rifiuta per policy può essere comunque valida, e un miner con una policy diversa potrebbe includerla. Per questo un'implementazione può cambiare i suoi default senza creare un fork della rete, mentre una modifica del consenso richiede che abbastanza nodi adottino le nuove regole perché la chain le segua.\n\nIl rischio di compatibilità nasce dal lato del consenso. Le implementazioni possono non concordare su percorsi rari delle regole, come casi insoliti negli script o vecchi blocchi raramente validati. Il disaccordo può restare nascosto finché un blocco non lo fa emergere. Le build riproducibili aiutano: quando persone diverse compilano lo stesso sorgente e ottengono binari identici, possono essere più sicure che il loro nodo applichi lo stesso comportamento del resto della rete. Una build che non si può riprodurre lascia l'utente a fidarsi di chi l'ha pubblicata.\n\nLa verifica ha più livelli. Puoi confrontare i checksum pubblicati con il file, controllare le firme sulla lista dei checksum con chiavi di cui ti fidi e, per le build Guix di Core, confrontare le attestazioni di più builder. Ogni livello risponde a una domanda diversa. I checksum mostrano che il file corrisponde a ciò che è stato firmato. Le firme mostrano chi l'ha firmato. Le attestazioni indipendenti mostrano che il binario può essere ricostruito dal sorgente. Nessuno di questi controlli dice che il sorgente è sicuro, ed è per questo che la revisione aperta del codice conta ancora.\n\nPruning e modalità archival sono un compromesso sulle risorse. Un nodo pruned conserva lo stato necessario per validare i nuovi blocchi, ma non può servire ai peer i blocchi vecchi né supportare strumenti che dipendono dagli indici completi. Un nodo archival richiede molto più spazio su disco, ma può rispondere alle richieste storiche. Entrambi validano dal blocco genesis, quindi la scelta non cambia ciò che accettano, solo ciò che memorizzano e condividono.\n\nNon esiste un'implementazione migliore in assoluto. Il ruolo di validazione è lo stesso in tutte. Ciò che cambia è l'insieme delle funzioni, la policy di default, gli indici, gli strumenti e le pratiche di rilascio. La domanda utile è quale implementazione corrisponde al lavoro che vuoi far fare al nodo, e se puoi verificare il binario che esegui."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Full Node",
+        "Software",
+        "Consenso",
+        "Verifica"
+      ],
+      "sources": [
+        {
+          "title": "Running A Full Node",
+          "url": "https://bitcoin.org/en/full-node",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core downloads",
+          "url": "https://bitcoincore.org/en/download/",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Core Guix build documentation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Reproducible builds",
+          "url": "https://bitcoinops.org/en/topics/reproducible-builds/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "Bitcoin Knots",
+          "url": "https://github.com/bitcoinknots/bitcoin",
+          "author": "Bitcoin Knots contributors"
+        },
+        {
+          "title": "btcd, an alternative full node implementation in Go",
+          "url": "https://github.com/btcsuite/btcd",
+          "author": "btcsuite contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Fork e Soft Fork"
+        },
+        {
+          "id": "wiki.mempool",
+          "title": "Mempool"
+        },
+        {
+          "id": "wiki.server-software",
+          "title": "Server e infrastruttura"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.software-wallets",
+      "slug": "software-wallets",
+      "language": "it",
+      "category": "software",
+      "subcategory": "software-wallets",
+      "title": "Software wallet",
+      "description": "I programmi wallet per desktop e mobile, che cosa memorizzano davvero e in che modo le scelte su custodia, server e backup cambiano privacy e rischio.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un software wallet è un programma su computer o telefono che gestisce le chiavi dei tuoi bitcoin. La prima cosa da capire è che un wallet non contiene monete. I bitcoin esistono come output non spesi registrati sulla blockchain. Il wallet conserva le chiavi private che possono firmare la spesa di quegli output, e le usa per costruire e firmare le transazioni.\n\nLa maggior parte dei software wallet gira su dispositivi connessi a internet, il che li rende comodi per i pagamenti di tutti i giorni. Alcuni sono non-custodial, quindi solo tu hai le chiavi. Altri sono custodial, cioè una società custodisce le chiavi e tu hai un credito verso di lei. La differenza decide chi può muovere i tuoi fondi e che cosa succede se il fornitore fallisce. Il software non-custodial ti dà il controllo, ma anche la responsabilità: se perdi il seed e il dispositivo, nessuno può ripristinare i fondi al posto tuo.\n\nTieni il backup del seed offline e privato, e verifica che il wallet possa ripristinarsi da esso prima di affidarti al wallet. Un wallet su telefono o portatile è un hot wallet. Le sue chiavi stanno su un dispositivo online, che le espone più di chiavi tenute su un dispositivo che non si connette mai."
+        },
+        "medium": {
+          "bodyMarkdown": "Un wallet deve sapere quale saldo possiede, e il modo in cui lo fa decide quanto rivela. L'opzione più privata è collegare il wallet al tuo full node, che interroghi direttamente. Molti wallet, invece, si collegano a un server che risponde per loro. Un server in stile Electrum riceve gli indirizzi che interessano al wallet, e può ragionevolmente supporre che appartengano alla stessa persona. La FAQ di Electrum dice che il server è considerato affidabile per le transazioni non confermate e può mentire per omissione, cioè omettere transazioni che ti riguardano. Un server di terze parti costa quindi privacy e un po' di fiducia, anche quando il wallet verifica le transazioni confermate rispetto agli header dei blocchi.\n\nI compact block filter, specificati in BIP 157 e BIP 158, offrono un altro modello. Il wallet scarica un filtro per ogni blocco, lo controlla localmente e richiede solo i blocchi che possono contenere sue transazioni. Rispetto ai server basati sugli indirizzi, questo dà più privacy e richiede meno spazio sul server, ma nel caso normale usa più banda.\n\nI backup sono una questione a parte. Un backup del seed ripristina le chiavi che il wallet deriva da esso. Prima di affidarti a un wallet, prova un ripristino su un secondo dispositivo, e verifica se il programma ha bisogno di qualcos'altro oltre al seed per mostrare tutto il tuo storico.\n\nI wallet possono anche dividere il lavoro. Un wallet watch-only conosce la parte pubblica dei tuoi indirizzi e può seguire il saldo senza alcuna chiave di firma. Un dispositivo di firma, come un hardware wallet o un programma offline, custodisce le chiavi private e firma le transazioni preparate dal wallet watch-only. Le Partially Signed Bitcoin Transaction (PSBT, BIP 174) sono il formato usuale per passare avanti e indietro queste transazioni, perché trasportano le informazioni di firma senza dare al lato online le chiavi.\n\nIl codice open source permette di verificare il binario pubblicato confrontandolo con una build ottenuta dal sorgente."
+        },
+        "advanced": {
+          "bodyMarkdown": "Un software wallet combina tre compiti separabili: decidere quali chiavi pubbliche consegnare, firmare le transazioni e comunicare con la rete peer-to-peer. La guida per sviluppatori di Bitcoin chiama la forma più semplice wallet full-service, che svolge tutti e tre i compiti su un solo dispositivo. Lo svantaggio è che le chiavi private stanno su una macchina connessa a internet, dove una compromissione può farle trapelare. Cifrare il file del wallet protegge le chiavi a riposo, ma non difende da malware che cattura la chiave di cifratura o legge le chiavi decifrate dalla memoria.\n\nSeparare i compiti riduce questa esposizione. Un wallet collegato monitora gli output, costruisce transazioni non firmate e trasmette quelle firmate. Un wallet di sola firma, spesso un programma offline o un dispositivo hardware, custodisce la chiave privata master e firma ciò che gli viene mostrato. La guida per sviluppatori osserva che al lato di firma viene spesso data la possibilità di rivedere i dettagli degli output prima di firmare.\n\nLa privacy dipende da come il wallet viene a sapere delle proprie transazioni. I metodi light client rivelano cose diverse. I bloom filter, l'approccio più vecchio di BIP 37, fanno sì che il wallet mandi un filtro a un nodo, che confronta le transazioni con quel filtro. Il confronto di Bitcoin Optech dice che i compact block filter danno più privacy contro i nodi spia rispetto ai bloom filter di BIP 37, perché il confronto avviene dal lato del wallet. I server basati sugli indirizzi apprendono direttamente gli indirizzi, e chi riutilizza gli indirizzi offre loro una lunga storia da collegare.\n\nLa PSBT è il contenitore comune che collega un wallet collegato ai dispositivi di firma. Il formato è stato progettato perché un firmatario offline possa firmare senza accesso diretto all'insieme UTXO e senza il rischio di essere ingannato sulla transazione. Un firmatario deve inoltre far passare i campi che non riconosce, così strumenti più recenti possono aggiungere dati senza rompere quelli più vecchi.\n\nAnche le build riproducibili si applicano ai wallet. Quando un wallet viene compilato in modo deterministico, più persone possono compilare lo stesso sorgente e ottenere binari identici, quindi un aggiornamento non dipende dalla fiducia in una sola macchina di build. La documentazione di Electrum osserva inoltre che un wallet può essere recuperato interamente dal suo seed, il che rende il seed il backup critico. La sicurezza dipende da come il seed viene generato, conservato e ripristinato, non dalla sola app."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Wallet",
+        "Software",
+        "Privacy",
+        "Backup"
+      ],
+      "sources": [
+        {
+          "title": "Developer Guide - Wallets",
+          "url": "https://developer.bitcoin.org/devguide/wallets.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "BIP 174: Partially Signed Bitcoin Transaction Format",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
+          "author": "Ava Chow"
+        },
+        {
+          "title": "Electrum documentation - Frequently Asked Questions",
+          "url": "https://electrum.readthedocs.io/en/latest/faq.html",
+          "author": "Electrum developers"
+        },
+        {
+          "title": "Compact block filters",
+          "url": "https://bitcoinops.org/en/topics/compact-block-filters/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "Reproducible builds",
+          "url": "https://bitcoinops.org/en/topics/reproducible-builds/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "Electrum protocol",
+          "url": "https://github.com/spesmilo/electrum-protocol",
+          "author": "Electrum developers"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hd-wallets",
+          "title": "Wallet HD Gerarchici Deterministici"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Chiavi Private"
+        },
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.lightning-software",
+      "slug": "lightning-software",
+      "language": "it",
+      "category": "software",
+      "subcategory": "lightning",
+      "title": "Software Lightning",
+      "description": "Implementazioni di nodo Lightning e wallet, come interoperano grazie alle specifiche BOLT e che cosa possono proteggere backup dei canali e watchtower.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Il software Lightning è l'insieme dei programmi che aprono canali di pagamento e inviano pagamenti attraverso di essi. Ci sono due grandi famiglie. Un'implementazione di nodo Lightning gestisce la logica dei canali, l'instradamento e le operazioni on-chain. Un wallet Lightning è l'app con cui una persona invia e riceve, e può far girare un proprio nodo oppure appoggiarsi a quello di qualcun altro. Esempi di implementazioni di nodo sono LND, Core Lightning, Eclair e LDK, che è pensato come libreria per gli sviluppatori.\n\nQuesti programmi possono parlarsi perché seguono le specifiche BOLT, un insieme condiviso di regole per messaggi e comportamento dei canali. L'interoperabilità è il motivo per cui puoi aprire un canale con un nodo realizzato da un team diverso.\n\nI wallet differiscono per chi controlla i fondi. In un wallet self-custodial hai tu le chiavi dei tuoi canali. In un wallet custodial i fondi sono di una società, che registra il tuo saldo. Alcuni wallet stanno a metà strada e usano un fornitore di servizi che aiuta ad aprire e gestire i canali. Ogni modello cambia ciò di cui devi fidarti e che cosa succede se il fornitore va offline.\n\nI canali Lightning richiedono attenzione quando sei lontano. Un canale può essere usato per barare se l'altra parte pubblica uno stato vecchio, quindi il software deve essere online per rispondere, oppure serve un altro servizio che lo controlli."
+        },
+        "medium": {
+          "bodyMarkdown": "Un canale è recuperabile solo quanto i dati che conservi su di esso. I static channel backup (SCB) sono file che devono essere aggiornati solo quando un canale viene aperto o chiuso. Se il tuo nodo perde il proprio stato, un SCB gli permette di chiedere al peer di chiudere il canale usando l'ultimo stato che il peer possiede. Così si possono recuperare fondi, ma Bitcoin Optech elenca due rischi. Il peer può sospettare che il tuo nodo sia obsoleto e tentare di chiudere con uno stato vecchio, e un nodo che ha perso i dati può non essere in grado di dimostrarlo. E se entrambe le parti perdono lo stato, o il peer scompare, un SCB non può recuperare il canale.\n\nIl recupero dal seed copre meno di quanto spesso si pensi. La documentazione di Core Lightning separa le sue voci di backup. Il segreto HSM, memorizzato nel file hsm_secret, è sufficiente per recuperare i fondi on-chain del wallet, ed è necessario ma non sufficiente per i fondi bloccati nei canali. Servono anche lo stato dei canali e i file del database.\n\nUna watchtower è un servizio che controlla la blockchain alla ricerca di uno stato vecchio di canale trasmesso. Quando ne vede uno, può pubblicare per tuo conto una transazione di penalità. Le watchtower non detengono i tuoi fondi. Il loro compito è controllare e trasmettere, quindi non possono spendere il saldo del tuo canale. Questo schema ti permette di restare offline per lunghi periodi senza lasciare il canale esposto, ma una watchtower resta una terza parte che vede parte della tua attività sui canali, e serve solo se la penalità è possibile.\n\nAnche le scelte implementative incidono sull'utente. Un nodo che gestisci tu ti dà controllo su commissioni, canali e impostazioni di privacy. Leggi la documentazione per sapere quali backup crea il software, con quale frequenza li aggiorna e come ripristinare dopo un guasto."
+        },
+        "advanced": {
+          "bodyMarkdown": "L'interoperabilità dipende dalle BOLT e dalle funzioni che due peer concordano. Due implementazioni possono supportare entrambe una stessa funzione pur differendo per default, tempistiche o comportamento nel recupero, quindi un pagamento che funziona tra una coppia di nodi può comportarsi in modo diverso con un'altra.\n\nI backup dei canali hanno un compromesso chiaro. Un SCB conserva abbastanza informazioni sul canale da chiedere al peer di chiuderlo, quindi funziona senza la storia completa dello stato, ma è aggiornato solo fino al tuo ultimo salvataggio. Il meccanismo option_data_loss_protect dà al peer un motivo per chiudere in modo onesto quando sente un nodo obsoleto. Questa protezione dipende dal peer, e fallisce se anche il peer ha perso il proprio stato. Un backup completo dello stato del canale è più solido, ma deve restare sincronizzato con il nodo in funzione, un compito operativo più difficile.\n\nLe watchtower proteggono da un attacco specifico: la controparte che trasmette uno stato revocato mentre tu sei offline. Una torre conserva transazioni di breach remedy che le permettono di reclamare i fondi in quel caso. Optech osserva che le transazioni di breach remedy possono essere progettate in modo che la torre riceva una parte dei fondi protetti, il che le dà un incentivo ad agire. Una torre offline, censurata o irraggiungibile non offre protezione, e una torre che vede gli aggiornamenti del tuo canale apprende qualcosa sui tuoi pagamenti. Alcune implementazioni permettono agli utenti di eliminare le sessioni, altre tengono prove di responsabilità, il che riflette che il servizio è una relazione di fiducia e non una garanzia gratuita.\n\nI modelli custodial e self-custodial hanno modalità di guasto diverse. Un wallet custodial può congelare, perdere o riportare in modo errato i fondi, e l'utente dipende dalla sua solvibilità e dai suoi registri. Un wallet self-custodial tiene le chiavi nelle mani dell'utente, il che elimina quel rischio di controparte ma aggiunge il rischio operativo di backup, disponibilità e gestione della liquidità. Un wallet con fornitore di servizi sta nel mezzo: il fornitore gestisce canali e liquidità per l'utente, quindi l'utente deve fidarsi della contabilità e della disponibilità del fornitore pur tenendo le chiavi.\n\nLa scelta del software fa quindi parte del disegno di sicurezza. Leggi come l'implementazione gestisce lo stato dei canali, con quale frequenza salva i backup, se può far girare una watchtower e che cosa richiede per restare online. Non dare per scontato che il comportamento di un'implementazione in uno scenario valga anche in un altro."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Lightning",
+        "Software",
+        "Backup dei canali",
+        "Custodia"
+      ],
+      "sources": [
+        {
+          "title": "Lightning Network Specifications (BOLTs)",
+          "url": "https://github.com/lightning/bolts",
+          "author": "Lightning Network developers"
+        },
+        {
+          "title": "Static channel backups",
+          "url": "https://bitcoinops.org/en/topics/static-channel-backups/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "Watchtowers",
+          "url": "https://bitcoinops.org/en/topics/watchtowers/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "Backup your wallet - Core Lightning",
+          "url": "https://docs.corelightning.org/docs/backup",
+          "author": "Core Lightning contributors"
+        },
+        {
+          "title": "LDK, a Lightning implementation packaged as an SDK",
+          "url": "https://lightningdevkit.org/",
+          "author": "LDK contributors"
+        },
+        {
+          "title": "Eclair, a Scala implementation of the Lightning Network",
+          "url": "https://github.com/ACINQ/eclair",
+          "author": "ACINQ"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        },
+        {
+          "id": "wiki.bolt-specifications",
+          "title": "Specifiche BOLT"
+        },
+        {
+          "id": "wiki.watchtowers",
+          "title": "Watchtower"
+        },
+        {
+          "id": "wiki.lightning-service-providers",
+          "title": "Lightning Service Provider"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.server-software",
+      "slug": "server-software",
+      "language": "it",
+      "category": "software",
+      "subcategory": "servers",
+      "title": "Server e infrastruttura",
+      "description": "Software che si colloca tra un full node e le app che lo usano, come server del protocollo Electrum, indici degli indirizzi, block explorer e processori di pagamento.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un full node valida Bitcoin per te, ma la maggior parte delle app ha bisogno di risposte che un nodo nudo non fornisce bene. Un wallet vuole sapere ogni transazione che riguarda i suoi indirizzi. Un negozio vuole sapere quando un pagamento raggiunge una certa profondità. Un block explorer vuole mostrare la storia di un indirizzo. Il software server si colloca tra il nodo e queste app, e prepara risposte per cui il nodo non è stato costruito.\n\nEsempi comuni sono i server del protocollo Electrum, gli indicizzatori di indirizzi, i block explorer che ospiti da solo e i processori di pagamento come BTCPay Server. Ognuno prende dati da un nodo, conserva informazioni in più e risponde alle richieste dei propri client. Gestirli da sé mantiene quelle richieste nella tua infrastruttura, invece di inviare i tuoi indirizzi a una terza parte.\n\nUn nodo nudo non ha un indice degli indirizzi. Conserva i blocchi e l'insieme degli output non spesi, sufficienti per validare i nuovi blocchi, ma trovare ogni transazione che tocca un indirizzo richiede un indice che Bitcoin Core non costruisce per default. Costruire o far girare quell'indice occupa spazio su disco, memoria e tempo di elaborazione, ed è un compito separato dalla validazione della chain."
+        },
+        "medium": {
+          "bodyMarkdown": "Il protocollo Electrum è un'interfaccia JSON-RPC che i wallet leggeri usano per parlare con un server. Il server tiene un indice degli indirizzi e della loro storia, così il wallet può chiedere saldi e transazioni senza scaricare la chain. Electrs è una re-implementazione in Rust di questo server. Fulcrum è un server in C++ che parla lo stesso protocollo. I due differiscono per ciò che richiedono al nodo: electrs non richiede che il nodo abbia l'indice delle transazioni, mentre Fulcrum richiede che il nodo giri con txindex attivo e non in modalità pruned.\n\nL'indicizzazione ha costi reali. La prima costruzione legge l'intera chain e può richiedere molto tempo. Dopo, il server ha bisogno di spazio su disco per il suo indice e di memoria e CPU sufficienti a rispondere in fretta. Un server che serve molti wallet ne richiede di più. Questi costi spiegano perché molti usano un server gestito da altri, e perché un server gestito da te richiede manutenzione continua: deve seguire i nuovi blocchi, gestire i reorg ed essere aggiornato insieme al software.\n\nIl vantaggio di privacy dipende da chi vede le interrogazioni. Un wallet che chiede a un server pubblico i propri indirizzi li rivela all'operatore del server. Un wallet che chiede a un server gestito da te li rivela solo a te. La documentazione di Electrum dice che collegarsi a un server sacrifica un po' di privacy, perché il server può ragionevolmente supporre che gli indirizzi appartengano alla stessa entità.\n\nI processori di pagamento come BTCPay Server sono software server per negozi e pagine di donazione. La FAQ di BTCPay include domande sul deployment accanto a un full node Bitcoin già esistente e sull'attivare o disattivare il pruning del nodo, il che mostra che dipende da un nodo e che la configurazione del nodo conta.\n\nI block explorer seguono lo stesso schema. Un explorer self-hosted mostra la storia dei tuoi indirizzi senza inviare la ricerca a un sito esterno, ma richiede un indice e le risorse per tenerlo aggiornato."
+        },
+        "advanced": {
+          "bodyMarkdown": "Il software server cambia il modello di fiducia e di privacy. Un server in stile Electrum apprende quali indirizzi interessano a un wallet, e può vedere tempi e volume delle richieste. Il server può anche mentire per omissione, quindi un wallet che si collega a lui dovrebbe verificare ciò che può. I compact block filter sono un'alternativa che sposta il confronto sul client: il wallet scarica un filtro per ogni blocco e lo controlla localmente, il che dà più privacy e richiede meno spazio e CPU sul server rispetto ai server basati sugli indirizzi, al costo di più banda nel caso normale. Il confronto di Bitcoin Optech è utile quando scegli tra questi modelli.\n\nIl disegno dell'indice è una scelta ingegneristica. Alcuni server si appoggiano all'indice delle transazioni del nodo e richiedono che il nodo sia configurato in un certo modo. Altri costruiscono un database proprio e non richiedono quell'indice. Ogni disegno cambia il percorso di aggiornamento, i passi di ripristino dopo un disastro e le modalità di guasto. Quando il nodo riorganizza la chain, il server deve annullare correttamente il proprio indice, e un server che resta indietro può dare risposte vecchie ai wallet che si fidano di lui.\n\nL'esposizione è un'altra preoccupazione. Un server che accetta connessioni da internet fa parte della tua superficie di attacco. Serve un firewall, autenticazione dove il protocollo la supporta e una regola chiara su quali client possono connettersi. Un block explorer o una pagina di pagamento rende visibile lo stato interno agli utenti, quindi dovrebbe esporre solo ciò che serve mostrare. Far girare questi servizi sulla stessa macchina di un wallet o di un dispositivo di firma mescola livelli di fiducia diversi e va evitato.\n\nPer i processori di pagamento, l'operatore deve gestire chiavi, fatture e contabilità, oltre al nodo sottostante. La FAQ di BTCPay mostra che le domande sul deployment sono frequenti: come collegare il server a un nodo esistente, come gestire la sincronizzazione iniziale e come il pruning influisce su ciò che il server può fare. L'operatore decide quale nodo usare, come conservare i backup e chi ha accesso all'interfaccia di amministrazione.\n\nLa pianificazione delle risorse va fatta prima del deployment. Disco, memoria, banda e CPU crescono con la quantità di dati indicizzati e con il numero di client serviti, e cambiano con le release del software. Misura il server durante la sincronizzazione iniziale e durante l'uso normale prima di decidere se gestirlo da te, condividerlo con altri o affidarti a una terza parte."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Server",
+        "Indici",
+        "Privacy",
+        "Infrastruttura"
+      ],
+      "sources": [
+        {
+          "title": "Running A Full Node",
+          "url": "https://bitcoin.org/en/full-node",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "electrs, an Electrum Server in Rust",
+          "url": "https://github.com/romanz/electrs",
+          "author": "electrs contributors"
+        },
+        {
+          "title": "Fulcrum",
+          "url": "https://github.com/cculianu/Fulcrum",
+          "author": "Fulcrum contributors"
+        },
+        {
+          "title": "Electrum protocol",
+          "url": "https://github.com/spesmilo/electrum-protocol",
+          "author": "Electrum developers"
+        },
+        {
+          "title": "Compact block filters",
+          "url": "https://bitcoinops.org/en/topics/compact-block-filters/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "BTCPay Server FAQ",
+          "url": "https://docs.btcpayserver.org/FAQ/",
+          "author": "BTCPay Server contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        },
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        },
+        {
+          "id": "wiki.bitcoin-addresses",
+          "title": "Indirizzi Bitcoin"
+        },
+        {
+          "id": "wiki.utxo-model",
+          "title": "Modello UTXO"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.node-operating-systems",
+      "slug": "node-operating-systems",
+      "language": "it",
+      "category": "software",
+      "subcategory": "node-systems",
+      "title": "Sistemi per nodo domestico",
+      "description": "Sistemi operativi e piattaforme di app preconfigurati che installano un nodo Bitcoin e servizi collegati su un piccolo computer, e cosa aggiungono al software del nodo.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un sistema per nodo domestico è un sistema operativo o una piattaforma di app preconfigurata che installa un nodo Bitcoin su un piccolo computer e lo gestisce al posto tuo. Invece di configurare a mano ogni programma, installi un'immagine, completi una schermata di setup e aggiungi applicazioni da un catalogo integrato. Umbrel, StartOS e RaspiBlitz sono esempi di questo tipo di prodotto.\n\nIl pacchetto include di solito il full node stesso, insieme ai servizi che spesso si usano accanto: un server Electrum perché i wallet possano interrogare la chain, un nodo Lightning e un app store da cui aggiungere o rimuovere altri programmi. La comodità è reale, perché aggiornamenti, dashboard e installazione dei servizi vengono gestiti per te.\n\nQuesta comodità ha un costo. Ora ti fidi del packager, del suo app store e del suo processo di aggiornamento, non solo del software Bitcoin. Un'app di terze parti nello store gira sulla stessa macchina del tuo nodo. Il nodo continua a verificare da sé i dati della chain, ma il sistema che lo circonda decide cos'altro viene eseguito e quando cambia.\n\nPoi c'è l'accesso remoto. Molti sistemi permettono di raggiungere la dashboard da fuori casa. In StartOS, Tor è una delle opzioni e non richiede alcuna configurazione del router. Qualunque sistema tu scelga, i backup restano compito tuo."
+        },
+        "medium": {
+          "bodyMarkdown": "Quasi tutti questi sistemi sono costruiti attorno a pochi componenti. Il nodo esegue Bitcoin Core o un'altra implementazione di full node. I server compatibili con Electrum permettono ai wallet di leggere saldi e storico senza scaricare la chain. Un nodo Lightning aggiunge la gestione dei canali, e l'app store installa software opzionale da un catalogo. I pacchetti dell'App Store di Umbrel includono Bitcoin, Core Lightning e diverse implementazioni di server Electrum.\n\nOgni sistema ha il proprio modello di aggiornamento. umbrelOS offre un programma beta a cui l'utente aderisce nelle impostazioni. StartOS mostra per ogni registry gli aggiornamenti in attesa, elenca le note di rilascio e aspetta che tu clicchi Update. In entrambi i casi il percorso di aggiornamento fa parte della decisione di fiducia, perché un aggiornamento difettoso arriva al tuo nodo esattamente come uno buono.\n\nL'accesso remoto è il punto in cui molte configurazioni differiscono. Tor ti dà un indirizzo .onion che funziona senza aprire porte sul router, ma StartOS non include Tor di default, quindi va prima installato come servizio. Le connessioni Tor sono più lente e a volte poco affidabili, come la documentazione StartOS dichiara apertamente. Una VPN o un dominio pubblico sono altre strade, con più configurazione di router e DNS.\n\nI backup sono la parte che resta tua. StartOS cifra i backup con la master password e li scrive su un disco collegato o su una cartella di rete. Esclude la blockchain perché un nodo può ricostruirla risincronizzando. La documentazione avverte che senza backup, prima o poi, perderai dati. Tieni i backup del seed del wallet come passaggio separato, come descritto nella voce sui seed di backup, e non condividere mai una seed phrase con app o servizi.\n\nLe licenze cambiano da progetto a progetto. Il README di umbrelOS indica la licenza PolyForm Noncommercial 1.0.0, che consente uso personale e nonprofit e chiede ai soggetti commerciali di contattare l'azienda. Il monorepo di Start9 è sotto licenza MIT. Leggi la licenza del sistema esatto che vuoi usare prima di costruirci un'attività."
+        },
+        "advanced": {
+          "bodyMarkdown": "Un sistema per nodo domestico trasforma un singolo full node in una piccola piattaforma con una propria filiera di software. Lo strato di base è ancora la validazione di Bitcoin Core, che non cambia per effetto del pacchetto. Il rischio sta sopra: l'immagine che installi, i pacchetti dello store, il codice che parla con il nodo via RPC e il canale di aggiornamento. Ogni servizio aggiunto aumenta la quantità di software che può raggiungere il nodo e i dati del wallet.\n\nI modelli di pacchettizzazione differiscono nel modo in cui limitano questa esposizione. StartOS dichiara che i servizi girano in container LXC isolati e che i pacchetti usano un formato firmato e con archivio Merkle, che supporta la verifica crittografica. Questo non rende sicuro un pacchetto difettoso, ma offre al sistema operativo un modo per verificare ciò che installa. Uno store gestito dal progetto e pacchetti aggiunti dalla comunità comportano assunzioni di revisione e fiducia diverse, e l'utente dovrebbe capire da quale dei due sta installando.\n\nL'esposizione di rete è la seconda area. Un nodo che accetta peer in ingresso sulla linea di casa espone già una superficie. Aggiungere una dashboard web, un endpoint Electrum pubblico o un dominio clearnet ne aggiunge altra. I servizi onion spostano parte di quell'esposizione su Tor, ma richiedono comunque che password della dashboard e software del server restino protetti. Anche impostazioni predefinite e servizi già attivi fanno parte della stessa superficie, quindi verificali dopo l'installazione invece di dare per scontato che siano minimi.\n\nIl ripristino è l'ultima area da pianificare. Un sistema pacchettizzato ripristina i suoi servizi dal proprio formato di backup, e quel formato è utile solo se riesci a raggiungere il backup in seguito. La documentazione StartOS osserva che i servizi possono escludere alcuni file o cartelle dal backup, quindi controlla cosa salva davvero ciascun servizio. Prova il ripristino su un disco di riserva prima di farvi affidamento, e tieni i backup del seed del wallet come passaggio separato.\n\nLa scelta tra questi sistemi dipende da cosa ti serve. Alcune persone vogliono un unico apparecchio con un ampio catalogo di app, altre un nodo minimo con meno componenti in movimento. Il compromesso è tra comodità, numero di componenti di cui ti fidi e quanta manutenzione sei disposto a fare tu."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Nodo domestico",
+        "Full Node",
+        "Self-hosting",
+        "Software preconfigurato",
+        "Backup"
+      ],
+      "sources": [
+        {
+          "title": "umbrel - umbrelOS repository README",
+          "url": "https://github.com/getumbrel/umbrel",
+          "author": "Umbrel"
+        },
+        {
+          "title": "umbrel-apps - Umbrel App Store packages",
+          "url": "https://github.com/getumbrel/umbrel-apps",
+          "author": "Umbrel"
+        },
+        {
+          "title": "start-technologies - Start9 monorepo README",
+          "url": "https://github.com/Start9Labs/start-technologies",
+          "author": "Start9 Labs"
+        },
+        {
+          "title": "StartOS documentation - Tor",
+          "url": "https://github.com/Start9Labs/start-technologies/blob/master/projects/start-os/docs/src/tor.md",
+          "author": "Start9 Labs"
+        },
+        {
+          "title": "StartOS documentation - Creating Backups",
+          "url": "https://github.com/Start9Labs/start-technologies/blob/master/projects/start-os/docs/src/backup-create.md",
+          "author": "Start9 Labs"
+        },
+        {
+          "title": "StartOS documentation - Updating",
+          "url": "https://github.com/Start9Labs/start-technologies/blob/master/projects/start-os/docs/src/updating.md",
+          "author": "Start9 Labs"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        },
+        {
+          "id": "wiki.node-hardware",
+          "title": "Hardware per nodi"
+        },
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        },
+        {
+          "id": "wiki.seed-backups",
+          "title": "Backup del seed"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.mining-software",
+      "slug": "mining-software",
+      "language": "it",
+      "category": "software",
+      "subcategory": "mining-software",
+      "title": "Software di mining",
+      "description": "I livelli software usati nel mining Bitcoin, dal firmware dei miner e dal software dei pool fino ai protocolli che trasportano lavoro e template di blocco tra loro.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Il software di mining è l'insieme dei programmi che sta tra l'hardware di mining e la rete Bitcoin. Ha tre livelli principali. Il primo è il firmware che gira sul miner stesso. Il firmware di serie arriva con il dispositivo, mentre firmware alternativi come Braiins OS possono essere installati su schede di controllo delle serie Antminer S19 e S21 supportate. Il secondo livello è il software del pool, che distribuisce il lavoro, accetta le share e tiene il conto del contributo di ciascun miner. Il terzo è il protocollo che collega miner e pool.\n\nIn un pool, i miner di solito non scelgono quali transazioni entrano nel blocco. Il pool fornisce il template di blocco, e il miner calcola l'hash degli header derivati da esso. Chi costruisce quel template decide quali transazioni vengono incluse, quindi la scelta di chi lo costruisce conta anche oltre l'efficienza.\n\nIl protocollo storico per il lavoro di pool è Stratum, introdotto nel 2012. Stratum V2 ne è il successore, con connessioni cifrate e un disegno che permette ai miner di partecipare alla costruzione del template. Approcci più recenti, come DATUM, fanno costruire il template al nodo del miner.\n\nLe regole di pagamento sono una scelta separata. I pool dividono le ricompense in modi diversi, e questa scelta cambia come il reddito di ogni miner varia da un giorno all'altro."
+        },
+        "medium": {
+          "bodyMarkdown": "Un pool Stratum V1 invia a ogni miner un job. Il job contiene le parti dell'header del blocco che non cambiano, il prefisso e il suffisso della coinbase, il target di rete e un target per le share più facile di quello di rete. Il miner varia nonce ed extranonce della coinbase, calcola l'hash del risultato e invia qualunque header che soddisfi il target share. Un header che soddisfa anche il target di rete è un blocco completo, e il pool lo trasmette. Poiché il pool fornisce il job, il pool decide anche cosa va nella coinbase.\n\nStratum V2 mantiene questo ciclo di base ma cambia diverse cose. Il traffico tra miner e pool è cifrato e autenticato, il che blocca gli attacchi che sostituiscono le credenziali del pool per dirottare l'hashrate, e nasconde le share agli osservatori di rete che altrimenti potrebbero stimare la produzione di un miner. Il suo Job Declaration Protocol permette a un client lato miner di dichiarare un job personalizzato a un server lato pool, che gli assegna un token. La specifica descrive due modalità. In modalità coinbase-only, il pool vede la coinbase e le commissioni ma non le transazioni. In modalità full-template, il miner dichiara l'insieme delle transazioni.\n\nIl template di blocco arriva da getblocktemplate, la RPC definita nel BIP 22. Un nodo restituisce i dati necessari a costruire un blocco candidato, e il software di mining costruisce l'header a partire da essi. Il BIP 23 estende la stessa chiamata per il mining in pool.\n\nDATUM segue una strada diversa. Il DATUM Gateway chiede a un nodo locale i template di blocco, genera il lavoro per l'hardware di mining e invia i blocchi risolti alla rete. Un pool compatibile con DATUM coordina la divisione della ricompensa e non crea lavoro per il miner. Il gateway serve l'hardware tramite Stratum V1 con version rolling, e richiede un nodo che supporti getblocktemplate. Il suo README segnala che, nella versione attuale del protocollo, il pool valida ancora i blocchi."
+        },
+        "advanced": {
+          "bodyMarkdown": "La costruzione del template è il punto in cui il software di mining tocca la resistenza alla censura. Il progetto Stratum V2 descrive alcuni grandi pool che oggi dominano lo spazio dei blocchi, a volte fungendo da proxy per altri pool, e nota che un pool può includere o escludere selettivamente le transazioni. Spostare la costruzione del template verso i miner serve a ridurre questo unico punto di controllo. La sua efficacia dipende da quanti miner costruiscono davvero i propri template.\n\nIl Job Declaration Protocol divide il lavoro tra due ruoli. Il Job Declarator Client gira lato miner e dichiara job personalizzati. Il Job Declarator Server gira lato pool, assegna token, conferma le dichiarazioni e mantiene un proprio mempool tramite un nodo. La specifica afferma che un pool in modalità coinbase-only non può vedere quali transazioni sono nel template del miner, il che tutela la privacy del mempool del miner. Aggiunge anche che questa modalità espone il pool al caso in cui il miner dichiari una coinbase con commissioni diverse da quelle del template reale. La specifica paragona questo rischio al block withholding e indica mitigazioni, come prove che le commissioni appartengano a un template valido senza rivelarlo.\n\nDATUM mostra la stessa tensione da un altro lato. Il suo README afferma che il vero miner è chi gestisce il nodo Bitcoin, non il pool, e che il pool coordina i pagamenti. Il progetto dichiara anche che il pool attuale valida i blocchi come misura di sicurezza durante i test, e che una versione futura del protocollo lo renderebbe quasi cieco al contenuto del template. Il README afferma inoltre che Bitcoin Core offre opzioni limitate di controllo sul template, che il progetto considera un fattore di centralizzazione.\n\nIl firmware è un rischio a parte. Gira sulla scheda di controllo del miner, dove governa l'hashing e la connessione di rete verso il pool. URL del pool, credenziali e aggiornamenti del firmware arrivano al dispositivo lungo questo percorso. Il traffico Stratum V1 può essere letto da intermediari di rete, e il progetto Stratum V2 sostiene che cifratura e autenticazione impediscono di dirottare l'hashrate scambiando le credenziali. La cifratura protegge il collegamento, ma non rende affidabili né il pool né il firmware.\n\nLe regole di pagamento aggiungono un ulteriore livello. Con il pay-per-share, il pool paga un importo fissato per ogni share e la varianza nel trovare blocchi passa al pool. Altri schemi pagano solo quando viene trovato un blocco."
+        }
+      },
+      "difficulty": "advanced",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Mining",
+        "Firmware",
+        "Stratum",
+        "Template di blocco",
+        "Mining Pool"
+      ],
+      "sources": [
+        {
+          "title": "Stratum V2 project website",
+          "url": "https://stratumprotocol.org/",
+          "author": "Stratum V2 project"
+        },
+        {
+          "title": "Stratum V2 Specification - Job Declaration Protocol",
+          "url": "https://github.com/stratum-mining/sv2-spec/blob/main/06-Job-Declaration-Protocol.md",
+          "author": "Stratum V2 contributors"
+        },
+        {
+          "title": "Bitcoin Optech - Pooled mining",
+          "url": "https://bitcoinops.org/en/topics/pooled-mining/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "DATUM Gateway README",
+          "url": "https://github.com/OCEAN-xyz/datum_gateway",
+          "author": "Bitcoin Ocean, LLC"
+        },
+        {
+          "title": "BIP 22: getblocktemplate - Fundamentals",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki",
+          "author": "Luke Dashjr"
+        },
+        {
+          "title": "Braiins OS - Installation on S21 and S19 series",
+          "url": "https://academy.braiins.com/en/braiins-os/installation/install",
+          "author": "Braiins"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.mining-hardware",
+          "title": "Hardware di mining"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.miner-incentives",
+          "title": "Incentivi ai Miner"
+        },
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.developer-tools",
+      "slug": "developer-tools",
+      "language": "it",
+      "category": "software",
+      "subcategory": "developer-tools",
+      "title": "Librerie e strumenti per sviluppatori",
+      "description": "Le librerie, le interfacce del nodo e le reti di test usate dagli sviluppatori per costruire software Bitcoin, e i rischi di dipenderne.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Le librerie e gli strumenti per sviluppatori sono i mattoni usati per scrivere software Bitcoin. Una libreria è codice che importi nel tuo programma, così non devi scrivere da zero la verifica delle firme, il parsing delle transazioni o la codifica degli indirizzi. La maggior parte di wallet, explorer e strumenti di pagamento dipende da uno o più di questi componenti, anche quando i loro utenti non li vedono mai.\n\nAlcune librerie coprono una parte specifica del lavoro. Il Bitcoin Dev Kit fornisce i mattoni per wallet basati su descrittori ed è costruito su rust-bitcoin, che gestisce codifica, script, chiavi e transazioni. libsecp256k1 è la libreria C che esegue firma e verifica sulla curva secp256k1. bitcoinjs-lib offre mattoni simili per il codice JavaScript.\n\nGli sviluppatori hanno bisogno anche di un luogo sicuro per i test. Bitcoin Core può girare su testnet, dove le monete non hanno valore reale, oppure in regtest, una chain privata in cui crei blocchi quando vuoi. Il comando bitcoin-cli invia richieste RPC a un nodo in esecuzione, quindi uno script può leggere saldi o creare blocchi senza un'interfaccia grafica.\n\nScegliere una libreria è un compromesso tra funzionalità, linguaggio di programmazione e quanta revisione ha ricevuto il codice. Leggi cosa dichiara di essere ogni progetto, e non dare per scontato che una libreria per wallet sia adatta a validare la chain Bitcoin."
+        },
+        "medium": {
+          "bodyMarkdown": "Una libreria tipica copre diversi livelli. La gestione delle chiavi include la derivazione gerarchica deterministica secondo il BIP 32, che rust-bitcoin supporta in modo completo. Il codice di script e transazioni gestisce serializzazione, parsing e script. I descrittori descrivono gli script che un wallet deve tracciare e firmare, e BDK costruisce attorno a essi la logica del wallet. I dati della chain arrivano al wallet tramite un backend, e BDK può recuperarli da un server Esplora o da un server Electrum.\n\nBitcoin Core espone le proprie funzioni tramite RPC, e bitcoin-cli è il client a riga di comando per quell'interfaccia. Un programma può chiamare gli stessi metodi RPC, quindi un'applicazione può essere testata contro un nodo reale invece che contro una reimplementazione. Fissare la versione del nodo usata dall'applicazione fa parte di questa configurazione, perché metodi RPC e output possono cambiare tra una release e l'altra.\n\nLe transazioni parzialmente firmate sono il modo in cui il software passa una transazione tra più firmatari. Il BIP 174 definisce un formato binario che contiene le informazioni necessarie a un firmatario, e ciascuno aggiunge le proprie firme finché la transazione è completa. Il formato permette a un firmatario di lavorare offline, perché tutti i dati necessari viaggiano dentro la transazione.\n\nI test occupano gran parte del lavoro degli sviluppatori. La documentazione per sviluppatori di bitcoin.org descrive la testnet come una rete pubblica in cui le monete non hanno valore reale, e segnala che la testnet allenta alcuni controlli sulle transazioni standard, quindi il comportamento può differire dal mainnet. La regtest è una chain privata pensata per le situazioni in cui l'interazione con peer casuali non serve, e lo sviluppatore genera blocchi con comandi come generatetoaddress. La stessa documentazione nota che molti sviluppatori considerano la regtest il modo preferito per costruire nuove applicazioni.\n\nTieni i test separati dai fondi reali. Esegui gli esperimenti su regtest o testnet, e fai un backup di qualsiasi wallet mainnet prima di un'operazione pericolosa come cancellare dati, come consiglia la documentazione."
+        },
+        "advanced": {
+          "bodyMarkdown": "Il limite più importante di una libreria generica è il consenso. Il README di rust-bitcoin dice che la libreria non deve essere usata per il codice di consenso, cioè per il codice che valida completamente i dati della blockchain. Afferma che la libreria supporta tecnicamente questa validazione, ma che si discosta dall'implementazione di riferimento di Bitcoin Core in modi noti e ignoti, e che non riprodurrà le regole di Core. Il consenso deve essere identico su tutti i nodi, quindi una reimplementazione indipendente può accettare o rifiutare blocchi in modo diverso dalla rete. Per questo compito usa Bitcoin Core, o valida tramite un nodo di cui ti fidi.\n\nCostruire transazioni è un lavoro diverso dal validarle. Una libreria può costruire una transazione valida secondo il consenso ma non inoltrata dai nodi predefiniti perché non rispetta la policy. Una transazione non standard per policy può comunque essere valida se un miner la include in un blocco valido. Gli sviluppatori dovrebbero separare i due controlli nel codice e non usare il rifiuto locale come prova di invalidità.\n\nIl codice crittografico richiede la stessa cautela. libsecp256k1 punta a essere una libreria ad alta garanzia per secp256k1, con firma a tempo costante e ECDSA derandomizzato, e include moduli opzionali per le firme Schnorr del BIP 340, per ElligatorSwift del BIP 324 e per MuSig2. Il progetto afferma inoltre che un uso corretto richiede attenzione e che usi diversi da quelli di Bitcoin possono essere testati meno. Usare correttamente una primitiva ben revisionata conta più della scelta della libreria.\n\nI backend della chain sono un punto di fiducia. Un wallet che chiede a un server remoto lo storico delle transazioni dipende da ciò che quel server restituisce. Se la libreria verifica la risposta o si limita a fidarsene dipende dal backend e dalla configurazione. Gli sviluppatori dovrebbero documentare quale backend usano e cosa verifica.\n\nIl rischio di supply chain nasce da ogni dipendenza. Il README di bitcoinjs-lib dice che solo le release taggate sono stabili, che il ramo master è un ramo di sviluppo e che gli utenti dovrebbero verificare il codice e le proprie dipendenze. Il README di rust-bitcoin raccomanda di verificare le dipendenze con cargo-crev. Ogni crate o pacchetto aggiunto è codice che gira con accesso alle chiavi, quindi il numero di dipendenze è una decisione di sicurezza. Fissa le versioni, rivedi gli aggiornamenti e preferisci alberi di dipendenze piccoli quando il progetto lo consente."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Sviluppatori",
+        "Librerie",
+        "Testing",
+        "Supply chain"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Dev Kit - repository README",
+          "url": "https://github.com/bitcoindevkit/bdk",
+          "author": "Bitcoin Dev Kit contributors"
+        },
+        {
+          "title": "rust-bitcoin - repository README",
+          "url": "https://github.com/rust-bitcoin/rust-bitcoin",
+          "author": "rust-bitcoin contributors"
+        },
+        {
+          "title": "libsecp256k1 - repository README",
+          "url": "https://github.com/bitcoin-core/secp256k1",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "bitcoinjs-lib - repository README",
+          "url": "https://github.com/bitcoinjs/bitcoinjs-lib",
+          "author": "bitcoinjs contributors"
+        },
+        {
+          "title": "BIP 174: Partially Signed Bitcoin Transaction Format",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
+          "author": "Ava Chow"
+        },
+        {
+          "title": "Bitcoin Developer Examples - Testing Applications",
+          "url": "https://developer.bitcoin.org/examples/testing.html",
+          "author": "Bitcoin.org contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.secp256k1",
+          "title": "secp256k1"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        },
+        {
+          "id": "wiki.transactions",
+          "title": "Transazioni Bitcoin"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.hardware-wallets",
+      "slug": "hardware-wallets",
+      "language": "it",
+      "category": "hardware",
+      "subcategory": "hardware-wallets",
+      "title": "Hardware wallet",
+      "description": "Dispositivi di firma che tengono le chiavi private lontane dal computer, cosa proteggono e cosa lasciano all'utente.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un hardware wallet è un piccolo dispositivo che custodisce le chiavi private di un wallet Bitcoin e firma le transazioni all'interno del proprio hardware. Il computer o il telefono che usi mostra i saldi e prepara i pagamenti, ma le chiavi restano sul dispositivo. Quando invii bitcoin, il dispositivo controlla ciò che gli viene chiesto di firmare e restituisce una firma, quindi le chiavi non devono mai essere copiate sul computer.\n\nLo scopo principale è proteggere le chiavi dal computer. Un malware su un laptop non può leggere una chiave che non è mai stata memorizzata lì, e non può falsificare facilmente una firma. Restano alcuni rischi. Il dispositivo può essere rubato, un'unità manomessa può arrivare da un venditore, e un utente può approvare un pagamento senza controllarlo. Un hardware wallet riduce una classe di rischi. Non rende sicuro il resto della configurazione.\n\nPrima di fidarti di un dispositivo, leggi l'indirizzo di ricezione sul suo schermo e confrontalo con quello che intendevi pagare. Assicurati anche che il backup del seed permetta di recuperare i fondi se il dispositivo si perde o si rompe. I livelli successivi spiegano come cambiano i dispositivi e quali sono i loro limiti."
+        },
+        "medium": {
+          "bodyMarkdown": "Gli hardware wallet si differenziano anzitutto per il chip che custodisce le chiavi. Alcuni dispositivi usano un secure element dedicato, un chip progettato per conservare segreti e resistere all'estrazione. Altri eseguono il wallet su un microcontrollore general-purpose e proteggono le chiavi con il design del software e della memoria. Un secure element può rendere più difficili alcuni attacchi fisici, ma di solito è un hardware chiuso che l'utente non può ispezionare. Un progetto basato su microcontrollore è più facile da esaminare, però la sua protezione dipende di più dal codice che vi gira.\n\nIl firmware è la seconda scelta di progetto. Il firmware open source può essere letto da chiunque e, quando la build è riproducibile, l'utente può ricompilare il sorgente pubblicato e confrontare il risultato con il codice installato. Il firmware chiuso chiede di fidarsi del processo del produttore. Pubblicare il sorgente non dimostra che il binario installato corrisponda ad esso, ed è per questo che contano le build riproducibili e i controlli delle firme.\n\nLa connessione con il computer è la terza scelta. Un dispositivo collegato via USB o Bluetooth è comodo, ma il collegamento trasporta dati che l'host può vedere. I dispositivi air-gapped evitano un collegamento attivo. La transazione non firmata arriva al dispositivo come QR code o da una scheda microSD, e il risultato firmato torna indietro nello stesso modo. Il formato Partially Signed Bitcoin Transaction, definito in BIP 174, permette a wallet di produttori diversi di passare una transazione non firmata a un firmatario e riceverla di nuovo parzialmente firmata.\n\nQualunque sia la connessione, controlla l'indirizzo di ricezione e l'importo sullo schermo del dispositivo prima di approvare. Se il computer ha cambiato l'indirizzo, lo schermo mostra ciò che il dispositivo pagherà davvero. Alcuni dispositivi si affidano anche a un'app di supporto sul computer o sul telefono, e quell'app è un altro software da tenere aggiornato e da verificare. Controllare la firma di un aggiornamento del firmware prima di installarlo è un'abitudine semplice che chiude una lacuna comune."
+        },
+        "advanced": {
+          "bodyMarkdown": "Gli hardware wallet sono firmatari, non full node. Un dispositivo che custodisce le chiavi può dimostrare di aver firmato qualcosa, ma non può dirti se la chain è valida. L'host, o un nodo che scegli tu, fornisce la transazione e i dati necessari per costruirla. Tenere separati il firmatario e la vista della chain fa parte del modello di sicurezza, e un host compromesso può comunque mostrare un quadro fuorviante dei pagamenti.\n\nUna minaccia che alcuni dispositivi cercano di contrastare è l'exfiltration, in cui un software malevolo sull'host ricava la chiave attraverso la firma stessa, per esempio tramite un nonce sbilanciato. Bitcoin Optech segue questo tema e rimanda a tecniche anti-exfiltration usate in alcuni dispositivi, insieme a lavori su protocolli le cui firme possono essere verificate. Queste protezioni sono un'area di ricerca attiva e non sostituiscono una conservazione accurata delle chiavi.\n\nGli attacchi alla supply chain sono un rischio separato. Un dispositivo acquistato da un rivenditore non ufficiale, o lasciato incustodito, può essere sostituito o modificato prima di arrivare al proprietario. Il firmware open source con build riproducibili permette un controllo tecnico che il codice installato corrisponda al sorgente pubblicato, e il README del firmware Coldcard descrive la ricompilazione dal sorgente proprio per questo motivo. Il firmware chiuso richiede fiducia nel processo di firma del produttore. I produttori pubblicano anche avvisi di sicurezza quando vengono trovati bug nel firmware. Il repository Coldcard documenta un bug di questo tipo che ha riguardato l'entropia in alcune versioni, quindi gli utenti dovrebbero seguire gli avvisi e i canali di aggiornamento del produttore.\n\nGli attacchi fisici, come sondare un chip o forzare un involucro, dipendono dal progetto hardware. I secure element dedicati puntano a renderli più difficili, ma nessun dispositivo è immune con tempo e risorse sufficienti. Un utente costretto a rivelare un segreto o ad approvare un pagamento non può essere protetto dal solo dispositivo.\n\nLa passphrase BIP 39 aggiunge un secondo segreto al seed. Un seed rubato senza la passphrase non dà accesso ai fondi protetti da quella passphrase. Una passphrase errata in fase di ripristino produce un wallet valido ma vuoto, e il dispositivo non avvisa l'utente, perché non può verificarne la correttezza. Perdere la passphrase rende i fondi irrecuperabili, e scriverla accanto al seed ne annulla lo scopo.\n\nInfine, l'errore umano resta una causa frequente di perdite: approvare una transazione senza leggerla, acquistare da una fonte non ufficiale o ignorare un avviso del firmware. Un buon progetto riduce la superficie di attacco, ma è sempre l'utente a decidere che cosa firmare."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Hardware Wallet",
+        "Firma",
+        "Sicurezza",
+        "PSBT"
+      ],
+      "sources": [
+        {
+          "title": "BIP 174 - Partially Signed Bitcoin Transaction Format",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki"
+        },
+        {
+          "title": "Exfiltration-resistant signing",
+          "url": "https://bitcoinops.org/en/topics/exfiltration-resistant-signing/",
+          "author": "Bitcoin Optech contributors"
+        },
+        {
+          "title": "Jade firmware README",
+          "url": "https://github.com/Blockstream/Jade/blob/master/README.md",
+          "author": "Blockstream"
+        },
+        {
+          "title": "Coldcard firmware README",
+          "url": "https://github.com/Coldcard/firmware/blob/master/README.md",
+          "author": "Coinkite"
+        },
+        {
+          "title": "Mastering Bitcoin - Capitolo 5, Wallet",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch05_wallets.adoc",
+          "author": "Andreas M. Antonopoulos"
+        },
+        {
+          "title": "Bitcoin.org - Proteggi il tuo wallet",
+          "url": "https://bitcoin.org/en/secure-your-wallet",
+          "author": "Bitcoin.org contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.private-keys",
+          "title": "Chiavi Private"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        },
+        {
+          "id": "wiki.multisig",
+          "title": "Multifirma"
+        },
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Firme Digitali"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.seed-backups",
+      "slug": "seed-backups",
+      "language": "it",
+      "category": "hardware",
+      "subcategory": "seed-backups",
+      "title": "Backup del seed",
+      "description": "Come si salva una frase seed BIP 39 su carta, metallo o in quote condivise, e dove questi backup di solito falliscono.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un backup del seed è la copia scritta delle parole che possono ricostruire un wallet. Per la maggior parte dei wallet è una lista di 12 o 24 parole della wordlist BIP 39. Chiunque abbia quelle parole, e la passphrase se ne è stata usata una, può ripristinare ogni chiave creata dal wallet, quindi il backup è sensibile quanto i fondi che protegge.\n\nLa maggior parte delle persone inizia dalla carta. La carta è economica e facile da leggere, ma può bruciare, bagnarsi, sbiadire o perdersi durante un trasloco. Le piastre di metallo sono un passo successivo comune, perché resistono al fuoco, all'acqua e alla corrosione meglio della carta. In entrambi i casi il backup deve stare in un luogo riservato e asciutto, ed è utile controllarlo ogni tanto, perché un backup mai verificato potrebbe essere illeggibile quando serve.\n\nNon conservare mai un seed in forma digitale. Un file di testo, una foto, un'app di note, una bozza di email o un cloud possono essere copiati, sincronizzati o letti da altri. Il seed deve esistere solo come parole fisiche che scrivi tu stesso e tieni offline. Il livello medium spiega come dividere un backup e perché alcuni metodi sono più deboli di quanto sembrino."
+        },
+        "medium": {
+          "bodyMarkdown": "La prima scelta riguarda il supporto: carta, metallo inciso, o entrambi. I fogli di carta sono semplici, ma si deteriorano. Le piastre di metallo sono progettate per resistere a calore, acqua e corrosione, ma servono comunque in un luogo sicuro, perché chiunque veda le parole può usarle. Molte persone conservano due copie in luoghi diversi, così che un evento come un'alluvione o un incendio non distrugga tutte le copie.\n\nLa seconda scelta riguarda la divisione del segreto. Scrivere le parole su biglietti separati, per esempio la prima metà su un biglietto e la seconda su un altro, non offre una protezione a soglia. Ogni pezzo è una parte utilizzabile del segreto, quindi chi trova un pezzo parte già avvantaggiato. Lo Shamir's Secret Sharing funziona diversamente. Divide il segreto in quote, e un numero di quote inferiore alla soglia non rivela nulla. Lo standard SLIP-0039 definisce questo approccio per i backup dei wallet. Le quote sono scritte come liste di parole con un checksum che rileva gli errori. In uno schema 2-of-3, due quote qualsiasi su tre bastano per recuperare il segreto.\n\nLa multifirma è una terza opzione. Invece di un unico seed da proteggere, il wallet richiede firme da più chiavi, ognuna su un proprio dispositivo o seed. Perdere un seed non fa perdere i fondi se la soglia può ancora essere raggiunta. La multifirma aggiunge però complessità. La configurazione del wallet va registrata, e il recupero dipende dal fatto che ogni titolare di chiave conservi la propria parte.\n\nLa passphrase aggiunge un secondo segreto. Deve essere difficile da indovinare e richiede un backup proprio, conservato separatamente dal seed. Una passphrase persa rende i fondi irrecuperabili, e una passphrase scritta accanto al seed non offre alcuna protezione contro chi trova entrambi.\n\nI backup falliscono in modi ordinari: una copia si perde durante un trasloco, un familiare non riesce a trovarla quando serve, una foto si sincronizza con un account cloud, oppure una parola viene letta male per una grafia poco chiara."
+        },
+        "advanced": {
+          "bodyMarkdown": "Un backup del seed è un punto singolo di guasto, quindi il suo progetto deve bilanciare tre rischi: perdere il segreto, lasciare che altri lo trovino e rendere il recupero troppo difficile da eseguire. Ogni metodo sposta il peso da un rischio all'altro.\n\nLa durabilità fisica è il primo livello. La carta può cedere per acqua, calore, luce e manipolazione, e chiunque la trovi può leggerla. Il metallo resiste meglio al calore e all'acqua, ma le parole incise o punzonate rivelano comunque il seed a chi le vede. Bitcoin.org consiglia di conservare i backup in più luoghi, così che nessun singolo evento possa eliminare l'accesso, e avverte che qualsiasi backup conservato online è molto esposto al furto.\n\nGli schemi a soglia affrontano il punto singolo di guasto in modo diverso. Lo Shamir's Secret Sharing divide un segreto in modo che serva una soglia di quote per ricostruirlo. SLIP-0039 definisce una struttura a due livelli: il segreto master viene diviso in quote di gruppo, e ogni quota di gruppo viene divisa di nuovo tra i membri. Questo permette una fiducia non uniforme, per esempio un familiare che custodisce una quota e un avvocato che ne custodisce un'altra. Le quote sono scritte con 20 o 33 parole tratte da una lista di 1.024 parole, e le ultime tre parole sono un checksum che rileva errori fino a tre parole. Codex32 è una codifica correlata per i seed BIP 32, che Bitcoin Optech descrive come comoda da conservare su carta. Entrambi gli schemi scambiano semplicità con resilienza. La procedura è più lunga, e un errore in una quota può rendere il recupero più difficile, quindi il processo va provato prima che serva.\n\nLa multifirma sposta il problema del backup a livello di wallet. Ogni chiave è custodita su un proprio dispositivo o seed, e spendere richiede una soglia di firme. Una chiave compromessa non rivela le altre. Il costo è che le informazioni di configurazione del wallet vanno conservate, e che il recupero dipende da software compatibile.\n\nLa passphrase è un secondo segreto, non un checksum. Una passphrase sbagliata durante il ripristino produce un altro wallet valido, e il software non può dire che la passphrase è errata. Deve essere robusta e va salvata separatamente, perché perderla rende i fondi irrecuperabili. Conservarla insieme al seed elimina la sua protezione contro chi trova il backup.\n\nIl checksum di BIP 39 individua molti errori di trascrizione, ma non tutti, quindi vale la pena controllare con cura le parole scritte."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Backup Seed",
+        "BIP 39",
+        "SLIP 39",
+        "Multifirma",
+        "Recupero"
+      ],
+      "sources": [
+        {
+          "title": "BIP 39 - Mnemonic code for generating deterministic keys",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+          "author": "Marek Palatinus, Pavol Rusnak, Aaron Voisine, Sean Bowe"
+        },
+        {
+          "title": "SLIP-0039 - Shamir's Secret-Sharing for Mnemonic Codes",
+          "url": "https://github.com/satoshilabs/slips/blob/master/slip-0039.md",
+          "author": "SatoshiLabs"
+        },
+        {
+          "title": "Codex32",
+          "url": "https://bitcoinops.org/en/topics/codex32/",
+          "author": "Bitcoin Optech contributors"
+        },
+        {
+          "title": "Bitcoin.org - Proteggi il tuo wallet",
+          "url": "https://bitcoin.org/en/secure-your-wallet",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Mastering Bitcoin - Capitolo 5, Wallet",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch05_wallets.adoc",
+          "author": "Andreas M. Antonopoulos"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.hd-wallets",
+          "title": "Wallet HD Gerarchici Deterministici"
+        },
+        {
+          "id": "wiki.multisig",
+          "title": "Multifirma"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Chiavi Private"
+        },
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.mining-hardware",
+      "slug": "mining-hardware",
+      "language": "it",
+      "category": "hardware",
+      "subcategory": "mining-hardware",
+      "title": "Hardware di mining",
+      "description": "I dispositivi che calcolano gli hash di proof of work di Bitcoin, dalle CPU agli ASIC, e i componenti che li compongono.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "L'hardware di mining è l'attrezzatura che calcola gli hash richiesti dalla proof of work di Bitcoin. Un miner prova un numero enorme di header di blocco candidati e cerca quello il cui hash rispetta il target della rete. Trovare un blocco valido fa guadagnare la ricompensa del blocco e le fee, e più hash un dispositivo calcola al secondo, più tentativi compie.\n\nBitcoin è stato minato per la prima volta su CPU normali. Poi sono arrivate le schede grafiche e infine i chip programmabili chiamati FPGA. Ogni passaggio ha prodotto più hash a parità di lavoro. Nel 2013 i chip ASIC hanno determinato un altro grande salto di potenza di mining. Un ASIC è costruito per calcolare solo la doppia SHA-256 usata da Bitcoin. È molto meno flessibile di un computer generico, ma per questo unico compito è molto più veloce ed efficiente.\n\nLe macchine di mining di oggi sono di solito costruite come un unico corpo che contiene diverse schede, una scheda di controllo, un alimentatore e un sistema di raffreddamento. Alcune sono grandi unità industriali per data center. Altre sono piccoli dispositivi domestici che girano con firmware open source. Il livello medium spiega come lavorano insieme queste parti e come confrontare le macchine."
+        },
+        "medium": {
+          "bodyMarkdown": "Un tipico miner ASIC ha quattro parti principali. Le hashboard portano molti chip che eseguono la funzione di hash in parallelo. Una scheda di controllo riceve il lavoro dal software di mining, lo invia alle hashboard, raccoglie i risultati e invia share o blocchi validi a un pool o a un nodo. L'alimentatore converte la corrente di rete nelle tensioni richieste dai chip. Il raffreddamento, di solito ventole, rimuove il calore prodotto dai chip. Ogni parte può guastarsi, e una singola scheda è spesso più facile da sostituire di un'intera macchina.\n\nLa metrica chiave è l'efficienza, di solito espressa in joule per terahash. È la potenza consumata divisa per l'hashrate, quindi un numero più basso significa meno elettricità per lo stesso lavoro. L'hashrate da solo può trarre in inganno. Una macchina con hashrate più alto può assorbire così tanta potenza da risultare meno efficiente. Il prezzo dell'elettricità incide sulla redditività più di qualsiasi singola caratteristica, quindi la stessa macchina può avere senso in un posto e non in un altro.\n\nCalore e rumore contano in casa. Le unità industriali sono collocate in strutture con alimentazione e raffreddamento dedicati. Un piccolo miner domestico sta in una stanza, e le sue ventole possono essere rumorose e il calore evidente. Il proprietario deve pianificare il flusso d'aria, i circuiti elettrici e il fatto che la macchina funziona di continuo.\n\nI miner domestici e open source, come il Bitaxe, usano un firmware rilasciato con licenza aperta, quindi il proprietario può ispezionare e modificare il software. Il progetto ESP-Miner è un firmware open source per il controller ESP32 delle schede Bitaxe, distribuito con licenza GPL-3.0. Grandi produttori vendono unità industriali, come le serie Antminer S o Whatsminer M, pensate per installazioni più grandi. Qualunque macchina si scelga, il firmware che la fa girare fa parte del progetto e va tenuto aggiornato."
+        },
+        "advanced": {
+          "bodyMarkdown": "Il mining è una gara in cui la probabilità di un miner di trovare un blocco è proporzionale alla sua quota dell'hashrate totale della rete. La difficoltà si adatta in modo che i blocchi arrivino a un intervallo medio costante, quindi la probabilità di un singolo dispositivo è minuscola rispetto all'intera rete. La Bitcoin Developer Guide descrive la scelta tra mining solo e mining in pool. Un miner solo trattiene l'intera ricompensa del blocco e le fee, ma i pagamenti hanno alta varianza, cioè lunghi intervalli tra una ricompensa e l'altra. Un pool condivide i proventi in modo approssimativamente proporzionale alla potenza di hashing, con pagamenti più piccoli e frequenti e varianza più bassa.\n\nMastering Bitcoin usa un esempio semplice. Un miner con una frazione molto piccola dell'hashrate della rete potrebbe aspettarsi di trovare un blocco solo dopo un lungo periodo, se la difficoltà non cambiasse mai. Le probabilità reali dipendono dall'hashrate e dalla difficoltà attuali, che cambiano continuamente, quindi la affermazione onesta è qualitativa. Il mining solo è una scommessa, e il pool scambia una parte della ricompensa con la prevedibilità.\n\nIn una configurazione tipica, un computer host esegue un nodo e passa gli header di blocco all'hardware di mining, che prova i valori di nonce. Quando lo spazio dei nonce si esaurisce, l'header viene modificato tramite extra nonce, version bits o timestamp, e il test continua. Il software di mining fa quindi parte del perimetro di fiducia. Un bug o un firmware ostile potrebbero produrre share non valide, trattenere il lavoro o indirizzare l'hashpower verso un pool che il proprietario non ha scelto. Controllare firmware, impostazioni del pool e aggiornamenti fa parte della gestione dell'hardware.\n\nL'economia dipende molto dall'elettricità. Il capitolo di Mastering Bitcoin osserva che il fattore principale della redditività è il prezzo del kilowattora, e che i sistemi più efficienti trasformano l'elettricità in hashing vicino al limite del silicio attuale. Lo stesso capitolo descrive un garage domestico pieno di hardware di fascia alta che assorbe decine di kilowatt, e lo confronta con operazioni commerciali che impilano decine di migliaia di macchine vicino alle centrali elettriche. I sistemi di consumo più veloci non possono competere con questa scala.\n\nEseguire questo hardware in casa solleva questioni pratiche. Il consumo deve rientrare nel circuito elettrico, il calore va smaltito e il rumore deve essere tollerabile per chi vive vicino. Una macchina che lavora in continuo è un carico costante, e la sua installazione va trattata come qualunque altra apparecchiatura elettrica pesante."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Mining",
+        "ASIC",
+        "Proof of Work",
+        "Hardware",
+        "Open Source"
+      ],
+      "sources": [
+        {
+          "title": "Mastering Bitcoin - Capitolo 12, Mining",
+          "url": "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch12_mining.adoc",
+          "author": "Andreas M. Antonopoulos"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Mining",
+          "url": "https://developer.bitcoin.org/devguide/mining.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "ESP-Miner",
+          "url": "https://github.com/bitaxeorg/ESP-Miner",
+          "author": "OSMU contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
+        },
+        {
+          "id": "wiki.mining-energy-economics",
+          "title": "Economia Energetica del Mining"
+        },
+        {
+          "id": "wiki.mining-software",
+          "title": "Software di mining"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.node-hardware",
+      "slug": "node-hardware",
+      "language": "it",
+      "category": "hardware",
+      "subcategory": "node-hardware",
+      "title": "Hardware per nodi",
+      "description": "Di cosa ha bisogno un computer per far girare un full node Bitcoin, tra storage, memoria, banda, alimentazione e tipi di hardware.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Un full node richiede un computer capace di stare al passo con la blockchain e di controllare ogni blocco che riceve. Il lavoro più pesante avviene durante la prima sincronizzazione, quando il nodo scarica tutta la storia e la verifica. Dopo, il nodo ha soprattutto bisogno di storage affidabile, di una connessione di rete stabile e di uptime sufficiente per restare allineato alla rete.\n\nLo storage è la prima preoccupazione. Il nodo conserva i dati dei blocchi e un database degli output non spesi. Entrambi crescono nel tempo. Un nodo che conserva tutta la storia richiede molto spazio, mentre un nodo pruned elimina i vecchi file di blocco e ne usa meno. La chain continua a crescere, quindi controlla la documentazione del software del nodo per i dati aggiornati, invece di fidarti di un numero trovato in una guida. Conta anche la velocità del disco. Bitcoin.org fissa una velocità minima di lettura e scrittura per lo storage, perché un disco lento allunga molto la prima sincronizzazione.\n\nMemoria e processore contano per la prima sincronizzazione, perché ogni blocco viene verificato e il processore resta impegnato per tutto il download. La banda conta perché il nodo invia e riceve dati in continuazione. L'uptime conta perché un nodo spento non può inoltrare blocchi e deve recuperare il ritardo quando torna online."
+        },
+        "medium": {
+          "bodyMarkdown": "Diversi tipi di macchina possono far girare un nodo. Un single-board computer, come una piccola scheda Linux, consuma poca energia e sta in un armadio, ma memoria e opzioni di storage sono limitate, e alcune schede usano una scheda SD per lo storage. Un mini PC ha un processore più veloce, più memoria e spazio per un disco interno, a fronte di un costo e di un consumo maggiori. Un vecchio laptop o un desktop è spesso un buon punto di partenza. Può avere già abbastanza memoria e un disco, ma richiede un'alimentazione stabile e può andare in sospensione o rallentare per il calore senza preavviso.\n\nLe scelte di storage seguono la decisione sul pruning. Un nodo archival conserva tutti i dati dei blocchi e può servire blocchi storici ai peer. Un nodo pruned valida comunque tutta la chain e mantiene lo stato corrente, ma elimina i vecchi file di blocco. Il pruning riduce l'uso del disco e permette comunque al nodo di far rispettare le regole. Non conserva i vecchi blocchi, quindi il nodo non può servirli ad altri peer.\n\nLa banda è un elemento da pianificare. Il nodo invia e riceve blocchi e transazioni ogni giorno. La documentazione di Bitcoin Core segnala che le impostazioni predefinite possono consumare molto traffico, soprattutto per servire blocchi storici durante la prima sincronizzazione, e offre un limite di upload che lo contiene. Prima di scegliere un'impostazione, controlla il tuo piano dati e se la connessione è a consumo.\n\nAlimentazione e uptime vengono dopo. Il nodo è più utile quando funziona in continuo. Bitcoin.org consiglia di tenerlo acceso per gran parte della giornata, idealmente sempre, e di disattivare sospensione e stand-by. Una batteria di backup protegge da brevi interruzioni. Le schede SD tollerano meno cicli di scrittura della maggior parte dei dischi, quindi usarne una per un nodo è una scelta consapevole che richiede monitoraggio.\n\nI box pronti per nodi sono una categoria di dispositivi già assemblati che unisce hardware e software del nodo. Fanno risparmiare tempo di configurazione."
+        },
+        "advanced": {
+          "bodyMarkdown": "Il carico hardware di un nodo deriva soprattutto dall'initial block download e dal chainstate. Durante il download, il nodo richiede i blocchi storici, verifica ciascuno e scrive i risultati nel database. La verifica usa molto il processore, e il database esegue molte letture e scritture piccole. Un nodo che sincronizza su un disco lento può impiegare molto più tempo di uno su un disco veloce, quindi il minimo indicato su bitcoin.org va letto come soglia minima e non come obiettivo.\n\nIl chainstate è l'insieme degli output non spesi che il nodo usa per validare i nuovi blocchi. La sua dimensione è separata dallo storico dei blocchi, e il pruning elimina i file dei blocchi mantenendo questo stato. Poiché lo stato viene aggiornato per ogni blocco collegato, lo storage deve reggere un flusso costante di piccole scritture, non solo trasferimenti grandi e sequenziali. Dischi progettati per un uso continuo sono in genere una scelta più sicura rispetto a schede pensate per scritture occasionali.\n\nBitcoin Core espone diverse impostazioni che influenzano le risorse usate: pruning, numero di connessioni peer, limite di upload e numero di thread per la verifica delle firme. I limiti di connessione predefiniti permettono un numero elevato di peer, utile alla rete ma che aumenta il traffico. Il limite di upload interrompe il servizio dei blocchi storici quando si raggiunge un budget giornaliero. Questo protegge una connessione limitata, ma un nodo che non serve i blocchi vecchi è meno utile ai nuovi nodi che ne hanno bisogno. Il proprietario dovrebbe impostare questi valori in modo deliberato.\n\nL'affidabilità è anch'essa un tema hardware. Una caduta di corrente durante una scrittura nel database può danneggiare i dati, quindi una batteria di backup o un file system con journaling riducono il rischio. Le macchine piccole possono rallentare quando si surriscaldano, e un nodo rallentato può restare indietro. L'accesso remoto richiede attenzione: se il nodo è raggiungibile dall'esterno, la sua interfaccia di gestione va protetta e tenuta aggiornata.\n\nLa scelta dell'hardware non cambia ciò che il nodo valida. Le stesse regole valgono su un single-board computer, un mini PC o un server. Un hardware migliore cambia soprattutto quanto dura la prima sincronizzazione, quanto traffico ed energia consuma il nodo e quante altre attività può eseguire insieme al software Bitcoin."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Full Node",
+        "Storage",
+        "Hardware",
+        "Uptime",
+        "Pruning"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin.org - Eseguire un full node",
+          "url": "https://bitcoin.org/en/full-node",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core - Ridurre l'uso della banda",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/reduce-traffic.md",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Operating Modes",
+          "url": "https://developer.bitcoin.org/devguide/operating_modes.html",
+          "author": "Bitcoin.org contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        },
+        {
+          "id": "wiki.node-operating-systems",
+          "title": "Sistemi per nodo domestico"
+        },
+        {
+          "id": "wiki.utxo-model",
+          "title": "Modello UTXO"
+        },
+        {
+          "id": "wiki.peer-to-peer-network",
+          "title": "Rete Peer-to-Peer"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
     }
   ],
   "news": [
@@ -13928,6 +15158,6 @@
       }
     }
   ],
-  "totalRecords": 318,
-  "historyCount": 35
+  "totalRecords": 339,
+  "historyCount": 41
 }

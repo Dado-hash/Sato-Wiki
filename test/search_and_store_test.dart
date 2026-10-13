@@ -23,7 +23,7 @@ void main() {
     final events = await store.listEvents();
     final onPizzaDay = await store.listEventsOnMonthDay(5, 22);
 
-    expect(events.first.title, 'Bitcoin Whitepaper Published');
+    expect(events.first.title, 'Cypherpunk\'s Manifesto Published');
     expect(onPizzaDay.single.slug, 'bitcoin-pizza-day');
   });
 

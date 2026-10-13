@@ -18,13 +18,13 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 1. Wiki a due livelli, Software e Hardware
 
-1. [ ] Mockup HTML della Wiki con categorie e sottocategorie.
-2. [ ] Aggiungere il campo opzionale `subcategory` a `WikiEntry`: modello, parser, validatore, `docs/content-model.md`.
-3. [ ] Aggiungere le categorie `software` e `hardware`: ordine, icone, etichette EN e IT.
+1. [ ] Mockup HTML della Wiki con categorie e sottocategorie. Pubblicato il 2026-10-13, in attesa di approvazione.
+2. [x] Aggiungere il campo opzionale `subcategory` a `WikiEntry`: modello, parser, validatore, `docs/content-model.md`.
+3. [x] Aggiungere le categorie `software` e `hardware`: ordine, icone, etichette EN e IT.
 4. [ ] Mostrare le sottocategorie nella schermata Wiki.
 5. [x] Confermare l'elenco delle sottocategorie (2026-10-13: quelle di `docs/plan.md`, sezione A1).
-6. [ ] Scrivere le voci di sottocategoria di Software, EN e IT, tre livelli.
-7. [ ] Scrivere le voci di sottocategoria di Hardware, EN e IT, tre livelli.
+6. [x] Scrivere le voci di sottocategoria di Software, EN e IT, tre livelli.
+7. [x] Scrivere le voci di sottocategoria di Hardware, EN e IT, tre livelli.
 
 ## 2. Percorso guidato e data di verifica
 
@@ -32,13 +32,13 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 2. [ ] Aggiungere la collezione `paths`: modello, parser, validatore, documentazione.
 3. [ ] Mostrare il percorso in Today, con avanzamento dal reading progress.
 4. [ ] Scrivere il primo percorso per principianti, EN e IT.
-5. [ ] Aggiungere il campo opzionale `reviewedAt` a tutti i record e mostrarlo nelle schermate di lettura.
+5. [ ] Aggiungere il campo opzionale `reviewedAt` a tutti i record e mostrarlo nelle schermate di lettura. Il campo esiste in modello, parser e validatore; manca la riga nelle schermate.
 
 ## 3. History estesa
 
-1. [ ] Eventi prima del 2008: Hashcash, b-money, bit gold, RPOW, manifesto cypherpunk.
-2. [ ] Incidenti tecnici, a partire dal value overflow del 2010.
-3. [ ] Verificare che i filtri e l'ordinamento della timeline reggano le date prima del 2008.
+1. [x] Eventi prima del 2008: Hashcash, b-money, bit gold, RPOW, manifesto cypherpunk.
+2. [ ] Incidenti tecnici, a partire dal value overflow del 2010. Il value overflow è scritto; mancano gli altri incidenti.
+3. [ ] Verificare che i filtri e l'ordinamento della timeline reggano le date prima del 2008. L'ordinamento è coperto dai test; manca il controllo a schermo.
 
 ## 4. Glossario, riferimenti e citazioni
 
@@ -60,10 +60,10 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 ## 6. Strumenti offline
 
 1. [ ] Mockup della sezione Strumenti in Code.
-2. [ ] Creare `lib/src/features/tools/` con logica pura in `domain/` e aggiornare `docs/app-architecture.md`.
+2. [ ] Creare `lib/src/features/tools/` con logica pura in `domain/` e aggiornare `docs/app-architecture.md`. La cartella esiste; la documentazione si aggiorna con le prime schermate.
 3. [x] Decidere dipendenza o codice nostro per RIPEMD-160, Base58Check e bech32 (2026-10-13: codice nostro, verificato con i vettori di test ufficiali).
-4. [ ] Scrivere RIPEMD-160, Base58Check e bech32/bech32m con i loro test.
-5. [ ] Strumento hash.
+4. [x] Scrivere RIPEMD-160, Base58Check e bech32/bech32m con i loro test.
+5. [ ] Strumento hash. La logica di tutti e cinque gli strumenti è in `lib/src/features/tools/domain/`; mancano le schermate.
 6. [ ] Convertitore bits, target e difficulty.
 7. [ ] Convertitore di unità.
 8. [ ] Analisi di un indirizzo.
@@ -72,7 +72,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 ## 7. Demo interattive
 
 1. [ ] Mockup del laboratorio blockchain (sei passi) e di "Script passo per passo".
-2. [ ] Logica pura del laboratorio: blocco semplificato, validità della catena, ricerca del nonce in un isolate.
+2. [x] Logica pura del laboratorio: blocco semplificato, validità della catena, ricerca del nonce in un isolate.
 3. [ ] Passi 1 e 2: hash e blocco, con "Mina un blocco" apribile anche da solo.
 4. [ ] Passi 3 e 4: catena e rete con tre copie.
 5. [ ] Passi 5 e 6: transazioni e coinbase.
