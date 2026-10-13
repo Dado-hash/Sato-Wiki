@@ -8104,7 +8104,7 @@
       "number": 95,
       "language": "it",
       "title": "Testnet 5",
-      "summary": "Il BIP 95 definisce il \"Testnet 5\", una nuova rete di test progettata per sostituire il Testnet 4, eliminando l'eccezione sulla difficoltà di mining e imponendo le regole di consenso del BIP 54 fin dal blocco di genesi.",
+      "summary": "Il BIP 95 definisce il \"Testnet 5\", una nuova rete di test progettata per sostituire il Testnet 4, eliminando l'eccezione sulla difficoltà di mining e imponendo le regole di consenso del BIP 54 fin dal blocco 1.",
       "status": "draft",
       "category": "applications",
       "authors": [
@@ -8113,7 +8113,7 @@
       ],
       "createdAt": "2026-06-22",
       "summaryMarkdown": "Il **BIP 95** introduce il **Testnet 5**, una rete di test destinata a sostituire il Testnet 4. L'obiettivo principale è risolvere le inefficienze causate dallo sfruttamento sistematico dell'eccezione sulla difficoltà di mining presente nel predecessore, che rendeva la rete instabile. Il Testnet 5 allinea il comportamento della rete il più possibile a quello della mainnet, eliminando le eccezioni PoW e applicando le regole di consenso del [BIP 54](bip-0054.md) fin dal blocco 1.",
-      "impactMarkdown": "L'adozione del Testnet 5 comporta una modifica strutturale nell'ambiente di test di Bitcoin. Rimuovendo l'eccezione sulla difficoltà, la rete diventa più resiliente contro gli attacchi di mining, ma richiede una potenza di calcolo minima costante (difficoltà ~1.000.000) per mantenere la produzione di blocchi, rendendo il network più simile alla mainnet in termini di dinamiche di consenso.",
+      "impactMarkdown": "L'adozione del Testnet 5 comporta una modifica strutturale nell'ambiente di test di Bitcoin. Rimuovendo l'eccezione sulla difficoltà, la rete è meno esposta allo sfruttamento che causava re-org continui, ma richiede una potenza di calcolo minima costante (difficoltà ~1.000.000) per mantenere la produzione di blocchi, rendendo il network più simile alla mainnet in termini di dinamiche di consenso.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0095.md",
       "tags": [
         "BIP",
@@ -9628,7 +9628,7 @@
         "Pyth"
       ],
       "createdAt": "2026-05-11",
-      "summaryMarkdown": "Il **BIP 138** introduce uno schema di crittografia compatto progettato per proteggere metadati sensibili del portafoglio, inclusi i **descrittori di output (BIP 380)** e le **policy di portafoglio (BIP 388)**. Lo schema permette agli utenti di archiviare backup su servizi cloud o supporti non attendibili senza esporre la struttura del portafoglio o le chiavi pubbliche, garantendo che solo i detentori delle chiavi autorizzate possano decifrare i dati.",
+      "summaryMarkdown": "Il **BIP 138** introduce uno schema di crittografia compatto progettato per proteggere metadati sensibili del portafoglio, inclusi i **descrittori di output (BIP 380)** e le **policy di portafoglio (BIP 388)**. Lo schema permette agli utenti di archiviare backup su servizi cloud o supporti non attendibili senza esporre la struttura del portafoglio o le chiavi pubbliche, garantendo che possano decifrarli solo i possessori delle chiavi pubbliche (xpub) del descrittore.",
       "impactMarkdown": "Il BIP 138 migliora la sicurezza dei backup dei portafogli avanzati (multisig, miniscript) risolvendo il dilemma tra la necessità di ridondanza offline e il rischio di privacy associato all'archiviazione online. Consente di creare backup cifrati che non richiedono segreti aggiuntivi oltre alle chiavi pubbliche già presenti nel portafoglio.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0138.md",
       "tags": [
@@ -11407,8 +11407,8 @@
         "Ram"
       ],
       "createdAt": "2026-08-21",
-      "summaryMarkdown": "Il **BIP 332** definisce un protocollo P2P opzionale per la segnalazione di **stale tip** (blocchi validi ma non inclusi nella catena attiva). Il meccanismo utilizza un nuovo messaggio `staletip` per trasmettere header compressi e segnalare la disponibilità dei dati completi del blocco, facilitando il monitoraggio della salute della rete e accelerando potenziali riorganizzazioni della catena.",
-      "impactMarkdown": "L'adozione del BIP 332 permette ai nodi di ottenere una visibilità maggiore sulla propagazione dei blocchi e sulle divergenze di catena. Il monitoraggio dei blocchi stale può aiutare a identificare problemi di rete, latenza di propagazione o comportamenti di mining non ottimali, senza imporre oneri significativi sulle risorse di sistema grazie a limiti rigorosi sui messaggi.",
+      "summaryMarkdown": "Il **BIP 332** definisce un protocollo P2P opzionale per la segnalazione di **stale tip** (blocchi o header validi non inclusi nella catena attiva). Il meccanismo utilizza un nuovo messaggio `staletip` per trasmettere header compressi e segnalare la disponibilità dei dati completi del blocco, facilitando il monitoraggio della salute della rete e accelerando potenziali riorganizzazioni della catena.",
+      "impactMarkdown": "L'adozione del BIP 332 permette ai nodi di ottenere una visibilità maggiore sulla propagazione dei blocchi e sulle divergenze di catena. Il monitoraggio dei blocchi stale può aiutare a identificare problemi di rete, latenza di propagazione o comportamenti di mining anomali, come il selfish mining, senza imporre oneri significativi sulle risorse di sistema grazie a limiti rigorosi sui messaggi.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0332.md",
       "tags": [
         "BIP",
@@ -13438,7 +13438,7 @@
       ],
       "createdAt": "2026-08-12",
       "summaryMarkdown": "Il **BIP 461** specifica un algoritmo di firma ECDSA deterministico che garantisce che l'output della firma sia interamente determinato dalla chiave privata e dal messaggio. Standardizzando il processo di firma, il BIP mira a prevenire attacchi in cui un firmatario malevolo potrebbe utilizzare la libertà di scelta del nonce per nascondere materiale della chiave privata all'interno delle firme.",
-      "impactMarkdown": "L'adozione di questo standard permette il rilevamento di firme non conformi: poiché l'algoritmo è deterministico, qualsiasi discrepanza tra firme generate dallo stesso dispositivo per lo stesso messaggio rivela un comportamento anomalo. Inoltre, l'uso sistematico di *low-r grinding* e *low-s normalization* riduce la dimensione massima delle firme DER a 70 byte, ottimizzando leggermente lo spazio occupato sulla blockchain.",
+      "impactMarkdown": "L'adozione di questo standard permette il rilevamento di firme non conformi: poiché l'algoritmo è deterministico, qualsiasi discrepanza tra firme generate da due firmatari indipendenti con la stessa chiave per lo stesso messaggio rivela un comportamento anomalo. Inoltre, l'uso sistematico di *low-r grinding* e *low-s normalization* riduce la dimensione massima delle firme DER a 70 byte, ottimizzando leggermente lo spazio occupato sulla blockchain.",
       "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0461.md",
       "tags": [
         "BIP",
@@ -13474,11 +13474,11 @@
       "project": "bitcoin-core",
       "version": "31.1",
       "title": "Bitcoin Core 31.1",
-      "summary": "Bitcoin Core 31.1 è una release di manutenzione che corregge una vulnerabilità di privacy nel broadcast delle transazioni, migliora la validazione e la gestione del wallet, e include vari bug fix e ottimizzazioni.",
+      "summary": "Bitcoin Core 31.1 è una release di manutenzione che corregge un leak di privacy nel broadcast delle transazioni, migliora la validazione e la gestione del wallet, e include vari bug fix e ottimizzazioni.",
       "releasedAt": "2026-07-08",
       "importance": "minor",
-      "userImpactMarkdown": "La correzione principale riguarda la risoluzione di un leak di indirizzi IP che poteva verificarsi durante l'uso di `-privatebroadcast`, dove le connessioni venivano erroneamente instradate su clearnet anziché sulla rete di privacy configurata. Sono stati inoltre apportati miglioramenti alla stabilità generale del software.",
-      "technicalChangesMarkdown": "### Principali modifiche tecniche:\n- **Privacy:** Risolto un leak di indirizzi IP in `-privatebroadcast` che forzava connessioni clearnet.\n- **Validazione:** Ottimizzata la gestione della memoria per i dati delle transazioni precalcolati e implementata una compattazione regolare dello stato della catena (chainstate).\n- **Wallet:** Migliorata la verifica LSN (Log Sequence Number) durante la migrazione dei wallet BDB e ottimizzata la stima della dimensione degli input.\n- **P2P:** Corretta la gestione dei proxy nelle riconnessioni v2->v1 e impedita la modifica dell'addrman per le connessioni private.\n- **Altro:** Disabilitata la 'seek compaction' in LevelDB, risolti problemi di compilazione con Boost >= 1.91 e migliorata la gestione degli errori di scrittura per `settings.json`.",
+      "userImpactMarkdown": "La correzione principale riguarda la risoluzione di un leak di indirizzi IP che poteva verificarsi durante l'uso di `-privatebroadcast`, dove le connessioni venivano erroneamente instradate su clearnet anziché sulla rete di privacy configurata. Sono stati inoltre corretti alcuni bug minori e migliorati i test.",
+      "technicalChangesMarkdown": "### Principali modifiche tecniche:\n- **Privacy:** Risolto un leak di indirizzi IP in `-privatebroadcast` che forzava connessioni clearnet.\n- **Validazione:** Corretta la durata (lifetime) dei dati delle transazioni precalcolati e implementata una compattazione regolare dello stato della catena (chainstate).\n- **Wallet:** Migliorata la verifica LSN (Log Sequence Number) durante la migrazione dei wallet BDB e ottimizzata la stima della dimensione degli input.\n- **P2P:** Corretta la gestione dei proxy nelle riconnessioni v2->v1 e impedita la modifica dell'addrman per le connessioni private.\n- **Altro:** Disabilitata la 'seek compaction' in LevelDB, risolti problemi di compilazione con Boost >= 1.91 e migliorata la gestione degli errori di scrittura per `settings.json`.",
       "officialUrl": "https://bitcoincore.org/en/releases/31.1/",
       "tags": [
         "Bitcoin Core",
@@ -13502,10 +13502,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "e57950bac9966426e3809b6cc563f4260183e32f",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.1.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13515,11 +13513,11 @@
       "project": "bitcoin-core",
       "version": "31.0",
       "title": "Bitcoin Core 31.0",
-      "summary": "Bitcoin Core 31.0 è una release major che introduce il \"cluster mempool\", aumenta il dbcache predefinito e migliora la privacy delle transazioni tramite broadcast privato.",
+      "summary": "Bitcoin Core 31.0 è una release major che introduce il \"cluster mempool\", aumenta il dbcache predefinito e migliora la privacy delle transazioni inviate con sendrawtransaction tramite broadcast privato.",
       "releasedAt": "2026-04-20",
       "importance": "major",
-      "userImpactMarkdown": "### Principali novità per l'utente:\n- **Privacy:** Introdotta l'opzione `-privatebroadcast` per inviare transazioni tramite reti Tor o I2P, migliorando l'anonimato dell'origine.\n- **Performance:** Il `dbcache` predefinito passa a 1024 MiB per velocizzare le operazioni.\n- **Rimozioni:** Rimossi i parametri `-paytxfee` e `settxfee`; gli utenti devono ora specificare le commissioni tramite gli argomenti `fee_rate` nei comandi di invio.\n- **Stima commissioni:** Il bucket minimo per la stima delle commissioni è stato ridotto a 0.1 sat/vB.",
-      "technicalChangesMarkdown": "### Modifiche tecniche:\n- **Cluster Mempool:** Sostituiti i limiti di dimensione antenato/discendente con limiti basati su cluster (64 transazioni, 101 kB). La logica RBF è stata ottimizzata per garantire che le sostituzioni siano sempre incentivanti per i miner.\n- **RPC:** Nuovi comandi `getmempoolcluster` e `getmempoolfeeratediagram`. Il comando `getpeerinfo` non restituisce più `startingheight` per impostazione predefinita.\n- **Networking:** Inclusione nativa dei dati `asmap` (disabilitati di default). Rimossa la rete `tor` in favore di `onion`.\n- **Build:** Requisiti minimi di compilazione elevati a Clang 17.0 e GCC 12.1.",
+      "userImpactMarkdown": "### Principali novità per l'utente:\n- **Privacy:** Introdotta l'opzione `-privatebroadcast` per inviare tramite Tor o I2P le transazioni di `sendrawtransaction`, migliorando l'anonimato dell'origine.\n- **Performance:** Il `dbcache` predefinito passa a 1024 MiB sui sistemi con almeno 4 GB di RAM, a costo di più memoria.\n- **Rimozioni:** Rimossi i parametri `-paytxfee` e `settxfee`; gli utenti possono usare la stima delle commissioni o specificare `fee_rate` nei comandi di invio.\n- **Stima commissioni:** Il bucket minimo per la stima delle commissioni è stato ridotto a 0.1 sat/vB.",
+      "technicalChangesMarkdown": "### Modifiche tecniche:\n- **Cluster Mempool:** Sostituiti i limiti di dimensione antenato/discendente con limiti basati su cluster (64 transazioni, 101 kB). La logica RBF accetta una sostituzione solo se migliora strettamente il feerate diagram del mempool.\n- **RPC:** Nuovi comandi `getmempoolcluster` e `getmempoolfeeratediagram`. Il comando `getpeerinfo` non restituisce più `startingheight` per impostazione predefinita.\n- **Networking:** Inclusione nativa dei dati `asmap` (disabilitati di default). Rimossa la rete `tor` in favore di `onion`.\n- **Build:** Requisiti minimi di compilazione elevati a Clang 17.0 e GCC 12.1.",
       "officialUrl": "https://bitcoincore.org/en/releases/31.0/",
       "tags": [
         "Bitcoin Core",
@@ -13543,10 +13541,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "7246702a905509a40500c1d7fec8ee76371245f0",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.0.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13584,10 +13580,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "f8ccd6615c1a88618dc10036e8c3c308a3a8914c",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.3.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13625,10 +13619,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "888b3f919c366ad463fcb7e8a11e07dc8f0f3669",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.2.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13666,10 +13658,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "3299af4efaa978d9c1b52f67fa49807f410d5c38",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.1.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13679,11 +13669,11 @@
       "project": "bitcoin-core",
       "version": "30.0",
       "title": "Bitcoin Core 30.0",
-      "summary": "Bitcoin Core 30.0 introduce miglioramenti significativi alla gestione delle transazioni, al relay dei pacchetti, al supporto per i portafogli a descrittori e all'interfaccia utente, rimuovendo definitivamente il supporto per i portafogli legacy BDB.",
+      "summary": "Bitcoin Core 30.0 introduce miglioramenti significativi alla gestione delle transazioni, al relay dei pacchetti, alla creazione e alla spesa di transazioni TRUC e all'interfaccia utente, rimuovendo definitivamente il supporto per i portafogli legacy BDB.",
       "releasedAt": "2025-10-13",
       "importance": "major",
       "userImpactMarkdown": "Gli utenti devono essere consapevoli che:\n- **Portafogli:** È necessario migrare i vecchi portafogli BDB prima dell'aggiornamento.\n- **Configurazione:** L'opzione `-upnp` è stata rimossa in favore di `-natpmp` (abilitato di default).\n- **GUI:** L'interfaccia grafica è stata aggiornata a Qt 6, introducendo il supporto alla modalità scura su Windows e al backend Metal su macOS.\n- **RPC:** Alcuni comandi legacy sono stati rimossi o modificati; si consiglia di consultare la documentazione per le alternative (es. `getbalances` al posto di `getunconfirmedbalance`).",
-      "technicalChangesMarkdown": "- **Policy:** Introdotto un limite di 2500 operazioni di firma legacy per transazione e aumentato il limite `-datacarriersize`.\n- **Networking:** Migliorato il relay dei pacchetti 1-parent-1-child e aggiornate le protezioni DoS per l'orfanotrofio delle transazioni.\n- **TRUC:** Aggiunto il supporto per la creazione e la spesa di transazioni TRUC (Transaction Relay for Unconfirmed Chains).\n- **Mining:** Introdotta un'interfaccia IPC sperimentale per il mining (Stratum v2).\n- **Logging:** Implementata la limitazione della frequenza per i log su disco per prevenire l'esaurimento dello spazio.",
+      "technicalChangesMarkdown": "- **Policy:** Introdotto un limite di 2500 operazioni di firma legacy per transazione standard e aumentato il limite `-datacarriersize`.\n- **Networking:** Migliorato il relay dei pacchetti 1-parent-1-child e aggiornate le protezioni DoS per l'orfanotrofio delle transazioni.\n- **TRUC:** Aggiunto il supporto per la creazione e la spesa di transazioni TRUC (Topologically Restricted Until Confirmation).\n- **Mining:** Introdotta un'interfaccia IPC sperimentale per il mining (Stratum v2).\n- **Logging:** Implementata la limitazione della frequenza per i log su disco per prevenire l'esaurimento dello spazio.",
       "officialUrl": "https://bitcoincore.org/en/releases/30.0/",
       "tags": [
         "Bitcoin Core",
@@ -13707,10 +13697,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "a855d10cc98c1ceb149e84a949d967d6daffac72",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.0.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13724,7 +13712,7 @@
       "releasedAt": "2026-07-10",
       "importance": "minor",
       "userImpactMarkdown": "Gli utenti noteranno una riduzione dell'attività di I/O su disco. L'aggiornamento è consigliato per migliorare la stabilità operativa e l'efficienza delle risorse del nodo.",
-      "technicalChangesMarkdown": "### Modifiche principali\n- **Validazione:** Implementata la compattazione regolare del `chainstate` (PR #35465) e corretta la gestione del ciclo di vita dei dati precalcolati delle transazioni (PR #35209).\n- **LevelDB:** Disabilitata la compattazione durante le operazioni di `seek` (PR #61).\n- **Wallet:** Migliorata la stima della dimensione degli input utilizzando l'outpoint (PR #35228).\n- **Build:** Migrazione da target SQLite3 deprecati in CMake e rimozione di `SOURCE_DATE_EPOCH` negli script di generazione ID.\n- **Compatibilità:** Risolto un errore di compilazione con Boost >= 1.91.",
+      "technicalChangesMarkdown": "### Modifiche principali\n- **Validazione:** Implementata la compattazione regolare del `chainstate` (PR #35465) e corretta la gestione del ciclo di vita dei dati precalcolati delle transazioni (PR #35209).\n- **LevelDB:** Disabilitata la compattazione durante le operazioni di `seek` (PR bitcoin-core/leveldb #61).\n- **Wallet:** Migliorata la stima della dimensione degli input utilizzando l'outpoint (PR #35228).\n- **Build:** Migrazione da target SQLite3 deprecati in CMake e rimozione di `SOURCE_DATE_EPOCH` negli script di generazione ID.\n- **Compatibilità:** Risolto un errore di compilazione con Boost >= 1.91.",
       "officialUrl": "https://bitcoincore.org/en/releases/29.4/",
       "tags": [
         "Bitcoin Core",
@@ -13748,10 +13736,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "3ff905db0573e4d96721766e63bf692b212cb86a",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.4.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13764,8 +13750,8 @@
       "summary": "Bitcoin Core 29.3 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
       "releasedAt": "2026-02-11",
       "importance": "minor",
-      "userImpactMarkdown": "Per gli utenti, questa versione risolve bug specifici legati alla migrazione dei wallet e migliora la gestione delle transazioni. Non sono previste modifiche al protocollo di consenso.",
-      "technicalChangesMarkdown": "Le modifiche tecniche principali includono:\n\n* **Validazione:** Introdotta una cache per il midstate sighash per script legacy/P2SH/SegWitV0 e migliorata la rilevazione dello stripping dei witness.\n* **P2P:** Rimossa una seed node obsoleta e modificata la gestione delle penalità per i peer che inviano transazioni non valide per il consenso.\n* **Wallet:** Risolti diversi problemi relativi alla migrazione dei wallet legacy, inclusi errori con wallet senza nome e wallet di sola lettura (watch-only).\n* **Mining:** Corretto un overflow di interi senza segno nella funzione `addPackageTxs`.\n* **Build/CI:** Aggiornamenti alle dipendenze di build e miglioramenti alla pipeline di integrazione continua.",
+      "userImpactMarkdown": "Per gli utenti, questa versione risolve bug specifici legati alla migrazione dei wallet e migliora la gestione delle transazioni. Le modifiche riguardano soprattutto migrazione dei wallet, validazione e gestione dei peer.",
+      "technicalChangesMarkdown": "Le modifiche tecniche principali includono:\n\n* **Validazione:** Introdotta una cache per il midstate sighash per script legacy/P2SH/SegWitV0 e migliorata la rilevazione dello stripping dei witness.\n* **P2P:** Rimosso un seed DNS obsoleto e modificata la gestione delle penalità per i peer che inviano transazioni non valide per il consenso.\n* **Wallet:** Risolti diversi problemi relativi alla migrazione dei wallet legacy, inclusi errori con wallet senza nome e wallet di sola lettura (watch-only).\n* **Mining:** Corretto un overflow di interi senza segno nella funzione `addPackageTxs`.\n* **Build/CI:** Aggiornamenti alle dipendenze di build e miglioramenti alla pipeline di integrazione continua.",
       "officialUrl": "https://bitcoincore.org/en/releases/29.3/",
       "tags": [
         "Bitcoin Core",
@@ -13789,10 +13775,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "98713c6ceaa407bc58fb92bffb25dc73a0881082",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.3.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13805,7 +13789,7 @@
       "summary": "Bitcoin Core 29.2 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
       "releasedAt": "2025-10-14",
       "importance": "minor",
-      "userImpactMarkdown": "Gli utenti non noteranno cambiamenti funzionali significativi. Si raccomanda di seguire la procedura standard di arresto e sostituzione dei binari per l'aggiornamento.",
+      "userImpactMarkdown": "Le modifiche riguardano soprattutto correzioni di bug e aggiornamenti interni. Si raccomanda di seguire la procedura standard di arresto e sostituzione dei binari per l'aggiornamento.",
       "technicalChangesMarkdown": "### Modifiche tecniche principali\n\n* **P2P:** Aggiunto controllo per la mutazione dei witness in `FillBlock` e corretta la gestione dei permessi whitelist per le connessioni onion in entrata.\n* **Mempool:** Disabilitata l'applicazione dei controlli TRUC durante le riorganizzazioni della blockchain.\n* **RPC:** Corretto il valore di ritorno di `getblock` (header) per il tip della catena.\n* **Altro:** Risolti bug minori nella compilazione, migliorata l'output dei benchmark CSV e aggiornata l'infrastruttura di integrazione continua (CI).",
       "officialUrl": "https://bitcoincore.org/en/releases/29.2/",
       "tags": [
@@ -13830,10 +13814,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "b981b8a7f54609be828167e5ce551a1689ac148d",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.2.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13846,8 +13828,8 @@
       "summary": "Bitcoin Core 29.1 è una release di manutenzione che introduce correzioni di bug, miglioramenti delle prestazioni e aggiornamenti alle policy di mempool e logging.",
       "releasedAt": "2025-09-05",
       "importance": "minor",
-      "userImpactMarkdown": "Per la maggior parte degli utenti, l'aggiornamento non richiede modifiche alla configurazione. Si segnala tuttavia che i valori di default per `-minrelaytxfee` e `-incrementalrelayfee` sono stati ridotti a 100 sat/kvB. È importante notare che, sebbene il software permetta fee più basse, la propagazione dei blocchi e delle transazioni dipende dall'adozione di tali parametri da parte dell'intera rete.",
-      "technicalChangesMarkdown": "### Modifiche principali\n- **Policy Mempool**: Introdotto un limite di 2500 operazioni di firma legacy per transazione standard. Ridotti i valori di default per `-blockmintxfee` (1 sat/kvB), `-minrelaytxfee` e `-incrementalrelayfee` (100 sat/kvB).\n- **Logging**: Implementato un limite di quota (1MiB/ora) per i log non condizionali (info, warning, error) per prevenire l'eccessivo consumo di spazio su disco.\n- **Sistemi 32-bit**: Imposti limiti massimi per `-maxmempool` (500MB) e `-dbcache` (1GiB).\n- **RPC**: Il comando `dumptxoutset` ora richiede obbligatoriamente il parametro `type`.",
+      "userImpactMarkdown": "Alcuni valori di default delle fee sono cambiati, quindi conviene verificare la configurazione. Si segnala tuttavia che i valori di default per `-minrelaytxfee` e `-incrementalrelayfee` sono stati ridotti a 100 sat/kvB. È importante notare che, sebbene il software permetta fee più basse, la propagazione e la conferma delle transazioni con fee più basse non sono garantite finché questi parametri non sono adottati dalla rete.",
+      "technicalChangesMarkdown": "### Modifiche principali\n- **Policy Mempool**: Introdotto un limite di 2500 operazioni di firma legacy per transazione standard. Ridotti i valori di default per `-blockmintxfee` (1 sat/kvB), `-minrelaytxfee` e `-incrementalrelayfee` (100 sat/kvB).\n- **Logging**: Implementato un limite di quota (1MiB/ora) per i log non condizionali (info, warning, error) per prevenire l'eccessivo consumo di spazio su disco.\n- **Sistemi 32-bit**: Introdotti limiti massimi per `-maxmempool` (500MB) e `-dbcache` (1GiB).\n- **RPC**: Il comando `dumptxoutset` ora richiede obbligatoriamente il parametro `type`.",
       "officialUrl": "https://bitcoincore.org/en/releases/29.1/",
       "tags": [
         "Bitcoin Core",
@@ -13871,10 +13853,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "2c66622795e5c15a07070c871d4c6e3af96615fc",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.1.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13887,8 +13867,8 @@
       "summary": "Bitcoin Core 29.0 è una release che introduce miglioramenti alla rete P2P, nuove funzionalità per il mempool, aggiornamenti alle API RPC/REST e la migrazione del sistema di build da Autotools a CMake.",
       "releasedAt": "2025-04-15",
       "importance": "major",
-      "userImpactMarkdown": "Gli utenti che utilizzano configurazioni di rete personalizzate (come Tor o port forwarding) potrebbero dover aggiornare i propri file di configurazione. La rimozione di UPnP richiede l'uso di `-natpmp` per il port forwarding automatico. Il comportamento di `full-RBF` è ora predefinito e non più disattivabile.",
-      "technicalChangesMarkdown": "### Principali novità tecniche\n- **Rete P2P:** Rimozione di UPnP; implementazione nativa di NAT-PMP/PCP. La porta di ascolto Onion è ora derivata dinamicamente (`-port` + 1).\n- **Mempool e Mining:** Introduzione del concetto di 'ephemeral dust' e correzione del calcolo del peso riservato dei blocchi (`-blockreservedweight`).\n- **RPC/REST:** Nuovi campi `target` in diverse chiamate (es. `getmininginfo`, `getblock`) e introduzione di `getdescriptoractivity`.\n- **Sistema di Build:** Migrazione completa da Autotools a CMake. Le variabili di ambiente per la compilazione devono essere aggiornate secondo le nuove direttive CMake.\n- **Configurazione:** Aumento dei default per `-rpcthreads` (da 4 a 16) e `-rpcworkqueue` (da 16 a 64).",
+      "userImpactMarkdown": "Gli utenti che utilizzano configurazioni di rete personalizzate (come Tor o port forwarding) potrebbero dover aggiornare i propri file di configurazione. Al posto di UPnP, per il port forwarding automatico si consiglia `-natpmp`. Il comportamento di `full-RBF` è ora predefinito e non più disattivabile.",
+      "technicalChangesMarkdown": "### Principali novità tecniche\n- **Rete P2P:** Rimozione di UPnP; implementazione nativa di NAT-PMP/PCP. La porta di ascolto Onion è ora con `-port` impostato, derivata come `-port` + 1.\n- **Mempool e Mining:** Introduzione del concetto di 'ephemeral dust' e correzione del calcolo del peso riservato dei blocchi (`-blockreservedweight`).\n- **RPC/REST:** Nuovi campi `target` in diverse chiamate (es. `getmininginfo`, `getblock`) e introduzione di `getdescriptoractivity`.\n- **Sistema di Build:** Migrazione completa da Autotools a CMake. Se si usavano CPPFLAGS, CFLAGS, CXXFLAGS o LDFLAGS, usare le variabili CMake APPEND_CPPFLAGS, APPEND_CFLAGS, APPEND_CXXFLAGS e APPEND_LDFLAGS.\n- **Configurazione:** Aumento dei default per `-rpcthreads` (da 4 a 16) e `-rpcworkqueue` (da 16 a 64).",
       "officialUrl": "https://bitcoincore.org/en/releases/29.0/",
       "tags": [
         "Bitcoin Core",
@@ -13912,10 +13892,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "582cc7e885fb2c5af7b79fc8799a3c95df764f2a",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.0.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13928,7 +13906,7 @@
       "summary": "Bitcoin Core 28.4 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
       "releasedAt": "2026-04-06",
       "importance": "minor",
-      "userImpactMarkdown": "Gli utenti che utilizzano wallet legacy potrebbero beneficiare delle correzioni apportate alla migrazione dei wallet. Non sono previste modifiche al protocollo di consenso.",
+      "userImpactMarkdown": "Gli utenti che utilizzano wallet legacy potrebbero beneficiare delle correzioni apportate alla migrazione dei wallet.",
       "technicalChangesMarkdown": "### Wallet\n- Risolto un errore nella migrazione dei wallet legacy senza nome (#34156).\n- Corretto un errore in `wallettool` relativo alla cancellazione della directory dei wallet durante `createfromdump` (#34215).\n\n### P2P\n- Rimosso `dnsseed.bitcoin.dashjr-list-of-p2p-nodes.us` dai parametri di rete (#33723).\n\n### Build e CI\n- Aggiornamenti minori alle pipeline di integrazione continua (CI) e correzioni ai test `osslsigncode` in ambiente Guix.",
       "officialUrl": "https://bitcoincore.org/en/releases/28.4/",
       "tags": [
@@ -13953,10 +13931,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "b6af01a4b742e9bb77d95891025950ff521ee273",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     }
   ],
