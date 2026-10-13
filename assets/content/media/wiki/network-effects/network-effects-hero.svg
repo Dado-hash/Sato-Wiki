@@ -25,8 +25,8 @@
   <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
   <!-- Titles -->
-  <text x="76" y="78" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Network Effects</text>
-  <text x="76" y="108" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">The Bitcoin flywheel — a self-reinforcing cycle of adoption and value.</text>
+  <text x="76" y="78" fill="#F7931A" font-family="Inter" font-size="34" font-weight="700">Network Effects</text>
+  <text x="76" y="108" fill="#B7B1A8" font-family="Inter" font-size="18">The Bitcoin flywheel — a self-reinforcing cycle of adoption and value.</text>
 
   <!-- Faint dashed background ring -->
   <circle cx="480" cy="305" r="155" fill="none" stroke="#28313B" stroke-width="1.5" stroke-dasharray="6 6"/>
@@ -55,54 +55,54 @@
   <!-- Center: NETWORK FLYWHEEL -->
   <g filter="url(#soft)">
     <circle cx="480" cy="305" r="46" fill="#1C2128" stroke="#343A44" stroke-width="1.5"/>
-    <text x="480" y="301" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">NETWORK</text>
-    <text x="480" y="319" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">FLYWHEEL</text>
+    <text x="480" y="301" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="10" font-weight="600" letter-spacing="1.5">NETWORK</text>
+    <text x="480" y="319" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="12" font-weight="700">FLYWHEEL</text>
   </g>
 
   <!-- Node 0: USERS (Top, -90deg) -->
   <g filter="url(#soft)">
     <rect x="422" y="126" width="116" height="48" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="480" y="146" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
-    <text x="480" y="164" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">USERS</text>
+    <text x="480" y="146" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
+    <text x="480" y="164" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">USERS</text>
   </g>
 
   <!-- Node 1: MINERS (TopRight, -30deg) -->
   <g filter="url(#soft)">
     <rect x="556.2" y="203.5" width="116" height="48" rx="8" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="614.2" y="223.5" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
-    <text x="614.2" y="241.5" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">MINERS</text>
+    <text x="614.2" y="223.5" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
+    <text x="614.2" y="241.5" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="14" font-weight="700">MINERS</text>
   </g>
 
   <!-- Node 2: SECURITY (BottomRight, +30deg) -->
   <g filter="url(#soft)">
     <rect x="556.2" y="358.5" width="116" height="48" rx="8" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
-    <text x="614.2" y="378.5" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
-    <text x="614.2" y="396.5" text-anchor="middle" fill="#8B5CF6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">SECURITY</text>
+    <text x="614.2" y="378.5" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
+    <text x="614.2" y="396.5" text-anchor="middle" fill="#8B5CF6" font-family="Inter" font-size="14" font-weight="700">SECURITY</text>
   </g>
 
   <!-- Node 3: VALUE (Bottom, +90deg) -->
   <g filter="url(#soft)">
     <rect x="422" y="436" width="116" height="48" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="480" y="456" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
-    <text x="480" y="474" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">VALUE</text>
+    <text x="480" y="456" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
+    <text x="480" y="474" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">VALUE</text>
   </g>
 
   <!-- Node 4: DEVELOPERS (BottomLeft, +150deg) -->
   <g filter="url(#soft)">
     <rect x="287.8" y="358.5" width="116" height="48" rx="8" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="345.8" y="378.5" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
-    <text x="345.8" y="396.5" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">DEVELOPERS</text>
+    <text x="345.8" y="378.5" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
+    <text x="345.8" y="396.5" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="14" font-weight="700">DEVELOPERS</text>
   </g>
 
   <!-- Node 5: APPLICATIONS (TopLeft, +210deg) -->
   <g filter="url(#soft)">
     <rect x="287.8" y="203.5" width="116" height="48" rx="8" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
-    <text x="345.8" y="223.5" text-anchor="middle" fill="#8E96A4" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
-    <text x="345.8" y="241.5" text-anchor="middle" fill="#8B5CF6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">APPLICATIONS</text>
+    <text x="345.8" y="223.5" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="11" font-weight="600" letter-spacing="1.5">MORE</text>
+    <text x="345.8" y="241.5" text-anchor="middle" fill="#8B5CF6" font-family="Inter" font-size="14" font-weight="700">APPLICATIONS</text>
   </g>
 
   <!-- Bottom Details -->
-  <text x="480" y="500" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono, monospace" font-size="13">V ∝ n² — Metcalfe's Law</text>
-  <text x="480" y="516" text-anchor="middle" fill="#4B5563" font-family="Inter, Arial, sans-serif" font-size="11">Total wallet addresses: ~400M+ (2025)</text>
+  <text x="480" y="500" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono" font-size="13">V ∝ n² — Metcalfe's Law</text>
+  <text x="480" y="516" text-anchor="middle" fill="#4B5563" font-family="Inter" font-size="11">Total wallet addresses: ~400M+ (2025)</text>
 
 </svg>

@@ -13,15 +13,15 @@ Flow:
 3. Validate both bundles:
 
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
+dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+dart run tool/validate_content.dart assets/content/seed_bundle_it.json
 ```
 
 4. Generate the publishable output. `--stamp` assigns a new UTC version:
 
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
+dart run tool/generate_bundle.dart --stamp
+dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
 ```
 
 5. Open a PR with the Markdown sources, the updated seed bundles and, if the data contract changes, `docs/content-model.md`.
@@ -93,7 +93,7 @@ Configurazione richiesta:
 Esecuzione manuale locale:
 
 ```bash
-GEMINI_API_KEY=... /Users/davide/development/flutter/bin/dart run tool/sync_code_content.dart --require-ai --languages en,it --report build/code-content-sync-report.md
+GEMINI_API_KEY=... dart run tool/sync_code_content.dart --require-ai --languages en,it --report build/code-content-sync-report.md
 ```
 
 Senza `GEMINI_API_KEY` si puo usare `--skip-ai`: il sync crea i record con testi segnaposto da revisionare.

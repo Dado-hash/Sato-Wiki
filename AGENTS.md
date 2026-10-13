@@ -16,13 +16,13 @@ La direzione prodotto e:
 
 ## Comandi
 
-Flutter non e necessariamente nel PATH. Usare l'SDK locale:
+Serve Flutter 3.32 o successivo (Dart 3.8), con `flutter` e `dart` nel PATH:
 
 ```bash
-/Users/davide/development/flutter/bin/flutter pub get
-/Users/davide/development/flutter/bin/flutter analyze
-/Users/davide/development/flutter/bin/flutter test
-/Users/davide/development/flutter/bin/dart format lib test tool
+flutter pub get
+flutter analyze
+flutter test
+dart format lib test tool
 ```
 
 ## Struttura
@@ -115,9 +115,9 @@ Regole pratiche:
 Per modifiche Dart/Flutter:
 
 ```bash
-/Users/davide/development/flutter/bin/dart format lib test
-/Users/davide/development/flutter/bin/flutter analyze
-/Users/davide/development/flutter/bin/flutter test
+dart format lib test
+flutter analyze
+flutter test
 ```
 
 Se non puoi eseguire un comando, segnalo chiaramente nel riepilogo finale.

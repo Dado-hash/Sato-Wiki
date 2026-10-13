@@ -1,0 +1,39 @@
+name: Content correction
+description: Report a factual error, a broken source or an unclear explanation
+labels: ["content"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Which entry?
+      description: The title, or the record id if you know it (for example `wiki.proof-of-work` or `code.bip.341`).
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - English
+        - Italian
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: Quote the text if you can, and say which reading level it is in (Base, Medium or Advanced).
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should it say?
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Links that support the correction. Primary sources are best.
+    validations:
+      required: true

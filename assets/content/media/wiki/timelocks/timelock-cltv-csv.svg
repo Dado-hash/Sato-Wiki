@@ -17,61 +17,61 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Timelocks</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Absolute and relative time-based spending conditions</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Timelocks</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Absolute and relative time-based spending conditions</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
     <path d="M480 148V490"/>
   </g>
-  <text x="278" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">ABSOLUTE (CLTV)</text>
-  <text x="742" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">RELATIVE (CSV)</text>
+  <text x="278" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="15" font-weight="700">ABSOLUTE (CLTV)</text>
+  <text x="742" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">RELATIVE (CSV)</text>
   <g filter="url(#soft)">
     <rect x="52" y="162" width="416" height="148" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="68" y="178" width="100" height="24" rx="6" fill="#14321E" stroke="#22C55E" stroke-width="1"/>
-    <text x="118" y="195" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">CLTV</text>
-    <text x="200" y="196" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">CheckLockTimeVerify</text>
+    <text x="118" y="195" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="12" font-weight="700">CLTV</text>
+    <text x="200" y="196" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="600">CheckLockTimeVerify</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M68 214H452"/>
     </g>
-    <text x="260" y="242" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Cannot spend BEFORE block height N</text>
-    <text x="260" y="266" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">or UNIX timestamp T</text>
-    <text x="260" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Introduced in BIP 65 (2015)</text>
+    <text x="260" y="242" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Cannot spend BEFORE block height N</text>
+    <text x="260" y="266" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">or UNIX timestamp T</text>
+    <text x="260" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Introduced in BIP 65 (2015)</text>
   </g>
   <g filter="url(#soft)">
     <rect x="492" y="162" width="416" height="148" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="508" y="178" width="100" height="24" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="558" y="195" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">CSV</text>
-    <text x="640" y="196" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">CheckSequenceVerify</text>
+    <text x="558" y="195" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12" font-weight="700">CSV</text>
+    <text x="640" y="196" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="600">CheckSequenceVerify</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M508 214H892"/>
     </g>
-    <text x="700" y="242" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Cannot spend for N blocks</text>
-    <text x="700" y="266" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">after the UTXO was mined</text>
-    <text x="700" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Introduced in BIP 68 / 112 (2016)</text>
+    <text x="700" y="242" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Cannot spend for N blocks</text>
+    <text x="700" y="266" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">after the UTXO was mined</text>
+    <text x="700" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Introduced in BIP 68 / 112 (2016)</text>
   </g>
   <g filter="url(#soft)">
     <rect x="52" y="332" width="856" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="480" y="362" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Use Cases</text>
+    <text x="480" y="362" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Use Cases</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M68 378H892"/>
     </g>
-    <text x="156" y="407" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">CLTV</text>
-    <text x="156" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Time-locked vaults</text>
-    <text x="156" y="450" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Hedge contracts</text>
-    <text x="156" y="469" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Coin locks</text>
+    <text x="156" y="407" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="600">CLTV</text>
+    <text x="156" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Time-locked vaults</text>
+    <text x="156" y="450" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Hedge contracts</text>
+    <text x="156" y="469" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Coin locks</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M260 388V480"/>
     </g>
-    <text x="400" y="407" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">CSV</text>
-    <text x="400" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Lightning channels</text>
-    <text x="400" y="450" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Unilateral channel close</text>
-    <text x="400" y="469" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Revocable outputs</text>
+    <text x="400" y="407" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="600">CSV</text>
+    <text x="400" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Lightning channels</text>
+    <text x="400" y="450" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Unilateral channel close</text>
+    <text x="400" y="469" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Revocable outputs</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M540 388V480"/>
     </g>
-    <text x="724" y="407" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Combined (CLTV + CSV)</text>
-    <text x="724" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Payment channels</text>
-    <text x="724" y="450" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Atomic swaps</text>
-    <text x="724" y="469" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">DLCs</text>
+    <text x="724" y="407" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16" font-weight="600">Combined (CLTV + CSV)</text>
+    <text x="724" y="430" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Payment channels</text>
+    <text x="724" y="450" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Atomic swaps</text>
+    <text x="724" y="469" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">DLCs</text>
   </g>
 </svg>

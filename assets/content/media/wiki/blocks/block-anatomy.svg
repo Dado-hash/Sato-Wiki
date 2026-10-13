@@ -14,8 +14,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Block anatomy</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Small header, ordered transactions, one consensus state update.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Block anatomy</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Small header, ordered transactions, one consensus state update.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 154H884"/>
@@ -29,9 +29,9 @@
   <g filter="url(#soft)">
     <rect x="76" y="170" width="352" height="288" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="100" y="198" width="304" height="48" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="252" y="229" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">80-byte header</text>
+    <text x="252" y="229" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="15" font-weight="700">80-byte header</text>
 
-    <g font-family="Inter, Arial, sans-serif" font-size="15" fill="#F4EAD8">
+    <g font-family="Inter" font-size="15" fill="#F4EAD8">
       <rect x="100" y="266" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
       <text x="170" y="292" text-anchor="middle">version</text>
       <rect x="264" y="266" width="140" height="42" rx="10" fill="#171B21" stroke="#46505C"/>
@@ -49,16 +49,16 @@
 
   <g filter="url(#soft)">
     <rect x="530" y="170" width="354" height="288" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="707" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Transactions</text>
+    <text x="707" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Transactions</text>
     <rect x="568" y="246" width="278" height="46" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="707" y="276" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">coinbase first</text>
+    <text x="707" y="276" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="15" font-weight="700">coinbase first</text>
     <rect x="568" y="310" width="278" height="46" rx="12" fill="#171B21" stroke="#46505C"/>
-    <text x="707" y="340" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16">tx 1</text>
+    <text x="707" y="340" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16">tx 1</text>
     <rect x="568" y="374" width="278" height="46" rx="12" fill="#171B21" stroke="#46505C"/>
-    <text x="707" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16">tx 2 ... tx n</text>
+    <text x="707" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16">tx 2 ... tx n</text>
   </g>
 
   <path d="M404 347C444 328 486 316 530 306" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-orange)"/>
-  <text x="479" y="274" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">Merkle</text>
-  <text x="479" y="292" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">commitment</text>
+  <text x="479" y="274" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14" font-weight="700">Merkle</text>
+  <text x="479" y="292" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14" font-weight="700">commitment</text>
 </svg>

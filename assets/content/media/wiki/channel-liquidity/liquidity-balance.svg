@@ -17,33 +17,33 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Channel Liquidity Allocation</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Each channel has a fixed capacity split between two parties.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Channel Liquidity Allocation</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Each channel has a fixed capacity split between two parties.</text>
 
   <!-- LEFT CHANNEL: Alice ↔ Bob (1 BTC) -->
   <!-- Alice node -->
   <g filter="url(#soft)">
     <rect x="80" y="155" width="165" height="76" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <circle cx="110" cy="193" r="18" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="110" y="199" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">A</text>
-    <text x="192" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Alice</text>
-    <text x="192" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Balance: 0.7 BTC</text>
+    <text x="110" y="199" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12" font-weight="700">A</text>
+    <text x="192" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="600">Alice</text>
+    <text x="192" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Balance: 0.7 BTC</text>
   </g>
 
   <!-- Bob node -->
   <g filter="url(#soft)">
     <rect x="315" y="155" width="165" height="76" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <circle cx="345" cy="193" r="18" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="345" y="199" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">B</text>
-    <text x="427" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Bob</text>
-    <text x="427" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Balance: 0.3 BTC</text>
+    <text x="345" y="199" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="12" font-weight="700">B</text>
+    <text x="427" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="600">Bob</text>
+    <text x="427" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Balance: 0.3 BTC</text>
   </g>
 
   <!-- Connection arrows -->
   <path d="M245 193L278 193" stroke="#22C55E" stroke-width="3"/>
   <path d="M278 193L308 193" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
   <rect x="258" y="160" width="40" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-  <text x="278" y="176" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">1 BTC</text>
+  <text x="278" y="176" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10" font-weight="700">1 BTC</text>
 
   <!-- Balance bar -->
   <rect x="80" y="260" width="400" height="44" rx="10" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
@@ -52,14 +52,14 @@
   <line x1="358" y1="262" x2="358" y2="302" stroke="#343A44" stroke-width="2"/>
 
   <!-- Bar labels -->
-  <text x="220" y="288" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">0.7 BTC</text>
-  <text x="418" y="288" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">0.3 BTC</text>
+  <text x="220" y="288" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="14" font-weight="700">0.7 BTC</text>
+  <text x="418" y="288" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="14" font-weight="700">0.3 BTC</text>
 
   <!-- Direction indicators -->
-  <text x="220" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Alice 0.7 BTC</text>
-  <text x="418" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Bob 0.3 BTC</text>
-  <text x="220" y="341" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="10">Outbound</text>
-  <text x="418" y="341" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">Outbound</text>
+  <text x="220" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">Alice 0.7 BTC</text>
+  <text x="418" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">Bob 0.3 BTC</text>
+  <text x="220" y="341" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="10">Outbound</text>
+  <text x="418" y="341" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10">Outbound</text>
 
   <!-- Vertical divider -->
   <path d="M480 155V355" stroke="#28313B" stroke-width="1" opacity="0.55" stroke-dasharray="6 4"/>
@@ -69,25 +69,25 @@
   <g filter="url(#soft)">
     <rect x="500" y="155" width="165" height="76" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <circle cx="530" cy="193" r="18" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="530" y="199" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">B</text>
-    <text x="612" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Bob</text>
-    <text x="612" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Balance: 0.1 BTC</text>
+    <text x="530" y="199" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="12" font-weight="700">B</text>
+    <text x="612" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="600">Bob</text>
+    <text x="612" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Balance: 0.1 BTC</text>
   </g>
 
   <!-- Carol node -->
   <g filter="url(#soft)">
     <rect x="735" y="155" width="165" height="76" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <circle cx="765" cy="193" r="18" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="765" y="199" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">C</text>
-    <text x="847" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Carol</text>
-    <text x="847" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Balance: 0.4 BTC</text>
+    <text x="765" y="199" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12" font-weight="700">C</text>
+    <text x="847" y="190" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="600">Carol</text>
+    <text x="847" y="211" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Balance: 0.4 BTC</text>
   </g>
 
   <!-- Connection arrows -->
   <path d="M665 193L698 193" stroke="#F7931A" stroke-width="3"/>
   <path d="M698 193L728 193" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
   <rect x="674" y="160" width="48" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-  <text x="698" y="176" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">0.5 BTC</text>
+  <text x="698" y="176" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="9" font-weight="700">0.5 BTC</text>
 
   <!-- Balance bar -->
   <rect x="500" y="260" width="400" height="44" rx="10" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
@@ -96,21 +96,21 @@
   <line x1="580" y1="262" x2="580" y2="302" stroke="#343A44" stroke-width="2"/>
 
   <!-- Bar labels -->
-  <text x="541" y="288" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">0.1 BTC</text>
-  <text x="739" y="288" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">0.4 BTC</text>
+  <text x="541" y="288" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="14" font-weight="700">0.1 BTC</text>
+  <text x="739" y="288" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="14" font-weight="700">0.4 BTC</text>
 
   <!-- Direction indicators -->
-  <text x="541" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Bob 0.1 BTC</text>
-  <text x="739" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Carol 0.4 BTC</text>
-  <text x="541" y="341" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">Outbound</text>
-  <text x="739" y="341" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="10">Outbound</text>
+  <text x="541" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">Bob 0.1 BTC</text>
+  <text x="739" y="326" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">Carol 0.4 BTC</text>
+  <text x="541" y="341" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10">Outbound</text>
+  <text x="739" y="341" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="10">Outbound</text>
 
   <!-- Callout -->
   <g filter="url(#soft)">
     <rect x="80" y="380" width="800" height="90" rx="14" fill="#241E31" stroke="#7C5CFF" stroke-width="2"/>
-    <text x="480" y="414" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">OUTBOUND vs INBOUND LIQUIDITY</text>
-    <text x="300" y="445" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15">Outbound liquidity = your balance on a channel</text>
-    <text x="480" y="445" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="15">|</text>
-    <text x="660" y="445" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15">Inbound liquidity = counterparty's balance</text>
+    <text x="480" y="414" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="14" font-weight="700">OUTBOUND vs INBOUND LIQUIDITY</text>
+    <text x="300" y="445" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="15">Outbound liquidity = your balance on a channel</text>
+    <text x="480" y="445" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="15">|</text>
+    <text x="660" y="445" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="15">Inbound liquidity = counterparty's balance</text>
   </g>
 </svg>

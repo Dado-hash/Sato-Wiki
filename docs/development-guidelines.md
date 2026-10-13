@@ -60,8 +60,8 @@ Livelli minimi:
 Comandi:
 
 ```bash
-/Users/davide/development/flutter/bin/flutter analyze
-/Users/davide/development/flutter/bin/flutter test
+flutter analyze
+flutter test
 ```
 
 ## Git e contenuti

@@ -12,33 +12,33 @@ The project is documented comprehensively in `docs/`. Refer to `docs/app-archite
 
 ### Environment Setup
 
-Flutter is installed locally at `/Users/davide/development/flutter/`. All flutter and dart commands use the full paths shown below.
+The project needs Flutter 3.32 or later (Dart 3.8), with `flutter` and `dart` on the PATH.
 
 **Initial setup:**
 ```bash
-/Users/davide/development/flutter/bin/flutter pub get
+flutter pub get
 ```
 
 **Run the app (default to iOS simulator):**
 ```bash
-/Users/davide/development/flutter/bin/flutter run
+flutter run
 ```
 
 ### Code Quality
 
 **Format Dart code:**
 ```bash
-/Users/davide/development/flutter/bin/dart format lib test tool
+dart format lib test tool
 ```
 
 **Lint analysis (must be clean):**
 ```bash
-/Users/davide/development/flutter/bin/flutter analyze
+flutter analyze
 ```
 
 **Run tests:**
 ```bash
-/Users/davide/development/flutter/bin/flutter test
+flutter test
 ```
 
 **Lint configuration:** `analysis_options.yaml` defines the lint set and must stay clean. Use `flutter_lints` as the baseline.
@@ -51,8 +51,8 @@ SatoWiki keeps content in this repository: Markdown/YAML sources in `content/` (
 
 Validate content bundles for schema correctness:
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
+dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+dart run tool/validate_content.dart assets/content/seed_bundle_it.json
 ```
 
 The validator reports as **errors**: malformed or unsupported bundles, media referenced from the bundle that is not a relative `media/` path with a supported extension, has no alt text, or does not exist under `assets/content/`, `related` ids that match no record, and BIP status tags that are duplicated or contradict `status`. As **warnings**: records with `automation.needsReview: true` and texts that still contain generated placeholders. `--strict` turns warnings into errors. It does not check paths inside `content/*.md`.
@@ -61,8 +61,8 @@ The validator reports as **errors**: malformed or unsupported bundles, media ref
 
 Generate static bundles for publication (adds UTC version stamp):
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
+dart run tool/generate_bundle.dart --stamp
+dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
 ```
 
 Output published to `build/pages/content/{language}/{version}/bundle.json` (bundle, with `media/` next to it) and `build/pages/content/{language}/latest/manifest.json` (metadata). Also generates `build/pages/index.html` (index page). Each Pages deploy replaces the whole site, so only the latest version of each language is reachable.
@@ -232,13 +232,13 @@ Dev: `flutter_lints` (required; keep clean), `flutter_launcher_icons` (app icon 
 
 ### To run a single test
 ```bash
-/Users/davide/development/flutter/bin/flutter test test/path/to/test_file.dart
+flutter test test/path/to/test_file.dart
 ```
 
 ### To debug app
 Run with verbose logging:
 ```bash
-/Users/davide/development/flutter/bin/flutter run -v
+flutter run -v
 ```
 
 ## Git & CI

@@ -17,25 +17,25 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Schnorr Signatures</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Linear signatures that enable aggregation, batch verification, and privacy.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Schnorr Signatures</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Linear signatures that enable aggregation, batch verification, and privacy.</text>
 
   <!-- BIP 340 tag -->
   <rect x="780" y="56" width="116" height="28" rx="14" fill="#1D1B15" stroke="#F7931A" stroke-width="1.5"/>
-  <text x="838" y="75" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600">BIP 340</text>
+  <text x="838" y="75" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="600">BIP 340</text>
 
   <!-- ===== LEFT — Signing ===== -->
 
   <rect x="76" y="154" width="128" height="34" rx="17" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
-  <text x="140" y="176" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Signing</text>
+  <text x="140" y="176" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="700">Signing</text>
 
   <g filter="url(#soft)">
     <rect x="64" y="206" width="400" height="194" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
 
-    <text x="86" y="236" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="86" y="236" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">
       <tspan fill="#7C8794">// nonce commitment</tspan>
     </text>
-    <text x="86" y="260" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="86" y="260" fill="#F4EAD8" font-family="JetBrains Mono" font-size="18">
       <tspan fill="#F7931A">R</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#F7931A">k</tspan>
@@ -45,10 +45,10 @@
       <tspan fill="#22C55E">G</tspan>
     </text>
 
-    <text x="86" y="291" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="86" y="291" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">
       <tspan fill="#7C8794">// challenge hash</tspan>
     </text>
-    <text x="86" y="315" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="86" y="315" fill="#F4EAD8" font-family="JetBrains Mono" font-size="18">
       <tspan fill="#22C55E">e</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#7C8794">H(</tspan>
@@ -60,10 +60,10 @@
       <tspan fill="#7C8794">)</tspan>
     </text>
 
-    <text x="86" y="348" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="86" y="348" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">
       <tspan fill="#7C8794">// signature scalar</tspan>
     </text>
-    <text x="86" y="374" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="22" font-weight="600">
+    <text x="86" y="374" fill="#F4EAD8" font-family="JetBrains Mono" font-size="22" font-weight="600">
       <tspan fill="#F7931A">s</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#F7931A">k</tspan>
@@ -75,7 +75,7 @@
       <tspan fill="#F7931A">d</tspan>
     </text>
 
-    <text x="86" y="392" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">(R, s) — 64 bytes</text>
+    <text x="86" y="392" fill="#7C8794" font-family="JetBrains Mono" font-size="12">(R, s) — 64 bytes</text>
   </g>
 
   <!-- Arrow: sign → aggregation -->
@@ -84,15 +84,15 @@
   <!-- ===== RIGHT — Verification ===== -->
 
   <rect x="596" y="154" width="152" height="34" rx="17" fill="#0A1F16" stroke="#22C55E" stroke-width="1.8"/>
-  <text x="672" y="176" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Verification</text>
+  <text x="672" y="176" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Verification</text>
 
   <g filter="url(#soft)">
     <rect x="490" y="206" width="406" height="176" rx="14" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
 
-    <text x="512" y="236" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="512" y="236" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">
       <tspan fill="#7C8794">// compute same challenge</tspan>
     </text>
-    <text x="512" y="262" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="18">
+    <text x="512" y="262" fill="#F4EAD8" font-family="JetBrains Mono" font-size="18">
       <tspan fill="#22C55E">e</tspan>
       <tspan fill="#B7B1A8"> = </tspan>
       <tspan fill="#7C8794">H(</tspan>
@@ -104,10 +104,10 @@
       <tspan fill="#7C8794">)</tspan>
     </text>
 
-    <text x="512" y="295" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="512" y="295" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">
       <tspan fill="#7C8794">// check equation holds</tspan>
     </text>
-    <text x="512" y="330" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="20" font-weight="600">
+    <text x="512" y="330" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20" font-weight="600">
       <tspan fill="#F7931A">s</tspan>
       <tspan fill="#B7B1A8"> </tspan>
       <tspan fill="#7C8794">·</tspan>
@@ -125,7 +125,7 @@
 
     <!-- Result indicator -->
     <rect x="552" y="352" width="282" height="22" rx="11" fill="#0A1F16"/>
-    <text x="693" y="368" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">s·G = R + e·Q  →  valid</text>
+    <text x="693" y="368" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="600">s·G = R + e·Q  →  valid</text>
   </g>
 
   <!-- ===== BOTTOM — Aggregation ===== -->
@@ -134,11 +134,11 @@
   <line x1="64" y1="420" x2="896" y2="420" stroke="#28313B" stroke-width="1.5" opacity="0.5"/>
 
   <rect x="346" y="432" width="268" height="34" rx="17" fill="#1D1B15" stroke="#22C55E" stroke-width="1.8"/>
-  <text x="480" y="454" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Aggregation (Linearity)</text>
+  <text x="480" y="454" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Aggregation (Linearity)</text>
 
   <g filter="url(#soft)">
     <rect x="100" y="478" width="760" height="28" rx="8" fill="#111418"/>
-    <text x="480" y="498" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">
+    <text x="480" y="498" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">
       <tspan fill="#F7931A">(R₁, s₁)</tspan>
       <tspan fill="#B7B1A8"> + </tspan>
       <tspan fill="#F7931A">(R₂, s₂)</tspan>

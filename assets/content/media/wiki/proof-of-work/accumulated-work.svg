@@ -17,8 +17,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Accumulated work wins</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Nodes compare valid branches by total work, not by trust in a miner.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Accumulated work wins</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Nodes compare valid branches by total work, not by trust in a miner.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 176H884"/>
@@ -39,7 +39,7 @@
     <path d="M676 356H742" stroke="#7C5CFF" marker-end="url(#arrow-violet)"/>
   </g>
 
-  <g filter="url(#soft)" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+  <g filter="url(#soft)" font-family="Inter" text-anchor="middle">
     <rect x="80" y="204" width="96" height="84" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="128" y="240" fill="#F4EAD8" font-size="18" font-weight="700">A</text>
     <g fill="#B7B1A8" opacity="0.76">
@@ -88,7 +88,7 @@
     </g>
   </g>
 
-  <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+  <g font-family="Inter" text-anchor="middle">
     <rect x="770" y="204" width="112" height="84" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="2"/>
     <text x="826" y="239" fill="#22C55E" font-size="18" font-weight="700">More</text>
     <text x="826" y="265" fill="#22C55E" font-size="18" font-weight="700">work</text>
@@ -98,5 +98,5 @@
     <text x="826" y="375" fill="#B7B1A8" font-size="18" font-weight="700">less work</text>
   </g>
 
-  <text x="82" y="464" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">A reorg must overtake the public branch's accumulated proof of work.</text>
+  <text x="82" y="464" fill="#B7B1A8" font-family="Inter" font-size="18">A reorg must overtake the public branch's accumulated proof of work.</text>
 </svg>

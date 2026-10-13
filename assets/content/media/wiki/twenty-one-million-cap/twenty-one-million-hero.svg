@@ -18,8 +18,8 @@
   <rect width="960" height="580" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="524" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">The 21 Million Cap</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Why 21 million? The number was chosen deliberately.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">The 21 Million Cap</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Why 21 million? The number was chosen deliberately.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 160H884"/>
@@ -30,14 +30,14 @@
   <g filter="url(#soft)">
     <rect x="64" y="180" width="380" height="308" rx="20" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
 
-    <text x="254" y="218" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">21,000,000 BTC</text>
-    <text x="254" y="248" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">Hard cap in consensus code</text>
+    <text x="254" y="218" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="24" font-weight="700">21,000,000 BTC</text>
+    <text x="254" y="248" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">Hard cap in consensus code</text>
 
     <rect x="90" y="270" width="328" height="1" fill="#343A44"/>
 
-    <text x="100" y="302" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16">The number comes from two decisions:</text>
+    <text x="100" y="302" fill="#F4EAD8" font-family="Inter" font-size="16">The number comes from two decisions:</text>
 
-    <g font-family="Inter, Arial, sans-serif" font-size="15">
+    <g font-family="Inter" font-size="15">
       <rect x="100" y="324" width="14" height="14" rx="4" fill="#F7931A"/>
       <text x="126" y="336" fill="#B7B1A8">50 BTC block subsidy at launch</text>
 
@@ -47,40 +47,40 @@
 
     <rect x="90" y="400" width="328" height="1" fill="#343A44"/>
 
-    <text x="100" y="432" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">Sum = 50 + 25 + 12.5 + 6.25 + ... ≈ 21M</text>
-    <text x="100" y="456" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">Geometric series: 21,000,000 exactly</text>
+    <text x="100" y="432" fill="#7C8794" font-family="JetBrains Mono" font-size="13">Sum = 50 + 25 + 12.5 + 6.25 + ... ≈ 21M</text>
+    <text x="100" y="456" fill="#7C8794" font-family="JetBrains Mono" font-size="13">Geometric series: 21,000,000 exactly</text>
   </g>
 
   <!-- Right side: stats cards -->
   <g filter="url(#soft)">
     <rect x="500" y="180" width="190" height="136" rx="16" fill="#20252D" stroke="#22C55E" stroke-width="1.8"/>
-    <text x="595" y="218" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Mined</text>
-    <text x="595" y="258" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">~19.6M</text>
-    <text x="595" y="290" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">~93% of total</text>
+    <text x="595" y="218" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">Mined</text>
+    <text x="595" y="258" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="32" font-weight="700">~19.6M</text>
+    <text x="595" y="290" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">~93% of total</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="714" y="180" width="190" height="136" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="809" y="218" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Remaining</text>
-    <text x="809" y="258" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">~1.4M</text>
-    <text x="809" y="290" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">~7% remaining</text>
+    <text x="809" y="218" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="14" font-weight="700">Remaining</text>
+    <text x="809" y="258" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="32" font-weight="700">~1.4M</text>
+    <text x="809" y="290" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">~7% remaining</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="500" y="340" width="190" height="136" rx="16" fill="#20252D" stroke="#7C5CFF" stroke-width="1.8"/>
-    <text x="595" y="378" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Last block subsidy</text>
-    <text x="595" y="418" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">~2140</text>
-    <text x="595" y="448" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">block 6,930,000</text>
+    <text x="595" y="378" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="14" font-weight="700">Last block subsidy</text>
+    <text x="595" y="418" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">~2140</text>
+    <text x="595" y="448" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">block 6,930,000</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="714" y="340" width="190" height="136" rx="16" fill="#20252D" stroke="#FF6B6B" stroke-width="1.8"/>
-    <text x="809" y="378" text-anchor="middle" fill="#FF6B6B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Divisibility</text>
-    <text x="809" y="418" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">8 decimals</text>
-    <text x="809" y="448" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">2.1 quadrillion units</text>
+    <text x="809" y="378" text-anchor="middle" fill="#FF6B6B" font-family="Inter" font-size="14" font-weight="700">Divisibility</text>
+    <text x="809" y="418" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">8 decimals</text>
+    <text x="809" y="448" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">2.1 quadrillion units</text>
   </g>
 
-  <text x="480" y="518" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">
+  <text x="480" y="518" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="15">
     <tspan x="480" dy="0">The cap is not arbitrary — it emerges from the block subsidy schedule</tspan>
     <tspan x="480" dy="24">and halving interval.</tspan>
   </text>

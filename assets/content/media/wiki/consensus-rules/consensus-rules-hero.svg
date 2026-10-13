@@ -26,8 +26,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Consensus rules</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Every node enforces the same rules independently. No trust required.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Consensus rules</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Every node enforces the same rules independently. No trust required.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 170H884"/>
@@ -39,26 +39,26 @@
     <path d="M700 170V458"/>
   </g>
 
-  <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+  <g font-family="Inter" text-anchor="middle">
     <text x="130" y="200" fill="#F7931A" font-size="16" font-weight="600">Incoming block</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="278" y="180" width="194" height="70" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="375" y="212" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Block structure</text>
-    <text x="375" y="236" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11.5">size · weight · timestamp</text>
+    <text x="375" y="212" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Block structure</text>
+    <text x="375" y="236" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11.5">size · weight · timestamp</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="256" y="276" width="222" height="70" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="375" y="308" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Transaction rules</text>
-    <text x="375" y="332" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11.5">inputs · outputs · signatures</text>
+    <text x="375" y="308" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Transaction rules</text>
+    <text x="375" y="332" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11.5">inputs · outputs · signatures</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="278" y="372" width="194" height="70" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="375" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Script execution</text>
-    <text x="375" y="428" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11.5">stack · sigops · opcodes</text>
+    <text x="375" y="404" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Script execution</text>
+    <text x="375" y="428" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11.5">stack · sigops · opcodes</text>
   </g>
 
   <path d="M148 215H270" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
@@ -69,20 +69,20 @@
 
   <g filter="url(#soft)">
     <rect x="568" y="278" width="178" height="68" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="657" y="310" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Proof of work</text>
-    <text x="657" y="334" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">target from nBits</text>
+    <text x="657" y="310" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Proof of work</text>
+    <text x="657" y="334" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">target from nBits</text>
   </g>
 
   <rect x="820" y="190" width="80" height="38" rx="19" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-  <text x="860" y="215" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Accept</text>
+  <text x="860" y="215" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Accept</text>
 
   <circle cx="808" cy="312" r="4" fill="#7C5CFF"/>
   <path d="M760 312H800" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
   <path d="M808 304V236Q808 220 824 220" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" marker-end="url(#arrow-green)"/>
   <path d="M808 320V334Q808 350 824 350" stroke="#F04343" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" marker-end="url(#arrow-red)"/>
   <rect x="820" y="340" width="80" height="38" rx="19" fill="#2A1F20" stroke="#F04343" stroke-width="1.5"/>
-  <text x="860" y="365" text-anchor="middle" fill="#F04343" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Reject</text>
+  <text x="860" y="365" text-anchor="middle" fill="#F04343" font-family="Inter" font-size="16" font-weight="700">Reject</text>
 
-  <text x="72" y="304" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">Multiple rule categories</text>
-  <text x="72" y="328" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="16">checked in sequence</text>
+  <text x="72" y="304" fill="#B7B1A8" font-family="Inter" font-size="16">Multiple rule categories</text>
+  <text x="72" y="328" fill="#7C8794" font-family="Inter" font-size="16">checked in sequence</text>
 </svg>

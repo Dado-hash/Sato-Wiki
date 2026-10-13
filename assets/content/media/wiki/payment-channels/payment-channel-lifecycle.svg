@@ -17,82 +17,82 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Payment Channel Lifecycle</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Three stages: open, update balance off-chain, close on-chain</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Payment Channel Lifecycle</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Three stages: open, update balance off-chain, close on-chain</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
     <path d="M340 148V490"/>
     <path d="M628 148V490"/>
   </g>
-  <text x="208" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">OPEN</text>
-  <text x="484" y="140" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">UPDATE</text>
-  <text x="760" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">CLOSE</text>
+  <text x="208" y="140" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="15" font-weight="700">OPEN</text>
+  <text x="484" y="140" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="15" font-weight="700">UPDATE</text>
+  <text x="760" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">CLOSE</text>
   <g filter="url(#soft)">
     <rect x="52" y="162" width="276" height="310" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="72" y="182" width="100" height="36" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="122" y="205" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Alice</text>
+    <text x="122" y="205" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">Alice</text>
     <rect x="208" y="182" width="100" height="36" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="258" y="205" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Bob</text>
+    <text x="258" y="205" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">Bob</text>
     <path d="M122 218V238" stroke="#F7931A" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
     <path d="M258 218V238" stroke="#F7931A" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
-    <text x="190" y="258" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">2-of-2 Multisig</text>
+    <text x="190" y="258" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">2-of-2 Multisig</text>
     <rect x="72" y="270" width="236" height="55" rx="8" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <text x="190" y="294" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Bitcoin Block</text>
+    <text x="190" y="294" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="13" font-weight="700">Bitcoin Block</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M72 306H308"/>
     </g>
-    <text x="190" y="320" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">Funding Transaction</text>
+    <text x="190" y="320" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11">Funding Transaction</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M68 338H312"/>
     </g>
-    <text x="190" y="364" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Alice deposits 1.0 BTC</text>
-    <text x="190" y="386" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Shared 2-of-2 UTXO created</text>
-    <text x="190" y="408" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Channel established</text>
+    <text x="190" y="364" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Alice deposits 1.0 BTC</text>
+    <text x="190" y="386" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Shared 2-of-2 UTXO created</text>
+    <text x="190" y="408" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Channel established</text>
     <rect x="122" y="434" width="136" height="24" rx="6" fill="#14321E" stroke="#22C55E" stroke-width="1"/>
-    <text x="190" y="451" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">ON-CHAIN</text>
+    <text x="190" y="451" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="12" font-weight="700">ON-CHAIN</text>
   </g>
   <path d="M328 330L344 330" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
     <rect x="352" y="162" width="264" height="310" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="372" y="182" width="224" height="34" rx="10" fill="#241E31" stroke="#7C5CFF" stroke-width="1.5"/>
-    <text x="484" y="204" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Payment Channel</text>
+    <text x="484" y="204" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="14" font-weight="700">Payment Channel</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M368 228H600"/>
     </g>
     <rect x="372" y="230" width="224" height="50" rx="8" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <text x="484" y="250" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">A: 1.0 BTC | B: 0.0 BTC</text>
-    <text x="484" y="270" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Commitment tx #1</text>
+    <text x="484" y="250" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">A: 1.0 BTC | B: 0.0 BTC</text>
+    <text x="484" y="270" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">Commitment tx #1</text>
     <path d="M484 280V296" stroke="#7C5CFF" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
     <rect x="372" y="300" width="224" height="50" rx="8" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <text x="484" y="320" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">A: 0.7 BTC | B: 0.3 BTC</text>
-    <text x="484" y="340" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Commitment tx #2</text>
+    <text x="484" y="320" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">A: 0.7 BTC | B: 0.3 BTC</text>
+    <text x="484" y="340" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">Commitment tx #2</text>
     <path d="M484 350V366" stroke="#7C5CFF" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
     <rect x="372" y="370" width="224" height="50" rx="8" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <text x="484" y="390" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">A: 0.5 BTC | B: 0.5 BTC</text>
-    <text x="484" y="410" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Commitment tx #3</text>
+    <text x="484" y="390" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">A: 0.5 BTC | B: 0.5 BTC</text>
+    <text x="484" y="410" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">Commitment tx #3</text>
     <rect x="395" y="434" width="178" height="24" rx="6" fill="#241E31" stroke="#7C5CFF" stroke-width="1"/>
-    <text x="484" y="451" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">OFF-CHAIN</text>
+    <text x="484" y="451" text-anchor="middle" fill="#7C5CFF" font-family="JetBrains Mono" font-size="12" font-weight="700">OFF-CHAIN</text>
   </g>
   <path d="M616 330L632 330" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
     <rect x="640" y="162" width="268" height="310" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="660" y="182" width="228" height="46" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="774" y="202" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Final Commitment</text>
-    <text x="774" y="220" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">A: 0.5 BTC | B: 0.5 BTC</text>
+    <text x="774" y="202" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="14" font-weight="700">Final Commitment</text>
+    <text x="774" y="220" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11">A: 0.5 BTC | B: 0.5 BTC</text>
     <path d="M774 228V246" stroke="#F7931A" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
-    <text x="774" y="268" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">Broadcast to blockchain</text>
+    <text x="774" y="268" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">Broadcast to blockchain</text>
     <rect x="660" y="280" width="228" height="55" rx="8" fill="#1A1F28" stroke="#343A44" stroke-width="1.5"/>
-    <text x="774" y="304" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Bitcoin Block</text>
+    <text x="774" y="304" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="13" font-weight="700">Bitcoin Block</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M660 316H888"/>
     </g>
-    <text x="774" y="330" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="11">Close Transaction</text>
+    <text x="774" y="330" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11">Close Transaction</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M656 348H896"/>
     </g>
-    <text x="774" y="374" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Alice receives 0.5 BTC</text>
-    <text x="774" y="398" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Bob receives 0.5 BTC</text>
+    <text x="774" y="374" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Alice receives 0.5 BTC</text>
+    <text x="774" y="398" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Bob receives 0.5 BTC</text>
     <rect x="706" y="434" width="136" height="24" rx="6" fill="#14321E" stroke="#22C55E" stroke-width="1"/>
-    <text x="774" y="451" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">ON-CHAIN</text>
+    <text x="774" y="451" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="12" font-weight="700">ON-CHAIN</text>
   </g>
 </svg>

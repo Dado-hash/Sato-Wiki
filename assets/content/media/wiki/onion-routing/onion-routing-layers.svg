@@ -20,26 +20,26 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Onion Routing in Lightning</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Payment data is encrypted in layers; each node peels one layer to find the next hop</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Onion Routing in Lightning</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Payment data is encrypted in layers; each node peels one layer to find the next hop</text>
 
   <line x1="64" y1="140" x2="920" y2="140" stroke="#28313B" stroke-width="1" opacity="0.55"/>
   <line x1="340" y1="140" x2="340" y2="500" stroke="#28313B" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
   <line x1="640" y1="140" x2="640" y2="500" stroke="#28313B" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
 
-  <text x="200" y="165" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" text-anchor="middle">1. ONION CONSTRUCTION</text>
-  <text x="490" y="165" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" text-anchor="middle">2. LAYERED ONION PACKET</text>
-  <text x="780" y="165" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" text-anchor="middle">3. PEELING AT EACH HOP</text>
+  <text x="200" y="165" fill="#7C8794" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle">1. ONION CONSTRUCTION</text>
+  <text x="490" y="165" fill="#7C8794" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle">2. LAYERED ONION PACKET</text>
+  <text x="780" y="165" fill="#7C8794" font-family="JetBrains Mono" font-size="11" font-weight="600" text-anchor="middle">3. PEELING AT EACH HOP</text>
 
   <line x1="64" y1="175" x2="920" y2="175" stroke="#28313B" stroke-width="1" opacity="0.2"/>
 
   <g filter="url(#soft)">
     <rect x="64" y="195" width="250" height="105" rx="14" fill="#20252D" stroke="#46505C"/>
   </g>
-  <text x="189" y="225" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle">Alice (Sender)</text>
-  <text x="189" y="250" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle">Creates the onion packet with</text>
-  <text x="189" y="270" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle">nested encryption for each hop</text>
-  <text x="189" y="290" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Route: Alice → Bob → Diana → Carol</text>
+  <text x="189" y="225" fill="#F7931A" font-family="Inter" font-size="18" font-weight="600" text-anchor="middle">Alice (Sender)</text>
+  <text x="189" y="250" fill="#B7B1A8" font-family="Inter" font-size="13" text-anchor="middle">Creates the onion packet with</text>
+  <text x="189" y="270" fill="#B7B1A8" font-family="Inter" font-size="13" text-anchor="middle">nested encryption for each hop</text>
+  <text x="189" y="290" fill="#7C8794" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Route: Alice → Bob → Diana → Carol</text>
 
   <!-- Arrow gracefully touching the outer layer -->
   <line x1="314" y1="245" x2="347" y2="282" stroke="#F7931A" stroke-width="4" marker-end="url(#arrow-orange)"/>
@@ -50,59 +50,59 @@
   <circle cx="490" cy="335" r="56" fill="#1C2620" stroke="#22C55E" stroke-width="3.5" opacity="0.9"/>
 
   <!-- Layer 3 Text Block -->
-  <text x="490" y="200" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Layer 3</text>
-  <text x="490" y="214" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle">Session Key: Bob</text>
-  <text x="490" y="228" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">Next: Diana</text>
+  <text x="490" y="200" fill="#F7931A" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle">Layer 3</text>
+  <text x="490" y="214" fill="#B7B1A8" font-family="Inter" font-size="11" text-anchor="middle">Session Key: Bob</text>
+  <text x="490" y="228" fill="#7C8794" font-family="JetBrains Mono" font-size="10" text-anchor="middle">Next: Diana</text>
 
   <!-- Layer 2 Text Block -->
-  <text x="490" y="245" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Layer 2</text>
-  <text x="490" y="258" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="10" text-anchor="middle">Session Key: Diana</text>
-  <text x="490" y="270" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Next: Carol</text>
+  <text x="490" y="245" fill="#7C5CFF" font-family="Inter" font-size="10" font-weight="600" text-anchor="middle">Layer 2</text>
+  <text x="490" y="258" fill="#B7B1A8" font-family="Inter" font-size="10" text-anchor="middle">Session Key: Diana</text>
+  <text x="490" y="270" fill="#7C8794" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Next: Carol</text>
 
   <!-- Layer 1 Text Block -->
-  <text x="490" y="315" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Layer 1</text>
-  <text x="490" y="333" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Carol (Final)</text>
-  <text x="490" y="350" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">50,000 sat</text>
+  <text x="490" y="315" fill="#22C55E" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">Layer 1</text>
+  <text x="490" y="333" fill="#B7B1A8" font-family="Inter" font-size="12" text-anchor="middle">Carol (Final)</text>
+  <text x="490" y="350" fill="#7C8794" font-family="JetBrains Mono" font-size="11" text-anchor="middle">50,000 sat</text>
 
   <!-- Repositioned Legend (Left column, empty space) -->
   <rect x="75" y="335" width="10" height="10" rx="2" fill="#F7931A"/>
-  <text x="95" y="344" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">Encrypted for Bob</text>
+  <text x="95" y="344" fill="#7C8794" font-family="JetBrains Mono" font-size="11">Encrypted for Bob</text>
 
   <rect x="75" y="360" width="10" height="10" rx="2" fill="#7C5CFF"/>
-  <text x="95" y="369" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">Encrypted for Diana</text>
+  <text x="95" y="369" fill="#7C8794" font-family="JetBrains Mono" font-size="11">Encrypted for Diana</text>
 
   <rect x="75" y="385" width="10" height="10" rx="2" fill="#22C55E"/>
-  <text x="95" y="394" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11">Encrypted for Carol</text>
+  <text x="95" y="394" fill="#7C8794" font-family="JetBrains Mono" font-size="11">Encrypted for Carol</text>
 
   <!-- Right Column Elements -->
   <g filter="url(#soft)">
     <rect x="660" y="195" width="250" height="85" rx="14" fill="#20252D" stroke="#46505C"/>
   </g>
-  <text x="785" y="222" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Bob (Hop 1)</text>
-  <text x="785" y="245" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Peels Layer 3</text>
-  <text x="785" y="262" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Forward to Diana</text>
+  <text x="785" y="222" fill="#F7931A" font-family="Inter" font-size="16" font-weight="600" text-anchor="middle">Bob (Hop 1)</text>
+  <text x="785" y="245" fill="#B7B1A8" font-family="Inter" font-size="12" text-anchor="middle">Peels Layer 3</text>
+  <text x="785" y="262" fill="#7C8794" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Forward to Diana</text>
 
   <line x1="785" y1="280" x2="785" y2="302" stroke="#7C8794" stroke-width="2" marker-end="url(#arrow-muted)"/>
 
   <g filter="url(#soft)">
     <rect x="660" y="310" width="250" height="85" rx="14" fill="#20252D" stroke="#46505C"/>
   </g>
-  <text x="785" y="337" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Diana (Hop 2)</text>
-  <text x="785" y="360" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Peels Layer 2</text>
-  <text x="785" y="377" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Forward to Carol</text>
+  <text x="785" y="337" fill="#7C5CFF" font-family="Inter" font-size="16" font-weight="600" text-anchor="middle">Diana (Hop 2)</text>
+  <text x="785" y="360" fill="#B7B1A8" font-family="Inter" font-size="12" text-anchor="middle">Peels Layer 2</text>
+  <text x="785" y="377" fill="#7C8794" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Forward to Carol</text>
 
   <line x1="785" y1="395" x2="785" y2="417" stroke="#7C8794" stroke-width="2" marker-end="url(#arrow-muted)"/>
 
   <g filter="url(#soft)">
     <rect x="660" y="425" width="250" height="65" rx="14" fill="#20252D" stroke="#46505C"/>
   </g>
-  <text x="785" y="452" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Carol (Recipient)</text>
-  <text x="785" y="475" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Receives payment: 50,000 sat</text>
+  <text x="785" y="452" fill="#22C55E" font-family="Inter" font-size="16" font-weight="600" text-anchor="middle">Carol (Recipient)</text>
+  <text x="785" y="475" fill="#B7B1A8" font-family="Inter" font-size="12" text-anchor="middle">Receives payment: 50,000 sat</text>
 
   <g filter="url(#soft)">
     <rect x="64" y="420" width="260" height="70" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
   </g>
-  <text x="78" y="442" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Key Property</text>
-  <text x="78" y="462" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Each hop sees only the next address.</text>
-  <text x="78" y="480" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">No node knows the full path.</text>
+  <text x="78" y="442" fill="#F7931A" font-family="Inter" font-size="13" font-weight="600">Key Property</text>
+  <text x="78" y="462" fill="#B7B1A8" font-family="Inter" font-size="12">Each hop sees only the next address.</text>
+  <text x="78" y="480" fill="#7C8794" font-family="Inter" font-size="12">No node knows the full path.</text>
 </svg>

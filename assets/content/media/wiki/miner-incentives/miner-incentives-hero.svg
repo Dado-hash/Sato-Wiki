@@ -14,18 +14,18 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Miner Incentives</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">The economic rewards that motivate miners to secure the network.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Miner Incentives</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">The economic rewards that motivate miners to secure the network.</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 152H884"/><path d="M76 400H884"/><path d="M480 150V490"/>
   </g>
   <!-- Left: Subsidy -->
   <g filter="url(#soft)">
     <rect x="64" y="170" width="380" height="220" rx="20" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="254" y="206" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Block Subsidy</text>
-    <text x="254" y="230" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">Newly created bitcoin per block</text>
+    <text x="254" y="206" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="20" font-weight="700">Block Subsidy</text>
+    <text x="254" y="230" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">Newly created bitcoin per block</text>
     <rect x="90" y="252" width="328" height="1" fill="#343A44"/>
-    <g font-family="Inter, Arial, sans-serif" font-size="16" fill="#F4EAD8">
+    <g font-family="Inter" font-size="16" fill="#F4EAD8">
       <text x="100" y="288">Source:</text>
       <text x="205" y="288" fill="#F7931A">Protocol emission schedule</text>
       <text x="100" y="318">Predictable:</text>
@@ -38,10 +38,10 @@
   <!-- Right: Fees -->
   <g filter="url(#soft)">
     <rect x="480" y="170" width="416" height="220" rx="20" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="688" y="206" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Transaction Fees</text>
-    <text x="688" y="230" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">Paid by users for block space</text>
+    <text x="688" y="206" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="20" font-weight="700">Transaction Fees</text>
+    <text x="688" y="230" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">Paid by users for block space</text>
     <rect x="506" y="252" width="364" height="1" fill="#343A44"/>
-    <g font-family="Inter, Arial, sans-serif" font-size="16" fill="#F4EAD8">
+    <g font-family="Inter" font-size="16" fill="#F4EAD8">
       <text x="520" y="288">Source:</text>
       <text x="620" y="288" fill="#22C55E">User demand for confirmation</text>
       <text x="520" y="318">Variable:</text>
@@ -53,9 +53,9 @@
   <!-- Bottom: Combined security -->
   <g filter="url(#soft)">
     <rect x="220" y="418" width="520" height="72" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="480" y="442" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Subsidy + Fees = Miner Revenue → Network Security</text>
-    <text x="480" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Miners are profit-maximizers. Their competition to collect rewards</text>
-    <text x="480" y="480" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">makes the chain immutable.</text>
+    <text x="480" y="442" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Subsidy + Fees = Miner Revenue → Network Security</text>
+    <text x="480" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Miners are profit-maximizers. Their competition to collect rewards</text>
+    <text x="480" y="480" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">makes the chain immutable.</text>
   </g>
   <path d="M254 390V410" stroke="#F7931A" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <path d="M688 390V410" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-green)"/>

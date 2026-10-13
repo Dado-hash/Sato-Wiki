@@ -20,7 +20,7 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">BOLT Specification Lifecycle</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">BOLT Specification Lifecycle</text>
 
   <!-- Timeline line -->
   <line x1="104" y1="242" x2="892" y2="242" stroke="#343A44" stroke-width="3" stroke-linecap="round"/>
@@ -30,9 +30,9 @@
   <g filter="url(#soft)">
     <rect x="48" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="48" y="128" width="112" height="26" rx="14" fill="#2A2116"/>
-    <text x="104" y="146" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 1</text>
-    <text x="58" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Proposal</text>
-    <text x="58" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Idea becomes a spec</text>
+    <text x="104" y="146" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="11" font-weight="700">STAGE 1</text>
+    <text x="58" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Proposal</text>
+    <text x="58" y="188" fill="#7C8794" font-family="Inter" font-size="9">Idea becomes a spec</text>
   </g>
   <path d="M104 200V228" stroke="#F7931A" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
@@ -44,9 +44,9 @@
   <g filter="url(#soft)">
     <rect x="170" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="170" y="128" width="112" height="26" rx="14" fill="#2A2116"/>
-    <text x="226" y="146" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 2</text>
-    <text x="180" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Draft</text>
-    <text x="180" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">BOLT markdown</text>
+    <text x="226" y="146" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="11" font-weight="700">STAGE 2</text>
+    <text x="180" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Draft</text>
+    <text x="180" y="188" fill="#7C8794" font-family="Inter" font-size="9">BOLT markdown</text>
   </g>
   <path d="M226 200V228" stroke="#F7931A" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
@@ -58,9 +58,9 @@
   <g filter="url(#soft)">
     <rect x="292" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="292" y="128" width="112" height="26" rx="14" fill="#241E31"/>
-    <text x="348" y="146" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 3</text>
-    <text x="302" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">PR to bolts repo</text>
-    <text x="302" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Opened on GitHub</text>
+    <text x="348" y="146" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="11" font-weight="700">STAGE 3</text>
+    <text x="302" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">PR to bolts repo</text>
+    <text x="302" y="188" fill="#7C8794" font-family="Inter" font-size="9">Opened on GitHub</text>
   </g>
   <path d="M348 200V228" stroke="#7C5CFF" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
@@ -72,9 +72,9 @@
   <g filter="url(#soft)">
     <rect x="414" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="414" y="128" width="112" height="26" rx="14" fill="#241E31"/>
-    <text x="470" y="146" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 4</text>
-    <text x="424" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Review</text>
-    <text x="424" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Comment and revise</text>
+    <text x="470" y="146" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="11" font-weight="700">STAGE 4</text>
+    <text x="424" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Review</text>
+    <text x="424" y="188" fill="#7C8794" font-family="Inter" font-size="9">Comment and revise</text>
   </g>
   <path d="M470 200V228" stroke="#7C5CFF" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
@@ -86,9 +86,9 @@
   <g filter="url(#soft)">
     <rect x="536" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="536" y="128" width="112" height="26" rx="14" fill="#203327"/>
-    <text x="592" y="146" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 5</text>
-    <text x="546" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Acceptance</text>
-    <text x="546" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Consensus, PR merged</text>
+    <text x="592" y="146" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">STAGE 5</text>
+    <text x="546" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Acceptance</text>
+    <text x="546" y="188" fill="#7C8794" font-family="Inter" font-size="9">Consensus, PR merged</text>
   </g>
   <path d="M592 200V228" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
@@ -100,9 +100,9 @@
   <g filter="url(#soft)">
     <rect x="658" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="658" y="128" width="112" height="26" rx="14" fill="#203327"/>
-    <text x="714" y="146" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 6</text>
-    <text x="668" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Activated</text>
-    <text x="668" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Deployed by nodes</text>
+    <text x="714" y="146" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">STAGE 6</text>
+    <text x="668" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Activated</text>
+    <text x="668" y="188" fill="#7C8794" font-family="Inter" font-size="9">Deployed by nodes</text>
   </g>
   <path d="M714 200V228" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
@@ -114,15 +114,15 @@
   <g filter="url(#soft)">
     <rect x="780" y="128" width="112" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="780" y="128" width="112" height="26" rx="14" fill="#1B2838"/>
-    <text x="836" y="146" text-anchor="middle" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">STAGE 7</text>
-    <text x="790" y="170" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Amendments</text>
-    <text x="790" y="188" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="9">Follow-up PRs</text>
+    <text x="836" y="146" text-anchor="middle" fill="#60A5FA" font-family="Inter" font-size="11" font-weight="700">STAGE 7</text>
+    <text x="790" y="170" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Amendments</text>
+    <text x="790" y="188" fill="#7C8794" font-family="Inter" font-size="9">Follow-up PRs</text>
   </g>
   <path d="M836 200V228" stroke="#60A5FA" stroke-width="2" marker-end="url(#arrow-orange)"/>
 
   <!-- Loop-back arrow from Amendments back to Review -->
   <path d="M836 256V278H470V260" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
-  <text x="653" y="294" fill="#60A5FA" font-family="Inter, Arial, sans-serif" font-size="10" text-anchor="middle">Amendments restart review cycle</text>
+  <text x="653" y="294" fill="#60A5FA" font-family="Inter" font-size="10" text-anchor="middle">Amendments restart review cycle</text>
 
   <!-- Bottom info cards -->
 
@@ -130,40 +130,40 @@
   <g filter="url(#soft)">
     <rect x="90" y="302" width="380" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="90" y="302" width="380" height="28" rx="14" fill="#2A2116"/>
-    <text x="280" y="321" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">github.com/lightning/bolts</text>
-    <text x="102" y="354" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">The BOLT Repository</text>
-    <text x="102" y="376" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">All active BOLTs live as markdown documents in a single repository.</text>
-    <text x="102" y="394" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Each BOLT is a separate .md file with its own specification number.</text>
+    <text x="280" y="321" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12" font-weight="700">github.com/lightning/bolts</text>
+    <text x="102" y="354" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">The BOLT Repository</text>
+    <text x="102" y="376" fill="#7C8794" font-family="Inter" font-size="10">All active BOLTs live as markdown documents in a single repository.</text>
+    <text x="102" y="394" fill="#7C8794" font-family="Inter" font-size="10">Each BOLT is a separate .md file with its own specification number.</text>
   </g>
 
   <!-- Contribution info -->
   <g filter="url(#soft)">
     <rect x="490" y="302" width="380" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="490" y="302" width="380" height="28" rx="14" fill="#203327"/>
-    <text x="680" y="321" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Anyone can propose via PR</text>
-    <text x="502" y="354" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Open Contribution</text>
-    <text x="502" y="376" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">No formal gatekeeping — any developer can submit a pull request.</text>
-    <text x="502" y="394" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Consensus is reached through discussion among implementers.</text>
+    <text x="680" y="321" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12" font-weight="600">Anyone can propose via PR</text>
+    <text x="502" y="354" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Open Contribution</text>
+    <text x="502" y="376" fill="#7C8794" font-family="Inter" font-size="10">No formal gatekeeping — any developer can submit a pull request.</text>
+    <text x="502" y="394" fill="#7C8794" font-family="Inter" font-size="10">Consensus is reached through discussion among implementers.</text>
   </g>
 
   <!-- Status legend -->
   <g filter="url(#soft)">
     <rect x="90" y="422" width="380" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="102" y="448" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">BOLT Statuses</text>
+    <text x="102" y="448" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">BOLT Statuses</text>
     <circle cx="112" cy="467" r="6" fill="#F7931A"/>
-    <text x="126" y="472" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Draft / Proposed</text>
+    <text x="126" y="472" fill="#7C8794" font-family="Inter" font-size="11">Draft / Proposed</text>
     <circle cx="308" cy="467" r="6" fill="#22C55E"/>
-    <text x="322" y="472" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Accepted / Activated</text>
+    <text x="322" y="472" fill="#7C8794" font-family="Inter" font-size="11">Accepted / Activated</text>
     <circle cx="112" cy="484" r="6" fill="#60A5FA"/>
-    <text x="126" y="488" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Obsolete / replaced</text>
+    <text x="126" y="488" fill="#7C8794" font-family="Inter" font-size="11">Obsolete / replaced</text>
   </g>
 
   <!-- Key implementations -->
   <g filter="url(#soft)">
     <rect x="490" y="422" width="380" height="72" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="502" y="448" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Implementations must align</text>
-    <text x="502" y="470" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">LND · Core Lightning · Eclair · LDK · ldk-node</text>
-    <text x="502" y="486" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Each implementation tracks the spec — deviations break interop</text>
+    <text x="502" y="448" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Implementations must align</text>
+    <text x="502" y="470" fill="#7C8794" font-family="Inter" font-size="11">LND · Core Lightning · Eclair · LDK · ldk-node</text>
+    <text x="502" y="486" fill="#7C8794" font-family="Inter" font-size="10">Each implementation tracks the spec — deviations break interop</text>
   </g>
 
 </svg>

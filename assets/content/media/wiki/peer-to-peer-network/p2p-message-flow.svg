@@ -20,8 +20,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Connection handshake</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Version and verack establish a connection, then inventory and data messages follow.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Connection handshake</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Version and verack establish a connection, then inventory and data messages follow.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 170H884"/>
@@ -32,12 +32,12 @@
   <!-- Participant boxes -->
   <g filter="url(#soft)">
     <rect x="100" y="128" width="160" height="48" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="180" y="156" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Initiator</text>
-    <text x="180" y="170" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">Node A</text>
+    <text x="180" y="156" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Initiator</text>
+    <text x="180" y="170" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">Node A</text>
 
     <rect x="700" y="128" width="160" height="48" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="780" y="156" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Listener</text>
-    <text x="780" y="170" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">Node B</text>
+    <text x="780" y="156" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Listener</text>
+    <text x="780" y="170" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">Node B</text>
   </g>
 
   <!-- Lifelines -->
@@ -47,7 +47,7 @@
   <!-- Handshake region -->
   <rect x="220" y="200" width="520" height="150" rx="16" fill="#20252D" fill-opacity="0.18" stroke="#46505C" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.7"/>
   <rect x="270" y="176" width="92" height="24" rx="12" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
-  <text x="316" y="192" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Handshake</text>
+  <text x="316" y="192" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="12" font-weight="600">Handshake</text>
 
   <!-- Messages -->
   <g stroke-linecap="round" fill="none">
@@ -55,67 +55,67 @@
     <path d="M180 220H780" stroke="#F7931A" stroke-width="3.5" marker-end="url(#arrow-orange)"/>
     <g filter="url(#soft)">
       <rect x="410" y="206" width="140" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
-      <text x="480" y="225" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">version</text>
+      <text x="480" y="225" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="700">version</text>
     </g>
 
     <!-- version B -> A -->
     <path d="M780 255H180" stroke="#F7931A" stroke-width="3.5" marker-end="url(#arrow-orange)"/>
     <g filter="url(#soft)">
       <rect x="410" y="241" width="140" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
-      <text x="480" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">version</text>
+      <text x="480" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="700">version</text>
     </g>
 
     <!-- verack B -> A -->
     <path d="M780 290H180" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
     <g filter="url(#soft)">
       <rect x="430" y="276" width="100" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-      <text x="480" y="295" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">verack</text>
+      <text x="480" y="295" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">verack</text>
     </g>
 
     <!-- verack A -> B -->
     <path d="M180 325H780" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
     <g filter="url(#soft)">
       <rect x="430" y="311" width="100" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-      <text x="480" y="330" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">verack</text>
+      <text x="480" y="330" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">verack</text>
     </g>
   </g>
 
   <!-- Connected label -->
   <rect x="380" y="351" width="200" height="28" rx="14" fill="#203327" stroke="#22C55E" stroke-width="1.5" opacity="0.6"/>
-  <text x="480" y="370" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Connected</text>
+  <text x="480" y="370" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="600">Connected</text>
 
   <g stroke-linecap="round" fill="none">
     <!-- inv / headers B -> A -->
     <path d="M780 405H180" stroke="#7C8794" stroke-width="3.5" marker-end="url(#arrow-gray)"/>
     <g filter="url(#soft)">
       <rect x="390" y="391" width="180" height="28" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
-      <text x="480" y="410" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">inv / headers</text>
+      <text x="480" y="410" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13" font-weight="700">inv / headers</text>
     </g>
 
     <!-- getdata A -> B -->
     <path d="M180 445H780" stroke="#F7931A" stroke-width="3.5" marker-end="url(#arrow-orange)"/>
     <g filter="url(#soft)">
       <rect x="430" y="431" width="100" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
-      <text x="480" y="450" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">getdata</text>
+      <text x="480" y="450" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="700">getdata</text>
     </g>
 
     <!-- tx / block B -> A -->
     <path d="M780 485H180" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
     <g filter="url(#soft)">
       <rect x="400" y="471" width="160" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-      <text x="480" y="490" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">tx / block</text>
+      <text x="480" y="490" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">tx / block</text>
     </g>
   </g>
 
   <!-- Legend -->
   <g filter="url(#soft)">
     <rect x="790" y="390" width="120" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.2"/>
-    <text x="850" y="409" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Requests</text>
+    <text x="850" y="409" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="12" font-weight="600">Requests</text>
 
     <rect x="790" y="428" width="120" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.2"/>
-    <text x="850" y="447" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Data / ack</text>
+    <text x="850" y="447" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12" font-weight="600">Data / ack</text>
 
     <rect x="790" y="466" width="120" height="28" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
-    <text x="850" y="485" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Announcement</text>
+    <text x="850" y="485" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12" font-weight="600">Announcement</text>
   </g>
 </svg>

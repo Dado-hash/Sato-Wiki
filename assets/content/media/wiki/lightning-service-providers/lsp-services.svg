@@ -20,8 +20,8 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">LSP Services</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">LSPs offer inbound liquidity, reliable routing, and channel management services</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">LSP Services</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">LSPs offer inbound liquidity, reliable routing, and channel management services</text>
 
   <!-- Section separator -->
   <line x1="76" y1="140" x2="884" y2="140" stroke="#28313B" stroke-width="1" opacity="0.55"/>
@@ -31,120 +31,120 @@
     <rect x="48" y="160" width="280" height="330" rx="16" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
   </g>
   <rect x="48" y="160" width="280" height="4" rx="2" fill="#22C55E"/>
-  <text x="188" y="196" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Inbound Liquidity</text>
+  <text x="188" y="196" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="18" font-weight="700">Inbound Liquidity</text>
 
   <!-- Column 1 price tag -->
   <g filter="url(#soft)">
     <rect x="80" y="212" width="216" height="28" rx="8" fill="#203327" stroke="#22C55E" stroke-width="1"/>
   </g>
-  <text x="188" y="232" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Channel Lease • Premium</text>
+  <text x="188" y="232" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="13" font-weight="600">Channel Lease • Premium</text>
 
   <!-- Column 1 user node -->
   <circle cx="188" cy="290" r="24" fill="#203327" stroke="#22C55E" stroke-width="2.5"/>
-  <text x="188" y="296" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">U</text>
-  <text x="188" y="330" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">User Node</text>
+  <text x="188" y="296" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">U</text>
+  <text x="188" y="330" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">User Node</text>
 
   <!-- Inbound arrows pointing to user -->
   <path d="M108 280L158 280" stroke="#22C55E" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
   <path d="M108 290L158 290" stroke="#22C55E" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
   <path d="M108 300L158 300" stroke="#22C55E" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
-  <text x="88" y="268" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="9">Inbound liquidity flow</text>
+  <text x="88" y="268" fill="#22C55E" font-family="Inter" font-size="9">Inbound liquidity flow</text>
 
   <!-- Column 1 feature list -->
-  <text x="76" y="370" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Includes</text>
+  <text x="76" y="370" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">Includes</text>
   <circle cx="80" cy="392" r="3" fill="#22C55E"/>
-  <text x="92" y="396" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Dedicated channel from LSP</text>
+  <text x="92" y="396" fill="#7C8794" font-family="Inter" font-size="12">Dedicated channel from LSP</text>
   <circle cx="80" cy="414" r="3" fill="#22C55E"/>
-  <text x="92" y="418" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Immediate receive capability</text>
+  <text x="92" y="418" fill="#7C8794" font-family="Inter" font-size="12">Immediate receive capability</text>
   <circle cx="80" cy="436" r="3" fill="#22C55E"/>
-  <text x="92" y="440" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Just-in-Time channel opening</text>
+  <text x="92" y="440" fill="#7C8794" font-family="Inter" font-size="12">Just-in-Time channel opening</text>
   <circle cx="80" cy="458" r="3" fill="#22C55E"/>
-  <text x="92" y="462" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">No need for inbound swaps</text>
+  <text x="92" y="462" fill="#7C8794" font-family="Inter" font-size="12">No need for inbound swaps</text>
 
   <!-- ===== COLUMN 2: Routing as a Service ===== -->
   <g filter="url(#soft)">
     <rect x="340" y="160" width="280" height="330" rx="16" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
   </g>
   <rect x="340" y="160" width="280" height="4" rx="2" fill="#F7931A"/>
-  <text x="480" y="196" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Routing as a Service</text>
+  <text x="480" y="196" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="18" font-weight="700">Routing as a Service</text>
 
   <!-- Column 2 price tag -->
   <g filter="url(#soft)">
     <rect x="372" y="212" width="216" height="28" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
   </g>
-  <text x="480" y="232" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Per-Payment Fee • Free/Premium</text>
+  <text x="480" y="232" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="13" font-weight="600">Per-Payment Fee • Free/Premium</text>
 
   <!-- Column 2 routing diagram -->
   <circle cx="410" cy="290" r="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-  <text x="410" y="295" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">U</text>
+  <text x="410" y="295" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="10" font-weight="700">U</text>
   <circle cx="480" cy="290" r="20" fill="#2A2116" stroke="#F7931A" stroke-width="2.5"/>
-  <text x="480" y="296" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">LSP</text>
+  <text x="480" y="296" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="12" font-weight="700">LSP</text>
   <circle cx="560" cy="290" r="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-  <text x="560" y="295" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">R</text>
+  <text x="560" y="295" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="10" font-weight="700">R</text>
 
   <!-- Routing arrows -->
   <path d="M426 290L454 290" stroke="#F7931A" stroke-width="2.5" fill="none" marker-end="url(#arrow-orange)"/>
   <path d="M500 290L538 290" stroke="#F7931A" stroke-width="2.5" fill="none" marker-end="url(#arrow-orange)"/>
-  <text x="426" y="278" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="9">pay</text>
-  <text x="506" y="278" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="9">forward</text>
-  <text x="410" y="270" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="9">User</text>
-  <text x="480" y="266" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="9">LSP</text>
-  <text x="560" y="270" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="9">Recipient</text>
+  <text x="426" y="278" fill="#F7931A" font-family="Inter" font-size="9">pay</text>
+  <text x="506" y="278" fill="#F7931A" font-family="Inter" font-size="9">forward</text>
+  <text x="410" y="270" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="9">User</text>
+  <text x="480" y="266" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="9">LSP</text>
+  <text x="560" y="270" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="9">Recipient</text>
 
   <!-- Column 2 feature list -->
-  <text x="368" y="370" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Includes</text>
+  <text x="368" y="370" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">Includes</text>
   <circle cx="372" cy="392" r="3" fill="#F7931A"/>
-  <text x="384" y="396" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Payment forwarding</text>
+  <text x="384" y="396" fill="#7C8794" font-family="Inter" font-size="12">Payment forwarding</text>
   <circle cx="372" cy="414" r="3" fill="#F7931A"/>
-  <text x="384" y="418" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Multi-hop path finding</text>
+  <text x="384" y="418" fill="#7C8794" font-family="Inter" font-size="12">Multi-hop path finding</text>
   <circle cx="372" cy="436" r="3" fill="#F7931A"/>
-  <text x="384" y="440" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">High reliability uptime</text>
+  <text x="384" y="440" fill="#7C8794" font-family="Inter" font-size="12">High reliability uptime</text>
   <circle cx="372" cy="458" r="3" fill="#F7931A"/>
-  <text x="384" y="462" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Competitive routing fees</text>
+  <text x="384" y="462" fill="#7C8794" font-family="Inter" font-size="12">Competitive routing fees</text>
 
   <!-- ===== COLUMN 3: Channel Management ===== -->
   <g filter="url(#soft)">
     <rect x="632" y="160" width="292" height="330" rx="16" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
   </g>
   <rect x="632" y="160" width="292" height="4" rx="2" fill="#7C5CFF"/>
-  <text x="778" y="196" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Management</text>
+  <text x="778" y="196" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="18" font-weight="700">Management</text>
 
   <!-- Column 3 price tag -->
   <g filter="url(#soft)">
     <rect x="664" y="212" width="216" height="28" rx="8" fill="#24203B" stroke="#7C5CFF" stroke-width="1"/>
   </g>
-  <text x="772" y="232" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Flat Fee • Free/Premium</text>
+  <text x="772" y="232" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="13" font-weight="600">Flat Fee • Free/Premium</text>
 
   <!-- Column 3 management icons -->
   <!-- Splicing icon -->
   <rect x="668" y="264" width="224" height="38" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   <path d="M680 276L712 276Q718 276 718 282L718 290Q718 296 712 296L680 296Q674 296 674 290L674 282Q674 276 680 276Z" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
-  <text x="718" y="282" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">+</text>
-  <text x="728" y="282" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13">Splicing</text>
-  <text x="728" y="298" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Dynamic channel resize</text>
+  <text x="718" y="282" fill="#B7B1A8" font-family="Inter" font-size="11">+</text>
+  <text x="728" y="282" fill="#F4EAD8" font-family="Inter" font-size="13">Splicing</text>
+  <text x="728" y="298" fill="#7C8794" font-family="Inter" font-size="10">Dynamic channel resize</text>
 
   <!-- Watchtower icon -->
   <rect x="668" y="310" width="224" height="38" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   <rect x="680" y="320" width="16" height="14" rx="2" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
   <circle cx="688" cy="327" r="3" fill="#7C5CFF"/>
-  <text x="704" y="328" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13">Watchtower</text>
-  <text x="704" y="344" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Fraud monitoring</text>
+  <text x="704" y="328" fill="#F4EAD8" font-family="Inter" font-size="13">Watchtower</text>
+  <text x="704" y="344" fill="#7C8794" font-family="Inter" font-size="10">Fraud monitoring</text>
 
   <!-- Backups icon -->
   <rect x="668" y="356" width="224" height="38" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   <path d="M680 370L684 366L692 370L698 366L706 370" stroke="#7C5CFF" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="714" y="374" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13">Channel Backups</text>
-  <text x="714" y="390" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Static channel backup</text>
+  <text x="714" y="374" fill="#F4EAD8" font-family="Inter" font-size="13">Channel Backups</text>
+  <text x="714" y="390" fill="#7C8794" font-family="Inter" font-size="10">Static channel backup</text>
 
   <!-- Zero-conf icon -->
   <rect x="668" y="402" width="224" height="38" rx="8" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   <circle cx="688" cy="421" r="8" fill="none" stroke="#7C5CFF" stroke-width="1.5"/>
   <path d="M685 421L690 425L696 416" stroke="#7C5CFF" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="704" y="420" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13">Zero-Conf Channels</text>
-  <text x="704" y="436" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10">Instant channel usage</text>
+  <text x="704" y="420" fill="#F4EAD8" font-family="Inter" font-size="13">Zero-Conf Channels</text>
+  <text x="704" y="436" fill="#7C8794" font-family="Inter" font-size="10">Instant channel usage</text>
 
   <!-- Column 3 feature list -->
-  <text x="660" y="462" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Typically bundled with other LSP services</text>
+  <text x="660" y="462" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">Typically bundled with other LSP services</text>
 
-  <text x="480" y="508" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">LSPs may charge per-service or offer bundled plans combining inbound liquidity, routing, and management.</text>
+  <text x="480" y="508" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">LSPs may charge per-service or offer bundled plans combining inbound liquidity, routing, and management.</text>
 </svg>

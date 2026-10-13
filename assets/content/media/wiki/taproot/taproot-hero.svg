@@ -20,8 +20,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Taproot</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">One output key commits to a Merkle tree of scripts off-chain.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Taproot</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">One output key commits to a Merkle tree of scripts off-chain.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 154H884"/>
@@ -34,8 +34,8 @@
   <!-- Row 1: Output Key Q -->
   <g filter="url(#soft)">
     <rect x="330" y="170" width="300" height="100" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="480" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Output Key</text>
-    <text x="480" y="244" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="17">Q = P + t·G</text>
+    <text x="480" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Output Key</text>
+    <text x="480" y="244" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="17">Q = P + t·G</text>
   </g>
 
   <!-- Arrows from Q down: left to P, right through t to script tree -->
@@ -48,15 +48,15 @@
   <!-- Row 2, Col 1: Internal Key P -->
   <g filter="url(#soft)">
     <rect x="110" y="314" width="180" height="96" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="200" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Internal Key</text>
-    <text x="200" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">P (cooperative)</text>
+    <text x="200" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Internal Key</text>
+    <text x="200" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">P (cooperative)</text>
   </g>
 
   <!-- Row 2, Col 3: Merkle Root -->
   <g filter="url(#soft)">
     <rect x="610" y="314" width="180" height="96" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="700" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Merkle Root</text>
-    <text x="700" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">t = H(P ∥ Root)</text>
+    <text x="700" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Merkle Root</text>
+    <text x="700" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">t = H(P ∥ Root)</text>
   </g>
 
   <!-- Row 3, Col 1: Key path result — Schnorr Signature -->
@@ -64,7 +64,7 @@
 
   <g filter="url(#soft)">
     <rect x="110" y="452" width="180" height="48" rx="24" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="200" y="482" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Schnorr Signature</text>
+    <text x="200" y="482" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">Schnorr Signature</text>
   </g>
 
   <!-- Row 3, Col 2-3: Script tree -->
@@ -95,14 +95,14 @@
   <path d="M760 458L790 478" stroke="#56626F" stroke-width="1.5" stroke-linecap="round"/>
 
   <!-- Script labels -->
-  <text x="595" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">A</text>
-  <text x="655" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">B</text>
-  <text x="715" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">C</text>
-  <text x="775" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">D</text>
+  <text x="595" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">A</text>
+  <text x="655" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">B</text>
+  <text x="715" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">C</text>
+  <text x="775" y="493" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">D</text>
 
   <!-- Key path label -->
-  <text x="110" y="516" font-family="Inter, Arial, sans-serif" font-size="13"><tspan fill="#B7B1A8">Key path: </tspan><tspan fill="#7C8794">cooperative, single sig</tspan></text>
+  <text x="110" y="516" font-family="Inter" font-size="13"><tspan fill="#B7B1A8">Key path: </tspan><tspan fill="#7C8794">cooperative, single sig</tspan></text>
 
   <!-- Script path label -->
-  <text x="595" y="516" font-family="Inter, Arial, sans-serif" font-size="13"><tspan fill="#B7B1A8">Script paths: </tspan><tspan fill="#7C8794">revealed only when needed</tspan></text>
+  <text x="595" y="516" font-family="Inter" font-size="13"><tspan fill="#B7B1A8">Script paths: </tspan><tspan fill="#7C8794">revealed only when needed</tspan></text>
 </svg>
