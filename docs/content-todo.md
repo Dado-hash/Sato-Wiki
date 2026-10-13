@@ -386,15 +386,15 @@ Dipendono dal tipo di record `products`, non ancora implementato. Il criterio di
 inclusione è in `docs/plan.md`, sezione A1. Stato e licenza di ogni prodotto si
 verificano quando si scrive la scheda.
 
-- [ ] Nodi: Bitcoin Core, Bitcoin Knots, btcd
-- [ ] Software wallet: Sparrow, Electrum, BlueWallet, Nunchuk
-- [ ] Lightning: LND, Core Lightning, Eclair, LDK, Phoenix
-- [ ] Server e infrastruttura: electrs, Fulcrum, BTCPay Server
-- [ ] Sistemi per nodo domestico: Umbrel, StartOS, RaspiBlitz
-- [ ] Software di mining: Braiins OS, Stratum V2 Reference Implementation, DATUM
-- [ ] Librerie e strumenti: BDK, rust-bitcoin, bitcoinjs-lib
-- [ ] Hardware wallet: Trezor, Ledger, Coldcard, BitBox02, Jade
-- [ ] Hardware di mining: Antminer serie S, Whatsminer serie M, Bitaxe
+- [x] Nodi: Bitcoin Core, Bitcoin Knots, btcd
+- [x] Software wallet: Sparrow, Electrum, BlueWallet, Nunchuk
+- [x] Lightning: LND, Core Lightning, Eclair, LDK, Phoenix
+- [x] Server e infrastruttura: electrs, Fulcrum, BTCPay Server
+- [x] Sistemi per nodo domestico: Umbrel, StartOS, RaspiBlitz
+- [x] Software di mining: Braiins OS, Stratum V2 Reference Implementation, DATUM
+- [x] Librerie e strumenti: BDK, rust-bitcoin, bitcoinjs-lib
+- [x] Hardware wallet: Trezor, Ledger, Coldcard, BitBox02, Jade
+- [ ] Hardware di mining: Antminer serie S, Whatsminer serie M, Bitaxe (fatte Whatsminer e Bitaxe; Antminer manca: sito ufficiale non leggibile)
 
 ### Privacy e sicurezza
 

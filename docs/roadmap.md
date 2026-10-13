@@ -78,7 +78,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 5. [ ] Passi 5 e 6: transazioni e coinbase.
 6. [ ] Passo facoltativo: mining su un header reale di Bitcoin con target facile.
 7. [ ] Testi EN e IT di ogni passo, con il confronto con Bitcoin reale e i link alle voci wiki.
-8. [ ] "Script passo per passo": opcode di stack, aritmetica, hash e timelock, con firma simulata dichiarata.
+8. [ ] "Script passo per passo": opcode di stack, aritmetica, hash e timelock, con firma simulata dichiarata. La logica esiste ed è verificata con 507 vettori di test di Bitcoin Core; manca la schermata.
 9. [ ] Collegare le demo dalle voci `wiki.hash-functions`, `wiki.blockchain`, `wiki.proof-of-work`, `wiki.mining` e `wiki.bitcoin-script`.
 
 ## 8. Explorer
@@ -88,16 +88,16 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 3. [ ] Aggiornare `docs/privacy-policy.md` con il testo definitivo.
 4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione. Avviso e transazione pubblicati il 2026-10-13, in attesa di approvazione.
 5. [ ] Impostazioni: interruttore spento all'installazione e server configurabile.
-6. [ ] Client Esplora con limiti di tempo, cache in memoria e gestione di HTTP 429.
+6. [x] Client Esplora con limiti di tempo, cache in memoria e gestione di HTTP 429.
 7. [ ] Schermate blocco, transazione e indirizzo, con link alle voci wiki.
-8. [ ] Test con server finto: rete assente, risposta malformata, timeout, HTTP 429.
+8. [x] Test con server finto: rete assente, risposta malformata, timeout, HTTP 429.
 
 ## 9. Schede prodotto e Biblioteca
 
 1. [x] Collezione `products`: modello, parser, validatore (avviso oltre 12 mesi da `reviewedAt`), template, documentazione.
 2. [ ] Mockup della scheda prodotto e dell'elenco per sottocategoria.
 3. [x] Definire il criterio di inclusione e i primi prodotti (2026-10-13: `docs/plan.md`, sezione A1).
-4. [ ] Scrivere le prime schede, EN e IT.
+4. [x] Scrivere le prime schede, EN e IT. 31 schede; manca Antminer serie S (sito ufficiale non leggibile).
 5. [ ] Collezione `library`: modello, parser, validatore, schermata con filtri per autore e tema.
 6. [ ] Prime voci della Biblioteca, con licenza verificata opera per opera.
 

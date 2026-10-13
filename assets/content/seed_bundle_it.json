@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.125030",
+  "version": "2026.10.13.130943",
   "language": "it",
-  "generatedAt": "2026-10-13T12:50:30.000000Z",
+  "generatedAt": "2026-10-13T13:09:43.000000Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -21902,6 +21902,1744 @@
         {
           "id": "wiki.lightning-network",
           "note": "Lightning si basa su canali di pagamento e commissioni per offrire pagamenti rapidi sopra la blockchain che hai appena studiato."
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "product.bitcoin-core",
+      "slug": "bitcoin-core",
+      "language": "it",
+      "name": "Bitcoin Core",
+      "summary": "Software full node e wallet per Bitcoin, sviluppato dagli sviluppatori di Bitcoin Core e distribuito con licenza MIT.",
+      "bodyMarkdown": "Bitcoin Core è un programma full node e wallet per la rete Bitcoin, sviluppato dagli sviluppatori di Bitcoin Core. Il codice sorgente è pubblicato su GitHub con licenza MIT, come indica il file COPYING del repository, quindi il software è open source.\n\nIl nodo scarica e verifica blocchi e transazioni secondo le regole di consenso, poi trasmette ai peer i dati validi. Il programma include anche una componente wallet che gestisce le chiavi e costruisce le transazioni. La pagina di download offre build per Windows, macOS e Linux, con checksum e istruzioni di verifica per ciascuna piattaforma.\n\nUsare il software non sostituisce la verifica del file binario installato. La pagina delle security advisory elenca vulnerabilità corrette in Bitcoin Core v30.0, rilasciata il 10 ottobre 2025, tra cui un crash remoto che un blocco costruito ad arte poteva provocare. I nodi con versioni precedenti alla v30.0 non includono queste correzioni. Al momento della revisione di questa scheda, quella pagina non mostrava advisory datate 2026.",
+      "category": "software",
+      "subcategory": "nodes",
+      "maker": "Bitcoin Core developers",
+      "website": "https://bitcoincore.org",
+      "sourceUrl": "https://github.com/bitcoin/bitcoin",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Bitcoin Core downloads",
+          "url": "https://bitcoincore.org/en/download/",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Core past security advisories",
+          "url": "https://bitcoincore.org/en/security-advisories/",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Core repository",
+          "url": "https://github.com/bitcoin/bitcoin",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Core COPYING (MIT license)",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/COPYING",
+          "author": "Bitcoin Core contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.bitcoin-knots",
+      "slug": "bitcoin-knots",
+      "language": "it",
+      "name": "Bitcoin Knots",
+      "summary": "Software full node e wallet derivato da Bitcoin Core, con modifiche proprie, distribuito con licenza MIT.",
+      "bodyMarkdown": "Bitcoin Knots è un programma full node e wallet derivato da Bitcoin Core, mantenuto dai contributor di Bitcoin Knots. Il README del repository indica che lo sviluppo avviene in genere all'interno di Bitcoin Core e viene unito in Knots per ogni release, e che Knots include modifiche proprie. Il codice è pubblicato su GitHub con licenza MIT.\n\nCome Core, il software scarica e verifica blocchi e transazioni, e può includere un wallet e un'interfaccia grafica quando viene compilato con queste opzioni. Il sito del progetto offre build per Windows, macOS e Linux, con firme OpenPGP e impronte delle chiavi per ogni release.\n\nPoiché Knots aggiunge modifiche al codice di Core, le sue impostazioni predefinite e le sue funzioni possono differire da Core, quindi conviene leggere le note di rilascio di ogni versione prima di un aggiornamento. Il sito consiglia di verificare le firme OpenPGP e le chiavi di firma prima di aggiornare. Indica inoltre che una versione scaduta torna a funzionare solo se bitcoin.conf contiene softwareexpiry=0, e che le versioni obsolete non sono mantenute.",
+      "category": "software",
+      "subcategory": "nodes",
+      "maker": "Bitcoin Knots contributors",
+      "website": "https://bitcoinknots.org",
+      "sourceUrl": "https://github.com/bitcoinknots/bitcoin",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Bitcoin Knots website",
+          "url": "https://bitcoinknots.org/",
+          "author": "Bitcoin Knots contributors"
+        },
+        {
+          "title": "Bitcoin Knots repository README",
+          "url": "https://github.com/bitcoinknots/bitcoin",
+          "author": "Bitcoin Knots contributors"
+        },
+        {
+          "title": "Bitcoin Knots COPYING (MIT license)",
+          "url": "https://github.com/bitcoinknots/bitcoin/blob/master/COPYING",
+          "author": "Bitcoin Knots contributors"
+        },
+        {
+          "title": "Bitcoin Knots releases",
+          "url": "https://github.com/bitcoinknots/bitcoin/releases",
+          "author": "Bitcoin Knots contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.btcd",
+      "slug": "btcd",
+      "language": "it",
+      "name": "btcd",
+      "summary": "Implementazione alternativa di full node per Bitcoin scritta in Go, senza funzioni wallet, distribuita con licenza ISC.",
+      "bodyMarkdown": "btcd è un'implementazione alternativa di full node per Bitcoin, scritta in Go e mantenuta dagli sviluppatori di btcsuite. Il codice è pubblicato su GitHub con licenza ISC. Il README descrive il progetto come in stato beta mentre è in sviluppo attivo.\n\nbtcd scarica, verifica e serve la block chain, trasmette nuovi blocchi e transazioni e mantiene un pool delle transazioni. Secondo il README, non include per scelta funzioni wallet, quindi i pagamenti sono gestiti da programmi separati come btcwallet. La pagina delle release offre binari per Linux, macOS, Windows e diversi altri sistemi operativi.\n\nSecondo il suo README, btcd applica le stesse regole di accettazione dei blocchi di Bitcoin Core, incluse le incongruenze di consenso che Core mantiene, ed esegue i test ufficiali di accettazione dei blocchi su ogni pull request. L'advisory di sicurezza GHSA-27vh-h6mc-q6g8, pubblicata il 10 ottobre 2024, descrive un difetto nel modo in cui btcd reimplementava FindAndDelete, una funzione critica per il consenso, nelle versioni dalla 0.10 alla 0.24. Secondo l'advisory, la differenza poteva portare btcd ad accettare un blocco non valido, e indica come intervallo interessato le versioni precedenti alla v0.24.2.",
+      "category": "software",
+      "subcategory": "nodes",
+      "maker": "btcsuite developers",
+      "website": "https://github.com/btcsuite/btcd",
+      "sourceUrl": "https://github.com/btcsuite/btcd",
+      "openSource": true,
+      "license": "ISC",
+      "platforms": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "btcd repository and README",
+          "url": "https://github.com/btcsuite/btcd",
+          "author": "btcsuite developers"
+        },
+        {
+          "title": "btcd LICENSE (ISC)",
+          "url": "https://github.com/btcsuite/btcd/blob/master/LICENSE",
+          "author": "btcsuite developers"
+        },
+        {
+          "title": "btcd releases",
+          "url": "https://github.com/btcsuite/btcd/releases",
+          "author": "btcsuite developers"
+        },
+        {
+          "title": "btcd security advisory GHSA-27vh-h6mc-q6g8",
+          "url": "https://github.com/btcsuite/btcd/security/advisories/GHSA-27vh-h6mc-q6g8",
+          "author": "btcsuite developers"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.sparrow",
+      "slug": "sparrow",
+      "language": "it",
+      "name": "Sparrow Wallet",
+      "summary": "Wallet desktop per Bitcoin con coin control ed editor delle transazioni, distribuito con licenza Apache 2.0.",
+      "bodyMarkdown": "Sparrow Wallet è un wallet desktop per Bitcoin sviluppato dagli sviluppatori di Sparrow Wallet e pubblicato su GitHub con licenza Apache 2.0. Il sito del progetto offre anche Sparrow Server, una build per i sistemi headless, cioè privi di interfaccia grafica.\n\nIl wallet gestisce wallet single signature e multisig con i tipi di script più comuni. Può collegarsi a server pubblici, a Bitcoin Core e a server Electrum privati, e supporta le PSBT. I hardware wallet possono firmare tramite USB o in modalità air-gapped, e i codici QR che seguono lo standard UR trasportano i dati tra i dispositivi. Un editor delle transazioni permette di ispezionare i campi e i byte grezzi prima della trasmissione, e il programma include un'opzione Tor integrata.\n\nSparrow conserva i file del wallet cifrati con una password, e il sito indica che le chiavi private vengono sbloccate solo mentre si esegue una firma. La derivazione della chiave usa Argon2. Il sito descrive un percorso di privacy che va dai server pubblici ai server privati fino alla cold storage. Al momento della revisione, il repository non mostrava security advisory pubblicate.",
+      "category": "software",
+      "subcategory": "software-wallets",
+      "maker": "Sparrow Wallet developers",
+      "website": "https://sparrowwallet.com",
+      "sourceUrl": "https://github.com/sparrowwallet/sparrow",
+      "openSource": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Sparrow Wallet website",
+          "url": "https://sparrowwallet.com/",
+          "author": "Sparrow Wallet developers"
+        },
+        {
+          "title": "Sparrow Wallet features",
+          "url": "https://sparrowwallet.com/features/",
+          "author": "Sparrow Wallet developers"
+        },
+        {
+          "title": "Sparrow Wallet repository",
+          "url": "https://github.com/sparrowwallet/sparrow",
+          "author": "Sparrow Wallet developers"
+        },
+        {
+          "title": "Sparrow Wallet LICENSE (Apache 2.0)",
+          "url": "https://github.com/sparrowwallet/sparrow/blob/master/LICENSE",
+          "author": "Sparrow Wallet developers"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.electrum",
+      "slug": "electrum",
+      "language": "it",
+      "name": "Electrum",
+      "summary": "Wallet Bitcoin basato su un modello client-server, distribuito con licenza MIT da Electrum Technologies GmbH.",
+      "bodyMarkdown": "Electrum è un wallet Bitcoin sviluppato da Electrum Technologies GmbH a Berlino, in Germania, e distribuito con licenza MIT. Il sito descrive il software come open source, e il codice è pubblicato su GitHub.\n\nElectrum usa un modello client-server, in cui il wallet comunica con i server tramite il protocollo Electrum. Il sito elenca ElectrumX ed Electrs come implementazioni di server e spiega come gestire un server privato. Il wallet supporta wallet single signature e multisig, wallet watch-only e plugin per i hardware wallet. I download riguardano Windows, macOS, Linux e Android.\n\nLe FAQ di Electrum indicano che il wallet deve affidarsi al server per le transazioni non confermate, e che il server può mentire per omissione. Due advisory di sicurezza, GHSA-vw94-r84p-66qf e GHSA-q7m2-785w-r585, sono state pubblicate il 28 aprile 2026. La prima descrive un bypass dell'autorizzazione dei plugin che permetteva a un programma locale con accesso in scrittura alla cartella dei dati di eseguire codice dentro Electrum. La seconda descrive un bypass del limite giornaliero di spesa nel plugin Nostr Wallet Connect. Entrambe riguardano le versioni dalla 4.6.0 prima della 4.7.2, corrette nella 4.7.2, rilasciata il 2 aprile 2026.",
+      "category": "software",
+      "subcategory": "software-wallets",
+      "maker": "Electrum Technologies GmbH",
+      "website": "https://electrum.org",
+      "sourceUrl": "https://github.com/spesmilo/electrum",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Electrum website",
+          "url": "https://electrum.org/",
+          "author": "Electrum Technologies GmbH"
+        },
+        {
+          "title": "Electrum documentation - Frequently Asked Questions",
+          "url": "https://electrum.readthedocs.io/en/latest/faq.html",
+          "author": "Electrum developers"
+        },
+        {
+          "title": "Electrum repository",
+          "url": "https://github.com/spesmilo/electrum",
+          "author": "Electrum developers"
+        },
+        {
+          "title": "Electrum security advisories",
+          "url": "https://github.com/spesmilo/electrum/security/advisories/GHSA-vw94-r84p-66qf",
+          "author": "Electrum developers"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.bluewallet",
+      "slug": "bluewallet",
+      "language": "it",
+      "name": "BlueWallet",
+      "summary": "App wallet Bitcoin per iOS, Android e macOS, distribuita con licenza MIT.",
+      "bodyMarkdown": "BlueWallet è un'app wallet Bitcoin per iOS, Android e macOS. Il codice è pubblicato su GitHub con licenza MIT, con il copyright intestato agli sviluppatori di BlueWallet, e il sito descrive l'app come software open source.\n\nL'app supporta wallet standard, wallet watch-only e vault multisig. Il sito dice che può collegarsi al nodo proprio dell'utente, e elenca come supportati i hardware wallet compatibili con PSBT, come Coldcard, Passport, Jade e Keystone. La documentazione descrive la firma offline delle transazioni con un hardware wallet.\n\nLa documentazione descrive wallet Lightning che si collegano a un server LNDhub, quindi quel server diventa parte del modello di fiducia per quei fondi. Come per ogni app su telefono, le chiavi di un hot wallet si trovano su un dispositivo connesso alla rete. Al momento della revisione, il repository non mostrava security advisory pubblicate.",
+      "category": "software",
+      "subcategory": "software-wallets",
+      "maker": "BlueWallet developers",
+      "website": "https://bluewallet.io",
+      "sourceUrl": "https://github.com/BlueWallet/BlueWallet",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "iOS",
+        "Android",
+        "macOS"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "BlueWallet website",
+          "url": "https://bluewallet.io/",
+          "author": "BlueWallet developers"
+        },
+        {
+          "title": "BlueWallet features",
+          "url": "https://bluewallet.io/features/",
+          "author": "BlueWallet developers"
+        },
+        {
+          "title": "BlueWallet repository",
+          "url": "https://github.com/BlueWallet/BlueWallet",
+          "author": "BlueWallet developers"
+        },
+        {
+          "title": "BlueWallet LICENSE (MIT)",
+          "url": "https://github.com/BlueWallet/BlueWallet/blob/master/LICENSE",
+          "author": "BlueWallet developers"
+        },
+        {
+          "title": "BlueWallet releases",
+          "url": "https://github.com/BlueWallet/BlueWallet/releases",
+          "author": "BlueWallet developers"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.nunchuk",
+      "slug": "nunchuk",
+      "language": "it",
+      "name": "Nunchuk",
+      "summary": "App wallet Bitcoin multisig per mobile e desktop di Nunchuk Inc, con codice sorgente pubblico solo per le app Android e desktop.",
+      "bodyMarkdown": "Nunchuk è un wallet Bitcoin multisig di Nunchuk Inc. Il prodotto nel suo insieme non è open source. L'app Android e l'app desktop hanno repository pubblici sotto la GNU General Public License v3.0, come indica il file LICENSE del desktop. L'organizzazione GitHub dell'azienda non mostrava un repository pubblico per l'app iOS al momento della revisione di questa scheda.\n\nLe app lavorano con hardware wallet. Il README desktop indica che su Linux i hardware wallet richiedono le regole udev incluse. Il sito descrive una cold storage abilitata per NFC che firma le transazioni con un tocco sul telefono. I download desktop sono elencati per Windows, macOS e Linux, e l'app iOS è distribuita tramite l'App Store.\n\nIl README desktop indica che la verifica delle build riproducibili vale per le release Linux x86-64 e ARM64, mentre le build per Windows e macOS non sono ancora supportate per una verifica indipendente. Le FAQ dicono che il piano gratuito può creare hot key sul telefono, mentre i piani multisig assistiti mantengono tutte le chiavi offline. Prima di affidarsi al prodotto, verificate quali componenti installate e dove vengono create le chiavi.",
+      "category": "software",
+      "subcategory": "software-wallets",
+      "maker": "Nunchuk Inc",
+      "website": "https://nunchuk.io",
+      "openSource": false,
+      "platforms": [
+        "iOS",
+        "Android",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Nunchuk website",
+          "url": "https://nunchuk.io/",
+          "author": "Nunchuk Inc"
+        },
+        {
+          "title": "Nunchuk FAQ",
+          "url": "https://nunchuk.io/faq",
+          "author": "Nunchuk Inc"
+        },
+        {
+          "title": "Nunchuk Android repository",
+          "url": "https://github.com/nunchuk-io/nunchuk-android",
+          "author": "Nunchuk Inc"
+        },
+        {
+          "title": "Nunchuk Desktop repository and README",
+          "url": "https://github.com/nunchuk-io/nunchuk-desktop",
+          "author": "Nunchuk Inc"
+        },
+        {
+          "title": "Nunchuk Desktop LICENSE (GPL-3.0)",
+          "url": "https://github.com/nunchuk-io/nunchuk-desktop/blob/master/LICENSE",
+          "author": "Nunchuk Inc"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.lnd",
+      "slug": "lnd",
+      "language": "it",
+      "name": "LND",
+      "summary": "LND è un'implementazione di nodo della Lightning Network realizzata da Lightning Labs e distribuita con licenza MIT.",
+      "bodyMarkdown": "LND è un'implementazione di nodo della Lightning Network realizzata da Lightning Labs e dagli sviluppatori della Lightning Network. Il repository indica che il codice è pubblicato con licenza MIT. Il software gestisce la logica dei canali, l'instradamento dei pagamenti e le operazioni on-chain che un nodo Lightning richiede, ed è una delle implementazioni che seguono le specifiche BOLT.\n\nLa documentazione ufficiale descrive LND come un'implementazione completa di nodo che gestisce l'apertura e la chiusura dei canali, lo stato dei canali e i pagamenti in uscita cifrati a strati. Espone due interfacce RPC, una API REST su HTTP e un servizio gRPC. La guida di installazione indica che funziona su Windows o macOS, anche se i sistemi Unix sono raccomandati, e che può essere installato da binari, dal codice sorgente o con Docker.\n\nPrima di affidarsi a LND occorre sapere che l'operatore è responsabile del nodo, dei backup dei canali e degli aggiornamenti del software. Il repository elenca due avvisi di sicurezza pubblicati. GHSA-hc82-w9v8-83pr descrive un problema di denial of service nel parsing dei blocchi witness, pubblicato il 17 novembre 2022. GHSA-9gxx-58q6-42p7, chiamato LND Onion Bomb, è stato pubblicato il 20 giugno 2024. Entrambi sono collegati tra le fonti.",
+      "category": "software",
+      "subcategory": "lightning",
+      "maker": "Lightning Labs",
+      "website": "https://docs.lightning.engineering/",
+      "sourceUrl": "https://github.com/lightningnetwork/lnd",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "lnd, Lightning Network node implementation",
+          "url": "https://github.com/lightningnetwork/lnd",
+          "author": "Lightning Labs"
+        },
+        {
+          "title": "LND license",
+          "url": "https://github.com/lightningnetwork/lnd/blob/master/LICENSE",
+          "author": "Lightning Labs and The Lightning Network Developers"
+        },
+        {
+          "title": "GHSA-hc82-w9v8-83pr: Witness Block Parsing DoS Vulnerability",
+          "url": "https://github.com/lightningnetwork/lnd/security/advisories/GHSA-hc82-w9v8-83pr",
+          "author": "Lightning Labs"
+        },
+        {
+          "title": "GHSA-9gxx-58q6-42p7: LND Onion Bomb",
+          "url": "https://github.com/lightningnetwork/lnd/security/advisories/GHSA-9gxx-58q6-42p7",
+          "author": "Lightning Labs"
+        },
+        {
+          "title": "Running LND",
+          "url": "https://docs.lightning.engineering/lightning-network-tools/lnd/run-lnd",
+          "author": "Lightning Labs"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.watchtowers",
+          "title": "Watchtower"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.core-lightning",
+      "slug": "core-lightning",
+      "language": "it",
+      "name": "Core Lightning",
+      "summary": "Core Lightning è un'implementazione della Lightning Network mantenuta da Blockstream e distribuita con licenza BSD-MIT.",
+      "bodyMarkdown": "Core Lightning, in precedenza chiamato c-lightning, è un'implementazione della Lightning Network mantenuta da Blockstream. Il file LICENSE del repository indica che il codice è coperto dalla licenza BSD-MIT, ad eccezione di alcuni moduli della cartella ccan, che hanno licenze proprie.\n\nIl progetto descrive Core Lightning come un'implementazione leggera, molto personalizzabile e conforme agli standard. Espone un'interfaccia JSON-RPC 2.0 su un socket di dominio Unix e supporta plugin che aggiungono funzioni. Il README indica che funziona solo su Linux e macOS.\n\nPrima di affidarsi a Core Lightning occorre sapere che è un programma server che l'utente avvia e configura, quindi installazione e manutenzione ricadono sull'operatore. La pagina di sicurezza del repository non elenca avvisi pubblicati al momento della verifica.",
+      "category": "software",
+      "subcategory": "lightning",
+      "maker": "Blockstream",
+      "website": "https://docs.corelightning.org/",
+      "sourceUrl": "https://github.com/ElementsProject/lightning",
+      "openSource": true,
+      "license": "BSD-MIT",
+      "platforms": [
+        "Linux",
+        "macOS"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Core Lightning, repository",
+          "url": "https://github.com/ElementsProject/lightning",
+          "author": "Blockstream"
+        },
+        {
+          "title": "Core Lightning license",
+          "url": "https://github.com/ElementsProject/lightning/blob/master/LICENSE",
+          "author": "Rusty Russell and Blockstream"
+        },
+        {
+          "title": "Core Lightning documentation",
+          "url": "https://docs.corelightning.org/",
+          "author": "Core Lightning contributors"
+        },
+        {
+          "title": "Core Lightning releases",
+          "url": "https://github.com/ElementsProject/lightning/releases/tag/v26.06.9",
+          "author": "Core Lightning contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.bolt-specifications",
+          "title": "Specifiche BOLT"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.eclair",
+      "slug": "eclair",
+      "language": "it",
+      "name": "Eclair",
+      "summary": "Eclair è un'implementazione della Lightning Network scritta in Scala da ACINQ e distribuita con licenza Apache 2.0.",
+      "bodyMarkdown": "Eclair è un'implementazione della Lightning Network in Scala, sviluppata da ACINQ. Il codice sorgente è pubblicato su GitHub e il file LICENSE del repository indica la licenza Apache License 2.0. Il README spiega che il nome è francese e significa Lightning.\n\nIl README descrive Eclair come un nodo che gira sulla Java Virtual Machine e che è pensato per una runtime Java recente. Il nodo richiede un'istanza di Bitcoin Core sincronizzata e senza pruning. Lo si controlla con uno strumento a riga di comando chiamato eclair-cli oppure tramite un'API HTTP.\n\nPrima di affidarsi a Eclair occorre sapere che si tratta di un nodo di tipo server, quindi l'operatore è responsabile del runtime Java, della connessione a Bitcoin Core e della manutenzione dei canali. La pagina di sicurezza del repository non elenca avvisi pubblicati al momento della verifica. Per il comportamento esatto di backup e ripristino occorre consultare la documentazione.",
+      "category": "software",
+      "subcategory": "lightning",
+      "maker": "ACINQ",
+      "website": "https://github.com/ACINQ/eclair",
+      "sourceUrl": "https://github.com/ACINQ/eclair",
+      "openSource": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "Runtime Java (JVM)"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Eclair, repository",
+          "url": "https://github.com/ACINQ/eclair",
+          "author": "ACINQ"
+        },
+        {
+          "title": "Eclair license",
+          "url": "https://github.com/ACINQ/eclair/blob/master/LICENSE",
+          "author": "ACINQ"
+        },
+        {
+          "title": "Eclair releases",
+          "url": "https://github.com/ACINQ/eclair/releases/tag/v0.14.3",
+          "author": "ACINQ"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.bolt-specifications",
+          "title": "Specifiche BOLT"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.ldk",
+      "slug": "ldk",
+      "language": "it",
+      "name": "Lightning Dev Kit (LDK)",
+      "summary": "LDK, o Lightning Dev Kit, è un'implementazione della Lightning Network distribuita come kit di sviluppo software con doppia licenza MIT e Apache 2.0.",
+      "bodyMarkdown": "LDK, abbreviazione di Lightning Dev Kit, è un'implementazione della Lightning Network distribuita come kit di sviluppo software. È sviluppato dai contributori di LDK e pubblicato come open source. Il README indica che la licenza è Apache-2.0 oppure MIT, a scelta dell'utente, e i file di entrambe le licenze sono nel repository.\n\nIl progetto descrive LDK come un'API nativa multilingua. Le sue componenti coprono aree come la persistenza, la rete, la fonte dei dati della blockchain, l'instradamento e la gestione delle chiavi, che un'applicazione può configurare in base alle proprie esigenze. Il sito ufficiale indica che può far funzionare un nodo Lightning su dispositivi mobili, web, moduli di sicurezza hardware, infrastrutture di fornitori di servizi o server esistenti.\n\nChi costruisce un prodotto con LDK assembla il nodo a partire da queste componenti, quindi il comportamento del prodotto finale dipende dalle scelte di quel team su archiviazione, backup e gestione delle chiavi. La documentazione tratta come argomenti separati i dati della blockchain, la gestione delle chiavi, la stima delle commissioni e la ricerca dei percorsi. La pagina di sicurezza del repository non elenca avvisi pubblicati al momento della verifica.",
+      "category": "software",
+      "subcategory": "lightning",
+      "maker": "LDK contributors",
+      "website": "https://lightningdevkit.org/",
+      "sourceUrl": "https://github.com/lightningdevkit/rust-lightning",
+      "openSource": true,
+      "license": "MIT OR Apache-2.0",
+      "platforms": [
+        "Mobile",
+        "Web",
+        "Server"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "LDK, a Lightning implementation packaged as an SDK",
+          "url": "https://lightningdevkit.org/",
+          "author": "LDK contributors"
+        },
+        {
+          "title": "rust-lightning, repository",
+          "url": "https://github.com/lightningdevkit/rust-lightning",
+          "author": "LDK contributors"
+        },
+        {
+          "title": "rust-lightning license (MIT)",
+          "url": "https://github.com/lightningdevkit/rust-lightning/blob/main/LICENSE-MIT",
+          "author": "LDK contributors"
+        },
+        {
+          "title": "rust-lightning license (Apache 2.0)",
+          "url": "https://github.com/lightningdevkit/rust-lightning/blob/main/LICENSE-APACHE",
+          "author": "LDK contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.bolt-specifications",
+          "title": "Specifiche BOLT"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.phoenix",
+      "slug": "phoenix",
+      "language": "it",
+      "name": "Phoenix",
+      "summary": "Phoenix è un portafoglio Lightning self-custodial per iOS e Android, sviluppato da ACINQ, con repository distribuito con licenza Apache 2.0.",
+      "bodyMarkdown": "Phoenix è un portafoglio Bitcoin sviluppato da ACINQ che permette di inviare e ricevere bitcoin sulla Lightning Network. Il README del repository indica che Phoenix è distribuito con licenza Apache 2.0. L'annuncio di ACINQ descrive il portafoglio come self-custodial.\n\nSecondo il materiale ufficiale, le chiavi sono dell'utente. Alla creazione del portafoglio l'app genera una frase di recupero di 12 parole, e il README indica che solo l'utente ne dispone. ACINQ gestisce il nodo del fornitore del portafoglio a cui l'app si collega. Nell'annuncio del 2023 ACINQ indica che ogni utente ha un unico canale dinamico con quel fornitore, ridimensionabile tramite splicing, e che il fornitore gestisce la liquidità in entrata e cerca percorsi di pagamento entro un budget di commissioni.\n\nPrima di affidarsi a Phoenix occorre sapere che la frase di recupero è l'unico backup, e il README indica che perderla significa perdere i fondi. Il nodo del fornitore è un servizio separato nel percorso dei pagamenti, quindi l'utente dipende dalla sua disponibilità pur mantenendo le chiavi. I termini di chiusura dei canali non sono trattati qui; vanno verificati nelle FAQ ufficiali.",
+      "category": "software",
+      "subcategory": "lightning",
+      "maker": "ACINQ",
+      "website": "https://phoenix.acinq.co",
+      "sourceUrl": "https://github.com/ACINQ/phoenix",
+      "openSource": true,
+      "license": "Apache-2.0",
+      "platforms": [
+        "iOS",
+        "Android"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Phoenix, official site",
+          "url": "https://phoenix.acinq.co",
+          "author": "ACINQ"
+        },
+        {
+          "title": "Phoenix, repository README",
+          "url": "https://github.com/ACINQ/phoenix/blob/master/README.md",
+          "author": "ACINQ"
+        },
+        {
+          "title": "Introducing the new Phoenix: a 3rd generation self-custodial Lightning wallet",
+          "url": "https://acinq.co/blog/phoenix-splicing-update",
+          "author": "ACINQ"
+        },
+        {
+          "title": "Phoenix Android release",
+          "url": "https://github.com/ACINQ/phoenix/releases/tag/android-v2.8.4",
+          "author": "ACINQ"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        },
+        {
+          "id": "wiki.lightning-service-providers",
+          "title": "Lightning Service Provider"
+        },
+        {
+          "id": "wiki.self-custody",
+          "title": "Custodia e self-custody"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.electrs",
+      "slug": "electrs",
+      "language": "it",
+      "name": "electrs",
+      "summary": "electrs è un server del protocollo Electrum scritto in Rust da Roman Zeyde e distribuito con licenza MIT.",
+      "bodyMarkdown": "electrs è una reimplementazione in Rust del server Electrum, scritta da Roman Zeyde. Il file LICENSE concede la licenza MIT. Il README dice che il progetto si ispira a ElectrumX, Electrum Personal Server e bitcoincore-indexd.\n\nIl progetto mantiene un indice sugli input e sugli output delle transazioni, così i portafogli possono interrogare i saldi in modo rapido. Usa un nodo completo locale per recuperare le transazioni, memorizza l'indice in un unico database RocksDB e dichiara il supporto al protocollo Electrum. Il README indica che è pensato per uso personale o su piccola scala e che il nodo Bitcoin non richiede un indice delle transazioni.\n\nUsare electrs significa gestire un server di indicizzazione accanto a un nodo completo Bitcoin. Il README indica che la prima indicizzazione di una catena grande richiede molto tempo, e che l'uso di CPU e memoria resta contenuto dopo quella fase. Un portafoglio che si collega a un server rivela all'operatore gli indirizzi che interroga, quindi un server gestito dall'utente mantiene queste richieste nella sua infrastruttura. La pagina di sicurezza del repository non elenca avvisi pubblicati al momento della verifica.",
+      "category": "software",
+      "subcategory": "servers",
+      "maker": "Roman Zeyde",
+      "website": "https://github.com/romanz/electrs",
+      "sourceUrl": "https://github.com/romanz/electrs",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Server (self-hosted)"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "electrs, an Electrum Server in Rust",
+          "url": "https://github.com/romanz/electrs",
+          "author": "Roman Zeyde"
+        },
+        {
+          "title": "electrs license",
+          "url": "https://github.com/romanz/electrs/blob/master/LICENSE",
+          "author": "Roman Zeyde"
+        },
+        {
+          "title": "electrs releases",
+          "url": "https://github.com/romanz/electrs/releases/tag/v0.12.0",
+          "author": "Roman Zeyde"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.server-software",
+          "title": "Server e infrastruttura"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.spv-and-pruning",
+          "title": "SPV e nodi pruned"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.fulcrum",
+      "slug": "fulcrum",
+      "language": "it",
+      "name": "Fulcrum",
+      "summary": "Fulcrum è un server del protocollo Electrum scritto in C++ da Calin Culianu e distribuito con licenza GPLv3.",
+      "bodyMarkdown": "Fulcrum è un server per il protocollo Electrum, scritto in C++ da Calin Culianu. Il README e il file LICENSE.txt del repository indicano la licenza GPLv3. Il README dice che il progetto supporta Bitcoin, Bitcoin Cash e Litecoin.\n\nIl README descrive Fulcrum come compatibile a livello di protocollo con il protocollo Electrum Cash e come sostituto di ElectrumX. Richiede un nodo completo supportato con il servizio JSON-RPC attivo, preferibilmente sulla stessa macchina. Il nodo deve avere txindex attivo e non deve essere un nodo con pruning. Il progetto dichiara di essere stato sviluppato e testato soprattutto su macOS, Windows e Linux.\n\nPrima di affidarsi a Fulcrum occorre sapere che il server non accetta connessioni dei client finché la sincronizzazione iniziale non è terminata, e che il suo comportamento dipende dalla configurazione del nodo a cui si collega. Pruning e indice delle transazioni di quel nodo sono decisioni dell'operatore. La pagina di sicurezza del repository non elenca avvisi pubblicati al momento della verifica.",
+      "category": "software",
+      "subcategory": "servers",
+      "maker": "Calin Culianu",
+      "website": "https://github.com/cculianu/Fulcrum",
+      "sourceUrl": "https://github.com/cculianu/Fulcrum",
+      "openSource": true,
+      "license": "GPLv3",
+      "platforms": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Fulcrum, repository",
+          "url": "https://github.com/cculianu/Fulcrum",
+          "author": "Calin Culianu"
+        },
+        {
+          "title": "Fulcrum license",
+          "url": "https://github.com/cculianu/Fulcrum/blob/master/LICENSE.txt",
+          "author": "Calin Culianu"
+        },
+        {
+          "title": "Fulcrum releases",
+          "url": "https://github.com/cculianu/Fulcrum/releases/tag/v2.1.3",
+          "author": "Calin Culianu"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.server-software",
+          "title": "Server e infrastruttura"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.spv-and-pruning",
+          "title": "SPV e nodi pruned"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.btcpay-server",
+      "slug": "btcpay-server",
+      "language": "it",
+      "name": "BTCPay Server",
+      "summary": "BTCPay Server è un processore di pagamenti bitcoin self-hosted e open source, che permette ai commercianti di accettare bitcoin direttamente, con licenza MIT.",
+      "bodyMarkdown": "BTCPay Server è un processore di pagamenti Bitcoin self-hosted sviluppato dal progetto BTCPay Server. Il suo README lo definisce un processore di pagamenti gratuito e open source, che permette ai commercianti di accettare bitcoin direttamente. Il file LICENSE del repository indica la licenza MIT.\n\nLa documentazione ufficiale descrive diversi metodi di installazione che usano tutti lo stesso software, tra cui l'esecuzione su un proprio server o l'uso di un host di terze parti. Le FAQ includono domande sull'installazione accanto a un nodo Bitcoin completo esistente e sull'attivazione o disattivazione del pruning del nodo, il che mostra che il servizio dipende dalla configurazione del nodo. La documentazione dichiara che le installazioni manuali non sono raccomandate per gli ambienti di produzione.\n\nPrima di affidarsi a BTCPay Server, un operatore deve sapere che il servizio poggia sul nodo, quindi la configurazione del nodo, il pruning e lo stato di sincronizzazione influiscono su ciò che il server può fare. L'operatore sceglie anche il metodo di installazione. La pagina di sicurezza del repository non elenca avvisi pubblicati al momento della verifica.",
+      "category": "software",
+      "subcategory": "servers",
+      "maker": "BTCPay Server developers",
+      "website": "https://btcpayserver.org/",
+      "sourceUrl": "https://github.com/btcpayserver/btcpayserver",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Linux",
+        "Docker"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "BTCPay Server, repository",
+          "url": "https://github.com/btcpayserver/btcpayserver",
+          "author": "BTCPay Server developers"
+        },
+        {
+          "title": "BTCPay Server license",
+          "url": "https://github.com/btcpayserver/btcpayserver/blob/master/LICENSE",
+          "author": "BTCPay Server developers"
+        },
+        {
+          "title": "Deploy and operate BTCPay Server",
+          "url": "https://docs.btcpayserver.org/Deployment/",
+          "author": "BTCPay Server contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.server-software",
+          "title": "Server e infrastruttura"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.umbrel",
+      "slug": "umbrel",
+      "language": "it",
+      "name": "Umbrel (umbrelOS)",
+      "summary": "Sistema operativo per server domestici che installa un nodo Bitcoin completo e un App Store su un piccolo computer.",
+      "bodyMarkdown": "umbrelOS è il sistema operativo di Umbrel, un'azienda che vende anche hardware. È source-available e non open source: il codice è pubblicato con la PolyForm Noncommercial License 1.0.0, che consente l'uso personale e nonprofit e chiede agli utenti commerciali di contattare l'azienda. Il file di licenza e il README riportano entrambi questa condizione.\n\nSecondo il README, umbrelOS funziona su macchine Intel e AMD, su Raspberry Pi 5 e in macchine virtuali. Le app opzionali arrivano dall'Umbrel App Store, i cui pacchetti nel repository umbrel-apps includono Bitcoin, Bitcoin Knots, Core Lightning ed ElectrumX.\n\nPrima di affidarsi al sistema va considerato che le app dello store vengono installate sulla stessa macchina del nodo, quindi il catalogo delle app e il canale di aggiornamento entrano nella valutazione di fiducia. La licenza limita anche l'uso commerciale, un aspetto rilevante per chi intende vendere sistemi con umbrelOS. Nel repository GitHub non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "node-systems",
+      "maker": "Umbrel",
+      "website": "https://umbrel.com",
+      "sourceUrl": "https://github.com/getumbrel/umbrel",
+      "openSource": false,
+      "license": "PolyForm Noncommercial License 1.0.0",
+      "platforms": [
+        "Intel and AMD computers",
+        "Raspberry Pi 5",
+        "Virtual machines"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "umbrel - umbrelOS repository README",
+          "url": "https://github.com/getumbrel/umbrel",
+          "author": "Umbrel"
+        },
+        {
+          "title": "umbrel - LICENSE.md",
+          "url": "https://github.com/getumbrel/umbrel/blob/master/LICENSE.md",
+          "author": "Umbrel"
+        },
+        {
+          "title": "umbrel-apps - Umbrel App Store packages",
+          "url": "https://github.com/getumbrel/umbrel-apps",
+          "author": "Umbrel"
+        },
+        {
+          "title": "Umbrel website",
+          "url": "https://umbrel.com",
+          "author": "Umbrel"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.node-operating-systems",
+          "title": "Sistemi per nodo domestico"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.node-software",
+          "title": "Software per nodi"
+        },
+        {
+          "id": "wiki.lightning-software",
+          "title": "Software Lightning"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.startos",
+      "slug": "startos",
+      "language": "it",
+      "name": "StartOS",
+      "summary": "Distribuzione Linux per server personali, con un sistema di pacchetti per i servizi self-hosted.",
+      "bodyMarkdown": "StartOS è una distribuzione Linux open source per server personali, sviluppata da Start9 Labs, Inc. Il codice è pubblicato nel monorepo start-technologies. La directory start-os non ha un file di licenza separato, e il file LICENSE del monorepo è la licenza MIT.\n\nSecondo il README del progetto, il sistema gestisce scoperta, installazione, configurazione di rete, backup dei dati, gestione delle dipendenze e monitoraggio dello stato dei servizi self-hosted. I servizi girano in container LXC isolati e sono impacchettati in file .s9pk firmati e con archivio merkle.\n\nI pacchetti arrivano da un marketplace, quindi la fiducia riposta in ciascun pacchetto e nel canale di aggiornamento conta quanto il sistema di base. La guida ai backup di StartOS dice che i backup sono cifrati con la master password, che i servizi possono escludere alcuni file e che, senza backup, i dati andranno prima o poi perduti. I backup restano responsabilità dell'utente. Nel monorepo non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "node-systems",
+      "maker": "Start9 Labs, Inc.",
+      "website": "https://start9.com",
+      "sourceUrl": "https://github.com/Start9Labs/start-technologies",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Linux, installed on own hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "start-technologies - StartOS README (projects/start-os)",
+          "url": "https://github.com/Start9Labs/start-technologies/blob/master/projects/start-os/README.md",
+          "author": "Start9 Labs"
+        },
+        {
+          "title": "start-technologies - LICENSE",
+          "url": "https://github.com/Start9Labs/start-technologies/blob/master/LICENSE",
+          "author": "Start9 Labs"
+        },
+        {
+          "title": "StartOS documentation - Creating Backups",
+          "url": "https://github.com/Start9Labs/start-technologies/blob/master/projects/start-os/docs/src/backup-create.md",
+          "author": "Start9 Labs"
+        },
+        {
+          "title": "Start9 website",
+          "url": "https://start9.com",
+          "author": "Start9 Labs"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.node-operating-systems",
+          "title": "Sistemi per nodo domestico"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.seed-backups",
+          "title": "Backup del seed"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.raspiblitz",
+      "slug": "raspiblitz",
+      "language": "it",
+      "name": "RaspiBlitz",
+      "summary": "Nodo Bitcoin e Lightning completo fai-da-te per Raspberry Pi, con display opzionale.",
+      "bodyMarkdown": "RaspiBlitz è un progetto fai-da-te che realizza un nodo Bitcoin e Lightning completo su Raspberry Pi, sviluppato dai RaspiBlitz developers. Il codice è pubblico con licenza MIT, come indicano il file LICENSE e il README del repository.\n\nIl README descrive script bash e Python che installano il software del nodo, con repository separati per l'interfaccia web e per l'API. Le piattaforme previste sono Raspberry Pi 4 e 5, e un display opzionale mostra la configurazione e il monitoraggio. Il progetto dichiara che il suo scopo principale è imparare a far girare un nodo da casa.\n\nPoiché gli script configurano l'intera macchina, chi la usa deve verificare cosa viene installato e conservare i propri backup. Il README rimanda a una politica di sicurezza nella documentazione. Nel repository non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "node-systems",
+      "maker": "RaspiBlitz developers",
+      "website": "https://raspiblitz.org",
+      "sourceUrl": "https://github.com/raspiblitz/raspiblitz",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Raspberry Pi 4",
+        "Raspberry Pi 5"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "raspiblitz - repository README",
+          "url": "https://github.com/raspiblitz/raspiblitz",
+          "author": "RaspiBlitz developers"
+        },
+        {
+          "title": "raspiblitz - LICENSE",
+          "url": "https://github.com/raspiblitz/raspiblitz/blob/master/LICENSE",
+          "author": "RaspiBlitz developers"
+        },
+        {
+          "title": "RaspiBlitz project website",
+          "url": "https://raspiblitz.org",
+          "author": "RaspiBlitz developers"
+        },
+        {
+          "title": "raspiblitz - releases",
+          "url": "https://github.com/raspiblitz/raspiblitz/releases",
+          "author": "RaspiBlitz developers"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.node-operating-systems",
+          "title": "Sistemi per nodo domestico"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.node-hardware",
+          "title": "Hardware per nodi"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.braiins-os",
+      "slug": "braiins-os",
+      "language": "it",
+      "name": "Braiins OS",
+      "summary": "Firmware alternativo per il mining di modelli Antminer supportati, con licenza proprietaria e codice di packaging in parte pubblico.",
+      "bodyMarkdown": "Braiins OS è un firmware per modelli Antminer supportati, realizzato da Braiins. Non è open source. Il firmware è distribuito con la Braiins OS License Agreement, che concede un diritto d'uso limitato e non esclusivo e stabilisce che Braiins non fornisce il codice sorgente nell'ambito di quell'accordo. Braiins afferma anche che può esistere un'edizione Community con funzionalità limitate, rilasciata sotto GPL-3.0 o un'altra licenza open source.\n\nSecondo la documentazione Braiins, il firmware gira sull'hardware di mining e include l'autotuning. La licenza ha una durata di un mese, si rinnova automaticamente e prevede una commissione per lo sviluppo pari al 2-2,5 per cento della potenza di hash. Se un dispositivo non riesce a raggiungere il license server, l'accordo prevede che operi al 95 per cento della propria potenza di calcolo finché la verifica non riesce.\n\nLe parti pubbliche sono gli script di build GPL-3.0 nel repository bos-build e i file di packaging in bos-packages. Il pacchetto bosminer in bos-packages prende il binario da un percorso configurato e non lo compila, quindi il binario del firmware non è costruito da sorgenti pubbliche. I repository bos-packages e bos-plus-api non riportano alcun security advisory pubblicato al momento della verifica per questa scheda.",
+      "category": "software",
+      "subcategory": "mining-software",
+      "maker": "Braiins Systems s.r.o.",
+      "website": "https://braiins.com/os-firmware",
+      "openSource": false,
+      "license": "Braiins OS License Agreement",
+      "platforms": [
+        "Supported Antminer miners"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Braiins OS Firmware - License Information and License Agreement",
+          "url": "https://braiins.com/os/plus/license",
+          "author": "Braiins Systems s.r.o."
+        },
+        {
+          "title": "Braiins OS Firmware page",
+          "url": "https://braiins.com/os-firmware",
+          "author": "Braiins Systems s.r.o."
+        },
+        {
+          "title": "braiins/bos-plus-api - Braiins OS Public API",
+          "url": "https://github.com/braiins/bos-plus-api",
+          "author": "Braiins"
+        },
+        {
+          "title": "braiins/bos-packages - OpenWrt feed for Braiins OS",
+          "url": "https://github.com/braiins/bos-packages",
+          "author": "Braiins"
+        },
+        {
+          "title": "braiins/bos-build - Braiins OS build system",
+          "url": "https://github.com/braiins/bos-build",
+          "author": "Braiins"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining-software",
+          "title": "Software di mining"
+        },
+        {
+          "id": "wiki.mining-hardware",
+          "title": "Hardware di mining"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining pool"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.stratum-v2-reference-implementation",
+      "slug": "stratum-v2-reference-implementation",
+      "language": "it",
+      "name": "Stratum V2 Reference Implementation (SRI)",
+      "summary": "Codice di riferimento open source in Rust per il protocollo di mining Stratum V2, con applicazioni per pool e miner.",
+      "bodyMarkdown": "Lo Stratum V2 Reference Implementation, detto SRI, è un progetto open source che implementa il protocollo di mining Stratum V2 in Rust. Il codice è distribuito con doppia licenza, Apache 2.0 o MIT, a scelta dell'utente. Le applicazioni si trovano nel repository sv2-apps e le librerie del protocollo nel repository stratum.\n\nLe applicazioni sono un server pool, un Job Declarator Server, un Job Declarator Client per i miner e un Translator Proxy che permette ai miner Stratum V1 di collegarsi a pool Stratum V2. Le librerie forniscono la connessione cifrata Noise, il framing dei messaggi e i codec usati dal protocollo.\n\nIl README di sv2-apps descrive le applicazioni come in fase alpha, quindi il codice può cambiare tra una release e l'altra. Il repository sv2-apps non riporta alcun security advisory pubblicato al momento della verifica per questa scheda.",
+      "category": "software",
+      "subcategory": "mining-software",
+      "maker": "SRI project",
+      "website": "https://stratumprotocol.org",
+      "sourceUrl": "https://github.com/stratum-mining/sv2-apps",
+      "openSource": true,
+      "license": "MIT OR Apache-2.0",
+      "platforms": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "stratum-mining/sv2-apps - repository README",
+          "url": "https://github.com/stratum-mining/sv2-apps",
+          "author": "SRI project"
+        },
+        {
+          "title": "stratum-mining/sv2-apps - LICENSE.md",
+          "url": "https://github.com/stratum-mining/sv2-apps/blob/main/LICENSE.md",
+          "author": "SRI project"
+        },
+        {
+          "title": "stratum-mining/stratum - protocol libraries README",
+          "url": "https://github.com/stratum-mining/stratum",
+          "author": "SRI project"
+        },
+        {
+          "title": "Stratum V2 project website",
+          "url": "https://stratumprotocol.org",
+          "author": "SRI project"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining-software",
+          "title": "Software di mining"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining pool"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.datum",
+      "slug": "datum",
+      "language": "it",
+      "name": "DATUM Gateway",
+      "summary": "Gateway che costruisce i template dei blocchi da un nodo Bitcoin locale e collega i miner alle pool DATUM.",
+      "bodyMarkdown": "DATUM Gateway è un software open source realizzato da Bitcoin Ocean, LLC e distribuito con licenza MIT. Il file di licenza concede il codice a quei termini ma esclude ogni diritto di usare il marchio DATUM o i marchi di Bitcoin OCEAN, LLC e degli altri contributori. Secondo il README, il gateway gira su sistemi Linux a 64 bit AMD o Intel.\n\nIl gateway chiede i template dei blocchi a un nodo Bitcoin locale tramite RPC, e il nodo deve supportare getblocktemplate. Serve l'hardware di mining con Stratum V1 e version rolling, e si collega a una pool compatibile con DATUM tramite il protocollo DATUM cifrato. Il README dice che la pool coordina la ripartizione della ricompensa ma non crea il lavoro per il miner.\n\nIl README afferma che il protocollo è ancora in evoluzione e che la sua specifica sarà pubblicata altrove. Dice anche che la pool attuale valida i blocchi mentre il protocollo è in test, e raccomanda Bitcoin Knots come nodo, perché Bitcoin Core offre opzioni limitate di controllo dei template. Nel repository non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "mining-software",
+      "maker": "Bitcoin Ocean, LLC",
+      "website": "https://ocean.xyz",
+      "sourceUrl": "https://github.com/OCEAN-xyz/datum_gateway",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Linux on 64-bit AMD or Intel systems"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "OCEAN-xyz/datum_gateway - repository README",
+          "url": "https://github.com/OCEAN-xyz/datum_gateway",
+          "author": "Bitcoin Ocean, LLC"
+        },
+        {
+          "title": "OCEAN-xyz/datum_gateway - LICENSE",
+          "url": "https://github.com/OCEAN-xyz/datum_gateway/blob/master/LICENSE",
+          "author": "Bitcoin Ocean, LLC"
+        },
+        {
+          "title": "Bitcoin OCEAN website",
+          "url": "https://ocean.xyz",
+          "author": "Bitcoin Ocean, LLC"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining-software",
+          "title": "Software di mining"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining pool"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.bdk",
+      "slug": "bdk",
+      "language": "it",
+      "name": "Bitcoin Dev Kit (BDK)",
+      "summary": "Librerie Rust per costruire wallet e applicazioni Bitcoin basati su descrittori.",
+      "bodyMarkdown": "Il Bitcoin Dev Kit è una suite di librerie Rust open source per wallet Bitcoin basati su descrittori, sviluppate dai Bitcoin Dev Kit contributors. Il codice è distribuito con doppia licenza, MIT o Apache-2.0, a scelta dell'utente. Le librerie sono costruite su rust-bitcoin e rust-miniscript.\n\nIl repository contiene crate per le strutture dati della catena, per la logica del wallet e per le fonti dei dati di catena. I dati possono arrivare da un server Esplora, da un server Electrum o da un nodo Bitcoin Core tramite RPC, e il wallet segue gli script definiti dai descrittori di output.\n\nUna libreria non decide come vengono conservate le chiavi né quale backend di catena considerare affidabile. L'applicazione che usa BDK sceglie il backend, gestisce il seed e decide cosa vede l'utente. Il README descrive i componenti come revisionati, ed è una dichiarazione del progetto stesso. Nel repository non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "developer-tools",
+      "maker": "Bitcoin Dev Kit contributors",
+      "website": "https://bitcoindevkit.org",
+      "sourceUrl": "https://github.com/bitcoindevkit/bdk",
+      "openSource": true,
+      "license": "MIT OR Apache-2.0",
+      "platforms": [
+        "Cross-platform library"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "bitcoindevkit/bdk - repository README",
+          "url": "https://github.com/bitcoindevkit/bdk",
+          "author": "Bitcoin Dev Kit contributors"
+        },
+        {
+          "title": "bitcoindevkit/bdk - LICENSE-MIT",
+          "url": "https://github.com/bitcoindevkit/bdk/blob/master/LICENSE-MIT",
+          "author": "Bitcoin Dev Kit contributors"
+        },
+        {
+          "title": "Bitcoin Dev Kit website",
+          "url": "https://bitcoindevkit.org",
+          "author": "Bitcoin Dev Kit contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.developer-tools",
+          "title": "Librerie e strumenti per sviluppatori"
+        },
+        {
+          "id": "wiki.output-descriptors",
+          "title": "Output descriptor"
+        },
+        {
+          "id": "wiki.software-wallets",
+          "title": "Software wallet"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.rust-bitcoin",
+      "slug": "rust-bitcoin",
+      "language": "it",
+      "name": "rust-bitcoin",
+      "summary": "Libreria Rust per codifica del protocollo Bitcoin, script, chiavi e transazioni.",
+      "bodyMarkdown": "rust-bitcoin è una libreria Rust realizzata dai suoi contributori e distribuita con licenza Creative Commons CC0 1.0 Universal. Copre i dati del protocollo Bitcoin, inclusi messaggi di rete, blocchi, transazioni, script, chiavi e indirizzi.\n\nIl README elenca le funzioni che la libreria supporta o dovrebbe supportare: serializzazione e deserializzazione di messaggi di rete, blocchi, transazioni e script, oltre a chiavi private e indirizzi con supporto completo a BIP 32. Per le chiamate JSON-RPC a Bitcoin Core consiglia il crate separato corepc-client, e raccomanda di verificare ogni dipendenza con cargo-crev.\n\nIl README afferma che la libreria non deve essere usata per il codice di consenso, cioè per la validazione completa dei dati della blockchain. Dichiara che farlo è tecnicamente possibile ma sconsigliato, perché esistono numerose differenze, note e ignote, rispetto all'implementazione di riferimento Bitcoin Core. Nel repository non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "developer-tools",
+      "maker": "rust-bitcoin contributors",
+      "website": "https://rust-bitcoin.org",
+      "sourceUrl": "https://github.com/rust-bitcoin/rust-bitcoin",
+      "openSource": true,
+      "license": "CC0-1.0",
+      "platforms": [
+        "Rust library"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "rust-bitcoin - repository README",
+          "url": "https://github.com/rust-bitcoin/rust-bitcoin",
+          "author": "rust-bitcoin contributors"
+        },
+        {
+          "title": "rust-bitcoin - LICENSE",
+          "url": "https://github.com/rust-bitcoin/rust-bitcoin/blob/master/LICENSE",
+          "author": "rust-bitcoin contributors"
+        },
+        {
+          "title": "rust-bitcoin website",
+          "url": "https://rust-bitcoin.org",
+          "author": "rust-bitcoin contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.developer-tools",
+          "title": "Librerie e strumenti per sviluppatori"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.bitcoinjs-lib",
+      "slug": "bitcoinjs-lib",
+      "language": "it",
+      "name": "bitcoinjs-lib",
+      "summary": "Libreria JavaScript e TypeScript per costruire transazioni, script e indirizzi Bitcoin in Node.js e nei browser.",
+      "bodyMarkdown": "bitcoinjs-lib è una libreria Bitcoin per Node.js e browser, scritta in TypeScript e sviluppata dai bitcoinjs-lib contributors. Il codice è pubblico con licenza MIT, come indica il file LICENSE.\n\nLa libreria fornisce blocchi di base per transazioni, Partially Signed Bitcoin Transactions, script di output standard e indirizzi. Secondo il README le classi per la gestione delle chiavi sono state spostate in pacchetti separati, e un'interfaccia web copre gran parte delle API delle transazioni e dei PSBT.\n\nIl README afferma che solo le release con tag sono stabili e che il branch master è un ramo di sviluppo, quindi chi usa la libreria in produzione dovrebbe affidarsi alle release con tag. Raccomanda anche di verificare la libreria e tutte le sue dipendenze prima dell'uso. Nel repository non risulta alcun security advisory pubblicato.",
+      "category": "software",
+      "subcategory": "developer-tools",
+      "maker": "bitcoinjs-lib contributors",
+      "website": "https://bitcoinjs.org",
+      "sourceUrl": "https://github.com/bitcoinjs/bitcoinjs-lib",
+      "openSource": true,
+      "license": "MIT",
+      "platforms": [
+        "Node.js",
+        "Web browsers"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "bitcoinjs/bitcoinjs-lib - repository README",
+          "url": "https://github.com/bitcoinjs/bitcoinjs-lib",
+          "author": "bitcoinjs-lib contributors"
+        },
+        {
+          "title": "bitcoinjs/bitcoinjs-lib - LICENSE",
+          "url": "https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/LICENSE",
+          "author": "bitcoinjs-lib contributors"
+        },
+        {
+          "title": "bitcoinjs website",
+          "url": "https://bitcoinjs.org",
+          "author": "bitcoinjs-lib contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.developer-tools",
+          "title": "Librerie e strumenti per sviluppatori"
+        },
+        {
+          "id": "wiki.psbt",
+          "title": "Transazioni parzialmente firmate (PSBT)"
+        },
+        {
+          "id": "wiki.bitcoin-script",
+          "title": "Bitcoin Script"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.trezor",
+      "slug": "trezor",
+      "language": "it",
+      "name": "Trezor",
+      "summary": "Trezor è una famiglia di hardware wallet di SatoshiLabs il cui firmware è open source, mentre l'app complementare Trezor Suite non lo è.",
+      "bodyMarkdown": "Trezor è una famiglia di hardware wallet prodotta da SatoshiLabs. Il firmware è open source, altre parti no. Il firmware è pubblicato nel repository trezor-firmware con licenze GPLv3 e LGPLv3, con alcune parti della libreria crittografica sotto licenza MIT. L'app complementare Trezor Suite è distribuita con la Trezor Reference Source License, che consente solo l'uso di riferimento. Il repository non contiene file di progettazione hardware.\n\nSecondo il documento di architettura di Trezor, i modelli Safe 3, Safe 5 e Safe 7 usano microcontrollori STM32U5 e chip secure element esterni di Optiga, con l'aggiunta di un chip Tropic nel Safe 7. I secure element ricavano le chiavi da segreti memorizzati al loro interno durante la produzione e verificano che il firmware sia autentico. Il codice interno dei chip non fa parte del repository.\n\nLimiti: l'app complementare non è open source, e la fiducia dipende dalla verifica di avvio, dall'attestazione e dal codice dei secure element, che il repository non mostra. Il documento copre solo in parte il Model T. Il repository non mostra avvisi di sicurezza pubblicati.",
+      "category": "hardware",
+      "subcategory": "hardware-wallets",
+      "maker": "SatoshiLabs",
+      "website": "https://trezor.io/",
+      "sourceUrl": "https://github.com/trezor/trezor-firmware",
+      "openSource": true,
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Trezor firmware LICENSE.md",
+          "url": "https://github.com/trezor/trezor-firmware/blob/main/LICENSE.md",
+          "author": "SatoshiLabs"
+        },
+        {
+          "title": "Trezor firmware architecture (embedded)",
+          "url": "https://github.com/trezor/trezor-firmware/blob/main/docs/core/embed-arch/embed-arch.md",
+          "author": "SatoshiLabs"
+        },
+        {
+          "title": "Trezor Suite LICENSE.md",
+          "url": "https://github.com/trezor/trezor-suite/blob/develop/LICENSE.md",
+          "author": "SatoshiLabs"
+        },
+        {
+          "title": "Trezor Core firmware changelog",
+          "url": "https://github.com/trezor/trezor-firmware/blob/main/core/CHANGELOG.md",
+          "author": "SatoshiLabs"
+        },
+        {
+          "title": "Trezor documentation",
+          "url": "https://docs.trezor.io/",
+          "author": "SatoshiLabs"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.multisig",
+          "title": "Multifirma"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "license": "GPL-3.0"
+    },
+    {
+      "id": "product.ledger",
+      "slug": "ledger",
+      "language": "it",
+      "name": "Ledger",
+      "summary": "Ledger è una famiglia di hardware wallet le cui app wallet e Bitcoin sono open source, mentre il sistema operativo è pubblicato solo in parte.",
+      "bodyMarkdown": "Ledger è una famiglia di hardware wallet prodotta da Ledger SAS e non è interamente open source. L'app Ledger Wallet è open source con licenza MIT, e l'applicazione Bitcoin con licenza Apache License 2.0. Il sistema operativo è verificabile solo in parte: sono pubblicati i punti di ingresso di Ledger Recover e l'SDK sicuro, ma non il codice di basso livello del Secure Element, per un accordo con STMicroelectronics.\n\nLedger dichiara che i dispositivi firmano le transazioni offline e che un laboratorio di terze parti verifica il sistema operativo prima di ogni rilascio. Ledger Recover è un abbonamento facoltativo. Secondo Ledger, una versione pre-BIP39 della chiave privata viene cifrata e divisa in tre frammenti, custoditi da tre società diverse (Coincover, Ledger ed EscrowTech), e per ripristinare l'accesso ne servono due su tre.\n\nLimiti: le parti chiuse del sistema operativo non si possono verificare completamente dall'esterno, e gli utenti si affidano al controllo di autenticità e alle verifiche di Ledger. Il servizio aggiunge la dipendenza da tre società e dai termini dell'abbonamento. I repository non mostrano avvisi di sicurezza pubblicati.",
+      "category": "hardware",
+      "subcategory": "hardware-wallets",
+      "maker": "Ledger SAS",
+      "website": "https://www.ledger.com/",
+      "sourceUrl": "https://github.com/LedgerHQ",
+      "openSource": false,
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Is Ledger open source?",
+          "url": "https://www.ledger.com/academy/topics/security/is-ledger-open-source",
+          "author": "Ledger"
+        },
+        {
+          "title": "Ledger Recover",
+          "url": "https://www.ledger.com/ledger-recover",
+          "author": "Ledger"
+        },
+        {
+          "title": "Ledger Live LICENSE.txt",
+          "url": "https://github.com/LedgerHQ/ledger-live/blob/develop/LICENSE.txt",
+          "author": "Ledger"
+        },
+        {
+          "title": "Ledger Bitcoin application LICENSE",
+          "url": "https://github.com/LedgerHQ/app-bitcoin/blob/develop/LICENSE",
+          "author": "Ledger"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.seed-backups",
+          "title": "Backup del seed"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.coldcard",
+      "slug": "coldcard",
+      "language": "it",
+      "name": "COLDCARD",
+      "summary": "COLDCARD è una famiglia di hardware wallet di Coinkite il cui firmware è pubblicato con una licenza con restrizione Commons Clause.",
+      "bodyMarkdown": "COLDCARD è una famiglia di hardware wallet prodotta da Coinkite Inc. È source-available, non open source: i file di firmware e hardware del repository sono distribuiti con licenza MIT con la Commons Clause License Condition v1.0, che esclude la vendita del software o di prodotti che ne derivano in modo sostanziale.\n\nI segreti vengono generati sul dispositivo, e il README descrive le build riproducibili: il codice con tag viene ricompilato con Docker e confrontato con il binario installato. Il changelog indica NFC, QR e microSD come canali di ingresso.\n\nIl README si apre con un avviso di sicurezza di Coinkite. Indica che le versioni dal 2021 a luglio 2026 contenevano un bug che produceva entropia debole. I segreti generati su un COLDCARD in quel periodo devono essere rigenerati e i fondi spostati on-chain immediatamente. L'avviso dice che i master seed sono sicuri solo se generati con firmware successivi a 5.6.0 (Mk4 e Mk5), 1.5.0Q (Q1), 4.2.0 (Mk3) e 6.6.0 (Edge Mk ed Edge Q). Segnala inoltre che una passphrase BIP-39 riduce in parte il rischio.",
+      "category": "hardware",
+      "subcategory": "hardware-wallets",
+      "maker": "Coinkite Inc.",
+      "website": "https://coldcard.com/",
+      "sourceUrl": "https://github.com/Coldcard/firmware",
+      "openSource": false,
+      "license": "MIT with Commons Clause License Condition v1.0",
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "COLDCARD firmware README (security advisory)",
+          "url": "https://github.com/Coldcard/firmware/blob/master/README.md",
+          "author": "Coinkite"
+        },
+        {
+          "title": "COLDCARD firmware LICENSE",
+          "url": "https://github.com/Coldcard/firmware/blob/master/LICENSE",
+          "author": "Coinkite"
+        },
+        {
+          "title": "COLDCARD firmware changelog",
+          "url": "https://github.com/Coldcard/firmware/blob/master/releases/ChangeLog.md",
+          "author": "Coinkite"
+        },
+        {
+          "title": "Coinkite blog: COLDCARD Mk3 seed generation warning",
+          "url": "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+          "author": "Coinkite"
+        },
+        {
+          "title": "Coinkite blog: entropy technical backgrounder",
+          "url": "https://blog.coinkite.com/entropy-technical-backgrounder/",
+          "author": "Coinkite"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Chiavi Private"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.bitbox02",
+      "slug": "bitbox02",
+      "language": "it",
+      "name": "BitBox02",
+      "summary": "BitBox02 è una famiglia di hardware wallet di Shift Crypto il cui firmware e bootloader sono pubblicati con licenza Apache 2.0.",
+      "bodyMarkdown": "BitBox02 è una famiglia di hardware wallet prodotta da Shift Crypto AG in Svizzera. Firmware e bootloader sono pubblicati nel repository bitbox02-firmware con licenza Apache License 2.0. Il repository collega schemi elettrici e distinta base in PDF, che non indicano alcuna licenza, e il chip secure element è un componente di terze parti il cui codice non è nel repository, quindi il dispositivo non è interamente open source.\n\nIl microcontrollore gestisce la comunicazione USB con la BitBoxApp, i cursori touch e il display, e dialoga con il secure element ATECC608B. Il firmware crea un seed da più fonti di entropia, importa mnemoniche BIP39 da 12, 18 o 24 parole, esegue il backup su microSD o a schermo, e firma ogni input solo dopo la conferma di indirizzo, importo e commissione.\n\nLimiti: la BitBoxApp e le integrazioni di terze parti tramite API incidono ancora su ciò che viene inviato al dispositivo. Gli aggiornamenti del firmware si installano tramite l'app o uno script Python. Il repository non mostra avvisi di sicurezza pubblicati.",
+      "category": "hardware",
+      "subcategory": "hardware-wallets",
+      "maker": "Shift Crypto AG",
+      "website": "https://bitbox.swiss/",
+      "sourceUrl": "https://github.com/BitBoxSwiss/bitbox02-firmware",
+      "openSource": true,
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "bitbox02-firmware repository",
+          "url": "https://github.com/BitBoxSwiss/bitbox02-firmware",
+          "author": "Shift Crypto"
+        },
+        {
+          "title": "bitbox02-firmware LICENSE",
+          "url": "https://github.com/BitBoxSwiss/bitbox02-firmware/blob/master/LICENSE",
+          "author": "Shift Crypto"
+        },
+        {
+          "title": "bitbox02-firmware README",
+          "url": "https://github.com/BitBoxSwiss/bitbox02-firmware/blob/master/README.md",
+          "author": "Shift Crypto"
+        },
+        {
+          "title": "bitbox02-firmware releases",
+          "url": "https://github.com/BitBoxSwiss/bitbox02-firmware/releases",
+          "author": "Shift Crypto"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.hd-wallets",
+          "title": "Wallet HD Gerarchici Deterministici"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "product.jade",
+      "slug": "jade",
+      "language": "it",
+      "name": "Blockstream Jade",
+      "summary": "Blockstream Jade è una famiglia di hardware wallet di Blockstream il cui firmware è pubblicato con licenza MIT.",
+      "bodyMarkdown": "Blockstream Jade è una famiglia di hardware wallet prodotta da Blockstream Corporation. Il firmware è open source ed è pubblicato nel repository Jade con licenza MIT, insieme alle note sulle build riproducibili. Schemi elettrici, distinte base e file PCB delle schede originali e successive si trovano nelle cartelle hardware, che non indicano una licenza propria. L'app companion non fa parte di questo repository.\n\nIl firmware è destinato ai chip ESP32 ed ESP32-S3 e si compila con la toolchain ESP-IDF di Espressif. I dispositivi ufficiali si collegano via USB e si aggiornano solo tramite un'app companion supportata o con le istruzioni documentate. La guida DIY descrive altre schede ESP32, che possono usare secure boot e cifratura della flash, e sconsiglia di caricarvi il firmware ufficiale.\n\nLimiti: le note sulle build riproducibili avvertono che gli artefatti compilati non vanno caricati sui dispositivi ufficiali, un'operazione irreversibile che brucia le efuse e può rendere il dispositivo inutilizzabile. La voce del changelog datata 22 agosto 2026 dichiara che la release contiene importanti aggiornamenti di sicurezza e invita tutti gli utenti ad aggiornare.",
+      "category": "hardware",
+      "subcategory": "hardware-wallets",
+      "maker": "Blockstream",
+      "website": "https://blockstream.com/jade/",
+      "sourceUrl": "https://github.com/Blockstream/Jade",
+      "openSource": true,
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "Jade firmware README",
+          "url": "https://github.com/Blockstream/Jade/blob/master/README.md",
+          "author": "Blockstream"
+        },
+        {
+          "title": "Jade firmware LICENSE",
+          "url": "https://github.com/Blockstream/Jade/blob/master/LICENSE",
+          "author": "Blockstream"
+        },
+        {
+          "title": "Jade firmware changelog",
+          "url": "https://github.com/Blockstream/Jade/blob/master/CHANGELOG.md",
+          "author": "Blockstream"
+        },
+        {
+          "title": "Blockstream Jade",
+          "url": "https://blockstream.com/jade/",
+          "author": "Blockstream"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.hardware-wallets",
+          "title": "Hardware wallet"
+        },
+        {
+          "id": "wiki.wallet-seeds",
+          "title": "Seed di Wallet"
+        },
+        {
+          "id": "wiki.private-keys",
+          "title": "Chiavi Private"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "license": "MIT"
+    },
+    {
+      "id": "product.whatsminer-m-series",
+      "slug": "whatsminer-m-series",
+      "language": "it",
+      "name": "Whatsminer M series",
+      "summary": "La serie Whatsminer M è una linea closed source di macchine ASIC per il mining di Bitcoin prodotte da MicroBT.",
+      "bodyMarkdown": "La serie Whatsminer M è closed source. È una linea di macchine ASIC per il mining di Bitcoin, venduta da MicroBT con il marchio WhatsMiner, e la pagina prodotti ufficiale elenca modelli della serie M come M30S+, M50 e M70S. La pagina include un filtro di raffreddamento con l'opzione a immersione, e le pagine ufficiali consultate non rimandano ad alcun repository di codice sorgente.\n\nLe macchine usano firmware fornito dal produttore. La pagina ufficiale di download offre i file firmware Whatsminer insieme a uno strumento abbinato e alla documentazione. Avverte di non effettuare il rollback a una versione precedente del firmware e indica che un dispositivo già con una versione più recente non va aggiornato con un file più vecchio.\n\nLimiti: i proprietari dipendono da MicroBT per file firmware, strumenti e riparazioni, e il codice sorgente del firmware non è pubblicato, quindi il suo comportamento non può essere verificato dall'esterno. Nessun avviso di sicurezza per questa linea compare nelle pagine ufficiali.",
+      "category": "hardware",
+      "subcategory": "mining-hardware",
+      "maker": "MicroBT",
+      "website": "https://www.whatsminer.com/",
+      "openSource": false,
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "WhatsMiner products",
+          "url": "https://www.whatsminer.com/src/views/products.html",
+          "author": "MicroBT"
+        },
+        {
+          "title": "WhatsMiner firmware download",
+          "url": "https://www.whatsminer.com/src/views/firmware-download.html",
+          "author": "MicroBT"
+        },
+        {
+          "title": "WhatsMiner official website",
+          "url": "https://www.whatsminer.com/",
+          "author": "MicroBT"
+        },
+        {
+          "title": "MicroBT",
+          "url": "https://www.microbt.com/",
+          "author": "MicroBT"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining-hardware",
+          "title": "Hardware di mining"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining pool"
+        },
+        {
+          "id": "wiki.mining-energy-economics",
+          "title": "Economia Energetica del Mining"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "product.bitaxe",
+      "slug": "bitaxe",
+      "language": "it",
+      "name": "Bitaxe",
+      "summary": "Bitaxe è una famiglia di schede open source per il mining di Bitcoin, con firmware GPL-3.0 e progetti hardware CERN-OHL-S-2.0.",
+      "bodyMarkdown": "Bitaxe è una famiglia di schede open source per il mining di Bitcoin, mantenuta da OSMU. Il firmware ESP-Miner per il controller ESP32 è rilasciato con la GNU General Public License v3.0. I repository dei progetti hardware, come bitaxeGamma, sono rilasciati con la CERN Open Hardware Licence Version 2 - Strongly Reciprocal, come indicano i loro file LICENSE.\n\nIl firmware esegue sulla scheda l'interfaccia web AxeOS ed espone un'API HTTP per informazioni di sistema, impostazioni ASIC, scansioni Wi-Fi e aggiornamenti. Il lavoro viene inviato a un pool Stratum V1 che il proprietario configura tramite API, mentre le immagini di fabbrica o i file di configurazione si caricano con il programma a riga di comando bitaxetool.\n\nLimiti: il proprietario sceglie pool e impostazioni del firmware, e il firmware decide dove va il lavoro di hashing, quindi le build personalizzate e la scelta del pool vanno verificate. Il repository non mostra avvisi di sicurezza pubblicati. I repository hardware sono progetti separati per disegni di scheda diversi, quindi ogni file di progetto vale solo per la scheda che descrive.",
+      "category": "hardware",
+      "subcategory": "mining-hardware",
+      "maker": "OSMU",
+      "website": "https://bitaxe.org/",
+      "sourceUrl": "https://github.com/bitaxeorg/ESP-Miner",
+      "openSource": true,
+      "license": "GPL-3.0",
+      "platforms": [
+        "Dispositivo hardware"
+      ],
+      "status": "active",
+      "reviewedAt": "2026-10-13",
+      "sources": [
+        {
+          "title": "ESP-Miner repository",
+          "url": "https://github.com/bitaxeorg/ESP-Miner",
+          "author": "OSMU"
+        },
+        {
+          "title": "ESP-Miner LICENSE",
+          "url": "https://github.com/bitaxeorg/ESP-Miner/blob/master/LICENSE",
+          "author": "OSMU"
+        },
+        {
+          "title": "bitaxeGamma hardware LICENSE",
+          "url": "https://github.com/bitaxeorg/bitaxeGamma/blob/master/LICENSE",
+          "author": "OSMU"
+        },
+        {
+          "title": "ESP-Miner releases",
+          "url": "https://github.com/bitaxeorg/ESP-Miner/releases/latest",
+          "author": "OSMU"
+        },
+        {
+          "title": "Bitaxe",
+          "url": "https://bitaxe.org/",
+          "author": "OSMU"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining-hardware",
+          "title": "Hardware di mining"
+        },
+        {
+          "id": "wiki.mining-software",
+          "title": "Software di mining"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining pool"
         }
       ],
       "updatedAt": "2026-10-13T00:00:00Z"

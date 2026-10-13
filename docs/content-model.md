@@ -504,7 +504,7 @@ Software o hardware descritto per la sezione prodotti. `reviewedAt` e obbligator
 | `maker` | si | stringa non vuota |
 | `website` | si | URI assoluto; il validatore richiede `http` o `https` |
 | `sourceUrl` | no | URI assoluto; il validatore richiede `http` o `https` |
-| `openSource` | si | booleano |
+| `openSource` | si | booleano. Per il software: il codice del prodotto è pubblico con una licenza open source. Per l'hardware: lo è il firmware del dispositivo; schemi, secure element e app collegate si descrivono nel testo |
 | `license` | no | stringa |
 | `platforms` | no | lista di stringhe |
 | `status` | si | `active` o `discontinued`; un altro valore fa saltare il record con warning |
