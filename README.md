@@ -1,236 +1,159 @@
+<div align="center">
+
+<img src="assets/branding/logo.png" alt="SatoWiki logo" width="120">
+
 # SatoWiki
 
-The Orange Book of Bitcoin.
+**The Orange Book of Bitcoin.**
 
-SatoWiki e un'app Flutter open source per enciclopedia, news, storia e tracking tecnico dell'ecosistema Bitcoin. Il prodotto e descritto in `docs/SatoWiki_PRD.md` e il design brief in `docs/SatoWiki_DesignBrief.md`. I token del tema derivano da esportazioni Stitch che non sono piu nel repository: la fonte di verita per tema e regole UI sono `docs/design-system.md` e `lib/src/core/theme/`.
+An open-source, offline-first Bitcoin encyclopedia for iOS and Android:<br>
+wiki, history timeline, BIP tracker and Bitcoin Core release notes, in English and Italian.
 
-## Setup
+[![Flutter CI](https://github.com/Dado-hash/Sato-Wiki/actions/workflows/flutter.yml/badge.svg)](https://github.com/Dado-hash/Sato-Wiki/actions/workflows/flutter.yml)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-f7931a.svg)](LICENSE)
+[![Content: CC BY-SA 4.0](https://img.shields.io/badge/content-CC%20BY--SA%204.0-f7931a.svg)](LICENSE-CONTENT)
+![Flutter 3.32](https://img.shields.io/badge/Flutter-3.32-02569B.svg?logo=flutter)
+![Platforms: iOS and Android](https://img.shields.io/badge/platforms-iOS%20%7C%20Android-lightgrey.svg)
 
-Questa repo e stata inizializzata come applicazione Flutter per iOS e Android.
+[Features](#features) ·
+[Screenshots](#screenshots) ·
+[Getting started](#getting-started) ·
+[How content works](#how-content-works) ·
+[Contributing](#contributing)
 
-```bash
-/Users/davide/development/flutter/bin/flutter pub get
-/Users/davide/development/flutter/bin/flutter run
-```
+<br>
 
-## Qualita e contenuti
+<img src="docs/screenshots/today.png" alt="Today tab with continue reading and featured entries" width="19%">
+<img src="docs/screenshots/wiki.png" alt="Wiki tab with reading level and categories" width="19%">
+<img src="docs/screenshots/wiki-entry.png" alt="Proof of Work wiki entry at the Medium reading level" width="19%">
+<img src="docs/screenshots/history.png" alt="History timeline starting from the Bitcoin whitepaper" width="19%">
+<img src="docs/screenshots/code.png" alt="Code tab with BIP status overview and recent BIPs" width="19%">
 
-```bash
-/Users/davide/development/flutter/bin/dart format lib test tool
-/Users/davide/development/flutter/bin/flutter analyze
-/Users/davide/development/flutter/bin/flutter test
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
-```
+</div>
 
-Il bundle seed inglese dell'app vive in `assets/content/seed_bundle_en.json`, quello italiano in `assets/content/seed_bundle_it.json`.
-Il generatore produce bundle statici pubblicabili su GitHub Pages in
-`build/pages/content/{language}/{version}/bundle.json` (con i media in
-`build/pages/content/{language}/{version}/media/`) e il relativo manifest in
-`build/pages/content/{language}/latest/manifest.json`. Genera anche
-`build/pages/index.html`, una pagina indice minimale per evitare il 404 alla
-root di GitHub Pages. Ogni deploy sostituisce l'intero sito: sono raggiungibili
-solo le versioni correnti, e l'app parte sempre da `latest/manifest.json`.
+## What is SatoWiki?
 
-## Workflow contenuti
+Learning Bitcoin usually means jumping between a wiki, a mailing list archive, the BIPs repository and release notes written for people who already know the codebase. SatoWiki puts them in one app and explains each topic at the depth you choose.
 
-I contenuti sono **bilingue**: ogni voce deve essere creata sia in inglese che
-in italiano. L'inglese e la lingua source; l'italiano e la lingua target.
+Everything you read is stored on the device. The app opens and works with no connection, has no account, and ships no analytics. The content itself lives in this repository, so every entry can be reviewed, corrected and improved with a pull request.
 
-Le fonti stanno in questa repository:
+> **Status:** beta. The app is not on the App Store or Google Play yet. You can build it from source in a few minutes.
 
-- sorgenti Markdown/YAML di wiki e history in `content/en/` e `content/it/`;
-- template in `content/templates/`;
-- bundle JSON seed in `assets/content/seed_bundle_en.json` e `assets/content/seed_bundle_it.json`;
-- immagini in `assets/content/media/`.
+## Features
 
-Oggi i bundle seed sono la fonte di verita per wiki e history. `tool/build_seed_bundle.dart`
-riscrive quelle sezioni dai Markdown, ma non e eseguito in CI e i seed contengono
-modifiche manuali che non sono nei Markdown: eseguirlo riporterebbe quei valori
-indietro. Vedi `docs/contributing-content.md`.
+- **Wiki with three reading levels.** Every entry is written three times: Base, Medium and Advanced. Each level stands on its own, so you never need the advanced text to follow the basic one.
+- **History timeline.** The events that shaped Bitcoin, from the 2008 whitepaper to today, with sources and images.
+- **BIP tracker.** More than 200 Bitcoin Improvement Proposals with status, authors, a plain-language summary and what each one changes in practice.
+- **Bitcoin Core releases.** Release notes rewritten twice: what changes for users, and what changed technically.
+- **Offline first.** A content bundle ships inside the app. Updates are downloaded in the background, checked against a SHA-256 hash and validated before they replace anything.
+- **Bilingual.** Interface and content in English and Italian, switchable at any time.
+- **Private by default.** No account, no analytics, no ads. Bookmarks and reading progress never leave the device. See the [privacy policy](docs/privacy-policy.md).
+- **Comfortable reading.** Dark and light themes, adjustable text size, bookmarks, reading progress and search across every section.
 
-Workflow consigliato:
+## Screenshots
 
-1. Scegli il template giusto in `content/templates/`.
-2. Crea o modifica il sorgente Markdown/YAML in `content/{en,it}/` (wiki e history).
-3. Aggiorna i bundle JSON di entrambe le lingue in `assets/content/`. Per news, BIP e release il bundle e l'unica fonte.
-4. Valida i bundle:
+<div align="center">
+<img src="docs/screenshots/bip.png" alt="BIP 341 detail screen" width="24%">
+<img src="docs/screenshots/wiki-entry-light.png" alt="Wiki entry in the light theme" width="24%">
+<img src="docs/screenshots/today-it.png" alt="Today tab in Italian" width="24%">
+<img src="docs/screenshots/settings.png" alt="Settings screen" width="24%">
+<br>
+<sub>BIP detail · light theme · Italian · settings</sub>
+</div>
 
-```bash
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
-```
+<br>
 
-5. Genera l'output statico pubblicabile:
+The screenshots are rendered from the real app and the real content bundle by a script, so they can be regenerated after a UI change:
 
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp
-/Users/davide/development/flutter/bin/dart run tool/generate_bundle.dart --stamp assets/content/seed_bundle_it.json build/pages
+flutter test tool/readme_screenshots_test.dart
 ```
 
-Usa `--stamp` quando vuoi pubblicare un aggiornamento scaricabile dall'app: il
-generatore assegna una versione UTC `YYYY.MM.DD.HHMMSS` e aggiorna
-`generatedAt` nel bundle prodotto, senza modificare i seed sorgente.
+## Getting started
 
-6. Apri PR includendo sorgente Markdown/YAML, bundle JSON generato e, se cambia
-   il contratto dati, `docs/content-model.md`.
+You need [Flutter](https://docs.flutter.dev/get-started/install) 3.32 or later (Dart 3.8), plus Xcode for iOS or Android Studio for Android.
 
-Il validatore segnala come errori i riferimenti `related` verso id inesistenti,
-gli stati BIP contraddetti dai tag e i media mancanti o non validi. Come warning
-segnala record con `automation.needsReview: true` e testi segnaposto; con
-`--strict` i warning diventano errori.
-
-### Wiki
-
-Template: `content/templates/wiki_entry.md`.
-
-Usalo per voci enciclopediche come concetti di protocollo, crittografia,
-economia o Lightning. Campi chiave:
-
-- `id`: formato stabile `wiki.slug-della-voce`.
-- `category`: categoria di navigazione, per esempio `protocol`.
-- `difficulty`: `base`, `medium` o `advanced`.
-- `readTimeMinutes`: tempo di lettura stimato.
-- corpo Markdown con tre sezioni obbligatorie: `## base`, `## medium`,
-  `## advanced`.
-
-Ogni livello deve poter essere letto autonomamente: `base` non deve dipendere da
-`advanced`.
-
-### Code
-
-L'area Code ha due template:
-
-- `content/templates/bip.md` per BIP.
-- `content/templates/release_note.md` per changelog/release.
-
-Per i BIP usa `id` nel formato `code.bip.341`, `number` numerico, `status`
-tra `draft`, `complete`, `deployed`, `closed`, e `officialUrl` alla fonte
-canonica. Il parser accetta anche gli alias legacy `proposed`, `final`,
-`active`, `withdrawn`, `rejected` e `bip-number-allocated`, ma i bundle
-pubblicati devono usare solo gli stati canonici. Il corpo deve contenere:
-
-- `## summaryMarkdown`
-- `## impactMarkdown`
-
-Per le release usa `id` nel formato `release.project.version`, `project`,
-`version`, `releasedAt`, `importance` tra `patch`, `minor`, `major`, e
-`officialUrl`. Il sync assegna la importance cosi: `X.0` major, `X.Y` minor, terza
-componente diversa da zero patch. Il corpo deve contenere:
-
-- `## userImpactMarkdown`
-- `## technicalChangesMarkdown`
-
-#### Sync automatico Code
-
-`tool/sync_code_content.dart` aggiorna gli array `bips` e `changelogs` di entrambi
-i seed. Il workflow `.github/workflows/sync-code-content.yml` lo esegue ogni
-domenica alle 03:17 UTC, oppure a mano con `workflow_dispatch`. Legge i BIP da
-`bitcoin/bips` e le release notes di Bitcoin Core, chiede a Gemini bozze per i
-record nuovi o gestiti dall'AI, e apre una PR draft dal branch fisso
-`automation/code-content-sync` per la review del maintainer. Richiede il secret
-`GEMINI_API_KEY`; `GEMINI_MODEL` e opzionale. Le regole di conservazione dei
-testi sono in `docs/content-model.md`.
-
-#### Ricostruzione dei seed da Markdown
-
-`tool/build_seed_bundle.dart <lang>` riscrive le sezioni `wiki` e `history` di
-`assets/content/seed_bundle_<lang>.json` a partire da `content/<lang>/`. Non e
-eseguito in CI e non va usato finche i seed e i Markdown non sono riconciliati.
-
-### News
-
-Template: `content/templates/news_article.md`.
-
-Usalo per analisi editoriali e approfondimenti community. Campi chiave:
-
-- `id`: formato `news.slug-articolo`.
-- `category`: per esempio `protocol`, `market`, `culture`, `development`.
-- `author.displayName` obbligatorio; `author.github` consigliato.
-- `publishedAt` e `readTimeMinutes`.
-- corpo Markdown libero dopo il frontmatter.
-
-I link inline a Wiki/BIP devono essere riflessi anche in `related` quando sono
-rilevanti per la navigazione interna.
-
-### Immagini inline
-
-Tutti i corpi Markdown supportano immagini inline con sintassi standard:
-
-```md
-![Schema UTXO](media/wiki/utxo-model/utxo-flow.svg "Flusso semplificato degli UTXO")
+```bash
+git clone https://github.com/Dado-hash/Sato-Wiki.git
+cd Sato-Wiki
+flutter pub get
+flutter run
 ```
 
-Regole:
+No API keys, Firebase project or signing setup are needed to run the app.
 
-- usare solo path relativi sotto `media/`;
-- non usare URL esterni o segmenti `..`;
-- scrivere sempre un alt text descrittivo;
-- usare il title Markdown per la caption opzionale;
-- formati supportati: `.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`.
+Before opening a pull request, run the same checks as CI:
 
-Le immagini stanno in `assets/content/media/`, accanto al bundle seed. Il
-generatore le copia nel bundle pubblicato e l'app le scarica insieme al bundle.
-Se una immagine referenziata non e disponibile, l'update contenuti viene
-scartato per mantenere il comportamento offline-first.
+```bash
+dart format lib test tool
+flutter analyze
+flutter test
+dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+dart run tool/validate_content.dart assets/content/seed_bundle_it.json
+```
 
-### History
+## How content works
 
-Template: `content/templates/history_event.md`.
+Content is plain data, kept apart from the app code. Each language has one JSON bundle holding every record: wiki entries, news, history events, BIPs and release notes.
 
-Usalo per eventi storici della timeline. Campi chiave:
+```mermaid
+flowchart LR
+    A["Seed bundles<br>assets/content/"] -->|shipped in the app| D["SatoWiki app"]
+    A -->|push to main| B["CI: validate<br>and version"]
+    B --> C["GitHub Pages<br>manifest + bundle + media"]
+    C -->|background update<br>SHA-256 verified| D
+    E["bitcoin/bips and<br>Bitcoin Core releases"] -->|weekly sync,<br>draft PR for review| A
+```
 
-- `id`: formato `history.slug-evento`.
-- `date`: data evento in formato `YYYY-MM-DD`.
-- `category`: per esempio `community`, `protocol`, `economics`.
-- `summary`: una frase breve, adatta a timeline e ricerca.
-- corpo Markdown libero dopo il frontmatter.
+- The app always starts from the bundle it already has. The network is never needed to show content.
+- When online, it reads a small manifest from GitHub Pages. If a newer version exists, it downloads the bundle and its media, verifies the hash, validates the schema and only then installs it.
+- A weekly job reads new BIPs and Bitcoin Core release notes, drafts the English and Italian texts with an LLM and opens a draft pull request. Nothing generated is published before a human review.
 
-Gli eventi storici dovrebbero essere append-only: correzioni ammesse, ma solo
-per fix fattuali verificabili.
+The full data contract is in [docs/content-model.md](docs/content-model.md), and the contributor workflow is in [docs/contributing-content.md](docs/contributing-content.md).
 
-## Template e istruzioni disponibili
+## Project structure
 
-Si, i template necessari ci sono:
+```text
+lib/src/
+  core/        content loading and updates, navigation, search, settings, theme, shared widgets
+  features/    today, wiki, news, history, code, search, settings
+assets/
+  content/     seed bundles (en, it) and media
+  fonts/       Space Grotesk, Inter, JetBrains Mono
+content/       Markdown sources and templates for wiki and history
+tool/          content validation, bundle generation, upstream sync, screenshots
+test/          widget, unit and golden tests
+docs/          architecture, content model, design system, guidelines
+```
 
-- Wiki: `content/templates/wiki_entry.md`
-- Code/BIP: `content/templates/bip.md`
-- Code/release: `content/templates/release_note.md`
-- News: `content/templates/news_article.md`
-- History: `content/templates/history_event.md`
+## Documentation
 
-Le istruzioni sintetiche sono in questo README; il contratto dati completo e in
-`docs/content-model.md`, mentre il flusso contributor e descritto in
-`docs/contributing-content.md`.
+| Document | What it covers |
+| --- | --- |
+| [App architecture](docs/app-architecture.md) | Routing, state, offline-first loading, search |
+| [Content model](docs/content-model.md) | The data contract for every record type |
+| [Contributing content](docs/contributing-content.md) | Writing, validating and publishing content |
+| [Design system](docs/design-system.md) | Theme, tokens, components and UI rules |
+| [Development guidelines](docs/development-guidelines.md) | Code style, accessibility and testing |
+| [Roadmap](docs/roadmap.md) | What is done and what comes next |
+| [Licensing](docs/licensing.md) | Licenses for code, content and bundled fonts |
 
-## Documentazione
+Some documents are still written in Italian. Translations are welcome.
 
-- `docs/design-system.md`: tema, token, componenti e regole UI (i token derivano da esportazioni Stitch non piu nel repository).
-- `docs/image-generation-guidelines.md`: stile, prompt e checklist per immagini dei contenuti.
-- `docs/development-guidelines.md`: linee guida codice, frontend, accessibilita e test.
-- `docs/app-architecture.md`: struttura Flutter, routing, stato, offline-first e search.
-- `docs/content-model.md`: contratto dati dei bundle contenuti.
-- `docs/contributing-content.md`: flusso contenuti, validazione, pubblicazione bundle e sync Code.
-- `docs/licensing.md`: licenze per codice, contenuti e font bundled.
-- `docs/roadmap.md`: roadmap per macro aree e task sequenziali.
+## Contributing
 
-## Stato attuale
+Contributions of every size are welcome, and you do not need to write Dart to help:
 
-La base contiene:
+- **Fix or improve an entry.** Found an error, a dead source or an unclear explanation? Open an issue or a pull request.
+- **Write or translate content.** Every record exists in both English and Italian.
+- **Improve the app.** Bug fixes, accessibility and performance work are all useful.
 
-- shell mobile con tab Wiki, News, History e Code;
-- tema Material 3 dark-first (token in `lib/src/core/theme/`);
-- font Inter e JetBrains Mono bundled come asset locali;
-- route nominate per tab principali e deep link target;
-- persistenza locale di ultima tab visitata e reading level;
-- localizzazione app predisposta con inglese attivo e bundle contenuti per lingua;
-- update contenuti da bundle statici GitHub Pages con manifest e sha256;
-- schermate per le quattro sezioni;
-- test widget, parser, search e update contenuti.
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). By taking part you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md). To report a security problem, see [SECURITY.md](SECURITY.md).
 
-## Licenze
+## License
 
-Il codice applicativo e distribuito sotto MIT. I contenuti editoriali e la
-documentazione sono distribuiti sotto CC BY-SA 4.0 salvo diversa indicazione.
+- **Code** is released under the [MIT License](LICENSE).
+- **Editorial content and documentation** are released under [CC BY-SA 4.0](LICENSE-CONTENT).
+- **Bundled fonts** (Space Grotesk, Inter, JetBrains Mono) keep their SIL Open Font License. See [assets/fonts/NOTICE.md](assets/fonts/NOTICE.md).
+
+SatoWiki is an independent community project. It is educational material, not financial advice.

@@ -16,7 +16,8 @@ MIT
 
 Editorial content, documentation, screenshots exported for product direction,
 and future content bundles are licensed under Creative Commons
-Attribution-ShareAlike 4.0 International unless a file says otherwise.
+Attribution-ShareAlike 4.0 International unless a file says otherwise. See
+`LICENSE-CONTENT`.
 
 SPDX identifier:
 
@@ -26,5 +27,5 @@ CC-BY-SA-4.0
 
 ## Bundled Fonts
 
-Inter and JetBrains Mono are bundled as local app assets. They keep their
-upstream font licenses, documented in `assets/fonts/NOTICE.md`.
+Space Grotesk, Inter and JetBrains Mono are bundled as local app assets. They
+keep their upstream font licenses, documented in `assets/fonts/NOTICE.md`.

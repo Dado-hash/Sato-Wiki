@@ -107,7 +107,7 @@ Da fare prima di mergiare qualsiasi PR del bot.
 - [x] `docs/app-architecture.md:7` e `docs/SatoWiki_PRD.md:148` parlano di una repository `satowiki-content` separata; i contenuti stanno in questa repository.
 - [x] `CLAUDE.md`, `AGENTS.md` e `README.md` non citano `tool/sync_code_content.dart` né `tool/build_seed_bundle.dart`.
 - [x] `docs/content-model.md` va riallineato al parser: campi obbligatori di `Bip` e `ReleaseNote`, formato di `coverImage`, regola di conservazione dei testi dopo la revisione.
-- [x] `content_todo.md` ha 33 voci non spuntate da ricontrollare: i media history esistono già. *Tutte e 33 verificate presenti su disco e spuntate.*
+- [x] `docs/content-todo.md` ha 33 voci non spuntate da ricontrollare: i media history esistono già. *Tutte e 33 verificate presenti su disco e spuntate.*
 
 ## Segnalazioni non confermate
 

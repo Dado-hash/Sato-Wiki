@@ -33,7 +33,7 @@ git checkout -b content/bip-backfill-001-020
 2. Se i BIP non esistono ancora nei bundle, creare prima gli skeleton senza AI:
 
 ```bash
-/Users/davide/development/flutter/bin/dart run tool/sync_code_content.dart --skip-ai --languages en,it
+dart run tool/sync_code_content.dart --skip-ai --languages en,it
 ```
 
 Questo comando legge fonti ufficiali e crea record fattuali con placeholder da
@@ -130,11 +130,11 @@ Regole:
 Prima di chiudere il lotto:
 
 ```bash
-/Users/davide/development/flutter/bin/dart format lib test tool
-/Users/davide/development/flutter/bin/flutter analyze
-/Users/davide/development/flutter/bin/flutter test
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_en.json
-/Users/davide/development/flutter/bin/dart run tool/validate_content.dart assets/content/seed_bundle_it.json
+dart format lib test tool
+flutter analyze
+flutter test
+dart run tool/validate_content.dart assets/content/seed_bundle_en.json
+dart run tool/validate_content.dart assets/content/seed_bundle_it.json
 ```
 
 Se il lotto modifica solo contenuti JSON, i test completi possono comunque

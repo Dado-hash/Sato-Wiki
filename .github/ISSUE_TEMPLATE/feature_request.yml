@@ -1,0 +1,37 @@
+name: Feature or topic request
+description: Suggest an app feature or a topic that SatoWiki should cover
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of request is this?
+      options:
+        - App feature
+        - New wiki entry
+        - New history event
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is missing?
+      description: The problem you ran into, or the topic you could not find.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to see?
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: For a topic request, links that a writer could start from.
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      options:
+        - label: I would like to work on this myself
