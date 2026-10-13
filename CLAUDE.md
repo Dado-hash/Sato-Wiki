@@ -257,4 +257,7 @@ flutter run -v
 - `docs/design-system.md` — Material 3 tokens, components, theming rules
 - `docs/image-generation-guidelines.md` — media asset style and guidelines
 - `docs/contributing-content.md` — content contributor workflow
+- `docs/plan.md` — current expansion plan and the reasons behind it
+- `docs/roadmap.md` — ordered task list, including inherited open work
+- `docs/content-todo.md` — content backlog
 - `AGENTS.md` — quick guide for AI agents working on the repository

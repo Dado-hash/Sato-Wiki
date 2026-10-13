@@ -71,6 +71,8 @@ Usare `lib/src/core/theme` per token e tema, `lib/src/core/widgets` per componen
 - `docs/content-model.md` per contratti dati.
 - `docs/contributing-content.md` per il flusso dei contenuti.
 - `docs/roadmap.md` per priorita e task sequenziali.
+- `docs/plan.md` per le scelte di progetto dietro la roadmap.
+- `docs/content-todo.md` per l'elenco dei contenuti da scrivere.
 
 ## Design E UI
 

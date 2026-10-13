@@ -2,7 +2,7 @@
 
 Elenco dei contenuti da creare per SatoWiki.
 
-## Wiki (Completato)
+## Wiki: prime quattro categorie (Completato)
 
 Tutte le voci delle sezioni Protocol, Cryptography, Lightning Network ed Economics
 sono state create con template `content/templates/wiki_entry.md`, in inglese e
@@ -350,6 +350,115 @@ centrale da aggiungere subito alla timeline principale. Continuare a monitorare
 eventuali sviluppi su reserve policy, ETF/market structure, hashrate/difficulty
 e release Bitcoin Core, ma inserirli solo se diventano chiaramente storici e non
 solo metriche temporanee.
+
+---
+
+## Espansione 2026 (da fare)
+
+Backlog del piano in `docs/plan.md`. Ogni voce esce in inglese e in italiano.
+Le voci wiki hanno i tre livelli `base`, `medium` e `advanced`. Gli slug sono
+proposte: prima di scrivere, controllare che una voce esistente non copra già
+l'argomento. Le voci vanno aggiunte ai seed a mano (vedi "Seed Rebuild" in
+`CLAUDE.md`).
+
+### Software (`software`)
+
+Una voce wiki per sottocategoria. Elenco confermato il 2026-10-13.
+
+- [ ] Nodi: implementazioni di full node - `wiki.node-software`
+- [ ] Software wallet - `wiki.software-wallets`
+- [ ] Software Lightning: nodi e wallet - `wiki.lightning-software`
+- [ ] Server e infrastruttura - `wiki.server-software`
+- [ ] Sistemi per nodo domestico - `wiki.node-operating-systems`
+- [ ] Software di mining: firmware, pool, Stratum - `wiki.mining-software`
+- [ ] Librerie e strumenti per sviluppatori - `wiki.developer-tools`
+
+### Hardware (`hardware`)
+
+- [ ] Hardware wallet - `wiki.hardware-wallets`
+- [ ] Backup del seed - `wiki.seed-backups`
+- [ ] Hardware di mining: ASIC e dispositivi domestici - `wiki.mining-hardware`
+- [ ] Hardware per nodi - `wiki.node-hardware`
+
+### Schede prodotto (`products`)
+
+Dipendono dal tipo di record `products`, non ancora implementato. Il criterio di
+inclusione è in `docs/plan.md`, sezione A1. Stato e licenza di ogni prodotto si
+verificano quando si scrive la scheda.
+
+- [ ] Nodi: Bitcoin Core, Bitcoin Knots, btcd
+- [ ] Software wallet: Sparrow, Electrum, BlueWallet, Nunchuk
+- [ ] Lightning: LND, Core Lightning, Eclair, LDK, Phoenix
+- [ ] Server e infrastruttura: electrs, Fulcrum, BTCPay Server
+- [ ] Sistemi per nodo domestico: Umbrel, StartOS, RaspiBlitz
+- [ ] Software di mining: Braiins OS, Stratum V2 Reference Implementation, DATUM
+- [ ] Librerie e strumenti: BDK, rust-bitcoin, bitcoinjs-lib
+- [ ] Hardware wallet: Trezor, Ledger, Coldcard, BitBox02, Jade
+- [ ] Hardware di mining: Antminer serie S, Whatsminer serie M, Bitaxe
+
+### Privacy e sicurezza
+
+- [ ] Modello di minaccia - `wiki.threat-model`
+- [ ] Euristica common-input-ownership - `wiki.common-input-ownership`
+- [ ] Riuso degli indirizzi - `wiki.address-reuse`
+- [ ] CoinJoin - `wiki.coinjoin`
+- [ ] Tor e Bitcoin - `wiki.tor`
+- [ ] Dandelion - `wiki.dandelion`
+- [ ] Custodia e self-custody - `wiki.self-custody`
+- [ ] Cold storage - `wiki.cold-storage`
+- [ ] Attacco fisico ("5 dollar wrench") - `wiki.physical-attacks`
+- [ ] Passphrase - `wiki.passphrase`
+
+### Miti
+
+- [ ] Scegliere i miti da trattare e definire gli slug
+- [ ] Scrivere le prime voci, con fonti a ogni livello
+
+### Protocol: voci mancanti
+
+- [ ] Transazione coinbase e maturità - `wiki.coinbase-transaction`
+- [ ] Header del blocco e codifica bits/target - `wiki.block-header`
+- [ ] Sighash - `wiki.sighash`
+- [ ] RBF e CPFP - `wiki.fee-bumping`
+- [ ] Output di resto e coin selection - `wiki.coin-selection`
+- [ ] Limite dust e OP_RETURN - `wiki.dust-and-op-return`
+- [ ] PSBT - `wiki.psbt`
+- [ ] Output descriptor - `wiki.output-descriptors`
+- [ ] Riorganizzazioni e blocchi orfani - `wiki.reorganizations`
+- [ ] SPV e pruning - `wiki.spv-and-pruning`
+- [ ] Segnalazione dei soft fork (BIP9) - `wiki.soft-fork-signalling`
+- [ ] Mining pool e Stratum - `wiki.mining-pools`
+- [ ] P2SH - `wiki.p2sh`
+- [ ] MuSig - `wiki.musig`
+- [ ] Weight unit e vbyte - `wiki.weight-units`
+- [ ] Malleabilità delle transazioni - `wiki.transaction-malleability`
+- [ ] Testnet e signet - `wiki.test-networks`
+- [ ] Base58Check e bech32 - `wiki.address-encodings`
+
+### History: prima di Bitcoin e incidenti
+
+- [ ] Hashcash - `history.hashcash`
+- [ ] b-money - `history.b-money`
+- [ ] bit gold - `history.bit-gold`
+- [ ] RPOW - `history.rpow`
+- [ ] Manifesto cypherpunk - `history.cypherpunk-manifesto`
+- [ ] Value overflow, 15 agosto 2010 - `history.value-overflow-incident`
+- [ ] Altri incidenti di consenso documentati
+
+### Diagrammi
+
+- [ ] Transazione byte per byte, con colore ed etichetta per campo
+- [ ] Header di blocco byte per byte
+
+### Dati strutturati
+
+Dipendono dai tipi di record nuovi descritti in `docs/plan.md`.
+
+- [ ] Glossario: primo elenco di termini
+- [ ] Tabelle di riferimento: opcode, campi di transazione, campi di header, messaggi P2P, unità
+- [ ] Citazioni di Satoshi, con data, fonte e link
+- [ ] Percorso guidato "Inizia qui"
+- [ ] Biblioteca: fonti primarie e testi cypherpunk, con licenza verificata opera per opera
 
 ---
 
