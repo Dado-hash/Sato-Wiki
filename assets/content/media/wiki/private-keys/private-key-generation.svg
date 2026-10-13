@@ -3,18 +3,6 @@
   <desc id="desc">A private key is generated from entropy, produces a random 256-bit number, and must fall between 0x1 and the secp256k1 order n. The key space is approximately 2^256.</desc>
 
   <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
     <linearGradient id="key-glow" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#F7931A" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="#F7931A" stop-opacity="0.04"/>
@@ -36,7 +24,7 @@
   <!-- ====== Row 1: Entropy → Random Number ====== -->
 
   <!-- Step 1: Entropy Source -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="76" y="172" width="220" height="108" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="186" y="204" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="17" font-weight="700">Entropy Source</text>
     <text x="186" y="228" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">OS randomness pool</text>
@@ -45,10 +33,11 @@
   </g>
 
   <!-- Arrow -->
-  <path d="M296 226L342 226" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M296 226L342 226" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 334 221)"><path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Step 2: CSPRNG -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="352" y="172" width="240" height="108" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="472" y="204" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="17" font-weight="700">Cryptographic RNG</text>
     <text x="472" y="228" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">CSPRNG / /dev/urandom</text>
@@ -57,10 +46,11 @@
   </g>
 
   <!-- Arrow -->
-  <path d="M592 226L638 226" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M592 226L638 226" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 630 221)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Step 3: 256-bit Private Key (big box) -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="648" y="164" width="260" height="126" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
     <text x="778" y="196" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="18" font-weight="700">256-bit Private Key</text>
 
@@ -74,10 +64,11 @@
   <!-- ====== Row 2: Validation ====== -->
 
   <!-- Arrow down from Private Key -->
-  <path d="M778 294L696 330" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M778 294L696 330" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(-0.916 0.402 -0.402 -0.916 705.335 331.362)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Validation boxes: 1 - lower bound check -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="246" y="310" width="260" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="376" y="342" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">Lower Bound Check</text>
     <text x="376" y="366" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="11">must be <tspan fill="#22C55E">≥ 0x1</tspan></text>
@@ -85,10 +76,11 @@
   </g>
 
   <!-- Arrow -->
-  <path d="M506 360L546 360" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M506 360L546 360" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 538 355)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Validation boxes: 2 - upper bound check -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="546" y="310" width="300" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="696" y="342" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">Upper Bound Check</text>
     <text x="696" y="366" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="10">must be <tspan fill="#22C55E">≤ n − 1</tspan></text>
@@ -97,10 +89,11 @@
   </g>
 
   <!-- Arrow down from upper bound to valid key -->
-  <path d="M696 414L696 440" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M696 414L696 440" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(0 1 -1 0 701 432)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Result: Valid Private Key -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="566" y="440" width="260" height="26" rx="13" fill="#0A1F16" stroke="#22C55E" stroke-width="1.8"/>
     <text x="696" y="458" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">Valid Private Key</text>
   </g>

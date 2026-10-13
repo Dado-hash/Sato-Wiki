@@ -2,20 +2,6 @@
   <title id="title">Taproot — Merkle tree commitment</title>
   <desc id="desc">A Taproot output commits to an internal key and a Merkle tree of scripts. The cooperative key path is the straightest line; script paths branch off.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-    <filter id="tree-line" x="-80%" y="-20%" width="260%" height="180%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -32,7 +18,7 @@
   </g>
 
   <!-- Row 1: Output Key Q -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="330" y="170" width="300" height="100" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
     <text x="480" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Output Key</text>
     <text x="480" y="244" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="17">Q = P + t·G</text>
@@ -40,29 +26,32 @@
 
   <!-- Arrows from Q down: left to P, right through t to script tree -->
   <!-- Key path branch: Q → P (orange) -->
-  <path d="M430 270L430 290L200 290L200 306" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M430 270L430 290L200 290L200 306" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(0 1 -1 0 205 298)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Script path branch: Q → t → Merkle root (muted) -->
-  <path d="M530 270L530 290L700 290L700 306" stroke="#7C8794" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M530 270L530 290L700 290L700 306" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(0 1 -1 0 705 298)"><path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Row 2, Col 1: Internal Key P -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="110" y="314" width="180" height="96" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
     <text x="200" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Internal Key</text>
     <text x="200" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">P (cooperative)</text>
   </g>
 
   <!-- Row 2, Col 3: Merkle Root -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="610" y="314" width="180" height="96" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="700" y="352" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Merkle Root</text>
     <text x="700" y="384" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">t = H(P ∥ Root)</text>
   </g>
 
   <!-- Row 3, Col 1: Key path result — Schnorr Signature -->
-  <path d="M200 414V442" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M200 414V442" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(0 1 -1 0 205 434)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="110" y="452" width="180" height="48" rx="24" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
     <text x="200" y="482" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">Schnorr Signature</text>
   </g>

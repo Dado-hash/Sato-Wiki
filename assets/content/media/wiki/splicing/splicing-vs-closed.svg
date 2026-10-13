@@ -1,20 +1,6 @@
 <svg width="960" height="580" viewBox="0 0 960 580" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Splicing vs Traditional Channel Resize</title>
   <desc id="desc">Two-panel comparison of traditional channel resize versus splicing. Left panel (Traditional): 4 steps — close channel (tx 1), wait for confirmations, reopen new channel (tx 2), wait again. Shows 2 on-chain transactions and channel downtime. Right panel (Splicing): 1 step — splice transaction with 1 on-chain transaction, channel stays active. Timeline bars at bottom show splicing is significantly faster.</desc>
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
   <rect width="960" height="580" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="524" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Splicing vs Traditional Channel Resize</text>
@@ -28,7 +14,7 @@
   <text x="272" y="144" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">TRADITIONAL (CLOSE + REOPEN)</text>
 
   <!-- Step 1: Close channel -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="100" y="172" width="340" height="56" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="1.5"/>
     <rect x="112" y="180" width="28" height="20" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="126" y="194" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="11">1</text>
@@ -36,19 +22,21 @@
     <text x="150" y="214" fill="#7C8794" font-family="Inter" font-size="11">Broadcast closing tx (on-chain tx #1)</text>
   </g>
 
-  <path d="M270 232V256" stroke="#F7931A" stroke-width="2.5" marker-end="url(#arrow-orange)" fill="none"/>
+  <path d="M270 232V256" stroke="#F7931A" stroke-width="2.5" fill="none"/>
+  <g transform="matrix(0 1 -1 0 275 248)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Step 2: Wait -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="140" y="264" width="260" height="46" rx="12" fill="#20252D" stroke="#7C8794" stroke-width="1" stroke-dasharray="4 3"/>
     <text x="270" y="286" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Wait for tx confirmation</text>
     <text x="270" y="302" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">~10-60 minutes</text>
   </g>
 
-  <path d="M270 314V338" stroke="#F7931A" stroke-width="2.5" marker-end="url(#arrow-orange)" fill="none"/>
+  <path d="M270 314V338" stroke="#F7931A" stroke-width="2.5" fill="none"/>
+  <g transform="matrix(0 1 -1 0 275 330)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Step 3: Open new channel -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="100" y="346" width="340" height="56" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="1.5"/>
     <rect x="112" y="354" width="28" height="20" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="126" y="368" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="11">2</text>
@@ -56,10 +44,11 @@
     <text x="150" y="388" fill="#7C8794" font-family="Inter" font-size="11">Broadcast new funding tx (on-chain tx #2)</text>
   </g>
 
-  <path d="M270 406V430" stroke="#F7931A" stroke-width="2.5" marker-end="url(#arrow-orange)" fill="none"/>
+  <path d="M270 406V430" stroke="#F7931A" stroke-width="2.5" fill="none"/>
+  <g transform="matrix(0 1 -1 0 275 422)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Step 4: Wait again -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="140" y="438" width="260" height="46" rx="12" fill="#20252D" stroke="#7C8794" stroke-width="1" stroke-dasharray="4 3"/>
     <text x="270" y="460" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Wait for tx confirmation</text>
     <text x="270" y="476" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">~10-60 minutes</text>
@@ -69,12 +58,12 @@
   <text x="688" y="144" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="15" font-weight="700">SPLICING</text>
 
   <!-- Single step -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="492" y="172" width="392" height="120" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
   </g>
 
   <!-- Step: Splice tx -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="508" y="188" width="180" height="56" rx="12" fill="#20252D" stroke="#22C55E" stroke-width="1.5"/>
     <rect x="520" y="196" width="28" height="20" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="534" y="210" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="11">1</text>
@@ -82,9 +71,10 @@
     <text x="558" y="230" fill="#7C8794" font-family="Inter" font-size="11">1 on-chain tx</text>
   </g>
 
-  <path d="M698 216H748" stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <path d="M698 216H748" stroke="#22C55E" stroke-width="2.5"/>
+  <g transform="matrix(1 0 0 1 740 211)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="758" y="188" width="110" height="56" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="813" y="212" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">Channel</text>
     <text x="813" y="230" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">Active</text>
@@ -101,7 +91,7 @@
   <text x="64" y="516" fill="#F4EAD8" font-family="Inter" font-size="13" font-weight="600">Timeline</text>
 
   <!-- Traditional timeline bar -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="160" y="524" width="300" height="10" rx="5" fill="#2A2116"/>
     <rect x="160" y="524" width="60" height="10" rx="5" fill="#F7931A" opacity="0.8"/>
     <rect x="220" y="524" width="30" height="10" fill="#2A2116"/>
@@ -118,7 +108,7 @@
   <text x="496" y="533" fill="#7C8794" font-family="Inter" font-size="11">~20-120 min</text>
 
   <!-- Splicing timeline bar -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="600" y="524" width="120" height="10" rx="5" fill="#203327"/>
     <rect x="600" y="524" width="120" height="10" rx="5" fill="#22C55E" opacity="0.8"/>
   </g>

@@ -2,21 +2,6 @@
   <title id="title">Block propagation wave across the Bitcoin network</title>
   <desc id="desc">A newly discovered block radiates from the miner outward through connected peers in concentric waves. Nodes light up as they validate and relay the block, growing the coverage area until all reachable peers have received it.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-    <filter id="glow-orange" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -43,8 +28,8 @@
     <circle cx="300" cy="290" r="220"/>
   </g>
 
-  <g filter="url(#soft)">
-    <circle cx="300" cy="290" r="32" fill="#203327" stroke="#22C55E" stroke-width="2.5" filter="url(#glow-orange)"/>
+  <g>
+    <circle cx="300" cy="290" r="32" fill="#203327" stroke="#22C55E" stroke-width="2.5"/>
     <text x="300" y="294" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">M</text>
 
     <circle cx="300" cy="170" r="22" fill="#20252D" stroke="#46505C" stroke-width="2"/>

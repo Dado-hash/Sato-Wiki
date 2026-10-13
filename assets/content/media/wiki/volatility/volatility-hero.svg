@@ -1,15 +1,6 @@
 <svg width="960" height="580" viewBox="0 0 960 580" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Bitcoin Volatility</title>
   <desc id="desc">Comparison of annualized volatility across Bitcoin, Gold, S&amp;P 500, and FX majors, showing Bitcoin's higher volatility range and the long-term declining trend with colored volatility bands.</desc>
-  <defs>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-    <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
   <rect width="960" height="580" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="524" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
@@ -77,7 +68,7 @@
     <path d="M0 140 C40 115, 80 120, 130 115 C180 110, 230 125, 280 115 C330 135, 380 145, 430 130 C480 135, 530 145, 580 140 C630 150, 680 155, 720 158 L760 160" stroke="none" fill="#F7931A" opacity="0.05"/>
 
     <!-- Bitcoin main line -->
-    <path d="M0 100 C40 70, 80 75, 130 65 C180 60, 230 80, 280 70 C330 95, 380 105, 430 90 C480 95, 530 108, 580 102 C630 115, 680 122, 720 127 L760 130" stroke="#F7931A" stroke-width="3.5" fill="none" stroke-linecap="round" filter="url(#glow-green)"/>
+    <path d="M0 100 C40 70, 80 75, 130 65 C180 60, 230 80, 280 70 C330 95, 380 105, 430 90 C480 95, 530 108, 580 102 C630 115, 680 122, 720 127 L760 130" stroke="#F7931A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
 
     <!-- Bitcoin label -->
     <text x="770" y="133" fill="#F7931A" font-family="Inter" font-size="14" font-weight="700">BTC</text>
@@ -92,7 +83,7 @@
   </g>
 
   <!-- Bottom cards: Comparison at a glance -->
-  <g filter="url(#soft)">
+  <g>
     <!-- BTC card -->
     <rect x="64" y="464" width="200" height="72" rx="12" fill="#20252D" stroke="#F7931A" stroke-width="1.5"/>
     <text x="164" y="490" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">Bitcoin</text>

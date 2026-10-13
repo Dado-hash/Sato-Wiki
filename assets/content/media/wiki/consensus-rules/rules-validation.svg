@@ -2,23 +2,6 @@
   <title id="title">Block validation pipeline</title>
   <desc id="desc">A new block enters the validation pipeline. It passes through structural checks, transaction validation, and proof-of-work verification. Valid blocks are connected to the chain state; invalid blocks are rejected and their transactions are returned to the mempool.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-violet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C5CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -34,7 +17,7 @@
     <path d="M800 152V502"/>
   </g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="72" y="178" width="196" height="112" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="170" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">New block</text>
     <text x="170" y="238" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="15">arrives from network</text>
@@ -47,9 +30,10 @@
     </g>
   </g>
 
-  <path d="M282 234H346" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M282 234H346" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 338 229)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="356" y="182" width="196" height="104" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="454" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">Structural checks</text>
     <text x="454" y="236" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">block size &amp; weight</text>
@@ -61,9 +45,10 @@
   <rect x="250" y="294" width="176" height="26" rx="13" fill="#20252D" stroke="#46505C" stroke-width="1.2"/>
   <text x="338" y="312" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13" font-weight="600">fail → drop block</text>
 
-  <path d="M566 234H632" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M566 234H632" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 624 229)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="642" y="182" width="196" height="104" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="740" y="214" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">Transaction validation</text>
     <text x="740" y="236" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">signatures &amp; scripts</text>
@@ -73,13 +58,14 @@
 
   <path d="M740 291V334H170V318" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 8"/>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="642" y="362" width="196" height="80" rx="14" fill="#2A2331" stroke="#7C5CFF" stroke-width="2"/>
     <text x="740" y="394" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">Chain state</text>
     <text x="740" y="416" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">connect block</text>
   </g>
 
-  <path d="M852 234H898" stroke="#22C55E" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M852 234H898" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 890 229)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <rect x="860" y="184" width="64" height="34" rx="17" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
   <text x="892" y="207" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="15" font-weight="700">valid</text>
 
@@ -87,7 +73,8 @@
   <path d="M740 474H72" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
   <path d="M156 474V298" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 8"/>
 
-  <path d="M454 291V392H634" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-violet)"/>
+  <path d="M454 291V392H634" stroke="#7C5CFF" stroke-width="3" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 626 387)"><path d="M2 2L8 5L2 8" fill="none" stroke="#7C5CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <text x="82" y="492" fill="#B7B1A8" font-family="Inter" font-size="16">Invalid blocks are rejected immediately; valid blocks update the chain state.</text>
 </svg>

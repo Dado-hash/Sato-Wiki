@@ -2,20 +2,6 @@
   <title id="title">Mempool hero — transactions entering and being selected for a block</title>
   <desc id="desc">Three unconfirmed transactions float into the mempool area. A miner pulls the highest-fee transactions from the mempool into a block template.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -36,7 +22,7 @@
   <text x="706" y="166" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14" font-weight="700">block template</text>
 
   <!-- Inbound transactions (left column) -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="82" y="190" width="190" height="64" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="177" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">Payment TX</text>
     <text x="177" y="239" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">15 sat/vB</text>
@@ -51,12 +37,15 @@
   </g>
 
   <!-- Arrows from inbound to mempool -->
-  <path d="M286 222H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M286 314H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <path d="M286 406H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M286 222H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 318 217)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <path d="M286 314H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 318 309)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <path d="M286 406H326" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 318 401)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Mempool container (center) -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="334" y="186" width="278" height="260" rx="18" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
     <text x="473" y="216" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13" font-weight="700">mempool ~ 300 MB</text>
 
@@ -87,11 +76,13 @@
   </g>
 
   <!-- Arrow from mempool to block template -->
-  <path d="M626 260C650 260 656 210 680 210" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M626 298C650 298 656 248 680 248" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M626 260C650 260 656 210 680 210" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 672 205)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <path d="M626 298C650 298 656 248 680 248" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 672 243)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Block template (right) -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="680" y="186" width="220" height="260" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
     <text x="790" y="216" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="700">Block template</text>
 

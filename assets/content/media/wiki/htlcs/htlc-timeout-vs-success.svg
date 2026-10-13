@@ -1,23 +1,6 @@
 <svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">HTLC Success and Timeout</title>
   <desc id="desc">An HTLC resolves either by successful fulfillment when the preimage is revealed, or by timeout refund when the timelock expires without the preimage.</desc>
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">HTLC Success and Timeout</text>
@@ -30,7 +13,7 @@
   <g stroke="#28313B" stroke-width="1" opacity="0.4">
     <path d="M76 352H884"/>
   </g>
-  <g filter="url(#soft)">
+  <g>
     <rect x="660" y="185" width="200" height="140" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
     <rect x="710" y="196" width="100" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="760" y="211" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="11" font-weight="700">RECEIVER</text>
@@ -42,7 +25,7 @@
     <text x="760" y="286" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Reveals x to claim</text>
     <text x="760" y="308" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12">Claims 5 BTC</text>
   </g>
-  <g filter="url(#soft)">
+  <g>
     <rect x="365" y="185" width="200" height="140" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
     <rect x="410" y="196" width="110" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="465" y="211" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="11" font-weight="700">FORWARDER</text>
@@ -54,7 +37,7 @@
     <text x="465" y="286" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Claims from Carol</text>
     <text x="465" y="308" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12">Forwards x to Alice</text>
   </g>
-  <g filter="url(#soft)">
+  <g>
     <rect x="70" y="185" width="200" height="140" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
     <rect x="125" y="196" width="90" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="170" y="211" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="11" font-weight="700">SENDER</text>
@@ -66,13 +49,15 @@
     <text x="170" y="286" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Claims HTLC from Bob</text>
     <text x="170" y="308" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12">Payment successful</text>
   </g>
-  <g stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)">
+  <g stroke="#22C55E" stroke-width="3.5">
     <path d="M660 270L565 270"/>
+    <g transform="matrix(-1 0 0 -1 573 275)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
     <path d="M365 270L270 270"/>
+    <g transform="matrix(-1 0 0 -1 278 275)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
   <text x="612" y="263" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11">Reveals x</text>
   <text x="317" y="263" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11">Forwards x</text>
-  <g filter="url(#soft)">
+  <g>
     <rect x="660" y="380" width="200" height="115" rx="14" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
     <rect x="710" y="391" width="100" height="22" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
     <text x="760" y="406" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="11" font-weight="700">RECEIVER</text>
@@ -83,7 +68,7 @@
     <text x="760" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Did not reveal preimage</text>
     <text x="760" y="480" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="12">HTLC expired</text>
   </g>
-  <g filter="url(#soft)">
+  <g>
     <rect x="365" y="380" width="200" height="115" rx="14" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
     <rect x="410" y="391" width="110" height="22" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
     <text x="465" y="406" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="11" font-weight="700">FORWARDER</text>
@@ -94,7 +79,7 @@
     <text x="465" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Timelock expired</text>
     <text x="465" y="480" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="12">Timeout refund from Carol</text>
   </g>
-  <g filter="url(#soft)">
+  <g>
     <rect x="70" y="380" width="200" height="115" rx="14" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
     <rect x="125" y="391" width="90" height="22" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
     <text x="170" y="406" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="11" font-weight="700">SENDER</text>
@@ -105,9 +90,11 @@
     <text x="170" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">HTLC with Bob expired</text>
     <text x="170" y="480" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="12">Funds reclaimed</text>
   </g>
-  <g stroke="#EF4444" stroke-width="3.5" marker-end="url(#arrow-red)">
+  <g stroke="#EF4444" stroke-width="3.5">
     <path d="M660 465L565 465"/>
+    <g transform="matrix(-1 0 0 -1 573 470)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
     <path d="M365 465L270 465"/>
+    <g transform="matrix(-1 0 0 -1 278 470)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
   <text x="612" y="458" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="11">Timeout claim</text>
   <text x="317" y="458" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="11">Timeout refund</text>

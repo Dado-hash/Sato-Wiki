@@ -1,26 +1,6 @@
 <svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">MPP vs Single-Path Payment</title>
   <desc id="desc">Comparison: top shows a single path Alice → Bob → Carol where Bob's insufficient liquidity causes the entire payment to fail. Bottom shows MPP with three thinner paths where even if one path fails, the other two succeed. MPP improves success rate from ~85% to ~95%+.</desc>
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -41,7 +21,7 @@
   <text x="760" y="167" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="13" font-weight="700">Success rate: ~85% → ~95%+</text>
 
   <!-- Alice -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="80" y="184" width="140" height="80" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
     <circle cx="110" cy="224" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
     <text x="110" y="228" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="11" font-weight="700">A</text>
@@ -50,7 +30,7 @@
   </g>
 
   <!-- Bob -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="395" y="184" width="170" height="80" rx="12" fill="#332020" stroke="#EF4444" stroke-width="1.6"/>
     <circle cx="420" cy="224" r="16" fill="#332020" stroke="#EF4444" stroke-width="1.6"/>
     <text x="420" y="228" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="11" font-weight="700">B</text>
@@ -59,7 +39,7 @@
   </g>
 
   <!-- Carol -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="740" y="184" width="140" height="80" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
     <circle cx="765" cy="224" r="16" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
     <text x="765" y="228" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">C</text>
@@ -68,11 +48,13 @@
   </g>
 
   <!-- Arrows single path -->
-  <g stroke="#EF4444" stroke-width="4.5" marker-end="url(#arrow-red)">
+  <g stroke="#EF4444" stroke-width="4.5">
     <path d="M225 224L390 224"/>
+    <g transform="matrix(1 0 0 1 382 219)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
-  <g stroke="#EF4444" stroke-width="4.5" marker-end="url(#arrow-red)">
+  <g stroke="#EF4444" stroke-width="4.5">
     <path d="M570 224L735 224"/>
+    <g transform="matrix(1 0 0 1 727 219)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
   <text x="308" y="217" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="11" font-weight="600">FAIL</text>
   <text x="653" y="217" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="11" font-weight="600">FAIL</text>
@@ -86,7 +68,7 @@
   <text x="68" y="334" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Multi-Path Payment (succeeds despite failures)</text>
 
   <!-- Alice -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="80" y="348" width="150" height="145" rx="12" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
     <circle cx="106" cy="420" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.6"/>
     <text x="106" y="424" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="11" font-weight="700">A</text>
@@ -104,14 +86,17 @@
   <text x="480" y="375" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="11" font-weight="700">BOB</text>
   <text x="480" y="389" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="10">Retry route</text>
 
-  <g stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrow-red)">
+  <g stroke="#EF4444" stroke-width="2.5">
     <path d="M235 379L295 379"/>
+    <g transform="matrix(1 0 0 1 287 374)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
-  <g stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrow-red)">
+  <g stroke="#EF4444" stroke-width="2.5">
     <path d="M405 379L425 379"/>
+    <g transform="matrix(1 0 0 1 417 374)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
-  <g stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-red)">
+  <g stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3">
     <path d="M535 379L725 379"/>
+    <g transform="matrix(1 0 0 1 717 374)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
   <text x="350" y="356" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="9">failed</text>
   <text x="630" y="374" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="9">retried</text>
@@ -121,11 +106,13 @@
   <text x="350" y="422" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono" font-size="11" font-weight="700">DAVE</text>
   <text x="350" y="436" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="9">Path 2</text>
 
-  <g stroke="#60A5FA" stroke-width="2.5" marker-end="url(#arrow-blue)">
+  <g stroke="#60A5FA" stroke-width="2.5">
     <path d="M235 426L295 426"/>
+    <g transform="matrix(1 0 0 1 287 421)"><path d="M2 2L8 5L2 8" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
-  <g stroke="#60A5FA" stroke-width="2.5" marker-end="url(#arrow-blue)">
+  <g stroke="#60A5FA" stroke-width="2.5">
     <path d="M405 426L725 426"/>
+    <g transform="matrix(1 0 0 1 717 421)"><path d="M2 2L8 5L2 8" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
 
   <!-- Path 3: Alice → Eve → Carol (succeeds) -->
@@ -133,15 +120,17 @@
   <text x="350" y="469" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="11" font-weight="700">EVE</text>
   <text x="350" y="483" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="9">Path 3</text>
 
-  <g stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)">
+  <g stroke="#22C55E" stroke-width="2.5">
     <path d="M235 473L295 473"/>
+    <g transform="matrix(1 0 0 1 287 468)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
-  <g stroke="#22C55E" stroke-width="2.5" marker-end="url(#arrow-green)">
+  <g stroke="#22C55E" stroke-width="2.5">
     <path d="M405 473L725 473"/>
+    <g transform="matrix(1 0 0 1 717 468)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
 
   <!-- Carol -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="730" y="348" width="150" height="145" rx="12" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
     <circle cx="805" cy="370" r="16" fill="#203327" stroke="#22C55E" stroke-width="1.6"/>
     <text x="805" y="374" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">C</text>
