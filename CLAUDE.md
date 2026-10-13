@@ -197,6 +197,7 @@ Full schema in `docs/content-model.md`.
 - Widget tests for shell, tabs, reading level selector
 - Unit tests for bundle parsing, search, filters, content validation and sync logic
 - Golden tests for cards, chips, status badges, reader header, timeline items
+- Smoke test on the real seeds (`test/seed_smoke_test.dart`): opens every new screen, every product, library work and reference table in both languages, both themes and two phone sizes, and fails on any layout exception
 - Integration tests for vertical slices (e.g., Wiki offline flow): not implemented yet, there is no `integration_test/` directory
 
 Test files in `test/`: `app_settings_controller_test.dart`, `code_screens_test.dart`, `content_bundle_parser_test.dart`, `content_media_test.dart`, `content_seed_media_assets_test.dart`, `content_update_test.dart`, `content_version_test.dart`, `core_new_widgets_test.dart`, `core_widgets_golden_test.dart`, `generate_bundle_test.dart`, `markdown_text_test.dart`, `reader_screens_test.dart`, `search_and_store_test.dart`, `search_screen_test.dart`, `settings_screen_test.dart`, `shell_navigation_test.dart`, `sync_code_content_test.dart`, `today_screen_test.dart`, `validate_content_test.dart`, `widget_test.dart`. Golden images are in `test/goldens/`.
