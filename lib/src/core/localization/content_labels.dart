@@ -15,6 +15,7 @@ String contentCategoryLabel(String category, AppLocalizations l10n) {
     'software' => l10n.categorySoftware,
     'hardware' => l10n.categoryHardware,
     'privacy-security' => l10n.categoryPrivacySecurity,
+    'myths' => l10n.wikiTreeCategoryMyths,
     'market' => l10n.market,
     'regulatory' => l10n.regulatory,
     'culture' => l10n.culture,

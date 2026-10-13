@@ -24,6 +24,10 @@ abstract final class AppColors {
   static const darkStatusComplete = Color(0xFF7DD3FC);
   static const darkStatusDraft = Color(0xFFFBBF24);
   static const darkStatusClosed = Color(0xFFA9A49B);
+  static const darkFieldAmber = Color(0xFF3B2A12);
+  static const darkFieldBlue = Color(0xFF143042);
+  static const darkFieldGreen = Color(0xFF1D3A26);
+  static const darkFieldViolet = Color(0xFF3A2140);
 
   // Light theme.
   static const lightGround = Color(0xFFFAF7F2);
@@ -39,4 +43,8 @@ abstract final class AppColors {
   static const lightStatusComplete = Color(0xFF0369A1);
   static const lightStatusDraft = Color(0xFFA16207);
   static const lightStatusClosed = Color(0xFF5F5850);
+  static const lightFieldAmber = Color(0xFFFFE2B8);
+  static const lightFieldBlue = Color(0xFFCFE8F7);
+  static const lightFieldGreen = Color(0xFFCDEFD6);
+  static const lightFieldViolet = Color(0xFFEBD3F2);
 }

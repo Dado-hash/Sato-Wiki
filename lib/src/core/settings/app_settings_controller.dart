@@ -34,7 +34,9 @@ final class AppSettingsController extends ChangeNotifier {
   static const _maxRecentSearches = 6;
   static const _maxLastRead = 20;
   static const _minProgressStep = 0.02;
-  static const _finishedProgress = 0.98;
+
+  /// Reading progress from which a record counts as finished.
+  static const finishedProgress = 0.98;
 
   final AppSettingsRepository _repository;
 
@@ -70,7 +72,7 @@ final class AppSettingsController extends ChangeNotifier {
   String? get continueReadingId {
     for (final id in _lastRead) {
       final progress = _readingProgress[id];
-      if (progress != null && progress > 0 && progress < _finishedProgress) {
+      if (progress != null && progress > 0 && progress < finishedProgress) {
         return id;
       }
     }
@@ -190,7 +192,7 @@ final class AppSettingsController extends ChangeNotifier {
       // Finishing an entry is always stored once; otherwise only meaningful
       // forward movement is kept.
       final isFinishing =
-          value >= _finishedProgress && current < _finishedProgress;
+          value >= finishedProgress && current < finishedProgress;
       if (!isFinishing && value < current + _minProgressStep) {
         return;
       }

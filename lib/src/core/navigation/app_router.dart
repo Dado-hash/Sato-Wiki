@@ -3,13 +3,25 @@ import 'package:flutter/material.dart';
 import '../../features/code/presentation/code_dashboard_screen.dart';
 import '../../features/code/presentation/release_list_screen.dart';
 import '../../features/history/presentation/history_timeline_screen.dart';
+import '../../features/learn/presentation/glossary_screens.dart';
+import '../../features/learn/presentation/learning_path_screen.dart';
 import '../../features/news/presentation/news_feed_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
 import '../../features/settings/presentation/bookmarks_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
+import '../../features/tools/presentation/reference_list_screen.dart';
+import '../../features/tools/presentation/reference_table_screen.dart';
+import '../../features/tools/presentation/tool_address_screen.dart';
+import '../../features/tools/presentation/tool_hash_screen.dart';
+import '../../features/tools/presentation/tool_target_screen.dart';
+import '../../features/tools/presentation/tool_transaction_screen.dart';
+import '../../features/tools/presentation/tool_units_screen.dart';
+import '../../features/wiki/presentation/product_screen.dart';
 import '../../features/wiki/presentation/wiki_overview_screen.dart';
+import '../../features/wiki/presentation/wiki_subcategory_screen.dart';
 import '../content/app_content.dart';
+import '../content/domain/content_store.dart';
 import '../content/application/app_content_controller.dart';
 import '../settings/app_settings_controller.dart';
 import '../widgets/content_media_scope.dart';
@@ -75,6 +87,17 @@ abstract final class AppRouter {
       );
     }
 
+    if (_toolRoutes.contains(routeName)) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => AnimatedBuilder(
+          animation: contentController,
+          builder: (_, _) =>
+              _toolScreenFor(routeName, contentController.content.store),
+        ),
+      );
+    }
+
     final target = DeepLinkTarget.tryParse(routeName);
     if (target != null) {
       // Content screens do not change the last tab: related links push them
@@ -125,6 +148,27 @@ abstract final class AppRouter {
         contentController: contentController,
       ),
     );
+  }
+
+  /// Offline tools under the Code tab. They need the loaded store for their
+  /// wiki links, so they are built from the content controller.
+  static const _toolRoutes = {
+    AppRoutes.toolHash,
+    AppRoutes.toolAddress,
+    AppRoutes.toolTransaction,
+    AppRoutes.toolTarget,
+    AppRoutes.toolUnits,
+  };
+
+  static Widget _toolScreenFor(String routeName, ContentStore store) {
+    return switch (routeName) {
+      AppRoutes.toolHash => ToolHashScreen(store: store),
+      AppRoutes.toolAddress => ToolAddressScreen(store: store),
+      AppRoutes.toolTransaction => ToolTransactionScreen(store: store),
+      AppRoutes.toolTarget => ToolTargetScreen(store: store),
+      AppRoutes.toolUnits => ToolUnitsScreen(store: store),
+      _ => UnknownRouteScreen(routeName: routeName),
+    };
   }
 
   static Widget _screenForTarget(
@@ -194,6 +238,47 @@ abstract final class AppRouter {
       );
     }
 
+    if (segments.length == 1 && segments[0] == 'glossary') {
+      return GlossaryListScreen(store: appContent.store);
+    }
+
+    if (segments.length == 2 && segments[0] == 'glossary') {
+      return GlossaryTermScreen(store: appContent.store, slug: segments[1]);
+    }
+
+    if (segments.length == 2 && segments[0] == 'paths') {
+      return LearningPathScreen(
+        store: appContent.store,
+        settings: settingsController,
+        slug: segments[1],
+      );
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'wiki' &&
+        segments[1] == 'subcategories') {
+      return WikiSubcategoryScreen(
+        store: appContent.store,
+        subcategoryId: segments[2],
+      );
+    }
+
+    if (segments.length == 2 && segments[0] == 'products') {
+      return ProductScreen(store: appContent.store, slug: segments[1]);
+    }
+
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'references') {
+      return ReferenceListScreen(store: appContent.store);
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'code' &&
+        segments[1] == 'references') {
+      return ReferenceTableScreen(store: appContent.store, slug: segments[2]);
+    }
+
     return UnknownRouteScreen(routeName: target.routeName);
   }
 }
@@ -251,6 +336,40 @@ final class DeepLinkTarget {
     if (segments.length == 4 &&
         segments[0] == 'code' &&
         segments[1] == 'changelogs') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 1 && segments[0] == 'glossary') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 2 && segments[0] == 'glossary') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 2 && segments[0] == 'paths') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'wiki' &&
+        segments[1] == 'subcategories') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 2 && segments[0] == 'products') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 2 &&
+        segments[0] == 'code' &&
+        segments[1] == 'references') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 3 &&
+        segments[0] == 'code' &&
+        segments[1] == 'references') {
       return DeepLinkTarget(routeName: routeName);
     }
 

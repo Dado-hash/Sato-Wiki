@@ -43,7 +43,8 @@ void main() {
     });
 
     test('returns null for unknown prefixes and malformed ids', () {
-      expect(routeForContentId('glossary.term'), isNull);
+      expect(routeForContentId('unknown.term'), isNull);
+      expect(routeForContentId('glossary.'), isNull);
       expect(routeForContentId('wiki.'), isNull);
       expect(routeForContentId('code.bip.x'), isNull);
       expect(routeForContentId('release.bitcoin-core'), isNull);

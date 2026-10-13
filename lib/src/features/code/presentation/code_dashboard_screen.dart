@@ -102,7 +102,227 @@ class CodeDashboardScreen extends StatelessWidget {
             ],
           ),
         ),
+        _gutter(top: AppSpacing.section, child: const _ToolsSection()),
+        _gutter(top: AppSpacing.section, child: const _LearnSection()),
+        _gutter(top: AppSpacing.section, child: const _NetworkSection()),
       ],
+    );
+  }
+}
+
+/// Offline tools and reference tables, two tiles per row.
+class _ToolsSection extends StatelessWidget {
+  const _ToolsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final tiles = [
+      _ToolTile(
+        name: l10n.toolsTileHashName,
+        caption: l10n.toolsTileHashCaption,
+        route: AppRoutes.toolHash,
+      ),
+      _ToolTile(
+        name: l10n.toolsTileAddressName,
+        caption: l10n.toolsTileAddressCaption,
+        route: AppRoutes.toolAddress,
+      ),
+      _ToolTile(
+        name: l10n.toolsTileTransactionName,
+        caption: l10n.toolsTileTransactionCaption,
+        route: AppRoutes.toolTransaction,
+      ),
+      _ToolTile(
+        name: l10n.toolsTileTargetName,
+        caption: l10n.toolsTileTargetCaption,
+        route: AppRoutes.toolTarget,
+      ),
+      _ToolTile(
+        name: l10n.toolsTileUnitsName,
+        caption: l10n.toolsTileUnitsCaption,
+        route: AppRoutes.toolUnits,
+      ),
+      _ToolTile(
+        name: l10n.toolsTileTablesName,
+        caption: l10n.toolsTileTablesCaption,
+        route: AppRoutes.references,
+      ),
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionTitle(title: l10n.toolsSectionTools),
+        const SizedBox(height: AppSpacing.md),
+        for (var start = 0; start < tiles.length; start += 2) ...[
+          if (start > 0) const SizedBox(height: AppSpacing.md),
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(child: tiles[start]),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(child: tiles[start + 1]),
+              ],
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _ToolTile extends StatelessWidget {
+  const _ToolTile({
+    required this.name,
+    required this.caption,
+    required this.route,
+  });
+
+  final String name;
+  final String caption;
+  final String route;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
+    return Material(
+      color: colorScheme.surfaceContainerLow,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadii.card),
+        side: BorderSide(color: colorScheme.outlineVariant),
+      ),
+      child: InkWell(
+        onTap: () => Navigator.of(context).pushNamed(route),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(name, style: textTheme.titleMedium),
+              const SizedBox(height: AppSpacing.sm),
+              Text(caption, style: textTheme.labelMedium),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Lab and script stepper. The screens come later: their rows already open
+/// their routes.
+class _LearnSection extends StatelessWidget {
+  const _LearnSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionTitle(title: l10n.toolsSectionLearn),
+        const SizedBox(height: AppSpacing.md),
+        SatoGroupCard(
+          children: [
+            _ActionRow(
+              title: l10n.toolsLabName,
+              caption: l10n.toolsLabCaption,
+              route: AppRoutes.lab,
+            ),
+            _ActionRow(
+              title: l10n.toolsScriptName,
+              caption: l10n.toolsScriptCaption,
+              route: AppRoutes.scriptStepper,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+/// Explorer row. Its caption is replaced by the real state once the explorer
+/// screens exist.
+class _NetworkSection extends StatelessWidget {
+  const _NetworkSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionTitle(title: l10n.toolsSectionNetwork),
+        const SizedBox(height: AppSpacing.md),
+        SatoGroupCard(
+          children: [
+            _ActionRow(
+              title: l10n.toolsExplorerName,
+              caption: l10n.toolsExplorerCaption,
+              route: AppRoutes.explorer,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+/// Row with a title, a caption and a chevron, opening [route].
+class _ActionRow extends StatelessWidget {
+  const _ActionRow({
+    required this.title,
+    required this.caption,
+    required this.route,
+  });
+
+  final String title;
+  final String caption;
+  final String route;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
+    return InkWell(
+      onTap: () => Navigator.of(context).pushNamed(route),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 44),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.lg,
+            vertical: 14,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: textTheme.titleMedium),
+                    const SizedBox(height: AppSpacing.xs),
+                    Text(caption, style: textTheme.bodySmall),
+                  ],
+                ),
+              ),
+              const SizedBox(width: AppSpacing.sm),
+              Icon(
+                Icons.chevron_right_rounded,
+                size: 20,
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

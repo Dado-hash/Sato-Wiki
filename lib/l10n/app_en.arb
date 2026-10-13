@@ -268,5 +268,383 @@
   "subcategoryHardwareWallets": "Hardware wallets",
   "subcategorySeedBackups": "Seed backups",
   "subcategoryMiningHardware": "Mining hardware",
-  "subcategoryNodeHardware": "Node hardware"
+  "subcategoryNodeHardware": "Node hardware",
+  "wikiTreeCategoryMyths": "Myths",
+  "wikiTreeSubcategoriesCount": "{count, plural, =1{1 subcategory} other{{count} subcategories}}",
+  "@wikiTreeSubcategoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeGlossary": "Glossary",
+  "wikiTreeGlossaryCount": "Short definitions · {count, plural, =1{1 term} other{{count} terms}}",
+  "@wikiTreeGlossaryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeOtherEntries": "Other entries",
+  "wikiTreeGuideMinutes": "Guide · {minutes} min",
+  "@wikiTreeGuideMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeProductsCount": "Products · {count}",
+  "@wikiTreeProductsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeStatusActive": "Active",
+  "wikiTreeStatusDiscontinued": "Discontinued",
+  "wikiTreeOpenSource": "Open source",
+  "wikiTreeSourceNotOpen": "Source not open",
+  "wikiTreeYes": "Yes",
+  "wikiTreeNo": "No",
+  "wikiTreeLicense": "License",
+  "wikiTreeMaker": "Maker",
+  "wikiTreePlatforms": "Platforms",
+  "wikiTreeCheckedOn": "Checked on {date}",
+  "@wikiTreeCheckedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "wikiTreeWebsite": "Website",
+  "wikiTreeSourceCode": "Source code",
+  "wikiTreeProductNotice": "SatoWiki does not sell or recommend products and has no affiliate links.",
+  "wikiTreeStatus": "Status",
+  "wikiTreeProductNotFound": "Product not found",
+  "learnStartHere": "Start here",
+  "learnQuote": "Quote",
+  "learnSource": "Source",
+  "learnStepsRead": "{read} of {total} read",
+  "@learnStepsRead": {
+    "placeholders": {
+      "read": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "learnNextStep": "Next: {title}",
+  "@learnNextStep": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "learnAllStepsRead": "All steps read",
+  "learnStepRead": "Read",
+  "learnStepNumber": "Step {number}",
+  "@learnStepNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "learnPathNotFound": "Path not found",
+  "learnGlossaryTitle": "Glossary",
+  "learnGlossaryFilterHint": "Filter terms",
+  "learnGlossaryNoMatch": "No terms match \"{query}\".",
+  "@learnGlossaryNoMatch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "learnGlossaryEmpty": "No glossary terms yet.",
+  "learnAlsoCalled": "Also called",
+  "learnGlossaryNotFound": "Term not found",
+  "toolsSectionTools": "Tools",
+  "toolsSectionLearn": "Learn by doing",
+  "toolsSectionNetwork": "Network",
+  "toolsTileHashName": "Hash",
+  "toolsTileHashCaption": "SHA-256 · HASH160",
+  "toolsTileAddressName": "Address",
+  "toolsTileAddressCaption": "Type and checksum",
+  "toolsTileTransactionName": "Transaction",
+  "toolsTileTransactionCaption": "Raw hex decoder",
+  "toolsTileTargetName": "Target",
+  "toolsTileTargetCaption": "Bits and difficulty",
+  "toolsTileUnitsName": "Units",
+  "toolsTileUnitsCaption": "sat · BTC · vB",
+  "toolsTileTablesName": "Tables",
+  "toolsTileTablesCaption": "Opcodes, fields, messages",
+  "toolsLabName": "Blockchain lab",
+  "toolsLabCaption": "Six steps: hash, block, chain, network, transactions, coinbase.",
+  "toolsScriptName": "Script step by step",
+  "toolsScriptCaption": "See the stack after each opcode.",
+  "toolsExplorerName": "Explorer",
+  "toolsExplorerCaption": "Uses the network. Off by default.",
+  "toolsCopy": "Copy",
+  "toolsCopied": "Copied",
+  "toolsReadMore": "Read more in the wiki",
+  "toolsHashTitle": "Hash",
+  "toolsHashModeText": "Text",
+  "toolsHashModeHex": "Hex",
+  "toolsHashTextHint": "Type any text",
+  "toolsHashHexHint": "Paste bytes in hex",
+  "toolsHashSha256": "SHA-256",
+  "toolsHashDoubleSha256": "Double SHA-256",
+  "toolsHashHash160": "HASH160",
+  "toolsHashInvalidHex": "Not valid hex. Use pairs of digits 0-9 and a-f, with no spaces.",
+  "toolsHashEmptyHex": "Enter hex bytes to see their hashes.",
+  "toolsHashNote": "SHA-256 is the hash that proof of work and most Bitcoin identifiers rely on. Double SHA-256 applies it twice, as block headers and transaction ids do. HASH160 is RIPEMD-160 of SHA-256 and gives the 20-byte values inside addresses.",
+  "toolsAddressTitle": "Address",
+  "toolsAddressHint": "Paste an address",
+  "toolsAddressChecksumValid": "Checksum valid",
+  "toolsAddressChecksumInvalid": "Checksum not valid",
+  "toolsAddressNetworkMainnet": "Mainnet",
+  "toolsAddressNetworkTestnet": "Testnet",
+  "toolsAddressNetworkRegtest": "Regtest",
+  "toolsAddressKindP2pkh": "P2PKH",
+  "toolsAddressKindP2sh": "P2SH",
+  "toolsAddressKindP2wpkh": "P2WPKH",
+  "toolsAddressKindP2wsh": "P2WSH",
+  "toolsAddressKindP2tr": "P2TR (Taproot)",
+  "toolsAddressKindUnknownWitness": "Unknown witness program",
+  "toolsAddressKindInvalid": "Not a valid address",
+  "toolsAddressDescP2pkh": "Pays to the hash of a public key. This is the classic format, used since 2009.",
+  "toolsAddressDescP2sh": "Pays to the hash of a script, so the spending conditions stay hidden until they are used.",
+  "toolsAddressDescP2wpkh": "Pays to the hash of a public key, in the SegWit version 0 format.",
+  "toolsAddressDescP2wsh": "Pays to the hash of a script, in the SegWit version 0 format.",
+  "toolsAddressDescP2tr": "Pays to a taproot output key, in the SegWit version 1 format.",
+  "toolsAddressDescUnknownWitness": "A SegWit address with a witness version or length that this app does not analyse in detail.",
+  "toolsAddressErrorEmpty": "Paste an address to check it.",
+  "toolsAddressErrorBadCharacter": "A character is not allowed in this encoding.",
+  "toolsAddressErrorBadChecksum": "The checksum does not match. The text was changed or mistyped.",
+  "toolsAddressErrorBadLength": "The length is wrong for this type of address.",
+  "toolsAddressErrorUnknownVersion": "The version or witness version is not one this app knows.",
+  "toolsAddressErrorMixedCase": "Upper and lower case are mixed. Bech32 uses one case only.",
+  "toolsAddressErrorWrongVariant": "The checksum type does not match the witness version.",
+  "toolsAddressErrorMissingSeparator": "A Bech32 string needs the 1 separator.",
+  "toolsAddressErrorEmptyHrp": "The network prefix before the 1 is empty.",
+  "toolsAddressErrorUnknownHrp": "The prefix is not bc, tb or bcrt, so this is not a Bitcoin address.",
+  "toolsAddressErrorEmptyData": "A SegWit address has no witness data.",
+  "toolsAddressErrorInvalidPadding": "The witness data has invalid padding.",
+  "toolsAddressSecretWifTitle": "This looks like a private key",
+  "toolsAddressSecretExtendedTitle": "This looks like an extended key",
+  "toolsAddressSecretBody": "Never paste a private key or an extended key into any app or website. The field was cleared and nothing was analysed.",
+  "toolsAddressBuiltTitle": "How it is built",
+  "toolsPartPrefix": "Network prefix",
+  "toolsPartSeparator": "Separator",
+  "toolsPartWitnessVersion": "Witness version",
+  "toolsPartProgram": "Program (hash)",
+  "toolsPartChecksum": "Checksum, last 6 characters",
+  "toolsPartVersionByte": "Version byte",
+  "toolsPartPayloadHash": "Payload hash",
+  "toolsPartBase58Checksum": "Checksum, last 4 bytes",
+  "toolsAddressBase58Note": "Base58 characters do not line up with bytes, so the string is shown without colours. Its parts are listed below.",
+  "toolsTxTitle": "Transaction",
+  "toolsTxSummary": "Summary",
+  "toolsTxHint": "Paste a raw transaction in hex",
+  "toolsTxEmpty": "Paste a raw transaction to decode it.",
+  "toolsTxLoadExample": "Load example",
+  "toolsTxExampleNote": "Example: the genesis coinbase transaction, from block 0.",
+  "toolsTxTapHint": "Tap a field with an arrow to read its wiki entry.",
+  "toolsTxTxid": "txid",
+  "toolsTxWtxid": "wtxid",
+  "toolsTxType": "Type",
+  "toolsTxTypeCoinbase": "Coinbase",
+  "toolsTxTypeRegular": "Regular",
+  "toolsTxFormat": "Format",
+  "toolsTxFormatSegwit": "SegWit",
+  "toolsTxFormatLegacy": "Legacy",
+  "toolsTxSize": "Size",
+  "toolsTxWeight": "Weight",
+  "toolsTxVsize": "Virtual size",
+  "toolsTxBytes": "{count} bytes",
+  "@toolsTxBytes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxWeightUnits": "{count} WU",
+  "@toolsTxWeightUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxVbytes": "{count} vB",
+  "@toolsTxVbytes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxFieldsTitle": "Fields",
+  "toolsTxHexTitle": "Serialized hex",
+  "toolsTxInputLabel": "Input {index}",
+  "@toolsTxInputLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxOutputLabel": "Output {index}",
+  "@toolsTxOutputLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxWitnessLabel": "Input {index}, witness item {item}",
+  "@toolsTxWitnessLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "item": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxCoinbaseTag": "coinbase",
+  "toolsTxValueBoth": "{btc} BTC · {sat} sat",
+  "@toolsTxValueBoth": {
+    "placeholders": {
+      "btc": {
+        "type": "String"
+      },
+      "sat": {
+        "type": "String"
+      }
+    }
+  },
+  "toolsTxHiddenFields": "{count} more fields are not shown.",
+  "@toolsTxHiddenFields": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxErrorNotHex": "The input is empty, has an odd number of digits, or is not hexadecimal.",
+  "toolsTxErrorTruncated": "The data ends before a field is complete. The transaction may be cut short.",
+  "toolsTxErrorTrailing": "There are bytes after the last field. Check that the transaction is complete and has nothing extra.",
+  "toolsTxErrorTooLarge": "The transaction is larger than 400000 bytes, the limit of this tool.",
+  "toolsTxErrorInvalid": "A value is outside what a transaction can hold, or the segwit flag is unknown.",
+  "toolsFieldVersion": "Version",
+  "toolsFieldMarker": "Marker",
+  "toolsFieldFlag": "Flag",
+  "toolsFieldInputCount": "Input count",
+  "toolsFieldPreviousTxid": "Previous txid",
+  "toolsFieldPreviousIndex": "Previous output index",
+  "toolsFieldScriptSigLength": "scriptSig length",
+  "toolsFieldScriptSig": "scriptSig",
+  "toolsFieldSequence": "Sequence",
+  "toolsFieldOutputCount": "Output count",
+  "toolsFieldValue": "Value",
+  "toolsFieldScriptPubKeyLength": "scriptPubKey length",
+  "toolsFieldScriptPubKey": "scriptPubKey",
+  "toolsFieldWitnessItemCount": "Witness item count",
+  "toolsFieldWitnessItemLength": "Witness item length",
+  "toolsFieldWitnessItem": "Witness item",
+  "toolsFieldLockTime": "Lock time",
+  "toolsScriptP2pk": "P2PK",
+  "toolsScriptP2pkh": "P2PKH",
+  "toolsScriptP2sh": "P2SH",
+  "toolsScriptP2wpkh": "P2WPKH",
+  "toolsScriptP2wsh": "P2WSH",
+  "toolsScriptP2tr": "P2TR",
+  "toolsScriptWitnessUnknown": "Unknown witness program",
+  "toolsScriptBareMultisig": "Bare multisig",
+  "toolsScriptOpReturn": "OP_RETURN data",
+  "toolsScriptNonStandard": "Non-standard",
+  "toolsTargetTitle": "Target",
+  "toolsTargetHint": "Bits, 8 hex digits, for example 1d00ffff",
+  "toolsTargetInvalid": "Enter exactly 8 hex digits, with an optional 0x prefix.",
+  "toolsTargetTargetLabel": "Target",
+  "toolsTargetDifficulty": "Difficulty",
+  "toolsTargetExpected": "Expected hashes per block",
+  "toolsTargetScientific": "About {mantissa} × 10^{exponent}",
+  "@toolsTargetScientific": {
+    "placeholders": {
+      "mantissa": {
+        "type": "String"
+      },
+      "exponent": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTargetNote": "The target is the number a block hash must stay below. Difficulty compares it with the maximum target, 1d00ffff. Expected hashes is the average number of attempts needed to find a valid block.",
+  "toolsUnitsTitle": "Units",
+  "toolsUnitsBtcSatTitle": "BTC and satoshi",
+  "toolsUnitsBtcLabel": "BTC",
+  "toolsUnitsSatLabel": "Satoshi",
+  "toolsUnitsDecimalsError": "Bitcoin amounts have at most 8 decimals.",
+  "toolsUnitsInvalidAmount": "Enter a decimal amount, for example 0.001.",
+  "toolsUnitsInvalidWhole": "Enter a whole number, zero or more.",
+  "toolsUnitsWeightTitle": "Weight units to virtual bytes",
+  "toolsUnitsWeightLabel": "Weight units (WU)",
+  "toolsUnitsVbytesResult": "{vbytes} vB",
+  "@toolsUnitsVbytesResult": {
+    "placeholders": {
+      "vbytes": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsUnitsRateFromFeeTitle": "Fee rate from fee",
+  "toolsUnitsFeeLabel": "Fee (satoshi)",
+  "toolsUnitsVsizeLabel": "Virtual size (vB)",
+  "toolsUnitsRateResult": "{rate} sat/vB",
+  "@toolsUnitsRateResult": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "toolsUnitsFeeFromRateTitle": "Fee from fee rate",
+  "toolsUnitsRateLabel": "Fee rate (sat/vB)",
+  "toolsUnitsFeeResult": "{sat} sat",
+  "@toolsUnitsFeeResult": {
+    "placeholders": {
+      "sat": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsUnitsRateInvalid": "Enter a fee rate of zero or more, for example 2.5.",
+  "toolsUnitsVsizePositive": "Virtual size must be more than zero.",
+  "toolsUnitsResult": "Result",
+  "toolsUnitsNote": "Only units, no prices or fiat. Bitcoin amounts use integer math, so nothing is rounded.",
+  "toolsReferencesTitle": "Reference tables",
+  "toolsReferencesEmpty": "No reference tables yet.",
+  "toolsRowCount": "{count, plural, =1{1 row} other{{count} rows}}",
+  "@toolsRowCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsReferenceFilterHint": "Filter rows",
+  "toolsReferenceNoMatch": "No rows match this filter."
 }

@@ -11,6 +11,7 @@ import '../../../core/navigation/sato_wiki_tab.dart';
 import '../../../core/settings/app_settings_controller.dart';
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/widgets/content_thumbnail.dart';
+import '../../../core/widgets/external_url.dart';
 import '../../../core/widgets/meta_line.dart';
 import '../../../core/widgets/round_icon_button.dart';
 import '../../../core/widgets/sato_group_card.dart';
@@ -18,6 +19,8 @@ import '../../../core/widgets/sato_progress_bar.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/status_pill.dart';
 import '../../../generated/l10n/app_localizations.dart';
+import '../../learn/presentation/learning_path_progress.dart';
+import 'quote_of_the_day.dart';
 
 /// The Today tab: headline, reading continuation, featured entry, anniversaries
 /// and the latest code and news items.
@@ -46,6 +49,16 @@ class TodayScreen extends StatelessWidget {
       builder: (context, _) {
         final continueItem = _findContinueItem(store, settings, l10n);
         final featured = _featuredEntry(store, todayDate, continueItem?.id);
+
+        final path = store.bundle.paths.firstOrNull;
+        final pathProgress = path == null
+            ? null
+            : LearningPathProgress.of(
+                path,
+                store,
+                progressFor: settings.progressFor,
+              );
+        final quote = quoteOfTheDay(store.bundle.quotes, todayDate);
 
         final anniversaries = _upcomingAnniversaries(
           store.bundle.history,
@@ -90,6 +103,8 @@ class TodayScreen extends StatelessWidget {
                   ),
                 ],
               ),
+            if (pathProgress != null && pathProgress.total > 0)
+              _Section(children: [_PathCard(progress: pathProgress)]),
             if (featured != null)
               _Section(
                 header: SectionTitle(
@@ -139,6 +154,7 @@ class TodayScreen extends StatelessWidget {
                   SatoGroupCard(children: [_NewsRow(article: latestArticle)]),
                 ],
               ),
+            if (quote != null) _Section(children: [_QuoteCard(quote: quote)]),
           ],
         );
       },
@@ -147,10 +163,11 @@ class TodayScreen extends StatelessWidget {
 }
 
 /// Spacing shared by every block: section gap above, 12 px between children.
+/// A block without [header] starts directly with its first child.
 class _Section extends StatelessWidget {
-  const _Section({required this.header, required this.children});
+  const _Section({required this.children, this.header});
 
-  final Widget header;
+  final Widget? header;
   final List<Widget> children;
 
   @override
@@ -165,10 +182,11 @@ class _Section extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          header,
-          for (final child in children) ...[
-            const SizedBox(height: AppSpacing.md),
-            child,
+          ?header,
+          for (var index = 0; index < children.length; index++) ...[
+            if (index > 0 || header != null)
+              const SizedBox(height: AppSpacing.md),
+            children[index],
           ],
         ],
       ),
@@ -423,6 +441,136 @@ class _ContinueCard extends StatelessWidget {
                 Icons.play_arrow_rounded,
                 size: 20,
                 color: colorScheme.onPrimaryContainer,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// "Start here": the first learning path with its progress and next step.
+class _PathCard extends StatelessWidget {
+  const _PathCard({required this.progress});
+
+  final LearningPathProgress progress;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+    final path = progress.path;
+    final next = progress.nextUnread;
+    final percent = (progress.fraction * 100).round();
+
+    return _Card(
+      radius: AppRadii.card,
+      onTap: () =>
+          Navigator.of(context).pushNamed(AppRoutes.learningPath(path.slug)),
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${l10n.learnStartHere} · '
+                      '${l10n.shortMin(path.estimatedMinutes)}'
+                  .toUpperCase(),
+              style: textTheme.labelSmall?.copyWith(color: colorScheme.primary),
+            ),
+            const SizedBox(height: 6),
+            Text(path.title, style: textTheme.titleLarge),
+            const SizedBox(height: 6),
+            Text(
+              l10n.learnStepsRead(progress.readCount, progress.total),
+              style: textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 10),
+            SatoProgressBar(
+              value: progress.fraction,
+              semanticLabel: l10n.readPercent(percent),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              next == null
+                  ? l10n.learnAllStepsRead
+                  : l10n.learnNextStep(next.title),
+              style: textTheme.bodySmall?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Quote of the day. The English original is shown under the translation when
+/// the bundle is not in English.
+class _QuoteCard extends StatelessWidget {
+  const _QuoteCard({required this.quote});
+
+  final Quote quote;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+    final original = quote.originalText;
+
+    return _Card(
+      radius: AppRadii.card,
+      onTap: null,
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.learnQuote.toUpperCase(),
+              style: textTheme.labelSmall?.copyWith(color: colorScheme.primary),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              '“${quote.text}”',
+              style: textTheme.titleMedium?.copyWith(height: 1.35),
+            ),
+            if (original != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                original,
+                style: textTheme.bodySmall?.copyWith(
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+            const SizedBox(height: 12),
+            Text(
+              '${quote.author} · '
+              '${DateFormat.yMMMd(l10n.localeName).format(quote.date)}',
+              style: textTheme.labelMedium,
+            ),
+            const SizedBox(height: 2),
+            Text(
+              quote.sourceTitle,
+              style: textTheme.bodySmall?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: TextButton(
+                style: TextButton.styleFrom(minimumSize: const Size(44, 44)),
+                onPressed: () => openExternalUrl(context, quote.sourceUrl),
+                child: Text(l10n.learnSource),
               ),
             ),
           ],

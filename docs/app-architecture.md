@@ -46,6 +46,7 @@ Dove stanno i layer:
 - Le feature hanno solo le interfacce dei repository in `domain/repositories/` e le schermate in `presentation/`. Oggi, Impostazioni e segnalibri non hanno un `domain/`.
 - La persistenza usa `shared_preferences` (impostazioni, segnalibri, progresso di lettura, ricerche recenti e bundle aggiornati) e il file system (media). Non esiste una cartella `storage/`.
 - Il dettaglio di un BIP e di una release sta in un file proprio (`bip_detail_screen.dart`, `release_note_screen.dart`). `code_dashboard_screen.dart` li ri-esporta, quindi gli import che usano la dashboard continuano a funzionare.
+- L'albero Wiki sta in `features/wiki/presentation/`: `wiki_overview_screen.dart` (tab Wiki, categorie, lista di categoria e reader), `wiki_subcategory_screen.dart` (guide e prodotti di una sottocategoria), `product_screen.dart` (scheda prodotto) e `wiki_tree_widgets.dart` (card, pillole, ordine fisso delle sottocategorie). Una categoria con sottocategorie mostra una riga per sottocategoria; le schede prodotto leggono `bundle.products` in modo sincrono e non hanno segnalibro, perché i segnalibri risolvono solo i titoli di wiki, news, history e code.
 
 ## Navigazione
 
@@ -66,12 +67,16 @@ Route fuori dalla tab bar:
 - `/bookmarks`
 - `/wiki/categories/:categoryId`
 - `/wiki/entries/:entryId`
+- `/wiki/subcategories/:subcategoryId`
+- `/products/:slug`
 - `/news/articles/:articleId`
 - `/history/events/:eventId`
 - `/code/bips`
 - `/code/bips/:bipNumber`
 - `/code/changelogs` (lista completa delle release)
 - `/code/changelogs/:project/:version`
+- `/paths/:slug` (percorso guidato)
+- `/glossary` e `/glossary/:slug`
 
 Regole:
 
@@ -80,6 +85,14 @@ Regole:
 - Le costanti e le factory delle route vivono in `lib/src/core/navigation/app_routes.dart`. `SatoWikiTab` allinea tab, etichette e route principali.
 - `routeForContentId` in `content_routes.dart` mappa un id di contenuto alla sua route. Il router (`app_router.dart`) risolve le route con nome e costruisce le schermate.
 - Le schermate a tab non hanno un proprio `Scaffold`: la shell le avvolge in `SatoScaffold`. Le schermate a tab iniziano con `ScreenHeader`; le schermate push usano `DetailScaffold`. Nessuna schermata usa `AppBar`.
+
+## Strumenti offline e tabelle di riferimento
+
+L'hub è `features/code/presentation/code_dashboard_screen.dart`: sotto BIP e release mostra i gruppi Strumenti, Impara facendo e Rete. Gli strumenti (Hash, Indirizzo, Transazione, Target, Unità) e le tabelle stanno in `features/tools/presentation/`, con file `tool_*` e `reference_*`; la logica pura sta in `features/tools/domain/` e non dipende da Flutter. Le route `/code/tools/*` e `/code/references` (con `/:slug`) sono risolte in `app_router.dart`: gli strumenti ricevono lo store per i link alla wiki, le tabelle passano dai deep link. I link alla wiki compaiono solo se la voce è nel bundle caricato, e nessuno strumento salva ciò che viene digitato. I colori delle parti di dato sono i token `fieldAmber`, `fieldBlue`, `fieldGreen` e `fieldViolet` di `SatoColors`.
+
+## Percorsi, citazione e glossario
+
+Il codice sta in `features/learn/presentation/` (percorso guidato e glossario) e in `features/today/presentation/` (card "Inizia qui" e citazione del giorno). `learning_path_progress.dart` risolve i passi di un percorso contro il bundle, saltando gli id senza record, e considera letto un passo con progresso da 0.98 in su. `quote_of_the_day.dart` sceglie la citazione dal giorno (giorni dal genesis block modulo il numero di citazioni, citazioni ordinate per id), quindi uguale su ogni dispositivo. Il glossario non ha una tab propria: si apre da `AppRoutes.glossary`, con un ingresso nella Wiki.
 
 ## Stato
 

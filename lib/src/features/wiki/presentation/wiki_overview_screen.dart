@@ -9,7 +9,6 @@ import '../../../core/navigation/app_routes.dart';
 import '../../../core/settings/app_settings_controller.dart';
 import '../../../core/settings/app_settings_scope.dart';
 import '../../../core/theme/app_tokens.dart';
-import '../../../core/theme/sato_colors.dart';
 import '../../../core/widgets/bookmark_button.dart';
 import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/content_thumbnail.dart';
@@ -26,6 +25,7 @@ import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/sources_disclosure.dart';
 import '../../../core/widgets/tag_pill.dart';
 import '../../../generated/l10n/app_localizations.dart';
+import 'wiki_tree_widgets.dart';
 
 //
 // ─── WIKI TAB: HEADER, SEARCH, LEVEL, CATEGORIES, EXPLORE ─────────────────────
@@ -38,6 +38,7 @@ const _leadingCategoryKeys = [
   'lightning network',
   'economics',
   'privacy-security',
+  'myths',
   'software',
   'hardware',
 ];
@@ -109,11 +110,19 @@ class WikiOverviewScreen extends StatelessWidget {
               SectionTitle(title: l10n.categories),
               const SizedBox(height: AppSpacing.md),
               ..._categoryRows(context, categories, l10n),
+              if (store.bundle.glossary.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.section),
+                _GlossaryCard(
+                  count: store.bundle.glossary.length,
+                  onTap: () =>
+                      Navigator.of(context).pushNamed(AppRoutes.glossary),
+                ),
+              ],
               if (explore.isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.section),
                 SectionTitle(title: l10n.toExplore),
                 const SizedBox(height: AppSpacing.md),
-                ..._spaced([
+                ...spaced([
                   for (final entry in explore)
                     _EntryRow(
                       entry: entry,
@@ -147,6 +156,7 @@ class WikiOverviewScreen extends StatelessWidget {
                 child: _CategoryTile(
                   category: first.category,
                   count: first.count,
+                  subcategoryCount: first.subcategoryCount,
                   onTap: () => _openCategory(context, first.category),
                 ),
               ),
@@ -156,6 +166,8 @@ class WikiOverviewScreen extends StatelessWidget {
                     ? _CategoryTile(
                         category: categories[start + 1].category,
                         count: categories[start + 1].count,
+                        subcategoryCount:
+                            categories[start + 1].subcategoryCount,
                         onTap: () => _openCategory(
                           context,
                           categories[start + 1].category,
@@ -227,30 +239,38 @@ class _SearchField extends StatelessWidget {
 }
 
 class _CategorySummary {
-  const _CategorySummary({required this.category, required this.count});
+  const _CategorySummary({
+    required this.category,
+    required this.count,
+    required this.subcategoryCount,
+  });
 
   final String category;
   final int count;
+
+  /// Distinct subcategories of the category's entries, zero when it has none.
+  final int subcategoryCount;
 }
 
 class _CategoryTile extends StatelessWidget {
   const _CategoryTile({
     required this.category,
     required this.count,
+    required this.subcategoryCount,
     required this.onTap,
   });
 
   final String category;
   final int count;
+  final int subcategoryCount;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context);
 
-    return _CardSurface(
+    return WikiCardSurface(
       onTap: onTap,
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 132),
@@ -260,20 +280,7 @@ class _CategoryTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: context.sato.accentTint,
-                  borderRadius: BorderRadius.circular(AppRadii.thumb),
-                ),
-                child: Icon(
-                  _iconForCategory(category),
-                  size: 22,
-                  color: colorScheme.primary,
-                ),
-              ),
+              WikiIconTile(icon: _iconForCategory(category)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -285,11 +292,65 @@ class _CategoryTile extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: AppSpacing.xs),
-                  Text(l10n.entriesCount(count), style: textTheme.labelMedium),
+                  Text(
+                    subcategoryCount > 0
+                        ? l10n.wikiTreeSubcategoriesCount(subcategoryCount)
+                        : l10n.entriesCount(count),
+                    style: textTheme.labelMedium,
+                  ),
                 ],
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Entry point to the glossary, below the category grid.
+class _GlossaryCard extends StatelessWidget {
+  const _GlossaryCard({required this.count, required this.onTap});
+
+  final int count;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
+
+    return WikiCardSurface(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.md),
+        child: Row(
+          children: [
+            const WikiIconTile(icon: Icons.menu_book_outlined),
+            const SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(l10n.wikiTreeGlossary, style: textTheme.titleMedium),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    l10n.wikiTreeGlossaryCount(count),
+                    style: textTheme.bodySmall?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: AppSpacing.sm),
+            Icon(
+              Icons.chevron_right_rounded,
+              color: colorScheme.onSurfaceVariant,
+            ),
+          ],
         ),
       ),
     );
@@ -328,6 +389,10 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
               entry.category.toLowerCase() == widget.category.toLowerCase(),
         )
         .toList(growable: false);
+    if (categoryEntries.any((entry) => entry.subcategory != null)) {
+      return _subcategoryList(context, categoryEntries, l10n);
+    }
+
     final tags = _tagsOf(categoryEntries);
     final entries = _selectedTag == null
         ? categoryEntries
@@ -365,10 +430,65 @@ class _WikiCategoryScreenState extends State<WikiCategoryScreen> {
               ),
             ),
           ),
-        ..._spaced([
+        ...spaced([
           for (final entry in entries)
             _EntryRow(entry: entry, onTap: () => _openEntry(context, entry)),
         ], AppSpacing.md),
+      ],
+    );
+  }
+
+  /// One row per subcategory, then the entries without one.
+  DetailScaffold _subcategoryList(
+    BuildContext context,
+    List<WikiEntry> categoryEntries,
+    AppLocalizations l10n,
+  ) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    // The first entry of each subcategory supplies the row description.
+    final guideBySubcategory = <String, WikiEntry>{};
+    for (final entry in categoryEntries) {
+      final subcategory = entry.subcategory;
+      if (subcategory != null) {
+        guideBySubcategory.putIfAbsent(subcategory, () => entry);
+      }
+    }
+    final subcategories = guideBySubcategory.keys.toList()
+      ..sort(compareSubcategoryKeys);
+    final looseEntries = categoryEntries
+        .where((entry) => entry.subcategory == null)
+        .toList(growable: false);
+
+    return DetailScaffold(
+      title: contentCategoryLabel(widget.category, l10n),
+      children: [
+        Text(
+          l10n.wikiTreeSubcategoriesCount(subcategories.length),
+          style: textTheme.bodyMedium?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        ...spaced([
+          for (final subcategory in subcategories)
+            WikiSubcategoryRow(
+              subcategory: subcategory,
+              description: guideBySubcategory[subcategory]!.description,
+              onTap: () => Navigator.of(
+                context,
+              ).pushNamed(AppRoutes.wikiSubcategory(subcategory)),
+            ),
+        ], AppSpacing.md),
+        if (looseEntries.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.section),
+          SectionTitle(title: l10n.wikiTreeOtherEntries),
+          const SizedBox(height: AppSpacing.md),
+          ...spaced([
+            for (final entry in looseEntries)
+              _EntryRow(entry: entry, onTap: () => _openEntry(context, entry)),
+          ], AppSpacing.md),
+        ],
       ],
     );
   }
@@ -394,7 +514,7 @@ class _EntryRow extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context);
 
-    return _CardSurface(
+    return WikiCardSurface(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.md),
@@ -440,28 +560,6 @@ class _EntryRow extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _CardSurface extends StatelessWidget {
-  const _CardSurface({required this.onTap, required this.child});
-
-  final VoidCallback onTap;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
-    return Material(
-      color: colorScheme.surfaceContainerLow,
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppRadii.card),
-        side: BorderSide(color: colorScheme.outlineVariant),
-      ),
-      child: InkWell(onTap: onTap, child: child),
     );
   }
 }
@@ -599,12 +697,16 @@ class _WikiEntryScreenState extends State<WikiEntryScreen> {
           ),
         const SizedBox(height: AppSpacing.gutter),
         MetaLine(
-          label: contentCategoryLabel(entry.category, l10n),
+          label: _eyebrowFor(entry, l10n),
           parts: [
             l10n.shortMin(entry.readTimeMinutes),
             entry.difficulty.label(l10n),
           ],
         ),
+        if (entry.reviewedAt case final reviewedAt?) ...[
+          const SizedBox(height: AppSpacing.sm),
+          CheckedOnLine(date: reviewedAt),
+        ],
         const SizedBox(height: 10),
         Semantics(
           header: true,
@@ -682,20 +784,39 @@ void _openCategory(BuildContext context, String category) {
   Navigator.of(context).pushNamed(AppRoutes.wikiCategory(category));
 }
 
+/// "Category · Subcategory" when the entry has a subcategory, else the category.
+String _eyebrowFor(WikiEntry entry, AppLocalizations l10n) {
+  final category = contentCategoryLabel(entry.category, l10n);
+  final subcategory = entry.subcategory;
+
+  return subcategory == null
+      ? category
+      : '$category · ${contentSubcategoryLabel(subcategory, l10n)}';
+}
+
 /// Distinct categories: the leading ones first, the rest alphabetically.
 List<_CategorySummary> _categoriesFor(List<WikiEntry> entries) {
   final rawByKey = <String, String>{};
   final counts = <String, int>{};
+  final subcategoriesByKey = <String, Set<String>>{};
   for (final entry in entries) {
     final key = entry.category.toLowerCase();
     rawByKey.putIfAbsent(key, () => entry.category);
     counts[key] = (counts[key] ?? 0) + 1;
+    final subcategory = entry.subcategory;
+    if (subcategory != null) {
+      subcategoriesByKey.putIfAbsent(key, () => {}).add(subcategory);
+    }
   }
 
   final keys = counts.keys.toList()..sort(_compareCategoryKeys);
   return [
     for (final key in keys)
-      _CategorySummary(category: rawByKey[key]!, count: counts[key]!),
+      _CategorySummary(
+        category: rawByKey[key]!,
+        count: counts[key]!,
+        subcategoryCount: subcategoriesByKey[key]?.length ?? 0,
+      ),
   ];
 }
 
@@ -728,6 +849,7 @@ IconData _iconForCategory(String category) {
     'lightning network' => Icons.bolt_outlined,
     'economics' => Icons.trending_up_rounded,
     'privacy-security' => Icons.shield_outlined,
+    'myths' => Icons.fact_check_outlined,
     'software' => Icons.terminal_outlined,
     'hardware' => Icons.developer_board_outlined,
     _ => Icons.menu_book_outlined,
@@ -742,14 +864,4 @@ IconData _iconForEntry(WikiEntry entry) {
     'difficulty-adjustment' => Icons.tune,
     _ => Icons.article_outlined,
   };
-}
-
-/// Puts [gap] between consecutive widgets.
-List<Widget> _spaced(List<Widget> widgets, double gap) {
-  return [
-    for (var i = 0; i < widgets.length; i++) ...[
-      if (i > 0) SizedBox(height: gap),
-      widgets[i],
-    ],
-  ];
 }

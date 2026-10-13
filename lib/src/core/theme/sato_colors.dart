@@ -12,6 +12,10 @@ final class SatoColors extends ThemeExtension<SatoColors> {
     required this.statusDraft,
     required this.statusClosed,
     required this.borderStrong,
+    required this.fieldAmber,
+    required this.fieldBlue,
+    required this.fieldGreen,
+    required this.fieldViolet,
   });
 
   static const dark = SatoColors(
@@ -21,6 +25,10 @@ final class SatoColors extends ThemeExtension<SatoColors> {
     statusDraft: AppColors.darkStatusDraft,
     statusClosed: AppColors.darkStatusClosed,
     borderStrong: AppColors.darkBorderStrong,
+    fieldAmber: AppColors.darkFieldAmber,
+    fieldBlue: AppColors.darkFieldBlue,
+    fieldGreen: AppColors.darkFieldGreen,
+    fieldViolet: AppColors.darkFieldViolet,
   );
 
   static const light = SatoColors(
@@ -30,6 +38,10 @@ final class SatoColors extends ThemeExtension<SatoColors> {
     statusDraft: AppColors.lightStatusDraft,
     statusClosed: AppColors.lightStatusClosed,
     borderStrong: AppColors.lightBorderStrong,
+    fieldAmber: AppColors.lightFieldAmber,
+    fieldBlue: AppColors.lightFieldBlue,
+    fieldGreen: AppColors.lightFieldGreen,
+    fieldViolet: AppColors.lightFieldViolet,
   );
 
   /// Soft orange background for the active tab and icon tiles.
@@ -42,6 +54,13 @@ final class SatoColors extends ThemeExtension<SatoColors> {
   /// Tab bar border.
   final Color borderStrong;
 
+  /// Soft backgrounds for the parts of hex data (tools and explorer). They
+  /// keep the text readable in both themes.
+  final Color fieldAmber;
+  final Color fieldBlue;
+  final Color fieldGreen;
+  final Color fieldViolet;
+
   @override
   SatoColors copyWith({
     Color? accentTint,
@@ -50,6 +69,10 @@ final class SatoColors extends ThemeExtension<SatoColors> {
     Color? statusDraft,
     Color? statusClosed,
     Color? borderStrong,
+    Color? fieldAmber,
+    Color? fieldBlue,
+    Color? fieldGreen,
+    Color? fieldViolet,
   }) {
     return SatoColors(
       accentTint: accentTint ?? this.accentTint,
@@ -58,6 +81,10 @@ final class SatoColors extends ThemeExtension<SatoColors> {
       statusDraft: statusDraft ?? this.statusDraft,
       statusClosed: statusClosed ?? this.statusClosed,
       borderStrong: borderStrong ?? this.borderStrong,
+      fieldAmber: fieldAmber ?? this.fieldAmber,
+      fieldBlue: fieldBlue ?? this.fieldBlue,
+      fieldGreen: fieldGreen ?? this.fieldGreen,
+      fieldViolet: fieldViolet ?? this.fieldViolet,
     );
   }
 
@@ -74,6 +101,10 @@ final class SatoColors extends ThemeExtension<SatoColors> {
       statusDraft: Color.lerp(statusDraft, other.statusDraft, t)!,
       statusClosed: Color.lerp(statusClosed, other.statusClosed, t)!,
       borderStrong: Color.lerp(borderStrong, other.borderStrong, t)!,
+      fieldAmber: Color.lerp(fieldAmber, other.fieldAmber, t)!,
+      fieldBlue: Color.lerp(fieldBlue, other.fieldBlue, t)!,
+      fieldGreen: Color.lerp(fieldGreen, other.fieldGreen, t)!,
+      fieldViolet: Color.lerp(fieldViolet, other.fieldViolet, t)!,
     );
   }
 }

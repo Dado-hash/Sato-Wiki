@@ -534,4 +534,739 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get subcategoryNodeHardware => 'Node hardware';
+
+  @override
+  String get wikiTreeCategoryMyths => 'Myths';
+
+  @override
+  String wikiTreeSubcategoriesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count subcategories',
+      one: '1 subcategory',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wikiTreeGlossary => 'Glossary';
+
+  @override
+  String wikiTreeGlossaryCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count terms',
+      one: '1 term',
+    );
+    return 'Short definitions · $_temp0';
+  }
+
+  @override
+  String get wikiTreeOtherEntries => 'Other entries';
+
+  @override
+  String wikiTreeGuideMinutes(int minutes) {
+    return 'Guide · $minutes min';
+  }
+
+  @override
+  String wikiTreeProductsCount(int count) {
+    return 'Products · $count';
+  }
+
+  @override
+  String get wikiTreeStatusActive => 'Active';
+
+  @override
+  String get wikiTreeStatusDiscontinued => 'Discontinued';
+
+  @override
+  String get wikiTreeOpenSource => 'Open source';
+
+  @override
+  String get wikiTreeSourceNotOpen => 'Source not open';
+
+  @override
+  String get wikiTreeYes => 'Yes';
+
+  @override
+  String get wikiTreeNo => 'No';
+
+  @override
+  String get wikiTreeLicense => 'License';
+
+  @override
+  String get wikiTreeMaker => 'Maker';
+
+  @override
+  String get wikiTreePlatforms => 'Platforms';
+
+  @override
+  String wikiTreeCheckedOn(String date) {
+    return 'Checked on $date';
+  }
+
+  @override
+  String get wikiTreeWebsite => 'Website';
+
+  @override
+  String get wikiTreeSourceCode => 'Source code';
+
+  @override
+  String get wikiTreeProductNotice =>
+      'SatoWiki does not sell or recommend products and has no affiliate links.';
+
+  @override
+  String get wikiTreeStatus => 'Status';
+
+  @override
+  String get wikiTreeProductNotFound => 'Product not found';
+
+  @override
+  String get learnStartHere => 'Start here';
+
+  @override
+  String get learnQuote => 'Quote';
+
+  @override
+  String get learnSource => 'Source';
+
+  @override
+  String learnStepsRead(int read, int total) {
+    return '$read of $total read';
+  }
+
+  @override
+  String learnNextStep(String title) {
+    return 'Next: $title';
+  }
+
+  @override
+  String get learnAllStepsRead => 'All steps read';
+
+  @override
+  String get learnStepRead => 'Read';
+
+  @override
+  String learnStepNumber(int number) {
+    return 'Step $number';
+  }
+
+  @override
+  String get learnPathNotFound => 'Path not found';
+
+  @override
+  String get learnGlossaryTitle => 'Glossary';
+
+  @override
+  String get learnGlossaryFilterHint => 'Filter terms';
+
+  @override
+  String learnGlossaryNoMatch(String query) {
+    return 'No terms match \"$query\".';
+  }
+
+  @override
+  String get learnGlossaryEmpty => 'No glossary terms yet.';
+
+  @override
+  String get learnAlsoCalled => 'Also called';
+
+  @override
+  String get learnGlossaryNotFound => 'Term not found';
+
+  @override
+  String get toolsSectionTools => 'Tools';
+
+  @override
+  String get toolsSectionLearn => 'Learn by doing';
+
+  @override
+  String get toolsSectionNetwork => 'Network';
+
+  @override
+  String get toolsTileHashName => 'Hash';
+
+  @override
+  String get toolsTileHashCaption => 'SHA-256 · HASH160';
+
+  @override
+  String get toolsTileAddressName => 'Address';
+
+  @override
+  String get toolsTileAddressCaption => 'Type and checksum';
+
+  @override
+  String get toolsTileTransactionName => 'Transaction';
+
+  @override
+  String get toolsTileTransactionCaption => 'Raw hex decoder';
+
+  @override
+  String get toolsTileTargetName => 'Target';
+
+  @override
+  String get toolsTileTargetCaption => 'Bits and difficulty';
+
+  @override
+  String get toolsTileUnitsName => 'Units';
+
+  @override
+  String get toolsTileUnitsCaption => 'sat · BTC · vB';
+
+  @override
+  String get toolsTileTablesName => 'Tables';
+
+  @override
+  String get toolsTileTablesCaption => 'Opcodes, fields, messages';
+
+  @override
+  String get toolsLabName => 'Blockchain lab';
+
+  @override
+  String get toolsLabCaption =>
+      'Six steps: hash, block, chain, network, transactions, coinbase.';
+
+  @override
+  String get toolsScriptName => 'Script step by step';
+
+  @override
+  String get toolsScriptCaption => 'See the stack after each opcode.';
+
+  @override
+  String get toolsExplorerName => 'Explorer';
+
+  @override
+  String get toolsExplorerCaption => 'Uses the network. Off by default.';
+
+  @override
+  String get toolsCopy => 'Copy';
+
+  @override
+  String get toolsCopied => 'Copied';
+
+  @override
+  String get toolsReadMore => 'Read more in the wiki';
+
+  @override
+  String get toolsHashTitle => 'Hash';
+
+  @override
+  String get toolsHashModeText => 'Text';
+
+  @override
+  String get toolsHashModeHex => 'Hex';
+
+  @override
+  String get toolsHashTextHint => 'Type any text';
+
+  @override
+  String get toolsHashHexHint => 'Paste bytes in hex';
+
+  @override
+  String get toolsHashSha256 => 'SHA-256';
+
+  @override
+  String get toolsHashDoubleSha256 => 'Double SHA-256';
+
+  @override
+  String get toolsHashHash160 => 'HASH160';
+
+  @override
+  String get toolsHashInvalidHex =>
+      'Not valid hex. Use pairs of digits 0-9 and a-f, with no spaces.';
+
+  @override
+  String get toolsHashEmptyHex => 'Enter hex bytes to see their hashes.';
+
+  @override
+  String get toolsHashNote =>
+      'SHA-256 is the hash that proof of work and most Bitcoin identifiers rely on. Double SHA-256 applies it twice, as block headers and transaction ids do. HASH160 is RIPEMD-160 of SHA-256 and gives the 20-byte values inside addresses.';
+
+  @override
+  String get toolsAddressTitle => 'Address';
+
+  @override
+  String get toolsAddressHint => 'Paste an address';
+
+  @override
+  String get toolsAddressChecksumValid => 'Checksum valid';
+
+  @override
+  String get toolsAddressChecksumInvalid => 'Checksum not valid';
+
+  @override
+  String get toolsAddressNetworkMainnet => 'Mainnet';
+
+  @override
+  String get toolsAddressNetworkTestnet => 'Testnet';
+
+  @override
+  String get toolsAddressNetworkRegtest => 'Regtest';
+
+  @override
+  String get toolsAddressKindP2pkh => 'P2PKH';
+
+  @override
+  String get toolsAddressKindP2sh => 'P2SH';
+
+  @override
+  String get toolsAddressKindP2wpkh => 'P2WPKH';
+
+  @override
+  String get toolsAddressKindP2wsh => 'P2WSH';
+
+  @override
+  String get toolsAddressKindP2tr => 'P2TR (Taproot)';
+
+  @override
+  String get toolsAddressKindUnknownWitness => 'Unknown witness program';
+
+  @override
+  String get toolsAddressKindInvalid => 'Not a valid address';
+
+  @override
+  String get toolsAddressDescP2pkh =>
+      'Pays to the hash of a public key. This is the classic format, used since 2009.';
+
+  @override
+  String get toolsAddressDescP2sh =>
+      'Pays to the hash of a script, so the spending conditions stay hidden until they are used.';
+
+  @override
+  String get toolsAddressDescP2wpkh =>
+      'Pays to the hash of a public key, in the SegWit version 0 format.';
+
+  @override
+  String get toolsAddressDescP2wsh =>
+      'Pays to the hash of a script, in the SegWit version 0 format.';
+
+  @override
+  String get toolsAddressDescP2tr =>
+      'Pays to a taproot output key, in the SegWit version 1 format.';
+
+  @override
+  String get toolsAddressDescUnknownWitness =>
+      'A SegWit address with a witness version or length that this app does not analyse in detail.';
+
+  @override
+  String get toolsAddressErrorEmpty => 'Paste an address to check it.';
+
+  @override
+  String get toolsAddressErrorBadCharacter =>
+      'A character is not allowed in this encoding.';
+
+  @override
+  String get toolsAddressErrorBadChecksum =>
+      'The checksum does not match. The text was changed or mistyped.';
+
+  @override
+  String get toolsAddressErrorBadLength =>
+      'The length is wrong for this type of address.';
+
+  @override
+  String get toolsAddressErrorUnknownVersion =>
+      'The version or witness version is not one this app knows.';
+
+  @override
+  String get toolsAddressErrorMixedCase =>
+      'Upper and lower case are mixed. Bech32 uses one case only.';
+
+  @override
+  String get toolsAddressErrorWrongVariant =>
+      'The checksum type does not match the witness version.';
+
+  @override
+  String get toolsAddressErrorMissingSeparator =>
+      'A Bech32 string needs the 1 separator.';
+
+  @override
+  String get toolsAddressErrorEmptyHrp =>
+      'The network prefix before the 1 is empty.';
+
+  @override
+  String get toolsAddressErrorUnknownHrp =>
+      'The prefix is not bc, tb or bcrt, so this is not a Bitcoin address.';
+
+  @override
+  String get toolsAddressErrorEmptyData =>
+      'A SegWit address has no witness data.';
+
+  @override
+  String get toolsAddressErrorInvalidPadding =>
+      'The witness data has invalid padding.';
+
+  @override
+  String get toolsAddressSecretWifTitle => 'This looks like a private key';
+
+  @override
+  String get toolsAddressSecretExtendedTitle =>
+      'This looks like an extended key';
+
+  @override
+  String get toolsAddressSecretBody =>
+      'Never paste a private key or an extended key into any app or website. The field was cleared and nothing was analysed.';
+
+  @override
+  String get toolsAddressBuiltTitle => 'How it is built';
+
+  @override
+  String get toolsPartPrefix => 'Network prefix';
+
+  @override
+  String get toolsPartSeparator => 'Separator';
+
+  @override
+  String get toolsPartWitnessVersion => 'Witness version';
+
+  @override
+  String get toolsPartProgram => 'Program (hash)';
+
+  @override
+  String get toolsPartChecksum => 'Checksum, last 6 characters';
+
+  @override
+  String get toolsPartVersionByte => 'Version byte';
+
+  @override
+  String get toolsPartPayloadHash => 'Payload hash';
+
+  @override
+  String get toolsPartBase58Checksum => 'Checksum, last 4 bytes';
+
+  @override
+  String get toolsAddressBase58Note =>
+      'Base58 characters do not line up with bytes, so the string is shown without colours. Its parts are listed below.';
+
+  @override
+  String get toolsTxTitle => 'Transaction';
+
+  @override
+  String get toolsTxSummary => 'Summary';
+
+  @override
+  String get toolsTxHint => 'Paste a raw transaction in hex';
+
+  @override
+  String get toolsTxEmpty => 'Paste a raw transaction to decode it.';
+
+  @override
+  String get toolsTxLoadExample => 'Load example';
+
+  @override
+  String get toolsTxExampleNote =>
+      'Example: the genesis coinbase transaction, from block 0.';
+
+  @override
+  String get toolsTxTapHint =>
+      'Tap a field with an arrow to read its wiki entry.';
+
+  @override
+  String get toolsTxTxid => 'txid';
+
+  @override
+  String get toolsTxWtxid => 'wtxid';
+
+  @override
+  String get toolsTxType => 'Type';
+
+  @override
+  String get toolsTxTypeCoinbase => 'Coinbase';
+
+  @override
+  String get toolsTxTypeRegular => 'Regular';
+
+  @override
+  String get toolsTxFormat => 'Format';
+
+  @override
+  String get toolsTxFormatSegwit => 'SegWit';
+
+  @override
+  String get toolsTxFormatLegacy => 'Legacy';
+
+  @override
+  String get toolsTxSize => 'Size';
+
+  @override
+  String get toolsTxWeight => 'Weight';
+
+  @override
+  String get toolsTxVsize => 'Virtual size';
+
+  @override
+  String toolsTxBytes(int count) {
+    return '$count bytes';
+  }
+
+  @override
+  String toolsTxWeightUnits(int count) {
+    return '$count WU';
+  }
+
+  @override
+  String toolsTxVbytes(int count) {
+    return '$count vB';
+  }
+
+  @override
+  String get toolsTxFieldsTitle => 'Fields';
+
+  @override
+  String get toolsTxHexTitle => 'Serialized hex';
+
+  @override
+  String toolsTxInputLabel(int index) {
+    return 'Input $index';
+  }
+
+  @override
+  String toolsTxOutputLabel(int index) {
+    return 'Output $index';
+  }
+
+  @override
+  String toolsTxWitnessLabel(int index, int item) {
+    return 'Input $index, witness item $item';
+  }
+
+  @override
+  String get toolsTxCoinbaseTag => 'coinbase';
+
+  @override
+  String toolsTxValueBoth(String btc, String sat) {
+    return '$btc BTC · $sat sat';
+  }
+
+  @override
+  String toolsTxHiddenFields(int count) {
+    return '$count more fields are not shown.';
+  }
+
+  @override
+  String get toolsTxErrorNotHex =>
+      'The input is empty, has an odd number of digits, or is not hexadecimal.';
+
+  @override
+  String get toolsTxErrorTruncated =>
+      'The data ends before a field is complete. The transaction may be cut short.';
+
+  @override
+  String get toolsTxErrorTrailing =>
+      'There are bytes after the last field. Check that the transaction is complete and has nothing extra.';
+
+  @override
+  String get toolsTxErrorTooLarge =>
+      'The transaction is larger than 400000 bytes, the limit of this tool.';
+
+  @override
+  String get toolsTxErrorInvalid =>
+      'A value is outside what a transaction can hold, or the segwit flag is unknown.';
+
+  @override
+  String get toolsFieldVersion => 'Version';
+
+  @override
+  String get toolsFieldMarker => 'Marker';
+
+  @override
+  String get toolsFieldFlag => 'Flag';
+
+  @override
+  String get toolsFieldInputCount => 'Input count';
+
+  @override
+  String get toolsFieldPreviousTxid => 'Previous txid';
+
+  @override
+  String get toolsFieldPreviousIndex => 'Previous output index';
+
+  @override
+  String get toolsFieldScriptSigLength => 'scriptSig length';
+
+  @override
+  String get toolsFieldScriptSig => 'scriptSig';
+
+  @override
+  String get toolsFieldSequence => 'Sequence';
+
+  @override
+  String get toolsFieldOutputCount => 'Output count';
+
+  @override
+  String get toolsFieldValue => 'Value';
+
+  @override
+  String get toolsFieldScriptPubKeyLength => 'scriptPubKey length';
+
+  @override
+  String get toolsFieldScriptPubKey => 'scriptPubKey';
+
+  @override
+  String get toolsFieldWitnessItemCount => 'Witness item count';
+
+  @override
+  String get toolsFieldWitnessItemLength => 'Witness item length';
+
+  @override
+  String get toolsFieldWitnessItem => 'Witness item';
+
+  @override
+  String get toolsFieldLockTime => 'Lock time';
+
+  @override
+  String get toolsScriptP2pk => 'P2PK';
+
+  @override
+  String get toolsScriptP2pkh => 'P2PKH';
+
+  @override
+  String get toolsScriptP2sh => 'P2SH';
+
+  @override
+  String get toolsScriptP2wpkh => 'P2WPKH';
+
+  @override
+  String get toolsScriptP2wsh => 'P2WSH';
+
+  @override
+  String get toolsScriptP2tr => 'P2TR';
+
+  @override
+  String get toolsScriptWitnessUnknown => 'Unknown witness program';
+
+  @override
+  String get toolsScriptBareMultisig => 'Bare multisig';
+
+  @override
+  String get toolsScriptOpReturn => 'OP_RETURN data';
+
+  @override
+  String get toolsScriptNonStandard => 'Non-standard';
+
+  @override
+  String get toolsTargetTitle => 'Target';
+
+  @override
+  String get toolsTargetHint => 'Bits, 8 hex digits, for example 1d00ffff';
+
+  @override
+  String get toolsTargetInvalid =>
+      'Enter exactly 8 hex digits, with an optional 0x prefix.';
+
+  @override
+  String get toolsTargetTargetLabel => 'Target';
+
+  @override
+  String get toolsTargetDifficulty => 'Difficulty';
+
+  @override
+  String get toolsTargetExpected => 'Expected hashes per block';
+
+  @override
+  String toolsTargetScientific(String mantissa, int exponent) {
+    return 'About $mantissa × 10^$exponent';
+  }
+
+  @override
+  String get toolsTargetNote =>
+      'The target is the number a block hash must stay below. Difficulty compares it with the maximum target, 1d00ffff. Expected hashes is the average number of attempts needed to find a valid block.';
+
+  @override
+  String get toolsUnitsTitle => 'Units';
+
+  @override
+  String get toolsUnitsBtcSatTitle => 'BTC and satoshi';
+
+  @override
+  String get toolsUnitsBtcLabel => 'BTC';
+
+  @override
+  String get toolsUnitsSatLabel => 'Satoshi';
+
+  @override
+  String get toolsUnitsDecimalsError =>
+      'Bitcoin amounts have at most 8 decimals.';
+
+  @override
+  String get toolsUnitsInvalidAmount =>
+      'Enter a decimal amount, for example 0.001.';
+
+  @override
+  String get toolsUnitsInvalidWhole => 'Enter a whole number, zero or more.';
+
+  @override
+  String get toolsUnitsWeightTitle => 'Weight units to virtual bytes';
+
+  @override
+  String get toolsUnitsWeightLabel => 'Weight units (WU)';
+
+  @override
+  String toolsUnitsVbytesResult(int vbytes) {
+    return '$vbytes vB';
+  }
+
+  @override
+  String get toolsUnitsRateFromFeeTitle => 'Fee rate from fee';
+
+  @override
+  String get toolsUnitsFeeLabel => 'Fee (satoshi)';
+
+  @override
+  String get toolsUnitsVsizeLabel => 'Virtual size (vB)';
+
+  @override
+  String toolsUnitsRateResult(String rate) {
+    return '$rate sat/vB';
+  }
+
+  @override
+  String get toolsUnitsFeeFromRateTitle => 'Fee from fee rate';
+
+  @override
+  String get toolsUnitsRateLabel => 'Fee rate (sat/vB)';
+
+  @override
+  String toolsUnitsFeeResult(int sat) {
+    return '$sat sat';
+  }
+
+  @override
+  String get toolsUnitsRateInvalid =>
+      'Enter a fee rate of zero or more, for example 2.5.';
+
+  @override
+  String get toolsUnitsVsizePositive => 'Virtual size must be more than zero.';
+
+  @override
+  String get toolsUnitsResult => 'Result';
+
+  @override
+  String get toolsUnitsNote =>
+      'Only units, no prices or fiat. Bitcoin amounts use integer math, so nothing is rounded.';
+
+  @override
+  String get toolsReferencesTitle => 'Reference tables';
+
+  @override
+  String get toolsReferencesEmpty => 'No reference tables yet.';
+
+  @override
+  String toolsRowCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rows',
+      one: '1 row',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get toolsReferenceFilterHint => 'Filter rows';
+
+  @override
+  String get toolsReferenceNoMatch => 'No rows match this filter.';
 }
