@@ -21,7 +21,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 1. [x] Mockup HTML della Wiki con categorie e sottocategorie. Approvato il 2026-10-13.
 2. [x] Aggiungere il campo opzionale `subcategory` a `WikiEntry`: modello, parser, validatore, `docs/content-model.md`.
 3. [x] Aggiungere le categorie `software` e `hardware`: ordine, icone, etichette EN e IT.
-4. [ ] Mostrare le sottocategorie nella schermata Wiki.
+4. [x] Mostrare le sottocategorie nella schermata Wiki.
 5. [x] Confermare l'elenco delle sottocategorie (2026-10-13: quelle di `docs/plan.md`, sezione A1).
 6. [x] Scrivere le voci di sottocategoria di Software, EN e IT, tre livelli.
 7. [x] Scrivere le voci di sottocategoria di Hardware, EN e IT, tre livelli.
@@ -30,9 +30,9 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 1. [x] Mockup della card "Inizia qui" e della schermata del percorso. Card approvata il 2026-10-13.
 2. [x] Aggiungere la collezione `paths`: modello, parser, validatore, documentazione.
-3. [ ] Mostrare il percorso in Today, con avanzamento dal reading progress.
+3. [x] Mostrare il percorso in Today, con avanzamento dal reading progress.
 4. [x] Scrivere il primo percorso per principianti, EN e IT.
-5. [ ] Aggiungere il campo opzionale `reviewedAt` a tutti i record e mostrarlo nelle schermate di lettura. Il campo esiste in modello, parser e validatore; manca la riga nelle schermate.
+5. [x] Aggiungere il campo opzionale `reviewedAt` a tutti i record e mostrarlo nelle schermate di lettura. Mostrato nel lettore wiki e nelle schede prodotto.
 
 ## 3. History estesa
 
@@ -42,17 +42,17 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 4. Glossario, riferimenti e citazioni
 
-1. [ ] Mockup di glossario, tabella di riferimento e card citazione. Glossario e citazione sono nel mockup approvato il 2026-10-13; manca la tabella.
-2. [ ] Collezione `glossary`: modello, parser, validatore, ricerca, schermata. Fatti modello, parser, validatore e 93 termini; mancano ricerca e schermata.
+1. [ ] Mockup di glossario, tabella di riferimento e card citazione. Glossario e citazione sono nel mockup approvato il 2026-10-13. La tabella è stata costruita senza mockup dedicato: da rivedere a schermo.
+2. [x] Collezione `glossary`: modello, parser, validatore, ricerca, schermata.
 3. [ ] Link ai termini del glossario dal Markdown delle voci.
-4. [ ] Collezione `references`: modello, parser, validatore, schermata con filtro in Code. Fatti modello, parser e validatore; manca la schermata.
+4. [x] Collezione `references`: modello, parser, validatore, schermata con filtro in Code.
 5. [x] Prime tabelle: opcode, campi di transazione, campi di header, messaggi P2P, unità.
-6. [ ] Collezione `quotes`: modello, parser, validatore, card in Today, citazioni collegate nelle voci. Fatti modello, parser e validatore; mancano card e collegamenti.
+6. [x] Collezione `quotes`: modello, parser, validatore, card in Today, citazioni collegate nelle voci.
 7. [x] Prima raccolta di citazioni con fonte e data, EN e IT.
 
 ## 5. Nuove categorie di contenuto
 
-1. [ ] Categoria Miti: struttura e prime voci.
+1. [x] Categoria Miti: struttura e prime 12 voci.
 2. [x] Categoria Privacy e sicurezza: struttura e prime voci.
 3. [x] Voci di protocollo mancanti (elenco in `docs/content-todo.md`).
 4. [ ] Diagrammi SVG byte per byte di transazione e header.
@@ -60,46 +60,52 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 ## 6. Strumenti offline
 
 1. [x] Mockup della sezione Strumenti in Code. Approvato il 2026-10-13.
-2. [ ] Creare `lib/src/features/tools/` con logica pura in `domain/` e aggiornare `docs/app-architecture.md`. La cartella esiste; la documentazione si aggiorna con le prime schermate.
+2. [x] Creare `lib/src/features/tools/` con logica pura in `domain/` e aggiornare `docs/app-architecture.md`.
 3. [x] Decidere dipendenza o codice nostro per RIPEMD-160, Base58Check e bech32 (2026-10-13: codice nostro, verificato con i vettori di test ufficiali).
 4. [x] Scrivere RIPEMD-160, Base58Check e bech32/bech32m con i loro test.
-5. [ ] Strumento hash. La logica di tutti e cinque gli strumenti è in `lib/src/features/tools/domain/`; mancano le schermate.
-6. [ ] Convertitore bits, target e difficulty.
-7. [ ] Convertitore di unità.
-8. [ ] Analisi di un indirizzo.
-9. [ ] Decoder di transazione raw, con link alle voci wiki.
+5. [x] Strumento hash.
+6. [x] Convertitore bits, target e difficulty.
+7. [x] Convertitore di unità.
+8. [x] Analisi di un indirizzo.
+9. [x] Decoder di transazione raw, con link alle voci wiki.
 
 ## 7. Demo interattive
 
-1. [ ] Mockup del laboratorio blockchain (sei passi) e di "Script passo per passo". Passi 2 e 3 del laboratorio approvati il 2026-10-13; manca "Script passo per passo".
-2. [x] Logica pura del laboratorio: blocco semplificato, validità della catena, ricerca del nonce in un isolate.
-3. [ ] Passi 1 e 2: hash e blocco, con "Mina un blocco" apribile anche da solo.
-4. [ ] Passi 3 e 4: catena e rete con tre copie.
-5. [ ] Passi 5 e 6: transazioni e coinbase.
-6. [ ] Passo facoltativo: mining su un header reale di Bitcoin con target facile.
-7. [ ] Testi EN e IT di ogni passo, con il confronto con Bitcoin reale e i link alle voci wiki.
-8. [ ] "Script passo per passo": opcode di stack, aritmetica, hash e timelock, con firma simulata dichiarata. La logica esiste ed è verificata con 507 vettori di test di Bitcoin Core; manca la schermata.
-9. [ ] Collegare le demo dalle voci `wiki.hash-functions`, `wiki.blockchain`, `wiki.proof-of-work`, `wiki.mining` e `wiki.bitcoin-script`.
+1. [ ] Mockup del laboratorio blockchain e di "Script passo per passo". Passi 2 e 3 approvati il 2026-10-13. Passi 1, 4, 5, 6, 7 e Script sono stati costruiti senza mockup dedicato: da rivedere a schermo.
+2. [x] Logica pura del laboratorio: blocco semplificato, validità della catena, ricerca del nonce a lotti.
+3. [x] Passi 1 e 2: hash e blocco, con "Mina un blocco" apribile anche da solo.
+4. [x] Passi 3 e 4: catena e rete con tre copie.
+5. [x] Passi 5 e 6: transazioni e coinbase.
+6. [x] Passo facoltativo: header reale del blocco genesi, decodificato campo per campo.
+7. [x] Testi EN e IT di ogni passo, con il confronto con Bitcoin reale e i link alle voci wiki.
+8. [x] "Script passo per passo": opcode di stack, aritmetica, hash e timelock, con firma simulata dichiarata.
+9. [x] Collegare le demo dalle voci wiki: sezione "Prova" in 16 voci.
 
 ## 8. Explorer
 
 1. [x] Scegliere il server predefinito (2026-10-13: mempool.space, sostituibile dall'utente).
 2. [x] Leggere in un browser i termini di servizio di mempool.space. Letti da Davide il 2026-10-13.
-3. [ ] Aggiornare `docs/privacy-policy.md` con il testo definitivo.
-4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione. Avviso e transazione approvati il 2026-10-13.
-5. [ ] Impostazioni: interruttore spento all'installazione e server configurabile.
+3. [x] Aggiornare `docs/privacy-policy.md` con il testo definitivo.
+4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione. Avviso e transazione approvati il 2026-10-13. Ricerca, blocco e indirizzo sono stati costruiti senza mockup dedicato: da rivedere a schermo.
+5. [x] Impostazioni: interruttore spento all'installazione e server configurabile.
 6. [x] Client Esplora con limiti di tempo, cache in memoria e gestione di HTTP 429.
-7. [ ] Schermate blocco, transazione e indirizzo, con link alle voci wiki.
+7. [x] Schermate blocco, transazione e indirizzo, con link alle voci wiki.
 8. [x] Test con server finto: rete assente, risposta malformata, timeout, HTTP 429.
 
 ## 9. Schede prodotto e Biblioteca
 
 1. [x] Collezione `products`: modello, parser, validatore (avviso oltre 12 mesi da `reviewedAt`), template, documentazione.
-2. [ ] Mockup della scheda prodotto e dell'elenco per sottocategoria.
+2. [x] Mockup della scheda prodotto e dell'elenco per sottocategoria. Nel mockup della Wiki approvato il 2026-10-13.
 3. [x] Definire il criterio di inclusione e i primi prodotti (2026-10-13: `docs/plan.md`, sezione A1).
-4. [x] Scrivere le prime schede, EN e IT. 31 schede; manca Antminer serie S (sito ufficiale non leggibile).
-5. [ ] Collezione `library`: modello, parser, validatore, schermata con filtri per autore e tema.
-6. [ ] Prime voci della Biblioteca, con licenza verificata opera per opera.
+4. [x] Scrivere le prime schede, EN e IT. 32 schede.
+5. [x] Collezione `library`: modello, parser, validatore, schermata con filtri per autore e tema.
+6. [x] Prime voci della Biblioteca, con licenza verificata opera per opera. 16 opere.
+
+## Da verificare a mano
+
+- [ ] Nessuna schermata nuova è stata provata su simulatore o dispositivo: sono coperte solo da test di widget.
+- [ ] La schermata Biblioteca non aveva un mockup: da rivedere a schermo.
+- [ ] I testi italiani scritti dai subagent vanno riletti da una persona madrelingua.
 
 ## Lavoro aperto ereditato
 

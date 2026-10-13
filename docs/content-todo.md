@@ -411,8 +411,18 @@ verificano quando si scrive la scheda.
 
 ### Miti
 
-- [ ] Scegliere i miti da trattare e definire gli slug
-- [ ] Scrivere le prime voci, con fonti a ogni livello
+- [x] Bitcoin è anonimo - `wiki.myth-anonymous`
+- [x] Non è garantito da nulla - `wiki.myth-backed-by-nothing`
+- [x] Spreca energia - `wiki.myth-energy-waste`
+- [x] Serve soprattutto ai criminali - `wiki.myth-criminal-use`
+- [x] I governi possono spegnerlo - `wiki.myth-can-be-shut-down`
+- [x] Il limite dei 21 milioni può cambiare - `wiki.myth-supply-can-change`
+- [x] È troppo lento - `wiki.myth-too-slow`
+- [x] I computer quantistici lo romperanno - `wiki.myth-quantum`
+- [x] I miner controllano Bitcoin - `wiki.myth-miners-control`
+- [x] Bitcoin è stato hackerato - `wiki.myth-was-hacked`
+- [x] È uno schema Ponzi - `wiki.myth-ponzi`
+- [x] Serve comprare un bitcoin intero - `wiki.myth-whole-coin`
 
 ### Protocol: voci mancanti
 

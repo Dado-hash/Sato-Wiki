@@ -116,6 +116,8 @@ lib/
       code/                         # domain/repositories, presentation (BIPs and releases)
       search/presentation/          # search screen
       settings/presentation/        # Settings and Bookmarks
+      learn/presentation/           # learning path, glossary, library screens
+      tools/                        # domain (pure logic), data (Esplora client), presentation (offline tools, reference tables, blockchain lab, Script stepper, opt-in explorer)
 ```
 
 Feature `domain/` holds repository interfaces; the data layer for content lives in `core/content/data/`. Feature `presentation/` holds screens and widgets.
@@ -155,6 +157,7 @@ Common entities:
 - `SourceReference`, `RelatedContentLink`, `Contributor`, `ReadingLevelContent` — metadata
 - Record ids are plain strings: `wiki.slug`, `news.slug`, `history.slug`, `code.bip.341`, `release.project.version`
 - Feature models: `WikiEntry`, `NewsArticle`, `HistoryEvent`, `Bip`, `ReleaseNote`
+- Optional collections: `GlossaryTerm` (`glossary.slug`), `ReferenceTable` (`reference.slug`), `Quote`, `LearningPath` (`path.slug`), `Product` (`product.slug`), `LibraryWork` (`library.slug`)
 
 Full schema in `docs/content-model.md`.
 
@@ -164,6 +167,8 @@ Full schema in `docs/content-model.md`.
 - Prefer readable, localized code over premature abstraction
 - Offline-first: no central UI should block on a runtime call for already-downloaded content
 - Privacy by default: no invasive analytics, no unnecessary third-party calls
+- The block explorer is the only feature that calls a third-party server. It is off at install, creates no client while off, and saves no searches. Its tests use a fake API: never call mempool.space or another live explorer from tests or scripts
+- No tool generates or handles private keys. A pasted WIF or extended key is recognised only to clear the field and show a warning
 - Keep `flutter analyze` clean; this is non-negotiable
 
 **Dart Style:**
