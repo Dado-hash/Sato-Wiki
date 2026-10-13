@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/theme/app_tokens.dart';
+import '../../../core/widgets/bookmark_button.dart';
 import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/detail_scaffold.dart';
 import '../../../core/widgets/external_url.dart';
@@ -50,6 +51,7 @@ class ProductScreen extends StatelessWidget {
     final license = product.license;
 
     return DetailScaffold(
+      actions: [BookmarkButton(contentId: product.id)],
       children: [
         Semantics(
           header: true,

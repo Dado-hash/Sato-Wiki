@@ -138,7 +138,7 @@ Feature `domain/` holds repository interfaces; the data layer for content lives 
 
 **Localization:** Languages resolved via `AppLocale.resolveLanguageCode()` using app preference + system locales. Supported seeds: `en`, `it`. Fallback is English.
 
-**Search:** `SearchIndex` covers wiki, news, history, BIPs and release notes. Body text is not indexed.
+**Search:** `SearchIndex` covers wiki, news, history, BIPs, release notes, glossary, products, reference tables and library works. Body text is not indexed.
 
 ### Styling & Theme
 

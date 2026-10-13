@@ -46,7 +46,9 @@ Dove stanno i layer:
 - Le feature hanno solo le interfacce dei repository in `domain/repositories/` e le schermate in `presentation/`. Oggi, Impostazioni e segnalibri non hanno un `domain/`.
 - La persistenza usa `shared_preferences` (impostazioni, segnalibri, progresso di lettura, ricerche recenti e bundle aggiornati) e il file system (media). Non esiste una cartella `storage/`.
 - Il dettaglio di un BIP e di una release sta in un file proprio (`bip_detail_screen.dart`, `release_note_screen.dart`). `code_dashboard_screen.dart` li ri-esporta, quindi gli import che usano la dashboard continuano a funzionare.
-- L'albero Wiki sta in `features/wiki/presentation/`: `wiki_overview_screen.dart` (tab Wiki, categorie, lista di categoria e reader), `wiki_subcategory_screen.dart` (guide e prodotti di una sottocategoria), `product_screen.dart` (scheda prodotto) e `wiki_tree_widgets.dart` (card, pillole, ordine fisso delle sottocategorie). Una categoria con sottocategorie mostra una riga per sottocategoria; le schede prodotto leggono `bundle.products` in modo sincrono e non hanno segnalibro, perché i segnalibri risolvono solo i titoli di wiki, news, history e code.
+- L'albero Wiki sta in `features/wiki/presentation/`: `wiki_overview_screen.dart` (tab Wiki, categorie, lista di categoria e reader), `wiki_subcategory_screen.dart` (guide e prodotti di una sottocategoria), `product_screen.dart` (scheda prodotto) e `wiki_tree_widgets.dart` (card, pillole, ordine fisso delle sottocategorie). Una categoria con sottocategorie mostra una riga per sottocategoria; le schede prodotto leggono `bundle.products` in modo sincrono e hanno il pulsante segnalibro; la schermata segnalibri risolve i titoli di wiki, news, history, code, glossario, prodotti, tabelle di riferimento e biblioteca.
+
+Il collegamento tra la Wiki e le altre aree sta in `wiki_connect_tools.dart` (mappa fissa da id di voce agli strumenti, sezione "Prova") e in `wiki_connect_quotes.dart` (citazioni con `relatedQuotesFor`, al massimo due). La card di citazione è `QuoteCard` in `core/widgets/`, usata da Today e dal reader. La Biblioteca ha una card nella tab Wiki, accanto al glossario, nascosta quando il bundle non ha opere. Le route dei laboratori e di Script arrivano solo da `AppRoutes`.
 
 ## Navigazione
 
@@ -77,6 +79,7 @@ Route fuori dalla tab bar:
 - `/code/changelogs/:project/:version`
 - `/paths/:slug` (percorso guidato)
 - `/glossary` e `/glossary/:slug`
+- `/library` e `/library/:slug` (biblioteca)
 
 Regole:
 
@@ -90,9 +93,15 @@ Regole:
 
 L'hub è `features/code/presentation/code_dashboard_screen.dart`: sotto BIP e release mostra i gruppi Strumenti, Impara facendo e Rete. Gli strumenti (Hash, Indirizzo, Transazione, Target, Unità) e le tabelle stanno in `features/tools/presentation/`, con file `tool_*` e `reference_*`; la logica pura sta in `features/tools/domain/` e non dipende da Flutter. Le route `/code/tools/*` e `/code/references` (con `/:slug`) sono risolte in `app_router.dart`: gli strumenti ricevono lo store per i link alla wiki, le tabelle passano dai deep link. I link alla wiki compaiono solo se la voce è nel bundle caricato, e nessuno strumento salva ciò che viene digitato. I colori delle parti di dato sono i token `fieldAmber`, `fieldBlue`, `fieldGreen` e `fieldViolet` di `SatoColors`.
 
+Il laboratorio blockchain sta in `features/tools/presentation/lab_*.dart`: l'indice `LabIndexScreen` e le sette pagine `LabStepScreen` (route `/code/lab` e `/code/lab/<passo>`, con passo da 1 a 7, il settimo facoltativo), basate sulla logica pura di `lab_blockchain.dart` e `header_mining.dart`. Il mining cerca il nonce a lotti di 2.000 tentativi e cede il controllo tra un lotto e l'altro, così l'interfaccia resta reattiva e la ricerca si annulla. Lo script passo per passo sta in `script_*.dart` (route `/code/script`) e usa `script_machine.dart` ed `script_examples.dart`; le firme sono simulate, lo schermo lo dichiara, e nessuna chiave o firma reale viene generata o letta.
+
+L'explorer è l'unica parte che chiama un server, e solo su richiesta: è spento di default, e l'attivazione sta in `features/tools/presentation/explorer_*.dart` (route `/code/explorer`, `/code/explorer/setup`, `/code/explorer/block|tx|address/<valore>`, risolte in `app_router.dart` tramite `ExplorerRoute`). Il client Esplora sta in `features/tools/data/` e viene creato da `ExplorerSession`, una sola istanza per impostazioni, così limite 429 e cache sono condivisi tra le schermate. Con l'explorer spento nessuna schermata crea un client e ogni route mostra l'attivazione. Interruttore e indirizzo del server sono le uniche impostazioni salvate (`settings.explorerEnabled` e `settings.explorerServer`): le ricerche non vengono memorizzate.
+
 ## Percorsi, citazione e glossario
 
 Il codice sta in `features/learn/presentation/` (percorso guidato e glossario) e in `features/today/presentation/` (card "Inizia qui" e citazione del giorno). `learning_path_progress.dart` risolve i passi di un percorso contro il bundle, saltando gli id senza record, e considera letto un passo con progresso da 0.98 in su. `quote_of_the_day.dart` sceglie la citazione dal giorno (giorni dal genesis block modulo il numero di citazioni, citazioni ordinate per id), quindi uguale su ogni dispositivo. Il glossario non ha una tab propria: si apre da `AppRoutes.glossary`, con un ingresso nella Wiki.
+
+La biblioteca sta in `library_list_screen.dart` (elenco ordinato per anno e titolo, con filtri per autore e argomento letti dalle opere caricate) e in `library_work_screen.dart` (scheda dell'opera). L'app non scarica né mostra il testo dell'opera: i pulsanti "Leggi l'originale" e "Copia archiviata" aprono l'URL nel browser solo al tocco, tramite `openLink` iniettabile nei test.
 
 ## Stato
 
@@ -172,11 +181,12 @@ Limite noto: se un media referenziato non si scarica, l'aggiornamento del testo 
 
 ## Search
 
-La ricerca copre Wiki, News, History, BIP e release. La schermata di ricerca e una route push (`/search`), aperta dalle schermate a tab. Comportamento:
+La ricerca copre Wiki, News, History, BIP, release, glossario, prodotti, tabelle di riferimento e biblioteca. La schermata di ricerca e una route push (`/search`), aperta dalle schermate a tab. Comportamento:
 
 - indice in memoria generato dal bundle caricato (`SearchIndex.fromBundle`);
 - campi indicizzati: titolo, tag e sommario. Il sommario e la `description` per le wiki, il `summary` per news, history e release, il `summary` per i BIP (il titolo di un BIP include il numero);
-- il corpo del testo (`bodyMarkdown`, `summaryMarkdown`, `impactMarkdown`, `userImpactMarkdown`, `technicalChangesMarkdown`) non e indicizzato;
+- per glossario, prodotti, tabelle e biblioteca: il titolo e il termine, il `definition` o il `summary` (o `description` per le tabelle), e come tag gli alias, il produttore o l'autore. Ogni risultato apre la sua route tramite `routeForContentId`;
+- il corpo del testo (`bodyMarkdown`, `summaryMarkdown`, `impactMarkdown`, `userImpactMarkdown`, `technicalChangesMarkdown`, `introduction` della biblioteca) non e indicizzato;
 - query e campi sono normalizzati con maiuscole/minuscole e accenti (diacritic folding), quindi `bitcoin` trova anche `Bitcóin`; punteggiatura e trattini diventano spazi;
 - la query viene divisa in termini; ogni termine deve comparire in titolo, tag o sommario (confronto per sottostringa dentro ciascun campo), altrimenti il risultato e escluso;
 - il punteggio e ponderato: per ogni termine, titolo 8, tag 4, sommario 2; un bonus di 8 se l'intera query compare nel titolo. A parita di punteggio si ordina per titolo e poi per id;

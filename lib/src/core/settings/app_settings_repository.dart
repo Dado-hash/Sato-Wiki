@@ -39,6 +39,14 @@ abstract interface class AppSettingsRepository {
   Future<List<String>> loadRecentSearches();
 
   Future<void> saveRecentSearches(List<String> queries);
+
+  Future<bool?> loadExplorerEnabled();
+
+  Future<void> saveExplorerEnabled(bool enabled);
+
+  Future<String?> loadExplorerServer();
+
+  Future<void> saveExplorerServer(String server);
 }
 
 final class InMemoryAppSettingsRepository implements AppSettingsRepository {
@@ -52,6 +60,8 @@ final class InMemoryAppSettingsRepository implements AppSettingsRepository {
     Map<String, double> readingProgress = const {},
     List<String> lastRead = const [],
     List<String> recentSearches = const [],
+    bool? explorerEnabled,
+    String? explorerServer,
   }) : _lastTab = lastTab,
        _readingLevel = readingLevel,
        _localePreference = localePreference,
@@ -60,7 +70,9 @@ final class InMemoryAppSettingsRepository implements AppSettingsRepository {
        _bookmarks = List<String>.of(bookmarks),
        _readingProgress = Map<String, double>.of(readingProgress),
        _lastRead = List<String>.of(lastRead),
-       _recentSearches = List<String>.of(recentSearches);
+       _recentSearches = List<String>.of(recentSearches),
+       _explorerEnabled = explorerEnabled,
+       _explorerServer = explorerServer;
 
   SatoWikiTab? _lastTab;
   ReadingLevel? _readingLevel;
@@ -71,6 +83,8 @@ final class InMemoryAppSettingsRepository implements AppSettingsRepository {
   Map<String, double> _readingProgress;
   List<String> _lastRead;
   List<String> _recentSearches;
+  bool? _explorerEnabled;
+  String? _explorerServer;
 
   @override
   Future<SatoWikiTab?> loadLastTab() async => _lastTab;
@@ -146,5 +160,21 @@ final class InMemoryAppSettingsRepository implements AppSettingsRepository {
   @override
   Future<void> saveRecentSearches(List<String> queries) async {
     _recentSearches = List<String>.of(queries);
+  }
+
+  @override
+  Future<bool?> loadExplorerEnabled() async => _explorerEnabled;
+
+  @override
+  Future<void> saveExplorerEnabled(bool enabled) async {
+    _explorerEnabled = enabled;
+  }
+
+  @override
+  Future<String?> loadExplorerServer() async => _explorerServer;
+
+  @override
+  Future<void> saveExplorerServer(String server) async {
+    _explorerServer = server;
   }
 }

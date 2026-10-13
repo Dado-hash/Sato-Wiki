@@ -126,6 +126,19 @@ void main() {
     expect(find.text('“Quote a text.”'), findsNothing);
   });
 
+  testWidgets('quote of the day comes right after the start card', (
+    tester,
+  ) async {
+    await _pump(tester, store: _store(), settings: await _settings(), now: now);
+
+    final pathTop = tester.getTopLeft(find.text('Bitcoin from the start')).dy;
+    final quoteTop = tester.getTopLeft(find.text('“Quote a text.”')).dy;
+    final featuredTop = tester.getTopLeft(find.text('Featured')).dy;
+
+    expect(quoteTop, greaterThan(pathTop));
+    expect(quoteTop, lessThan(featuredTop));
+  });
+
   testWidgets('no quotes in the bundle shows no quote card', (tester) async {
     await _pump(
       tester,

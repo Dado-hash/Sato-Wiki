@@ -5,13 +5,20 @@ import '../../features/code/presentation/release_list_screen.dart';
 import '../../features/history/presentation/history_timeline_screen.dart';
 import '../../features/learn/presentation/glossary_screens.dart';
 import '../../features/learn/presentation/learning_path_screen.dart';
+import '../../features/learn/presentation/library_list_screen.dart';
+import '../../features/learn/presentation/library_work_screen.dart';
 import '../../features/news/presentation/news_feed_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
 import '../../features/settings/presentation/bookmarks_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
 import '../../features/tools/presentation/reference_list_screen.dart';
+import '../../features/tools/presentation/explorer_routes.dart';
 import '../../features/tools/presentation/reference_table_screen.dart';
+import '../../features/tools/presentation/lab_index_screen.dart';
+import '../../features/tools/presentation/lab_step_screen.dart';
+import '../../features/tools/presentation/lab_steps.dart';
+import '../../features/tools/presentation/script_stepper_screen.dart';
 import '../../features/tools/presentation/tool_address_screen.dart';
 import '../../features/tools/presentation/tool_hash_screen.dart';
 import '../../features/tools/presentation/tool_target_screen.dart';
@@ -87,6 +94,23 @@ abstract final class AppRouter {
       );
     }
 
+    // Explorer routes rebuild when the switch or the server changes, so the
+    // screen shows the activation screen as soon as the explorer is turned off.
+    final explorerRoute = ExplorerRoute.tryParse(routeName);
+    if (explorerRoute != null) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => AnimatedBuilder(
+          animation: Listenable.merge([settingsController, contentController]),
+          builder: (_, _) => explorerScreenFor(
+            explorerRoute,
+            settingsController,
+            contentController.content.store,
+          ),
+        ),
+      );
+    }
+
     if (_toolRoutes.contains(routeName)) {
       return MaterialPageRoute<void>(
         settings: settings,
@@ -94,6 +118,17 @@ abstract final class AppRouter {
           animation: contentController,
           builder: (_, _) =>
               _toolScreenFor(routeName, contentController.content.store),
+        ),
+      );
+    }
+
+    if (_isLabRoute(routeName)) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => AnimatedBuilder(
+          animation: contentController,
+          builder: (_, _) =>
+              _labScreenFor(routeName, contentController.content.store),
         ),
       );
     }
@@ -169,6 +204,29 @@ abstract final class AppRouter {
       AppRoutes.toolUnits => ToolUnitsScreen(store: store),
       _ => UnknownRouteScreen(routeName: routeName),
     };
+  }
+
+  /// Blockchain lab and script stepper under the Code tab. Lab steps are
+  /// named /code/lab/ followed by the step number, from 1 to labStepCount.
+  static bool _isLabRoute(String routeName) {
+    return routeName == AppRoutes.lab ||
+        routeName == AppRoutes.scriptStepper ||
+        routeName.startsWith('${AppRoutes.lab}/');
+  }
+
+  static Widget _labScreenFor(String routeName, ContentStore store) {
+    if (routeName == AppRoutes.lab) {
+      return const LabIndexScreen();
+    }
+    if (routeName == AppRoutes.scriptStepper) {
+      return ScriptStepperScreen(store: store);
+    }
+    final step = int.tryParse(routeName.substring(AppRoutes.lab.length + 1));
+    if (step != null && step >= 1 && step <= labStepCount) {
+      return LabStepScreen(store: store, step: step);
+    }
+
+    return UnknownRouteScreen(routeName: routeName);
   }
 
   static Widget _screenForTarget(
@@ -267,6 +325,14 @@ abstract final class AppRouter {
       return ProductScreen(store: appContent.store, slug: segments[1]);
     }
 
+    if (segments.length == 1 && segments[0] == 'library') {
+      return LibraryListScreen(store: appContent.store);
+    }
+
+    if (segments.length == 2 && segments[0] == 'library') {
+      return LibraryWorkScreen(store: appContent.store, slug: segments[1]);
+    }
+
     if (segments.length == 2 &&
         segments[0] == 'code' &&
         segments[1] == 'references') {
@@ -358,6 +424,14 @@ final class DeepLinkTarget {
     }
 
     if (segments.length == 2 && segments[0] == 'products') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 1 && segments[0] == 'library') {
+      return DeepLinkTarget(routeName: routeName);
+    }
+
+    if (segments.length == 2 && segments[0] == 'library') {
       return DeepLinkTarget(routeName: routeName);
     }
 

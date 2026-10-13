@@ -727,7 +727,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolsLabCaption =>
-      'Six steps: hash, block, chain, network, transactions, coinbase.';
+      'Seven steps: hash, block, chain, network, transactions, coinbase, a real header.';
 
   @override
   String get toolsScriptName => 'Script step by step';
@@ -737,9 +737,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolsExplorerName => 'Explorer';
-
-  @override
-  String get toolsExplorerCaption => 'Uses the network. Off by default.';
 
   @override
   String get toolsCopy => 'Copy';
@@ -1269,4 +1266,991 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toolsReferenceNoMatch => 'No rows match this filter.';
+
+  @override
+  String get libraryTitle => 'Library';
+
+  @override
+  String get libraryEmpty => 'No works in the library yet.';
+
+  @override
+  String get libraryNoMatch => 'No works match this filter.';
+
+  @override
+  String get libraryAuthorLabel => 'Author';
+
+  @override
+  String get libraryTopicLabel => 'Topic';
+
+  @override
+  String get libraryYearLabel => 'Year';
+
+  @override
+  String get libraryKindLabel => 'Type';
+
+  @override
+  String get libraryOriginalLanguageLabel => 'Original language';
+
+  @override
+  String get libraryLicenseLabel => 'License';
+
+  @override
+  String get libraryKindPaper => 'Paper';
+
+  @override
+  String get libraryKindEssay => 'Essay';
+
+  @override
+  String get libraryKindPost => 'Post';
+
+  @override
+  String get libraryKindEmail => 'Email';
+
+  @override
+  String get libraryKindBook => 'Book';
+
+  @override
+  String get libraryKindManifesto => 'Manifesto';
+
+  @override
+  String get libraryNotFound => 'Work not found';
+
+  @override
+  String get libraryReadOriginal => 'Read the original';
+
+  @override
+  String get libraryArchivedCopy => 'Archived copy';
+
+  @override
+  String get libraryIntroduction => 'Our introduction';
+
+  @override
+  String get libraryNotice =>
+      'SatoWiki does not host the full text. The original opens in your browser.';
+
+  @override
+  String get librarySearchTypeGlossary => 'Glossary';
+
+  @override
+  String get librarySearchTypeProduct => 'Product';
+
+  @override
+  String get librarySearchTypeReference => 'Reference';
+
+  @override
+  String get librarySearchTypeLibrary => 'Library';
+
+  @override
+  String get connectTryIt => 'Try it';
+
+  @override
+  String get connectQuotesTitle => 'In their words';
+
+  @override
+  String get connectLibraryTitle => 'Library';
+
+  @override
+  String connectLibraryCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count works',
+      one: '1 work',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get connectHashTitle => 'Hash tool';
+
+  @override
+  String get connectHashCaption => 'Compute SHA-256 and HASH160 of any text';
+
+  @override
+  String get connectAddressTitle => 'Address tool';
+
+  @override
+  String get connectAddressCaption =>
+      'Check the type and checksum of an address';
+
+  @override
+  String get connectTransactionTitle => 'Transaction tool';
+
+  @override
+  String get connectTransactionCaption =>
+      'Decode a raw transaction field by field';
+
+  @override
+  String get connectTargetTitle => 'Target tool';
+
+  @override
+  String get connectTargetCaption => 'Convert bits, target and difficulty';
+
+  @override
+  String get connectUnitsTitle => 'Units tool';
+
+  @override
+  String get connectUnitsCaption => 'Convert sat, BTC and vB';
+
+  @override
+  String get connectScriptTitle => 'Script step by step';
+
+  @override
+  String get connectScriptCaption => 'See the stack after each opcode';
+
+  @override
+  String get connectLabTitle => 'Blockchain lab';
+
+  @override
+  String get connectLabCaption =>
+      'Build and break a small blockchain, step by step';
+
+  @override
+  String connectLabStepTitle(int step) {
+    return 'Blockchain lab, step $step';
+  }
+
+  @override
+  String get connectLabStep1Caption => 'Type text and watch its hash change';
+
+  @override
+  String get connectLabStep2Caption =>
+      'Mine a block: find a nonce that makes it valid';
+
+  @override
+  String get connectLabStep3Caption =>
+      'Change one block and see the next ones break';
+
+  @override
+  String get connectLabStep6Caption =>
+      'Inspect the coinbase transaction that pays the miner';
+
+  @override
+  String get connectLabStep7Caption =>
+      'Read the 80-byte header that every block contains';
+
+  @override
+  String get explorerTitle => 'Explorer';
+
+  @override
+  String get explorerStateOn => 'On';
+
+  @override
+  String get explorerStateOff => 'Off';
+
+  @override
+  String explorerStateOnServer(String host) {
+    return 'On · $host';
+  }
+
+  @override
+  String get explorerSetupTitle => 'Before you turn it on';
+
+  @override
+  String get explorerSetupIntro =>
+      'The explorer asks a server on the internet for data. The rest of the app works without a network.';
+
+  @override
+  String get explorerSetupWhatServerSees =>
+      'Every search is sent to the server shown below. The server operator can see your IP address and what you search.';
+
+  @override
+  String get explorerSetupOwnAddresses =>
+      'If you look up your own addresses, the server can link them to your IP address.';
+
+  @override
+  String get explorerSetupNothingSent =>
+      'Nothing is sent until you press Search. Searches are not saved on this device. The explorer does not use Tor or any proxy.';
+
+  @override
+  String get explorerServerLabel => 'Server';
+
+  @override
+  String get explorerServerField => 'Server address';
+
+  @override
+  String get explorerServerHelp =>
+      'Use https. Plain http works only for localhost, .onion and .local addresses.';
+
+  @override
+  String get explorerServerInvalid =>
+      'This address is not allowed. Use https, or http only for localhost, .onion or .local. It was not saved.';
+
+  @override
+  String get explorerTurnOn => 'Turn on the explorer';
+
+  @override
+  String get explorerTurnOff => 'Turn off the explorer';
+
+  @override
+  String get explorerTurnOffNote => 'You can turn it on again from Settings.';
+
+  @override
+  String get explorerSaveServer => 'Save server';
+
+  @override
+  String get explorerServerSaved => 'Server saved.';
+
+  @override
+  String get explorerOffTitle => 'The explorer is off';
+
+  @override
+  String get explorerOffBody =>
+      'Nothing is sent to any server while it is off.';
+
+  @override
+  String get explorerSearchHint => 'Height, block hash, txid or address';
+
+  @override
+  String get explorerSearchButton => 'Search';
+
+  @override
+  String get explorerSearchNote =>
+      'One search sends one request per step. Searches are not saved.';
+
+  @override
+  String explorerServerInUse(String server) {
+    return 'Server: $server';
+  }
+
+  @override
+  String get explorerSecretWifTitle => 'This looks like a private key';
+
+  @override
+  String get explorerSecretExtendedTitle => 'This looks like an extended key';
+
+  @override
+  String get explorerSecretBody =>
+      'Nothing was sent. The field was cleared. Never paste a private key into any app or website.';
+
+  @override
+  String get explorerInvalidInput =>
+      'Enter a block height, a 64-character hash or txid, or an address.';
+
+  @override
+  String get explorerLookingUp => 'Looking up…';
+
+  @override
+  String get explorerNotFound =>
+      'The server does not know this block, transaction or address.';
+
+  @override
+  String get explorerNetworkError =>
+      'The server could not be reached. Check the connection and try again.';
+
+  @override
+  String get explorerBadResponse =>
+      'The server sent an answer the explorer cannot read.';
+
+  @override
+  String explorerRateLimited(int seconds) {
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: 'Try again in $seconds seconds.',
+      one: 'Try again in 1 second.',
+    );
+    return 'Too many requests. The server asked to slow down. $_temp0';
+  }
+
+  @override
+  String get explorerNoAutoRetry => 'The explorer does not retry on its own.';
+
+  @override
+  String get explorerRetry => 'Try again';
+
+  @override
+  String get explorerBlockTitle => 'Block';
+
+  @override
+  String get explorerTransactionTitle => 'Transaction';
+
+  @override
+  String get explorerAddressTitle => 'Address';
+
+  @override
+  String get explorerHeight => 'Height';
+
+  @override
+  String get explorerHash => 'Hash';
+
+  @override
+  String get explorerTxid => 'Txid';
+
+  @override
+  String get explorerTime => 'Time';
+
+  @override
+  String get explorerTransactionCount => 'Transactions';
+
+  @override
+  String get explorerSize => 'Size';
+
+  @override
+  String get explorerWeight => 'Weight';
+
+  @override
+  String get explorerMerkleRoot => 'Merkle root';
+
+  @override
+  String get explorerPreviousBlock => 'Previous block';
+
+  @override
+  String get explorerNonce => 'Nonce';
+
+  @override
+  String get explorerBits => 'Bits';
+
+  @override
+  String get explorerDifficulty => 'Difficulty';
+
+  @override
+  String get explorerVersion => 'Version';
+
+  @override
+  String get explorerStatus => 'Status';
+
+  @override
+  String get explorerConfirmed => 'Confirmed';
+
+  @override
+  String get explorerUnconfirmed => 'Unconfirmed';
+
+  @override
+  String get explorerBlockOfTransaction => 'Block';
+
+  @override
+  String get explorerFee => 'Fee';
+
+  @override
+  String get explorerFeeRate => 'Fee rate';
+
+  @override
+  String explorerFeeRateValue(String rate) {
+    return '$rate sat/vB';
+  }
+
+  @override
+  String get explorerInputs => 'Inputs';
+
+  @override
+  String get explorerOutputs => 'Outputs';
+
+  @override
+  String explorerInputNumber(int index) {
+    return 'Input $index';
+  }
+
+  @override
+  String explorerOutputNumber(int index) {
+    return 'Output $index';
+  }
+
+  @override
+  String get explorerCoinbase => 'Coinbase, no previous output';
+
+  @override
+  String explorerAmount(String btc, String sat) {
+    return '$btc BTC · $sat sat';
+  }
+
+  @override
+  String get explorerScriptType => 'Script type';
+
+  @override
+  String get explorerBlockUnknown => 'Not yet in a block';
+
+  @override
+  String get explorerAddressReceived => 'Received';
+
+  @override
+  String get explorerAddressSpent => 'Spent';
+
+  @override
+  String get explorerAddressBalance => 'Balance';
+
+  @override
+  String get explorerAddressMempool => 'Mempool';
+
+  @override
+  String get explorerAddressTransactions => 'Latest transactions';
+
+  @override
+  String get explorerAddressFirstPage =>
+      'Only the first page from the server is shown.';
+
+  @override
+  String get explorerNoTransactions =>
+      'No transactions found for this address.';
+
+  @override
+  String get explorerLoading => 'Loading…';
+
+  @override
+  String get labTitle => 'Blockchain lab';
+
+  @override
+  String get labIntro =>
+      'A small blockchain you can change and repair, one idea at a time. The blocks here are a teaching model, not the real protocol.';
+
+  @override
+  String get labIndexSteps => 'Steps';
+
+  @override
+  String labStepCounter(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get labStepOptional => 'Optional';
+
+  @override
+  String get labStepTitle1 => 'Hash';
+
+  @override
+  String get labStepDesc1 => 'Type text and watch its fingerprint change.';
+
+  @override
+  String get labStepTitle2 => 'Mine a block';
+
+  @override
+  String get labStepDesc2 =>
+      'Change the data, then search for a nonce that makes the hash start with zeros.';
+
+  @override
+  String get labStepTitle3 => 'Chain';
+
+  @override
+  String get labStepDesc3 =>
+      'Change one block and see every block after it break.';
+
+  @override
+  String get labStepTitle4 => 'Network';
+
+  @override
+  String get labStepDesc4 =>
+      'Several copies of the chain. A node keeps only a valid one.';
+
+  @override
+  String get labStepTitle5 => 'Transactions';
+
+  @override
+  String get labStepDesc5 => 'Turn transfers into the data of a block.';
+
+  @override
+  String get labStepTitle6 => 'Coinbase';
+
+  @override
+  String get labStepDesc6 => 'The first transaction of a block pays the miner.';
+
+  @override
+  String get labStepTitle7 => 'A real header';
+
+  @override
+  String get labStepDesc7 =>
+      'Decode the 80 bytes of the genesis block and hash them.';
+
+  @override
+  String get labDifference => 'In Bitcoin it is different';
+
+  @override
+  String get labDiff1 =>
+      'A real block hash is SHA-256 applied twice to an 80-byte header, not to a line of text.';
+
+  @override
+  String get labDiff2 =>
+      'The header is 80 bytes, the hash is double SHA-256, and the rule is a numeric target, not a count of zeros.';
+
+  @override
+  String get labDiff3 =>
+      'Real nodes follow the chain with the most accumulated work, not a rule that counts zeros. Each block is checked against the target in its header.';
+
+  @override
+  String get labDiff4 =>
+      'Real nodes also check every transaction and signature, and relay blocks to peers. This lab checks only the blocks, on this device.';
+
+  @override
+  String get labDiff5 =>
+      'Real transactions spend earlier outputs, and each input carries a signature. Here a transfer is only a line of text.';
+
+  @override
+  String get labDiff6 =>
+      'The subsidy halves every 210,000 blocks, about every four years, and coinbase outputs cannot be spent for 100 blocks.';
+
+  @override
+  String get labDiff7 =>
+      'This is the real header format. The target comes from bits, and the hash is double SHA-256 of these 80 bytes.';
+
+  @override
+  String get labPreviousStep => 'Previous step';
+
+  @override
+  String get labNextStep => 'Next step';
+
+  @override
+  String get labValid => 'Valid';
+
+  @override
+  String get labNotValid => 'Not valid';
+
+  @override
+  String labBlockNumber(int number) {
+    return 'Block $number';
+  }
+
+  @override
+  String get labHashHint => 'Type any text';
+
+  @override
+  String get labHashIntro =>
+      'Type in the box. Every key press gives a new fingerprint of the text.';
+
+  @override
+  String get labHashLabel => 'SHA-256 of the text';
+
+  @override
+  String get labHashNote =>
+      'Change one letter, one capital or one space and the hash changes completely. The same text always gives the same hash.';
+
+  @override
+  String get labMineIntro =>
+      'Change the data, then search for a nonce that makes the hash start with zeros. Editing the data makes the block not valid again.';
+
+  @override
+  String get labBlockData => 'Data';
+
+  @override
+  String get labBlockPrevious => 'Previous hash';
+
+  @override
+  String get labBlockNonce => 'Nonce';
+
+  @override
+  String get labBlockHash => 'Hash';
+
+  @override
+  String labMineRule(int zeros) {
+    return 'Rule: the hash starts with $zeros zeros';
+  }
+
+  @override
+  String get labMineButton => 'Mine';
+
+  @override
+  String get labMineCancel => 'Cancel';
+
+  @override
+  String get labMineRunning => 'Mining. Cancel stops the search.';
+
+  @override
+  String get labMineAttempts => 'Attempts';
+
+  @override
+  String get labMineSpeed => 'Speed';
+
+  @override
+  String labMineSpeedValue(String rate) {
+    return '$rate hash/s';
+  }
+
+  @override
+  String labMineFound(int attempts) {
+    return 'Nonce found after $attempts attempts.';
+  }
+
+  @override
+  String get labMineStopped => 'Search stopped. The nonce is unchanged.';
+
+  @override
+  String get labMineGaveUp =>
+      'No nonce found in this run. Change the data or try again.';
+
+  @override
+  String get labChainIntro =>
+      'Three blocks, each linked to the hash of the one before. Change the data of a block and see what happens to the blocks after it.';
+
+  @override
+  String get labChainRemine => 'Mine again';
+
+  @override
+  String get labChainWhy =>
+      'Block 3 stores the old hash of block 2. Fixing the chain means mining block 2 again, and then every block after it.';
+
+  @override
+  String get labNetworkIntro =>
+      'Three nodes, each with its own copy of the chain. A node keeps a copy only when every block in it is valid.';
+
+  @override
+  String labNetworkNode(String name) {
+    return 'Node $name';
+  }
+
+  @override
+  String get labNetworkKeeps => 'Keeps this copy';
+
+  @override
+  String get labNetworkRejects => 'Rejects this copy';
+
+  @override
+  String get labNetworkTamper => 'Change data on node B';
+
+  @override
+  String get labNetworkRestore => 'Restore node B';
+
+  @override
+  String get labTxIntro =>
+      'Each line is one transfer. The block data is the list of lines, and the block hash depends on every character.';
+
+  @override
+  String get labTxFrom => 'From';
+
+  @override
+  String get labTxTo => 'To';
+
+  @override
+  String get labTxAmount => 'Amount';
+
+  @override
+  String get labTxAdd => 'Add transfer';
+
+  @override
+  String get labTxRemove => 'Remove transfer';
+
+  @override
+  String get labTxAmountError => 'Enter a whole number, zero or more.';
+
+  @override
+  String get labTxNameError => 'Names cannot be empty.';
+
+  @override
+  String get labTxEmpty => 'No transfers yet. Add one to build the block.';
+
+  @override
+  String get labTxData => 'Block data';
+
+  @override
+  String get labTxBlockHash => 'Block hash';
+
+  @override
+  String get labCoinbaseIntro =>
+      'The first line of every block is the coinbase: new units paid to the miner, with no sender. Change the miner name and mine again.';
+
+  @override
+  String get labCoinbaseMiner => 'Miner name';
+
+  @override
+  String labCoinbaseReward(String amount) {
+    return 'Reward: $amount units';
+  }
+
+  @override
+  String get labHeaderIntro =>
+      'This is the genesis block of Bitcoin, mined in January 2009. Its header is 80 bytes, and each field below is read from them.';
+
+  @override
+  String get labHeaderVersion => 'Version';
+
+  @override
+  String get labHeaderMerkle => 'Merkle root';
+
+  @override
+  String get labHeaderTime => 'Time';
+
+  @override
+  String get labHeaderBits => 'Bits';
+
+  @override
+  String get labHeaderFields => 'Decoded fields';
+
+  @override
+  String get labHeaderBytes => '80 bytes, serialized';
+
+  @override
+  String get labHeaderDoubleHash => 'Double SHA-256';
+
+  @override
+  String get labHeaderTarget => 'Target';
+
+  @override
+  String get labHeaderBelowTarget => 'Hash below target';
+
+  @override
+  String get labScriptTitle => 'Script step by step';
+
+  @override
+  String get labScriptIntro =>
+      'Run a script one opcode at a time. The stack shows what each opcode leaves behind.';
+
+  @override
+  String get labScriptSimulated =>
+      'Signature checks are simulated in this teaching interpreter. A signature counts as valid only when the example lists it as valid. No real keys or signatures are checked. This is not consensus code.';
+
+  @override
+  String get labScriptExampleLabel => 'Example';
+
+  @override
+  String get labScriptCustomChip => 'Your script';
+
+  @override
+  String get labScriptCustomHint =>
+      'Type ASM, for example 2 3 OP_ADD 5 OP_EQUAL';
+
+  @override
+  String get labScriptCustomNote =>
+      'A typed script has no transaction and no simulated signatures, so signature and timelock opcodes cannot pass.';
+
+  @override
+  String get labScriptSourceLabel => 'Script';
+
+  @override
+  String get labScriptStep => 'Step';
+
+  @override
+  String get labScriptRunToEnd => 'Run to end';
+
+  @override
+  String get labScriptReset => 'Reset';
+
+  @override
+  String get labScriptNotStarted => 'Not started';
+
+  @override
+  String labScriptRunCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count opcodes run',
+      one: '1 opcode run',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get labScriptRemaining => 'Remaining script';
+
+  @override
+  String get labScriptNextLabel => 'Next';
+
+  @override
+  String get labScriptNothingLeft => 'Nothing left to run.';
+
+  @override
+  String get labScriptStack => 'Stack';
+
+  @override
+  String get labScriptAltStack => 'Alt stack';
+
+  @override
+  String get labScriptTopLabel => 'Top';
+
+  @override
+  String get labScriptEmptyStack => 'The stack is empty.';
+
+  @override
+  String get labScriptEmptyItem => 'empty';
+
+  @override
+  String get labScriptResult => 'Result';
+
+  @override
+  String get labScriptSucceeds => 'Script succeeds';
+
+  @override
+  String labScriptFails(String reason) {
+    return 'Script fails: $reason';
+  }
+
+  @override
+  String labScriptParseError(int index, String reason) {
+    return 'Token $index cannot be read: $reason';
+  }
+
+  @override
+  String get labScriptFalseTop => 'the top item is false or the stack is empty';
+
+  @override
+  String get labScriptParseUnknown =>
+      'not an opcode, number, hex or quoted text';
+
+  @override
+  String get labScriptParseInvalidHex => 'not valid hex';
+
+  @override
+  String get labScriptParseInvalidNumber => 'not a valid number';
+
+  @override
+  String get labScriptParseUnterminated =>
+      'the quoted text has no closing quote';
+
+  @override
+  String get labScriptParseTruncated =>
+      'a push runs past the end of the script';
+
+  @override
+  String get labScriptNoteSignature =>
+      'This signature was checked against the simulated set.';
+
+  @override
+  String get labScriptNoteTimelockOk => 'The timelock is satisfied.';
+
+  @override
+  String get labScriptNoteTimelockNo => 'The timelock is not satisfied.';
+
+  @override
+  String get labScriptNoteTimelockOff =>
+      'The relative timelock is disabled, so this opcode does nothing.';
+
+  @override
+  String get labScriptNoteContext =>
+      'This opcode needs a transaction, and this demo has none.';
+
+  @override
+  String get labScriptErrStackUnderflow =>
+      'an opcode needed more items than the stack has';
+
+  @override
+  String get labScriptErrAltStackUnderflow =>
+      'FROMALTSTACK ran with an empty alt stack';
+
+  @override
+  String get labScriptErrVerifyFailed => 'a VERIFY opcode found a false value';
+
+  @override
+  String get labScriptErrEqualVerifyFailed =>
+      'EQUALVERIFY found two different items';
+
+  @override
+  String get labScriptErrNumEqualVerifyFailed =>
+      'NUMEQUALVERIFY found two different numbers';
+
+  @override
+  String get labScriptErrOpReturn =>
+      'OP_RETURN marks the output as unspendable';
+
+  @override
+  String get labScriptErrDisabledOpcode => 'a disabled opcode is in the script';
+
+  @override
+  String get labScriptErrUnsupportedOpcode =>
+      'this opcode is not implemented here';
+
+  @override
+  String get labScriptErrUnbalancedConditional =>
+      'IF, ELSE and ENDIF do not match';
+
+  @override
+  String get labScriptErrNumberOverflow => 'a number is longer than 4 bytes';
+
+  @override
+  String get labScriptErrNonMinimalNumber =>
+      'a number is not minimally encoded';
+
+  @override
+  String get labScriptErrPushTooLarge => 'a push is longer than 520 bytes';
+
+  @override
+  String get labScriptErrStackTooLarge =>
+      'the stacks hold more than 1000 items';
+
+  @override
+  String get labScriptErrOpCountExceeded => 'more than 201 opcodes ran';
+
+  @override
+  String get labScriptErrBadPickIndex =>
+      'PICK or ROLL asked for a depth the stack does not have';
+
+  @override
+  String get labScriptErrKeyCountOutOfRange =>
+      'CHECKMULTISIG asked for fewer than 0 or more than 20 keys';
+
+  @override
+  String get labScriptErrSigCountOutOfRange =>
+      'CHECKMULTISIG asked for more signatures than keys';
+
+  @override
+  String get labScriptErrNegativeLockTime => 'a timelock operand is negative';
+
+  @override
+  String get labScriptErrLockTimeNotReached =>
+      'the transaction lock time is too early';
+
+  @override
+  String get labScriptErrLockTimeTypeMismatch =>
+      'the timelock counts blocks but the transaction counts time, or the reverse';
+
+  @override
+  String get labScriptErrInputSequenceFinal =>
+      'the input sequence is final, so the lock time cannot be used';
+
+  @override
+  String get labScriptErrInputSequenceDisabled =>
+      'the input sequence disables relative timelocks';
+
+  @override
+  String get labScriptErrTxVersionTooLow =>
+      'relative timelocks need transaction version 2 or higher';
+
+  @override
+  String get labScriptErrMissingContext =>
+      'a timelock opcode needs a transaction, and none is set';
+
+  @override
+  String get labScriptErrScriptTooLarge =>
+      'the script is longer than 10,000 bytes';
+
+  @override
+  String get labScriptExArithmeticName => 'Arithmetic';
+
+  @override
+  String get labScriptExArithmeticDesc =>
+      'Adds two numbers and checks the sum.';
+
+  @override
+  String get labScriptExP2pkhName => 'Pay to public key hash';
+
+  @override
+  String get labScriptExP2pkhDesc =>
+      'The classic lock: a public key, a signature and a hash check.';
+
+  @override
+  String get labScriptExMultisigName => 'Multisig 2 of 3';
+
+  @override
+  String get labScriptExMultisigDesc =>
+      'Two of the three simulated signatures are needed.';
+
+  @override
+  String get labScriptExHashlockName => 'Hashlock';
+
+  @override
+  String get labScriptExHashlockDesc =>
+      'The secret is the text whose SHA-256 is locked.';
+
+  @override
+  String get labScriptExCltvName => 'Absolute timelock';
+
+  @override
+  String get labScriptExCltvDesc =>
+      'CHECKLOCKTIMEVERIFY: the spend waits for a block height.';
+
+  @override
+  String get labScriptExCsvName => 'Relative timelock';
+
+  @override
+  String get labScriptExCsvDesc =>
+      'CHECKSEQUENCEVERIFY: the input must be old enough.';
+
+  @override
+  String get labScriptExHtlcName => 'HTLC, claimed';
+
+  @override
+  String get labScriptExHtlcDesc =>
+      'The receiver reveals the secret before the timeout.';
+
+  @override
+  String get labScriptExHtlcRefundName => 'HTLC, refund';
+
+  @override
+  String get labScriptExHtlcRefundDesc =>
+      'After the timeout the sender takes the funds back.';
 }

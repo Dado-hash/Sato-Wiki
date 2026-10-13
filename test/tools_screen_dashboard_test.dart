@@ -31,7 +31,8 @@ void main() {
     expect(find.text('Blockchain lab'), findsOneWidget);
     expect(find.text('Script step by step'), findsOneWidget);
     expect(find.text('Explorer'), findsOneWidget);
-    expect(find.text('Uses the network. Off by default.'), findsOneWidget);
+    // The caption shows the real state: the explorer is off at install.
+    expect(find.text('Off'), findsOneWidget);
   });
 
   testWidgets('tapping the Hash tile opens the hash tool', (tester) async {

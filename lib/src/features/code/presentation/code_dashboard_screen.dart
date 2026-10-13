@@ -5,6 +5,7 @@ import '../../../core/content/domain/content_store.dart';
 import '../../../core/localization/content_labels.dart';
 import '../../../core/localization/localized_labels.dart';
 import '../../../core/navigation/app_routes.dart';
+import '../../../core/settings/app_settings_scope.dart';
 import '../../../core/theme/app_tokens.dart';
 import '../../../core/widgets/filter_chip_bar.dart';
 import '../../../core/widgets/round_icon_button.dart';
@@ -247,14 +248,23 @@ class _LearnSection extends StatelessWidget {
   }
 }
 
-/// Explorer row. Its caption is replaced by the real state once the explorer
-/// screens exist.
+/// Explorer row. The caption shows the real state: off, or on with the server
+/// host. The row opens the explorer when it is on, and the setup screen when
+/// it is off.
 class _NetworkSection extends StatelessWidget {
   const _NetworkSection();
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final settings = AppSettingsScope.maybeOf(context);
+    final enabled = settings?.explorerEnabled ?? false;
+    final host = enabled ? Uri.tryParse(settings!.explorerServer)?.host : null;
+    final caption = !enabled
+        ? l10n.explorerStateOff
+        : host == null || host.isEmpty
+        ? l10n.explorerStateOn
+        : l10n.explorerStateOnServer(host);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -265,8 +275,8 @@ class _NetworkSection extends StatelessWidget {
           children: [
             _ActionRow(
               title: l10n.toolsExplorerName,
-              caption: l10n.toolsExplorerCaption,
-              route: AppRoutes.explorer,
+              caption: caption,
+              route: enabled ? AppRoutes.explorer : AppRoutes.explorerSetup,
             ),
           ],
         ),

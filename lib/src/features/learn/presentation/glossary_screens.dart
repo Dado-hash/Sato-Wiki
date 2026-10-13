@@ -4,6 +4,7 @@ import '../../../core/content/domain/content_models.dart';
 import '../../../core/content/domain/content_store.dart';
 import '../../../core/navigation/app_routes.dart';
 import '../../../core/theme/app_tokens.dart';
+import '../../../core/widgets/bookmark_button.dart';
 import '../../../core/widgets/content_mappers.dart';
 import '../../../core/widgets/detail_scaffold.dart';
 import '../../../core/widgets/related_links_grid.dart';
@@ -237,6 +238,7 @@ class GlossaryTermScreen extends StatelessWidget {
 
     return DetailScaffold(
       title: term.term,
+      actions: [BookmarkButton(contentId: term.id)],
       children: [
         Semantics(
           header: true,

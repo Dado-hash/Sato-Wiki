@@ -66,6 +66,18 @@ String _sectionLabel(AppLocalizations l10n, String id) {
   if (id.startsWith('code.') || id.startsWith('release.')) {
     return l10n.codeTab.toUpperCase();
   }
+  if (id.startsWith('glossary.')) {
+    return l10n.librarySearchTypeGlossary.toUpperCase();
+  }
+  if (id.startsWith('product.')) {
+    return l10n.librarySearchTypeProduct.toUpperCase();
+  }
+  if (id.startsWith('reference.')) {
+    return l10n.librarySearchTypeReference.toUpperCase();
+  }
+  if (id.startsWith('library.')) {
+    return l10n.librarySearchTypeLibrary.toUpperCase();
+  }
 
   return '';
 }

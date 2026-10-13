@@ -1421,7 +1421,7 @@ abstract class AppLocalizations {
   /// No description provided for @toolsLabCaption.
   ///
   /// In en, this message translates to:
-  /// **'Six steps: hash, block, chain, network, transactions, coinbase.'**
+  /// **'Seven steps: hash, block, chain, network, transactions, coinbase, a real header.'**
   String get toolsLabCaption;
 
   /// No description provided for @toolsScriptName.
@@ -1441,12 +1441,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Explorer'**
   String get toolsExplorerName;
-
-  /// No description provided for @toolsExplorerCaption.
-  ///
-  /// In en, this message translates to:
-  /// **'Uses the network. Off by default.'**
-  String get toolsExplorerCaption;
 
   /// No description provided for @toolsCopy.
   ///
@@ -2371,6 +2365,1704 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No rows match this filter.'**
   String get toolsReferenceNoMatch;
+
+  /// No description provided for @libraryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get libraryTitle;
+
+  /// No description provided for @libraryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No works in the library yet.'**
+  String get libraryEmpty;
+
+  /// No description provided for @libraryNoMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'No works match this filter.'**
+  String get libraryNoMatch;
+
+  /// No description provided for @libraryAuthorLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Author'**
+  String get libraryAuthorLabel;
+
+  /// No description provided for @libraryTopicLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Topic'**
+  String get libraryTopicLabel;
+
+  /// No description provided for @libraryYearLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get libraryYearLabel;
+
+  /// No description provided for @libraryKindLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get libraryKindLabel;
+
+  /// No description provided for @libraryOriginalLanguageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Original language'**
+  String get libraryOriginalLanguageLabel;
+
+  /// No description provided for @libraryLicenseLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'License'**
+  String get libraryLicenseLabel;
+
+  /// No description provided for @libraryKindPaper.
+  ///
+  /// In en, this message translates to:
+  /// **'Paper'**
+  String get libraryKindPaper;
+
+  /// No description provided for @libraryKindEssay.
+  ///
+  /// In en, this message translates to:
+  /// **'Essay'**
+  String get libraryKindEssay;
+
+  /// No description provided for @libraryKindPost.
+  ///
+  /// In en, this message translates to:
+  /// **'Post'**
+  String get libraryKindPost;
+
+  /// No description provided for @libraryKindEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get libraryKindEmail;
+
+  /// No description provided for @libraryKindBook.
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get libraryKindBook;
+
+  /// No description provided for @libraryKindManifesto.
+  ///
+  /// In en, this message translates to:
+  /// **'Manifesto'**
+  String get libraryKindManifesto;
+
+  /// No description provided for @libraryNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Work not found'**
+  String get libraryNotFound;
+
+  /// No description provided for @libraryReadOriginal.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the original'**
+  String get libraryReadOriginal;
+
+  /// No description provided for @libraryArchivedCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Archived copy'**
+  String get libraryArchivedCopy;
+
+  /// No description provided for @libraryIntroduction.
+  ///
+  /// In en, this message translates to:
+  /// **'Our introduction'**
+  String get libraryIntroduction;
+
+  /// No description provided for @libraryNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'SatoWiki does not host the full text. The original opens in your browser.'**
+  String get libraryNotice;
+
+  /// No description provided for @librarySearchTypeGlossary.
+  ///
+  /// In en, this message translates to:
+  /// **'Glossary'**
+  String get librarySearchTypeGlossary;
+
+  /// No description provided for @librarySearchTypeProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Product'**
+  String get librarySearchTypeProduct;
+
+  /// No description provided for @librarySearchTypeReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Reference'**
+  String get librarySearchTypeReference;
+
+  /// No description provided for @librarySearchTypeLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get librarySearchTypeLibrary;
+
+  /// No description provided for @connectTryIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Try it'**
+  String get connectTryIt;
+
+  /// No description provided for @connectQuotesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'In their words'**
+  String get connectQuotesTitle;
+
+  /// No description provided for @connectLibraryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Library'**
+  String get connectLibraryTitle;
+
+  /// No description provided for @connectLibraryCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 work} other{{count} works}}'**
+  String connectLibraryCount(int count);
+
+  /// No description provided for @connectHashTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hash tool'**
+  String get connectHashTitle;
+
+  /// No description provided for @connectHashCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Compute SHA-256 and HASH160 of any text'**
+  String get connectHashCaption;
+
+  /// No description provided for @connectAddressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Address tool'**
+  String get connectAddressTitle;
+
+  /// No description provided for @connectAddressCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the type and checksum of an address'**
+  String get connectAddressCaption;
+
+  /// No description provided for @connectTransactionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction tool'**
+  String get connectTransactionTitle;
+
+  /// No description provided for @connectTransactionCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Decode a raw transaction field by field'**
+  String get connectTransactionCaption;
+
+  /// No description provided for @connectTargetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Target tool'**
+  String get connectTargetTitle;
+
+  /// No description provided for @connectTargetCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Convert bits, target and difficulty'**
+  String get connectTargetCaption;
+
+  /// No description provided for @connectUnitsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Units tool'**
+  String get connectUnitsTitle;
+
+  /// No description provided for @connectUnitsCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Convert sat, BTC and vB'**
+  String get connectUnitsCaption;
+
+  /// No description provided for @connectScriptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Script step by step'**
+  String get connectScriptTitle;
+
+  /// No description provided for @connectScriptCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'See the stack after each opcode'**
+  String get connectScriptCaption;
+
+  /// No description provided for @connectLabTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Blockchain lab'**
+  String get connectLabTitle;
+
+  /// No description provided for @connectLabCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Build and break a small blockchain, step by step'**
+  String get connectLabCaption;
+
+  /// No description provided for @connectLabStepTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Blockchain lab, step {step}'**
+  String connectLabStepTitle(int step);
+
+  /// No description provided for @connectLabStep1Caption.
+  ///
+  /// In en, this message translates to:
+  /// **'Type text and watch its hash change'**
+  String get connectLabStep1Caption;
+
+  /// No description provided for @connectLabStep2Caption.
+  ///
+  /// In en, this message translates to:
+  /// **'Mine a block: find a nonce that makes it valid'**
+  String get connectLabStep2Caption;
+
+  /// No description provided for @connectLabStep3Caption.
+  ///
+  /// In en, this message translates to:
+  /// **'Change one block and see the next ones break'**
+  String get connectLabStep3Caption;
+
+  /// No description provided for @connectLabStep6Caption.
+  ///
+  /// In en, this message translates to:
+  /// **'Inspect the coinbase transaction that pays the miner'**
+  String get connectLabStep6Caption;
+
+  /// No description provided for @connectLabStep7Caption.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the 80-byte header that every block contains'**
+  String get connectLabStep7Caption;
+
+  /// No description provided for @explorerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Explorer'**
+  String get explorerTitle;
+
+  /// No description provided for @explorerStateOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On'**
+  String get explorerStateOn;
+
+  /// No description provided for @explorerStateOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get explorerStateOff;
+
+  /// No description provided for @explorerStateOnServer.
+  ///
+  /// In en, this message translates to:
+  /// **'On · {host}'**
+  String explorerStateOnServer(String host);
+
+  /// No description provided for @explorerSetupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Before you turn it on'**
+  String get explorerSetupTitle;
+
+  /// No description provided for @explorerSetupIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'The explorer asks a server on the internet for data. The rest of the app works without a network.'**
+  String get explorerSetupIntro;
+
+  /// No description provided for @explorerSetupWhatServerSees.
+  ///
+  /// In en, this message translates to:
+  /// **'Every search is sent to the server shown below. The server operator can see your IP address and what you search.'**
+  String get explorerSetupWhatServerSees;
+
+  /// No description provided for @explorerSetupOwnAddresses.
+  ///
+  /// In en, this message translates to:
+  /// **'If you look up your own addresses, the server can link them to your IP address.'**
+  String get explorerSetupOwnAddresses;
+
+  /// No description provided for @explorerSetupNothingSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is sent until you press Search. Searches are not saved on this device. The explorer does not use Tor or any proxy.'**
+  String get explorerSetupNothingSent;
+
+  /// No description provided for @explorerServerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Server'**
+  String get explorerServerLabel;
+
+  /// No description provided for @explorerServerField.
+  ///
+  /// In en, this message translates to:
+  /// **'Server address'**
+  String get explorerServerField;
+
+  /// No description provided for @explorerServerHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Use https. Plain http works only for localhost, .onion and .local addresses.'**
+  String get explorerServerHelp;
+
+  /// No description provided for @explorerServerInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'This address is not allowed. Use https, or http only for localhost, .onion or .local. It was not saved.'**
+  String get explorerServerInvalid;
+
+  /// No description provided for @explorerTurnOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on the explorer'**
+  String get explorerTurnOn;
+
+  /// No description provided for @explorerTurnOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off the explorer'**
+  String get explorerTurnOff;
+
+  /// No description provided for @explorerTurnOffNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You can turn it on again from Settings.'**
+  String get explorerTurnOffNote;
+
+  /// No description provided for @explorerSaveServer.
+  ///
+  /// In en, this message translates to:
+  /// **'Save server'**
+  String get explorerSaveServer;
+
+  /// No description provided for @explorerServerSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Server saved.'**
+  String get explorerServerSaved;
+
+  /// No description provided for @explorerOffTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The explorer is off'**
+  String get explorerOffTitle;
+
+  /// No description provided for @explorerOffBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is sent to any server while it is off.'**
+  String get explorerOffBody;
+
+  /// No description provided for @explorerSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Height, block hash, txid or address'**
+  String get explorerSearchHint;
+
+  /// No description provided for @explorerSearchButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get explorerSearchButton;
+
+  /// No description provided for @explorerSearchNote.
+  ///
+  /// In en, this message translates to:
+  /// **'One search sends one request per step. Searches are not saved.'**
+  String get explorerSearchNote;
+
+  /// No description provided for @explorerServerInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Server: {server}'**
+  String explorerServerInUse(String server);
+
+  /// No description provided for @explorerSecretWifTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This looks like a private key'**
+  String get explorerSecretWifTitle;
+
+  /// No description provided for @explorerSecretExtendedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This looks like an extended key'**
+  String get explorerSecretExtendedTitle;
+
+  /// No description provided for @explorerSecretBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was sent. The field was cleared. Never paste a private key into any app or website.'**
+  String get explorerSecretBody;
+
+  /// No description provided for @explorerInvalidInput.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a block height, a 64-character hash or txid, or an address.'**
+  String get explorerInvalidInput;
+
+  /// No description provided for @explorerLookingUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Looking up…'**
+  String get explorerLookingUp;
+
+  /// No description provided for @explorerNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'The server does not know this block, transaction or address.'**
+  String get explorerNotFound;
+
+  /// No description provided for @explorerNetworkError.
+  ///
+  /// In en, this message translates to:
+  /// **'The server could not be reached. Check the connection and try again.'**
+  String get explorerNetworkError;
+
+  /// No description provided for @explorerBadResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'The server sent an answer the explorer cannot read.'**
+  String get explorerBadResponse;
+
+  /// No description provided for @explorerRateLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many requests. The server asked to slow down. {seconds, plural, =1{Try again in 1 second.} other{Try again in {seconds} seconds.}}'**
+  String explorerRateLimited(int seconds);
+
+  /// No description provided for @explorerNoAutoRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'The explorer does not retry on its own.'**
+  String get explorerNoAutoRetry;
+
+  /// No description provided for @explorerRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get explorerRetry;
+
+  /// No description provided for @explorerBlockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get explorerBlockTitle;
+
+  /// No description provided for @explorerTransactionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction'**
+  String get explorerTransactionTitle;
+
+  /// No description provided for @explorerAddressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get explorerAddressTitle;
+
+  /// No description provided for @explorerHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get explorerHeight;
+
+  /// No description provided for @explorerHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Hash'**
+  String get explorerHash;
+
+  /// No description provided for @explorerTxid.
+  ///
+  /// In en, this message translates to:
+  /// **'Txid'**
+  String get explorerTxid;
+
+  /// No description provided for @explorerTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get explorerTime;
+
+  /// No description provided for @explorerTransactionCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Transactions'**
+  String get explorerTransactionCount;
+
+  /// No description provided for @explorerSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Size'**
+  String get explorerSize;
+
+  /// No description provided for @explorerWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get explorerWeight;
+
+  /// No description provided for @explorerMerkleRoot.
+  ///
+  /// In en, this message translates to:
+  /// **'Merkle root'**
+  String get explorerMerkleRoot;
+
+  /// No description provided for @explorerPreviousBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous block'**
+  String get explorerPreviousBlock;
+
+  /// No description provided for @explorerNonce.
+  ///
+  /// In en, this message translates to:
+  /// **'Nonce'**
+  String get explorerNonce;
+
+  /// No description provided for @explorerBits.
+  ///
+  /// In en, this message translates to:
+  /// **'Bits'**
+  String get explorerBits;
+
+  /// No description provided for @explorerDifficulty.
+  ///
+  /// In en, this message translates to:
+  /// **'Difficulty'**
+  String get explorerDifficulty;
+
+  /// No description provided for @explorerVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get explorerVersion;
+
+  /// No description provided for @explorerStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get explorerStatus;
+
+  /// No description provided for @explorerConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed'**
+  String get explorerConfirmed;
+
+  /// No description provided for @explorerUnconfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unconfirmed'**
+  String get explorerUnconfirmed;
+
+  /// No description provided for @explorerBlockOfTransaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get explorerBlockOfTransaction;
+
+  /// No description provided for @explorerFee.
+  ///
+  /// In en, this message translates to:
+  /// **'Fee'**
+  String get explorerFee;
+
+  /// No description provided for @explorerFeeRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Fee rate'**
+  String get explorerFeeRate;
+
+  /// No description provided for @explorerFeeRateValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{rate} sat/vB'**
+  String explorerFeeRateValue(String rate);
+
+  /// No description provided for @explorerInputs.
+  ///
+  /// In en, this message translates to:
+  /// **'Inputs'**
+  String get explorerInputs;
+
+  /// No description provided for @explorerOutputs.
+  ///
+  /// In en, this message translates to:
+  /// **'Outputs'**
+  String get explorerOutputs;
+
+  /// No description provided for @explorerInputNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Input {index}'**
+  String explorerInputNumber(int index);
+
+  /// No description provided for @explorerOutputNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Output {index}'**
+  String explorerOutputNumber(int index);
+
+  /// No description provided for @explorerCoinbase.
+  ///
+  /// In en, this message translates to:
+  /// **'Coinbase, no previous output'**
+  String get explorerCoinbase;
+
+  /// No description provided for @explorerAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'{btc} BTC · {sat} sat'**
+  String explorerAmount(String btc, String sat);
+
+  /// No description provided for @explorerScriptType.
+  ///
+  /// In en, this message translates to:
+  /// **'Script type'**
+  String get explorerScriptType;
+
+  /// No description provided for @explorerBlockUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Not yet in a block'**
+  String get explorerBlockUnknown;
+
+  /// No description provided for @explorerAddressReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'Received'**
+  String get explorerAddressReceived;
+
+  /// No description provided for @explorerAddressSpent.
+  ///
+  /// In en, this message translates to:
+  /// **'Spent'**
+  String get explorerAddressSpent;
+
+  /// No description provided for @explorerAddressBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance'**
+  String get explorerAddressBalance;
+
+  /// No description provided for @explorerAddressMempool.
+  ///
+  /// In en, this message translates to:
+  /// **'Mempool'**
+  String get explorerAddressMempool;
+
+  /// No description provided for @explorerAddressTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest transactions'**
+  String get explorerAddressTransactions;
+
+  /// No description provided for @explorerAddressFirstPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the first page from the server is shown.'**
+  String get explorerAddressFirstPage;
+
+  /// No description provided for @explorerNoTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'No transactions found for this address.'**
+  String get explorerNoTransactions;
+
+  /// No description provided for @explorerLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading…'**
+  String get explorerLoading;
+
+  /// No description provided for @labTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Blockchain lab'**
+  String get labTitle;
+
+  /// No description provided for @labIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'A small blockchain you can change and repair, one idea at a time. The blocks here are a teaching model, not the real protocol.'**
+  String get labIntro;
+
+  /// No description provided for @labIndexSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get labIndexSteps;
+
+  /// No description provided for @labStepCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {current} of {total}'**
+  String labStepCounter(int current, int total);
+
+  /// No description provided for @labStepOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get labStepOptional;
+
+  /// No description provided for @labStepTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'Hash'**
+  String get labStepTitle1;
+
+  /// No description provided for @labStepDesc1.
+  ///
+  /// In en, this message translates to:
+  /// **'Type text and watch its fingerprint change.'**
+  String get labStepDesc1;
+
+  /// No description provided for @labStepTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Mine a block'**
+  String get labStepTitle2;
+
+  /// No description provided for @labStepDesc2.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the data, then search for a nonce that makes the hash start with zeros.'**
+  String get labStepDesc2;
+
+  /// No description provided for @labStepTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Chain'**
+  String get labStepTitle3;
+
+  /// No description provided for @labStepDesc3.
+  ///
+  /// In en, this message translates to:
+  /// **'Change one block and see every block after it break.'**
+  String get labStepDesc3;
+
+  /// No description provided for @labStepTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Network'**
+  String get labStepTitle4;
+
+  /// No description provided for @labStepDesc4.
+  ///
+  /// In en, this message translates to:
+  /// **'Several copies of the chain. A node keeps only a valid one.'**
+  String get labStepDesc4;
+
+  /// No description provided for @labStepTitle5.
+  ///
+  /// In en, this message translates to:
+  /// **'Transactions'**
+  String get labStepTitle5;
+
+  /// No description provided for @labStepDesc5.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn transfers into the data of a block.'**
+  String get labStepDesc5;
+
+  /// No description provided for @labStepTitle6.
+  ///
+  /// In en, this message translates to:
+  /// **'Coinbase'**
+  String get labStepTitle6;
+
+  /// No description provided for @labStepDesc6.
+  ///
+  /// In en, this message translates to:
+  /// **'The first transaction of a block pays the miner.'**
+  String get labStepDesc6;
+
+  /// No description provided for @labStepTitle7.
+  ///
+  /// In en, this message translates to:
+  /// **'A real header'**
+  String get labStepTitle7;
+
+  /// No description provided for @labStepDesc7.
+  ///
+  /// In en, this message translates to:
+  /// **'Decode the 80 bytes of the genesis block and hash them.'**
+  String get labStepDesc7;
+
+  /// No description provided for @labDifference.
+  ///
+  /// In en, this message translates to:
+  /// **'In Bitcoin it is different'**
+  String get labDifference;
+
+  /// No description provided for @labDiff1.
+  ///
+  /// In en, this message translates to:
+  /// **'A real block hash is SHA-256 applied twice to an 80-byte header, not to a line of text.'**
+  String get labDiff1;
+
+  /// No description provided for @labDiff2.
+  ///
+  /// In en, this message translates to:
+  /// **'The header is 80 bytes, the hash is double SHA-256, and the rule is a numeric target, not a count of zeros.'**
+  String get labDiff2;
+
+  /// No description provided for @labDiff3.
+  ///
+  /// In en, this message translates to:
+  /// **'Real nodes follow the chain with the most accumulated work, not a rule that counts zeros. Each block is checked against the target in its header.'**
+  String get labDiff3;
+
+  /// No description provided for @labDiff4.
+  ///
+  /// In en, this message translates to:
+  /// **'Real nodes also check every transaction and signature, and relay blocks to peers. This lab checks only the blocks, on this device.'**
+  String get labDiff4;
+
+  /// No description provided for @labDiff5.
+  ///
+  /// In en, this message translates to:
+  /// **'Real transactions spend earlier outputs, and each input carries a signature. Here a transfer is only a line of text.'**
+  String get labDiff5;
+
+  /// No description provided for @labDiff6.
+  ///
+  /// In en, this message translates to:
+  /// **'The subsidy halves every 210,000 blocks, about every four years, and coinbase outputs cannot be spent for 100 blocks.'**
+  String get labDiff6;
+
+  /// No description provided for @labDiff7.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the real header format. The target comes from bits, and the hash is double SHA-256 of these 80 bytes.'**
+  String get labDiff7;
+
+  /// No description provided for @labPreviousStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous step'**
+  String get labPreviousStep;
+
+  /// No description provided for @labNextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next step'**
+  String get labNextStep;
+
+  /// No description provided for @labValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Valid'**
+  String get labValid;
+
+  /// No description provided for @labNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Not valid'**
+  String get labNotValid;
+
+  /// No description provided for @labBlockNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Block {number}'**
+  String labBlockNumber(int number);
+
+  /// No description provided for @labHashHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type any text'**
+  String get labHashHint;
+
+  /// No description provided for @labHashIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Type in the box. Every key press gives a new fingerprint of the text.'**
+  String get labHashIntro;
+
+  /// No description provided for @labHashLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'SHA-256 of the text'**
+  String get labHashLabel;
+
+  /// No description provided for @labHashNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Change one letter, one capital or one space and the hash changes completely. The same text always gives the same hash.'**
+  String get labHashNote;
+
+  /// No description provided for @labMineIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the data, then search for a nonce that makes the hash start with zeros. Editing the data makes the block not valid again.'**
+  String get labMineIntro;
+
+  /// No description provided for @labBlockData.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get labBlockData;
+
+  /// No description provided for @labBlockPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous hash'**
+  String get labBlockPrevious;
+
+  /// No description provided for @labBlockNonce.
+  ///
+  /// In en, this message translates to:
+  /// **'Nonce'**
+  String get labBlockNonce;
+
+  /// No description provided for @labBlockHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Hash'**
+  String get labBlockHash;
+
+  /// No description provided for @labMineRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule: the hash starts with {zeros} zeros'**
+  String labMineRule(int zeros);
+
+  /// No description provided for @labMineButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Mine'**
+  String get labMineButton;
+
+  /// No description provided for @labMineCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get labMineCancel;
+
+  /// No description provided for @labMineRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Mining. Cancel stops the search.'**
+  String get labMineRunning;
+
+  /// No description provided for @labMineAttempts.
+  ///
+  /// In en, this message translates to:
+  /// **'Attempts'**
+  String get labMineAttempts;
+
+  /// No description provided for @labMineSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed'**
+  String get labMineSpeed;
+
+  /// No description provided for @labMineSpeedValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{rate} hash/s'**
+  String labMineSpeedValue(String rate);
+
+  /// No description provided for @labMineFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Nonce found after {attempts} attempts.'**
+  String labMineFound(int attempts);
+
+  /// No description provided for @labMineStopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Search stopped. The nonce is unchanged.'**
+  String get labMineStopped;
+
+  /// No description provided for @labMineGaveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'No nonce found in this run. Change the data or try again.'**
+  String get labMineGaveUp;
+
+  /// No description provided for @labChainIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Three blocks, each linked to the hash of the one before. Change the data of a block and see what happens to the blocks after it.'**
+  String get labChainIntro;
+
+  /// No description provided for @labChainRemine.
+  ///
+  /// In en, this message translates to:
+  /// **'Mine again'**
+  String get labChainRemine;
+
+  /// No description provided for @labChainWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Block 3 stores the old hash of block 2. Fixing the chain means mining block 2 again, and then every block after it.'**
+  String get labChainWhy;
+
+  /// No description provided for @labNetworkIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Three nodes, each with its own copy of the chain. A node keeps a copy only when every block in it is valid.'**
+  String get labNetworkIntro;
+
+  /// No description provided for @labNetworkNode.
+  ///
+  /// In en, this message translates to:
+  /// **'Node {name}'**
+  String labNetworkNode(String name);
+
+  /// No description provided for @labNetworkKeeps.
+  ///
+  /// In en, this message translates to:
+  /// **'Keeps this copy'**
+  String get labNetworkKeeps;
+
+  /// No description provided for @labNetworkRejects.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejects this copy'**
+  String get labNetworkRejects;
+
+  /// No description provided for @labNetworkTamper.
+  ///
+  /// In en, this message translates to:
+  /// **'Change data on node B'**
+  String get labNetworkTamper;
+
+  /// No description provided for @labNetworkRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore node B'**
+  String get labNetworkRestore;
+
+  /// No description provided for @labTxIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Each line is one transfer. The block data is the list of lines, and the block hash depends on every character.'**
+  String get labTxIntro;
+
+  /// No description provided for @labTxFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get labTxFrom;
+
+  /// No description provided for @labTxTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get labTxTo;
+
+  /// No description provided for @labTxAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get labTxAmount;
+
+  /// No description provided for @labTxAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add transfer'**
+  String get labTxAdd;
+
+  /// No description provided for @labTxRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove transfer'**
+  String get labTxRemove;
+
+  /// No description provided for @labTxAmountError.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a whole number, zero or more.'**
+  String get labTxAmountError;
+
+  /// No description provided for @labTxNameError.
+  ///
+  /// In en, this message translates to:
+  /// **'Names cannot be empty.'**
+  String get labTxNameError;
+
+  /// No description provided for @labTxEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No transfers yet. Add one to build the block.'**
+  String get labTxEmpty;
+
+  /// No description provided for @labTxData.
+  ///
+  /// In en, this message translates to:
+  /// **'Block data'**
+  String get labTxData;
+
+  /// No description provided for @labTxBlockHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Block hash'**
+  String get labTxBlockHash;
+
+  /// No description provided for @labCoinbaseIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'The first line of every block is the coinbase: new units paid to the miner, with no sender. Change the miner name and mine again.'**
+  String get labCoinbaseIntro;
+
+  /// No description provided for @labCoinbaseMiner.
+  ///
+  /// In en, this message translates to:
+  /// **'Miner name'**
+  String get labCoinbaseMiner;
+
+  /// No description provided for @labCoinbaseReward.
+  ///
+  /// In en, this message translates to:
+  /// **'Reward: {amount} units'**
+  String labCoinbaseReward(String amount);
+
+  /// No description provided for @labHeaderIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the genesis block of Bitcoin, mined in January 2009. Its header is 80 bytes, and each field below is read from them.'**
+  String get labHeaderIntro;
+
+  /// No description provided for @labHeaderVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get labHeaderVersion;
+
+  /// No description provided for @labHeaderMerkle.
+  ///
+  /// In en, this message translates to:
+  /// **'Merkle root'**
+  String get labHeaderMerkle;
+
+  /// No description provided for @labHeaderTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get labHeaderTime;
+
+  /// No description provided for @labHeaderBits.
+  ///
+  /// In en, this message translates to:
+  /// **'Bits'**
+  String get labHeaderBits;
+
+  /// No description provided for @labHeaderFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Decoded fields'**
+  String get labHeaderFields;
+
+  /// No description provided for @labHeaderBytes.
+  ///
+  /// In en, this message translates to:
+  /// **'80 bytes, serialized'**
+  String get labHeaderBytes;
+
+  /// No description provided for @labHeaderDoubleHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Double SHA-256'**
+  String get labHeaderDoubleHash;
+
+  /// No description provided for @labHeaderTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get labHeaderTarget;
+
+  /// No description provided for @labHeaderBelowTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Hash below target'**
+  String get labHeaderBelowTarget;
+
+  /// No description provided for @labScriptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Script step by step'**
+  String get labScriptTitle;
+
+  /// No description provided for @labScriptIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Run a script one opcode at a time. The stack shows what each opcode leaves behind.'**
+  String get labScriptIntro;
+
+  /// No description provided for @labScriptSimulated.
+  ///
+  /// In en, this message translates to:
+  /// **'Signature checks are simulated in this teaching interpreter. A signature counts as valid only when the example lists it as valid. No real keys or signatures are checked. This is not consensus code.'**
+  String get labScriptSimulated;
+
+  /// No description provided for @labScriptExampleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Example'**
+  String get labScriptExampleLabel;
+
+  /// No description provided for @labScriptCustomChip.
+  ///
+  /// In en, this message translates to:
+  /// **'Your script'**
+  String get labScriptCustomChip;
+
+  /// No description provided for @labScriptCustomHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type ASM, for example 2 3 OP_ADD 5 OP_EQUAL'**
+  String get labScriptCustomHint;
+
+  /// No description provided for @labScriptCustomNote.
+  ///
+  /// In en, this message translates to:
+  /// **'A typed script has no transaction and no simulated signatures, so signature and timelock opcodes cannot pass.'**
+  String get labScriptCustomNote;
+
+  /// No description provided for @labScriptSourceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Script'**
+  String get labScriptSourceLabel;
+
+  /// No description provided for @labScriptStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Step'**
+  String get labScriptStep;
+
+  /// No description provided for @labScriptRunToEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Run to end'**
+  String get labScriptRunToEnd;
+
+  /// No description provided for @labScriptReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get labScriptReset;
+
+  /// No description provided for @labScriptNotStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Not started'**
+  String get labScriptNotStarted;
+
+  /// No description provided for @labScriptRunCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 opcode run} other{{count} opcodes run}}'**
+  String labScriptRunCount(int count);
+
+  /// No description provided for @labScriptRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Remaining script'**
+  String get labScriptRemaining;
+
+  /// No description provided for @labScriptNextLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get labScriptNextLabel;
+
+  /// No description provided for @labScriptNothingLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing left to run.'**
+  String get labScriptNothingLeft;
+
+  /// No description provided for @labScriptStack.
+  ///
+  /// In en, this message translates to:
+  /// **'Stack'**
+  String get labScriptStack;
+
+  /// No description provided for @labScriptAltStack.
+  ///
+  /// In en, this message translates to:
+  /// **'Alt stack'**
+  String get labScriptAltStack;
+
+  /// No description provided for @labScriptTopLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Top'**
+  String get labScriptTopLabel;
+
+  /// No description provided for @labScriptEmptyStack.
+  ///
+  /// In en, this message translates to:
+  /// **'The stack is empty.'**
+  String get labScriptEmptyStack;
+
+  /// No description provided for @labScriptEmptyItem.
+  ///
+  /// In en, this message translates to:
+  /// **'empty'**
+  String get labScriptEmptyItem;
+
+  /// No description provided for @labScriptResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get labScriptResult;
+
+  /// No description provided for @labScriptSucceeds.
+  ///
+  /// In en, this message translates to:
+  /// **'Script succeeds'**
+  String get labScriptSucceeds;
+
+  /// No description provided for @labScriptFails.
+  ///
+  /// In en, this message translates to:
+  /// **'Script fails: {reason}'**
+  String labScriptFails(String reason);
+
+  /// No description provided for @labScriptParseError.
+  ///
+  /// In en, this message translates to:
+  /// **'Token {index} cannot be read: {reason}'**
+  String labScriptParseError(int index, String reason);
+
+  /// No description provided for @labScriptFalseTop.
+  ///
+  /// In en, this message translates to:
+  /// **'the top item is false or the stack is empty'**
+  String get labScriptFalseTop;
+
+  /// No description provided for @labScriptParseUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'not an opcode, number, hex or quoted text'**
+  String get labScriptParseUnknown;
+
+  /// No description provided for @labScriptParseInvalidHex.
+  ///
+  /// In en, this message translates to:
+  /// **'not valid hex'**
+  String get labScriptParseInvalidHex;
+
+  /// No description provided for @labScriptParseInvalidNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'not a valid number'**
+  String get labScriptParseInvalidNumber;
+
+  /// No description provided for @labScriptParseUnterminated.
+  ///
+  /// In en, this message translates to:
+  /// **'the quoted text has no closing quote'**
+  String get labScriptParseUnterminated;
+
+  /// No description provided for @labScriptParseTruncated.
+  ///
+  /// In en, this message translates to:
+  /// **'a push runs past the end of the script'**
+  String get labScriptParseTruncated;
+
+  /// No description provided for @labScriptNoteSignature.
+  ///
+  /// In en, this message translates to:
+  /// **'This signature was checked against the simulated set.'**
+  String get labScriptNoteSignature;
+
+  /// No description provided for @labScriptNoteTimelockOk.
+  ///
+  /// In en, this message translates to:
+  /// **'The timelock is satisfied.'**
+  String get labScriptNoteTimelockOk;
+
+  /// No description provided for @labScriptNoteTimelockNo.
+  ///
+  /// In en, this message translates to:
+  /// **'The timelock is not satisfied.'**
+  String get labScriptNoteTimelockNo;
+
+  /// No description provided for @labScriptNoteTimelockOff.
+  ///
+  /// In en, this message translates to:
+  /// **'The relative timelock is disabled, so this opcode does nothing.'**
+  String get labScriptNoteTimelockOff;
+
+  /// No description provided for @labScriptNoteContext.
+  ///
+  /// In en, this message translates to:
+  /// **'This opcode needs a transaction, and this demo has none.'**
+  String get labScriptNoteContext;
+
+  /// No description provided for @labScriptErrStackUnderflow.
+  ///
+  /// In en, this message translates to:
+  /// **'an opcode needed more items than the stack has'**
+  String get labScriptErrStackUnderflow;
+
+  /// No description provided for @labScriptErrAltStackUnderflow.
+  ///
+  /// In en, this message translates to:
+  /// **'FROMALTSTACK ran with an empty alt stack'**
+  String get labScriptErrAltStackUnderflow;
+
+  /// No description provided for @labScriptErrVerifyFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'a VERIFY opcode found a false value'**
+  String get labScriptErrVerifyFailed;
+
+  /// No description provided for @labScriptErrEqualVerifyFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'EQUALVERIFY found two different items'**
+  String get labScriptErrEqualVerifyFailed;
+
+  /// No description provided for @labScriptErrNumEqualVerifyFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'NUMEQUALVERIFY found two different numbers'**
+  String get labScriptErrNumEqualVerifyFailed;
+
+  /// No description provided for @labScriptErrOpReturn.
+  ///
+  /// In en, this message translates to:
+  /// **'OP_RETURN marks the output as unspendable'**
+  String get labScriptErrOpReturn;
+
+  /// No description provided for @labScriptErrDisabledOpcode.
+  ///
+  /// In en, this message translates to:
+  /// **'a disabled opcode is in the script'**
+  String get labScriptErrDisabledOpcode;
+
+  /// No description provided for @labScriptErrUnsupportedOpcode.
+  ///
+  /// In en, this message translates to:
+  /// **'this opcode is not implemented here'**
+  String get labScriptErrUnsupportedOpcode;
+
+  /// No description provided for @labScriptErrUnbalancedConditional.
+  ///
+  /// In en, this message translates to:
+  /// **'IF, ELSE and ENDIF do not match'**
+  String get labScriptErrUnbalancedConditional;
+
+  /// No description provided for @labScriptErrNumberOverflow.
+  ///
+  /// In en, this message translates to:
+  /// **'a number is longer than 4 bytes'**
+  String get labScriptErrNumberOverflow;
+
+  /// No description provided for @labScriptErrNonMinimalNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'a number is not minimally encoded'**
+  String get labScriptErrNonMinimalNumber;
+
+  /// No description provided for @labScriptErrPushTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'a push is longer than 520 bytes'**
+  String get labScriptErrPushTooLarge;
+
+  /// No description provided for @labScriptErrStackTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'the stacks hold more than 1000 items'**
+  String get labScriptErrStackTooLarge;
+
+  /// No description provided for @labScriptErrOpCountExceeded.
+  ///
+  /// In en, this message translates to:
+  /// **'more than 201 opcodes ran'**
+  String get labScriptErrOpCountExceeded;
+
+  /// No description provided for @labScriptErrBadPickIndex.
+  ///
+  /// In en, this message translates to:
+  /// **'PICK or ROLL asked for a depth the stack does not have'**
+  String get labScriptErrBadPickIndex;
+
+  /// No description provided for @labScriptErrKeyCountOutOfRange.
+  ///
+  /// In en, this message translates to:
+  /// **'CHECKMULTISIG asked for fewer than 0 or more than 20 keys'**
+  String get labScriptErrKeyCountOutOfRange;
+
+  /// No description provided for @labScriptErrSigCountOutOfRange.
+  ///
+  /// In en, this message translates to:
+  /// **'CHECKMULTISIG asked for more signatures than keys'**
+  String get labScriptErrSigCountOutOfRange;
+
+  /// No description provided for @labScriptErrNegativeLockTime.
+  ///
+  /// In en, this message translates to:
+  /// **'a timelock operand is negative'**
+  String get labScriptErrNegativeLockTime;
+
+  /// No description provided for @labScriptErrLockTimeNotReached.
+  ///
+  /// In en, this message translates to:
+  /// **'the transaction lock time is too early'**
+  String get labScriptErrLockTimeNotReached;
+
+  /// No description provided for @labScriptErrLockTimeTypeMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'the timelock counts blocks but the transaction counts time, or the reverse'**
+  String get labScriptErrLockTimeTypeMismatch;
+
+  /// No description provided for @labScriptErrInputSequenceFinal.
+  ///
+  /// In en, this message translates to:
+  /// **'the input sequence is final, so the lock time cannot be used'**
+  String get labScriptErrInputSequenceFinal;
+
+  /// No description provided for @labScriptErrInputSequenceDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'the input sequence disables relative timelocks'**
+  String get labScriptErrInputSequenceDisabled;
+
+  /// No description provided for @labScriptErrTxVersionTooLow.
+  ///
+  /// In en, this message translates to:
+  /// **'relative timelocks need transaction version 2 or higher'**
+  String get labScriptErrTxVersionTooLow;
+
+  /// No description provided for @labScriptErrMissingContext.
+  ///
+  /// In en, this message translates to:
+  /// **'a timelock opcode needs a transaction, and none is set'**
+  String get labScriptErrMissingContext;
+
+  /// No description provided for @labScriptErrScriptTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'the script is longer than 10,000 bytes'**
+  String get labScriptErrScriptTooLarge;
+
+  /// No description provided for @labScriptExArithmeticName.
+  ///
+  /// In en, this message translates to:
+  /// **'Arithmetic'**
+  String get labScriptExArithmeticName;
+
+  /// No description provided for @labScriptExArithmeticDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Adds two numbers and checks the sum.'**
+  String get labScriptExArithmeticDesc;
+
+  /// No description provided for @labScriptExP2pkhName.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay to public key hash'**
+  String get labScriptExP2pkhName;
+
+  /// No description provided for @labScriptExP2pkhDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The classic lock: a public key, a signature and a hash check.'**
+  String get labScriptExP2pkhDesc;
+
+  /// No description provided for @labScriptExMultisigName.
+  ///
+  /// In en, this message translates to:
+  /// **'Multisig 2 of 3'**
+  String get labScriptExMultisigName;
+
+  /// No description provided for @labScriptExMultisigDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Two of the three simulated signatures are needed.'**
+  String get labScriptExMultisigDesc;
+
+  /// No description provided for @labScriptExHashlockName.
+  ///
+  /// In en, this message translates to:
+  /// **'Hashlock'**
+  String get labScriptExHashlockName;
+
+  /// No description provided for @labScriptExHashlockDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The secret is the text whose SHA-256 is locked.'**
+  String get labScriptExHashlockDesc;
+
+  /// No description provided for @labScriptExCltvName.
+  ///
+  /// In en, this message translates to:
+  /// **'Absolute timelock'**
+  String get labScriptExCltvName;
+
+  /// No description provided for @labScriptExCltvDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'CHECKLOCKTIMEVERIFY: the spend waits for a block height.'**
+  String get labScriptExCltvDesc;
+
+  /// No description provided for @labScriptExCsvName.
+  ///
+  /// In en, this message translates to:
+  /// **'Relative timelock'**
+  String get labScriptExCsvName;
+
+  /// No description provided for @labScriptExCsvDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'CHECKSEQUENCEVERIFY: the input must be old enough.'**
+  String get labScriptExCsvDesc;
+
+  /// No description provided for @labScriptExHtlcName.
+  ///
+  /// In en, this message translates to:
+  /// **'HTLC, claimed'**
+  String get labScriptExHtlcName;
+
+  /// No description provided for @labScriptExHtlcDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The receiver reveals the secret before the timeout.'**
+  String get labScriptExHtlcDesc;
+
+  /// No description provided for @labScriptExHtlcRefundName.
+  ///
+  /// In en, this message translates to:
+  /// **'HTLC, refund'**
+  String get labScriptExHtlcRefundName;
+
+  /// No description provided for @labScriptExHtlcRefundDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'After the timeout the sender takes the funds back.'**
+  String get labScriptExHtlcRefundDesc;
 }
 
 class _AppLocalizationsDelegate

@@ -31,6 +31,10 @@ extension SearchSectionLabels on SearchSection {
       SearchSection.news => l10n.newsTab,
       SearchSection.history => l10n.historyTab,
       SearchSection.code => l10n.codeTab,
+      SearchSection.glossary => l10n.librarySearchTypeGlossary,
+      SearchSection.product => l10n.librarySearchTypeProduct,
+      SearchSection.reference => l10n.librarySearchTypeReference,
+      SearchSection.library => l10n.librarySearchTypeLibrary,
     };
   }
 }

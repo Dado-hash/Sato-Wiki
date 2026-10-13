@@ -1,6 +1,17 @@
 import '../content/domain/content_models.dart';
+import '../navigation/content_routes.dart';
 
-enum SearchSection { wiki, news, history, code }
+/// Order here is the order of the type filters and of the result groups.
+enum SearchSection {
+  wiki,
+  news,
+  history,
+  code,
+  glossary,
+  product,
+  reference,
+  library,
+}
 
 const _titleWeight = 8;
 const _tagWeight = 4;
@@ -95,6 +106,30 @@ final class _IndexedResult {
   final String tags;
 }
 
+/// Result whose route comes from its content id. Null when the id has no
+/// detail screen, so such a record is left out of the index.
+SearchResult? _linkedResult({
+  required String id,
+  required String title,
+  required String summary,
+  required SearchSection section,
+  required List<String> tags,
+}) {
+  final route = routeForContentId(id);
+  if (route == null) {
+    return null;
+  }
+
+  return SearchResult(
+    id: id,
+    title: title,
+    summary: summary,
+    section: section,
+    route: route,
+    tags: tags,
+  );
+}
+
 final class SearchIndex {
   SearchIndex.fromBundle(ContentBundle bundle)
     : _items = [
@@ -143,6 +178,40 @@ final class SearchIndex {
             route: '/code/changelogs/${release.project}/${release.version}',
             tags: release.tags,
           ),
+        // Glossary, products, reference tables and library works. Only the
+        // short fields are indexed, never their Markdown bodies.
+        for (final term in bundle.glossary)
+          ?_linkedResult(
+            id: term.id,
+            title: term.term,
+            summary: term.definition,
+            section: SearchSection.glossary,
+            tags: term.aliases,
+          ),
+        for (final product in bundle.products)
+          ?_linkedResult(
+            id: product.id,
+            title: product.name,
+            summary: product.summary,
+            section: SearchSection.product,
+            tags: [product.maker],
+          ),
+        for (final table in bundle.references)
+          ?_linkedResult(
+            id: table.id,
+            title: table.title,
+            summary: table.description,
+            section: SearchSection.reference,
+            tags: const [],
+          ),
+        for (final work in bundle.library)
+          ?_linkedResult(
+            id: work.id,
+            title: work.title,
+            summary: work.summary,
+            section: SearchSection.library,
+            tags: [work.author],
+          ),
       ];
 
   final List<SearchResult> _items;
@@ -154,8 +223,8 @@ final class SearchIndex {
   /// Every query token must match the title, tags or summary.
   ///
   /// Each token adds the weight of every field that contains it. A query that
-  /// matches the whole title gets a bonus. Ties are broken by section (wiki,
-  /// news, history, code), then title, then id.
+  /// matches the whole title gets a bonus. Ties are broken by section (enum
+  /// order), then title, then id.
   List<SearchResult> search(String query, {Set<SearchSection>? sections}) {
     final normalizedQuery = normalizeForSearch(query);
     if (normalizedQuery.isEmpty) {

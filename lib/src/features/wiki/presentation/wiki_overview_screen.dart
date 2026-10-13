@@ -25,6 +25,8 @@ import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/sources_disclosure.dart';
 import '../../../core/widgets/tag_pill.dart';
 import '../../../generated/l10n/app_localizations.dart';
+import 'wiki_connect_quotes.dart';
+import 'wiki_connect_tools.dart';
 import 'wiki_tree_widgets.dart';
 
 //
@@ -110,13 +112,31 @@ class WikiOverviewScreen extends StatelessWidget {
               SectionTitle(title: l10n.categories),
               const SizedBox(height: AppSpacing.md),
               ..._categoryRows(context, categories, l10n),
-              if (store.bundle.glossary.isNotEmpty) ...[
+              if (store.bundle.glossary.isNotEmpty ||
+                  store.bundle.library.isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.section),
-                _GlossaryCard(
-                  count: store.bundle.glossary.length,
-                  onTap: () =>
-                      Navigator.of(context).pushNamed(AppRoutes.glossary),
-                ),
+                ...spaced([
+                  if (store.bundle.glossary.isNotEmpty)
+                    _LinkCard(
+                      icon: Icons.menu_book_outlined,
+                      title: l10n.wikiTreeGlossary,
+                      caption: l10n.wikiTreeGlossaryCount(
+                        store.bundle.glossary.length,
+                      ),
+                      onTap: () =>
+                          Navigator.of(context).pushNamed(AppRoutes.glossary),
+                    ),
+                  if (store.bundle.library.isNotEmpty)
+                    _LinkCard(
+                      icon: Icons.local_library_outlined,
+                      title: l10n.connectLibraryTitle,
+                      caption: l10n.connectLibraryCount(
+                        store.bundle.library.length,
+                      ),
+                      onTap: () =>
+                          Navigator.of(context).pushNamed(AppRoutes.library),
+                    ),
+                ], AppSpacing.md),
               ],
               if (explore.isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.section),
@@ -308,18 +328,24 @@ class _CategoryTile extends StatelessWidget {
   }
 }
 
-/// Entry point to the glossary, below the category grid.
-class _GlossaryCard extends StatelessWidget {
-  const _GlossaryCard({required this.count, required this.onTap});
+/// Link card below the category grid, for the glossary and the library.
+class _LinkCard extends StatelessWidget {
+  const _LinkCard({
+    required this.icon,
+    required this.title,
+    required this.caption,
+    required this.onTap,
+  });
 
-  final int count;
+  final IconData icon;
+  final String title;
+  final String caption;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final l10n = AppLocalizations.of(context);
 
     return WikiCardSurface(
       onTap: onTap,
@@ -327,17 +353,17 @@ class _GlossaryCard extends StatelessWidget {
         padding: const EdgeInsets.all(AppSpacing.md),
         child: Row(
           children: [
-            const WikiIconTile(icon: Icons.menu_book_outlined),
+            WikiIconTile(icon: icon),
             const SizedBox(width: AppSpacing.md),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(l10n.wikiTreeGlossary, style: textTheme.titleMedium),
+                  Text(title, style: textTheme.titleMedium),
                   const SizedBox(height: AppSpacing.xs),
                   Text(
-                    l10n.wikiTreeGlossaryCount(count),
+                    caption,
                     style: textTheme.bodySmall?.copyWith(
                       color: colorScheme.onSurfaceVariant,
                     ),
@@ -658,6 +684,8 @@ class _WikiEntryScreenState extends State<WikiEntryScreen> {
     final settings = _settings;
     final level = widget.selectedLevel;
     final readerTextScale = settings?.readerTextScale ?? 1.0;
+    final tryItTargets = wikiConnectTargets[entry.id] ?? const [];
+    final quotes = relatedQuotesFor(widget.store.bundle.quotes, entry.id);
 
     return DetailScaffold(
       controller: _scrollController,
@@ -751,6 +779,10 @@ class _WikiEntryScreenState extends State<WikiEntryScreen> {
             children: [for (final tag in entry.tags) TagPill(label: tag)],
           ),
         ],
+        if (tryItTargets.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.section),
+          WikiTryItSection(targets: tryItTargets),
+        ],
         if (entry.related.isNotEmpty) ...[
           const SizedBox(height: AppSpacing.section),
           SectionTitle(title: l10n.relatedConcepts),
@@ -762,6 +794,10 @@ class _WikiEntryScreenState extends State<WikiEntryScreen> {
               onOpen: (route) => Navigator.of(context).pushNamed(route),
             ),
           ),
+        ],
+        if (quotes.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.section),
+          WikiRelatedQuotes(quotes: quotes),
         ],
         if (entry.sources.isNotEmpty) ...[
           const SizedBox(height: AppSpacing.lg),

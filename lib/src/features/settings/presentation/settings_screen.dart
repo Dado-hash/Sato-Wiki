@@ -89,6 +89,35 @@ class SettingsScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.xl),
             _SettingsGroup(
+              label: l10n.explorerTitle,
+              child: SatoGroupCard(
+                children: [
+                  _TappableRow(
+                    onTap: () => Navigator.of(
+                      context,
+                    ).pushNamed(AppRoutes.explorerSetup),
+                    children: [
+                      Expanded(
+                        child: Text(
+                          l10n.explorerTitle,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ),
+                      Text(
+                        settings.explorerEnabled
+                            ? l10n.explorerStateOn
+                            : l10n.explorerStateOff,
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                      const SizedBox(width: AppSpacing.sm),
+                      _ChevronIcon(),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: AppSpacing.xl),
+            _SettingsGroup(
               label: l10n.settingsAbout,
               child: SatoGroupCard(
                 children: [
