@@ -145,6 +145,77 @@ void main() {
     expect(result.warnings.single, contains('placeholder'));
   });
 
+  test('wiki subcategory and reviewedAt validate without warnings', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord()
+            ..['category'] = 'software'
+            ..['subcategory'] = 'software-wallets'
+            ..['reviewedAt'] = '2026-05-01',
+        ],
+        bips: [_bipRecord()..['reviewedAt'] = '2026-06-02T10:30:00Z'],
+      ),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, isEmpty);
+    expect(result.warnings, isEmpty);
+  });
+
+  test('software and hardware wiki without subcategory warn', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord()..['category'] = 'software',
+          _wikiRecord(id: 'wiki.beta')..['category'] = 'Hardware',
+          _wikiRecord(id: 'wiki.gamma')..['category'] = 'protocol',
+        ],
+      ),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, isEmpty);
+    expect(result.warnings, hasLength(2));
+    expect(result.warnings[0], contains('wiki wiki.alpha'));
+    expect(result.warnings[0], contains('no subcategory'));
+    expect(result.warnings[1], contains('wiki wiki.beta'));
+    expect(result.failsWith(strict: false), isFalse);
+    expect(result.failsWith(strict: true), isTrue);
+  });
+
+  test('non-string subcategory fails', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord()
+            ..['category'] = 'software'
+            ..['subcategory'] = 3,
+        ],
+      ),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, hasLength(1));
+    expect(result.errors.single, contains('subcategory must be a string'));
+    expect(result.failsWith(strict: false), isTrue);
+  });
+
+  test('malformed reviewedAt fails', () {
+    final path = writeBundle(
+      _bundle(bips: [_bipRecord()..['reviewedAt'] = 'not a date']),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, hasLength(1));
+    expect(result.errors.single, contains('reviewedAt must be an ISO date'));
+    expect(result.failsWith(strict: false), isTrue);
+  });
+
   test('missing bundle fails', () {
     final result = validateContentBundle('${tempDir.path}/absent.json');
 

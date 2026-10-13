@@ -9,6 +9,7 @@ import 'package:sato_wiki/src/core/content/domain/content_models.dart';
 const _defaultBundlePath = 'assets/content/seed_bundle_en.json';
 const _recordCollections = ['wiki', 'news', 'history', 'bips', 'changelogs'];
 const _bipStatusTags = {'Draft', 'Complete', 'Deployed', 'Closed'};
+const _subcategoryCategories = {'software', 'hardware'};
 
 // Texts written by tool/sync_code_content.dart when no editorial summary exists.
 const _placeholderTexts = [
@@ -110,6 +111,12 @@ void _checkRecords(
           errors.add('$where: related id $target matches no record.');
         }
       }
+      if (!_isValidReviewedAt(record['reviewedAt'])) {
+        errors.add('$where: reviewedAt must be an ISO date.');
+      }
+      if (collection == 'wiki') {
+        _checkWikiSubcategory(record, where, errors, warnings);
+      }
       if (_needsReview(record)) {
         warnings.add('$where: automation.needsReview is true.');
       }
@@ -143,6 +150,35 @@ void _checkRecords(
       }
     }
   }
+}
+
+void _checkWikiSubcategory(
+  Map<String, Object?> record,
+  String where,
+  List<String> errors,
+  List<String> warnings,
+) {
+  final subcategory = record['subcategory'];
+  if (subcategory != null && subcategory is! String) {
+    errors.add('$where: subcategory must be a string.');
+    return;
+  }
+  final category = record['category'];
+  final needsSubcategory =
+      category is String &&
+      _subcategoryCategories.contains(category.trim().toLowerCase());
+  if (needsSubcategory &&
+      (subcategory is! String || subcategory.trim().isEmpty)) {
+    warnings.add('$where: category $category has no subcategory.');
+  }
+}
+
+bool _isValidReviewedAt(Object? value) {
+  if (value == null) {
+    return true;
+  }
+
+  return value is String && DateTime.tryParse(value) != null;
 }
 
 void _checkMedia(

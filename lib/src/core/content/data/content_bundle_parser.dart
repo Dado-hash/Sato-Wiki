@@ -84,6 +84,7 @@ abstract final class ContentBundleParser {
       slug: _string(data, 'slug', path),
       language: _string(data, 'language', path, fallback: bundleLanguage),
       category: _string(data, 'category', path),
+      subcategory: _optionalSubcategory(data, '$path.subcategory'),
       title: _string(data, 'title', path),
       description: _string(data, 'description', path),
       coverImage: _optionalRelativeUri(data, 'coverImage', path),
@@ -94,6 +95,7 @@ abstract final class ContentBundleParser {
       sources: _sources(data, '$path.sources'),
       related: _related(data, '$path.related'),
       updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 
@@ -114,6 +116,7 @@ abstract final class ContentBundleParser {
       sources: _sources(data, '$path.sources'),
       related: _related(data, '$path.related'),
       updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 
@@ -135,6 +138,7 @@ abstract final class ContentBundleParser {
       sources: _sources(data, '$path.sources'),
       related: _related(data, '$path.related'),
       updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 
@@ -162,6 +166,7 @@ abstract final class ContentBundleParser {
       related: _related(data, '$path.related'),
       statusHistory: _statusHistory(data, '$path.statusHistory'),
       updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 
@@ -194,6 +199,7 @@ abstract final class ContentBundleParser {
       sources: _sources(data, '$path.sources'),
       related: _related(data, '$path.related'),
       updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 
@@ -409,6 +415,38 @@ abstract final class ContentBundleParser {
     }
 
     return parsed;
+  }
+
+  /// Optional `reviewedAt` on every record. Missing or null gives null; any
+  /// other value must be an ISO 8601 date or date-time.
+  static DateTime? _reviewedAt(JsonMap data, String path) {
+    final value = data['reviewedAt'];
+    if (value == null) {
+      return null;
+    }
+    final parsed = value is String ? DateTime.tryParse(value) : null;
+    if (parsed == null) {
+      throw ContentBundleParseException(
+        '$path.reviewedAt must be an ISO date.',
+      );
+    }
+
+    return parsed;
+  }
+
+  /// Optional wiki `subcategory`. Missing, null or blank gives null; any
+  /// non-string value is an error.
+  static String? _optionalSubcategory(JsonMap data, String path) {
+    final value = data['subcategory'];
+    if (value == null) {
+      return null;
+    }
+    if (value is! String) {
+      throw ContentBundleParseException('$path must be a string.');
+    }
+    final trimmed = value.trim();
+
+    return trimmed.isEmpty ? null : trimmed;
   }
 
   static DateTime? _optionalDateTime(JsonMap data, String key, String path) {

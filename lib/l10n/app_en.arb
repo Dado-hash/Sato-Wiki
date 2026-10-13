@@ -254,5 +254,18 @@
   "categoryInformational": "Informational",
   "categoryProcess": "Process",
   "categoryApiRpc": "API/RPC",
-  "categorySpecification": "Specification"
+  "categorySpecification": "Specification",
+  "categorySoftware": "Software",
+  "categoryHardware": "Hardware",
+  "subcategoryNodes": "Nodes",
+  "subcategorySoftwareWallets": "Software wallets",
+  "subcategoryLightning": "Lightning",
+  "subcategoryServers": "Servers and infrastructure",
+  "subcategoryNodeSystems": "Home node systems",
+  "subcategoryMiningSoftware": "Mining software",
+  "subcategoryDeveloperTools": "Libraries and developer tools",
+  "subcategoryHardwareWallets": "Hardware wallets",
+  "subcategorySeedBackups": "Seed backups",
+  "subcategoryMiningHardware": "Mining hardware",
+  "subcategoryNodeHardware": "Node hardware"
 }

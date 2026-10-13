@@ -12,6 +12,8 @@ String contentCategoryLabel(String category, AppLocalizations l10n) {
     'cryptography' => l10n.categoryCryptography,
     'lightning network' => l10n.categoryLightningNetwork,
     'economics' => l10n.categoryEconomics,
+    'software' => l10n.categorySoftware,
+    'hardware' => l10n.categoryHardware,
     'market' => l10n.market,
     'regulatory' => l10n.regulatory,
     'culture' => l10n.culture,
@@ -29,6 +31,29 @@ String contentCategoryLabel(String category, AppLocalizations l10n) {
     'api-rpc' => l10n.categoryApiRpc,
     'specification' => l10n.categorySpecification,
     _ when key.isEmpty => category,
+    _ => key[0].toUpperCase() + key.substring(1).replaceAll('-', ' '),
+  };
+}
+
+/// Localized label for a wiki subcategory key such as `software-wallets`.
+///
+/// Unknown keys use the same fallback as [contentCategoryLabel].
+String contentSubcategoryLabel(String subcategory, AppLocalizations l10n) {
+  final key = subcategory.trim().toLowerCase();
+
+  return switch (key) {
+    'nodes' => l10n.subcategoryNodes,
+    'software-wallets' => l10n.subcategorySoftwareWallets,
+    'lightning' => l10n.subcategoryLightning,
+    'servers' => l10n.subcategoryServers,
+    'node-systems' => l10n.subcategoryNodeSystems,
+    'mining-software' => l10n.subcategoryMiningSoftware,
+    'developer-tools' => l10n.subcategoryDeveloperTools,
+    'hardware-wallets' => l10n.subcategoryHardwareWallets,
+    'seed-backups' => l10n.subcategorySeedBackups,
+    'mining-hardware' => l10n.subcategoryMiningHardware,
+    'node-hardware' => l10n.subcategoryNodeHardware,
+    _ when key.isEmpty => subcategory,
     _ => key[0].toUpperCase() + key.substring(1).replaceAll('-', ' '),
   };
 }

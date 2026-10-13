@@ -37,6 +37,8 @@ const _leadingCategoryKeys = [
   'cryptography',
   'lightning network',
   'economics',
+  'software',
+  'hardware',
 ];
 
 const _exploreCount = 6;
@@ -724,6 +726,8 @@ IconData _iconForCategory(String category) {
     'cryptography' => Icons.key_outlined,
     'lightning network' => Icons.bolt_outlined,
     'economics' => Icons.trending_up_rounded,
+    'software' => Icons.terminal_outlined,
+    'hardware' => Icons.developer_board_outlined,
     _ => Icons.menu_book_outlined,
   };
 }

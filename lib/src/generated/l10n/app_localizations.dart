@@ -1015,6 +1015,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Specification'**
   String get categorySpecification;
+
+  /// No description provided for @categorySoftware.
+  ///
+  /// In en, this message translates to:
+  /// **'Software'**
+  String get categorySoftware;
+
+  /// No description provided for @categoryHardware.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware'**
+  String get categoryHardware;
+
+  /// No description provided for @subcategoryNodes.
+  ///
+  /// In en, this message translates to:
+  /// **'Nodes'**
+  String get subcategoryNodes;
+
+  /// No description provided for @subcategorySoftwareWallets.
+  ///
+  /// In en, this message translates to:
+  /// **'Software wallets'**
+  String get subcategorySoftwareWallets;
+
+  /// No description provided for @subcategoryLightning.
+  ///
+  /// In en, this message translates to:
+  /// **'Lightning'**
+  String get subcategoryLightning;
+
+  /// No description provided for @subcategoryServers.
+  ///
+  /// In en, this message translates to:
+  /// **'Servers and infrastructure'**
+  String get subcategoryServers;
+
+  /// No description provided for @subcategoryNodeSystems.
+  ///
+  /// In en, this message translates to:
+  /// **'Home node systems'**
+  String get subcategoryNodeSystems;
+
+  /// No description provided for @subcategoryMiningSoftware.
+  ///
+  /// In en, this message translates to:
+  /// **'Mining software'**
+  String get subcategoryMiningSoftware;
+
+  /// No description provided for @subcategoryDeveloperTools.
+  ///
+  /// In en, this message translates to:
+  /// **'Libraries and developer tools'**
+  String get subcategoryDeveloperTools;
+
+  /// No description provided for @subcategoryHardwareWallets.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware wallets'**
+  String get subcategoryHardwareWallets;
+
+  /// No description provided for @subcategorySeedBackups.
+  ///
+  /// In en, this message translates to:
+  /// **'Seed backups'**
+  String get subcategorySeedBackups;
+
+  /// No description provided for @subcategoryMiningHardware.
+  ///
+  /// In en, this message translates to:
+  /// **'Mining hardware'**
+  String get subcategoryMiningHardware;
+
+  /// No description provided for @subcategoryNodeHardware.
+  ///
+  /// In en, this message translates to:
+  /// **'Node hardware'**
+  String get subcategoryNodeHardware;
 }
 
 class _AppLocalizationsDelegate

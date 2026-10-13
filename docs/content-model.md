@@ -35,11 +35,11 @@ Sotto: campi che il parser richiede (obbligatori) e campi opzionali. Un record c
 
 | Tipo | Obbligatori | Opzionali |
 |---|---|---|
-| `WikiEntry` | `id`, `slug`, `category`, `title`, `description`, `readingLevels` (con `base`, `medium`, `advanced`, ciascuno con `bodyMarkdown`), `difficulty`, `readTimeMinutes`, `updatedAt` | `language`, `coverImage`, `tags`, `sources`, `related` |
-| `NewsArticle` | `id`, `slug`, `title`, `summary`, `category`, `author` (con `displayName`), `publishedAt`, `readTimeMinutes`, `bodyMarkdown`, `updatedAt` | `language`, `coverImage`, `tags`, `sources`, `related`; in `author`: `github`, `lightningAddress` |
-| `HistoryEvent` | `id`, `slug`, `date`, `title`, `category`, `summary`, `bodyMarkdown`, `updatedAt` | `language`, `tags`, `sources`, `related` |
-| `Bip` | `id`, `number`, `title`, `summary`, `status`, `category`, `createdAt`, `summaryMarkdown`, `impactMarkdown`, `officialUrl`, `updatedAt` | `language`, `authors`, `tags`, `sources`, `related`, `statusHistory`, `automation` |
-| `ReleaseNote` | `id`, `slug`, `project`, `version`, `title`, `summary`, `releasedAt`, `importance`, `userImpactMarkdown`, `technicalChangesMarkdown`, `officialUrl`, `updatedAt` | `language`, `tags`, `sources`, `related`, `automation` |
+| `WikiEntry` | `id`, `slug`, `category`, `title`, `description`, `readingLevels` (con `base`, `medium`, `advanced`, ciascuno con `bodyMarkdown`), `difficulty`, `readTimeMinutes`, `updatedAt` | `language`, `subcategory`, `coverImage`, `tags`, `sources`, `related`, `reviewedAt` |
+| `NewsArticle` | `id`, `slug`, `title`, `summary`, `category`, `author` (con `displayName`), `publishedAt`, `readTimeMinutes`, `bodyMarkdown`, `updatedAt` | `language`, `coverImage`, `tags`, `sources`, `related`, `reviewedAt`; in `author`: `github`, `lightningAddress` |
+| `HistoryEvent` | `id`, `slug`, `date`, `title`, `category`, `summary`, `bodyMarkdown`, `updatedAt` | `language`, `tags`, `sources`, `related`, `reviewedAt` |
+| `Bip` | `id`, `number`, `title`, `summary`, `status`, `category`, `createdAt`, `summaryMarkdown`, `impactMarkdown`, `officialUrl`, `updatedAt` | `language`, `authors`, `tags`, `sources`, `related`, `statusHistory`, `automation`, `reviewedAt` |
+| `ReleaseNote` | `id`, `slug`, `project`, `version`, `title`, `summary`, `releasedAt`, `importance`, `userImpactMarkdown`, `technicalChangesMarkdown`, `officialUrl`, `updatedAt` | `language`, `tags`, `sources`, `related`, `automation`, `reviewedAt` |
 
 Tipi e formati letti dal parser:
 
@@ -51,6 +51,8 @@ Tipi e formati letti dal parser:
 - `sources`: lista di oggetti `{ "title", "url", "author"?, "publishedAt"? }`. `title` e `url` (URI assoluto) sono obbligatori.
 - `related`: lista di stringhe (id) oppure oggetti `{ "id", "title"? }`. Assente: lista vuota.
 - `language` mancante: si usa `language` del bundle.
+- `reviewedAt` (tutti i tipi): data ISO 8601 (`YYYY-MM-DD` o timestamp completo) in cui i fatti del record sono stati controllati per l'ultima volta sulle fonti. Assente o `null` significa non ancora revisionato. Un valore malformato fa saltare il record con warning. Non e ancora mostrato in nessuna schermata.
+- `subcategory` (solo `WikiEntry`): stringa opzionale per raggruppare le wiki di una categoria. Assente, `null` o vuota significa nessuna sottocategoria. Un valore non stringa fa saltare il record con warning. Vedi "Sottocategorie wiki".
 
 ## WikiEntry
 
@@ -78,6 +80,33 @@ Tipi e formati letti dal parser:
 ```
 
 `difficulty` accetta `base`, `medium` o `advanced`.
+
+### Sottocategorie wiki
+
+`subcategory` e facoltativo. Le sottocategorie previste sono le seguenti; il parser accetta anche valori diversi, ma il validatore non li segnala, quindi usare solo questi.
+
+Categoria `software`:
+
+| Valore | Inglese | Italiano |
+|---|---|---|
+| `nodes` | Nodes | Nodi |
+| `software-wallets` | Software wallets | Software wallet |
+| `lightning` | Lightning | Lightning |
+| `servers` | Servers and infrastructure | Server e infrastruttura |
+| `node-systems` | Home node systems | Sistemi per nodo domestico |
+| `mining-software` | Mining software | Software di mining |
+| `developer-tools` | Libraries and developer tools | Librerie e strumenti per sviluppatori |
+
+Categoria `hardware`:
+
+| Valore | Inglese | Italiano |
+|---|---|---|
+| `hardware-wallets` | Hardware wallets | Hardware wallet |
+| `seed-backups` | Seed backups | Backup del seed |
+| `mining-hardware` | Mining hardware | Hardware di mining |
+| `node-hardware` | Node hardware | Hardware per nodi |
+
+Le wiki con categoria `software` o `hardware` senza `subcategory` producono un warning del validatore (non un errore).
 
 ## Fixture Seed
 

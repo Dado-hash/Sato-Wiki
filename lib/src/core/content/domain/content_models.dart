@@ -81,12 +81,15 @@ final class WikiEntry {
     required this.sources,
     required this.related,
     required this.updatedAt,
+    this.subcategory,
+    this.reviewedAt,
   });
 
   final String id;
   final String slug;
   final String language;
   final String category;
+  final String? subcategory;
   final String title;
   final String description;
   final Uri? coverImage;
@@ -97,6 +100,7 @@ final class WikiEntry {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 
   ReadingLevelContent contentFor(ReadingLevel level) {
     return readingLevels[level] ?? readingLevels[ReadingLevel.base]!;
@@ -120,6 +124,7 @@ final class NewsArticle {
     required this.related,
     required this.updatedAt,
     this.coverImage,
+    this.reviewedAt,
   });
 
   final String id;
@@ -137,6 +142,7 @@ final class NewsArticle {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 final class HistoryEvent {
@@ -153,6 +159,7 @@ final class HistoryEvent {
     required this.sources,
     required this.related,
     required this.updatedAt,
+    this.reviewedAt,
   });
 
   final String id;
@@ -167,6 +174,7 @@ final class HistoryEvent {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 enum BipStatus {
@@ -226,6 +234,7 @@ final class Bip {
     required this.related,
     required this.statusHistory,
     required this.updatedAt,
+    this.reviewedAt,
   });
 
   final String id;
@@ -245,6 +254,7 @@ final class Bip {
   final List<RelatedContentLink> related;
   final List<BipStatusChange> statusHistory;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 enum ReleaseImportance {
@@ -280,6 +290,7 @@ final class ReleaseNote {
     required this.sources,
     required this.related,
     required this.updatedAt,
+    this.reviewedAt,
   });
 
   final String id;
@@ -298,4 +309,5 @@ final class ReleaseNote {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }

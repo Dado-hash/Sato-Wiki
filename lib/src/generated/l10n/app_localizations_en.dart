@@ -492,4 +492,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categorySpecification => 'Specification';
+
+  @override
+  String get categorySoftware => 'Software';
+
+  @override
+  String get categoryHardware => 'Hardware';
+
+  @override
+  String get subcategoryNodes => 'Nodes';
+
+  @override
+  String get subcategorySoftwareWallets => 'Software wallets';
+
+  @override
+  String get subcategoryLightning => 'Lightning';
+
+  @override
+  String get subcategoryServers => 'Servers and infrastructure';
+
+  @override
+  String get subcategoryNodeSystems => 'Home node systems';
+
+  @override
+  String get subcategoryMiningSoftware => 'Mining software';
+
+  @override
+  String get subcategoryDeveloperTools => 'Libraries and developer tools';
+
+  @override
+  String get subcategoryHardwareWallets => 'Hardware wallets';
+
+  @override
+  String get subcategorySeedBackups => 'Seed backups';
+
+  @override
+  String get subcategoryMiningHardware => 'Mining hardware';
+
+  @override
+  String get subcategoryNodeHardware => 'Node hardware';
 }

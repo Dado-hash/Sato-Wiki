@@ -393,6 +393,8 @@ final class CodeContentSync {
       ]),
       'related': _preserveList(existing, 'related', const []),
       'statusHistory': statusHistory,
+      if (existing?['reviewedAt'] != null)
+        'reviewedAt': existing!['reviewedAt'],
       'updatedAt': now.toIso8601String(),
       'automation': _recordAutomation(
         existing: existing,
@@ -496,6 +498,8 @@ final class CodeContentSync {
         },
       ]),
       'related': _preserveList(existing, 'related', const []),
+      if (existing?['reviewedAt'] != null)
+        'reviewedAt': existing!['reviewedAt'],
       'updatedAt': now.toIso8601String(),
       'automation': _recordAutomation(
         existing: existing,

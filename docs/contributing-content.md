@@ -35,7 +35,10 @@ The PR checks in `.github/workflows/flutter.yml` run the same validation (withou
 `tool/validate_content.dart` checks a seed bundle and reports:
 
 - Errors: a malformed or unsupported bundle; a `related` id that matches no record; a BIP with more than one status tag, or a status tag that contradicts its `status`; and the media problems listed in the next section.
-- Warnings: records with `automation.needsReview: true`, and texts that still contain a generated placeholder (for example "Draft generated from official ...").
+- Errors also cover a wrong type for a wiki `subcategory` (must be a string) or a `reviewedAt` that is not an ISO date.
+- Warnings: records with `automation.needsReview: true`, texts that still contain a generated placeholder (for example "Draft generated from official ..."), and `software` or `hardware` wiki entries without a `subcategory`.
+
+Optional frontmatter: `subcategory` (wiki only) groups entries inside `software` and `hardware`, using the values listed in `docs/content-model.md`. `reviewedAt` (all types) is the date the facts were last checked against sources, in `YYYY-MM-DD` form; leave it out until a review has happened.
 
 `--strict` turns warnings into errors. CI runs without it.
 

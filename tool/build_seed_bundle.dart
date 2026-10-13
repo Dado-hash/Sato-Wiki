@@ -122,6 +122,8 @@ Map<String, Object?> parseWikiMarkdown(
     'slug': slug,
     'language': meta['language'] as String? ?? lang,
     'category': meta['category'] as String,
+    if (_optionalString(meta, 'subcategory') case final subcategory?)
+      'subcategory': subcategory,
     'title': meta['title'] as String,
     'description': meta['description'] as String,
     'coverImage':
@@ -137,6 +139,8 @@ Map<String, Object?> parseWikiMarkdown(
     'sources': _srcList(meta['sources']),
     'related': _relList(meta['related'], idToTitle),
     'updatedAt': meta['updatedAt'] as String? ?? '2026-05-27T00:00:00Z',
+    if (_optionalString(meta, 'reviewedAt') case final reviewedAt?)
+      'reviewedAt': reviewedAt,
   };
 }
 
@@ -170,7 +174,20 @@ Map<String, Object?> parseHistoryMarkdown(
     'sources': _srcList(meta['sources']),
     'related': _relList(meta['related'], idToTitle),
     'updatedAt': meta['updatedAt'] as String? ?? '2026-05-27T00:00:00Z',
+    if (_optionalString(meta, 'reviewedAt') case final reviewedAt?)
+      'reviewedAt': reviewedAt,
   };
+}
+
+/// A non-blank string frontmatter value, or null when absent or empty.
+/// An empty `key:` line is parsed as an empty list, so it is skipped here.
+String? _optionalString(Map<String, Object?> meta, String key) {
+  final value = meta[key];
+  if (value is String && value.trim().isNotEmpty) {
+    return value.trim();
+  }
+
+  return null;
 }
 
 String _extractSection(String body, String level) {
