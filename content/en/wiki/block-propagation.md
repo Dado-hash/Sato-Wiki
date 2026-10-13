@@ -99,7 +99,7 @@ Mining pools face a prisoner's dilemma on relay speed: all miners benefit from f
 - **Falcon** operates a dedicated relay backbone connecting major mining pools and Bitcoin Core nodes, offering sub-100 ms propagation.
 - **Private relay tunnels** between pools reduce block relay to tens of milliseconds, at the cost of network centralization.
 
-Measured orphan rates on the live network are approximately 0.1–0.3% of all blocks. At Bitcoin's 10-minute average block interval, this translates to roughly 5–15 orphaned blocks per week. Each orphan represents approximately 6.25 BTC in wasted work (plus fees) at network difficulty, underscoring the economic incentive for fast relay.
+Measured orphan rates on the live network are approximately 0.1–0.3% of all blocks. At Bitcoin's 10-minute average block interval, this translates to roughly 1–3 orphaned blocks per week. Each orphan represents one block subsidy (3.125 BTC since the April 2024 halving) plus fees in wasted work, underscoring the economic incentive for fast relay.
 
 ### Bitcoin Core net_processing architecture
 

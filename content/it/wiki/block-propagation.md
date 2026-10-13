@@ -99,7 +99,7 @@ I pool di mining affrontano un dilemma del prigioniero sulla velocità di relay:
 - **Falcon** gestisce una backbone di relay dedicata che collega i principali pool di mining e nodi Bitcoin Core, offrendo propagazione inferiore a 100 ms.
 - **Tunnel di relay privati** tra pool riducono il relay dei blocchi a decine di millisecondi, al costo di una centralizzazione della rete.
 
-I tassi di orfanità misurati sulla rete live sono circa 0,1–0,3% di tutti i blocchi. Con l'intervallo medio di 10 minuti di Bitcoin, questo si traduce in circa 5–15 blocchi orfani a settimana. Ogni orfano rappresenta circa 6,25 BTC di lavoro sprecato (più commissioni) alla difficoltà corrente, sottolineando l'incentivo economico per un relay veloce.
+I tassi di orfanità misurati sulla rete live sono circa 0,1–0,3% di tutti i blocchi. Con l'intervallo medio di 10 minuti di Bitcoin, questo si traduce in circa 1–3 blocchi orfani a settimana. Ogni orfano rappresenta un block subsidy (3,125 BTC dall'halving di aprile 2024) più le commissioni di lavoro sprecato, sottolineando l'incentivo economico per un relay veloce.
 
 ### Architettura net_processing in Bitcoin Core
 

@@ -398,16 +398,16 @@ verificano quando si scrive la scheda.
 
 ### Privacy e sicurezza
 
-- [ ] Modello di minaccia - `wiki.threat-model`
-- [ ] Euristica common-input-ownership - `wiki.common-input-ownership`
-- [ ] Riuso degli indirizzi - `wiki.address-reuse`
-- [ ] CoinJoin - `wiki.coinjoin`
-- [ ] Tor e Bitcoin - `wiki.tor`
-- [ ] Dandelion - `wiki.dandelion`
-- [ ] Custodia e self-custody - `wiki.self-custody`
-- [ ] Cold storage - `wiki.cold-storage`
-- [ ] Attacco fisico ("5 dollar wrench") - `wiki.physical-attacks`
-- [ ] Passphrase - `wiki.passphrase`
+- [x] Modello di minaccia - `wiki.threat-model`
+- [x] Euristica common-input-ownership - `wiki.common-input-ownership`
+- [x] Riuso degli indirizzi - `wiki.address-reuse`
+- [x] CoinJoin - `wiki.coinjoin`
+- [x] Tor e Bitcoin - `wiki.tor`
+- [x] Dandelion - `wiki.dandelion`
+- [x] Custodia e self-custody - `wiki.self-custody`
+- [x] Cold storage - `wiki.cold-storage`
+- [x] Attacco fisico ("5 dollar wrench") - `wiki.physical-attacks`
+- [x] Passphrase - `wiki.passphrase`
 
 ### Miti
 
@@ -416,24 +416,24 @@ verificano quando si scrive la scheda.
 
 ### Protocol: voci mancanti
 
-- [ ] Transazione coinbase e maturità - `wiki.coinbase-transaction`
-- [ ] Header del blocco e codifica bits/target - `wiki.block-header`
-- [ ] Sighash - `wiki.sighash`
-- [ ] RBF e CPFP - `wiki.fee-bumping`
-- [ ] Output di resto e coin selection - `wiki.coin-selection`
-- [ ] Limite dust e OP_RETURN - `wiki.dust-and-op-return`
-- [ ] PSBT - `wiki.psbt`
-- [ ] Output descriptor - `wiki.output-descriptors`
-- [ ] Riorganizzazioni e blocchi orfani - `wiki.reorganizations`
-- [ ] SPV e pruning - `wiki.spv-and-pruning`
-- [ ] Segnalazione dei soft fork (BIP9) - `wiki.soft-fork-signalling`
-- [ ] Mining pool e Stratum - `wiki.mining-pools`
-- [ ] P2SH - `wiki.p2sh`
-- [ ] MuSig - `wiki.musig`
-- [ ] Weight unit e vbyte - `wiki.weight-units`
-- [ ] Malleabilità delle transazioni - `wiki.transaction-malleability`
-- [ ] Testnet e signet - `wiki.test-networks`
-- [ ] Base58Check e bech32 - `wiki.address-encodings`
+- [x] Transazione coinbase e maturità - `wiki.coinbase-transaction`
+- [x] Header del blocco e codifica bits/target - `wiki.block-header`
+- [x] Sighash - `wiki.sighash`
+- [x] RBF e CPFP - `wiki.fee-bumping`
+- [x] Output di resto e coin selection - `wiki.coin-selection`
+- [x] Limite dust e OP_RETURN - `wiki.dust-and-op-return`
+- [x] PSBT - `wiki.psbt`
+- [x] Output descriptor - `wiki.output-descriptors`
+- [x] Riorganizzazioni e blocchi orfani - `wiki.reorganizations`
+- [x] SPV e pruning - `wiki.spv-and-pruning`
+- [x] Segnalazione dei soft fork (BIP9) - `wiki.soft-fork-signalling`
+- [x] Mining pool e Stratum - `wiki.mining-pools`
+- [x] P2SH - `wiki.p2sh`
+- [x] MuSig - `wiki.musig`
+- [x] Weight unit e vbyte - `wiki.weight-units`
+- [x] Malleabilità delle transazioni - `wiki.transaction-malleability`
+- [x] Testnet e signet - `wiki.test-networks`
+- [x] Base58Check e bech32 - `wiki.address-encodings`
 
 ### History: prima di Bitcoin e incidenti
 
@@ -454,10 +454,10 @@ verificano quando si scrive la scheda.
 
 Dipendono dai tipi di record nuovi descritti in `docs/plan.md`.
 
-- [ ] Glossario: primo elenco di termini
-- [ ] Tabelle di riferimento: opcode, campi di transazione, campi di header, messaggi P2P, unità
-- [ ] Citazioni di Satoshi, con data, fonte e link
-- [ ] Percorso guidato "Inizia qui"
+- [x] Glossario: primo elenco di termini
+- [x] Tabelle di riferimento: opcode, campi di transazione, campi di header, messaggi P2P, unità
+- [x] Citazioni di Satoshi, con data, fonte e link
+- [x] Percorso guidato "Inizia qui"
 - [ ] Biblioteca: fonti primarie e testi cypherpunk, con licenza verificata opera per opera
 
 ---

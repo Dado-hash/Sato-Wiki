@@ -28,10 +28,10 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 2. Percorso guidato e data di verifica
 
-1. [ ] Mockup della card "Inizia qui" e della schermata del percorso.
-2. [ ] Aggiungere la collezione `paths`: modello, parser, validatore, documentazione.
+1. [ ] Mockup della card "Inizia qui" e della schermata del percorso. Card pubblicata il 2026-10-13, in attesa di approvazione.
+2. [x] Aggiungere la collezione `paths`: modello, parser, validatore, documentazione.
 3. [ ] Mostrare il percorso in Today, con avanzamento dal reading progress.
-4. [ ] Scrivere il primo percorso per principianti, EN e IT.
+4. [x] Scrivere il primo percorso per principianti, EN e IT.
 5. [ ] Aggiungere il campo opzionale `reviewedAt` a tutti i record e mostrarlo nelle schermate di lettura. Il campo esiste in modello, parser e validatore; manca la riga nelle schermate.
 
 ## 3. History estesa
@@ -42,24 +42,24 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 4. Glossario, riferimenti e citazioni
 
-1. [ ] Mockup di glossario, tabella di riferimento e card citazione.
-2. [ ] Collezione `glossary`: modello, parser, validatore, ricerca, schermata.
+1. [ ] Mockup di glossario, tabella di riferimento e card citazione. Glossario e citazione sono nel mockup del 2026-10-13, in attesa di approvazione; manca la tabella.
+2. [ ] Collezione `glossary`: modello, parser, validatore, ricerca, schermata. Fatti modello, parser, validatore e 93 termini; mancano ricerca e schermata.
 3. [ ] Link ai termini del glossario dal Markdown delle voci.
-4. [ ] Collezione `references`: modello, parser, validatore, schermata con filtro in Code.
-5. [ ] Prime tabelle: opcode, campi di transazione, campi di header, messaggi P2P, unità.
-6. [ ] Collezione `quotes`: modello, parser, validatore, card in Today, citazioni collegate nelle voci.
-7. [ ] Prima raccolta di citazioni con fonte e data, EN e IT.
+4. [ ] Collezione `references`: modello, parser, validatore, schermata con filtro in Code. Fatti modello, parser e validatore; manca la schermata.
+5. [x] Prime tabelle: opcode, campi di transazione, campi di header, messaggi P2P, unità.
+6. [ ] Collezione `quotes`: modello, parser, validatore, card in Today, citazioni collegate nelle voci. Fatti modello, parser e validatore; mancano card e collegamenti.
+7. [x] Prima raccolta di citazioni con fonte e data, EN e IT.
 
 ## 5. Nuove categorie di contenuto
 
 1. [ ] Categoria Miti: struttura e prime voci.
-2. [ ] Categoria Privacy e sicurezza: struttura e prime voci.
-3. [ ] Voci di protocollo mancanti (elenco in `docs/content-todo.md`).
+2. [x] Categoria Privacy e sicurezza: struttura e prime voci.
+3. [x] Voci di protocollo mancanti (elenco in `docs/content-todo.md`).
 4. [ ] Diagrammi SVG byte per byte di transazione e header.
 
 ## 6. Strumenti offline
 
-1. [ ] Mockup della sezione Strumenti in Code.
+1. [ ] Mockup della sezione Strumenti in Code. Pubblicato il 2026-10-13, in attesa di approvazione.
 2. [ ] Creare `lib/src/features/tools/` con logica pura in `domain/` e aggiornare `docs/app-architecture.md`. La cartella esiste; la documentazione si aggiorna con le prime schermate.
 3. [x] Decidere dipendenza o codice nostro per RIPEMD-160, Base58Check e bech32 (2026-10-13: codice nostro, verificato con i vettori di test ufficiali).
 4. [x] Scrivere RIPEMD-160, Base58Check e bech32/bech32m con i loro test.
@@ -71,7 +71,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 7. Demo interattive
 
-1. [ ] Mockup del laboratorio blockchain (sei passi) e di "Script passo per passo".
+1. [ ] Mockup del laboratorio blockchain (sei passi) e di "Script passo per passo". Passi 2 e 3 del laboratorio pubblicati il 2026-10-13, in attesa di approvazione; manca "Script passo per passo".
 2. [x] Logica pura del laboratorio: blocco semplificato, validità della catena, ricerca del nonce in un isolate.
 3. [ ] Passi 1 e 2: hash e blocco, con "Mina un blocco" apribile anche da solo.
 4. [ ] Passi 3 e 4: catena e rete con tre copie.
@@ -86,7 +86,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 1. [x] Scegliere il server predefinito (2026-10-13: mempool.space, sostituibile dall'utente).
 2. [ ] Leggere in un browser i termini di servizio di mempool.space.
 3. [ ] Aggiornare `docs/privacy-policy.md` con il testo definitivo.
-4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione.
+4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione. Avviso e transazione pubblicati il 2026-10-13, in attesa di approvazione.
 5. [ ] Impostazioni: interruttore spento all'installazione e server configurabile.
 6. [ ] Client Esplora con limiti di tempo, cache in memoria e gestione di HTTP 429.
 7. [ ] Schermate blocco, transazione e indirizzo, con link alle voci wiki.
@@ -94,7 +94,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 9. Schede prodotto e Biblioteca
 
-1. [ ] Collezione `products`: modello, parser, validatore (avviso oltre 12 mesi da `reviewedAt`), template, documentazione.
+1. [x] Collezione `products`: modello, parser, validatore (avviso oltre 12 mesi da `reviewedAt`), template, documentazione.
 2. [ ] Mockup della scheda prodotto e dell'elenco per sottocategoria.
 3. [x] Definire il criterio di inclusione e i primi prodotti (2026-10-13: `docs/plan.md`, sezione A1).
 4. [ ] Scrivere le prime schede, EN e IT.

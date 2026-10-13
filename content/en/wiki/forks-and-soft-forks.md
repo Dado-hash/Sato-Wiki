@@ -62,7 +62,7 @@ Soft forks change the consensus rules in a backward-compatible way. A previously
 
 Soft fork activation has evolved through several BIP standards:
 
-**BIP-9** introduced version bits signaling. Miners set a bit in the block header version field to signal readiness. Once 1914 out of 2016 blocks (95% of a difficulty period) signal, the soft fork locks in and activates after a grace period. BIP-9 is now retired.
+**BIP-9** introduced version bits signaling. Miners set a bit in the block header version field to signal readiness. Once 1916 out of 2016 blocks (95% of a difficulty period) signal, the soft fork locks in and activates after a grace period. BIP-9 is now retired.
 
 **BIP-8** improved on BIP-9 by adding a mandatory lock-in height. If signaling has not reached the threshold, the soft fork still activates at a predefined block height. This adds a guaranteed activation deadline.
 
@@ -128,11 +128,11 @@ This is the principle of economic majority: the rules of Bitcoin are ultimately 
 
 ### Activation mechanism details
 
-BIP-9 used the block header version field as a bitfield. Miners set bit N to signal support for BIP N. During each difficulty period (2016 blocks), if 1914 out of 2016 blocks (95%) had the bit set, the soft fork locked in. After a grace period of another 2016 blocks, it activated. If the threshold was not met before a timeout, the bit was marked as FAILED and could not be reused.
+BIP-9 used the block header version field as a bitfield. Miners set bit N to signal support for BIP N. During each difficulty period (2016 blocks), if 1916 out of 2016 blocks (95%) had the bit set, the soft fork locked in. After a grace period of another 2016 blocks, it activated. If the threshold was not met before a timeout, the bit was marked as FAILED and could not be reused.
 
 BIP-8 added a mechanism called "lock-in by height." If the signaling threshold is met before the timeout height, the soft fork activates as in BIP-9. If the threshold is not met, the soft fork still activates at the timeout height — miners can no longer block activation. The LOT (Lock-in On Timeout) parameter controls this behavior.
 
-Speedy Trial, used for Taproot, compressed the timeline significantly. The signaling period was only 2016 blocks (about two weeks) with a 90% threshold (1816 out of 2016). The threshold was met within a single period, triggering lock-in and activation months later at block 709,632.
+Speedy Trial, used for Taproot, compressed the timeline significantly. The signaling period was only 2016 blocks (about two weeks) with a 90% threshold (1815 out of 2016). The threshold was met within a single period, triggering lock-in and activation months later at block 709,632.
 
 ### Reorg risk during activation
 

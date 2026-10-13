@@ -86,7 +86,7 @@ Il Merkle tree è un albero binario dove ogni foglia è un tag di versione scrip
 
 **BIP 343 — Bech32m.** Il formato nativo di indirizzo SegWit Bech32 aveva un limite di design: quando la porzione di dati si estendeva oltre una certa lunghezza, la rilevazione degli errori degradava significativamente. Bech32m modifica il modulo costante usato nel checksum da 1 a 0x3bc6a, ripristinando una robusta rilevazione errori per tutte le lunghezze di indirizzo. Gli indirizzi Taproot usano sempre Bech32m, non Bech32.
 
-**Attivazione.** Taproot è stato attivato tramite un meccanismo Speedy Trial (signalling stile BIP 9 con soglia del 90% in un periodo di difficoltà di mining di 2 settimane). I minatori segnalavano la disponibilità impostando il bit 2 nel version byte del blocco. Dopo aver raggiunto la soglia al blocco 687.408, le regole si sono bloccate e attivate al blocco 709.632 nel novembre 2021.
+**Attivazione.** Taproot è stato attivato tramite un meccanismo Speedy Trial (signalling stile BIP 9 con soglia del 90% in un periodo di difficoltà di mining di 2 settimane). I minatori segnalavano la disponibilità impostando il bit 2 nel version byte del blocco. Dopo il raggiungimento della soglia nel giugno 2021, le regole si sono bloccate e si sono attivate al blocco 709.632 nel novembre 2021.
 
 **Contratti avanzati abilitati da Taproot.**
 
