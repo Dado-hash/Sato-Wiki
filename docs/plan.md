@@ -261,7 +261,7 @@ Regole per il client, che seguono da questi limiti:
 - con HTTP 429 l'app mostra un messaggio, non riprova da sola e blocca nuove ricerche per un tempo crescente;
 - l'app nomina mempool.space solo come testo e non ne usa il logo: "Mempool" è un marchio registrato.
 
-Non verificato: la pagina dei termini di servizio di mempool.space non è leggibile con gli strumenti usati. Va letta in un browser prima del rilascio, per controllare che un'app possa usare il servizio come server predefinito.
+I termini di servizio di mempool.space sono stati letti da Davide in un browser il 2026-10-13.
 
 ## Ordine di lavoro
 
@@ -297,4 +297,4 @@ B2, B3 e B4 seguono lo stesso schema tecnico (collezione nuova, modello, parser,
 
 ## Domande aperte
 
-Nessuna blocca il lavoro. Resta un controllo prima del rilascio dell'explorer: leggere i termini di servizio di mempool.space (vedi C3).
+Nessuna.

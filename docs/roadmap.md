@@ -18,7 +18,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 1. Wiki a due livelli, Software e Hardware
 
-1. [ ] Mockup HTML della Wiki con categorie e sottocategorie. Pubblicato il 2026-10-13, in attesa di approvazione.
+1. [x] Mockup HTML della Wiki con categorie e sottocategorie. Approvato il 2026-10-13.
 2. [x] Aggiungere il campo opzionale `subcategory` a `WikiEntry`: modello, parser, validatore, `docs/content-model.md`.
 3. [x] Aggiungere le categorie `software` e `hardware`: ordine, icone, etichette EN e IT.
 4. [ ] Mostrare le sottocategorie nella schermata Wiki.
@@ -28,7 +28,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 2. Percorso guidato e data di verifica
 
-1. [ ] Mockup della card "Inizia qui" e della schermata del percorso. Card pubblicata il 2026-10-13, in attesa di approvazione.
+1. [x] Mockup della card "Inizia qui" e della schermata del percorso. Card approvata il 2026-10-13.
 2. [x] Aggiungere la collezione `paths`: modello, parser, validatore, documentazione.
 3. [ ] Mostrare il percorso in Today, con avanzamento dal reading progress.
 4. [x] Scrivere il primo percorso per principianti, EN e IT.
@@ -42,7 +42,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 4. Glossario, riferimenti e citazioni
 
-1. [ ] Mockup di glossario, tabella di riferimento e card citazione. Glossario e citazione sono nel mockup del 2026-10-13, in attesa di approvazione; manca la tabella.
+1. [ ] Mockup di glossario, tabella di riferimento e card citazione. Glossario e citazione sono nel mockup approvato il 2026-10-13; manca la tabella.
 2. [ ] Collezione `glossary`: modello, parser, validatore, ricerca, schermata. Fatti modello, parser, validatore e 93 termini; mancano ricerca e schermata.
 3. [ ] Link ai termini del glossario dal Markdown delle voci.
 4. [ ] Collezione `references`: modello, parser, validatore, schermata con filtro in Code. Fatti modello, parser e validatore; manca la schermata.
@@ -59,7 +59,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 6. Strumenti offline
 
-1. [ ] Mockup della sezione Strumenti in Code. Pubblicato il 2026-10-13, in attesa di approvazione.
+1. [x] Mockup della sezione Strumenti in Code. Approvato il 2026-10-13.
 2. [ ] Creare `lib/src/features/tools/` con logica pura in `domain/` e aggiornare `docs/app-architecture.md`. La cartella esiste; la documentazione si aggiorna con le prime schermate.
 3. [x] Decidere dipendenza o codice nostro per RIPEMD-160, Base58Check e bech32 (2026-10-13: codice nostro, verificato con i vettori di test ufficiali).
 4. [x] Scrivere RIPEMD-160, Base58Check e bech32/bech32m con i loro test.
@@ -71,7 +71,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 
 ## 7. Demo interattive
 
-1. [ ] Mockup del laboratorio blockchain (sei passi) e di "Script passo per passo". Passi 2 e 3 del laboratorio pubblicati il 2026-10-13, in attesa di approvazione; manca "Script passo per passo".
+1. [ ] Mockup del laboratorio blockchain (sei passi) e di "Script passo per passo". Passi 2 e 3 del laboratorio approvati il 2026-10-13; manca "Script passo per passo".
 2. [x] Logica pura del laboratorio: blocco semplificato, validità della catena, ricerca del nonce in un isolate.
 3. [ ] Passi 1 e 2: hash e blocco, con "Mina un blocco" apribile anche da solo.
 4. [ ] Passi 3 e 4: catena e rete con tre copie.
@@ -84,9 +84,9 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 ## 8. Explorer
 
 1. [x] Scegliere il server predefinito (2026-10-13: mempool.space, sostituibile dall'utente).
-2. [ ] Leggere in un browser i termini di servizio di mempool.space.
+2. [x] Leggere in un browser i termini di servizio di mempool.space. Letti da Davide il 2026-10-13.
 3. [ ] Aggiornare `docs/privacy-policy.md` con il testo definitivo.
-4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione. Avviso e transazione pubblicati il 2026-10-13, in attesa di approvazione.
+4. [ ] Mockup di ricerca, blocco, transazione, indirizzo e dell'avviso di attivazione. Avviso e transazione approvati il 2026-10-13.
 5. [ ] Impostazioni: interruttore spento all'installazione e server configurabile.
 6. [x] Client Esplora con limiti di tempo, cache in memoria e gestione di HTTP 429.
 7. [ ] Schermate blocco, transazione e indirizzo, con link alle voci wiki.
