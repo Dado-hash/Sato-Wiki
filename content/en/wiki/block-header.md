@@ -51,6 +51,8 @@ The header also carries the links that make the chain hard to rewrite. The previ
 
 Field sizes and byte order matter. The version, timestamp, nBits and nonce are 4-byte integers stored in little-endian order. The previous block hash and the Merkle root are 32-byte values stored in internal byte order. Block explorers usually display hashes reversed, so the hex string you see for a block hash is the reverse of the bytes that were actually hashed.
 
+![Block header bytes diagram](media/wiki/block-header/block-header-bytes.svg "The 80-byte block header is the data miners hash twice with SHA-256, and the nonce is the field they change most often.")
+
 The nBits field is a compact form of the 256-bit target. Its first byte is an exponent, and the following three bytes are a mantissa. The target equals the mantissa multiplied by 256 raised to the power of the exponent minus three. The difficulty 1 value, 0x1d00ffff, has the mantissa 0x00ffff and the exponent 0x1d on mainnet. Difficulty is the ratio between that difficulty 1 target and the current target, so a smaller target means a higher difficulty. Bitcoin Core rejects an nBits value that encodes a negative target (sign bit set with a non-zero mantissa).
 
 On mainnet the nBits value changes only at difficulty adjustments, which happen every 2,016 blocks.
@@ -62,6 +64,8 @@ The nonce is not the only field a miner may vary. The timestamp can be moved for
 ## advanced
 
 The Developer Reference describes the header as the structure that is hashed for proof of work, so the transactions enter that hash only through the Merkle root. Their full content is not needed to check the work.
+
+![Block header bytes diagram](media/wiki/block-header/block-header-bytes.svg "The 80-byte block header is the data miners hash twice with SHA-256, and the nonce is the field they change most often.")
 
 The nonce is four bytes, which is too little for current mining hardware. BIP 320 notes that mining hardware can exhaust the 32-bit nonce in less than 200 milliseconds, which forces the mining controller to send new work to each chip very often. Miners therefore roll other fields. The coinbase extra nonce changes the coinbase, the Merkle root and so the header. The timestamp can be rolled within its window, although BIP 320 warns that rolling too many bits of the timestamp distorts time over a long period.
 

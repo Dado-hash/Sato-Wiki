@@ -1,0 +1,103 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Serialized SegWit transaction layout</title>
+  <desc id="desc">A serialized SegWit transaction lists version, marker, flag and input count, then one block per input and one per output, then the witness stacks and the locktime. Marker, flag and witness exist only in SegWit transactions.</desc>
+
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Serialized SegWit transaction</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="22">Numbers give the byte order; boxes repeat per input or output</text>
+
+  <!-- Band 1: fixed prefix -->
+  <g filter="url(#soft)">
+    <rect x="76" y="140" width="193" height="104" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="172.5" y="176" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">1 · version</text>
+    <text x="172.5" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">4 bytes</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="281" y="140" width="193" height="104" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="377.5" y="176" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">2 · marker</text>
+    <text x="377.5" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">1 byte</text>
+    <rect x="302.5" y="212" width="150" height="28" rx="14" fill="#171B21" stroke="#7C8794" stroke-width="1.4"/>
+    <text x="377.5" y="231" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16" font-weight="700">SegWit only</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="486" y="140" width="193" height="104" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="582.5" y="176" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">3 · flag</text>
+    <text x="582.5" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">1 byte</text>
+    <rect x="507.5" y="212" width="150" height="28" rx="14" fill="#171B21" stroke="#7C8794" stroke-width="1.4"/>
+    <text x="582.5" y="231" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16" font-weight="700">SegWit only</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="691" y="140" width="193" height="104" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="787.5" y="176" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">4 · input count</text>
+    <text x="787.5" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">varint</text>
+  </g>
+
+  <!-- Band 2: repeated parts -->
+  <g filter="url(#soft)">
+    <rect x="76" y="262" width="390" height="166" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="96" y="290" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">5 · Each input</text>
+    <rect x="326" y="266" width="124" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="388" y="285" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="18" font-weight="700">&#215; N inputs</text>
+    <g font-family="Inter" font-size="20" fill="#F4EAD8">
+      <text x="96" y="318">previous txid</text>
+      <text x="96" y="342">output index</text>
+      <text x="96" y="366">scriptSig length</text>
+      <text x="96" y="390">scriptSig</text>
+      <text x="96" y="414">sequence</text>
+    </g>
+    <g font-family="JetBrains Mono" font-size="18" fill="#B7B1A8" text-anchor="end">
+      <text x="446" y="318">32 bytes</text>
+      <text x="446" y="342">4 bytes</text>
+      <text x="446" y="366">varint</text>
+      <text x="446" y="390">variable</text>
+      <text x="446" y="414">4 bytes</text>
+    </g>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="494" y="262" width="390" height="166" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+    <text x="514" y="290" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">7 · Each output</text>
+    <rect x="728" y="266" width="140" height="28" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
+    <text x="798" y="285" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="18" font-weight="700">&#215; M outputs</text>
+    <g font-family="Inter" font-size="20" fill="#F4EAD8">
+      <text x="514" y="318">value</text>
+      <text x="514" y="342">scriptPubKey length</text>
+      <text x="514" y="366">scriptPubKey</text>
+    </g>
+    <g font-family="JetBrains Mono" font-size="18" fill="#B7B1A8" text-anchor="end">
+      <text x="864" y="318">8 bytes</text>
+      <text x="864" y="342">varint</text>
+      <text x="864" y="366">variable</text>
+    </g>
+  </g>
+
+  <!-- Band 3: tail -->
+  <g filter="url(#soft)">
+    <rect x="76" y="446" width="220" height="58" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="90" y="470" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">6 · output count</text>
+    <text x="90" y="494" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">varint</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="306" y="446" width="352" height="58" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="320" y="470" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">8 · witness, SegWit only</text>
+    <text x="320" y="494" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">one stack per input</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="668" y="446" width="216" height="58" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="682" y="470" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">9 · locktime</text>
+    <text x="682" y="494" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">4 bytes</text>
+  </g>
+</svg>

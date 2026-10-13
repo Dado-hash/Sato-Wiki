@@ -37,7 +37,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 ## 3. History estesa
 
 1. [x] Eventi prima del 2008: Hashcash, b-money, bit gold, RPOW, manifesto cypherpunk.
-2. [ ] Incidenti tecnici, a partire dal value overflow del 2010. Il value overflow è scritto; mancano gli altri incidenti.
+2. [x] Incidenti tecnici: value overflow del 2010, fork di marzo 2013, fork BIP 66 di luglio 2015, CVE-2018-17144.
 3. [ ] Verificare che i filtri e l'ordinamento della timeline reggano le date prima del 2008. L'ordinamento è coperto dai test; manca il controllo a schermo.
 
 ## 4. Glossario, riferimenti e citazioni
@@ -55,7 +55,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 1. [x] Categoria Miti: struttura e prime 12 voci.
 2. [x] Categoria Privacy e sicurezza: struttura e prime voci.
 3. [x] Voci di protocollo mancanti (elenco in `docs/content-todo.md`).
-4. [ ] Diagrammi SVG byte per byte di transazione e header.
+4. [x] Diagrammi SVG byte per byte di transazione e header.
 
 ## 6. Strumenti offline
 

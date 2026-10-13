@@ -51,6 +51,8 @@ L'header contiene anche i collegamenti che rendono la chain difficile da riscriv
 
 Dimensioni dei campi e ordine dei byte contano. Version, timestamp, nBits e nonce sono interi di 4 byte memorizzati in little-endian. L'hash del blocco precedente e la Merkle root sono valori di 32 byte memorizzati nell'ordine interno dei byte. Gli esploratori di blocchi di solito mostrano gli hash al contrario, quindi la stringa esadecimale che si vede per l'hash di un blocco è l'inverso dei byte effettivamente sottoposti ad hash.
 
+![Diagramma dei byte dell'header di blocco](media/wiki/block-header/block-header-bytes.svg "L'header di blocco di 80 byte è il dato che i miner sottopongono due volte a SHA-256, e il nonce è il campo che cambiano più spesso.")
+
 Il campo nBits è una forma compatta del target a 256 bit. Il suo primo byte è un esponente, e i tre byte successivi sono una mantissa. Il target è uguale alla mantissa moltiplicata per 256 elevato all'esponente meno tre. La difficoltà 1, cioè 0x1d00ffff, ha la mantissa 0x00ffff e l'esponente 0x1d sulla mainnet. La difficoltà è il rapporto tra il target della difficoltà 1 e il target corrente, quindi un target più piccolo significa una difficoltà più alta. Bitcoin Core rifiuta un valore nBits che codifica un target negativo (bit di segno impostato con mantissa diversa da zero).
 
 Sulla mainnet il valore nBits cambia solo con gli aggiustamenti di difficoltà, che avvengono ogni 2.016 blocchi.
@@ -62,6 +64,8 @@ Il nonce non è l'unico campo che un miner può variare. Il timestamp può avanz
 ## advanced
 
 La Developer Reference descrive l'header come la struttura sottoposta ad hash per la proof of work, quindi le transazioni entrano in quell'hash solo attraverso la Merkle root. Il loro contenuto completo non serve per verificare il lavoro.
+
+![Diagramma dei byte dell'header di blocco](media/wiki/block-header/block-header-bytes.svg "L'header di blocco di 80 byte è il dato che i miner sottopongono due volte a SHA-256, e il nonce è il campo che cambiano più spesso.")
 
 Il nonce è di quattro byte, troppo poco per l'hardware di mining attuale. BIP 320 osserva che l'hardware di mining può esaurire il nonce a 32 bit in meno di 200 millisecondi, il che costringe il controller a inviare nuovo lavoro a ogni chip molto spesso. I miner quindi fanno il roll di altri campi. L'extra nonce della coinbase modifica la coinbase, la Merkle root e quindi l'header. Il timestamp può essere fatto avanzare entro la sua finestra, anche se BIP 320 avverte che far scorrere troppi bit del timestamp distorce il tempo su un periodo lungo.
 

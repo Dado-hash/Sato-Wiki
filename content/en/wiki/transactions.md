@@ -51,6 +51,8 @@ Nodes check transactions before relaying them and again when a block includes th
 
 At the raw data level, a transaction contains a version, a list of inputs, a list of outputs, and a locktime. Each input points to a previous output using an outpoint: the previous transaction ID plus the output index. Each output contains a value in satoshis and a locking script, often called `scriptPubKey`.
 
+![Serialized transaction layout diagram](media/wiki/transactions/transaction-bytes.svg "Inputs and outputs repeat in a serialized transaction, while marker, flag and witness appear only in SegWit transactions.")
+
 The fee is not written as a separate field. Nodes calculate it as the total value of the spent inputs minus the total value of the new outputs. If the inputs are worth 100,000 sats and the outputs total 98,500 sats, the fee is 1,500 sats.
 
 The unlocking data depends on the output type being spent. Legacy inputs use `scriptSig`; SegWit inputs place signatures and other witness data in a separate witness structure. This separation changes how transaction weight and identifiers are calculated, but the basic idea remains the same: inputs prove authority, outputs define future authority.
@@ -60,6 +62,8 @@ Transactions can be valid by consensus but still not be relayed by default mempo
 ## advanced
 
 Transaction validation is a state transition over the UTXO set. For each non-coinbase input, a full node looks up the referenced outpoint, verifies that it is unspent, executes the required script checks, and then marks that coin as spent if the transaction is connected in a valid block. The transaction's outputs become new UTXOs.
+
+![Serialized transaction layout diagram](media/wiki/transactions/transaction-bytes.svg "Inputs and outputs repeat in a serialized transaction, while marker, flag and witness appear only in SegWit transactions.")
 
 Several fields only make sense in context. `nLockTime` can prevent a transaction from being final until a height or time threshold is reached. Input sequence values can opt into relative timelocks and replacement policy. These mechanisms do not bypass signatures; they add timing constraints to when an otherwise valid spend can be accepted.
 

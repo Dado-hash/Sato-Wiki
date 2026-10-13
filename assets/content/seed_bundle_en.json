@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.190000",
+  "version": "2026.10.13.210000",
   "language": "en",
-  "generatedAt": "2026-10-13T19:00:00.000000Z",
+  "generatedAt": "2026-10-13T21:00:00.000000Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -895,6 +895,56 @@
       "updatedAt": "2026-05-28T00:00:00Z"
     },
     {
+      "id": "history.march-2013-chain-fork",
+      "slug": "march-2013-chain-fork",
+      "language": "en",
+      "date": "2013-03-11",
+      "title": "March 2013 Chain Fork",
+      "category": "security",
+      "summary": "In March 2013 nodes older than version 0.8 rejected a valid block with many inputs because of a database lock limit, and the network split into two chains.",
+      "bodyMarkdown": "## What happened\n\nOn 11 March 2013, a block with more transaction inputs than any earlier block was mined and broadcast. Nodes running Bitcoin 0.8 could process it, but some nodes running older versions rejected it, and the network split into two chains. The chain that included the block, which BIP 50 calls the 0.8 chain, held about 60% of the mining hash power. That share meant the split did not resolve on its own.\n\n## Why it happened\n\nVersions before 0.8 used Berkeley DB and were configured with too few locks to process large but valid blocks. The lock limit had effectively become a consensus rule, although the actual usage could vary from node to node. Bitcoin 0.8 used LevelDB instead, which did not have the same limit. BIP 50 adds that the same weakness could have affected version 0.7.2 nodes even if the whole network ran that version.\n\n## How it was resolved\n\nTo restore one chain quickly, BTCGuild and Slush downgraded their 0.8 nodes to 0.7, so their pools rejected the larger block. This gave majority hash power to the chain without that block, and the 0.8 nodes reorganized onto it. The split was detected quickly, and deposits at the major exchanges were suspended for a short time. During the split a double spend succeeded. BIP 50 says it was carried out by someone testing whether it was possible and was not intended to be malicious.\n\n## What changed afterwards\n\nDevelopers released version 0.8.1, forked from 0.8.0. For two months it rejected blocks that would probably need more than 10,000 locks, and it capped the size of the blocks it created at 500,000 bytes. The plan also called for a patch for older versions that raised the lock limit to 537,000, but BIP 50 does not mark that item as done. The alert system gained an option that runs a command when an alert applies to a node, and test alerts were scheduled weekly on testnet.",
+      "tags": [
+        "Fork",
+        "Berkeley DB",
+        "Consensus",
+        "Mining pool"
+      ],
+      "sources": [
+        {
+          "title": "BIP 50: March 2013 Chain Fork Post-Mortem",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki",
+          "author": "Gavin Andresen",
+          "publishedAt": "2013-03-20"
+        },
+        {
+          "title": "Common Vulnerabilities and Exposures (CVE-2013-3220 entry)",
+          "url": "https://en.bitcoin.it/wiki/Common_Vulnerabilities_and_Exposures",
+          "author": "Bitcoin Wiki contributors",
+          "publishedAt": "2013-03-11"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Forks and Soft Forks"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining Pools"
+        },
+        {
+          "id": "wiki.reorganizations",
+          "title": "Reorganizations and Stale Blocks"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
       "id": "history.bitcoin-one-thousand",
       "slug": "bitcoin-one-thousand",
       "language": "en",
@@ -1014,6 +1064,56 @@
           "title": "Full Nodes"
         }
       ],
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "history.bip66-chain-fork",
+      "slug": "bip66-chain-fork",
+      "language": "en",
+      "date": "2015-07-04",
+      "title": "BIP 66 Chain Fork of July 2015",
+      "category": "security",
+      "summary": "Miners who did not fully validate blocks built on an invalid block in July 2015, which produced short forks while BIP 66 was taking effect.",
+      "bodyMarkdown": "## What happened\n\nOnce 950 of the last 1,000 blocks were version 3, upgraded miners would reject version 2 blocks. Early on 4 July 2015 that 95% threshold was reached. Shortly afterwards a small miner that had not upgraded mined an invalid block. About half of the network hash rate was doing SPV mining, which means mining without fully validating blocks, and that half built new blocks on top of the invalid one.\n\n## Why it happened\n\nBIP 66 is a soft fork that requires signatures to use strict DER encoding. Some miners had said they would enforce the rule, but they did not check blocks themselves, so they accepted the invalid block. Software that assumes blocks are valid, such as SPV wallets and older versions of Bitcoin Core, could show transactions as confirmed when they were not. Bitcoin Core 0.9.4 and earlier did not know the BIP 66 rules and could not reject these blocks, while 0.9.5 and later could.\n\n## How it was resolved\n\nThe recommended fix was to return miners to full validation, at least for a time. The alert told pool miners to switch to a pool that validates blocks properly, and solo miners to run Bitcoin Core 0.10.2. Wallet users were advised to wait about 30 extra confirmations, and the alert said that Bitcoin.org would lower that recommendation once miners returned to full validation. Later updates reported a further fork starting on 5 July and stated that the situation was not fully resolved, so the advice to wait stayed in place.",
+      "tags": [
+        "Fork",
+        "BIP 66",
+        "SPV mining",
+        "Soft fork"
+      ],
+      "sources": [
+        {
+          "title": "BIP 66: Strict DER signatures",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki",
+          "author": "Pieter Wuille",
+          "publishedAt": "2015-01-10"
+        },
+        {
+          "title": "Some Miners Generating Invalid Blocks",
+          "url": "https://bitcoin.org/en/alert/2015-07-04-spv-mining",
+          "author": "Bitcoin.org",
+          "publishedAt": "2015-07-04"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
+        },
+        {
+          "id": "wiki.ecdsa",
+          "title": "ECDSA"
+        },
+        {
+          "id": "wiki.soft-fork-signalling",
+          "title": "Soft Fork Activation and Signalling"
+        },
+        {
+          "id": "wiki.spv-and-pruning",
+          "title": "SPV and Pruned Nodes"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
       "updatedAt": "2026-10-13T00:00:00Z"
     },
     {
@@ -1239,6 +1339,56 @@
         }
       ],
       "updatedAt": "2026-05-28T00:00:00Z"
+    },
+    {
+      "id": "history.cve-2018-17144",
+      "slug": "cve-2018-17144",
+      "language": "en",
+      "date": "2018-09-18",
+      "title": "Duplicate Input Bug CVE-2018-17144",
+      "category": "security",
+      "summary": "A missing check for duplicate inputs in Bitcoin Core could crash nodes and, in some versions, let a miner inflate the supply; the fix was released on 18 September 2018.",
+      "bodyMarkdown": "## What happened\n\nOn 17 September 2018, a bug was reported to several Bitcoin Core developers as a denial of service issue. The developers quickly found that it was also an inflation vulnerability with the same root cause. A fix was released on 18 September in Bitcoin Core 0.16.3 and 0.17.0rc4. On 20 September a public forum post described the full impact. It was retracted quickly, but the claim still spread, and the full notice was published that day. The notice also records that another researcher independently found the bug that day and reported it to the security contact.\n\n## Why it happened\n\nIn Bitcoin Core 0.14, an optimization skipped a costly check that no two inputs within one transaction spent the same output. That check had existed since 2012. In 0.14, a double spend inside one block triggered an assertion failure that crashed the node. In 0.15 a redesign weakened the assertion. In versions 0.15.x and 0.16.0 to 0.16.2, a double spend of an output created in an earlier block did not trigger it, so a miner could claim the same value twice and inflate the supply.\n\n## How it was resolved\n\nDevelopers patched and disclosed the less serious denial of service first, to encourage fast upgrades, and contacted miners, businesses and other projects in the meantime. When the notice was written, they believed over half of the hash rate had upgraded, and they knew of no attempts to exploit the bug. Users were urged to upgrade so that large reorganizations, the mining of invalid blocks and the acceptance of invalid transactions could not occur.",
+      "tags": [
+        "Security",
+        "Inflation",
+        "Denial of service",
+        "Bitcoin Core"
+      ],
+      "sources": [
+        {
+          "title": "Disclosure of CVE-2018-17144",
+          "url": "https://bitcoincore.org/en/2018/09/20/notice/",
+          "author": "Bitcoin Core developers",
+          "publishedAt": "2018-09-20"
+        },
+        {
+          "title": "Common Vulnerabilities and Exposures (CVE-2018-17144 entry)",
+          "url": "https://en.bitcoin.it/wiki/Common_Vulnerabilities_and_Exposures",
+          "author": "Bitcoin Wiki contributors",
+          "publishedAt": "2018-09-17"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Bitcoin Transactions"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Consensus Rules"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Nodes"
+        },
+        {
+          "id": "history.value-overflow-incident",
+          "title": "Value Overflow Incident in Block 74638"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
     },
     {
       "id": "history.third-halving",
@@ -3762,10 +3912,10 @@
           "bodyMarkdown": "A Bitcoin transaction is a signed instruction that spends existing bitcoin and creates new places where bitcoin can be spent later. It does not move balances between accounts. Instead, it consumes previous transaction outputs and creates new outputs with their own spending conditions.\n\n![Transaction input and output flow](media/wiki/transactions/transaction-flow.svg \"A transaction consumes previous outputs as inputs, creates new outputs, and leaves the difference as the miner fee.\")\n\nMost payments have at least one input and two outputs: one output pays the recipient, and another sends change back to the spender's wallet. The wallet signs the inputs to prove it can satisfy the conditions on the outputs being spent.\n\nNodes check transactions before relaying them and again when a block includes them. They verify that the inputs exist, have not already been spent, satisfy their scripts, and do not create more satoshis than they spend. A transaction becomes harder to reverse as blocks are added on top of the block that contains it."
         },
         "medium": {
-          "bodyMarkdown": "At the raw data level, a transaction contains a version, a list of inputs, a list of outputs, and a locktime. Each input points to a previous output using an outpoint: the previous transaction ID plus the output index. Each output contains a value in satoshis and a locking script, often called `scriptPubKey`.\n\nThe fee is not written as a separate field. Nodes calculate it as the total value of the spent inputs minus the total value of the new outputs. If the inputs are worth 100,000 sats and the outputs total 98,500 sats, the fee is 1,500 sats.\n\nThe unlocking data depends on the output type being spent. Legacy inputs use `scriptSig`; SegWit inputs place signatures and other witness data in a separate witness structure. This separation changes how transaction weight and identifiers are calculated, but the basic idea remains the same: inputs prove authority, outputs define future authority.\n\nTransactions can be valid by consensus but still not be relayed by default mempool policy. Consensus rules decide whether a transaction may be included in a block. Policy rules decide whether a node wants to keep or forward an unconfirmed transaction before it is mined."
+          "bodyMarkdown": "At the raw data level, a transaction contains a version, a list of inputs, a list of outputs, and a locktime. Each input points to a previous output using an outpoint: the previous transaction ID plus the output index. Each output contains a value in satoshis and a locking script, often called `scriptPubKey`.\n\n![Serialized transaction layout diagram](media/wiki/transactions/transaction-bytes.svg \"Inputs and outputs repeat in a serialized transaction, while marker, flag and witness appear only in SegWit transactions.\")\n\nThe fee is not written as a separate field. Nodes calculate it as the total value of the spent inputs minus the total value of the new outputs. If the inputs are worth 100,000 sats and the outputs total 98,500 sats, the fee is 1,500 sats.\n\nThe unlocking data depends on the output type being spent. Legacy inputs use `scriptSig`; SegWit inputs place signatures and other witness data in a separate witness structure. This separation changes how transaction weight and identifiers are calculated, but the basic idea remains the same: inputs prove authority, outputs define future authority.\n\nTransactions can be valid by consensus but still not be relayed by default mempool policy. Consensus rules decide whether a transaction may be included in a block. Policy rules decide whether a node wants to keep or forward an unconfirmed transaction before it is mined."
         },
         "advanced": {
-          "bodyMarkdown": "Transaction validation is a state transition over the UTXO set. For each non-coinbase input, a full node looks up the referenced outpoint, verifies that it is unspent, executes the required script checks, and then marks that coin as spent if the transaction is connected in a valid block. The transaction's outputs become new UTXOs.\n\nSeveral fields only make sense in context. `nLockTime` can prevent a transaction from being final until a height or time threshold is reached. Input sequence values can opt into relative timelocks and replacement policy. These mechanisms do not bypass signatures; they add timing constraints to when an otherwise valid spend can be accepted.\n\nTransaction identifiers are also subtle. The traditional `txid` commits to the non-witness serialization. SegWit transactions additionally have a `wtxid` that commits to witness data. This distinction reduces unwanted transaction malleability for SegWit spends while preserving compatibility with older transaction commitments.\n\nCoinbase transactions are the exception to ordinary input rules. They create the block subsidy plus collected fees and have a special coinbase input instead of spending a previous outpoint. Their outputs cannot be spent until they mature, which prevents short reorgs from immediately invalidating newly created mining rewards that have already been spent.\n\nThe important mental model is that transactions are not messages of intent. They are executable claims on previous outputs. If the claim is valid under the current rules and becomes part of the valid chain with sufficient work behind it, the UTXO set changes accordingly."
+          "bodyMarkdown": "Transaction validation is a state transition over the UTXO set. For each non-coinbase input, a full node looks up the referenced outpoint, verifies that it is unspent, executes the required script checks, and then marks that coin as spent if the transaction is connected in a valid block. The transaction's outputs become new UTXOs.\n\n![Serialized transaction layout diagram](media/wiki/transactions/transaction-bytes.svg \"Inputs and outputs repeat in a serialized transaction, while marker, flag and witness appear only in SegWit transactions.\")\n\nSeveral fields only make sense in context. `nLockTime` can prevent a transaction from being final until a height or time threshold is reached. Input sequence values can opt into relative timelocks and replacement policy. These mechanisms do not bypass signatures; they add timing constraints to when an otherwise valid spend can be accepted.\n\nTransaction identifiers are also subtle. The traditional `txid` commits to the non-witness serialization. SegWit transactions additionally have a `wtxid` that commits to witness data. This distinction reduces unwanted transaction malleability for SegWit spends while preserving compatibility with older transaction commitments.\n\nCoinbase transactions are the exception to ordinary input rules. They create the block subsidy plus collected fees and have a special coinbase input instead of spending a previous outpoint. Their outputs cannot be spent until they mature, which prevents short reorgs from immediately invalidating newly created mining rewards that have already been spent.\n\nThe important mental model is that transactions are not messages of intent. They are executable claims on previous outputs. If the claim is valid under the current rules and becomes part of the valid chain with sufficient work behind it, the UTXO set changes accordingly."
         }
       },
       "difficulty": "advanced",
@@ -6555,10 +6705,10 @@
           "bodyMarkdown": "The block header is the part of a block that proof of work is computed on. It is always 80 bytes and holds six fields: a version, the hash of the previous block header, the Merkle root of the block's transactions, a timestamp, the target in a compact form called nBits, and a nonce. Because the header is so small, a miner can test many candidate hashes without moving the transaction data around.\n\nMiners change the nonce and the other flexible fields until the hash of the header falls below the target. Nodes do not repeat the search. They hash the header once and compare the result with the target that nBits encodes. The hash is computed with SHA-256 applied twice, which is why it is called a double SHA-256.\n\nThe header also carries the links that make the chain hard to rewrite. The previous block hash ties each header to its parent, and the Merkle root ties the header to every transaction in the block. Changing one transaction changes the root, which changes the header hash, so a rewritten block would need its own proof of work, and so would every block after it."
         },
         "medium": {
-          "bodyMarkdown": "Field sizes and byte order matter. The version, timestamp, nBits and nonce are 4-byte integers stored in little-endian order. The previous block hash and the Merkle root are 32-byte values stored in internal byte order. Block explorers usually display hashes reversed, so the hex string you see for a block hash is the reverse of the bytes that were actually hashed.\n\nThe nBits field is a compact form of the 256-bit target. Its first byte is an exponent, and the following three bytes are a mantissa. The target equals the mantissa multiplied by 256 raised to the power of the exponent minus three. The difficulty 1 value, 0x1d00ffff, has the mantissa 0x00ffff and the exponent 0x1d on mainnet. Difficulty is the ratio between that difficulty 1 target and the current target, so a smaller target means a higher difficulty. Bitcoin Core rejects an nBits value that encodes a negative target (sign bit set with a non-zero mantissa).\n\nOn mainnet the nBits value changes only at difficulty adjustments, which happen every 2,016 blocks.\n\nTimestamps follow two rules. A block time must be strictly greater than the median of the previous 11 block times, which is the median time past. A block time also cannot be more than two hours ahead of the clock of the node checking it. The first rule keeps time moving forward even when miners' clocks disagree. The second limits how far a miner can move the timestamp into the future. BIP 113 uses the same median for locktime checks.\n\nThe nonce is not the only field a miner may vary. The timestamp can be moved forward within the allowed window, and the coinbase can be changed to alter the Merkle root. Either change produces a new header to hash."
+          "bodyMarkdown": "Field sizes and byte order matter. The version, timestamp, nBits and nonce are 4-byte integers stored in little-endian order. The previous block hash and the Merkle root are 32-byte values stored in internal byte order. Block explorers usually display hashes reversed, so the hex string you see for a block hash is the reverse of the bytes that were actually hashed.\n\n![Block header bytes diagram](media/wiki/block-header/block-header-bytes.svg \"The 80-byte block header is the data miners hash twice with SHA-256, and the nonce is the field they change most often.\")\n\nThe nBits field is a compact form of the 256-bit target. Its first byte is an exponent, and the following three bytes are a mantissa. The target equals the mantissa multiplied by 256 raised to the power of the exponent minus three. The difficulty 1 value, 0x1d00ffff, has the mantissa 0x00ffff and the exponent 0x1d on mainnet. Difficulty is the ratio between that difficulty 1 target and the current target, so a smaller target means a higher difficulty. Bitcoin Core rejects an nBits value that encodes a negative target (sign bit set with a non-zero mantissa).\n\nOn mainnet the nBits value changes only at difficulty adjustments, which happen every 2,016 blocks.\n\nTimestamps follow two rules. A block time must be strictly greater than the median of the previous 11 block times, which is the median time past. A block time also cannot be more than two hours ahead of the clock of the node checking it. The first rule keeps time moving forward even when miners' clocks disagree. The second limits how far a miner can move the timestamp into the future. BIP 113 uses the same median for locktime checks.\n\nThe nonce is not the only field a miner may vary. The timestamp can be moved forward within the allowed window, and the coinbase can be changed to alter the Merkle root. Either change produces a new header to hash."
         },
         "advanced": {
-          "bodyMarkdown": "The Developer Reference describes the header as the structure that is hashed for proof of work, so the transactions enter that hash only through the Merkle root. Their full content is not needed to check the work.\n\nThe nonce is four bytes, which is too little for current mining hardware. BIP 320 notes that mining hardware can exhaust the 32-bit nonce in less than 200 milliseconds, which forces the mining controller to send new work to each chip very often. Miners therefore roll other fields. The coinbase extra nonce changes the coinbase, the Merkle root and so the header. The timestamp can be rolled within its window, although BIP 320 warns that rolling too many bits of the timestamp distorts time over a long period.\n\nThe version field is the third source of variation. BIP 320 reserves 16 bits of nVersion for general use, so that miners can roll them without triggering false warnings about unknown soft-fork signals. BIP 320 says the bits can be negotiated with pools through the Stratum version-rolling extension. The BIP is still a draft, so its reservation should not be read as a settled consensus rule.\n\nThe timestamp rules bound how far a block time can move in either direction. The median rule stops a single block from pulling time backwards past the recent history, and the two-hour limit stops it from running ahead of real time. Both are enforced by every full node, so a block that breaks them is rejected even if its hash meets the target.\n\nThe target comparison treats the header hash as an unsigned 256-bit integer. Compact encoding loses precision, so the exact target is the decoded value of nBits, not a rounded difficulty figure. Pools often use a less truncated target for their shares, as the Bitcoin Wiki notes, but that is a pool choice. It does not change what the network accepts as a block.\n\nThe header is therefore a small, fixed-size commitment that combines proof of work, the link to the parent, the commitment to the transactions, and the time and difficulty context. Each field has a narrow job, and the consensus rules check each of them."
+          "bodyMarkdown": "The Developer Reference describes the header as the structure that is hashed for proof of work, so the transactions enter that hash only through the Merkle root. Their full content is not needed to check the work.\n\n![Block header bytes diagram](media/wiki/block-header/block-header-bytes.svg \"The 80-byte block header is the data miners hash twice with SHA-256, and the nonce is the field they change most often.\")\n\nThe nonce is four bytes, which is too little for current mining hardware. BIP 320 notes that mining hardware can exhaust the 32-bit nonce in less than 200 milliseconds, which forces the mining controller to send new work to each chip very often. Miners therefore roll other fields. The coinbase extra nonce changes the coinbase, the Merkle root and so the header. The timestamp can be rolled within its window, although BIP 320 warns that rolling too many bits of the timestamp distorts time over a long period.\n\nThe version field is the third source of variation. BIP 320 reserves 16 bits of nVersion for general use, so that miners can roll them without triggering false warnings about unknown soft-fork signals. BIP 320 says the bits can be negotiated with pools through the Stratum version-rolling extension. The BIP is still a draft, so its reservation should not be read as a settled consensus rule.\n\nThe timestamp rules bound how far a block time can move in either direction. The median rule stops a single block from pulling time backwards past the recent history, and the two-hour limit stops it from running ahead of real time. Both are enforced by every full node, so a block that breaks them is rejected even if its hash meets the target.\n\nThe target comparison treats the header hash as an unsigned 256-bit integer. Compact encoding loses precision, so the exact target is the decoded value of nBits, not a rounded difficulty figure. Pools often use a less truncated target for their shares, as the Bitcoin Wiki notes, but that is a pool choice. It does not change what the network accepts as a block.\n\nThe header is therefore a small, fixed-size commitment that combines proof of work, the link to the parent, the commitment to the transactions, and the time and difficulty context. Each field has a narrow job, and the consensus rules check each of them."
         }
       },
       "difficulty": "advanced",
@@ -18323,8 +18473,8 @@
       }
     }
   ],
-  "totalRecords": 379,
-  "historyCount": 41,
+  "totalRecords": 382,
+  "historyCount": 44,
   "glossary": [
     {
       "id": "glossary.address",

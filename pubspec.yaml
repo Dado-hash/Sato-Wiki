@@ -122,6 +122,7 @@ flutter:
     - assets/content/media/wiki/bitcoin-script/
     - assets/content/media/wiki/block-propagation/
     - assets/content/media/wiki/block-subsidy/
+    - assets/content/media/wiki/block-header/
     - assets/content/media/wiki/blockchain/
     - assets/content/media/wiki/blocks/
     - assets/content/media/wiki/bolt-specifications/
