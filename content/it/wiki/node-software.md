@@ -6,6 +6,7 @@ category: software
 subcategory: nodes
 title: Software per nodi
 description: I programmi che fanno girare un full node, perché esistono più implementazioni indipendenti e come verificare ciò che si installa.
+coverImage: media/wiki/node-software/node-software-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

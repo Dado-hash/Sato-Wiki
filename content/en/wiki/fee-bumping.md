@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: "Fee Bumping: RBF and CPFP"
 description: Two ways to raise the effective fee of an unconfirmed transaction that is stuck, replace-by-fee with a new conflicting version and child-pays-for-parent with a high-fee child.
+coverImage: media/wiki/fee-bumping/fee-bumping-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

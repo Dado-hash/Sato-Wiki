@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bitcoin non è garantito da nulla"'
 description: Nessun emittente o asset sta dietro a bitcoin, quindi le sue proprietà derivano da regole imposte e dal consenso della rete, mentre il suo valore dipende dalla domanda.
+coverImage: media/wiki/myth-backed-by-nothing/myth-backed-by-nothing-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

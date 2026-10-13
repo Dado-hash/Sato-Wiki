@@ -6,6 +6,7 @@ category: hardware
 subcategory: seed-backups
 title: Seed Backups
 description: How people back up a BIP 39 seed phrase on paper, metal, or split shares, and where those backups usually fail.
+coverImage: media/wiki/seed-backups/seed-backups-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

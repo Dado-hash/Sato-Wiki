@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: SPV and Pruned Nodes
 description: Two ways to use Bitcoin without storing the whole chain, a light client that checks headers and a pruned full node that validates everything but keeps only recent block files.
+coverImage: media/wiki/spv-and-pruning/spv-and-pruning-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

@@ -1,0 +1,37 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Hardware wallet signing</title>
+  <desc id="desc">A computer sends an unsigned PSBT to a device that keeps the seed and returns a signature.</desc>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(-10 -31)">
+
+  <!-- Computer with monitor -->
+  <rect x="160" y="150" width="260" height="170" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="180" y="170" width="220" height="110" rx="4" fill="#1C2128"/>
+  <rect x="196" y="190" width="180" height="12" rx="4" fill="#2A303A"/>
+  <rect x="196" y="212" width="140" height="12" rx="4" fill="#2A303A"/>
+  <rect x="196" y="234" width="160" height="12" rx="4" fill="#2A303A"/>
+  <rect x="275" y="320" width="30" height="24" fill="#343A44"/>
+  <rect x="230" y="342" width="120" height="10" rx="5" fill="#343A44"/>
+  <text x="290" y="390" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">computer</text>
+
+  <!-- Hardware device -->
+  <rect x="600" y="140" width="220" height="300" rx="22" fill="#1C2128" stroke="#F7931A" stroke-width="2.5"/>
+  <rect x="626" y="166" width="168" height="90" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <circle cx="710" cy="211" r="20" stroke="#22C55E" stroke-width="3" fill="none"/>
+  <path d="M700 211L707 218L721 203" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="626" y="290" width="168" height="110" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
+  <text x="710" y="352" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="22">seed</text>
+  <text x="710" y="472" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">device</text>
+
+  <!-- PSBT out to the device -->
+  <path d="M432 250H590" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="600,250 590,245 590,255" fill="#F7931A"/>
+  <text x="511" y="238" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="16">PSBT</text>
+
+  <!-- Signature back to the computer -->
+  <path d="M590 300H432" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="422,300 432,295 432,305" fill="#22C55E"/>
+</g>
+</svg>

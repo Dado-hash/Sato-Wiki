@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"You have to buy a whole bitcoin"'
 description: "False: one bitcoin divides into 100,000,000 satoshi, and the software counts every amount in satoshi."
+coverImage: media/wiki/myth-whole-coin/myth-whole-coin-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

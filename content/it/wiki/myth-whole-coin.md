@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bisogna comprare un bitcoin intero"'
 description: "Falso: un bitcoin si divide in 100.000.000 di satoshi, e il software registra ogni importo in satoshi."
+coverImage: media/wiki/myth-whole-coin/myth-whole-coin-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

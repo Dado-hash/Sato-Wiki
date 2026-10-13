@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Testnet, signet e regtest
 description: Le reti che gli sviluppatori usano per testare il software Bitcoin con monete senza valore, e il compromesso tra realismo e prevedibilità di ciascuna.
+coverImage: media/wiki/test-networks/test-networks-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Malleabilità delle transazioni
 description: Come l'identificatore di una transazione poteva essere cambiato da un terzo senza invalidarla, e come SegWit ha eliminato il problema per le nuove spese.
+coverImage: media/wiki/transaction-malleability/transaction-malleability-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

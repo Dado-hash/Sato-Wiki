@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Cold storage
 description: Tenere le chiavi private su un dispositivo che non si collega mai a internet, e come un cold wallet riceve pagamenti e firma le spese tramite un wallet watch-only e una transazione non firmata.
+coverImage: media/wiki/cold-storage/cold-storage-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

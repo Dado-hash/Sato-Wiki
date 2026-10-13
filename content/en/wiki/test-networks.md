@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Testnet, Signet and Regtest
 description: The networks developers use to test Bitcoin software with coins that have no value, and how each one trades realism for predictability.
+coverImage: media/wiki/test-networks/test-networks-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

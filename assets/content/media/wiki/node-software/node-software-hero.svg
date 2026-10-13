@@ -1,0 +1,39 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Node software implementations</title>
+  <desc id="desc">One block is checked by several independent node implementations, and each one must reach the same verdict.</desc>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Connectors from the block to each implementation -->
+  <g stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M350 270H410V182H468"/>
+    <path d="M350 270H468"/>
+    <path d="M410 270V358H468"/>
+  </g>
+  <polygon points="480,182 470,177 470,187" fill="#7C8794"/>
+  <polygon points="480,270 470,265 470,275" fill="#7C8794"/>
+  <polygon points="480,358 470,353 470,363" fill="#7C8794"/>
+
+  <!-- The block -->
+  <rect x="180" y="220" width="170" height="100" rx="8" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <text x="265" y="277" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="22">block</text>
+
+  <!-- Implementation Core -->
+  <rect x="480" y="150" width="300" height="64" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="506" y="190" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">Core</text>
+  <circle cx="740" cy="182" r="16" stroke="#22C55E" stroke-width="3" fill="none"/>
+  <path d="M732 182L738 188L750 175" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Implementation Knots -->
+  <rect x="480" y="238" width="300" height="64" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="506" y="278" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">Knots</text>
+  <circle cx="740" cy="270" r="16" stroke="#22C55E" stroke-width="3" fill="none"/>
+  <path d="M732 270L738 276L750 263" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Implementation btcd -->
+  <rect x="480" y="326" width="300" height="64" rx="8" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="506" y="366" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">btcd</text>
+  <circle cx="740" cy="358" r="16" stroke="#22C55E" stroke-width="3" fill="none"/>
+  <path d="M732 358L738 364L750 351" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

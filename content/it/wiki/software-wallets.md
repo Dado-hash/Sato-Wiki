@@ -6,6 +6,7 @@ category: software
 subcategory: software-wallets
 title: Software wallet
 description: I programmi wallet per desktop e mobile, che cosa memorizzano davvero e in che modo le scelte su custodia, server e backup cambiano privacy e rischio.
+coverImage: media/wiki/software-wallets/software-wallets-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

@@ -6,6 +6,7 @@ category: software
 subcategory: node-systems
 title: Sistemi per nodo domestico
 description: Sistemi operativi e piattaforme di app preconfigurati che installano un nodo Bitcoin e servizi collegati su un piccolo computer, e cosa aggiungono al software del nodo.
+coverImage: media/wiki/node-operating-systems/node-operating-systems-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

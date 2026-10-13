@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Bitcoin wastes energy"'
 description: Mining uses a large amount of electricity by design to make rewriting history costly, but whether that counts as waste is a value judgement.
+coverImage: media/wiki/myth-energy-waste/myth-energy-waste-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

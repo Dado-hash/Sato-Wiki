@@ -5,6 +5,7 @@ language: it
 category: cryptography
 title: MuSig2
 description: Un protocollo di multifirma Schnorr in cui più firmatari producono una sola firma sotto un'unica chiave pubblica aggregata, così una spesa condivisa appare come una spesa a firmatario singolo.
+coverImage: media/wiki/musig/musig-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

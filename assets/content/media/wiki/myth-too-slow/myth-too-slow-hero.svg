@@ -1,0 +1,33 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Base layer and payment channel</title>
+  <desc id="desc">Payments move off-chain between two parties, while the base chain adds a block about every ten minutes.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(0 -16)">
+
+  <!-- Top layer: channel between two parties -->
+  <rect x="120" y="110" width="720" height="160" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <path d="M274 190H686" stroke="#8E96A4" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="330" cy="190" r="6" fill="#F7931A"/>
+  <circle cx="400" cy="190" r="6" fill="#F7931A"/>
+  <circle cx="470" cy="190" r="6" fill="#F7931A"/>
+  <circle cx="540" cy="190" r="6" fill="#F7931A"/>
+  <circle cx="610" cy="190" r="6" fill="#F7931A"/>
+  <circle cx="240" cy="190" r="34" fill="#1C2128" stroke="#8E96A4" stroke-width="2.5"/>
+  <circle cx="720" cy="190" r="34" fill="#1C2128" stroke="#8E96A4" stroke-width="2.5"/>
+  <text x="240" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16">node</text>
+  <text x="720" y="196" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16">node</text>
+
+  <!-- Bottom layer: base chain -->
+  <rect x="120" y="300" width="720" height="170" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="150" y="340" width="110" height="64" rx="6" fill="#1C2128" stroke="#F7931A" stroke-width="2"/>
+  <rect x="290" y="340" width="110" height="64" rx="6" fill="#1C2128" stroke="#F7931A" stroke-width="2"/>
+  <rect x="430" y="340" width="110" height="64" rx="6" fill="#1C2128" stroke="#F7931A" stroke-width="2"/>
+  <rect x="570" y="340" width="110" height="64" rx="6" fill="#1C2128" stroke="#F7931A" stroke-width="2"/>
+  <rect x="710" y="340" width="110" height="64" rx="6" fill="#1C2128" stroke="#F7931A" stroke-width="2"/>
+  <path d="M260 372H290M400 372H430M540 372H570M680 372H710" stroke="#8E96A4" stroke-width="2"/>
+  <text x="485" y="378" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16">block</text>
+  <text x="275" y="330" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="600">10 min</text>
+  <text x="480" y="452" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16">4,000,000 WU</text>
+</g>
+</svg>

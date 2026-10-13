@@ -6,6 +6,7 @@ category: software
 subcategory: developer-tools
 title: Libraries and Developer Tools
 description: The libraries, node interfaces and test networks developers use to build Bitcoin software, and the risks of depending on them.
+coverImage: media/wiki/developer-tools/developer-tools-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

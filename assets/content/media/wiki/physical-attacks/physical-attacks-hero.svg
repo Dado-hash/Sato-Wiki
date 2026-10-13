@@ -1,0 +1,25 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Physical attack timeline</title>
+  <desc id="desc">A device under pressure, and a timelock window in which a key can cancel an unexpected spend.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(0 24)">
+
+  <path d="M480 84V118" stroke="#EF4444" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="480,126 468,110 492,110" fill="#EF4444"/>
+
+  <rect x="360" y="130" width="240" height="140" rx="14" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <path d="M468 196V184A12 12 0 0 1 492 184V196" stroke="#8E96A4" stroke-width="4" fill="none"/>
+  <rect x="462" y="196" width="36" height="26" rx="5" fill="#8E96A4"/>
+
+  <rect x="140" y="356" width="200" height="28" rx="6" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  <rect x="340" y="356" width="280" height="28" rx="6" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="620" y="356" width="200" height="28" rx="6" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+
+  <circle cx="452" cy="322" r="12" fill="none" stroke="#22C55E" stroke-width="4"/>
+  <rect x="462" y="319" width="40" height="6" fill="#22C55E"/>
+  <rect x="492" y="325" width="6" height="9" fill="#22C55E"/>
+
+  <text x="480" y="420" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="18">BIP 65</text>
+</g>
+</svg>

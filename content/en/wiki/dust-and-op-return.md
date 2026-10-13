@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Dust Limit and OP_RETURN
 description: The node policy that makes tiny outputs uneconomical to relay, and the provably unspendable OP_RETURN outputs used for data, with the standardness rules that have changed over time.
+coverImage: media/wiki/dust-and-op-return/dust-and-op-return-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

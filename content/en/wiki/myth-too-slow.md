@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Bitcoin is too slow to be useful"'
 description: "Partly true: the base layer confirms only a few transactions per second by design, and layers built on top handle smaller payments with their own trade-offs."
+coverImage: media/wiki/myth-too-slow/myth-too-slow-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

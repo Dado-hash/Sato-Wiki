@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Cold Storage
 description: Keeping the private keys on a device that never connects to the internet, and how a cold wallet receives payments and signs spends through a watch-only wallet and an unsigned transaction.
+coverImage: media/wiki/cold-storage/cold-storage-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

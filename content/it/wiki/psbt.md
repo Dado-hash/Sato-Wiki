@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Transazioni parzialmente firmate (PSBT)
 description: Un contenitore standard che trasporta una transazione non firmata e i dati di cui ogni firmatario ha bisogno, così dispositivi e programmi separati possono firmarla a turno.
+coverImage: media/wiki/psbt/psbt-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

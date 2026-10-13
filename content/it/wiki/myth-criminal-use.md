@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bitcoin è usato soprattutto dai criminali"'
 description: L'uso illecito di bitcoin è reale e documentato, ma le stime pubblicate differiscono molto per metodo e anno, e nessuna di quelle citate mostra che sia la maggioranza.
+coverImage: media/wiki/myth-criminal-use/myth-criminal-use-hero.svg
 difficulty: base
 readTimeMinutes: 6
 tags:

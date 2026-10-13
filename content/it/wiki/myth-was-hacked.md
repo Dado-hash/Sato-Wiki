@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bitcoin è stato hackerato"'
 description: "In parte vero: exchange e wallet sono stati violati e il software ha avuto bug seri, ma nessun difetto noto ha permesso di spendere monete senza le loro chiavi."
+coverImage: media/wiki/myth-was-hacked/myth-was-hacked-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

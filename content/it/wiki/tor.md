@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Tor e Bitcoin
 description: Tor nasconde l'indirizzo di rete di un nodo o di un wallet ai peer e agli osservatori con cui comunica, ma non nasconde le transazioni stesse.
+coverImage: media/wiki/tor/tor-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

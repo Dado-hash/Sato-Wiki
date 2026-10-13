@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Bitcoin is anonymous"'
 description: Bitcoin is pseudonymous, not anonymous, because every transaction is public and permanent and addresses can often be linked to people.
+coverImage: media/wiki/myth-anonymous/myth-anonymous-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

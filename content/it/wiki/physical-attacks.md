@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Attacchi fisici
 description: Come la coercizione fisica può aggirare la protezione crittografica, quali fattori aumentano il rischio e quali idee di progetto lo riducono, con i loro limiti.
+coverImage: media/wiki/physical-attacks/physical-attacks-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

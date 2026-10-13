@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Threat Models
 description: Security and privacy in Bitcoin depend on who you are protecting against, so every defence covers some threats and leaves others open.
+coverImage: media/wiki/threat-model/threat-model-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

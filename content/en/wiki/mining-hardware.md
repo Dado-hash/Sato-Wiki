@@ -6,6 +6,7 @@ category: hardware
 subcategory: mining-hardware
 title: Mining Hardware
 description: The devices that compute Bitcoin's proof-of-work hashes, from CPUs to ASICs, and what they are made of.
+coverImage: media/wiki/mining-hardware/mining-hardware-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

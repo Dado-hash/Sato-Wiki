@@ -179,6 +179,56 @@ flutter:
     - assets/content/media/wiki/volatility/
     - assets/content/media/wiki/wallet-seeds/
     - assets/content/media/wiki/watchtowers/
+    - assets/content/media/wiki/address-encodings/
+    - assets/content/media/wiki/address-reuse/
+    - assets/content/media/wiki/coin-selection/
+    - assets/content/media/wiki/coinbase-transaction/
+    - assets/content/media/wiki/coinjoin/
+    - assets/content/media/wiki/cold-storage/
+    - assets/content/media/wiki/common-input-ownership/
+    - assets/content/media/wiki/dandelion/
+    - assets/content/media/wiki/developer-tools/
+    - assets/content/media/wiki/dust-and-op-return/
+    - assets/content/media/wiki/fee-bumping/
+    - assets/content/media/wiki/hardware-wallets/
+    - assets/content/media/wiki/lightning-software/
+    - assets/content/media/wiki/mining-hardware/
+    - assets/content/media/wiki/mining-pools/
+    - assets/content/media/wiki/mining-software/
+    - assets/content/media/wiki/musig/
+    - assets/content/media/wiki/myth-anonymous/
+    - assets/content/media/wiki/myth-backed-by-nothing/
+    - assets/content/media/wiki/myth-can-be-shut-down/
+    - assets/content/media/wiki/myth-criminal-use/
+    - assets/content/media/wiki/myth-energy-waste/
+    - assets/content/media/wiki/myth-miners-control/
+    - assets/content/media/wiki/myth-ponzi/
+    - assets/content/media/wiki/myth-quantum/
+    - assets/content/media/wiki/myth-supply-can-change/
+    - assets/content/media/wiki/myth-too-slow/
+    - assets/content/media/wiki/myth-was-hacked/
+    - assets/content/media/wiki/myth-whole-coin/
+    - assets/content/media/wiki/node-hardware/
+    - assets/content/media/wiki/node-operating-systems/
+    - assets/content/media/wiki/node-software/
+    - assets/content/media/wiki/output-descriptors/
+    - assets/content/media/wiki/p2sh/
+    - assets/content/media/wiki/passphrase/
+    - assets/content/media/wiki/physical-attacks/
+    - assets/content/media/wiki/psbt/
+    - assets/content/media/wiki/reorganizations/
+    - assets/content/media/wiki/seed-backups/
+    - assets/content/media/wiki/self-custody/
+    - assets/content/media/wiki/server-software/
+    - assets/content/media/wiki/sighash/
+    - assets/content/media/wiki/soft-fork-signalling/
+    - assets/content/media/wiki/software-wallets/
+    - assets/content/media/wiki/spv-and-pruning/
+    - assets/content/media/wiki/test-networks/
+    - assets/content/media/wiki/threat-model/
+    - assets/content/media/wiki/tor/
+    - assets/content/media/wiki/transaction-malleability/
+    - assets/content/media/wiki/weight-units/
 
   fonts:
     - family: Inter

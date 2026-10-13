@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bitcoin è uno schema Ponzi"'
 description: "Falso come descrizione del funzionamento della rete, con un punto valido dentro l'obiezione: il prezzo dipende dai nuovi acquirenti e molte truffe hanno usato bitcoin."
+coverImage: media/wiki/myth-ponzi/myth-ponzi-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

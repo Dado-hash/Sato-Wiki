@@ -1,0 +1,29 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Cold storage workflow</title>
+  <desc id="desc">An unsigned PSBT crosses an air gap to an offline signer, and the signed result returns to the online machine.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <path d="M480 130V420" stroke="#46505C" stroke-width="3" stroke-dasharray="10 8"/>
+
+  <rect x="120" y="160" width="260" height="170" rx="10" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  <rect x="140" y="180" width="220" height="130" rx="6" fill="#1C2128" stroke="#343A44" stroke-width="2"/>
+  <text x="250" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">online</text>
+
+  <rect x="580" y="160" width="260" height="170" rx="10" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <circle cx="680" cy="245" r="16" fill="none" stroke="#22C55E" stroke-width="5"/>
+  <rect x="694" y="242" width="110" height="6" fill="#22C55E"/>
+  <rect x="750" y="248" width="6" height="12" fill="#22C55E"/>
+  <rect x="770" y="248" width="6" height="9" fill="#22C55E"/>
+  <text x="710" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">offline</text>
+
+  <path d="M384 256H430M516 256H566" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="442,256 430,250 430,262" fill="#F7931A"/>
+  <polygon points="578,256 566,250 566,262" fill="#F7931A"/>
+
+  <rect x="444" y="236" width="72" height="40" rx="6" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <text x="480" y="262" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">PSBT</text>
+
+  <path d="M578 300H394" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="382,300 394,294 394,306" fill="#8B5CF6"/>
+</svg>

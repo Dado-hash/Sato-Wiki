@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Transazione coinbase
 description: La prima transazione di ogni blocco, che crea i nuovi bitcoin della subsidy del blocco e raccoglie le fee del blocco.
+coverImage: media/wiki/coinbase-transaction/coinbase-transaction-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

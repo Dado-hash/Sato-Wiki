@@ -6,6 +6,7 @@ category: hardware
 subcategory: mining-hardware
 title: Hardware di mining
 description: I dispositivi che calcolano gli hash di proof of work di Bitcoin, dalle CPU agli ASIC, e i componenti che li compongono.
+coverImage: media/wiki/mining-hardware/mining-hardware-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

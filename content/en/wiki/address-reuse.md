@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Address Reuse
 description: Receiving several payments at one address links them together on the public ledger, and modern wallets avoid this by deriving a new address for each payment.
+coverImage: media/wiki/address-reuse/address-reuse-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

@@ -6,6 +6,7 @@ category: hardware
 subcategory: hardware-wallets
 title: Hardware Wallets
 description: Signing devices that keep private keys off the computer, what they protect against, and what they leave to the user.
+coverImage: media/wiki/hardware-wallets/hardware-wallets-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

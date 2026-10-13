@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Il limite di 21 milioni si può cambiare"'
 description: "Parzialmente vero: il limite è codice che potrebbe essere modificato, ma aggiungere monete sarebbe un hard fork che ogni nodo deve scegliere di adottare, e i nodi che lo rifiutano mantengono la vecchia chain."
+coverImage: media/wiki/myth-supply-can-change/myth-supply-can-change-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

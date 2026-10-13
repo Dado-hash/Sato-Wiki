@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Change Outputs and Coin Selection
 description: How a wallet chooses which UTXOs to spend, where the change goes, and what those choices cost in fees and privacy.
+coverImage: media/wiki/coin-selection/coin-selection-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

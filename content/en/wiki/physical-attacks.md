@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Physical Attacks
 description: How physical coercion can defeat cryptographic protection, which factors raise the risk, and the design ideas that reduce it along with their limits.
+coverImage: media/wiki/physical-attacks/physical-attacks-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

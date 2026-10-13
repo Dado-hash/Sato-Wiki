@@ -5,6 +5,7 @@ language: en
 category: cryptography
 title: MuSig2
 description: A Schnorr multi-signature protocol in which several signers produce one signature under one aggregate public key, so a shared spend looks like a single-signer spend.
+coverImage: media/wiki/musig/musig-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

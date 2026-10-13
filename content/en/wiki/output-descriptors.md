@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Output Descriptors
 description: A compact text language that states exactly which output scripts a wallet uses, with the keys, derivation paths and checksum needed to rebuild them.
+coverImage: media/wiki/output-descriptors/output-descriptors-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

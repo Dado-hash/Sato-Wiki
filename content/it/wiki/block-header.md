@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Header del blocco
 description: L'header di 80 byte che ogni blocco porta con sé, i suoi sei campi, il modo in cui il suo hash double SHA-256 viene confrontato con il target e perché il solo nonce non basta più.
+coverImage: media/wiki/block-header/block-header-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

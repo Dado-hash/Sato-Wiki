@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"I computer quantistici romperanno Bitcoin"'
 description: "Parzialmente vero: un computer quantistico abbastanza grande minaccerebbe le firme delle chiavi esposte, ma oggi nessuna macchina del genere esiste e non se ne conosce la data."
+coverImage: media/wiki/myth-quantum/myth-quantum-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

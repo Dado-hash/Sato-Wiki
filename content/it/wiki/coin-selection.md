@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Output di resto e coin selection
 description: Come un wallet sceglie quali UTXO spendere, dove va il resto e quali costi comportano queste scelte in fee e privacy.
+coverImage: media/wiki/coin-selection/coin-selection-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

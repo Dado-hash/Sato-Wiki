@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Tor and Bitcoin
 description: Tor hides the network address of a node or wallet from the peers and observers it talks to, but it does not hide the transactions themselves.
+coverImage: media/wiki/tor/tor-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

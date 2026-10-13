@@ -6,6 +6,7 @@ category: hardware
 subcategory: node-hardware
 title: Hardware per nodi
 description: Di cosa ha bisogno un computer per far girare un full node Bitcoin, tra storage, memoria, banda, alimentazione e tipi di hardware.
+coverImage: media/wiki/node-hardware/node-hardware-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

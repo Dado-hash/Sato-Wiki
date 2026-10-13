@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Coinbase Transaction
 description: The first transaction in every block, which creates the new bitcoin of the block subsidy and collects the fees of the block.
+coverImage: media/wiki/coinbase-transaction/coinbase-transaction-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

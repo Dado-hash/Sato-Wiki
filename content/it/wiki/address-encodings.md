@@ -5,6 +5,7 @@ language: it
 category: cryptography
 title: Base58Check, bech32 e bech32m
 description: Le codifiche con checksum alla base degli indirizzi Bitcoin, come ciascuna individua gli errori di digitazione e quale tipo di indirizzo usa quale codifica.
+coverImage: media/wiki/address-encodings/address-encodings-hero.svg
 difficulty: advanced
 readTimeMinutes: 6
 tags:

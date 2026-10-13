@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Quantum computers will break Bitcoin"'
 description: "Partly true: a large enough quantum computer would threaten signatures on exposed keys, but no such machine exists today and no date is known."
+coverImage: media/wiki/myth-quantum/myth-quantum-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

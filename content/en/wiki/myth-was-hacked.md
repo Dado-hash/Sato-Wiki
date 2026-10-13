@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Bitcoin has been hacked"'
 description: "Partly true: exchanges and wallets have been broken into and the software has had serious bugs, but no known flaw let anyone spend coins without their keys."
+coverImage: media/wiki/myth-was-hacked/myth-was-hacked-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

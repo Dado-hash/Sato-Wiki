@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Attivazione e segnalazione dei soft fork
 description: Come Bitcoin coordina un soft fork, con i miner che segnalano la prontezza tramite i version bit, le regole che passano tra stati definiti e i nodi, non i miner, che decidono cosa è valido.
+coverImage: media/wiki/soft-fork-signalling/soft-fork-signalling-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Modello di minaccia
 description: La sicurezza e la privacy in Bitcoin dipendono da chi si vuole proteggere, quindi ogni difesa copre alcune minacce e ne lascia aperte altre.
+coverImage: media/wiki/threat-model/threat-model-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

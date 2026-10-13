@@ -5,6 +5,7 @@ language: en
 category: cryptography
 title: Base58Check, Bech32 and Bech32m
 description: The checksummed encodings behind Bitcoin addresses, how each one catches typing errors, and which address types use which encoding.
+coverImage: media/wiki/address-encodings/address-encodings-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

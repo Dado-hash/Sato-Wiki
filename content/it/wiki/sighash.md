@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Tipi di sighash
 description: I flag sighash che decidono quali parti di una transazione una firma impegna, e come segwit e taproot hanno cambiato il digest che viene firmato.
+coverImage: media/wiki/sighash/sighash-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

@@ -6,6 +6,7 @@ category: software
 subcategory: mining-software
 title: Software di mining
 description: I livelli software usati nel mining Bitcoin, dal firmware dei miner e dal software dei pool fino ai protocolli che trasportano lavoro e template di blocco tra loro.
+coverImage: media/wiki/mining-software/mining-software-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

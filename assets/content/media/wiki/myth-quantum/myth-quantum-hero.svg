@@ -1,0 +1,30 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Hashed and exposed public keys</title>
+  <desc id="desc">One output type hides its public key behind a hash until spending, while another shows the key directly.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(60 10)">
+
+  <!-- Hidden: key goes through a hash -->
+  <rect x="120" y="150" width="150" height="60" rx="8" fill="#1C2128" stroke="#343A44" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="195" y="186" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="16">ECDSA</text>
+  <path d="M280 180H318" stroke="#8B5CF6" stroke-width="3"/>
+  <polygon points="318,172 330,180 318,188" fill="#8B5CF6"/>
+  <rect x="332" y="150" width="150" height="60" rx="8" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="407" y="186" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16">SHA-256</text>
+  <path d="M482 180H516" stroke="#8B5CF6" stroke-width="3"/>
+  <polygon points="516,172 528,180 516,188" fill="#8B5CF6"/>
+  <rect x="528" y="150" width="192" height="60" rx="8" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <text x="624" y="186" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">UTXO</text>
+
+  <path d="M120 270H720" stroke="#28313B" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Exposed: key shown directly on the output -->
+  <rect x="120" y="320" width="150" height="60" rx="8" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <text x="195" y="356" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16">ECDSA</text>
+  <path d="M280 350H508" stroke="#F7931A" stroke-width="3"/>
+  <polygon points="508,342 520,350 508,358" fill="#F7931A"/>
+  <rect x="528" y="320" width="192" height="60" rx="8" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <text x="624" y="356" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">UTXO</text>
+</g>
+</svg>

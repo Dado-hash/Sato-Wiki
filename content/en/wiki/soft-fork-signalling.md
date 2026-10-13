@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Soft Fork Activation and Signalling
 description: How Bitcoin coordinates a soft fork, with miners signalling readiness through version bits, rules moving through defined states, and nodes, not miners, deciding what is valid.
+coverImage: media/wiki/soft-fork-signalling/soft-fork-signalling-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

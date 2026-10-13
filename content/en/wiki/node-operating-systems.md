@@ -6,6 +6,7 @@ category: software
 subcategory: node-systems
 title: Home Node Systems
 description: Packaged operating systems and app platforms that install a Bitcoin node and related services on a small computer, and what they add on top of the node software.
+coverImage: media/wiki/node-operating-systems/node-operating-systems-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

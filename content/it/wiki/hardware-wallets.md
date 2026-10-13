@@ -6,6 +6,7 @@ category: hardware
 subcategory: hardware-wallets
 title: Hardware wallet
 description: Dispositivi di firma che tengono le chiavi private lontane dal computer, cosa proteggono e cosa lasciano all'utente.
+coverImage: media/wiki/hardware-wallets/hardware-wallets-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

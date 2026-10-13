@@ -1,0 +1,38 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Address reuse</title>
+  <desc id="desc">Several payments arrive at one address and later spends leave from it, linking them together.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(6 0)">
+
+  <rect x="110" y="160" width="140" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="180" y="197" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">1</text>
+  <rect x="110" y="244" width="140" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="180" y="281" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">2</text>
+  <rect x="110" y="328" width="140" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="180" y="365" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">3</text>
+
+  <path d="M250 190H398M250 274H398M250 358H398" stroke="#8E96A4" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="410,190 398,183 398,197" fill="#8E96A4"/>
+  <polygon points="410,274 398,267 398,281" fill="#8E96A4"/>
+  <polygon points="410,358 398,351 398,365" fill="#8E96A4"/>
+
+  <rect x="410" y="150" width="140" height="248" rx="10" fill="#20252D" stroke="#F7931A" stroke-width="3"/>
+  <circle cx="458" cy="274" r="16" fill="none" stroke="#F7931A" stroke-width="5"/>
+  <rect x="472" y="271" width="50" height="6" fill="#F7931A"/>
+  <rect x="500" y="277" width="6" height="12" fill="#F7931A"/>
+  <rect x="514" y="277" width="6" height="9" fill="#F7931A"/>
+
+  <path d="M550 190H690M550 274H690M550 358H690" stroke="#8E96A4" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="700,190 688,183 688,197" fill="#8E96A4"/>
+  <polygon points="700,274 688,267 688,281" fill="#8E96A4"/>
+  <polygon points="700,358 688,351 688,365" fill="#8E96A4"/>
+
+  <rect x="700" y="160" width="140" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="770" y="197" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">tx</text>
+  <rect x="700" y="244" width="140" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="770" y="281" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">tx</text>
+  <rect x="700" y="328" width="140" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="770" y="365" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">tx</text>
+</g>
+</svg>

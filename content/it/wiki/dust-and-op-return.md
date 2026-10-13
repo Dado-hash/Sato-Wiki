@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Limite dust e OP_RETURN
 description: La regola di policy che rende non conveniente inoltrare output minuscoli, e gli output OP_RETURN non spendibili usati per i dati, con le regole di standardness cambiate nel tempo.
+coverImage: media/wiki/dust-and-op-return/dust-and-op-return-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

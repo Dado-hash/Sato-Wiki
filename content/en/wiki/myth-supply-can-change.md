@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"The 21 million limit can be changed"'
 description: "Partly true: the limit is code that could be edited, but adding coins would be a hard fork that every node must choose to adopt, and nodes that refuse it keep the old chain."
+coverImage: media/wiki/myth-supply-can-change/myth-supply-can-change-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

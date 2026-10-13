@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Mining pool
 description: Gruppi di miner che combinano il proprio hashrate, misurano il lavoro con gli share e dividono la ricompensa, con i compromessi che il pooling comporta.
+coverImage: media/wiki/mining-pools/mining-pools-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

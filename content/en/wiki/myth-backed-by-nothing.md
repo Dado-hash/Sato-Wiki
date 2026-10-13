@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Bitcoin is backed by nothing"'
 description: No issuer or asset stands behind bitcoin, so its properties come from enforced rules and network consensus, and its value depends on continued demand.
+coverImage: media/wiki/myth-backed-by-nothing/myth-backed-by-nothing-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

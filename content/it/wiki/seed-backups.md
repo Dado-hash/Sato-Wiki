@@ -6,6 +6,7 @@ category: hardware
 subcategory: seed-backups
 title: Backup del seed
 description: Come si salva una frase seed BIP 39 su carta, metallo o in quote condivise, e dove questi backup di solito falliscono.
+coverImage: media/wiki/seed-backups/seed-backups-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

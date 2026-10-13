@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Dandelion
 description: Una proposta di relay che nasconde quale nodo ha annunciato per primo una transazione, facendola passare prima lungo un breve stelo di peer singoli e poi con la normale diffusione, e perché Bitcoin Core non l'ha adottata.
+coverImage: media/wiki/dandelion/dandelion-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

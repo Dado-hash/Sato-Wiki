@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bitcoin è troppo lento per essere utile"'
 description: "Parzialmente vero: il base layer conferma solo poche transazioni al secondo per scelta progettuale, e i layer costruiti sopra gestiscono i pagamenti più piccoli con compromessi propri."
+coverImage: media/wiki/myth-too-slow/myth-too-slow-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

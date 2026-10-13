@@ -6,6 +6,7 @@ category: software
 subcategory: developer-tools
 title: Librerie e strumenti per sviluppatori
 description: Le librerie, le interfacce del nodo e le reti di test usate dagli sviluppatori per costruire software Bitcoin, e i rischi di dipenderne.
+coverImage: media/wiki/developer-tools/developer-tools-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

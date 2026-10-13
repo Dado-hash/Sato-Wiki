@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: CoinJoin
 description: Un modo per far costruire insieme a più utenti una sola transazione, così che osservatori esterni non possano facilmente associare ogni input al proprio output.
+coverImage: media/wiki/coinjoin/coinjoin-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Riuso degli indirizzi
 description: Ricevere più pagamenti su un solo indirizzo li collega tra loro nel registro pubblico, e i wallet moderni evitano il problema derivando un indirizzo nuovo per ogni pagamento.
+coverImage: media/wiki/address-reuse/address-reuse-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

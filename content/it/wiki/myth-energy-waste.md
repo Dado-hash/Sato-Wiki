@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"Bitcoin spreca energia"'
 description: Il mining usa molta elettricità per progetto, per rendere costosa la riscrittura della storia, ma se questo sia spreco è un giudizio di valore.
+coverImage: media/wiki/myth-energy-waste/myth-energy-waste-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

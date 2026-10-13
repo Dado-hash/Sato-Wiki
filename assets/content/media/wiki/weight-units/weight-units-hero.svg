@@ -1,0 +1,21 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Weight units and virtual bytes</title>
+  <desc id="desc">Non-witness bytes count four times in weight while witness bytes count once, so a 300-byte transaction becomes 225 virtual bytes.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <rect x="180" y="170" width="400" height="40" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  <rect x="580" y="170" width="200" height="40" fill="#1C2128" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="380" y="158" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16">200 B</text>
+  <text x="680" y="158" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16">100 B</text>
+
+  <path d="M480 216V264" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="472,256 480,268 488,256" fill="#7C8794"/>
+
+  <rect x="180" y="280" width="533.33" height="40" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+  <rect x="713.33" y="280" width="66.67" height="40" fill="#1C2128" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="447" y="348" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">800 WU</text>
+  <text x="746" y="348" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">100 WU</text>
+
+  <text x="480" y="400" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">900 WU / 4 = 225 vB</text>
+</svg>

@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Governments can shut Bitcoin down"'
 description: "Partly true: no state can switch off the network, but a state can ban or restrict its use inside its borders, which is a different and real limit."
+coverImage: media/wiki/myth-can-be-shut-down/myth-can-be-shut-down-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

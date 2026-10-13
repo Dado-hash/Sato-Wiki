@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Miners control Bitcoin"'
 description: "Partly true: miners choose which valid transactions enter a block and in what order, but they cannot change the rules that nodes enforce."
+coverImage: media/wiki/myth-miners-control/myth-miners-control-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

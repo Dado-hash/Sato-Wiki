@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Signature Hash Types
 description: The sighash flags that decide which parts of a transaction a signature commits to, and how segwit and taproot changed the digest that gets signed.
+coverImage: media/wiki/sighash/sighash-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

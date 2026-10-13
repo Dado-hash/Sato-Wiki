@@ -5,6 +5,7 @@ language: en
 category: myths
 title: '"Bitcoin is a Ponzi scheme"'
 description: "Mostly false as a description of how the network works, with a fair point inside it: the price depends on new buyers, and many scams have used bitcoin."
+coverImage: media/wiki/myth-ponzi/myth-ponzi-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

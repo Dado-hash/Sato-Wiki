@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.210000",
+  "version": "2026.10.13.220000",
   "language": "en",
-  "generatedAt": "2026-10-13T21:00:00.000000Z",
+  "generatedAt": "2026-10-13T22:00:00.000000Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -5721,6 +5721,7 @@
       "subcategory": "nodes",
       "title": "Node Software",
       "description": "The programs that run a full node, why more than one independent implementation exists, and how to check what you install.",
+      "coverImage": "media/wiki/node-software/node-software-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Node software is the program that runs a full node. A full node checks every block and transaction against the consensus rules before accepting it, and then passes valid data on to other nodes. If you run one, you do not have to rely on someone else's view of which payments are valid.\n\nSeveral programs can do this job. Each one is an implementation: separate code, written to follow the same rules. Bitcoin Core is the implementation most people run. Bitcoin Knots is a derivative of Core. Its development generally happens in Core and is merged into Knots for each release, and Knots adds changes of its own. btcd is an alternative implementation written in Go, so it does not share Core's code at all.\n\nBecause the software decides what your node accepts, check where it came from before you run it. Bitcoin Core publishes checksums and signatures for its releases, and you can compare the file you downloaded with them. Updating to a newer release also matters, because fixes to validation code reach your node only when you install them."
@@ -5805,6 +5806,7 @@
       "subcategory": "software-wallets",
       "title": "Software Wallets",
       "description": "Desktop and mobile wallet programs, what they actually store, and how their choices about custody, servers and backups change privacy and risk.",
+      "coverImage": "media/wiki/software-wallets/software-wallets-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A software wallet is a program on a computer or phone that manages the keys for your bitcoin. The first thing to understand is that a wallet does not hold coins. Bitcoin exists as unspent outputs recorded on the blockchain. The wallet stores the private keys that can sign spending of those outputs, and it uses them to build and sign transactions.\n\nMost software wallets run on devices connected to the internet, which makes them convenient for everyday payments. Some are non-custodial, so only you hold the keys. Others are custodial, where a company holds the keys and you have a claim against that company. The difference decides who can move your funds and what happens if the provider fails. Non-custodial software gives you control, but also responsibility: if you lose the seed and the device, nobody can restore the funds for you.\n\nKeep your seed backup offline and private, and check that the wallet can restore from it before you rely on the wallet. A wallet on a phone or laptop is a hot wallet. Its keys sit on a device that is online, which exposes them more than keys kept on a device that never connects."
@@ -5889,6 +5891,7 @@
       "subcategory": "lightning",
       "title": "Lightning Software",
       "description": "Lightning node implementations and wallets, how they interoperate through the BOLT specifications, and what channel backups and watchtowers can and cannot protect.",
+      "coverImage": "media/wiki/lightning-software/lightning-software-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Lightning software is the set of programs that open payment channels and send payments over them. There are two broad kinds. A Lightning node implementation runs the channel logic, routing and on-chain actions. A Lightning wallet is the app a person uses to send and receive, and it may run its own node or rely on someone else's. Examples of node implementations include LND, Core Lightning, Eclair and LDK, which is packaged as a library for developers to build on.\n\nThese programs can talk to each other because they follow the BOLT specifications, a shared set of rules for messages and channel behavior. Interoperability is the reason you can open a channel with a node made by a different team.\n\nWallets differ in who controls the funds. In a self-custodial wallet, you hold the keys to your channels. In a custodial wallet, a company holds the funds and records your balance. Some wallets sit in between and use a service provider that helps open and manage channels for you. Each model changes what you must trust and what happens if the provider goes offline.\n\nLightning channels need attention while you are away. A channel can be used to cheat if the other side publishes an old state, so the software must be online to respond, or you need another service that watches for this."
@@ -5973,6 +5976,7 @@
       "subcategory": "servers",
       "title": "Servers and Infrastructure",
       "description": "Software that sits between a full node and the apps that use it, such as Electrum-protocol servers, address indexes, block explorers and payment processors.",
+      "coverImage": "media/wiki/server-software/server-software-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A full node validates Bitcoin for you, but most apps need questions answered that a bare node does not answer well. A wallet wants to know every transaction involving its addresses. A shop wants to know when a payment reaches a certain depth. A block explorer wants to show the history of one address. Server software sits between the node and these apps, and it prepares answers the node was not built to serve.\n\nCommon examples include Electrum-protocol servers, address indexers, block explorers you host yourself, and payment processors such as BTCPay Server. Each one takes data from a node, stores extra information and answers requests from its own clients. Running them yourself keeps those requests inside your own infrastructure instead of sending your addresses to a third party.\n\nA bare node has no address index. It stores blocks and the set of unspent outputs, which is enough to validate new blocks, but finding every transaction that touches one address requires an index that Bitcoin Core does not build by default. Building or running that index takes disk space, memory and processing time, and it is a separate job from validating the chain."
@@ -6057,6 +6061,7 @@
       "subcategory": "node-systems",
       "title": "Home Node Systems",
       "description": "Packaged operating systems and app platforms that install a Bitcoin node and related services on a small computer, and what they add on top of the node software.",
+      "coverImage": "media/wiki/node-operating-systems/node-operating-systems-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A home node system is a packaged operating system or app platform that installs a Bitcoin node on a small computer and manages it for you. Instead of configuring every program by hand, you install an image, go through a setup screen, and add applications from a built-in list. Umbrel, StartOS and RaspiBlitz are examples of this type of product.\n\nThe package usually includes the full node itself, along with services people often run next to it: an Electrum server so wallets can query the chain, a Lightning node, and an app store where you add or remove other programs. The convenience is real, since updates, dashboards and service installation are handled for you.\n\nThat convenience has a cost. You now trust the packager, its app store and its update process, not only the Bitcoin software. A third-party app in the store runs on the same machine as your node. Your node still checks chain data for itself, but the surrounding system decides what else runs and when it changes.\n\nRemote access is the next question. Many systems let you reach the dashboard from outside your home. In StartOS, Tor is one option, and it needs no router configuration. Whatever system you use, backups stay your job."
@@ -6142,6 +6147,7 @@
       "subcategory": "mining-software",
       "title": "Mining Software",
       "description": "The software layers used in Bitcoin mining, from miner firmware and pool software to the protocols that carry work and block templates between them.",
+      "coverImage": "media/wiki/mining-software/mining-software-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Mining software is the set of programs that sits between mining hardware and the Bitcoin network. It has three main layers. The first is the firmware that runs on the miner itself. Stock firmware comes with the device, while aftermarket firmware such as Braiins OS can be installed on supported Antminer S19 and S21 series control boards. The second layer is pool software, which hands out work, accepts shares and tracks each miner's contribution. The third is the protocol that connects miner and pool.\n\nIn a pool, miners usually do not choose which transactions go into a block. The pool supplies the block template, and the miner hashes headers derived from it. Whoever builds that template decides which transactions are included, so the choice of template builder matters beyond efficiency.\n\nThe long-standing protocol for pool work is Stratum, introduced in 2012. Stratum V2 is its successor, with encrypted connections and a design that lets miners take part in building the template. Newer approaches, such as DATUM, have the miner's own node build the template.\n\nPayout rules are a separate decision. Pools split rewards in different ways, and that choice changes how income varies from day to day for each miner."
@@ -6227,6 +6233,7 @@
       "subcategory": "developer-tools",
       "title": "Libraries and Developer Tools",
       "description": "The libraries, node interfaces and test networks developers use to build Bitcoin software, and the risks of depending on them.",
+      "coverImage": "media/wiki/developer-tools/developer-tools-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Libraries and developer tools are the building blocks used to write Bitcoin software. A library is code you import into your own program, so you do not have to write signature checks, transaction parsing or address encoding yourself. Most wallets, explorers and payment tools depend on one or more of these components, even when their users never see them.\n\nSome libraries cover one part of the job. The Bitcoin Dev Kit provides building blocks for descriptor-based wallets and is built on rust-bitcoin, which handles encoding, scripts, keys and transactions. libsecp256k1 is the C library that performs signing and verification on the secp256k1 curve. bitcoinjs-lib offers similar building blocks for JavaScript code.\n\nDevelopers also need a safe place to test. Bitcoin Core can run on testnet, where the coins have no real-world value, or in regtest, a private chain where you create blocks on demand. The bitcoin-cli command sends RPC requests to a running node, so a script can query balances or create blocks without a graphical interface.\n\nChoosing a library is a trade-off between features, programming language and how much review the code has received. Read what each project says it is for, and do not assume that a wallet library is suitable for validating the Bitcoin chain."
@@ -6311,6 +6318,7 @@
       "subcategory": "hardware-wallets",
       "title": "Hardware Wallets",
       "description": "Signing devices that keep private keys off the computer, what they protect against, and what they leave to the user.",
+      "coverImage": "media/wiki/hardware-wallets/hardware-wallets-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A hardware wallet is a small device that holds the private keys of a Bitcoin wallet and signs transactions inside its own hardware. The computer or phone you use shows balances and prepares payments, but the keys stay on the device. When you send bitcoin, the device checks what it is asked to sign and returns a signature, so the keys never need to be copied to the computer.\n\nThe main purpose is to protect the keys from the computer. Malware on a laptop cannot read a key that was never stored there, and it cannot easily forge a signature. Some risks remain. A device can be stolen, a tampered unit can arrive from a seller, and a user can approve a payment without checking it. A hardware wallet lowers one class of risk. It does not make the rest of the setup safe.\n\nBefore relying on a device, read the receiving address on its own screen and compare it with the address you intended to pay. Also make sure your seed backup can restore the funds if the device is lost or breaks. The next levels explain how devices differ and what their limits are."
@@ -6394,6 +6402,7 @@
       "subcategory": "seed-backups",
       "title": "Seed Backups",
       "description": "How people back up a BIP 39 seed phrase on paper, metal, or split shares, and where those backups usually fail.",
+      "coverImage": "media/wiki/seed-backups/seed-backups-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A seed backup is the written copy of the words that can rebuild a wallet. For most wallets it is a list of 12 or 24 words from the BIP 39 wordlist. Anyone who has those words, and the passphrase if one was used, can restore every key the wallet has created, so the backup is as sensitive as the money it protects.\n\nMost people start with paper. Paper is cheap and easy to read, but it can burn, get wet, fade, or be lost during a move. Metal plates are a common upgrade because they tolerate fire, water and corrosion better than paper. In both cases the backup should sit in a private, dry place, and it helps to check it from time to time, because a backup that was never checked may be unreadable when it is needed.\n\nNever store a seed in digital form. A text file, a photo, a note app, an email draft or a cloud drive can be copied, synced or read by someone else. The seed should exist only as physical words that you write yourself and keep offline. The medium level covers ways to split a backup and why some methods are weaker than they look."
@@ -6474,6 +6483,7 @@
       "subcategory": "mining-hardware",
       "title": "Mining Hardware",
       "description": "The devices that compute Bitcoin's proof-of-work hashes, from CPUs to ASICs, and what they are made of.",
+      "coverImage": "media/wiki/mining-hardware/mining-hardware-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Mining hardware is the equipment that computes the hashes required by Bitcoin's proof of work. A miner tries very large numbers of candidate block headers and looks for one whose hash meets the network target. Finding a valid block earns the block reward and fees, and the more hashes a device computes per second, the more attempts it makes.\n\nBitcoin was first mined on ordinary CPUs. Graphics cards came next, then programmable chips called FPGAs. Each step produced more hashes for the same work. In 2013, ASIC chips produced another large jump in mining power. An ASIC is built to compute only the double SHA-256 function that Bitcoin uses. It is far less flexible than a general computer, but for this one task it is much faster and more efficient.\n\nToday's mining machines are typically built as a box that holds several boards, a control board, a power supply and a cooling system. Some are large industrial units for data centers. Others are small devices for home use that run open-source firmware. The medium level explains how these parts work together and how to compare machines."
@@ -6544,6 +6554,7 @@
       "subcategory": "node-hardware",
       "title": "Node Hardware",
       "description": "What a computer needs to run a Bitcoin full node, including storage, memory, bandwidth, power, and the choice between hardware types.",
+      "coverImage": "media/wiki/node-hardware/node-hardware-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A full node needs a computer that can keep up with the blockchain and check every block it receives. The heaviest work happens during the first sync, when the node downloads the full history and verifies it. After that, the node mostly needs reliable storage, a steady network connection and enough uptime to stay in step with the network.\n\nStorage is the first concern. The node keeps block data and a database of unspent outputs. Both grow over time. A node that keeps the full history needs a lot of space, while a pruned node discards older block files and needs less. The chain keeps growing, so check the node software documentation for current figures instead of relying on a number from a guide. Disk speed matters too. Bitcoin.org sets a minimum read and write speed for storage, because a slow disk makes the first sync take much longer.\n\nMemory and processor matter for the first sync, because every block is verified and the processor is busy for the whole download. Bandwidth matters because the node sends and receives data continuously. Uptime matters because a node that is offline cannot relay blocks, and it must catch up when it comes back."
@@ -6613,6 +6624,7 @@
       "category": "protocol",
       "title": "Coinbase Transaction",
       "description": "The first transaction in every block, which creates the new bitcoin of the block subsidy and collects the fees of the block.",
+      "coverImage": "media/wiki/coinbase-transaction/coinbase-transaction-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Every block starts with a special transaction called the coinbase transaction. A miner creates it while assembling a block, and it is the only transaction that does not spend existing outputs. Its single input has a null outpoint, a placeholder with an all-zero hash and the largest possible index, so it points to nothing. This is how the coinbase creates new bitcoin.\n\nThe coinbase collects the block reward: the block subsidy plus the fees paid by the other transactions in the block. Nodes reject the block if the coinbase claims more than that total. A miner may claim less, and the difference is simply lost.\n\nCoinbase outputs cannot be spent until they are 100 blocks deep. The rule protects the network from reorganizations. If the block that paid the miner is replaced by a competing branch, its new coins disappear with it, so spending them right away could invalidate other transactions.\n\nThe data field of the coinbase input is otherwise free-form. Since 2013 the block height must appear at the start of it, which makes every coinbase unique. Miners can also place arbitrary bytes there, which is why the genesis block carries a newspaper headline."
@@ -6700,6 +6712,7 @@
       "category": "protocol",
       "title": "Block Header",
       "description": "The 80-byte header of every block, its six fields, how its double SHA-256 hash is compared with the target, and why the nonce alone is no longer enough.",
+      "coverImage": "media/wiki/block-header/block-header-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "The block header is the part of a block that proof of work is computed on. It is always 80 bytes and holds six fields: a version, the hash of the previous block header, the Merkle root of the block's transactions, a timestamp, the target in a compact form called nBits, and a nonce. Because the header is so small, a miner can test many candidate hashes without moving the transaction data around.\n\nMiners change the nonce and the other flexible fields until the hash of the header falls below the target. Nodes do not repeat the search. They hash the header once and compare the result with the target that nBits encodes. The hash is computed with SHA-256 applied twice, which is why it is called a double SHA-256.\n\nThe header also carries the links that make the chain hard to rewrite. The previous block hash ties each header to its parent, and the Merkle root ties the header to every transaction in the block. Changing one transaction changes the root, which changes the header hash, so a rewritten block would need its own proof of work, and so would every block after it."
@@ -6782,6 +6795,7 @@
       "category": "protocol",
       "title": "Signature Hash Types",
       "description": "The sighash flags that decide which parts of a transaction a signature commits to, and how segwit and taproot changed the digest that gets signed.",
+      "coverImage": "media/wiki/sighash/sighash-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A signature in Bitcoin does not always cover the whole transaction. Each signature ends with a sighash byte that tells the verifier which parts were signed. The most common value, SIGHASH_ALL, commits to every input and every output. If someone changes an amount, an address or an input after signing, the signature no longer verifies.\n\nThe other flags leave room for others on purpose. SIGHASH_NONE signs the inputs but no outputs, so the destinations can be filled in later. SIGHASH_SINGLE signs the inputs and only the output at the same position as the input being signed. The ANYONECANPAY modifier narrows any of these to the one input being signed, so other people can add inputs to the transaction.\n\nEach flag is a decision about how much the signer is willing to leave open. The choice depends on how far the signer trusts the rest of the transaction to stay as written. Wallets almost always use SIGHASH_ALL. A normal payment from one person to another has no reason to let anyone else change it. The other flags are useful mainly when several parties build one transaction together, each signing only their own part and letting the others add theirs."
@@ -6854,6 +6868,7 @@
       "category": "protocol",
       "title": "Fee Bumping: RBF and CPFP",
       "description": "Two ways to raise the effective fee of an unconfirmed transaction that is stuck, replace-by-fee with a new conflicting version and child-pays-for-parent with a high-fee child.",
+      "coverImage": "media/wiki/fee-bumping/fee-bumping-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A transaction can get stuck when its feerate is too low for the block space that miners are filling. It stays in mempools, waiting for a block, and the sender needs a way to raise the fee without starting over. There are two common methods. Both work only while the transaction is still unconfirmed.\n\nReplace-by-fee (RBF) sends a new transaction that spends at least one of the same inputs and pays a higher total fee. Nodes that accept the replacement drop the original. The sender can do this alone, because they control their own inputs and can reduce their change output to pay the extra fee.\n\nChild-pays-for-parent (CPFP) works from the other side. Someone who holds an output of the stuck transaction spends it in a new child transaction with a high fee. The receiver of a payment can do this, and so can the sender if they have change to spend. A miner that looks at the parent and child together sees a higher combined feerate, so including both is worth it.\n\nBoth methods are node policies, not consensus rules. A miner can include any transaction that is valid under the consensus rules, whatever the nodes relaying it prefer. Merchants who accept unconfirmed payments should keep in mind that the sender may be able to replace the payment, so waiting for a confirmation is the safe choice."
@@ -6937,6 +6952,7 @@
       "category": "protocol",
       "title": "Change Outputs and Coin Selection",
       "description": "How a wallet chooses which UTXOs to spend, where the change goes, and what those choices cost in fees and privacy.",
+      "coverImage": "media/wiki/coin-selection/coin-selection-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A UTXO cannot be split. If a wallet holds one coin worth 50,000 sats and wants to pay 20,000 sats, the whole coin is spent. The difference goes to a new output that the wallet controls, called change. Change is an ordinary output, so it adds to the transaction size and creates one more coin that must be spent later.\n\nCoin selection is the step where the wallet chooses which of its UTXOs to spend. The chosen set has to cover the payment and the fee. Good selection balances several goals: keep the fee low, avoid creating outputs too small to spend economically, avoid leaking information about the wallet, and keep the number of inputs reasonable.\n\nNo single method meets every goal. Some wallets spend the oldest coins first, which is simple but can cost more in fees. Others look for a combination that matches the payment exactly, so no change is needed, and fall back to other methods when no exact match exists.\n\nConsolidation means spending many small coins into one new output. It makes sense when fees are low, because adding those inputs now costs less than it will cost later. It also has privacy costs, which is why wallets do not always consolidate."
@@ -7010,6 +7026,7 @@
       "category": "protocol",
       "title": "Dust Limit and OP_RETURN",
       "description": "The node policy that makes tiny outputs uneconomical to relay, and the provably unspendable OP_RETURN outputs used for data, with the standardness rules that have changed over time.",
+      "coverImage": "media/wiki/dust-and-op-return/dust-and-op-return-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Dust is an output so small that spending it would cost more in fees than the output is worth. The word describes an economic situation, but in Bitcoin Core it also names a precise relay rule. A transaction that creates dust outputs is not relayed or mined by default. Because the rule is policy, a node applies it on its own, and a miner can still include a dust output that a transaction carries.\n\nThe reason for the rule is the UTXO set. Every unspent output stays in the set until it is spent, and every full node keeps that set in its database. An output that nobody can afford to spend imposes its storage cost on the network for as long as it sits there. Dust limits discourage creating such outputs.\n\nOP_RETURN is a different kind of output. Its script marks the output as unspendable, so no later transaction can ever use it. This makes it suitable for attaching a small piece of data to a transaction without creating a coin that must be tracked. Because the output can never be spent, a node does not need to keep it in the spendable UTXO set. Such outputs are subject to a size limit, which belongs to policy and has changed over the years."
@@ -7097,6 +7114,7 @@
       "category": "protocol",
       "title": "Partially Signed Bitcoin Transactions (PSBT)",
       "description": "A standard container that carries an unsigned transaction and the data each signer needs, so separate devices and programs can sign it in turn.",
+      "coverImage": "media/wiki/psbt/psbt-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A PSBT, or partially signed Bitcoin transaction, is a file format that carries an unsigned transaction together with the information each signer needs to add its signature. BIP 174 defines the format. A PSBT is not a finished transaction. It cannot be broadcast until every input is signed and the signatures are assembled into a complete transaction.\n\nThe format exists because signing often happens somewhere else. A wallet may build a transaction on an internet-connected computer, while the keys sit on an air-gapped device or a hardware wallet. Without a shared format, each wallet and signer pair would need its own way to exchange data. A PSBT lets one program create the transaction, a compatible signer add its signature, and another program finish it.\n\nBIP 174 was designed so that an offline signer can sign without access to the full UTXO set and without being defrauded about what the transaction does. The PSBT carries the previous output data the signer needs, so the signer can check the amounts and destinations before it signs.\n\nEach signer adds only its own signatures. Multisig setups, where several keys must sign, and transactions whose inputs are held by different wallets both use this flow. A PSBT can travel as a binary file or as a Base64 string."
@@ -7167,6 +7185,7 @@
       "category": "protocol",
       "title": "Output Descriptors",
       "description": "A compact text language that states exactly which output scripts a wallet uses, with the keys, derivation paths and checksum needed to rebuild them.",
+      "coverImage": "media/wiki/output-descriptors/output-descriptors-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "An output descriptor is a short text string that describes a set of output scripts a wallet can use. It names the script type, the public keys, and where those keys came from. For example, a wpkh() descriptor with one key describes a single-key native segwit output, and the descriptor tells software exactly how to turn that key into a script.\n\nDescriptors matter for backups. A wallet's addresses come from its keys and from a script template. A backup that holds only private keys leaves the restoring program to guess which script types and derivation paths the wallet used. BIP 380 notes that such backups are insufficient, especially since segwit added new output types, and that they cause incompatibilities between wallets.\n\nA descriptor records the template together with the keys, so a restored or watch-only wallet can produce the same addresses. Many descriptors end with a hash sign and an 8-character checksum that detects typing errors. A descriptor that contains private keys is as sensitive as the keys themselves, and a version that contains only public keys is the one a watch-only wallet needs."
@@ -7250,6 +7269,7 @@
       "category": "protocol",
       "title": "Reorganizations and Stale Blocks",
       "description": "How nodes switch to the branch with more accumulated work when two blocks are found close together, what happens to the losing block, and why confirmations reduce risk.",
+      "coverImage": "media/wiki/reorganizations/reorganizations-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Sometimes two miners find valid blocks at nearly the same moment, and both extend the same previous block. The network now has a fork with two competing tips at the same height. Nodes do not keep both forever. Each node follows the branch it considers best, which is the one with the most accumulated proof of work. When the next block is found on top of one branch, that branch becomes stronger, and the other side is abandoned.\n\nThe losing block is called stale. It was valid, but it is no longer part of the best chain. Its transactions are not simply lost. When a node switches branches, it removes the stale block and tries to return its transactions to the mempool. A transaction that is still valid and does not conflict with the winning branch can be included in a later block. A transaction that the winning branch already spent differently is dropped. The coinbase transaction of the stale block is not returned, because it only pays a reward on the branch it belongs to.\n\nConfirmations reduce the risk of a reorganization. A payment buried under more blocks would require a longer alternative branch to be replaced. Coinbase outputs also cannot be spent until 100 blocks after they are created. This rule keeps a miner from spending a reward that a short reorganization could remove."
@@ -7330,6 +7350,7 @@
       "category": "protocol",
       "title": "SPV and Pruned Nodes",
       "description": "Two ways to use Bitcoin without storing the whole chain, a light client that checks headers and a pruned full node that validates everything but keeps only recent block files.",
+      "coverImage": "media/wiki/spv-and-pruning/spv-and-pruning-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A full node downloads every block and checks every rule itself. Two lighter ways to use Bitcoin are often confused: an SPV client keeps only block headers, and a pruned full node checks everything but deletes old block data. They solve different problems and trust different things.\n\nAn SPV client, described in section 8 of the Bitcoin whitepaper, keeps the headers of the chain with the most proof of work. Each header is 80 bytes and commits to the block's transactions through a Merkle root. To check a payment, the client asks a peer for the Merkle branch that links the transaction to a header it already holds. If the branch checks out, the transaction is in that block, and the blocks built on top of it show how much work protects it.\n\nA pruned full node validates the chain the same way an archival node does. It downloads every block, checks each one, and then deletes old block files to free disk space. It keeps enough recent data to follow the chain, but it cannot show you the blocks it has deleted.\n\nIn short:\n\n- An SPV client stores headers, checks inclusion with Merkle branches, and trusts that the most-work chain is valid.\n- A pruned node stores recent blocks, checks every rule, trusts nobody about validity, and has less history to offer other peers."
@@ -7414,6 +7435,7 @@
       "category": "protocol",
       "title": "Soft Fork Activation and Signalling",
       "description": "How Bitcoin coordinates a soft fork, with miners signalling readiness through version bits, rules moving through defined states, and nodes, not miners, deciding what is valid.",
+      "coverImage": "media/wiki/soft-fork-signalling/soft-fork-signalling-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A soft fork makes some previously valid blocks invalid. Every block accepted under the new rules is also accepted under the old ones, so nodes that have not upgraded keep following the same chain. Activation is the moment the new rules start to be enforced, and the network needs a way to agree on when that moment comes.\n\nFor most of Bitcoin's history, miners signalled readiness. A miner sets a bit in the block version field to say that its software supports the new rule. The network counts these signals period by period, and when enough blocks signal, the rule becomes active a little later. This is coordination: the signal tells everyone that most of the hashrate is ready to enforce the rule.\n\nThe signal is a bit in every block header, so anyone who reads the chain can count it. Signalling does not make a rule valid. Nodes check the rule on their own. A block that breaks the new rule is rejected by every upgraded node, even if it carries a signal. The signal tells operators which software miners run. It does not change what nodes accept."
@@ -7493,6 +7515,7 @@
       "category": "protocol",
       "title": "Mining Pools",
       "description": "Groups of miners who combine their hashrate, track work with shares and split the reward, and the trade-offs that come with pooling.",
+      "coverImage": "media/wiki/mining-pools/mining-pools-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Mining is a lottery. Each hash attempt has a small chance of falling below the target, and a miner's chance of finding the next block is roughly its share of the total hashrate. A small miner can wait a long time between blocks, and its income swings widely from day to day. The Optech pooled mining topic illustrates the point with a pool holding 1 percent of the hashrate, which can still go days without finding a block.\n\nMining pools exist to smooth that variance. Many miners combine their hashrate, share the work and split the reward according to a published rule. A pool works through shares. Members hash at a lower difficulty than the network, so a share is a header hash that proves work but is not a valid block. The pool counts the shares each member submits. When a hash also meets the network target, the pool has found a block, broadcasts it, and pays out the reward.\n\nMost members do not build the block themselves. In the common protocol, the pool sends a block header template and coinbase data, so members usually have no direct say over which transactions the block contains."
@@ -7572,6 +7595,7 @@
       "category": "protocol",
       "title": "Pay to Script Hash (P2SH)",
       "description": "The output type that commits to a hash of a script, so the spender reveals the conditions and a simple address can lock coins behind a complex script.",
+      "coverImage": "media/wiki/p2sh/p2sh-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A pay-to-script-hash (P2SH) output does not state its spending conditions in full. It states the 20-byte hash of a script. The person who later spends the coins must show the full script, called the redeem script, together with the data that satisfies it. The node hashes the revealed script and checks it against the output. If the hashes match, the script runs as usual. The redeem script must match the hash exactly, so a single byte of difference makes the coins unspendable. The script is therefore part of the spend, not of the output, and it becomes visible only when the coins move.\n\nThis design lets a sender pay into conditions the sender never wrote. A multisig arrangement, for example, can be locked behind one short hash that fits in a payment request or a QR code. The sender does not need to know the full script. The responsibility for supplying the conditions falls on the person who spends the coins, not on the person who pays them.\n\nP2SH addresses use Base58Check with version byte 5, so they begin with the character 3 on the main network. The address does not show what the script requires. Anyone who wants to know the conditions has to see the redeem script, which is revealed only when the coins are spent."
@@ -7652,6 +7676,7 @@
       "category": "cryptography",
       "title": "MuSig2",
       "description": "A Schnorr multi-signature protocol in which several signers produce one signature under one aggregate public key, so a shared spend looks like a single-signer spend.",
+      "coverImage": "media/wiki/musig/musig-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Multi-signature is a way to lock funds so that several people must agree before they can be spent. Script multisig does this by placing every public key on chain and requiring a set number of signatures. MuSig2 reaches the same goal with a different structure. The signers combine their public keys into one aggregate key, and together they produce one ordinary Schnorr signature for it. The spend looks like a payment from a single key.\n\nThat difference matters for size and privacy. A cooperative spend of a MuSig2 output uses one signature, and an observer cannot tell how many people signed or how many keys existed. A script multisig spend reveals the structure of the arrangement, because the script lists the keys and the signatures sit next to them.\n\nMuSig2 is an n-of-n scheme: every signer must take part. It does not let a subset of signers spend alone. Threshold schemes such as FROST cover that case, but they are a separate design, and this entry does not describe them further.\n\nSigning also needs coordination. The signers exchange values in rounds before a signature can be made, so the protocol is less convenient than a script multisig in which each signer signs on its own."
@@ -7731,6 +7756,7 @@
       "category": "protocol",
       "title": "Weight Units and Virtual Bytes",
       "description": "How Bitcoin measures transaction and block size since SegWit, and why fee rates are quoted in virtual bytes.",
+      "coverImage": "media/wiki/weight-units/weight-units-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "In Bitcoin, the size of a transaction is measured in two related units. Weight units (WU) are what the protocol uses to limit blocks. Virtual bytes (vB) are weight units divided by four, and fee rates are quoted in them. Both units exist because the SegWit upgrade changed how signature data is stored.\n\nWeight counts the non-witness part of a transaction four times and the witness part, which holds the signatures, once. A transaction with no witness data therefore has a virtual size equal to its byte count. A SegWit transaction has part of its data counted at a quarter of the usual rate, so its virtual size is smaller than its raw size.\n\nA block may contain at most 4,000,000 weight units. This replaced the older limit of one megabyte of serialized data. A block full of witness data can be larger than one megabyte in raw bytes, while a block made only of legacy data cannot exceed one million bytes.\n\nExample with round numbers. Suppose a transaction has 200 bytes outside its witness and 100 bytes of witness, for a total of 300 bytes. Its weight is 200 x 3 + 300 = 900 WU, so its virtual size is 900 / 4 = 225 vB. If it pays 4,500 satoshis, its fee rate is 4,500 / 225 = 20 sat/vB."
@@ -7801,6 +7827,7 @@
       "category": "protocol",
       "title": "Transaction Malleability",
       "description": "How a transaction's identifier could be changed by a third party without invalidating the transaction, and how SegWit removed the problem for new spends.",
+      "coverImage": "media/wiki/transaction-malleability/transaction-malleability-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A transaction's identifier, the txid, is the double SHA-256 hash of its serialized data. Malleability means that someone who can see a transaction can change part of its data, without any private key, so that the transaction stays valid but gets a different txid. The same coins move, but software that tracks the payment by its txid no longer finds the transaction it expected.\n\nThis matters because senders often follow a payment by its txid. If a changed version is the one that confirms, the sender's software may search for a transaction that does not exist and conclude that the payment failed. Some systems also build a second transaction that spends an output of the first, and that second transaction breaks when the first one's txid changes.\n\nBefore SegWit, the main source of the problem was the signature. Signature data was part of the txid calculation, and a signature could be encoded in more than one valid way. The window of risk is the time before confirmation, because once a transaction is confirmed, the version in the chain is the one that counts.\n\nSegWit removed the problem for spends of SegWit outputs. Their signatures sit outside the txid calculation. Legacy transactions can still be changed in this way."
@@ -7886,6 +7913,7 @@
       "category": "protocol",
       "title": "Testnet, Signet and Regtest",
       "description": "The networks developers use to test Bitcoin software with coins that have no value, and how each one trades realism for predictability.",
+      "coverImage": "media/wiki/test-networks/test-networks-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Developers need to test wallets, nodes and payment software without risking money. Test networks make that possible. They work like the main network, with blocks, transactions and addresses, but their coins have no market value. Each network trades some realism for predictability.\n\nTestnet is a public network that anyone can join. Its blocks are found with proof of work, as on the main network, but it is less stable. Its history includes several resets, and its difficulty can drop sharply, which allowed bursts of very fast blocks. Testnet4 is the current successor to testnet3.\n\nSignet is a test network where each block must also carry a signature from a key set by the network's creator. Block production is therefore predictable. Regtest is a private chain on one machine, where the user creates blocks when needed, which suits automated tests.\n\nEach network has its own address prefixes. Bech32 addresses on testnet and signet begin with tb1, and on regtest with bcrt1. A careful wallet checks the network of an address and refuses one that belongs to another.\n\nTest coins usually come from faucets, which are services that send small amounts to whoever asks. The coins are useful only for testing, so treat them as having no value."
@@ -7971,6 +7999,7 @@
       "category": "cryptography",
       "title": "Base58Check, Bech32 and Bech32m",
       "description": "The checksummed encodings behind Bitcoin addresses, how each one catches typing errors, and which address types use which encoding.",
+      "coverImage": "media/wiki/address-encodings/address-encodings-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "An address is a short string that encodes a hash, a type or network prefix, and a checksum. The checksum exists so that a mistyped character is caught before money is sent to the wrong place. Bitcoin uses three encodings: Base58Check for legacy addresses, Bech32 for SegWit version 0, and Bech32m for Taproot and later witness versions.\n\nBase58Check uses 58 characters and leaves out 0, O, I and l, which look alike in many fonts. A version byte comes before the payload, and a four-byte checksum from a double SHA-256 hash comes after it. Mainnet pay-to-public-key-hash addresses begin with 1, and pay-to-script-hash addresses begin with 3.\n\nBech32 uses 32 lowercase letters and digits, and it does not mix cases. A string has three parts: a human-readable part such as bc, a separator that is always the digit 1, and a data part whose last six characters are the checksum. Because the text is alphanumeric, Bech32 fits better in QR codes.\n\nThe Bech32 checksum detects any error that affects at most four characters. Bech32m uses the same structure with a different checksum constant, and it is required for witness version 1 and later. A string valid in one encoding is not valid in the other."
@@ -8052,6 +8081,7 @@
       "category": "privacy-security",
       "title": "Threat Models",
       "description": "Security and privacy in Bitcoin depend on who you are protecting against, so every defence covers some threats and leaves others open.",
+      "coverImage": "media/wiki/threat-model/threat-model-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Security and privacy in Bitcoin start with a question that is easy to skip: protection from whom? Every defence covers some threats and leaves others open. A wallet that keeps keys offline protects them from malware on a computer, but it does nothing about a public address that links all your payments. Hiding your IP address keeps peers from logging your connections, but it does not hide what the transactions contain.\n\nTwo kinds of asset need protection. The first is the keys that can sign spending. The second is the privacy of balances and payments, because the ledger is public and permanent. Losing a key can cost you everything at once. Losing privacy cannot be undone, even if no coin is stolen.\n\nSeveral parties can act as adversaries: someone who gets into your computer, a thief who finds your device, a service that holds your keys or sees your requests, a network observer, an analyst who groups addresses on the chain, and someone who knows you.\n\nThree examples show how needs differ. A freelancer who publishes a donation address wants strangers not to see the income of the whole address. A saver with a large balance mainly needs keys that never sit on a connected device. A person who runs a node at home wants peers not to learn the home IP address. Each defence has a cost."
@@ -8125,6 +8155,7 @@
       "category": "privacy-security",
       "title": "Common Input Ownership Heuristic",
       "description": "The assumption that all inputs of one transaction belong to the same owner, and how chain analysis uses it to group addresses.",
+      "coverImage": "media/wiki/common-input-ownership/common-input-ownership-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "A transaction can spend several coins at once. Each coin is a previous output that a key controls. The common-input-ownership heuristic is the assumption that all the inputs of one transaction belong to the same person or entity. It is a sensible guess, because a wallet usually spends several of its own coins together when no single coin is large enough to cover a payment.\n\nThe original whitepaper already notes this link. Its privacy section says that multi-input transactions necessarily reveal that their inputs had the same owner, and that if one owner is identified, other transactions could be linked to that owner too.\n\nChain analysis software uses the assumption to group addresses into clusters that probably belong to one user. A cluster is not proof of ownership, but it is often strong enough to matter. The practical lesson is simple: when you spend several coins in one payment, you tell outside observers that those coins belong together.\n\nCombining coins can be useful for practical reasons, but it trades privacy for convenience. Decide which coins you are willing to show as one group before you spend them together."
@@ -8205,6 +8236,7 @@
       "category": "privacy-security",
       "title": "Address Reuse",
       "description": "Receiving several payments at one address links them together on the public ledger, and modern wallets avoid this by deriving a new address for each payment.",
+      "coverImage": "media/wiki/address-reuse/address-reuse-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "An address that receives several payments links them together. Anyone can see that the same address received coins at different times, from different senders, and that those coins were later spent. The ledger is permanent, so the link does not expire. People who pay you can also see your other payments to the same address, and so can anyone who learns the address from a website, an invoice or a social media post.\n\nReuse also has a security side. When coins are spent, the transaction reveals the public key that controls them. Reusing an address keeps funds under a key that is already public. Today this is a theoretical concern, because breaking such a key would require a quantum computer, and no such machine has been shown to do it.\n\nModern wallets avoid reuse automatically. They derive a new receiving address for each payment from the same seed, so you do not have to track which addresses you used. Publishing one address on purpose, for example for donations, is one common case where reuse is hard to avoid, and it is a trade-off you choose knowingly."
@@ -8289,6 +8321,7 @@
       "category": "privacy-security",
       "title": "CoinJoin",
       "description": "A way for several users to build one transaction together so that outside observers cannot easily match each input with its output.",
+      "coverImage": "media/wiki/coinjoin/coinjoin-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "CoinJoin is a way for several people to build one Bitcoin transaction together, so that an outside observer cannot easily tell which input paid which output. Each participant contributes coins and receives a new output. The result looks like one transaction with many inputs and many outputs, and the public ledger does not show which output belongs to which contributor.\n\nGregory Maxwell proposed the idea in 2013 on the bitcointalk forum. The key observation is that the signatures on the inputs are independent of one another. Participants can agree on the set of inputs and outputs, sign their own inputs separately, and merge the signatures. The transaction is not valid until every signature is present, so no participant can take another's coins.\n\nThe privacy comes from ambiguity. If several outputs have the same amount, an observer can only say that any of them could have come from any input of that amount. The larger the group of indistinguishable outputs, the larger the anonymity set. A transaction with two participants gives little protection. A transaction with many participants, or several rounds one after another, gives much more.\n\nCoinJoin does not hide that the transaction was joined. It makes the link between an input and an output harder to establish. It also has costs: fees, timing and small mistakes can undo the benefit."
@@ -8368,6 +8401,7 @@
       "category": "privacy-security",
       "title": "Tor and Bitcoin",
       "description": "Tor hides the network address of a node or wallet from the peers and observers it talks to, but it does not hide the transactions themselves.",
+      "coverImage": "media/wiki/tor/tor-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Tor is an anonymity network that routes traffic through several relays, so the peer you connect to sees the address of an exit relay instead of yours. For Bitcoin the useful question is what Tor hides and what stays visible.\n\nTor hides the network address of your node or wallet from the peers you connect to and from anyone who watches the network near you. This matters because a peer that logs connections can associate a transaction with an IP address. Bitcoin.org suggests Tor for this reason.\n\nTor does not hide the transactions. The ledger is public, so the inputs, outputs, amounts and timing of a transaction can be read by anyone, whichever network carried it. If your wallet asks a remote server about your addresses, that server still sees the addresses even when the connection is routed through Tor. Tor hides where a connection comes from, not what the ledger contains.\n\nBitcoin Core can send outgoing connections through a Tor proxy, and it can listen as an onion service so that other nodes reach it without learning its IP address. The onion routing used by Lightning payments is a different mechanism, described in its own entry: it encrypts payment instructions in layers and does not route Bitcoin peer-to-peer traffic."
@@ -8446,6 +8480,7 @@
       "category": "privacy-security",
       "title": "Dandelion",
       "description": "A relay proposal that hides which node first announced a transaction by passing it along a short stem of single peers before normal broadcast, and why Bitcoin Core has not adopted it.",
+      "coverImage": "media/wiki/dandelion/dandelion-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Every node that receives a transaction can pass it on to its other peers. An observer who runs many nodes, or who connects to many of them, can watch which connection announces a transaction first. The first node to send a transaction is often the node that created it. If that node's IP address is known, the observer can link the transaction to a place or a person.\n\nDandelion is a proposal that makes this kind of guess harder. Instead of announcing a new transaction to all peers at once, a node first passes it along a line of single peers. This is the stem phase. At each step the transaction may leave the stem and enter the fluff phase, which is ordinary broadcast to all peers. Because the first wide announcement now comes from a node that may not have created the transaction, that announcement says less about where the transaction started.\n\nDandelion is not part of Bitcoin Core. BIP 156 describes the idea, and its status is closed. Bitcoin Core does not use a stem phase. The stem also adds delay, and a peer on the stem path can stop forwarding a transaction. The medium level explains how the protocol deals with these problems, and the advanced level explains why the proposal was not merged."
@@ -8525,6 +8560,7 @@
       "category": "privacy-security",
       "title": "Custody and Self-Custody",
       "description": "Who holds the keys to bitcoin, a custodian or the owner, and the trade-offs of each model, including multisig and collaborative custody as middle grounds.",
+      "coverImage": "media/wiki/self-custody/self-custody-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Custody answers one question: who can move the bitcoin? In custodial storage, a company holds the keys. You do not control the coins directly. You have a claim against the company, and it decides whether and when a withdrawal happens. In self-custody, you hold the keys yourself, and no third party is needed to spend.\n\nEach model has its own risks. A custodian carries counterparty risk. The company can fail, freeze withdrawals or misreport balances, and you rely on its security and honesty. Self-custody removes that dependence, but it puts the responsibility on you. If you lose the keys and the backup, nobody can restore the funds. If someone else obtains the keys, they can move the coins without asking anyone.\n\nNeither model is free of risk, and inheritance raises the same question, because heirs need a way to reach the custodian or the keys. The choice depends on how much security you can maintain, how often you need to move funds, and what will happen to the funds if you cannot act yourself. The next levels describe the trade-offs in more detail and the arrangements that sit between the two extremes."
@@ -8599,6 +8635,7 @@
       "category": "privacy-security",
       "title": "Cold Storage",
       "description": "Keeping the private keys on a device that never connects to the internet, and how a cold wallet receives payments and signs spends through a watch-only wallet and an unsigned transaction.",
+      "coverImage": "media/wiki/cold-storage/cold-storage-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Cold storage keeps the private keys on a device that never connects to the internet. The device that holds the keys is the cold side. The computer or phone that shows balances and broadcasts transactions is the hot side. The idea is that malware or an attacker on the network cannot read the keys, because they never reach a machine that is online. The Bitcoin Wiki describes cold storage as a way to resist theft by hackers and malware, which is why it is often used for large holdings.\n\nA cold wallet can still receive bitcoin. A watch-only wallet on an online computer holds only public keys. It generates receiving addresses and tracks incoming payments, and the offline device never needs to be connected for this.\n\nSpending is the harder part. The online computer builds an unsigned transaction. That transaction moves to the offline device by USB drive, QR code or manual transcription. The offline device signs it, the signed result returns to the online computer, and the online computer broadcasts it. A standard format for this exchange is the PSBT.\n\nThe offline device is only as safe as its setup and as careful as the checks you make on it. The next levels cover the remaining risks and compare cold storage with a hardware wallet used every day."
@@ -8673,6 +8710,7 @@
       "category": "privacy-security",
       "title": "Physical Attacks",
       "description": "How physical coercion can defeat cryptographic protection, which factors raise the risk, and the design ideas that reduce it along with their limits.",
+      "coverImage": "media/wiki/physical-attacks/physical-attacks-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Cryptography protects a key against guessing and copying. It does not protect the owner against being made to use the key. A physical attack targets the person, the device or the place where the secrets are kept, and it can succeed even when the mathematics holds. The phrase \"$5 wrench attack\" is a shorthand for this situation. It comes from an xkcd comic in which the attackers skip the mathematics and use a cheap tool instead.\n\nThe risk depends partly on who knows what you hold. The Bitcoin Wiki advises keeping holdings private, because a person whose wealth is known is a more obvious target. Records kept by others can expose holdings as well. A list of customers or account holders reveals who owns what if it leaks, and the same is true of any document that links a name to a set of keys.\n\nSecurity therefore depends on people as well as on technology. The Bitcoin Wiki notes that holdings are secured by people and not by technology alone, and that hardware devices can be defeated by coercion. The defences in the next levels are design ideas. Each one reduces one risk and leaves others in place, and each has limits that are worth knowing before relying on it."
@@ -8750,6 +8788,7 @@
       "category": "privacy-security",
       "title": "Passphrase (BIP 39)",
       "description": "The optional BIP 39 passphrase, which is mixed into seed derivation so that each passphrase yields a different valid wallet, with what it protects, what it does not, and its pitfalls.",
+      "coverImage": "media/wiki/passphrase/passphrase-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "The BIP 39 passphrase is an optional text that you add to the seed words. It is often called the 25th word, although it is not a word from the list. It can be any text the user chooses. When a passphrase is used, the wallet derives its keys from both the seed and the passphrase. The same seed words with no passphrase, or with a different one, lead to different keys, and the wallet built from them can be empty.\n\nThe protection is simple to describe. Someone who finds a seed backup does not automatically get the funds, because the passphrase is also needed. The Bitcoin Wiki gives the same warning: a seed that is not also protected by a secret passphrase lets anyone who finds it take the bitcoin.\n\nThe passphrase has a cost. It must be remembered or backed up separately, and it must be recorded exactly. If it is lost, the funds behind it cannot be recovered, even with the seed. The wallet does not tell you when the passphrase is wrong. The next levels explain how the derivation works and why that matters."
@@ -8813,6 +8852,7 @@
       "category": "myths",
       "title": "\"Bitcoin is anonymous\"",
       "description": "Bitcoin is pseudonymous, not anonymous, because every transaction is public and permanent and addresses can often be linked to people.",
+      "coverImage": "media/wiki/myth-anonymous/myth-anonymous-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "False as stated: Bitcoin is pseudonymous, not anonymous. Transactions carry no names, but every transaction is public and permanent, and the addresses they use can often be linked to real people.\n\nThink of a public notice board where everyone signs with a nickname. The nickname does not reveal who wrote a message, but if the same nickname posts for years, and someone once learns who it belongs to, its whole history becomes readable. Bitcoin works in a similar way. An address is a string of characters, not a name, but it stays on the ledger forever, together with its amounts and timing.\n\nMost links come from outside the chain. A service that checks identity documents can connect an account to the addresses it uses, and Bitcoin.org points out that users usually have to reveal their identity to receive goods or services. Reusing an address joins all the payments made to it. Your internet connection can reveal where a transaction started, and a page that shows your address adds another piece. Each piece is weak on its own, but together they can identify a person.\n\nPrivacy tools help, yet none makes a payment invisible. Avoiding address reuse, CoinJoin and Tor each hide one kind of link and leave others exposed."
@@ -8893,6 +8933,7 @@
       "category": "myths",
       "title": "\"Bitcoin is backed by nothing\"",
       "description": "No issuer or asset stands behind bitcoin, so its properties come from enforced rules and network consensus, and its value depends on continued demand.",
+      "coverImage": "media/wiki/myth-backed-by-nothing/myth-backed-by-nothing-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "True in one sense, misleading in another. No issuer, reserve or asset stands behind bitcoin, and nobody promises to redeem it. That describes how it works, not whether it has value, because its properties come from rules that the network enforces.\n\nThink of a game with a fixed rulebook. The game needs no bank behind it to keep the supply of tokens within a limit, as long as every player checks the same rules. Bitcoin's supply schedule works this way. The total is capped at slightly less than 21 million coins, and the block subsidy halves every 210,000 blocks, about every four years. Full nodes reject any block that breaks these rules, so a miner who tries to create extra coins gets nothing accepted.\n\nNew blocks also need proof of work, which makes rewriting recent history expensive. Payments move between users without an intermediary that keeps the balances.\n\nNone of this says that bitcoin has a particular value, and it does not promise that demand will last. Those are separate questions. The serious objection to the claim is about them, and it is covered in the advanced section."
@@ -8969,6 +9010,7 @@
       "category": "myths",
       "title": "\"Governments can shut Bitcoin down\"",
       "description": "Partly true: no state can switch off the network, but a state can ban or restrict its use inside its borders, which is a different and real limit.",
+      "coverImage": "media/wiki/myth-can-be-shut-down/myth-can-be-shut-down-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true. No government, company or server can switch off Bitcoin as a whole, but a government can ban or restrict its use inside its own borders, and that limit is real.\n\nBitcoin is not run from one place. Its ledger is copied by many full nodes that independent people run in many countries. Each node checks the rules for itself, so turning off one of them does not stop the others, and a copy that breaks the rules is rejected by the rest. To stop the network, someone would have to shut down almost every node at once, in every country, and no authority controls that.\n\nWhat a government can do is narrower. It can make it illegal to own or mine bitcoin, order exchanges and banks to stop serving its residents, or tax the activity heavily. Those measures make bitcoin hard to buy, sell and mine for people inside that country. They do not stop the network, and people outside the ban keep using it.\n\nThe two things are not the same. Stopping the network and making it hard to use in one place are different problems, and the first would need control over most of the world's nodes. The second is easy to do, and it has happened."
@@ -9044,6 +9086,7 @@
       "category": "myths",
       "title": "\"Bitcoin is mostly used by criminals\"",
       "description": "Illicit use of bitcoin is real and documented, but published estimates differ widely by method and year, and none of those cited here shows that criminal use is the majority.",
+      "coverImage": "media/wiki/myth-criminal-use/myth-criminal-use-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "False as a general statement, although illicit use is real. Criminals have used bitcoin, and published estimates of how much activity is illicit differ widely by method and year. None of the estimates cited here shows that criminal use is the majority of bitcoin activity.\n\nThink of a payment system used by millions of people, where a small number of users commit crimes. The useful question is how much of all the activity is illegal, not whether crimes happen. A public ledger changes what can be measured, because every payment is recorded. The same record also lets investigators follow coins, which is why bitcoin has been traced in many cases.\n\nThe best-known illicit market, Silk Road, accepted bitcoin for its listings from its launch in February 2011 until the FBI shut it down in October 2013. Ransomware operators have also used cryptocurrency to collect payments. These cases are documented.\n\nThe size of illicit use depends on what is counted. A 2019 academic study, using data that ends in 2017, estimated that close to half of bitcoin transactions by number were linked to illegal activity. The blockchain-analysis company Chainalysis reports that illicit addresses received less than 1 percent of attributed volume in 2025, across all cryptocurrencies and not bitcoin alone. Each estimate has limits, which the medium and advanced sections explain."
@@ -9118,6 +9161,7 @@
       "category": "myths",
       "title": "\"Bitcoin wastes energy\"",
       "description": "Mining uses a large amount of electricity by design to make rewriting history costly, but whether that counts as waste is a value judgement.",
+      "coverImage": "media/wiki/myth-energy-waste/myth-energy-waste-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true. Bitcoin mining uses a large amount of electricity by design, because proof of work makes miners spend energy to produce blocks. Whether that counts as waste is a value judgement, and this entry does not settle it.\n\nThink of a lock whose strength comes from how much effort it takes to pick. The effort is the point, and it has to be paid again on every attempt. In Bitcoin the equivalent effort is electricity and hardware. Someone who wants to rewrite confirmed history has to match and then outpace the work of the honest network, so the energy spent is what makes a rewrite expensive.\n\nThe energy use is not set by how many payments the network processes. It depends on how much mining competition there is, which in turn depends on the block reward and the cost of electricity. A busy day and a quiet day can use similar energy while carrying very different numbers of payments.\n\nWhether that electricity comes from clean sources depends on where mining happens, and it changes over time. Estimates of the mix differ, so any single answer should be read with its assumptions in view."
@@ -9192,6 +9236,7 @@
       "category": "myths",
       "title": "\"Miners control Bitcoin\"",
       "description": "Partly true: miners choose which valid transactions enter a block and in what order, but they cannot change the rules that nodes enforce.",
+      "coverImage": "media/wiki/myth-miners-control/myth-miners-control-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true. Miners choose which valid transactions go into each block and in what order, so they influence what gets confirmed and when. They do not set the rules. Every full node checks each block against the consensus rules, and a block that breaks them is rejected, no matter how much hashrate produced it.\n\nThink of miners as the people who pack a mail bag. They can leave a letter out, put some letters first, or hold the bag back for a while. They cannot print new stamps, change the postal rules, or open someone else's envelope. Every post office checks the bag before passing it on. A majority of miners can rewrite the last few bags, so a payment that was just sent can be undone, and they can refuse to carry particular letters for as long as they hold the majority. Those powers are real, but they are narrow and temporary. Creating coins or spending coins that belong to someone else is outside what miners can do. The limits matter as much as the powers, so both are covered below."
@@ -9280,6 +9325,7 @@
       "category": "myths",
       "title": "\"Bitcoin is a Ponzi scheme\"",
       "description": "Mostly false as a description of how the network works, with a fair point inside it: the price depends on new buyers, and many scams have used bitcoin.",
+      "coverImage": "media/wiki/myth-ponzi/myth-ponzi-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Mostly false as a description of how the network works, with a fair point inside the objection. A Ponzi scheme has an operator who promises returns and pays earlier investors with money from later ones. Bitcoin has no operator, promises no return to anyone, and its rules and ledger are public. The fair point is that the market price depends on whether new buyers keep arriving, and many scams have used bitcoin or its name. That is why critics reach for the word.\n\nCompare the features one by one. A Ponzi scheme needs someone who collects money and decides who gets paid. Bitcoin has no company, fund or treasury that takes deposits and sends them back out. Payments go from one owner to another, and the network records them without an intermediary. A Ponzi scheme promises a return. Bitcoin promises none, and a holder earns nothing simply by holding it. A Ponzi scheme keeps its books hidden. Bitcoin's ledger can be read by anyone who runs a node. The differences are structural, and they are the reason the word fits badly, even though the price risk the critics describe is real."
@@ -9355,6 +9401,7 @@
       "category": "myths",
       "title": "\"Quantum computers will break Bitcoin\"",
       "description": "Partly true: a large enough quantum computer would threaten signatures on exposed keys, but no such machine exists today and no date is known.",
+      "coverImage": "media/wiki/myth-quantum/myth-quantum-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true. A quantum computer that could break Bitcoin's signatures would be a serious long-term threat, but no such machine exists today, and nobody knows when one might. The threat is also narrower than the claim suggests. It applies mainly to coins whose public key is already visible on the blockchain, while hashing, which secures mining, is much less affected.\n\nBitcoin protects spending with signatures made from a private key. The public key is derived from that private key, and a signature proves that the spender knows the private key. A quantum computer running a suitable algorithm could in principle work backward from a public key to the private key, which would let an attacker spend coins whose key is exposed. Many addresses hide their public key behind a hash until the coins are spent, so they are exposed much less.\n\nThe accurate statement is that the risk is real for some outputs, in a future that is uncertain. Developers have proposals for post-quantum signatures and output types, but none is in Bitcoin yet, and the alternatives involve much larger keys and signatures."
@@ -9433,6 +9480,7 @@
       "category": "myths",
       "title": "\"The 21 million limit can be changed\"",
       "description": "Partly true: the limit is code that could be edited, but adding coins would be a hard fork that every node must choose to adopt, and nodes that refuse it keep the old chain.",
+      "coverImage": "media/wiki/myth-supply-can-change/myth-supply-can-change-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true. The 21 million limit is a rule written in Bitcoin's software, so the software could in principle be changed. But adding coins would be a hard fork, and every node must choose whether to adopt it. Nodes that refuse keep the old rules and the old chain, so a larger supply would not be the bitcoin that the existing network accepts.\n\nThe limit is not a promise made by anyone. It is a check that every full node runs when it accepts a block. A block that creates more coins than the rules allow is invalid, and nodes reject it. To create extra coins, someone would have to persuade the people who run nodes, miners and exchanges to adopt software that accepts a different rule, and then to make that chain the one people use.\n\nThat is why the question is about agreement as much as code. The code can be edited, but a change that creates coins only becomes Bitcoin if enough of the network runs it. Nobody can force the new rule onto nodes that keep the old one."
@@ -9511,6 +9559,7 @@
       "category": "myths",
       "title": "\"Bitcoin is too slow to be useful\"",
       "description": "Partly true: the base layer confirms only a few transactions per second by design, and layers built on top handle smaller payments with their own trade-offs.",
+      "coverImage": "media/wiki/myth-too-slow/myth-too-slow-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true. The base layer, which is the main Bitcoin chain, is slow for everyday payments. A new block arrives about every ten minutes and holds only a limited amount of data, so the chain handles only a few transactions per second. It is still the place where payments become final, and where large or important transfers settle, because that is what it is built for. Small everyday payments usually run on layers built on top of it, such as the Lightning Network, which are faster and cheaper but carry trade-offs of their own.\n\nThe limit is deliberate. Keeping blocks small makes it cheaper for ordinary people to run a full node, and nodes are what keep Bitcoin's rules honest. Bigger blocks would make it faster to move coins, but they would need more powerful computers to check, and fewer people could run a node. Speed and the ability for anyone to verify the chain pull against each other.\n\nSo the honest answer is that Bitcoin is slow for many purposes, and that slowness is a choice about what the base layer is for."
@@ -9591,6 +9640,7 @@
       "category": "myths",
       "title": "\"Bitcoin has been hacked\"",
       "description": "Partly true: exchanges and wallets have been broken into and the software has had serious bugs, but no known flaw let anyone spend coins without their keys.",
+      "coverImage": "media/wiki/myth-was-hacked/myth-was-hacked-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "Partly true, and the useful question is which part. The protocol has not been hacked in the sense that anyone has forged signatures or spent coins without their keys. But the software has had serious bugs, and services built around bitcoin, such as exchanges and online wallets, have been broken into many times, with customers losing funds.\n\nThink of three layers. The protocol is the set of rules. The software is the program that implements them. The services are the exchanges and wallet companies that hold keys or balances for other people. A break-in at a service is theft from that service's customers, and it does not change the protocol. A bug in the software can be more serious. In 2010 a flaw let one transaction create far more coins than the rules allow, and the network had to be patched quickly. Such bugs were found and fixed through disclosure and upgrades. The accurate statement is that software and services can fail and that the failures have cost people money. The inaccurate statement is that an outsider can take bitcoin from a holder who keeps their own keys."
@@ -9682,6 +9732,7 @@
       "category": "myths",
       "title": "\"You have to buy a whole bitcoin\"",
       "description": "False: one bitcoin divides into 100,000,000 satoshi, and the software counts every amount in satoshi.",
+      "coverImage": "media/wiki/myth-whole-coin/myth-whole-coin-hero.svg",
       "readingLevels": {
         "base": {
           "bodyMarkdown": "False. You do not have to buy a whole bitcoin. One bitcoin is divided into 100,000,000 satoshi, and the software records every amount in satoshi. Anyone can hold, send or receive a fraction of a coin, down to one satoshi. The price of one whole coin says nothing by itself about what a small amount costs.\n\nThe division comes from the software. Bitcoin Core defines one coin as 100,000,000 base units, so eight decimal places separate a coin from its smallest unit. The outputs of a transaction state their value in satoshi. A wallet may display an amount as BTC, as millibitcoin, as bits or in satoshi, but the underlying value is a whole number of satoshi. The unit names are conventions for display. They are not different currencies.\n\nPractical limits do exist. A very small output can cost more to spend than it is worth, and nodes that apply the default relay rules will not pass such outputs on. Fees also set a floor on what is economical on the main chain. Those limits concern which payments make sense at a given moment. They do not stop anyone from owning a fraction of a coin. A whole coin is simply a reference point, in the way a dollar is a reference point with cents below it."

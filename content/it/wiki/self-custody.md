@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Custodia e self-custody
 description: Chi detiene le chiavi dei bitcoin, un custode o il proprietario, e i compromessi di ciascun modello, con multisig e custodia collaborativa come vie di mezzo.
+coverImage: media/wiki/self-custody/self-custody-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

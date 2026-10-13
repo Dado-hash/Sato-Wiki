@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"I miner controllano Bitcoin"'
 description: "In parte vero: i miner scelgono quali transazioni valide entrano in un blocco e in che ordine, ma non possono cambiare le regole che i nodi applicano."
+coverImage: media/wiki/myth-miners-control/myth-miners-control-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

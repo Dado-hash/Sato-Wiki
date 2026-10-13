@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Reorganizations and Stale Blocks
 description: How nodes switch to the branch with more accumulated work when two blocks are found close together, what happens to the losing block, and why confirmations reduce risk.
+coverImage: media/wiki/reorganizations/reorganizations-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

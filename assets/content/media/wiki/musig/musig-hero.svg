@@ -1,0 +1,28 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MuSig2 key aggregation</title>
+  <desc id="desc">Three signer keys combine into one aggregate key, which produces a single 64-byte signature.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(0 -10)">
+
+  <rect x="180" y="128" width="160" height="64" rx="8" fill="#1C2128" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="400" y="128" width="160" height="64" rx="8" fill="#1C2128" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="620" y="128" width="160" height="64" rx="8" fill="#1C2128" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="260" y="168" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="22">P1</text>
+  <text x="480" y="168" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="22">P2</text>
+  <text x="700" y="168" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="22">P3</text>
+
+  <path d="M260 192L430 258" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <path d="M480 192V258" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <path d="M700 192L530 258" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+
+  <rect x="400" y="258" width="160" height="64" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+  <text x="480" y="298" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="26" font-weight="700">P</text>
+
+  <path d="M480 326V376" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="472,376 480,388 488,376" fill="#F7931A"/>
+
+  <rect x="400" y="388" width="160" height="54" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <text x="480" y="420" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="18">64 bytes</text>
+</g>
+</svg>

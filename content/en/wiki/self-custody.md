@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Custody and Self-Custody
 description: Who holds the keys to bitcoin, a custodian or the owner, and the trade-offs of each model, including multisig and collaborative custody as middle grounds.
+coverImage: media/wiki/self-custody/self-custody-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

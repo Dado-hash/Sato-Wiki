@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Pay to Script Hash (P2SH)
 description: Il tipo di output che impegna l'hash di uno script, così chi spende rivela le condizioni e un indirizzo semplice può bloccare fondi dietro uno script complesso.
+coverImage: media/wiki/p2sh/p2sh-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

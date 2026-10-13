@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Partially Signed Bitcoin Transactions (PSBT)
 description: A standard container that carries an unsigned transaction and the data each signer needs, so separate devices and programs can sign it in turn.
+coverImage: media/wiki/psbt/psbt-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

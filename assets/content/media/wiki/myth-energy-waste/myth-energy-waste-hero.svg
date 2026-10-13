@@ -1,0 +1,40 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Proof of work attempts</title>
+  <desc id="desc">Many hash attempts, where only one succeeds and produces a new block.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="288" y="130" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="18">hash</text>
+
+  <!-- Hash attempts -->
+  <rect x="110" y="150" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="184" y="150" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="258" y="150" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="332" y="150" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="406" y="150" width="60" height="60" rx="8" fill="#20252D" stroke="#F7931A" stroke-width="3"/>
+
+  <rect x="110" y="224" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="184" y="224" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="258" y="224" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="332" y="224" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="406" y="224" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+
+  <rect x="110" y="298" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="184" y="298" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="258" y="298" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="332" y="298" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="406" y="298" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+
+  <rect x="110" y="372" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="184" y="372" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="258" y="372" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="332" y="372" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="406" y="372" width="60" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+
+  <!-- Successful attempt leads to a block -->
+  <path d="M474 180H552" stroke="#F7931A" stroke-width="3"/>
+  <polygon points="552,172 564,180 552,188" fill="#F7931A"/>
+  <rect x="566" y="130" width="284" height="100" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <text x="708" y="178" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">block</text>
+  <text x="708" y="210" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono" font-size="16">SHA-256</text>
+</svg>

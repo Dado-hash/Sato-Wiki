@@ -1,0 +1,35 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pay to script hash commitment</title>
+  <desc id="desc">The output stores only a script hash, and the spender reveals a redeem script that must hash to exactly that value.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(0 -6)">
+
+  <rect x="110" y="170" width="190" height="60" rx="8" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  <text x="205" y="206" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">OP_HASH160</text>
+
+  <rect x="330" y="170" width="300" height="60" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+  <text x="480" y="206" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">20-byte hash</text>
+
+  <rect x="660" y="170" width="190" height="60" rx="8" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+  <text x="755" y="206" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">OP_EQUAL</text>
+
+  <path d="M480 326V236" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="472,244 480,232 488,244" fill="#F7931A"/>
+  <text x="496" y="290" fill="#F7931A" font-family="JetBrains Mono" font-size="26">=</text>
+
+  <rect x="110" y="330" width="190" height="60" rx="8" fill="#1C2128" stroke="#46505C" stroke-width="2"/>
+  <text x="205" y="366" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="16">scriptSig</text>
+
+  <rect x="330" y="330" width="300" height="60" rx="8" fill="#20252D" stroke="#B7B1A8" stroke-width="2"/>
+  <text x="480" y="366" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">redeem script</text>
+
+  <rect x="660" y="330" width="190" height="60" rx="8" fill="#1C2128" stroke="#22C55E" stroke-width="2"/>
+  <path d="M735 360L750 375L778 345" stroke="#22C55E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M304 360H322" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="320,354 330,360 320,366" fill="#7C8794"/>
+  <path d="M634 360H648" stroke="#7C8794" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="646,354 656,360 646,366" fill="#7C8794"/>
+</g>
+</svg>

@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Riorganizzazioni e blocchi stale
 description: Come i nodi passano al ramo con più lavoro accumulato quando due blocchi vengono trovati a breve distanza, che cosa succede al blocco perdente e perché le conferme riducono il rischio.
+coverImage: media/wiki/reorganizations/reorganizations-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

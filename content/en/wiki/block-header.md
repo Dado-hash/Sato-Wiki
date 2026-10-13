@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Block Header
 description: The 80-byte header of every block, its six fields, how its double SHA-256 hash is compared with the target, and why the nonce alone is no longer enough.
+coverImage: media/wiki/block-header/block-header-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: Weight unit e vbyte
 description: Come Bitcoin misura la dimensione di transazioni e blocchi dopo SegWit, e perché le fee rate si esprimono in vbyte.
+coverImage: media/wiki/weight-units/weight-units-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

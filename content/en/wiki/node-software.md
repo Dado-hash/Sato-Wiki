@@ -6,6 +6,7 @@ category: software
 subcategory: nodes
 title: Node Software
 description: The programs that run a full node, why more than one independent implementation exists, and how to check what you install.
+coverImage: media/wiki/node-software/node-software-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

@@ -5,6 +5,7 @@ language: it
 category: myths
 title: '"I governi possono spegnere Bitcoin"'
 description: "Parzialmente vero: nessuno Stato può spegnere la rete, ma uno Stato può vietarne o limitarne l'uso entro i propri confini, che è un limite diverso e reale."
+coverImage: media/wiki/myth-can-be-shut-down/myth-can-be-shut-down-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

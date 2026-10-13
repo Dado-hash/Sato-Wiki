@@ -6,6 +6,7 @@ category: software
 subcategory: lightning
 title: Lightning Software
 description: Lightning node implementations and wallets, how they interoperate through the BOLT specifications, and what channel backups and watchtowers can and cannot protect.
+coverImage: media/wiki/lightning-software/lightning-software-hero.svg
 difficulty: base
 readTimeMinutes: 4
 tags:

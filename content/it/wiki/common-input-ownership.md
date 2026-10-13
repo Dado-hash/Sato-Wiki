@@ -5,6 +5,7 @@ language: it
 category: privacy-security
 title: Euristica common-input-ownership
 description: L'ipotesi che tutti gli input di una transazione appartengano allo stesso proprietario, e il modo in cui l'analisi della chain la usa per raggruppare gli indirizzi.
+coverImage: media/wiki/common-input-ownership/common-input-ownership-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

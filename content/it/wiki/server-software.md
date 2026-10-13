@@ -6,6 +6,7 @@ category: software
 subcategory: servers
 title: Server e infrastruttura
 description: Software che si colloca tra un full node e le app che lo usano, come server del protocollo Electrum, indici degli indirizzi, block explorer e processori di pagamento.
+coverImage: media/wiki/server-software/server-software-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

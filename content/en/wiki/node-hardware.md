@@ -6,6 +6,7 @@ category: hardware
 subcategory: node-hardware
 title: Node Hardware
 description: What a computer needs to run a Bitcoin full node, including storage, memory, bandwidth, power, and the choice between hardware types.
+coverImage: media/wiki/node-hardware/node-hardware-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

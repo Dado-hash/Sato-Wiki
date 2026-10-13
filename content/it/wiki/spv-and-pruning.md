@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: SPV e nodi pruned
 description: Due modi per usare Bitcoin senza conservare l'intera chain, un light client che verifica gli header e un full node pruned che valida tutto ma conserva solo i file dei blocchi recenti.
+coverImage: media/wiki/spv-and-pruning/spv-and-pruning-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

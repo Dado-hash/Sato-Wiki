@@ -5,6 +5,7 @@ language: it
 category: protocol
 title: "Aumentare la fee: RBF e CPFP"
 description: Due modi per alzare la fee effettiva di una transazione non confermata e bloccata, il replace-by-fee con una nuova versione in conflitto e il child-pays-for-parent con un figlio a fee alta.
+coverImage: media/wiki/fee-bumping/fee-bumping-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:

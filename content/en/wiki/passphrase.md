@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Passphrase (BIP 39)
 description: The optional BIP 39 passphrase, which is mixed into seed derivation so that each passphrase yields a different valid wallet, with what it protects, what it does not, and its pitfalls.
+coverImage: media/wiki/passphrase/passphrase-hero.svg
 difficulty: advanced
 readTimeMinutes: 5
 tags:

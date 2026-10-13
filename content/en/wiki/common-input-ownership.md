@@ -5,6 +5,7 @@ language: en
 category: privacy-security
 title: Common Input Ownership Heuristic
 description: The assumption that all inputs of one transaction belong to the same owner, and how chain analysis uses it to group addresses.
+coverImage: media/wiki/common-input-ownership/common-input-ownership-hero.svg
 difficulty: advanced
 readTimeMinutes: 4
 tags:

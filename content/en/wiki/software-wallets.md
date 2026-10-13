@@ -6,6 +6,7 @@ category: software
 subcategory: software-wallets
 title: Software Wallets
 description: Desktop and mobile wallet programs, what they actually store, and how their choices about custody, servers and backups change privacy and risk.
+coverImage: media/wiki/software-wallets/software-wallets-hero.svg
 difficulty: base
 readTimeMinutes: 6
 tags:

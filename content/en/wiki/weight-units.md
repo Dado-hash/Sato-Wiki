@@ -5,6 +5,7 @@ language: en
 category: protocol
 title: Weight Units and Virtual Bytes
 description: How Bitcoin measures transaction and block size since SegWit, and why fee rates are quoted in virtual bytes.
+coverImage: media/wiki/weight-units/weight-units-hero.svg
 difficulty: base
 readTimeMinutes: 5
 tags:
