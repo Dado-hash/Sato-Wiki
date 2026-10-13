@@ -18,8 +18,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Fixed Supply</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">21 million bitcoin, no more, no less. Forever.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Fixed Supply</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">21 million bitcoin, no more, no less. Forever.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 154H884"/>
@@ -30,7 +30,7 @@
   <!-- Left: finite vault -->
   <g filter="url(#soft)">
     <rect x="64" y="168" width="380" height="224" rx="20" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="254" y="212" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">21,000,000 BTC</text>
+    <text x="254" y="212" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="22" font-weight="700">21,000,000 BTC</text>
     <rect x="90" y="240" width="328" height="4" rx="2" fill="#F7931A" opacity="0.3"/>
 
     <g fill="#F7931A" opacity="0.7">
@@ -50,10 +50,10 @@
       <rect x="380" y="326" width="36" height="36" rx="8"/>
     </g>
 
-    <text x="254" y="440" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="254" y="440" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16">
       Finite supply embedded in consensus rules
     </text>
-    <text x="254" y="462" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="254" y="462" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">
       MAX_MONEY = 21,000,000 * COIN
     </text>
   </g>
@@ -61,7 +61,7 @@
   <!-- Right: infinite comparison -->
   <g filter="url(#soft)">
     <rect x="480" y="168" width="420" height="224" rx="20" fill="#20252D" stroke="#7C5CFF" stroke-width="2"/>
-    <text x="690" y="212" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Traditional Money</text>
+    <text x="690" y="212" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="22" font-weight="700">Traditional Money</text>
 
     <g stroke="#7C5CFF" stroke-opacity="0.3" stroke-width="2">
       <line x1="510" y1="268" x2="870" y2="268"/>
@@ -69,15 +69,15 @@
       <line x1="510" y1="332" x2="870" y2="332"/>
       <line x1="510" y1="364" x2="870" y2="364"/>
     </g>
-    <text x="690" y="260" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">No supply cap</text>
-    <text x="690" y="292" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Central bank discretion</text>
-    <text x="690" y="324" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Inflation by design</text>
-    <text x="690" y="356" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Purchasing power erodes</text>
+    <text x="690" y="260" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">No supply cap</text>
+    <text x="690" y="292" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Central bank discretion</text>
+    <text x="690" y="324" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Inflation by design</text>
+    <text x="690" y="356" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Purchasing power erodes</text>
 
-    <text x="690" y="440" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="690" y="440" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16">
       Unlimited supply controlled by policy
     </text>
-    <text x="690" y="462" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13">
+    <text x="690" y="462" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">
       M2 money supply: ~$100 trillion and growing
     </text>
   </g>

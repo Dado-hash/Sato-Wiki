@@ -8,8 +8,8 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Fee Market</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Transaction fees emerge from competition for limited block space.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Fee Market</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Transaction fees emerge from competition for limited block space.</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 154H884"/><path d="M76 440H884"/>
   </g>
@@ -24,29 +24,29 @@
       <line x1="0" y1="60" x2="740" y2="60"/>
       <line x1="0" y1="20" x2="740" y2="20"/>
     </g>
-    <text x="-10" y="264" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">0</text>
-    <text x="-10" y="145" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">100</text>
-    <text x="-10" y="25" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">200</text>
-    <text x="370" y="-8" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">Fee rate (sat/vB)</text>
+    <text x="-10" y="264" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">0</text>
+    <text x="-10" y="145" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">100</text>
+    <text x="-10" y="25" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">200</text>
+    <text x="370" y="-8" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">Fee rate (sat/vB)</text>
     <!-- Supply limit (vertical) -->
     <line x1="500" y1="0" x2="500" y2="260" stroke="#F7931A" stroke-width="3" stroke-dasharray="8 6"/>
-    <text x="530" y="80" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="13">block space limit</text>
+    <text x="530" y="80" fill="#F7931A" font-family="Inter" font-size="13">block space limit</text>
     <!-- Demand curve -->
     <path d="M0 10 C60 20, 120 40, 200 80 C280 120, 360 170, 440 220 C480 245, 500 260, 520 280" stroke="#22C55E" stroke-width="3" fill="none" stroke-linecap="round"/>
     <rect x="270" y="120" width="100" height="58" rx="8" fill="#203327" stroke="#22C55E" stroke-width="1.5"/>
-    <text x="320" y="143" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Demand</text>
-    <text x="320" y="165" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">high fee</text>
+    <text x="320" y="143" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="13" font-weight="700">Demand</text>
+    <text x="320" y="165" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">high fee</text>
     <g opacity="0.2">
       <rect x="460" y="150" width="40" height="110" fill="#F7931A"/>
     </g>
-    <text x="450" y="130" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="10">clearing fee</text>
+    <text x="450" y="130" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="10">clearing fee</text>
   </g>
   <!-- Key insight -->
   <g filter="url(#soft)">
     <rect x="64" y="450" width="832" height="50" rx="14" fill="#171B21" stroke="#343A44" stroke-width="1.5"/>
-    <text x="480" y="474" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">
+    <text x="480" y="474" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="15">
       Block space is fixed (~4M weight units). When demand exceeds supply, users bid up fees. Miners collect the difference.
     </text>
-    <text x="480" y="492" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">The fee market is not set by miners — it emerges from user competition</text>
+    <text x="480" y="492" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">The fee market is not set by miners — it emerges from user competition</text>
   </g>
 </svg>

@@ -21,8 +21,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Decentralized mesh</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Nodes connect directly — no central server, permissionless relay.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Decentralized mesh</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Nodes connect directly — no central server, permissionless relay.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 176H884"/>
@@ -68,44 +68,44 @@
   <!-- Node groups -->
   <g filter="url(#soft)">
     <circle cx="215" cy="302" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="215" y="308" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N1</text>
+    <text x="215" y="308" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N1</text>
 
     <circle cx="330" cy="238" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="330" y="244" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N2</text>
+    <text x="330" y="244" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N2</text>
 
     <circle cx="530" cy="228" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="530" y="234" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N3</text>
+    <text x="530" y="234" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N3</text>
 
     <circle cx="255" cy="422" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="255" y="428" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N4</text>
+    <text x="255" y="428" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N4</text>
 
     <circle cx="400" cy="450" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="400" y="456" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N5</text>
+    <text x="400" y="456" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N5</text>
 
     <circle cx="580" cy="364" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="580" y="370" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N6</text>
+    <text x="580" y="370" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N6</text>
 
     <circle cx="690" cy="420" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="690" y="426" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N7</text>
+    <text x="690" y="426" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N7</text>
 
     <circle cx="830" cy="314" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="830" y="320" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N8</text>
+    <text x="830" y="320" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N8</text>
 
     <circle cx="620" cy="134" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="620" y="140" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N9</text>
+    <text x="620" y="140" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N9</text>
 
     <circle cx="720" cy="174" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
-    <text x="720" y="180" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">N11</text>
+    <text x="720" y="180" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N11</text>
   </g>
 
   <!-- Annotations -->
   <g filter="url(#soft)">
     <rect x="60" y="310" width="120" height="72" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="120" y="338" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Block relay</text>
-    <text x="120" y="364" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">mesh propagation</text>
+    <text x="120" y="338" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="700">Block relay</text>
+    <text x="120" y="364" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">mesh propagation</text>
 
     <rect x="756" y="354" width="150" height="72" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-    <text x="831" y="382" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Tx relay</text>
-    <text x="831" y="408" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">gossip flooding</text>
+    <text x="831" y="382" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Tx relay</text>
+    <text x="831" y="408" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">gossip flooding</text>
   </g>
 </svg>

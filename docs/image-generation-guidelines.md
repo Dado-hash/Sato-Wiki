@@ -64,6 +64,7 @@ Per immagini generate con AI:
 Per schemi tecnici:
 
 - preferire SVG quando possibile;
+- nel testo degli SVG usare un solo nome di famiglia, `font-family="Inter"` oppure `font-family="JetBrains Mono"`: l'app non interpreta le liste di fallback (`Inter, Arial, sans-serif`) e mostrerebbe un font di sistema;
 - se generati come raster, usare PNG o WebP;
 - ratio consigliato: 16:9;
 - dimensione sorgente consigliata: 1600x900 o 1920x1080;

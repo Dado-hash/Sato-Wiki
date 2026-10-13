@@ -17,45 +17,45 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Multisignature</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">M-of-N: requiring multiple signatures to authorize spending</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Multisignature</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">M-of-N: requiring multiple signatures to authorize spending</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
     <path d="M76 310H884"/>
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="164" width="224" height="124" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="176" y="194" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Participant A</text>
+    <text x="176" y="194" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Participant A</text>
     <rect x="88" y="210" width="176" height="24" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="176" y="227" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">Key Pair A</text>
-    <text x="176" y="256" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Alice</text>
-    <text x="176" y="274" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Company CEO</text>
+    <text x="176" y="227" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">Key Pair A</text>
+    <text x="176" y="256" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">Alice</text>
+    <text x="176" y="274" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Company CEO</text>
   </g>
   <g filter="url(#soft)">
     <rect x="368" y="164" width="224" height="124" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="480" y="194" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Participant B</text>
+    <text x="480" y="194" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Participant B</text>
     <rect x="392" y="210" width="176" height="24" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="480" y="227" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">Key Pair B</text>
-    <text x="480" y="256" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Bob</text>
-    <text x="480" y="274" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Company CFO</text>
+    <text x="480" y="227" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">Key Pair B</text>
+    <text x="480" y="256" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">Bob</text>
+    <text x="480" y="274" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Company CFO</text>
   </g>
   <g filter="url(#soft)">
     <rect x="672" y="164" width="224" height="124" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="784" y="194" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Participant C</text>
+    <text x="784" y="194" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">Participant C</text>
     <rect x="696" y="210" width="176" height="24" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="784" y="227" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">Key Pair C</text>
-    <text x="784" y="256" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Carol</text>
-    <text x="784" y="274" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Company Treasurer</text>
+    <text x="784" y="227" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">Key Pair C</text>
+    <text x="784" y="256" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">Carol</text>
+    <text x="784" y="274" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Company Treasurer</text>
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="326" width="856" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="492" y="356" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">2-of-3 Multisig Locking Script</text>
+    <text x="492" y="356" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="16" font-weight="700">2-of-3 Multisig Locking Script</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M80 372H904"/>
     </g>
-    <text x="492" y="396" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="14">OP_2 &lt;pubKeyA&gt; &lt;pubKeyB&gt; &lt;pubKeyC&gt; OP_3 OP_CHECKMULTISIG</text>
-    <text x="492" y="424" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">To spend: provide 2 valid signatures (from any of the 3 participants)</text>
-    <text x="492" y="444" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="13">Unlocking: OP_0 &lt;sigA&gt; &lt;sigC&gt; (OP_0 is historical bug workaround)</text>
-    <text x="492" y="464" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">P2SH or P2WSH wraps the script in a hash for efficiency</text>
+    <text x="492" y="396" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="14">OP_2 &lt;pubKeyA&gt; &lt;pubKeyB&gt; &lt;pubKeyC&gt; OP_3 OP_CHECKMULTISIG</text>
+    <text x="492" y="424" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">To spend: provide 2 valid signatures (from any of the 3 participants)</text>
+    <text x="492" y="444" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="13">Unlocking: OP_0 &lt;sigA&gt; &lt;sigC&gt; (OP_0 is historical bug workaround)</text>
+    <text x="492" y="464" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">P2SH or P2WSH wraps the script in a hash for efficiency</text>
   </g>
 </svg>

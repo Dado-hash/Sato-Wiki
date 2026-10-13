@@ -20,9 +20,9 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">The Inbound Liquidity Problem</text>
-  <text x="64" y="112" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="17">To receive payments, a node needs inbound capacity.</text>
-  <text x="64" y="134" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="17">Other nodes must have channels with outgoing funds directed to it.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">The Inbound Liquidity Problem</text>
+  <text x="64" y="112" fill="#B7B1A8" font-family="Inter" font-size="17">To receive payments, a node needs inbound capacity.</text>
+  <text x="64" y="134" fill="#B7B1A8" font-family="Inter" font-size="17">Other nodes must have channels with outgoing funds directed to it.</text>
 
   <g transform="translate(0 18)">
   <!-- PANEL 1: Payment Succeeds -->
@@ -30,55 +30,55 @@
     <rect x="64" y="145" width="258" height="315" rx="16" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
   </g>
   <rect x="64" y="145" width="258" height="4" rx="2" fill="#22C55E"/>
-  <text x="193" y="180" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">&#x2713; Payment Succeeds</text>
+  <text x="193" y="180" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">&#x2713; Payment Succeeds</text>
 
   <!-- Panel 1 nodes -->
   <circle cx="105" cy="220" r="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-  <text x="105" y="225" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">A</text>
+  <text x="105" y="225" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">A</text>
   <circle cx="193" cy="220" r="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-  <text x="193" y="225" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">B</text>
+  <text x="193" y="225" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="11" font-weight="700">B</text>
   <circle cx="281" cy="220" r="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-  <text x="281" y="225" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">C</text>
+  <text x="281" y="225" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">C</text>
 
   <!-- Panel 1 labels -->
-  <text x="105" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Alice</text>
-  <text x="193" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Bob</text>
-  <text x="281" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Carol</text>
+  <text x="105" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="11">Alice</text>
+  <text x="193" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="11">Bob</text>
+  <text x="281" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="11">Carol</text>
 
   <!-- Panel 1 arrow Alice → Bob -->
   <path d="M121 215L174 215" stroke="#F7931A" stroke-width="2.6" marker-end="url(#arrow-orange)"/>
-  <text x="149" y="207" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">100k sats</text>
+  <text x="149" y="207" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10" font-weight="700">100k sats</text>
 
   <!-- Panel 1 arrow Carol → Bob (inbound) -->
   <path d="M265 235L212 235" stroke="#22C55E" stroke-width="2.6" marker-end="url(#arrow-green)"/>
-  <text x="237" y="227" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">0.5 BTC</text>
+  <text x="237" y="227" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="10" font-weight="700">0.5 BTC</text>
 
   <!-- Panel 1 success status -->
   <g filter="url(#soft)">
     <rect x="88" y="280" width="210" height="30" rx="8" fill="#203327" stroke="#22C55E" stroke-width="1"/>
   </g>
-  <text x="193" y="300" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="12.5" font-weight="600">&#x2713; Inbound capacity available</text>
+  <text x="193" y="300" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="12.5" font-weight="600">&#x2713; Inbound capacity available</text>
 
   <!-- Panel 2: Payment Fails -->
   <g filter="url(#soft)">
     <rect x="342" y="145" width="258" height="315" rx="16" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
   </g>
   <rect x="342" y="145" width="258" height="4" rx="2" fill="#EF4444"/>
-  <text x="471" y="180" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">&#x2717; Payment Fails</text>
+  <text x="471" y="180" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="16" font-weight="700">&#x2717; Payment Fails</text>
 
   <!-- Panel 2 nodes -->
   <circle cx="410" cy="220" r="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-  <text x="410" y="225" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">A</text>
+  <text x="410" y="225" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="11" font-weight="700">A</text>
   <circle cx="532" cy="220" r="16" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
-  <text x="532" y="225" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">B</text>
+  <text x="532" y="225" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="11" font-weight="700">B</text>
 
   <!-- Panel 2 labels -->
-  <text x="410" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Alice</text>
-  <text x="532" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="11">Bob</text>
+  <text x="410" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="11">Alice</text>
+  <text x="532" y="255" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="11">Bob</text>
 
   <!-- Panel 2 crossed arrow -->
   <path d="M426 215L513 215" stroke="#EF4444" stroke-width="2.6" marker-end="url(#arrow-red)"/>
-  <text x="471" y="203" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">100k sats</text>
+  <text x="471" y="203" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="10" font-weight="700">100k sats</text>
   <path d="M464 207L478 223" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
   <path d="M478 207L464 223" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
 
@@ -86,7 +86,7 @@
   <g filter="url(#soft)">
     <rect x="366" y="280" width="210" height="30" rx="8" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
   </g>
-  <text x="471" y="300" text-anchor="middle" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="12.5" font-weight="600">&#x2717; No inbound capacity</text>
+  <text x="471" y="300" text-anchor="middle" fill="#EF4444" font-family="Inter" font-size="12.5" font-weight="600">&#x2717; No inbound capacity</text>
 
   <!-- Panel 2 no inbound icon -->
   <circle cx="471" cy="350" r="22" fill="#2A1B1B" stroke="#EF4444" stroke-width="2"/>
@@ -97,28 +97,28 @@
     <rect x="620" y="145" width="258" height="315" rx="16" fill="#1A1F26" stroke="#343A44" stroke-width="1"/>
   </g>
   <rect x="620" y="145" width="258" height="4" rx="2" fill="#7C5CFF"/>
-  <text x="749" y="180" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Sources of Inbound Liquidity</text>
+  <text x="749" y="180" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="16" font-weight="700">Sources of Inbound Liquidity</text>
 
   <!-- Panel 3 solution items -->
   <g filter="url(#soft)">
     <rect x="638" y="210" width="224" height="60" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   </g>
   <circle cx="656" cy="240" r="6" fill="#22C55E"/>
-  <text x="674" y="235" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Open channels from others</text>
-  <text x="674" y="253" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10.5">Peers open channels to you</text>
+  <text x="674" y="235" fill="#F4EAD8" font-family="Inter" font-size="13" font-weight="600">Open channels from others</text>
+  <text x="674" y="253" fill="#7C8794" font-family="Inter" font-size="10.5">Peers open channels to you</text>
 
   <g filter="url(#soft)">
     <rect x="638" y="280" width="224" height="60" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   </g>
   <circle cx="656" cy="310" r="6" fill="#F7931A"/>
-  <text x="674" y="305" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Lightning Service Provider</text>
-  <text x="674" y="323" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10.5">Buy inbound liquidity as a service</text>
+  <text x="674" y="305" fill="#F4EAD8" font-family="Inter" font-size="13" font-weight="600">Lightning Service Provider</text>
+  <text x="674" y="323" fill="#7C8794" font-family="Inter" font-size="10.5">Buy inbound liquidity as a service</text>
 
   <g filter="url(#soft)">
     <rect x="638" y="350" width="224" height="60" rx="10" fill="#20252D" stroke="#46505C" stroke-width="1"/>
   </g>
   <circle cx="656" cy="380" r="6" fill="#7C5CFF"/>
-  <text x="674" y="375" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Circular rebalancing</text>
-  <text x="674" y="393" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="10.5">Loop payment redistributes funds</text>
+  <text x="674" y="375" fill="#F4EAD8" font-family="Inter" font-size="13" font-weight="600">Circular rebalancing</text>
+  <text x="674" y="393" fill="#7C8794" font-family="Inter" font-size="10.5">Loop payment redistributes funds</text>
   </g>
 </svg>

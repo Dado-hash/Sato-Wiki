@@ -17,8 +17,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Locking and unlocking scripts</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Every UTXO carries a scriptPubKey; the spender proves they can satisfy it.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Locking and unlocking scripts</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Every UTXO carries a scriptPubKey; the spender proves they can satisfy it.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 156H884"/>
@@ -30,24 +30,24 @@
 
   <g filter="url(#soft)">
     <rect x="86" y="186" width="240" height="104" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="206" y="218" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Unlocking Script</text>
-    <text x="206" y="244" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">scriptSig / Witness</text>
+    <text x="206" y="218" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="19" font-weight="700">Unlocking Script</text>
+    <text x="206" y="244" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="14">scriptSig / Witness</text>
     <rect x="116" y="260" width="180" height="24" rx="12" fill="#171B21" stroke="#22C55E" stroke-width="1" opacity="0.6"/>
-    <text x="206" y="277" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="13">&lt;sig&gt; &lt;pubKey&gt;</text>
+    <text x="206" y="277" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13">&lt;sig&gt; &lt;pubKey&gt;</text>
 
     <rect x="86" y="314" width="240" height="120" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
-    <text x="206" y="344" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">Locking Script</text>
-    <text x="206" y="368" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="14">scriptPubKey</text>
+    <text x="206" y="344" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="19" font-weight="700">Locking Script</text>
+    <text x="206" y="368" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="14">scriptPubKey</text>
     <rect x="100" y="384" width="212" height="22" rx="11" fill="#171B21" stroke="#F7931A" stroke-width="1" opacity="0.6"/>
-    <text x="206" y="399" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">OP_DUP OP_HASH160 &lt;hash&gt;</text>
+    <text x="206" y="399" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="11">OP_DUP OP_HASH160 &lt;hash&gt;</text>
     <rect x="100" y="410" width="212" height="22" rx="11" fill="#171B21" stroke="#F7931A" stroke-width="1" opacity="0.6"/>
-    <text x="206" y="425" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="11">OP_EQUALVERIFY OP_CHECKSIG</text>
+    <text x="206" y="425" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="11">OP_EQUALVERIFY OP_CHECKSIG</text>
   </g>
 
   <g filter="url(#soft)">
     <rect x="370" y="244" width="224" height="60" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="482" y="274" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Combined execution</text>
-    <text x="482" y="294" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">unlock + lock run together</text>
+    <text x="482" y="274" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="17" font-weight="700">Combined execution</text>
+    <text x="482" y="294" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">unlock + lock run together</text>
   </g>
 
   <path d="M334 238H346V274" stroke="#F7931A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -60,21 +60,21 @@
 
   <g filter="url(#soft)">
     <rect x="666" y="160" width="202" height="52" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="767" y="184" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Stack starts empty</text>
-    <text x="767" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">[ ]</text>
+    <text x="767" y="184" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="17" font-weight="700">Stack starts empty</text>
+    <text x="767" y="202" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">[ ]</text>
 
     <rect x="666" y="254" width="202" height="52" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="767" y="278" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Script runs</text>
-    <text x="767" y="296" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="12">opcode by opcode</text>
+    <text x="767" y="278" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="17" font-weight="700">Script runs</text>
+    <text x="767" y="296" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">opcode by opcode</text>
 
     <rect x="666" y="348" width="202" height="52" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="767" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Stack ends with</text>
-    <text x="767" y="390" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">TRUE</text>
+    <text x="767" y="372" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="17" font-weight="700">Stack ends with</text>
+    <text x="767" y="390" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="15" font-weight="700">TRUE</text>
   </g>
 
   <path d="M767 212V246" stroke="#F7931A" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <path d="M767 306V340" stroke="#22C55E" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow-green)"/>
   <path d="M767 400V444" stroke="#22C55E" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow-green)"/>
   <rect x="710" y="452" width="114" height="36" rx="18" fill="#241E31" stroke="#7C5CFF" stroke-width="1.6"/>
-  <text x="767" y="475" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">spend confirmed</text>
+  <text x="767" y="475" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13" font-weight="600">spend confirmed</text>
 </svg>

@@ -14,8 +14,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Soft fork vs hard fork</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Soft forks tighten rules (backward compatible). Hard forks relax rules (backward incompatible).</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Soft fork vs hard fork</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Soft forks tighten rules (backward compatible). Hard forks relax rules (backward incompatible).</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 160H460"/>
@@ -38,7 +38,7 @@
     <path d="M812 140V440"/>
   </g>
 
-  <g filter="url(#soft)" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+  <g filter="url(#soft)" font-family="Inter" text-anchor="middle">
 
     <text x="268" y="180" fill="#F4EAD8" font-size="22" font-weight="700">SOFT FORK</text>
     <text x="268" y="200" fill="#22C55E" font-size="15">All blocks valid for old and new nodes</text>
@@ -59,9 +59,9 @@
     <text x="372" y="396" fill="#F4EAD8" font-size="18" font-weight="700">B4</text>
 
     <line x1="148" y1="272" x2="148" y2="420" stroke="#28313B" stroke-width="1" stroke-dasharray="4 4"/>
-    <text x="148" y="444" fill="#6B7280" font-size="13" font-family="JetBrains Mono, monospace">new rules</text>
+    <text x="148" y="444" fill="#6B7280" font-size="13" font-family="JetBrains Mono">new rules</text>
     <line x1="260" y1="272" x2="260" y2="420" stroke="#28313B" stroke-width="1" stroke-dasharray="4 4"/>
-    <text x="260" y="444" fill="#6B7280" font-size="13" font-family="JetBrains Mono, monospace">new rules</text>
+    <text x="260" y="444" fill="#6B7280" font-size="13" font-family="JetBrains Mono">new rules</text>
 
     <rect x="100" y="288" width="96" height="24" rx="6" fill="#1A2522" stroke="#22C55E" stroke-width="1"/>
     <text x="148" y="304" fill="#22C55E" font-size="12">✓ old node</text>
@@ -74,7 +74,7 @@
     <path d="M308 246H324" stroke="#6B7280"/>
   </g>
 
-  <g filter="url(#soft)" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+  <g filter="url(#soft)" font-family="Inter" text-anchor="middle">
 
     <text x="700" y="180" fill="#F4EAD8" font-size="22" font-weight="700">HARD FORK</text>
     <text x="700" y="200" fill="#EF4444" font-size="15">Old nodes reject new rules blocks</text>

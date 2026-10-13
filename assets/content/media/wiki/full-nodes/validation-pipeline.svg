@@ -17,8 +17,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Independent validation</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Peers provide data; the node decides what is valid.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Independent validation</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Peers provide data; the node decides what is valid.</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 166H884"/>
@@ -31,7 +31,7 @@
 
   <g filter="url(#soft)">
     <rect x="74" y="220" width="150" height="118" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="149" y="262" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Peers</text>
+    <text x="149" y="262" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">Peers</text>
     <g fill="#F7931A">
       <circle cx="114" cy="300" r="7"/>
       <circle cx="149" cy="300" r="7"/>
@@ -43,13 +43,13 @@
 
   <g filter="url(#soft)">
     <rect x="330" y="178" width="300" height="204" rx="20" fill="#20252D" stroke="#F7931A" stroke-width="2.2"/>
-    <text x="480" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Full node</text>
+    <text x="480" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Full node</text>
     <rect x="362" y="236" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
-    <text x="480" y="258" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">headers + proof of work</text>
+    <text x="480" y="258" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="13" font-weight="700">headers + proof of work</text>
     <rect x="362" y="284" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
-    <text x="480" y="306" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">transactions + scripts</text>
+    <text x="480" y="306" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="13" font-weight="700">transactions + scripts</text>
     <rect x="362" y="332" width="236" height="34" rx="17" fill="#171B21" stroke="#46505C"/>
-    <text x="480" y="354" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">consensus rules</text>
+    <text x="480" y="354" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="13" font-weight="700">consensus rules</text>
   </g>
 
   <path d="M646 240H716" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
@@ -57,14 +57,14 @@
 
   <g filter="url(#soft)">
     <rect x="734" y="190" width="154" height="92" rx="18" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="811" y="226" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Chainstate</text>
-    <text x="811" y="254" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">UTXO set</text>
+    <text x="811" y="226" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="20" font-weight="700">Chainstate</text>
+    <text x="811" y="254" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">UTXO set</text>
 
     <rect x="734" y="318" width="154" height="92" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="811" y="354" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Relay</text>
-    <text x="811" y="382" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">valid data only</text>
+    <text x="811" y="354" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">Relay</text>
+    <text x="811" y="382" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">valid data only</text>
   </g>
 
   <path d="M480 396V438C480 456 466 466 446 466H150C128 466 116 454 116 434V358" stroke="#7C8794" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10"/>
-  <text x="224" y="456" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">reject invalid data locally</text>
+  <text x="224" y="456" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13" font-weight="700">reject invalid data locally</text>
 </svg>

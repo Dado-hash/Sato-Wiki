@@ -17,59 +17,59 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">2-of-2 Multisig Address</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Both parties must sign to spend the channel funds</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">2-of-2 Multisig Address</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Both parties must sign to spend the channel funds</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
     <path d="M340 148V490"/>
     <path d="M620 148V490"/>
   </g>
-  <text x="202" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">PUBLIC KEYS</text>
-  <text x="480" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">MULTISIG SCRIPT</text>
-  <text x="758" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">P2WSH ADDRESS</text>
+  <text x="202" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13" font-weight="700">PUBLIC KEYS</text>
+  <text x="480" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13" font-weight="700">MULTISIG SCRIPT</text>
+  <text x="758" y="140" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13" font-weight="700">P2WSH ADDRESS</text>
   <g filter="url(#soft)">
     <rect x="76" y="176" width="248" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="200" y="208" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Alice</text>
+    <text x="200" y="208" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Alice</text>
     <rect x="100" y="220" width="200" height="28" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="200" y="240" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">03a1b2c3...12345678</text>
-    <text x="200" y="264" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Compressed public key (33 bytes)</text>
+    <text x="200" y="240" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">03a1b2c3...12345678</text>
+    <text x="200" y="264" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Compressed public key (33 bytes)</text>
   </g>
   <g filter="url(#soft)">
     <rect x="76" y="316" width="248" height="100" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="200" y="348" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Bob</text>
+    <text x="200" y="348" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Bob</text>
     <rect x="100" y="360" width="200" height="28" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
-    <text x="200" y="380" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="12">03ffeedd...44332211</text>
-    <text x="200" y="404" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Compressed public key (33 bytes)</text>
+    <text x="200" y="380" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">03ffeedd...44332211</text>
+    <text x="200" y="404" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Compressed public key (33 bytes)</text>
   </g>
   <path d="M324 226Q340 226 354 252" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <path d="M324 366Q340 366 354 340" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
     <rect x="356" y="196" width="248" height="200" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="2.4"/>
-    <text x="480" y="234" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">2-of-2 Multisig Script</text>
+    <text x="480" y="234" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="20" font-weight="700">2-of-2 Multisig Script</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M372 246H588"/>
     </g>
-    <text x="480" y="272" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600">OP_2</text>
-    <text x="480" y="300" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">&lt;pubkey_A&gt;</text>
-    <text x="480" y="324" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13">&lt;pubkey_B&gt;</text>
-    <text x="480" y="348" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600">OP_2</text>
-    <text x="480" y="372" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600">OP_CHECKMULTISIG</text>
+    <text x="480" y="272" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="15" font-weight="600">OP_2</text>
+    <text x="480" y="300" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">&lt;pubkey_A&gt;</text>
+    <text x="480" y="324" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">&lt;pubkey_B&gt;</text>
+    <text x="480" y="348" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="15" font-weight="600">OP_2</text>
+    <text x="480" y="372" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="15" font-weight="600">OP_CHECKMULTISIG</text>
   </g>
   <path d="M604 296Q624 296 634 270" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
   <g filter="url(#soft)">
     <rect x="636" y="200" width="224" height="120" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="748" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">P2WSH Address</text>
+    <text x="748" y="234" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">P2WSH Address</text>
     <rect x="652" y="250" width="192" height="28" rx="6" fill="#14321E" stroke="#22C55E" stroke-width="1"/>
-    <text x="748" y="270" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">bc1qar0s...3a7d2m</text>
-    <text x="748" y="306" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="12">Native SegWit v0 (P2WSH)</text>
+    <text x="748" y="270" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="12">bc1qar0s...3a7d2m</text>
+    <text x="748" y="306" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="12">Native SegWit v0 (P2WSH)</text>
   </g>
   <g filter="url(#soft)">
     <rect x="636" y="340" width="224" height="50" rx="25" fill="#241E31" stroke="#7C5CFF" stroke-width="1.5"/>
-    <text x="748" y="369" text-anchor="middle" dominant-baseline="middle" fill="#B7B1A8" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600">P2SH-P2WSH also supported</text>
+    <text x="748" y="369" text-anchor="middle" dominant-baseline="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13" font-weight="600">P2SH-P2WSH also supported</text>
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="434" width="832" height="48" rx="14" fill="#20252D" stroke="#7C5CFF" stroke-width="1.5"/>
-    <text x="480" y="458" text-anchor="middle" dominant-baseline="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">
+    <text x="480" y="458" text-anchor="middle" dominant-baseline="middle" fill="#B7B1A8" font-family="Inter" font-size="14">
       <tspan x="480" dy="-0.55em">Why 2-of-2? Neither party can spend channel funds alone. Both signatures are required — this is the</tspan>
       <tspan x="480" dy="1.2em">foundation of trustless off-chain payment channels in the Lightning Network.</tspan>
     </text>

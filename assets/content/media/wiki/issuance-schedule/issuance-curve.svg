@@ -11,8 +11,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Issuance Schedule</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Block subsidies step down every 210,000 blocks, approaching zero asymptotically.</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Issuance Schedule</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Block subsidies step down every 210,000 blocks, approaching zero asymptotically.</text>
 
   <!-- Chart area -->
   <g transform="translate(100, 150)">
@@ -27,18 +27,18 @@
     </g>
 
     <!-- Y-axis labels -->
-    <text x="-10" y="245" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">0</text>
-    <text x="-10" y="185" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">12.5</text>
-    <text x="-10" y="125" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">25</text>
-    <text x="-10" y="65" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">50</text>
-    <text x="380" y="-10" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="14">BTC per block</text>
+    <text x="-10" y="245" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">0</text>
+    <text x="-10" y="185" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">12.5</text>
+    <text x="-10" y="125" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">25</text>
+    <text x="-10" y="65" text-anchor="end" fill="#7C8794" font-family="JetBrains Mono" font-size="12">50</text>
+    <text x="380" y="-10" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="14">BTC per block</text>
 
     <!-- X-axis labels -->
-    <text x="0" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2009</text>
-    <text x="190" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2017</text>
-    <text x="380" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2024</text>
-    <text x="570" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2032</text>
-    <text x="760" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">2140</text>
+    <text x="0" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">2009</text>
+    <text x="190" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">2017</text>
+    <text x="380" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">2024</text>
+    <text x="570" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">2032</text>
+    <text x="760" y="268" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">2140</text>
 
     <!-- Step curve: supply per block -->
     <g filter="url(#soft)">
@@ -56,13 +56,13 @@
     <path d="M0 240 C100 220, 200 180, 300 120 C400 60, 500 30, 600 15 C650 8, 700 4, 760 0" stroke="#22C55E" stroke-width="3" fill="none" stroke-linecap="round"/>
 
     <!-- Cumulative label -->
-    <text x="720" y="13" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="12">cumulative supply</text>
+    <text x="720" y="13" fill="#22C55E" font-family="JetBrains Mono" font-size="12">cumulative supply</text>
   </g>
 
   <!-- Bottom note -->
   <g filter="url(#soft)">
     <rect x="64" y="440" width="832" height="34" rx="12" fill="#171B21" stroke="#343A44" stroke-width="1.5"/>
-    <text x="480" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="15">
+    <text x="480" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="15">
       The last satoshi will be mined around the year 2140. After that, miners earn only transaction fees.
     </text>
   </g>

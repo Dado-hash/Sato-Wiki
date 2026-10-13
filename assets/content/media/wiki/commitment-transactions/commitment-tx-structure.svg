@@ -17,8 +17,8 @@
   </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Commitment Transaction Structure</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Each party holds a spendable commitment with asymmetric outputs</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Commitment Transaction Structure</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Each party holds a spendable commitment with asymmetric outputs</text>
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M76 148H884"/>
     <path d="M76 246H884"/>
@@ -26,46 +26,46 @@
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="164" width="220" height="66" rx="14" fill="#241E31" stroke="#7C5CFF" stroke-width="2"/>
-    <text x="174" y="190" text-anchor="middle" fill="#7C5CFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Funding UTXO</text>
-    <text x="174" y="210" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">2-of-2 multisig (A + B)</text>
+    <text x="174" y="190" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="14" font-weight="700">Funding UTXO</text>
+    <text x="174" y="210" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">2-of-2 multisig (A + B)</text>
   </g>
   <path d="M284 197L342 197" stroke="#F7931A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
-  <text x="313" y="189" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="10">spends</text>
+  <text x="313" y="189" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10">spends</text>
   <g filter="url(#soft)">
     <rect x="350" y="156" width="260" height="76" rx="14" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
-    <text x="480" y="180" text-anchor="middle" fill="#F7931A" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Commitment Transaction</text>
-    <text x="480" y="202" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">nLocktime = 0 | nVersion = 2</text>
-    <text x="480" y="220" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">Sequence: CSV delay on to_local</text>
+    <text x="480" y="180" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="14" font-weight="700">Commitment Transaction</text>
+    <text x="480" y="202" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">nLocktime = 0 | nVersion = 2</text>
+    <text x="480" y="220" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">Sequence: CSV delay on to_local</text>
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="262" width="260" height="110" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="194" y="288" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">to_local (Alice)</text>
-    <text x="194" y="312" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">CSV timelock (144 blocks)</text>
-    <text x="194" y="333" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">OP_IF &lt;revocation&gt; OP_ELSE CSV OP_CSV</text>
-    <text x="194" y="349" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="10">OP_DROP &lt;alice_key&gt; OP_ENDIF OP_CHECKSIG</text>
+    <text x="194" y="288" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">to_local (Alice)</text>
+    <text x="194" y="312" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">CSV timelock (144 blocks)</text>
+    <text x="194" y="333" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="10">OP_IF &lt;revocation&gt; OP_ELSE CSV OP_CSV</text>
+    <text x="194" y="349" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="10">OP_DROP &lt;alice_key&gt; OP_ENDIF OP_CHECKSIG</text>
     <rect x="84" y="356" width="220" height="8" rx="4" fill="#22C55E" opacity="0.3"/>
   </g>
   <g filter="url(#soft)">
     <rect x="350" y="262" width="260" height="110" rx="14" fill="#203327" stroke="#22C55E" stroke-width="2"/>
-    <text x="480" y="287" text-anchor="middle" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">to_remote (Bob)</text>
-    <text x="480" y="312" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">No timelock — immediately spendable</text>
-    <text x="480" y="336" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="12">&lt;bob_pubkey&gt; OP_CHECKSIG</text>
+    <text x="480" y="287" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">to_remote (Bob)</text>
+    <text x="480" y="312" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">No timelock — immediately spendable</text>
+    <text x="480" y="336" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12">&lt;bob_pubkey&gt; OP_CHECKSIG</text>
     <rect x="370" y="356" width="220" height="8" rx="4" fill="#22C55E" opacity="0.3"/>
   </g>
   <g filter="url(#soft)">
     <rect x="636" y="256" width="260" height="116" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="766" y="285" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">HTLC Outputs</text>
-    <text x="766" y="311" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Offered HTLC: to Bob if preimage</text>
-    <text x="766" y="333" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="12">Received HTLC: to Alice if timeout</text>
-    <text x="766" y="357" text-anchor="middle" fill="#7C8794" font-family="Inter, Arial, sans-serif" font-size="11">Each HTLC has CLTV + hashlock</text>
+    <text x="766" y="285" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="14" font-weight="700">HTLC Outputs</text>
+    <text x="766" y="311" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">Offered HTLC: to Bob if preimage</text>
+    <text x="766" y="333" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="12">Received HTLC: to Alice if timeout</text>
+    <text x="766" y="357" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">Each HTLC has CLTV + hashlock</text>
   </g>
   <g filter="url(#soft)">
     <rect x="64" y="402" width="832" height="92" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="480" y="428" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Asymmetric Output Design</text>
+    <text x="480" y="428" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="15" font-weight="700">Asymmetric Output Design</text>
     <g stroke="#28313B" stroke-width="1" opacity="0.4">
       <path d="M80 442H880"/>
     </g>
-    <text x="480" y="464" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Alice's commitment: Alice has CSV timelock; Bob is immediately spendable</text>
-    <text x="480" y="484" text-anchor="middle" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="13">Bob's commitment mirrors this: Bob has the timelock, Alice is immediate</text>
+    <text x="480" y="464" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Alice's commitment: Alice has CSV timelock; Bob is immediately spendable</text>
+    <text x="480" y="484" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">Bob's commitment mirrors this: Bob has the timelock, Alice is immediate</text>
   </g>
 </svg>

@@ -17,8 +17,8 @@
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
 
-  <text x="64" y="82" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Hash Function</text>
-  <text x="64" y="116" fill="#B7B1A8" font-family="Inter, Arial, sans-serif" font-size="18">Arbitrary input, fixed output</text>
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Hash Function</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="18">Arbitrary input, fixed output</text>
 
   <g stroke="#28313B" stroke-width="1" opacity="0.55">
     <path d="M101 142H909"/>
@@ -30,7 +30,7 @@
 
   <g filter="url(#soft)">
     <rect x="101" y="170" width="248" height="200" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
-    <text x="225" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Arbitrary input</text>
+    <text x="225" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">Arbitrary input</text>
 
     <g stroke="#B7B1A8" stroke-linecap="round" opacity="0.82">
       <path d="M133 238H281" stroke-width="3"/>
@@ -45,39 +45,39 @@
     <circle cx="115" cy="310" r="4" fill="#DBC2AE"/>
     <circle cx="115" cy="334" r="4" fill="#DBC2AE"/>
 
-    <text x="225" y="398" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="14">variable size</text>
+    <text x="225" y="398" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="14">variable size</text>
   </g>
 
   <path d="M349 270H425" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <g filter="url(#soft)">
     <rect x="425" y="170" width="200" height="200" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
-    <text x="525" y="216" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Hash</text>
-    <text x="525" y="246" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Function</text>
+    <text x="525" y="216" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Hash</text>
+    <text x="525" y="246" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Function</text>
     <rect x="455" y="272" width="140" height="32" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.4"/>
-    <text x="525" y="294" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">SHA-256</text>
+    <text x="525" y="294" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="15" font-weight="700">SHA-256</text>
     <g stroke="#B7B1A8" stroke-linecap="round" opacity="0.5">
       <path d="M455 330H595" stroke-width="2"/>
     </g>
-    <text x="525" y="360" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="14">one-way, deterministic</text>
+    <text x="525" y="360" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="14">one-way, deterministic</text>
   </g>
 
   <path d="M625 270H685" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
 
   <g filter="url(#soft)">
     <rect x="685" y="170" width="174" height="200" rx="18" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
-    <text x="772" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Fixed-size output</text>
+    <text x="772" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Fixed-size output</text>
 
     <rect x="709" y="236" width="126" height="32" rx="16" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
-    <text x="772" y="258" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">0xa3f1...7e9b</text>
+    <text x="772" y="258" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="14" font-weight="700">0xa3f1...7e9b</text>
 
     <rect x="719" y="286" width="106" height="32" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="1.5"/>
-    <text x="772" y="308" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">256 bits</text>
+    <text x="772" y="308" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="14" font-weight="700">256 bits</text>
 
     <g stroke="#B7B1A8" stroke-linecap="round" opacity="0.5">
       <path d="M719 332H825" stroke-width="2"/>
     </g>
-    <text x="772" y="356" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono, monospace" font-size="14">always 32 bytes</text>
+    <text x="772" y="356" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="14">always 32 bytes</text>
   </g>
 
   <!-- bottom section removed -->
