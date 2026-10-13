@@ -8134,10 +8134,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "12dc04a1eb7c3a85f9471506e8f23692d7d2ed79",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0095.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -9650,10 +9648,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "0801acc8225b41a0d4edb1cf610de77a24b00e95",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0138.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -11429,10 +11425,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "b159918467933bd4194a73ea142e0d30d42a2fc9",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0332.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     },
     {
@@ -13459,10 +13453,8 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "608e0939354b1e994aa7ec62ae435b6868d6a716",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0461.md",
-        "aiModel": "gemini-3.1-flash-lite",
-        "aiPromptVersion": "code-sync-v1",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": true
+        "needsReview": false
       }
     }
   ],
