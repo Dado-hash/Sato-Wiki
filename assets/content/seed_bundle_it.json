@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.130943",
+  "version": "2026.10.13.170000",
   "language": "it",
-  "generatedAt": "2026-10-13T13:09:43.000000Z",
+  "generatedAt": "2026-10-13T17:00:00.000000Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -8639,6 +8639,953 @@
         {
           "id": "wiki.physical-attacks",
           "title": "Attacchi fisici"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-anonymous",
+      "slug": "myth-anonymous",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin è anonimo\"",
+      "description": "Bitcoin è pseudonimo e non anonimo, perché ogni transazione è pubblica e permanente e gli indirizzi possono spesso essere collegati a persone.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Falso così com'è scritto: Bitcoin è pseudonimo, non anonimo. Le transazioni non riportano nomi, ma ogni transazione è pubblica e permanente, e gli indirizzi usati possono spesso essere collegati a persone reali.\n\nImmagina una bacheca pubblica dove tutti firmano con un soprannome. Il soprannome non rivela chi ha scritto un messaggio, ma se lo stesso soprannome pubblica per anni e qualcuno scopre una volta a chi appartiene, tutta la sua storia diventa leggibile. Bitcoin funziona in modo simile. Un indirizzo è una sequenza di caratteri, non un nome, ma resta nel registro per sempre, insieme a importi e orari.\n\nI collegamenti più forti arrivano spesso dall'esterno della chain. Un servizio che verifica i documenti d'identità può associare un account agli indirizzi che usa, e Bitcoin.org ricorda che di solito bisogna rivelare la propria identità per ricevere beni o servizi. Riusare un indirizzo unisce tutti i pagamenti ricevuti. La connessione internet può rivelare da dove parte una transazione, e una pagina che mostra il tuo indirizzo aggiunge un altro pezzo. Ogni pezzo è debole da solo, ma insieme possono identificare una persona.\n\nGli strumenti di privacy aiutano, ma nessuno rende invisibile un pagamento. Evitare il riuso degli indirizzi, CoinJoin e Tor nascondono ciascuno un tipo di collegamento e ne lasciano scoperti altri."
+        },
+        "medium": {
+          "bodyMarkdown": "Il punto di partenza è la sezione sulla privacy del whitepaper. Nel 2008 Satoshi Nakamoto scrisse che il pubblico può vedere qualcuno inviare un importo a un altro \"senza informazioni che colleghino la transazione a qualcuno\", e che per ogni transazione andrebbe usata una nuova coppia di chiavi. Questa è la pseudonimia: il progetto tiene i nomi fuori dal registro, ma non garantisce che le transazioni restino scollegate. La stessa sezione osserva che le transazioni con più input \"rivelano necessariamente che i loro input appartenevano allo stesso proprietario\".\n\nI ricercatori hanno verificato fin dove si arriva. In uno studio del 2013, Meiklejohn e colleghi hanno raggruppato gli indirizzi spesi insieme, poi hanno effettuato acquisti presso diverse attività per capire quali cluster appartenessero a quali operatori. Il loro articolo definisce le identità Bitcoin pseudo-anonime e afferma che tutte le transazioni sono completamente trasparenti.\n\nI dati di rete sono una seconda strada. Nel 2014 Biryukov, Khovratovich e Pustogarov hanno mostrato che alcune macchine collegate alla rete peer-to-peer di Bitcoin potevano associare gli pseudonimi agli indirizzi IP da cui venivano inviate le transazioni, e hanno riportato che l'attacco è stato verificato sperimentalmente. Chi trasmette da una connessione domestica senza protezione lascia a un osservatore un altro indizio.\n\nBitcoin.org trae la conseguenza pratica: poiché di solito occorre rivelare la propria identità per ricevere beni o servizi, \"gli indirizzi Bitcoin non possono restare completamente anonimi\". Il sito suggerisce anche Tor, così che l'indirizzo IP del computer non possa essere registrato.\n\nOgni strumento di privacy agisce su un collegamento. Usare un indirizzo nuovo per ogni pagamento elimina il collegamento da riuso. Tenere separate le monete di fonti diverse limita i collegamenti da input comuni. CoinJoin costruisce una transazione unica con più partecipanti, così che soggetti esterni non possano abbinare facilmente input e output. Tor nasconde da dove si collegano un nodo o un wallet. Ogni strumento ha costi in commissioni, tempo o comodità, e nessuno cancella ciò che il registro pubblico già registra."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte della tesi è questa. Bitcoin non registra nomi, chiunque può usare un wallet senza mostrare documenti, e la chain non dichiara chi possiede un indirizzo. Un utente attento che non riusa gli indirizzi, evita servizi collegati all'identità e nasconde l'origine della rete può rendere la traccia molto difficile da seguire. Secondo questa lettura, \"anonimo\" è un'espressione approssimativa per qualcosa che in pratica è difficile da tracciare, e la privacy di un utente attento può essere forte.\n\nLa risposta sopra regge su tre obiezioni che chi difende la versione forte deve prendere sul serio. La prima: il clustering è probabilistico e i suoi errori vanno in entrambe le direzioni. Meiklejohn e colleghi hanno scelto euristiche conservative di proposito, accettando di perdere molti collegamenti veri, perché un solo collegamento falso può unire utenti non correlati in un cluster molto grande. I loro risultati sono quindi stime, e il collegamento reale può essere più alto o più basso di quanto mostri qualunque singolo studio. La seconda: i collegamenti più forti spesso stanno fuori dalla chain, nei documenti d'identità presso i servizi, nei dettagli di spedizione e nei post pubblici che rivelano un indirizzo. Un protocollo non può eliminarli, quindi definire anonimo il protocollo descrive solo una parte del sistema. La terza: le contromisure sono imperfette. Optech osserva che CoinJoin funziona in modo efficiente solo con un numero consistente di input di valore simile, e che un output di resto non privato può conservare un collegamento deterministico con il suo input. Tor protegge la posizione di rete, non il contenuto del registro.\n\nUn sostenitore può rispondere che la tesi riguarda il protocollo, che è pubblico, e che i problemi elencati derivano dall'ambiente dell'utente o da una pratica debole. È una delimitazione corretta, ma cambia il significato della parola. Chi ha bisogno di anonimato deve costruirlo attorno al protocollo, e il protocollo non offre un'impostazione predefinita per farlo.\n\nLa tesi diventerebbe vera nel senso comune se una versione del protocollo molto usata nascondesse per default il grafo dei pagamenti, cioè importi e collegamenti tra mittenti e destinatari, senza indebolire la validazione né affidarsi a intermediari fidati, e se i punti quotidiani di ingresso e uscita dal sistema smettessero di richiedere l'identità. La tesi sarebbe chiaramente falsa se ogni wallet e ogni servizio comune continuasse a lasciare collegamenti affidabili, come descrive la ricerca citata sopra. Tra questi due estremi, la descrizione accurata è: pseudonimo, con strumenti di privacy forti che gli utenti devono usare correttamente."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Privacy",
+        "Pseudonimia",
+        "Analisi della chain"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Protect your privacy",
+          "url": "https://bitcoin.org/en/protect-your-privacy",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "A Fistful of Bitcoins: Characterizing Payments Among Men with No Names",
+          "url": "https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf",
+          "author": "Sarah Meiklejohn, Marjori Pomarole, Grant Jordan, Kirill Levchenko, Damon McCoy, Geoffrey M. Voelker, Stefan Savage",
+          "publishedAt": "2013-10-23"
+        },
+        {
+          "title": "Deanonymisation of clients in Bitcoin P2P network",
+          "url": "https://arxiv.org/abs/1405.7418",
+          "author": "Alex Biryukov, Dmitry Khovratovich, Ivan Pustogarov"
+        },
+        {
+          "title": "CoinJoin - Bitcoin Optech topic",
+          "url": "https://bitcoinops.org/en/topics/coinjoin/",
+          "author": "Bitcoin Optech"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.address-reuse",
+          "title": "Riuso degli indirizzi"
+        },
+        {
+          "id": "wiki.common-input-ownership",
+          "title": "Euristica common-input-ownership"
+        },
+        {
+          "id": "wiki.coinjoin",
+          "title": "CoinJoin"
+        },
+        {
+          "id": "wiki.tor",
+          "title": "Tor e Bitcoin"
+        },
+        {
+          "id": "wiki.threat-model",
+          "title": "Modello di minaccia"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-backed-by-nothing",
+      "slug": "myth-backed-by-nothing",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin non è garantito da nulla\"",
+      "description": "Nessun emittente o asset sta dietro a bitcoin, quindi le sue proprietà derivano da regole imposte e dal consenso della rete, mentre il suo valore dipende dalla domanda.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Vero in un senso, fuorviante in un altro. Nessun emittente, nessuna riserva e nessun asset sta dietro a bitcoin, e nessuno promette di riscattarlo. Questo descrive però come funziona, non se abbia valore, perché le sue proprietà derivano da regole che la rete fa rispettare.\n\nPensa a un gioco con un regolamento fisso. Il gioco non ha bisogno di una banca alle spalle per tenere la quantità di gettoni entro un limite, purché ogni giocatore controlli le stesse regole. Il calendario di emissione di bitcoin funziona così. Il totale è limitato a poco meno di 21 milioni di monete, e il block subsidy si dimezza ogni 210.000 blocchi, circa ogni quattro anni. I full node rifiutano ogni blocco che viola queste regole, quindi un miner che prova a creare monete in più non vede accettato nulla.\n\nI nuovi blocchi richiedono anche proof of work, che rende costosa la riscrittura della storia recente. I pagamenti passano direttamente tra gli utenti, senza un intermediario che tenga i saldi.\n\nNiente di questo dice che bitcoin abbia un valore preciso, né promette che la domanda durerà. Sono questioni separate. L'obiezione seria alla tesi riguarda proprio queste, ed è trattata nella sezione avanzata."
+        },
+        "medium": {
+          "bodyMarkdown": "L'espressione \"non garantito da nulla\" di solito significa che nessun asset sta in riserva a copertura di ogni unità, e che nessuna società o governo deve restituire qualcosa ai detentori. Per bitcoin è corretto. Ma è una domanda diversa da quella su cosa dia a bitcoin le sue regole.\n\nIl whitepaper descrive un sistema di pagamento elettronico senza una terza parte fidata. Le transazioni vengono trasmesse alla rete, e la proof of work le registra in una catena di blocchi. La catena più lunga è quella che porta il lavoro accumulato maggiore, ed è quella che i nodi seguono, finché i nodi onesti controllano la maggior parte della potenza di calcolo.\n\nLe regole sull'offerta fanno parte del consenso. Il subsidy è stabilito dal protocollo e si dimezza ogni 210.000 blocchi; la pagina Controlled supply della Bitcoin Wiki afferma che il numero di monete non supererà poco meno di 21 milioni. Si tratta di costanti che non sono cambiate dal lancio, quindi possono essere enunciate con chiarezza. Il calendario funziona però solo perché ogni full node lo verifica. La documentazione per sviluppatori spiega che i full node validano i blocchi con le stesse regole di consenso e che un nodo conserva solo i blocchi che ha validato.\n\nUn blocco richiede anche proof of work. La documentazione descrive l'hash dell'header del blocco, che non deve superare un valore determinato, e il valore deve essere almeno tanto impegnativo quanto la difficoltà attesa.\n\nUn pagamento diventa più difficile da annullare man mano che altri blocchi si aggiungono sopra quello che lo contiene. Il whitepaper tratta questo come una proprietà probabilistica: più blocchi costruiti sopra una transazione, meno probabile che venga sostituita.\n\nInsieme, questi meccanismi danno le proprietà che di solito si intendono con moneta sana: un'offerta che nessun emittente può espandere, e registrazioni che non dipendono da un unico tenutore di registro. Non creano un diritto su flussi di cassa e non obbligano nessuno a riscattare un'unità."
+        },
+        "advanced": {
+          "bodyMarkdown": "La forma più forte della tesi non è che bitcoin sia privo di valore. È che un asset monetario senza garanzie ha valore solo finché le persone si aspettano che altri continueranno ad accettarlo, e che nulla nel protocollo dia una ragione per detenerlo oltre quell'aspettativa. La Bank for International Settlements ha assunto questa posizione nel rapporto annuale del 2018. Ha descritto le criptovalute come simili a una moneta-merce \"senza alcun valore intrinseco nell'uso\", ha detto che non sono la passività di nessuno, cioè non possono essere riscattate, e ha affermato che \"il loro valore deriva solo dall'aspettativa che continueranno a essere accettate da altri\". Il capitolo riguarda le criptovalute in generale, non solo bitcoin.\n\nLa risposta sopra deve rispondere a questa obiezione. Offerta fissa e proof of work sono proprietà delle regole, ma un insieme di regole non è una riserva di valore. Le regole dicono quante unità esisteranno e come vengono registrate, non quante persone le vorranno né a quale prezzo. David Yermack ha esaminato bitcoin in un working paper NBER, pubblicato nel dicembre 2013, rispetto ai test abituali di una valuta: mezzo di scambio, riserva di valore e unità di conto. Ha concluso che bitcoin si comporta più come un investimento speculativo che come una valuta.\n\nLa replica del sostenitore è che gran parte del denaro oggi in uso non è riscattabile in una merce, e che l'accettazione è un fatto sociale che non ha bisogno di un diritto su asset per essere reale. È in parte giusto, e mostra che il diritto di riscatto non è l'unica fonte di valore. Non risponde però a se un asset senza flussi di cassa e senza diritto di riscatto possa essere valutato in modo stabile. Il capitolo BIS collega la volatilità di questi asset all'assenza di un soggetto obbligato a stabilizzarne il valore.\n\nLa tesi diventerebbe falsa se bitcoin fosse garantito da una pretesa giuridicamente esigibile su un insieme identificabile di attivi, o se un emittente si impegnasse a riscattarlo. Ciò cambierebbe ciò che bitcoin è, e nessuna regola del protocollo attuale lo fa. L'obiezione seria si risolverebbe in una direzione se emergessero prove che la domanda persiste per lunghi periodi senza alcun reddito o attivo a sostegno, e nell'altra se si mostrasse che la domanda dipende da una fonte di valore che l'obiezione non ha considerato. Le regole di consenso non possono risolverlo."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Moneta",
+        "Consenso",
+        "Proof of Work"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Cryptocurrencies: looking beyond the hype",
+          "url": "https://www.bis.org/publ/arpdf/ar2018e5.htm",
+          "author": "Bank for International Settlements",
+          "publishedAt": "2018-06-24"
+        },
+        {
+          "title": "Is Bitcoin a Real Currency? An economic appraisal",
+          "url": "https://www.nber.org/papers/w19747",
+          "author": "David Yermack"
+        },
+        {
+          "title": "Block Chain - Bitcoin Developer Guide",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Controlled supply - Bitcoin Wiki",
+          "url": "https://en.bitcoin.it/wiki/Controlled_supply",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.block-subsidy",
+          "title": "Block Subsidy"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-can-be-shut-down",
+      "slug": "myth-can-be-shut-down",
+      "language": "it",
+      "category": "myths",
+      "title": "\"I governi possono spegnere Bitcoin\"",
+      "description": "Parzialmente vero: nessuno Stato può spegnere la rete, ma uno Stato può vietarne o limitarne l'uso entro i propri confini, che è un limite diverso e reale.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Parzialmente vero. Nessun governo, azienda o server può spegnere Bitcoin nel suo insieme, ma un governo può vietarne o limitarne l'uso entro i propri confini, e questo limite è reale.\n\nBitcoin non funziona da un unico luogo. Il suo registro è copiato da molti full node gestiti da persone indipendenti in molti paesi. Ogni nodo controlla da sé le regole, quindi spegnerne uno non ferma gli altri, e una copia che viola le regole viene rifiutata dal resto della rete. Per fermare la rete bisognerebbe spegnere quasi tutti i nodi contemporaneamente, in ogni paese, e nessuna autorità controlla una cosa del genere.\n\nCiò che un governo può fare è più limitato. Può rendere illegale possedere o minare bitcoin, ordinare a exchange e banche di smettere di servire i propri residenti, oppure tassare pesantemente l'attività. Queste misure rendono difficile comprare, vendere e minare bitcoin per chi si trova in quel paese. Non fermano la rete, e le persone fuori dal divieto continuano a usarla.\n\nLe due cose non coincidono. Fermare la rete e rendere difficile l'uso in un solo luogo sono problemi diversi, e il primo richiederebbe il controllo della maggior parte dei nodi del mondo. Il secondo è facile da fare, ed è già successo."
+        },
+        "medium": {
+          "bodyMarkdown": "Le regole di Bitcoin sono applicate dal software, e ogni full node esegue gli stessi controlli. Un nodo scarica i blocchi a partire dal blocco genesis e li valida da sé, quindi la sua visione del registro non dipende da un singolo operatore. Il whitepaper descrive un sistema in cui la catena più lunga di proof of work fa da registro degli eventi, senza una terza parte fidata.\n\nIl mining è la parte più esposta alle norme nazionali. I miner hanno bisogno di elettricità economica, raffreddamento e hardware specializzato, quindi si concentrano dove l'energia costa poco. Nel giugno 2021 il governo cinese ha inasprito la repressione del mining. Il Cambridge Centre for Alternative Finance (CCAF) riferisce che l'hashrate registrato all'interno della Cina è sceso di fatto a zero nei mesi di luglio e agosto 2021.\n\nI dati di Cambridge mostrano anche dove è finita l'attività. Il dataset, che arriva al gennaio 2022 e viene riportato in un articolo del maggio 2022, attribuisce agli Stati Uniti circa il 37,8 per cento dell'hashrate globale, contro il 35,4 per cento dell'agosto 2021. Nello stesso periodo la capacità installata statunitense è salita da circa 42,7 a circa 71,0 EH/s. L'articolo riporta anche che l'hashrate registrato in Cina è tornato all'improvviso a circa 30,5 EH/s nel settembre 2021: Cambridge lo interpreta come miner che hanno continuato a operare di nascosto, quindi il divieto non ha fermato il mining nemmeno dentro il paese. Questi valori derivano da un campione di dati dei pool e cambiano di mese in mese: descrivono un momento, non una tendenza.\n\nExchange e banche sono l'altro punto di pressione. Un governo può imporre licenze, congelare conti o ordinare a un servizio regolamentato di smettere di servire i propri residenti. Questi ordini sono applicabili perché le aziende sono locali. Chi custodisce le proprie chiavi è più difficile da raggiungere, ma deve comunque convertire le monete in valuta locale, ed è lì che la regolamentazione di solito interviene.\n\nIl costo di un divieto è quindi reale ma limitato. Fa salire il prezzo di usare bitcoin nel paese e sposta l'attività altrove. Non cambia nessuna regola che i nodi verificano."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione è questa. La sicurezza di Bitcoin dipende da alcune grandi operazioni di mining, da una manciata di exchange e da pochi fornitori di wallet dominanti. Ciascuno è un soggetto giuridico con sedi, personale e conti bancari, e gli Stati hanno tribunali, polizia e uffici fiscali. Uno Stato grande che agisce insieme alle proprie banche potrebbe rendere bitcoin inutile per la maggior parte dei suoi residenti, e una rete i cui utenti sono in gran parte fuori dalla portata delle sue stesse regole è una nicchia. Secondo questa lettura, la validazione decentralizzata non protegge chi ha bisogno di entrare e uscire.\n\nDiversi punti sono seri. Il mining si concentra dove l'energia costa poco, e un divieto in un grande paese minerario sposta l'hashrate, a volte con costi in tempo e denaro. Gli exchange sono il principale accesso per i nuovi utenti, e la loro regolamentazione è reale. Uno Stato può usare il sistema bancario per bloccare i trasferimenti in valuta, e allora le strade facili diminuiscono anche se il protocollo resta attivo.\n\nLa risposta ha tre parti. Primo, nessun ordine raggiunge il protocollo. Nodi in molte giurisdizioni applicano tutti le stesse regole, e uno Stato non può modificare ciò che un nodo straniero verifica. Secondo, il mining si è spostato invece di sparire dopo il divieto del 2021: i dati di Cambridge mostrano che gli Stati Uniti sono diventati il principale polo di mining nel dataset del gennaio 2022. Terzo, i divieti finora hanno colpito l'accesso e il mining all'interno di un paese, non il protocollo.\n\nLe obiezioni a questa risposta sono altrettanto serie. Le cifre di Cambridge provengono da un campione di impianti dei pool, e la stessa mappa avverte che alcune quote per paese sono probabilmente gonfiate dall'uso di VPN e proxy. Misure rivolte ai maggiori exchange e custodi potrebbero rendere molto più difficile la strada ordinaria anche senza che un nodo si fermi. I dati non mostrano che uno Stato abbia già imposto un blocco, né che non potrebbe farlo.\n\nPerché l'affermazione diventi vera in senso forte, uno Stato o una coalizione dovrebbe controllare abbastanza hashrate da censurare o riordinare i blocchi, oppure impedire che blocchi validi raggiungano la maggior parte dei nodi, oppure tagliare quasi tutte le strade con cui le persone comprano e vendono. Perché sia chiaramente falsa in questo senso, i dati dovrebbero mostrare che hashrate e attività dei nodi non possono calare insieme, anche dopo un'azione coordinata nei maggiori paesi minerari."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Regolamentazione",
+        "Full Node",
+        "Mining"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Operating Modes",
+          "url": "https://developer.bitcoin.org/devguide/operating_modes.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Cambridge Bitcoin Mining Map",
+          "url": "https://ccaf.io/cbnsi/cbeci/mining_map",
+          "author": "Cambridge Centre for Alternative Finance"
+        },
+        {
+          "title": "Bitcoin Mining - New Data Reveal a Surprising Resurgence",
+          "url": "https://www.jbs.cam.ac.uk/2022/bitcoin-mining-new-data-reveal-a-surprising-resurgence/",
+          "author": "Cambridge Centre for Alternative Finance",
+          "publishedAt": "2022-05-17"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.peer-to-peer-network",
+          "title": "Rete Peer-to-Peer"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.myth-miners-control",
+          "title": "\"I miner controllano Bitcoin\""
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-criminal-use",
+      "slug": "myth-criminal-use",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin è usato soprattutto dai criminali\"",
+      "description": "L'uso illecito di bitcoin è reale e documentato, ma le stime pubblicate differiscono molto per metodo e anno, e nessuna di quelle citate mostra che sia la maggioranza.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Falso come affermazione generale, anche se l'uso illecito è reale. I criminali hanno usato bitcoin, e le stime pubblicate su quanta attività sia illecita differiscono molto per metodo e anno. Nessuna delle stime citate qui mostra che l'uso criminale sia la maggioranza.\n\nPensa a un sistema di pagamento usato da milioni di persone, dove una piccola quota di utenti commette reati. La domanda utile è quanta parte dell'attività totale sia illegale, non se i reati avvengano. Un registro pubblico cambia ciò che si può misurare, perché ogni pagamento è registrato. La stessa registrazione permette agli investigatori di seguire le monete, ed è per questo che bitcoin è stato tracciato in molti casi.\n\nIl mercato illecito più noto, Silk Road, accettava bitcoin per i suoi annunci dal lancio nel febbraio 2011 fino a quando l'FBI lo chiuse nell'ottobre 2013. Anche gli operatori di ransomware hanno usato le criptovalute per incassare i pagamenti. Questi casi sono documentati.\n\nLa dimensione dell'uso illecito dipende da cosa si conta. Uno studio accademico del 2019, che usa dati fino al 2017, ha stimato che quasi la metà delle transazioni di bitcoin, contate per numero, fosse collegata ad attività illegali. La società di analisi blockchain Chainalysis riporta che gli indirizzi illeciti hanno ricevuto meno dell'1 per cento del volume attribuito nel 2025, su tutte le criptovalute e non sul solo bitcoin. Ogni stima ha dei limiti, illustrati nelle sezioni medium e advanced."
+        },
+        "medium": {
+          "bodyMarkdown": "Un metodo comune è prendere le monete collegate a indirizzi illeciti noti e dividerne il valore per l'attività totale. Il risultato dipende da quali indirizzi sono noti. Il rapporto Chainalysis 2026 stima che gli indirizzi illeciti abbiano ricevuto almeno 154 miliardi di dollari nel 2025, e che la quota illecita del volume di transazioni attribuito sia cresciuta leggermente rispetto al 2024 restando sotto l'1 per cento. Il rapporto definisce la cifra un limite inferiore, perché conta solo gli indirizzi che la società ha identificato, ed esclude i crimini che non usano le criptovalute in modo nativo. La società ha anche rivisto il totale del 2024 da 40,9 a 57,2 miliardi di dollari. Queste cifre riguardano tutte le criptovalute: secondo il rapporto le stablecoin rappresentano l'84 per cento del volume illecito, quindi non misurano il solo bitcoin.\n\nL'aumento del 2025 è venuto soprattutto dal valore ricevuto da soggetti sanzionati, che il rapporto indica in crescita del 694 per cento. Il rapporto cita gli operatori di ransomware, ma senza cifre.\n\nUn metodo diverso dà un quadro diverso. Foley, Karlsen e Putnins, sulla Review of Financial Studies (2019), hanno usato sequestri di bitcoin e analisi di cluster per costruire un campione di utenti illeciti noti, con dati che finiscono nell'aprile 2017. Hanno stimato che circa il 46 per cento delle transazioni di bitcoin, e circa un quarto degli utenti, fosse associato ad attività illegali, per circa 76 miliardi di dollari l'anno. La quota del valore in dollari era più bassa, circa il 23 per cento. La loro classificazione si basa su algoritmi che raggruppano gli indirizzi, quindi il risultato descrive un'associazione, non reati accertati. Gli autori osservano anche che la quota illecita diminuisce con la crescita dell'interesse generale per bitcoin.\n\nIl registro pubblico aiuta davvero gli investigatori. Nel 2013 Meiklejohn e colleghi hanno raggruppato indirizzi spesi insieme e hanno effettuato acquisti presso diversi servizi per identificare gli operatori di alcuni di essi. Il caso Silk Road si è concluso con un arresto nel 2013, dopo che gli investigatori avevano identificato l'operatore del sito. La stessa tracciabilità rende misurabile l'uso illecito, ed è per questo che esistono stime che si possono confrontare tra loro."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte della tesi è che bitcoin attiri il crimine per ragioni insite nel suo progetto. I pagamenti sono irrevocabili e attraversano i confini senza l'approvazione di una banca, il che è utile a frodi e riciclaggio. Secondo questa lettura, il valore che gli analisti non vedono, come i flussi di servizi non registrati o le conversioni in contanti, è probabilmente più grande di quanto suggeriscano le stime pubblicate. La quota visibile potrebbe essere piccola mentre quella reale è maggioritaria. Meiklejohn e colleghi hanno scritto della preoccupazione che pagamenti scalabili, irrevocabili e anonimi risultassero molto attraenti per i criminali.\n\nLa risposta sopra ha obiezioni serie. La prima: i dati di Chainalysis sono un limite inferiore costruito su indirizzi identificati. Il rapporto stesso dice che i totali cresceranno man mano che si trovano più indirizzi, quindi la quota piccola riflette ciò che è stato etichettato, non tutto ciò che accade. La seconda: la società vende servizi di indagine, e il rapporto stesso dice che gli investigatori con informazioni extra-catena possono usare le sue soluzioni. Questo non rende sbagliati i numeri, ma chi legge deve tenerlo presente. La terza: la stima accademica va nella direzione opposta, con quasi la metà delle transazioni in numero. Anche il suo metodo ha limiti: si basa su monete sequestrate per costruire il campione, e il clustering può sbagliare in entrambe le direzioni.\n\nLa quarta: i denominatori sono diversi. Una quota per numero di transazioni, per valore in dollari e per utenti danno quadri diversi, quindi \"in maggioranza\" va definito. La quota Foley sul valore in dollari era circa il 23 per cento nel 2017, che non è una maggioranza, e la quota Chainalysis è sotto l'1 per cento per il 2025. Nessuna delle due cifre sostiene la tesi come maggioranza.\n\nLa replica del sostenitore è che la maggior parte dell'attività è lecita e che l'uso illecito è sempre esistito in ogni sistema di pagamento. È un argomento giusto sulla proporzione, ma non dice se la tesi regga per una misura precisa. La tesi diventerebbe vera se un metodo indipendente, con un campione documentato e tassi di errore dichiarati, mostrasse che i flussi illeciti rappresentano la maggioranza delle transazioni o del valore per un periodo prolungato. Diventerebbe chiaramente falsa se diversi metodi indipendenti, ciascuno con i propri limiti dichiarati, continuassero a trovare una quota piccola del valore. Tra questi due esiti, la risposta dipende dall'anno, dal metodo e dalla misura."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 6,
+      "tags": [
+        "Miti",
+        "Crimine",
+        "Analisi della chain",
+        "Stime"
+      ],
+      "sources": [
+        {
+          "title": "Chainalysis 2026 crypto crime report - introduction",
+          "url": "https://www.chainalysis.com/blog/2026-crypto-crime-report-introduction/",
+          "author": "Chainalysis"
+        },
+        {
+          "title": "Sex, Drugs, and Bitcoin: How Much Illegal Activity Is Financed through Cryptocurrencies?",
+          "url": "https://www.pure.ed.ac.uk/ws/files/82111413/Sex_drugs_and_bitcoin_20181214.pdf",
+          "author": "Sean Foley, Jonathan R. Karlsen, Talis J. Putnins"
+        },
+        {
+          "title": "A Fistful of Bitcoins: Characterizing Payments Among Men with No Names",
+          "url": "https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf",
+          "author": "Sarah Meiklejohn, Marjori Pomarole, Grant Jordan, Kirill Levchenko, Damon McCoy, Geoffrey M. Voelker, Stefan Savage",
+          "publishedAt": "2013-10-23"
+        },
+        {
+          "title": "Silk Road - Bitcoin Wiki",
+          "url": "https://en.bitcoin.it/wiki/Silk_Road",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.myth-anonymous",
+          "title": "\"Bitcoin è anonimo\""
+        },
+        {
+          "id": "wiki.common-input-ownership",
+          "title": "Euristica common-input-ownership"
+        },
+        {
+          "id": "wiki.coinjoin",
+          "title": "CoinJoin"
+        },
+        {
+          "id": "wiki.threat-model",
+          "title": "Modello di minaccia"
+        },
+        {
+          "id": "wiki.address-reuse",
+          "title": "Riuso degli indirizzi"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-energy-waste",
+      "slug": "myth-energy-waste",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin spreca energia\"",
+      "description": "Il mining usa molta elettricità per progetto, per rendere costosa la riscrittura della storia, ma se questo sia spreco è un giudizio di valore.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "In parte vero. Il mining di bitcoin consuma molta elettricità per progetto, perché la proof of work obbliga i miner a spendere energia per produrre blocchi. Se questo sia spreco è un giudizio di valore, e questa voce non lo decide.\n\nPensa a una serratura la cui robustezza dipende dallo sforzo necessario per forzarla. Lo sforzo è proprio il punto, e va pagato a ogni tentativo. In Bitcoin lo sforzo equivalente è fatto di elettricità e hardware. Chi vuole riscrivere una storia già confermata deve eguagliare e poi superare il lavoro della rete onesta, quindi l'energia spesa rende costosa la riscrittura.\n\nIl consumo energetico non dipende dal numero di pagamenti che la rete elabora. Dipende dalla concorrenza tra miner, a sua volta legata alla ricompensa del blocco e al costo dell'elettricità. Una giornata piena e una vuota possono consumare energia simile pur trasportando numeri di pagamenti molto diversi.\n\nSe quella elettricità provenga da fonti pulite dipende da dove avviene il mining, e cambia nel tempo. Le stime sul mix energetico differiscono, quindi ogni risposta va letta con le sue ipotesi in vista."
+        },
+        "medium": {
+          "bodyMarkdown": "La cifra più citata è una stima, non una lettura di contatore. Il Cambridge Bitcoin Electricity Consumption Index (CBECI) modella la domanda di potenza della rete a partire dall'hashrate totale e dall'efficienza dell'hardware di mining probabilmente in uso. Pubblica una stima quotidiana best-guess, con il modello che parte dal 18 luglio 2010. Poiché gli input sono modellati, anche l'output ha un'incertezza. L'indice cambia ogni giorno, quindi qui non è riportata alcuna cifra.\n\nUna stima accademica precedente dà un'idea di scala. Sedlmeir e colleghi, in un articolo del 2020 su Business & Information Systems Engineering, hanno stimato il consumo elettrico annuo di Bitcoin tra 60 e 125 TWh. Hanno collocato questo intervallo accanto al consumo di paesi come Austria e Norvegia. Gli stessi autori sostengono che le affermazioni generiche sul consumo energetico della blockchain vadano valutate con cautela.\n\nDue parti di ogni stima sono modellate, non misurate. La prima è l'hashrate totale della rete, che si osserva dalla produzione dei blocchi ma va convertito in potenza con ipotesi sull'efficienza dell'hardware. La seconda è la quota di quella potenza prodotta da ciascuna fonte, che non viene misurata direttamente a livello di rete. Le stime sul mix dipendono quindi dal metodo usato.\n\nIl consumo per transazione è alto perché la rete elabora pochi pagamenti al secondo. Sedlmeir e colleghi osservano che la capacità teorica di Bitcoin è limitata dai parametri dei blocchi. Il loro limite superiore del consumo di mining dipende dal prezzo dell'elettricità e dalla ricompensa del blocco, non dal numero di transazioni.\n\nL'argomento contiene quindi due parti spesso mescolate. La prima è se la sicurezza valga l'energia, che è una questione di valori. La seconda è se l'energia sia sprecata, cosa che dipende dal fatto che un altro progetto possa offrire la stessa sicurezza a costo più basso. Questa voce non decide nessuna delle due."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte della tesi è che il mining spende risorse reali per un solo scopo, la sicurezza del registro, e che gran parte di quella spesa sia una corsa tra miner che non aggiunge nulla agli utenti. Se la stessa sicurezza si potesse ottenere con meno energia, il costo è evitabile, e presentarlo come una caratteristica necessaria è una scusa.\n\nLa risposta sopra risponde in due modi, e entrambi sono esposti a obiezioni serie. La prima: l'argomento della sicurezza presuppone che una corsa costosa sia l'unico modo praticabile per rendere costosa la riscrittura della storia. Sedlmeir e colleghi sostengono in modo più generale che i sistemi blockchain differiscono molto nel consumo energetico, quindi una cifra unica per \"blockchain\" dice poco. Un critico può accettarlo e sostenere comunque che il progetto stesso di Bitcoin, con la ricompensa fissa e la competizione aperta, spinge il consumo. La difesa poggia allora sul fatto che la sicurezza acquistata valga quel prezzo, che è un giudizio di valore.\n\nLa seconda: l'affermazione che il consumo energetico non cresca con le transazioni è vera per il protocollo, ma un critico può ribaltarla. Se l'energia per pagamento è molto alta, anche il costo di ogni pagamento è alto, e il budget di sicurezza della rete si spende comunque, che il sistema abbia molti utenti o no. Il sostenitore può rispondere che la sicurezza è una risorsa condivisa da tutti i detentori del registro, ed è proprio lo scopo di quella spesa.\n\nLa terza: le affermazioni sul mix energetico sono le meno definite. Le quote di energia rinnovabile dipendono da ipotesi modellate, e metodi diversi danno risposte diverse. Un critico può sostenere che un'affermazione sull'energia pulita non compensa una cifra di consumo grande finché non è misurata in modo indipendente. La replica è che il mix cambia con la localizzazione del mining e che misurazioni affidabili sono difficili da fare.\n\nLa tesi diventerebbe vera, nel senso di spreco, se si mostrasse che un registro con sicurezza comparabile e ampia accettazione richiede molta meno energia, e se la sicurezza offerta da Bitcoin non servisse alle persone che vi fanno affidamento. La tesi diventerebbe falsa se le prove mostrassero che l'energia serve a sostenere la sicurezza che gli utenti apprezzano, e non è spesa per la competizione fine a se stessa. Entrambi gli esiti dipendono dalla misurazione e da come le persone pesano sicurezza e costo, non dal solo protocollo."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Mining",
+        "Energia",
+        "Proof of Work"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Cambridge Bitcoin Electricity Consumption Index",
+          "url": "https://ccaf.io/cbeci/index",
+          "author": "Cambridge Centre for Alternative Finance"
+        },
+        {
+          "title": "The Energy Consumption of Blockchain Technology: Beyond Myth",
+          "url": "https://link.springer.com/article/10.1007/s12599-020-00656-x",
+          "author": "Johannes Sedlmeir, Hans Ulrich Buhl, Gilbert Fridgen, Robert Keller"
+        },
+        {
+          "title": "Block Chain - Bitcoin Developer Guide",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.difficulty-adjustment",
+          "title": "Aggiustamento della Difficoltà"
+        },
+        {
+          "id": "wiki.miner-incentives",
+          "title": "Incentivi ai Miner"
+        },
+        {
+          "id": "wiki.halving",
+          "title": "Halving"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-miners-control",
+      "slug": "myth-miners-control",
+      "language": "it",
+      "category": "myths",
+      "title": "\"I miner controllano Bitcoin\"",
+      "description": "In parte vero: i miner scelgono quali transazioni valide entrano in un blocco e in che ordine, ma non possono cambiare le regole che i nodi applicano.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "In parte vero. I miner scelgono quali transazioni valide entrano in ogni blocco e in che ordine, quindi influenzano cosa viene confermato e quando. Non stabiliscono però le regole. Ogni full node controlla ogni blocco rispetto alle regole di consenso, e un blocco che le viola viene rifiutato, qualunque sia l'hashrate che lo ha prodotto.\n\nPensa ai miner come a chi riempie un sacco della posta. Possono lasciare fuori una lettera, mettere alcune lettere per prime o trattenere il sacco per un po'. Non possono stampare nuovi francobolli, cambiare le regole postali o aprire la busta di qualcun altro. Ogni ufficio postale controlla il sacco prima di inoltrarlo. La maggioranza dei miner può riscrivere gli ultimi sacchi, quindi un pagamento appena inviato può essere annullato, e può rifiutarsi di trasportare certe lettere finché mantiene la maggioranza. Questi poteri sono reali, ma sono limitati e temporanei. Creare monete o spendere monete altrui non rientra in ciò che i miner possono fare. I limiti contano quanto i poteri, quindi entrambi sono trattati qui sotto. In breve: scelgono il contenuto dei blocchi, non le regole."
+        },
+        "medium": {
+          "bodyMarkdown": "I miner costruiscono i template dei blocchi a partire dalle transazioni nella mempool, di solito ordinandole per fee rate. I pool spesso decidono il template per i propri membri. Con il design Stratum v1, usato dalla maggior parte dei pool, un membro riceve dal pool un template di header e coinbase e può non avere il permesso di cambiare le transazioni, quindi chi costruisce il template decide cosa viene incluso. Stratum V2 aggiunge un Job Declaration Protocol che permette a un miner di dichiarare il proprio insieme di transazioni.\n\nI full node fanno l'altra metà del lavoro. Controllano proof of work, struttura dei blocchi, firme, regole degli script e il limite di ricompensa della coinbase, e rifiutano qualsiasi blocco che non supera i controlli. Un miner che trova un blocco che viola una regola ha speso elettricità per un blocco che nessun nodo onesto accetterà.\n\nUna maggioranza di hashrate può comunque riorganizzare la storia recente. Il whitepaper di Bitcoin mostra che un attaccante che supera la chain onesta può cambiare solo le proprie transazioni, per riprendersi denaro speso di recente, e che la probabilità che un attaccante più lento recuperi cala in modo esponenziale man mano che si aggiungono blocchi. Lo stesso documento osserva che i nodi non accettano transazioni invalide, quindi un attaccante non può creare valore dal nulla né prendere denaro che non gli apparteneva.\n\nL'attivazione di SegWit nel 2017 mostra la differenza tra segnalare e decidere. BIP 148 è stata scritta perché il deployment esistente di SegWit non era ancora entrato in lock-in entro il 1 agosto 2017. Proponeva che da quella data i nodi che la eseguivano rifiutassero ogni blocco che non segnalasse SegWit. BIP 91, scritta anch'essa nel 2017, proponeva una soglia di segnalazione dell'80 percento su una finestra di 336 blocchi. Il Bitcoin Wiki riferisce che SegWit si è attivata poco dopo il 1 agosto 2017. I segnali erano il meccanismo, ma la minaccia credibile di rifiuto è venuta dagli operatori dei nodi."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione è la seguente. La sicurezza di Bitcoin si basa sulla proof of work, e la proof of work è controllata da chi ha più hashrate. L'ordinamento è potere: un operatore di pool che controlla il template può escludere transazioni, favorire le proprie e scegliere quale punta estendere.\n\nLa risposta ha argomenti seri, ma non è completa. L'obiezione più netta riguarda la censura. La voce Optech sul mining in pool descrive la disposizione comune di Stratum v1, in cui i membri non scelgono le transazioni di un template e il pool può rifiutare i loro tentativi di modificarlo. Stratum V2 offre una full-template mode, ma se i pool la adotteranno è una questione separata che la specifica non può risolvere. Una maggioranza può anche escludere transazioni per tutto il tempo in cui mantiene la maggioranza. La risposta equa è che l'esclusione è visibile, che le transazioni escluse possono essere minate da altri e che il costo ricade sul censore.\n\nUna seconda obiezione riguarda gli utenti che non eseguono un full node. Il whitepaper nota che un verificatore semplificato può essere ingannato da transazioni fabbricate da un attaccante, finché l'attaccante domina la rete. Per questi utenti l'ipotesi di maggioranza onesta è l'unica difesa, e la chain che accettano è quella che il loro provider mostra loro. La risposta è che chiunque può eseguire un full node, il che è vero, ma non aiuta chi non lo fa mai.\n\nL'episodio del 2017 sostiene la risposta e la complica. I miner hanno ritardato la segnalazione, e gli operatori dei nodi hanno usato BIP 148 per minacciare il rifiuto dei blocchi che non segnalavano. Quando la minaccia è diventata credibile, i miner hanno segnalato tramite BIP 91 e SegWit è entrata in lock-in. I critici possono sostenere con ragione che i miner erano il meccanismo di attivazione mentre la maggioranza economica era la leva. Entrambe le letture si adattano ai fatti.\n\nL'affermazione diventerebbe vera se i miner potessero imporre cambiamenti di regole contro la scelta degli operatori dei nodi, cosa che richiederebbe che i nodi smettessero di validare o accettassero qualsiasi chain presentata da pochi pool. Sarebbe falsa se una maggioranza di hashrate tentasse di imporre una regola che i nodi rifiutano, e la rete seguisse i nodi. Se la concentrazione dei pool renda la censura praticabile per periodi lunghi è una questione aperta, che le misurazioni attuali non hanno chiarito."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Mining",
+        "Consenso",
+        "Governance"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "BIP 148: Mandatory activation of segwit deployment",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki",
+          "author": "Shaolin Fry"
+        },
+        {
+          "title": "BIP 91: Reduced threshold Segwit MASF",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0091.mediawiki",
+          "author": "James Hilliard"
+        },
+        {
+          "title": "Bitcoin Optech - Pooled mining",
+          "url": "https://bitcoinops.org/en/topics/pooled-mining/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "Stratum V2 specification",
+          "url": "https://github.com/stratum-mining/sv2-spec",
+          "author": "Stratum V2 contributors"
+        },
+        {
+          "title": "Bitcoin Wiki - Segregated Witness",
+          "url": "https://en.bitcoin.it/wiki/Segregated_Witness",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.mining",
+          "title": "Mining"
+        },
+        {
+          "id": "wiki.mining-pools",
+          "title": "Mining pool"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.soft-fork-signalling",
+          "title": "Attivazione e segnalazione dei soft fork"
+        },
+        {
+          "id": "history.segwit-activation",
+          "title": "Attivazione SegWit"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-ponzi",
+      "slug": "myth-ponzi",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin è uno schema Ponzi\"",
+      "description": "Falso come descrizione del funzionamento della rete, con un punto valido dentro l'obiezione: il prezzo dipende dai nuovi acquirenti e molte truffe hanno usato bitcoin.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Falso come descrizione del funzionamento della rete, con un punto valido dentro l'obiezione. Uno schema Ponzi ha un operatore che promette rendimenti e paga gli investitori precedenti con il denaro di quelli successivi. Bitcoin non ha un operatore, non promette alcun rendimento a nessuno, e le sue regole e il suo registro sono pubblici. Il punto valido è che il prezzo di mercato dipende dal fatto che arrivino nuovi acquirenti, e molte truffe hanno usato bitcoin o il suo nome. È per questo che i critici usano la parola.\n\nConfronta le caratteristiche una per una. Uno schema Ponzi ha bisogno di qualcuno che raccoglie denaro e decide chi viene pagato. Bitcoin non ha una società, un fondo o una tesoreria che riceve depositi e li rimanda indietro. I pagamenti vanno da un proprietario all'altro, e la rete li registra senza intermediari. Uno schema Ponzi promette un rendimento. Bitcoin non promette nulla, e chi lo detiene non guadagna semplicemente detenendolo. Uno schema Ponzi tiene nascosti i conti. Il registro di Bitcoin può essere letto da chiunque esegua un nodo. Le differenze sono strutturali, ed è il motivo per cui la parola si adatta male, anche se il rischio di prezzo descritto dai critici è reale."
+        },
+        "medium": {
+          "bodyMarkdown": "La definizione di schema Ponzi di Wikipedia è un buon punto di partenza. È una forma di frode che paga profitti apparenti agli investitori precedenti con fondi di investitori più recenti, e di solito promette rendimenti elevati con poco o nessun rischio. Questi schemi crollano quando diventa difficile reclutare nuovi investitori o quando molti investitori chiedono indietro i soldi. La definizione ha tre parti: la frode, un operatore e pagamenti finanziati da denaro nuovo.\n\nIl design di Bitcoin non ha le prime due parti. Il whitepaper descrive un sistema peer-to-peer in cui le transazioni sono verificate dalla rete senza una terza parte fidata. Nessuno raccoglie depositi. I miner ricevono nuove monete e commissioni per proteggere il registro, che sono pagamenti per un lavoro svolto, non rendimenti per investitori.\n\nLa terza parte è dove vive l'argomento dei critici. Chi vende ha bisogno di un acquirente, e il prezzo di mercato dipende dalla domanda. Se la domanda dei nuovi acquirenti si fermasse, il prezzo potrebbe scendere molto. Questa dipendenza è reale, ed è il motivo per cui la parola viene usata in senso lato.\n\nLe truffe hanno usato bitcoin, e alcune ne hanno usato il nome. L'articolo di Wikipedia sugli schemi Ponzi osserva che le criptovalute sono state impiegate da truffatori che tentano una nuova generazione di schemi Ponzi, incluso l'uso scorretto delle initial coin offering, e che la maggior parte di questi schemi ha tassi di recupero bassi per gli investitori. Quei casi sono operatori che gestiscono schemi sopra bitcoin, non il protocollo stesso che è uno schema. La distinzione conta, perché una truffa può essere perseguita e un protocollo non può esserlo allo stesso modo.\n\nLe opinioni divergono. L'articolo Bitcoin di Wikipedia riporta che l'economista Nouriel Roubini ha descritto bitcoin come uno schema Ponzi nel 2014, che il giurista Eric Posner ha dissentito perché uno schema Ponzi reale richiede una frode, e che un rapporto della Banca Mondiale del 2014 ha concluso che bitcoin non era uno schema Ponzi deliberato."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione non ha bisogno di un operatore. Usa una definizione più larga: una struttura in cui i detentori precoci possono essere pagati solo da acquirenti successivi, e in cui l'asset non genera flussi di cassa propri. Il saggio del 2021 di Jorge Stolfi sostiene che il flusso di denaro di bitcoin è a senso unico, dagli acquirenti ai miner, e che i costi dei miner sono coperti da denaro esterno. Secondo quel saggio, il flusso netto dagli investitori ai miner dal 2009 ammontava a circa 15 miliardi di dollari USA, e il sistema deve continuare ad attrarre denaro nuovo per restare in funzione. Con questa lettura, l'etichetta Ponzi descrive una dipendenza, non una frode.\n\nLa risposta ha più parti. Primo, i miner sono pagati per un servizio, cioè proteggere il registro, e questo servizio ha una funzione che i pagamenti di uno schema Ponzi non hanno. Secondo, nessuno ha promesso ai detentori un reddito, e manca quindi la promessa centrale dello schema. Alla tesi di Stolfi sul flusso si risponde che i pagamenti per proteggere una rete sono un costo di gestione, e che ogni sistema con costi ricorrenti ha bisogno di entrate da qualche parte.\n\nL'obiezione seria a questa risposta è che la dipendenza sta nel prezzo, non in un gestore, e che il prezzo può comportarsi come uno schema indipendentemente da chi lo gestisce. La distinzione secondo cui una dipendenza da acquirenti successivi non è la stessa cosa di un pagamento finanziato da acquirenti successivi è corretta, ma non mostra se stiano avvenendo movimenti di prezzo simili a una bolla. Quella domanda è aperta, e questa voce non la risolve.\n\nLa parte valida dell'obiezione resta in piedi dopo entrambe le risposte. Truffe e schemi crollati hanno usato bitcoin, e chi acquista in una struttura che promette rendimenti è esposto alla frode di un operatore a prescindere dal protocollo. Il protocollo è cosa diversa dai prodotti di investimento costruiti intorno ad esso. Trattarli come un unico oggetto è dove l'affermazione sbaglia.\n\nL'affermazione diventerebbe vera nel senso che conta se il protocollo avesse un operatore che raccoglie fondi e promette rendimenti pagati con depositi successivi. Diventerebbe vera anche per un singolo prodotto se il suo operatore facesse esattamente questo. È falsa per il protocollo descritto nel whitepaper e nelle sue regole, finché quelle caratteristiche mancano. Se la struttura dei prezzi assomigli a una dinamica Ponzi è una questione separata e aperta."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Economia",
+        "Truffe",
+        "Mercato"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Ponzi scheme",
+          "url": "https://en.wikipedia.org/wiki/Ponzi_scheme",
+          "author": "Wikipedia contributors"
+        },
+        {
+          "title": "Bitcoin",
+          "url": "https://en.wikipedia.org/wiki/Bitcoin",
+          "author": "Wikipedia contributors"
+        },
+        {
+          "title": "Yes, Bitcoin is a Ponzi: A Re-Rebuttal",
+          "url": "https://ic.unicamp.br/~stolfi/bitcoin/2021-01-16-yes-ponzi.html",
+          "author": "Jorge Stolfi",
+          "publishedAt": "2021-01-16"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
+        },
+        {
+          "id": "wiki.miner-incentives",
+          "title": "Incentivi ai Miner"
+        },
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.myth-miners-control",
+          "title": "\"I miner controllano Bitcoin\""
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-quantum",
+      "slug": "myth-quantum",
+      "language": "it",
+      "category": "myths",
+      "title": "\"I computer quantistici romperanno Bitcoin\"",
+      "description": "Parzialmente vero: un computer quantistico abbastanza grande minaccerebbe le firme delle chiavi esposte, ma oggi nessuna macchina del genere esiste e non se ne conosce la data.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Parzialmente vero. Un computer quantistico in grado di rompere le firme di Bitcoin sarebbe una grave minaccia di lungo periodo, ma oggi non esiste una macchina del genere e nessuno sa quando potrebbe esistere. La minaccia è anche più ristretta di quanto suggerisca l'affermazione. Riguarda soprattutto le monete la cui chiave pubblica è già visibile sulla blockchain, mentre l'hashing, che protegge il mining, è molto meno colpito.\n\nBitcoin protegge la spesa con firme prodotte da una chiave privata. La chiave pubblica deriva da quella privata, e una firma dimostra che chi spende conosce la chiave privata. Un computer quantistico che esegua un algoritmo adatto potrebbe in linea di principio risalire dalla chiave pubblica a quella privata, e permettere così a un attaccante di spendere monete la cui chiave è esposta. Molti indirizzi nascondono la chiave pubblica dietro un hash fino alla spesa, quindi sono esposti molto meno.\n\nIl quadro corretto è che il rischio è reale per alcuni output, in un futuro incerto. Gli sviluppatori hanno proposte per firme e tipi di output post-quantistici, ma nessuna è ancora in Bitcoin, e le alternative richiedono chiavi e firme molto più grandi."
+        },
+        "medium": {
+          "bodyMarkdown": "Il meccanismo dipende dall'algoritmo. L'algoritmo di Shor, descritto in un articolo disponibile come preprint su arXiv, mostra che un computer quantistico sufficientemente grande potrebbe fattorizzare interi e calcolare logaritmi discreti in tempo polinomiale. Le firme di Bitcoin si basano su logaritmi discreti su curve ellittiche: ECDSA e firme Schnorr sulla curva secp256k1. Una macchina che eseguisse l'algoritmo di Shor alla dimensione richiesta potrebbe ricavare una chiave privata dalla chiave pubblica. Optech dice che un attacco del genere eliminerebbe la sicurezza di ECDSA, e lo stesso vale per Schnorr.\n\nL'esposizione è la variabile centrale. Con il pay-to-public-key-hash, l'output si impegna solo verso un hash della chiave pubblica, quindi la chiave non è visibile finché le monete non vengono spese. Gli output taproot inseriscono nello script di output una chiave pubblica modificata (tweaked), visibile dal momento in cui l'output esiste, come specifica la BIP 341. Una volta fatta una spesa, la sua chiave pubblica è pubblica.\n\nL'hashing è un caso diverso. SHA-256 è usato per la proof of work e per gli identificatori. L'algoritmo di Grover offre un'accelerazione quadratica per la ricerca non strutturata, con O(sqrt N) passi secondo il suo articolo su arXiv. Optech dice che questo dimezza i bit di sicurezza di SHA-256 contro gli attacchi di preimmagine, da 256 a 128, e che si recupera con una funzione con il doppio dei bit. Per il mining la perdita è quindi molto più piccola di quella che Shor causa alle firme.\n\nCiò che resta sconosciuto è il tempo. Optech osserva che la capacità e l'affidabilità dei computer quantistici probabilmente cresceranno gradualmente, quindi anche la sicurezza della crittografia di Bitcoin calerebbe gradualmente. Nessuna fonte indicata fornisce una data, e questa voce non ne dà una. La BIP 360, ancora in stato di bozza, propone un nuovo tipo di output che rimuove il key path spend di taproot. Affronta gli attacchi di lunga esposizione, non quelli che agiscono mentre una transazione attende nella mempool. Le firme post-quantistiche sono l'altra strada, e sono più grandi."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione va oltre le macchine attuali. Bitcoin contiene una grande quantità di valore in output le cui chiavi pubbliche sono già nel registro, e un proprietario che ha perso le chiavi o ha smesso di occuparsene non può spostare quelle monete. Un avversario capace potrebbe prenderle senza il permesso di nessuno, e la rete non ha modo di fermare un furto del genere, perché una firma valida è l'unico controllo che un nodo applica alla spesa delle monete. L'affermazione è seria perché il registro è pubblico: chiunque può verificare quali chiavi sono esposte, quindi un attaccante può scegliere in anticipo i bersagli più facili.\n\nAnche le obiezioni sono serie. Il problema della breve esposizione è il più acuto. Una transazione che spende da una chiave rivela quella chiave alla mempool prima di essere confermata, e una macchina abbastanza veloce da ricavare la chiave privata in quella finestra potrebbe battere sul tempo la transazione onesta. La BIP 360 dice che il tipo di output proposto affronta gli attacchi di lunga esposizione, e che la protezione dagli attacchi di breve esposizione potrebbe richiedere firme post-quantistiche. Optech osserva che esistono alternative resistenti ai quantistici rispetto a ECDSA, ma con chiavi e firme molto più grandi, il che rende lo spazio dei blocchi e le fee un vincolo reale.\n\nLa risposta dipende dal tempo. Optech descrive una progressione da attacchi computazionalmente irrealizzabili, a teoricamente possibili ma implausibili, a straordinariamente costosi, fino a molto costosi. Sostiene che Bitcoin può mantenere la crittografia attuale finché resta sicura e passare alla crittografia post-quantistica quando la minaccia appare vicina. Quella risposta ha un punto debole: presuppone che il progresso sia visibile abbastanza chiaramente e che la comunità si accordi abbastanza presto per migrare. Forzare la migrazione, congelando o distruggendo le monete esposte, sarebbe una modifica contestata delle regole, perché colpirebbe proprietari che non hanno agito e richiederebbe un fork che la maggior parte della rete accetti.\n\nPerché l'affermazione diventi vera, una macchina quantistica dovrebbe risolvere i logaritmi discreti su curve ellittiche alla dimensione di secp256k1 entro il tempo in cui una transazione attende nella mempool, e abbastanza monete esposte dovrebbero restare non migrate da rendere conveniente l'attacco. Perché sia chiaramente falsa, un percorso di migrazione dovrebbe essere attivo e la maggior parte del valore dovrebbe essere già uscita dagli output esposti prima che esista una macchina capace. Fino ad allora le questioni aperte sono quando una macchina del genere potrebbe esistere e se la comunità riuscirà a muoversi prima che conti."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Quantistica",
+        "Crittografia",
+        "Firme"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Optech - Quantum Resistance",
+          "url": "https://bitcoinops.org/en/topics/quantum-resistance/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "BIP 360: Pay-to-Merkle-Root (P2MR)",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki",
+          "author": "Bitcoin BIP authors"
+        },
+        {
+          "title": "BIP 341: Taproot: SegWit version 1 spending rules",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+          "author": "Bitcoin BIP authors"
+        },
+        {
+          "title": "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer",
+          "url": "https://arxiv.org/abs/quant-ph/9508027",
+          "author": "Peter W. Shor"
+        },
+        {
+          "title": "A fast quantum mechanical algorithm for database search",
+          "url": "https://arxiv.org/abs/quant-ph/9605043",
+          "author": "Lov K. Grover"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.digital-signatures",
+          "title": "Firme Digitali"
+        },
+        {
+          "id": "wiki.ecdsa",
+          "title": "ECDSA"
+        },
+        {
+          "id": "wiki.schnorr-signatures",
+          "title": "Firme Schnorr"
+        },
+        {
+          "id": "wiki.sha-256",
+          "title": "SHA-256"
+        },
+        {
+          "id": "wiki.address-reuse",
+          "title": "Riuso degli indirizzi"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-supply-can-change",
+      "slug": "myth-supply-can-change",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Il limite di 21 milioni si può cambiare\"",
+      "description": "Parzialmente vero: il limite è codice che potrebbe essere modificato, ma aggiungere monete sarebbe un hard fork che ogni nodo deve scegliere di adottare, e i nodi che lo rifiutano mantengono la vecchia chain.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Parzialmente vero. Il limite di 21 milioni è una regola scritta nel software di Bitcoin, quindi il software potrebbe in linea di principio essere modificato. Ma aggiungere monete sarebbe un hard fork, e ogni nodo deve scegliere se adottarlo. I nodi che rifiutano mantengono le vecchie regole e la vecchia chain, quindi un'offerta più grande non sarebbe il bitcoin che la rete esistente accetta.\n\nIl limite non è una promessa fatta da qualcuno. È un controllo che ogni full node esegue quando accetta un blocco. Un blocco che crea più monete di quante le regole consentano è invalido, e i nodi lo rifiutano. Per creare monete in più, qualcuno dovrebbe convincere chi gestisce i nodi, i miner e gli exchange ad adottare un software che accetta una regola diversa, e poi a rendere quella chain quella che la gente usa.\n\nPer questo la questione riguarda l'accordo tanto quanto il codice. Il codice può essere modificato, ma una modifica che crea monete diventa Bitcoin solo se una parte sufficiente della rete la esegue. Nessuno può imporre la nuova regola ai nodi che mantengono quella vecchia."
+        },
+        "medium": {
+          "bodyMarkdown": "La regola sull'offerta si trova nel codice di consenso. Bitcoin Core definisce il valore massimo della moneta come 21.000.000 di unità di base, e i nodi verificano che gli output restino entro quell'intervallo. I nuovi bitcoin di ogni blocco, il subsidy, diminuiscono secondo un calendario fisso, come spiega la voce sul block subsidy. La regola è quindi applicata da molti programmi indipendenti, non da un unico server centrale.\n\nVanno distinti due tipi di modifica. Un soft fork rende più severe le regole, così che alcuni blocchi che i nodi più vecchi accettavano vengono ora rifiutati. I nodi più vecchi continuano a considerare validi i nuovi blocchi, quindi l'aggiornamento può avvenire gradualmente. Creare più offerta fa l'opposto: rende validi blocchi che i nodi più vecchi rifiutano. La developer guide lo descrive come un hard fork, che produce due catene divergenti in modo permanente, una per i nodi aggiornati e una per quelli non aggiornati. Come esempio di modifica che richiede un hard fork, la guida cita l'aumento della dimensione del blocco oltre 1 MB.\n\nUn caso della storia di Bitcoin mostra monete create per errore. Il 15 agosto 2010 il blocco 74638 conteneva una transazione che creava 184.467.440.737,09551616 bitcoin. Una versione corretta del client è stata pubblicata entro cinque ore dalla scoperta. La Bitcoin Wiki riferisce che la catena valida ha superato quella errata all'altezza di blocco 74691, dopodiché la transazione errata e le monete che aveva creato non esistevano più sulla catena più lunga. L'episodio fu un bug, non una decisione, e la rete eliminò le monete adottando la correzione.\n\nLa lezione è che un cambio di offerta è una modifica delle regole con un costo sociale. Funziona solo se chi gestisce il software lo accetta, e il caso del 2010 ha funzionato perché quasi tutti volevano eliminare le monete errate."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione è questa. Le regole di Bitcoin sono ciò che le persone che fanno girare il software accettano di eseguire. Miner, exchange e sviluppatori di wallet formano un gruppo ristretto che può coordinarsi rapidamente, e una maggioranza di hashrate potrebbe in linea di principio minare blocchi secondo nuove regole. Se una quota abbastanza grande dell'economia adottasse un'offerta più ampia, la regola cambierebbe, e il vecchio limite sarebbe una scelta ingegneristica più che una legge fissa.\n\nC'è un punto serio in questo. Bitcoin non ha un meccanismo formale di voto on-chain per le modifiche del protocollo. La governance passa attraverso i rilasci del software, la segnalazione dei miner e le scelte degli operatori dei nodi e delle aziende, e tutto questo è informale. Un hard fork può avvenire senza una decisione centrale, il che significa che può anche avvenire a sorpresa. L'episodio del 2010 mostra che le regole possono cambiare nella pratica, attraverso una patch d'emergenza che la rete ha dovuto adottare in fretta.\n\nLa risposta è che l'episodio è diverso per natura. La patch ha eliminato monete create da un bug, e la rete l'ha adottata perché quasi tutti volevano che la transazione errata sparisse. Un aumento dell'offerta sarebbe invece una modifica deliberata che molti detentori potrebbero non volere, e un hard fork crea una seconda catena con una storia propria anziché spostare quella esistente. I vecchi nodi mantengono le regole che hanno verificato, quindi una moneta che esiste solo sulla nuova catena è un asset diverso, e il suo valore dipende dal fatto che il mercato la tratti come bitcoin.\n\nLe obiezioni a questa risposta sono reali. Il coordinamento non è gratuito, e un gruppo ben finanziato potrebbe fare un fork e poi convincere i servizi a quotare la nuova catena. La risposta dipende anche dall'ipotesi che la maggior parte degli attori economici preferisca le regole esistenti, e questa ipotesi riguarda le persone, non è una garanzia tecnica. Un fork che divide il mercato lascerebbe comunque in discussione un secondo asset con lo stesso nome.\n\nPerché l'affermazione diventi vera in senso forte, un insieme di miner, exchange e utenti dovrebbe eseguire software che accetta più monete ed essere trattato dal mercato come la continuazione di Bitcoin. Perché sia chiaramente falsa, il mercato dovrebbe rifiutare una catena del genere e i nodi che contano dovrebbero continuare ad applicare il limite attuale. Il test pratico è se quasi tutti adottano un cambio di offerta, perché un cambiamento adottato da una minoranza produce un asset diverso."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Offerta",
+        "Fork",
+        "Consenso"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "Bitcoin Core - Monetary Amount Constants (amount.h)",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/consensus/amount.h",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Block Chain",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Wiki - Value Overflow Incident",
+          "url": "https://en.bitcoin.it/wiki/Value_overflow_incident",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Fork e Soft Fork"
+        },
+        {
+          "id": "wiki.full-nodes",
+          "title": "Full Node"
+        },
+        {
+          "id": "wiki.block-subsidy",
+          "title": "Block Subsidy"
+        },
+        {
+          "id": "wiki.halving",
+          "title": "Halving"
+        },
+        {
+          "id": "history.value-overflow-incident",
+          "title": "Incidente dell'overflow di valore nel blocco 74638"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-too-slow",
+      "slug": "myth-too-slow",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin è troppo lento per essere utile\"",
+      "description": "Parzialmente vero: il base layer conferma solo poche transazioni al secondo per scelta progettuale, e i layer costruiti sopra gestiscono i pagamenti più piccoli con compromessi propri.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Parzialmente vero. Il base layer, cioè la catena principale di Bitcoin, è lento per i pagamenti quotidiani. Un nuovo blocco arriva circa ogni dieci minuti e contiene solo una quantità limitata di dati, quindi la catena gestisce solo poche transazioni al secondo. È comunque il posto in cui i pagamenti diventano definitivi e in cui si regolano i trasferimenti grandi o importanti, perché è questo che è stato costruito per fare. I pagamenti quotidiani più piccoli di solito passano per layer costruiti sopra, come la Lightning Network, che sono più veloci ed economici ma hanno compromessi propri.\n\nIl limite è voluto. Mantenere piccoli i blocchi rende meno costoso per le persone comuni far girare un full node, e i nodi sono ciò che mantiene oneste le regole di Bitcoin. Blocchi più grandi renderebbero più veloce lo spostamento di monete, ma richiederebbero computer più potenti per verificarli, e meno persone potrebbero far girare un nodo. Velocità e possibilità per chiunque di verificare la catena si tirano a vicenda.\n\nLa risposta onesta è quindi che Bitcoin è lento per molti usi, e che questa lentezza è una scelta su ciò che il base layer deve fare."
+        },
+        "medium": {
+          "bodyMarkdown": "Due parametri fissano il ritmo e la capacità del base layer. L'intervallo medio tra i blocchi è di dieci minuti, un valore che Bitcoin Core imposta come target di spaziatura della proof of work per la mainnet. Ogni blocco può contenere al massimo 4.000.000 di weight unit secondo il codice di consenso attuale. Le transazioni hanno dimensioni diverse, quindi il numero di transazioni per blocco varia, e alcune al secondo è una media approssimativa, non un ritmo fisso. Il paper della Lightning Network, bozza del gennaio 2016 scritta prima del limite attuale, descriveva Bitcoin come capace di gestire meno di 7 transazioni al secondo con un limite di blocco di 1 megabyte. Il valore è approssimativo e superato: va letto come ordine di grandezza.\n\nConferma e regolamento sono cose diverse. Una transazione è confermata quando compare in un blocco. Diventa praticamente definitiva solo dopo che sopra di essa sono stati costruiti altri blocchi, perché ogni blocco in più rende un ribaltamento più costoso. Il whitepaper mostra come la probabilità che un attaccante raggiunga la catena cali rapidamente con i blocchi aggiunti. Un pagamento può quindi essere visibile in pochi minuti ma richiedere ancora tempo prima di essere davvero sicuro per il venditore.\n\nIl limite protegge anche la rete. Il paper della Lightning Network sostiene che la validazione completa deve restare economica, così che un computer di consumo collegato a una linea domestica possa verificare la catena. Con blocchi molto grandi, solo pochi soggetti potrebbero validarli, e la fiducia scivolerebbe verso di loro. Bitcoin mantiene piccolo il base layer perché i controlli restino aperti a molte persone.\n\nLa Lightning Network sposta i pagamenti ripetuti in canali tra due parti, e sulla catena compaiono solo l'apertura e la chiusura di un canale. Il paper descrive pagamenti che possono essere instradati attraverso più canali e fatti rispettare sulla catena tramite timelock se una parte non collabora. I canali hanno costi propri. Entrambe le parti bloccano fondi, e un pagamento attraverso più canali richiede liquidità sufficiente su ogni tratto del percorso."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione è che Bitcoin non può fare da sistema di pagamento per la vita di tutti i giorni. A poche transazioni al secondo, il base layer può trasportare solo una piccola parte dei pagamenti, e se i layer costruiti sopra falliscono o costano troppo, resta solo la transazione on-chain, costosa. Secondo questa lettura, la scelta di progetto di tenere piccoli i blocchi è un tetto permanente e non temporaneo, e tutto il resto è un ripiego.\n\nC'è un punto serio. I blocchi sono limitati, quindi quando la domanda supera lo spazio, gli utenti competono con le fee (vedi la voce sul fee market). La Lightning dipende dalla liquidità dei canali, e un pagamento che attraversa molti canali è disponibile solo quanto il percorso che segue. Anche i canali richiedono transazioni on-chain per aprirsi e chiudersi, quindi un uso intenso del layer continua a produrre attività sul base layer.\n\nLa risposta ha tre parti. Primo, il base layer non deve portare tutto. Il suo compito è essere un layer di regolamento in cui la proprietà viene registrata e le controversie risolte, e i suoi progettisti volevano che restasse economico da verificare. Secondo, alzare il limite è possibile ma è una modifica deliberata: la developer guide cita l'aumento della dimensione del blocco oltre 1 MB come esempio di modifica che richiede un hard fork, che ogni nodo deve adottare. Terzo, quanta capacità basti è una questione sociale, e il protocollo da solo non la risolve.\n\nLe obiezioni sono che la risposta può sembrare una scusa. Una modifica di consenso è lenta da coordinare, e il costo dell'attesa ricade sugli utenti che devono pagare adesso. I layer aggiungono complessità e modalità di guasto proprie. Il paper della Lightning dava per scontato che la catena restasse economica da verificare mentre la domanda cresceva, e questa è una scommessa su hardware e condizioni di rete futuri, non una dimostrazione. Un critico può accettare tutta la logica progettuale e chiedersi comunque se serva i pagamenti che le persone fanno davvero.\n\nPerché l'affermazione diventi vera, il base layer dovrebbe restare alla sua capacità attuale mentre i layer costruiti sopra non riescono a servire i pagamenti quotidiani a costi e con sicurezza accettabili, spingendo gli utenti verso custodi. Perché sia chiaramente falsa, i layer dovrebbero gestire i pagamenti quotidiani a basso costo mantenendo le proprietà di autocustodia e sicurezza che rendono utile il base layer. Il test pratico sarebbero i tempi di conferma e le fee misurati nei momenti di picco."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Scalabilità",
+        "Lightning",
+        "Blocchi"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments",
+          "url": "https://lightning.network/lightning-network-paper.pdf",
+          "author": "Joseph Poon and Thaddeus Dryja",
+          "publishedAt": "2016-01-14"
+        },
+        {
+          "title": "Bitcoin Core - Chain Parameters (chainparams.cpp)",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/kernel/chainparams.cpp",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Core - Consensus Parameters (consensus.h)",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/consensus/consensus.h",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "Bitcoin Developer Guide - Block Chain",
+          "url": "https://developer.bitcoin.org/devguide/block_chain.html",
+          "author": "Bitcoin.org contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.blocks",
+          "title": "Blocchi"
+        },
+        {
+          "id": "wiki.fee-market",
+          "title": "Mercato delle Commissioni"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "wiki.weight-units",
+          "title": "Weight unit e vbyte"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-was-hacked",
+      "slug": "myth-was-hacked",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bitcoin è stato hackerato\"",
+      "description": "In parte vero: exchange e wallet sono stati violati e il software ha avuto bug seri, ma nessun difetto noto ha permesso di spendere monete senza le loro chiavi.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "In parte vero, e la domanda utile è quale parte. Il protocollo non è stato hackerato nel senso che qualcuno abbia falsificato firme o speso monete senza le loro chiavi. Ma il software ha avuto bug seri, e i servizi costruiti intorno a bitcoin, come exchange e wallet online, sono stati violati molte volte, con clienti che hanno perso fondi.\n\nPensa a tre livelli. Il protocollo è l'insieme delle regole. Il software è il programma che le implementa. I servizi sono gli exchange e le società di wallet che custodiscono chiavi o saldi di altre persone. Un'intrusione in un servizio è un furto ai danni dei suoi clienti e non cambia il protocollo. Un bug nel software può essere più grave. Nel 2010 un difetto ha permesso a una transazione di creare molte più monete di quelle consentite dalle regole, e la rete è stata corretta in fretta. Bug del genere sono stati trovati e risolti tramite segnalazione responsabile e aggiornamenti. L'affermazione corretta è che software e servizi possono fallire e che i fallimenti sono costati denaro alle persone. L'affermazione sbagliata è che un estraneo possa prendere bitcoin a un detentore che custodisce le proprie chiavi."
+        },
+        "medium": {
+          "bodyMarkdown": "I tre livelli richiedono risposte separate. Il protocollo è ciò che i full node applicano: struttura dei blocchi, proof of work, firme, script e limite di emissione. Una transazione con una firma falsificata viene rifiutata, e nel protocollo nulla sposta monete senza la presentazione delle chiavi. Exchange e wallet custodiali sono diversi. Quando una società detiene le chiavi, un attaccante che compromette la società può prenderle, e il cliente ha un diritto solo verso la società. Mt. Gox è un caso noto. Nel giugno 2011 un attaccante ha usato credenziali sottratte dal computer compromesso di un revisore e ha usato il software stesso dell'exchange per vendere bitcoin che non possedeva, facendo scendere per un certo tempo il prezzo visualizzato. L'exchange è poi collassato nel febbraio 2014.\n\nIl secondo livello è quello dei bug software. Nel marzo 2013 un blocco con più input di transazione di quanti alcuni nodi più vecchi sapessero gestire ha causato uno split della chain. I nodi con software precedente alla 0.8 hanno rifiutato il blocco, mentre i nodi 0.8 lo hanno accettato. BIP 50, scritta in seguito, spiega che la causa era un limite di lock di un database che era diventato di fatto una regola di consenso. Miner e pool sono tornati a versioni precedenti e lo split si è risolto.\n\nNel settembre 2018 Bitcoin Core ha reso pubblica la CVE-2018-17144, un difetto nel controllo che impedisce a una transazione di spendere due volte lo stesso input. La comunicazione dichiara che si trattava di una vulnerabilità critica di inflazione, cioè un miner avrebbe potuto aumentare l'offerta. La correzione è stata rilasciata in Bitcoin Core 0.16.3 e 0.17.0rc4 il 18 settembre 2018.\n\nIl value overflow del 2010 appartiene alla stessa famiglia: un blocco ha creato monete tramite una somma che ha superato il limite numerico, e una correzione è stata rilasciata in poche ore.\n\nLa lezione pratica riguarda la custodia. Dove il detentore controlla le chiavi, le protezioni del protocollo valgono per quelle monete. Dove una società detiene le chiavi, conta la sicurezza della società."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte dell'affermazione è che bitcoin è sicuro solo quanto il software e il servizio più debole intorno a esso. Se un exchange detiene gran parte del denaro che le persone usano, una sola intrusione sposta un valore elevato. Se il software può inflazionare l'offerta tramite un bug, la garanzia sull'offerta dipende da codice che può sbagliare.\n\nLa risposta seria concede gran parte di questo e lo restringe. Un guasto del protocollo è un guasto delle regole che ogni nodo applica. Nessuno dei casi noti ha permesso di spendere le monete di un detentore senza la sua chiave. Il whitepaper fonda la proprietà sulle firme digitali: ogni trasferimento è autorizzato da una firma sulla transazione e sulla chiave pubblica del nuovo proprietario. Una firma falsificata fallisce la validazione in ogni full node.\n\nL'obiezione a questa risposta è che \"nessuno ha speso monete senza chiavi\" è un test ristretto. Un bug che crea monete diluisce tutti i detentori, il che è una perdita anche se nessuna chiave viene toccata. Uno split della chain può lasciare valida per un po' una doppia spesa da un lato. BIP 50 registra una grande doppia spesa durante lo split del 2013, compiuta da qualcuno che stava sperimentando se fosse possibile. La risposta replica che la diluizione richiede comunque un bug, e che i bug vengono intercettati da test e segnalazioni. Il critico risponde che l'intercettazione è dipesa da persone che si trovavano a guardare nel momento giusto.\n\nI servizi sono un discorso a parte. Gli exchange custodiali e i wallet non fanno parte del protocollo, e le loro perdite non sono una prova che il protocollo sia stato hackerato. Resta però la domanda pratica di quanto denaro detenuto dalle persone si trovi sotto chiavi altrui. Quella quota dipende dalle scelte degli utenti e varia da persona a persona e da periodo a periodo, quindi qui non si può dare alcuna cifra generale.\n\nL'affermazione diventerebbe vera in senso stretto se un attaccante potesse spendere le monete di un detentore senza la sua chiave, per esempio tramite la rottura dello schema di firma o un bug di consenso che salti i controlli sulle firme. In quel senso resta falsa finché la verifica delle firme regge. Diventa ampiamente vera nella pratica se la maggior parte dei fondi si trova presso custodi la cui sicurezza cede spesso. Come affermazione sul disegno del protocollo è falsa, perché i guasti noti sono stati bug nel codice, non un difetto nel modello di proprietà."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Sicurezza",
+        "Exchange",
+        "Bug software"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto",
+          "publishedAt": "2008-10-31"
+        },
+        {
+          "title": "BIP 50: March 2013 Chain Fork Post-Mortem",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki",
+          "author": "Gavin Andresen",
+          "publishedAt": "2013-03-20"
+        },
+        {
+          "title": "Bitcoin Core - Disclosure of CVE-2018-17144",
+          "url": "https://bitcoincore.org/en/2018/09/20/notice/",
+          "author": "Bitcoin Core contributors",
+          "publishedAt": "2018-09-20"
+        },
+        {
+          "title": "Bitcoin Wiki - Value overflow incident",
+          "url": "https://en.bitcoin.it/wiki/Value_overflow_incident",
+          "author": "Bitcoin Wiki contributors"
+        },
+        {
+          "title": "Bitcoin Wiki - Mt. Gox",
+          "url": "https://en.bitcoin.it/wiki/Mt._Gox",
+          "author": "Bitcoin Wiki contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.consensus-rules",
+          "title": "Regole di Consenso"
+        },
+        {
+          "id": "wiki.forks-and-soft-forks",
+          "title": "Fork e Soft Fork"
+        },
+        {
+          "id": "wiki.self-custody",
+          "title": "Custodia e self-custody"
+        },
+        {
+          "id": "wiki.threat-model",
+          "title": "Modello di minaccia"
+        },
+        {
+          "id": "history.mtgox-collapse",
+          "title": "Crollo di Mt. Gox"
+        },
+        {
+          "id": "history.value-overflow-incident",
+          "title": "Incidente dell'overflow di valore nel blocco 74638"
+        }
+      ],
+      "reviewedAt": "2026-10-13",
+      "updatedAt": "2026-10-13T00:00:00Z"
+    },
+    {
+      "id": "wiki.myth-whole-coin",
+      "slug": "myth-whole-coin",
+      "language": "it",
+      "category": "myths",
+      "title": "\"Bisogna comprare un bitcoin intero\"",
+      "description": "Falso: un bitcoin si divide in 100.000.000 di satoshi, e il software registra ogni importo in satoshi.",
+      "readingLevels": {
+        "base": {
+          "bodyMarkdown": "Falso. Non serve comprare un bitcoin intero. Un bitcoin si divide in 100.000.000 di satoshi, e il software registra ogni importo in satoshi. Chiunque può detenere, inviare o ricevere una frazione di moneta, fino a un singolo satoshi. Il prezzo di una moneta intera non dice nulla, da solo, sul costo di un importo piccolo.\n\nLa divisione nasce nel software. Bitcoin Core definisce una moneta come 100.000.000 unità di base, quindi otto cifre decimali separano una moneta dalla sua unità più piccola. Gli output di una transazione dichiarano il loro valore in satoshi. Un wallet può mostrare un importo come BTC, millibitcoin, bit o satoshi, ma il valore sottostante è un numero intero di satoshi. I nomi delle unità sono convenzioni di visualizzazione. Non sono valute diverse.\n\nEsistono limiti pratici. Un output molto piccolo può costare più di quanto vale per essere speso, e i nodi che applicano le regole di relay predefinite non lo inoltrano. Anche le commissioni fissano una soglia minima di convenienza sulla chain principale. Questi limiti riguardano quali pagamenti hanno senso in un dato momento. Non impediscono di possedere una frazione di moneta. Una moneta intera è semplicemente un punto di riferimento, come un euro lo è con i centesimi sotto di esso."
+        },
+        "medium": {
+          "bodyMarkdown": "I nomi principali delle unità sono BTC per un bitcoin, mBTC per un millesimo di bitcoin, bit per un milionesimo di bitcoin e satoshi per un centomilionesimo. Il Bitcoin Wiki elenca questi nomi e i simboli collegati, e osserva che satoshi e sat indicano l'unità più piccola. BIP 176 formalizza il bit come 100 satoshi, ed è stata scritta in parte per ridurre la tendenza a ragionare in monete intere e per rendere più leggibili gli importi piccoli.\n\nLa rete Lightning usa internamente un'unità più piccola. Le specifiche BOLT definiscono il millisatoshi, cioè un millesimo di satoshi, e lo usano in campi di messaggio come amount_msat. Questo permette di esprimere saldi di canale e importi di pagamento con più precisione del satoshi del livello base. Il livello base regola ancora in satoshi interi, e l'apertura e la chiusura dei canali avvengono on chain.\n\nSul livello base il minimo pratico dipende da due cose. La prima è il limite di dust. Il codice di policy di Bitcoin Core calcola una soglia di dust a partire da un feerate, quindi un output è dust quando il suo valore è inferiore al costo di spenderlo a quella tariffa. Quella tariffa è un'impostazione di relay di ogni nodo, non la fee di mercato del giorno: la soglia è quindi una scelta di policy che chi gestisce un nodo può cambiare. La seconda è la commissione stessa, misurata in satoshi per virtual byte. Un pagamento la cui commissione supererebbe il suo valore non è conveniente. La fee cambia con il mercato e la tariffa di dust è un'impostazione, quindi nessun numero fisso vale per sempre.\n\nLa guida per sviluppatori descrive il protocollo in satoshi, con ogni output che dichiara il proprio importo in satoshi.\n\nIl prezzo unitario di una moneta intera è una quotazione di mercato in una certa valuta. Il costo in valuta fiat di un satoshi è quel prezzo diviso per 100.000.000, e il costo di un pagamento piccolo dipende da quanti satoshi sposta e dal feerate di quel giorno. Chi guarda solo il prezzo di una moneta sbaglia la valutazione dei piccoli importi, che è il problema di usabilità descritto da BIP 176."
+        },
+        "advanced": {
+          "bodyMarkdown": "La versione più forte di questa affermazione non riguarda il software, ma l'accesso. Molte persone non possono acquistare facilmente una moneta intera, e la percezione di doverla comprare può scoraggiare la partecipazione. Secondo questa lettura il sistema delle unità è una barriera, anche se il protocollo è divisibile. BIP 176 indica la stessa preoccupazione, elencando tra le sue motivazioni la riduzione del \"unit bias\" per chi vuole un bitcoin intero e il rischio di errore quando importi piccoli vengono mostrati in unità grandi. La preoccupazione è reale sul piano della presentazione.\n\nLa risposta separa tre cose che l'affermazione mescola. La divisibilità è una proprietà del protocollo, che conta satoshi interi. La visualizzazione è una scelta di ogni wallet e di ogni interfaccia. La dimensione economica minima di un pagamento on chain dipende da commissioni e policy in un dato momento. Un output espresso in satoshi è valido per il consenso, ma un nodo può rifiutarsi di inoltrare un output troppo piccolo per essere speso con convenienza secondo la sua policy. La policy può cambiare senza un fork, quindi il minimo pratico non è una proprietà fissa del sistema.\n\nL'obiezione seria a questa risposta è che la distinzione è tecnicamente netta ma socialmente debole. L'utente non vede il protocollo direttamente. Vede l'interfaccia, e se l'interfaccia mostra otto cifre decimali l'utente può leggere male l'importo. La risposta è che un wallet può mostrare satoshi o bit senza cambiare il protocollo.\n\nUna seconda obiezione sostiene che le commissioni on chain possono rendere poco pratici i pagamenti piccoli, anche se il protocollo li consente. La risposta è che si tratta di un fatto del mercato delle commissioni, che dipende dalle condizioni del momento, e che livelli come Lightning permettono importi più fini dentro i canali, con regolamento on chain solo all'apertura e alla chiusura. L'obiezione replica che anche i canali richiedono fondi on chain, quindi la soglia si sposta senza sparire.\n\nL'affermazione diventerebbe vera in senso protocollare se il consenso non ammettesse importi inferiori a una moneta, per esempio se gli output dovessero essere numeri interi di bitcoin. Diventerebbe vera in senso economico se le commissioni rendessero per lunghi periodi non spendibili tutti gli output on chain sotto una certa dimensione, senza un altro livello in grado di trasportare pagamenti più piccoli. Con le regole attuali e il software citato, l'affermazione è falsa: gli importi sono numeri interi in satoshi, e la dimensione minima di un pagamento dipende da policy e commissioni che cambiano nel tempo."
+        }
+      },
+      "difficulty": "base",
+      "readTimeMinutes": 5,
+      "tags": [
+        "Miti",
+        "Unità",
+        "Satoshi",
+        "Commissioni"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core consensus amounts",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/consensus/amount.h",
+          "author": "Bitcoin Core contributors"
+        },
+        {
+          "title": "BIP 176: Bits Denomination",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0176.mediawiki",
+          "author": "Jimmy Song",
+          "publishedAt": "2017-12-12"
+        },
+        {
+          "title": "Bitcoin Wiki - Units",
+          "url": "https://en.bitcoin.it/wiki/Units",
+          "author": "Bitcoin Wiki contributors"
+        },
+        {
+          "title": "Lightning BOLT 00 - Introduction",
+          "url": "https://github.com/lightning/bolts/blob/master/00-introduction.md",
+          "author": "Lightning Network contributors"
+        },
+        {
+          "title": "Developer Guide - Transactions",
+          "url": "https://developer.bitcoin.org/devguide/transactions.html",
+          "author": "Bitcoin.org contributors"
+        },
+        {
+          "title": "Bitcoin Core policy implementation",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/src/policy/policy.cpp",
+          "author": "Bitcoin Core contributors"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.transactions",
+          "title": "Transazioni Bitcoin"
+        },
+        {
+          "id": "wiki.dust-and-op-return",
+          "title": "Limite dust e OP_RETURN"
+        },
+        {
+          "id": "wiki.weight-units",
+          "title": "Weight unit e vbyte"
+        },
+        {
+          "id": "wiki.transaction-fees",
+          "title": "Commissioni di Transazione"
+        },
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
         }
       ],
       "reviewedAt": "2026-10-13",
@@ -17358,7 +18305,7 @@
       }
     }
   ],
-  "totalRecords": 367,
+  "totalRecords": 379,
   "historyCount": 41,
   "glossary": [
     {
