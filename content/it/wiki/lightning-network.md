@@ -28,7 +28,7 @@ sources:
     url: https://github.com/lnbook/lnbook
     author: Andreas M. Antonopoulos, Olaoluwa Osuntokun, Rene Pickhardt
   - title: "BOLT #1: Base Protocol"
-    url: https://github.com/lightning/bolts/blob/master/01-protocol.md
+    url: https://github.com/lightning/bolts/blob/master/01-messaging.md
     author: Lightning Network Specifications (BOLTs)
 updatedAt: 2026-05-27T00:00:00Z
 ---

@@ -1,26 +1,6 @@
 <svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Watchtower in Action</title>
   <desc id="desc">Diagram showing how a watchtower monitors the Bitcoin blockchain on behalf of an offline mobile node. Alice goes offline and hands encrypted justice transaction data to the watchtower. Bob attempts to broadcast a revoked commitment transaction to the blockchain. The watchtower detects the revoked transaction and publishes a penalty transaction that sends all channel funds to Alice.</desc>
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green-solid" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Watchtower in Action</text>
@@ -36,7 +16,7 @@
   <text x="760" y="154" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="12" font-weight="700">CHANNEL PEERS</text>
 
   <!-- Alice (Mobile) card -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="64" y="170" width="230" height="120" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="80" y="184" width="60" height="22" rx="6" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="110" y="200" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="11" font-weight="700">NODE</text>
@@ -50,7 +30,7 @@
   </g>
 
   <!-- Bob card -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="666" y="170" width="230" height="120" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="682" y="184" width="60" height="22" rx="6" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
     <text x="712" y="200" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="11" font-weight="700">PEER</text>
@@ -61,7 +41,7 @@
   </g>
 
   <!-- Watchtower card -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="380" y="176" width="240" height="128" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="396" y="190" width="72" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="432" y="206" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="11" font-weight="700">TOWER</text>
@@ -77,7 +57,8 @@
   </g>
 
   <!-- Arrow: Alice to Watchtower -->
-  <path d="M294 230L302 230C312 230 320 228 330 226" stroke="#22C55E" stroke-width="3.5" fill="none" marker-end="url(#arrow-green-solid)"/>
+  <path d="M294 230L302 230C312 230 320 228 330 226" stroke="#22C55E" stroke-width="3.5" fill="none"/>
+  <g transform="matrix(0.981 -0.196 0.196 0.981 321.175 222.666)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="320" y="218" fill="#22C55E" font-family="Inter" font-size="10" text-anchor="middle">Encrypted justice tx</text>
 
   <!-- Blockchain area -->
@@ -87,34 +68,37 @@
   <text x="480" y="334" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">BITCOIN BLOCKCHAIN</text>
 
   <!-- Blocks in blockchain -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="120" y="360" width="120" height="70" rx="10" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="134" y="374" width="50" height="18" rx="4" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="159" y="388" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10" font-weight="700">BLOCK</text>
     <text x="134" y="418" fill="#7C8794" font-family="Inter" font-size="10">#810,000</text>
   </g>
-  <path d="M240 395L258 395" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <path d="M240 395L258 395" stroke="#F7931A" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 250 390)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="270" y="360" width="160" height="70" rx="10" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <rect x="284" y="374" width="50" height="18" rx="4" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="309" y="388" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="10" font-weight="700">BLOCK</text>
     <text x="284" y="418" fill="#7C8794" font-family="Inter" font-size="10">#810,001</text>
   </g>
-  <path d="M430 395L448 395" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <path d="M430 395L448 395" stroke="#F7931A" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 440 390)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Block with revoked tx -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="460" y="360" width="160" height="70" rx="10" fill="#20252D" stroke="#EF4444" stroke-width="2"/>
     <rect x="474" y="374" width="50" height="18" rx="4" fill="#2A1B1B" stroke="#EF4444" stroke-width="1"/>
     <text x="499" y="388" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono" font-size="10" font-weight="700">BLOCK</text>
     <text x="474" y="408" fill="#F4EAD8" font-family="Inter" font-size="11" font-weight="600">Revoked</text>
     <text x="474" y="422" fill="#EF4444" font-family="Inter" font-size="9">commitment tx found</text>
   </g>
-  <path d="M620 395L638 395" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <path d="M620 395L638 395" stroke="#F7931A" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 630 390)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Block with penalty tx -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="650" y="360" width="170" height="70" rx="10" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
     <rect x="664" y="374" width="50" height="18" rx="4" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="689" y="388" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="10" font-weight="700">BLOCK</text>
@@ -123,15 +107,18 @@
   </g>
 
   <!-- Arrow: Bob to Blockchain (revoked tx) -->
-  <path d="M781 290L781 310C781 320 781 330 781 342" stroke="#EF4444" stroke-width="3.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="6 4"/>
+  <path d="M781 290L781 310C781 320 781 330 781 342" stroke="#EF4444" stroke-width="3.5" fill="none" stroke-dasharray="6 4"/>
+  <g transform="matrix(0 1 -1 0 786 334)"><path d="M2 2L8 5L2 8" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="795" y="316" fill="#EF4444" font-family="Inter" font-size="10">Broadcasts revoked tx</text>
 
   <!-- Arrow: Blockchain to Watchtower (detection) -->
-  <path d="M600 360L600 330C600 320 600 310 600 306" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrow-green-solid)"/>
+  <path d="M600 360L600 330C600 320 600 310 600 306" stroke="#22C55E" stroke-width="3" fill="none"/>
+  <g transform="matrix(0 -1 1 0 595 314)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="610" y="354" fill="#22C55E" font-family="Inter" font-size="10">Detects revoked tx</text>
 
   <!-- Arrow: Watchtower to Blockchain (penalty tx) -->
-  <path d="M580 304C650 316 705 332 735 358" stroke="#F7931A" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M580 304C650 316 705 332 735 358" stroke="#F7931A" stroke-width="4" fill="none"/>
+  <g transform="matrix(0.756 0.655 -0.655 0.756 732.229 348.982)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="656" y="324" fill="#F7931A" font-family="Inter" font-size="10">Publishes penalty tx</text>
 
   <!-- Footer note -->

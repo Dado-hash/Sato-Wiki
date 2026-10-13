@@ -26,20 +26,27 @@ Regole:
 - `language` del bundle e il fallback per i record che non dichiarano `language`.
 - Una collezione mancante o non lista diventa lista vuota con warning.
 - I campi extra sono ignorati. I seed contengono anche `historyCount` e `totalRecords`, che il parser non legge.
+- Le collezioni `glossary`, `references`, `quotes`, `paths`, `products` e `library` sono opzionali (vedi "Collezioni opzionali"). Restano nello schema versione `1`: un bundle che non le contiene viene letto con liste vuote, senza warning.
 
 ## Campi per tipo
 
-Ogni record ha un `id` stringa non vuota. Gli id sono `wiki.slug`, `news.slug`, `history.slug`, `code.bip.<numero>` e `release.<project>.<version>`.
+Ogni record ha un `id` stringa non vuota. Gli id sono `wiki.slug`, `news.slug`, `history.slug`, `code.bip.<numero>`, `release.<project>.<version>`, `glossary.<slug>`, `reference.<slug>`, `quote.<slug>`, `path.<slug>`, `product.<slug>` e `library.<slug>`.
 
 Sotto: campi che il parser richiede (obbligatori) e campi opzionali. Un record con un campo obbligatorio mancante o non valido viene saltato con warning; non blocca il bundle.
 
 | Tipo | Obbligatori | Opzionali |
 |---|---|---|
-| `WikiEntry` | `id`, `slug`, `category`, `title`, `description`, `readingLevels` (con `base`, `medium`, `advanced`, ciascuno con `bodyMarkdown`), `difficulty`, `readTimeMinutes`, `updatedAt` | `language`, `coverImage`, `tags`, `sources`, `related` |
-| `NewsArticle` | `id`, `slug`, `title`, `summary`, `category`, `author` (con `displayName`), `publishedAt`, `readTimeMinutes`, `bodyMarkdown`, `updatedAt` | `language`, `coverImage`, `tags`, `sources`, `related`; in `author`: `github`, `lightningAddress` |
-| `HistoryEvent` | `id`, `slug`, `date`, `title`, `category`, `summary`, `bodyMarkdown`, `updatedAt` | `language`, `tags`, `sources`, `related` |
-| `Bip` | `id`, `number`, `title`, `summary`, `status`, `category`, `createdAt`, `summaryMarkdown`, `impactMarkdown`, `officialUrl`, `updatedAt` | `language`, `authors`, `tags`, `sources`, `related`, `statusHistory`, `automation` |
-| `ReleaseNote` | `id`, `slug`, `project`, `version`, `title`, `summary`, `releasedAt`, `importance`, `userImpactMarkdown`, `technicalChangesMarkdown`, `officialUrl`, `updatedAt` | `language`, `tags`, `sources`, `related`, `automation` |
+| `WikiEntry` | `id`, `slug`, `category`, `title`, `description`, `readingLevels` (con `base`, `medium`, `advanced`, ciascuno con `bodyMarkdown`), `difficulty`, `readTimeMinutes`, `updatedAt` | `language`, `subcategory`, `coverImage`, `tags`, `sources`, `related`, `reviewedAt` |
+| `NewsArticle` | `id`, `slug`, `title`, `summary`, `category`, `author` (con `displayName`), `publishedAt`, `readTimeMinutes`, `bodyMarkdown`, `updatedAt` | `language`, `coverImage`, `tags`, `sources`, `related`, `reviewedAt`; in `author`: `github`, `lightningAddress` |
+| `HistoryEvent` | `id`, `slug`, `date`, `title`, `category`, `summary`, `bodyMarkdown`, `updatedAt` | `language`, `tags`, `sources`, `related`, `reviewedAt` |
+| `Bip` | `id`, `number`, `title`, `summary`, `status`, `category`, `createdAt`, `summaryMarkdown`, `impactMarkdown`, `officialUrl`, `updatedAt` | `language`, `authors`, `tags`, `sources`, `related`, `statusHistory`, `automation`, `reviewedAt` |
+| `ReleaseNote` | `id`, `slug`, `project`, `version`, `title`, `summary`, `releasedAt`, `importance`, `userImpactMarkdown`, `technicalChangesMarkdown`, `officialUrl`, `updatedAt` | `language`, `tags`, `sources`, `related`, `automation`, `reviewedAt` |
+| `GlossaryTerm` (collezione `glossary`) | `id`, `slug`, `term`, `definition`, `updatedAt` | `language`, `aliases`, `related`, `reviewedAt` |
+| `ReferenceTable` (collezione `references`) | `id`, `slug`, `title`, `description`, `columns`, `updatedAt` | `language`, `rows`, `sources`, `related`, `reviewedAt` |
+| `Quote` (collezione `quotes`) | `id`, `slug`, `text`, `author`, `date`, `sourceTitle`, `sourceUrl`, `updatedAt` | `language`, `originalText`, `topics`, `related` |
+| `LearningPath` (collezione `paths`) | `id`, `slug`, `title`, `description`, `estimatedMinutes`, `steps`, `updatedAt` | `language` |
+| `Product` (collezione `products`) | `id`, `slug`, `name`, `summary`, `bodyMarkdown`, `category`, `subcategory`, `maker`, `website`, `openSource`, `status`, `reviewedAt`, `updatedAt` | `language`, `sourceUrl`, `license`, `platforms`, `sources`, `related` |
+| `LibraryWork` (collezione `library`) | `id`, `slug`, `title`, `author`, `year`, `summary`, `introduction`, `originalLanguage`, `kind`, `url`, `licenseNote`, `updatedAt` | `language`, `topics`, `archiveUrl`, `sources`, `related`, `reviewedAt` |
 
 Tipi e formati letti dal parser:
 
@@ -51,6 +58,8 @@ Tipi e formati letti dal parser:
 - `sources`: lista di oggetti `{ "title", "url", "author"?, "publishedAt"? }`. `title` e `url` (URI assoluto) sono obbligatori.
 - `related`: lista di stringhe (id) oppure oggetti `{ "id", "title"? }`. Assente: lista vuota.
 - `language` mancante: si usa `language` del bundle.
+- `reviewedAt` (tutti i tipi tranne `Quote` e `LearningPath`): data ISO 8601 (`YYYY-MM-DD` o timestamp completo) in cui i fatti del record sono stati controllati per l'ultima volta sulle fonti. Assente o `null` significa non ancora revisionato. Un valore malformato fa saltare il record con warning. Non e ancora mostrato in nessuna schermata. Per `Product` e obbligatorio (vedi sotto).
+- `subcategory` (solo `WikiEntry`): stringa opzionale per raggruppare le wiki di una categoria. Assente, `null` o vuota significa nessuna sottocategoria. Un valore non stringa fa saltare il record con warning. Vedi "Sottocategorie wiki".
 
 ## WikiEntry
 
@@ -78,6 +87,33 @@ Tipi e formati letti dal parser:
 ```
 
 `difficulty` accetta `base`, `medium` o `advanced`.
+
+### Sottocategorie wiki
+
+`subcategory` e facoltativo. Le sottocategorie previste sono le seguenti; il parser accetta anche valori diversi, ma il validatore non li segnala, quindi usare solo questi.
+
+Categoria `software`:
+
+| Valore | Inglese | Italiano |
+|---|---|---|
+| `nodes` | Nodes | Nodi |
+| `software-wallets` | Software wallets | Software wallet |
+| `lightning` | Lightning | Lightning |
+| `servers` | Servers and infrastructure | Server e infrastruttura |
+| `node-systems` | Home node systems | Sistemi per nodo domestico |
+| `mining-software` | Mining software | Software di mining |
+| `developer-tools` | Libraries and developer tools | Librerie e strumenti per sviluppatori |
+
+Categoria `hardware`:
+
+| Valore | Inglese | Italiano |
+|---|---|---|
+| `hardware-wallets` | Hardware wallets | Hardware wallet |
+| `seed-backups` | Seed backups | Backup del seed |
+| `mining-hardware` | Mining hardware | Hardware di mining |
+| `node-hardware` | Node hardware | Hardware per nodi |
+
+Le wiki con categoria `software` o `hardware` senza `subcategory` producono un warning del validatore (non un errore).
 
 ## Fixture Seed
 
@@ -287,6 +323,263 @@ Per proteggere un testo revisionato dalla rigenerazione: portare `needsReview` a
 - `X.0` e `major` (per esempio `30.0`);
 - `X.Y` con `Y` diverso da zero e `minor` (per esempio `29.3`);
 - una terza componente diversa da zero e `patch`.
+
+## Collezioni opzionali
+
+Sei collezioni top-level sono aggiunte allo schema versione `1`: `glossary`, `references`, `quotes`, `paths`, `products` e `library`. Sono opzionali: un bundle senza queste chiavi viene letto con liste vuote e senza warning. Un record malformato viene saltato con warning, come per wiki e history; i campi extra sono ignorati. Nessuna schermata le legge ancora: il parser, lo store (`ContentStore`) e il validatore le conoscono, l'app non le mostra.
+
+Regole comuni:
+
+- l'`id` deve iniziare con il prefisso della collezione e deve essere unico in tutto il bundle, anche rispetto alle altre collezioni;
+- `related`, `link` delle righe di `references` e `id` dei passi di `paths` accettano qualunque id di record presente nel bundle, comprese le collezioni opzionali;
+- `language` e opzionale e ricade sulla lingua del bundle;
+- le date sono stringhe ISO 8601.
+
+### GlossaryTerm
+
+```json
+{
+  "id": "glossary.utxo",
+  "slug": "utxo",
+  "language": "en",
+  "term": "UTXO",
+  "definition": "Unspent transaction output: an output of a past transaction that has not been spent yet.",
+  "aliases": ["Unspent output"],
+  "related": ["wiki.transactions"],
+  "updatedAt": "2026-06-20T00:00:00Z",
+  "reviewedAt": "2026-06-20"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `glossary.<slug>` |
+| `slug` | si | stringa non vuota |
+| `term` | si | termine, testo semplice |
+| `definition` | si | definizione in testo semplice, non Markdown |
+| `aliases` | no | lista di stringhe; assente o vuota significa nessun alias |
+| `related` | no | come negli altri record |
+| `updatedAt` | si | data ISO |
+| `reviewedAt` | no | data ISO, vedi sopra |
+
+`findGlossaryTerm` cerca un termine o un alias senza distinguere maiuscole e minuscole.
+
+### ReferenceTable
+
+Tabella di riferimento: colonne dichiarate e righe di testo, ciascuna eventualmente collegata a un record.
+
+```json
+{
+  "id": "reference.block-subsidy",
+  "slug": "block-subsidy",
+  "language": "en",
+  "title": "Block subsidy by halving era",
+  "description": "Subsidy paid per block in each era.",
+  "columns": [
+    {"key": "era", "label": "Era"},
+    {"key": "subsidy", "label": "Subsidy"}
+  ],
+  "rows": [
+    {"cells": {"era": "1", "subsidy": "50 BTC"}, "link": "wiki.proof-of-work"}
+  ],
+  "sources": [],
+  "related": [],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `reference.<slug>` |
+| `slug` | si | stringa non vuota |
+| `title`, `description` | si | stringhe non vuote |
+| `columns` | si | lista non vuota di `{ "key", "label" }` (stringhe) |
+| `rows` | no | lista di `{ "cells", "link"? }`; assente significa nessuna riga |
+| `rows[].cells` | si, per ogni riga | oggetto `"<key colonna>": "<testo>"`; le chiavi devono essere colonne dichiarate |
+| `rows[].link` | no | id di un record esistente |
+| `sources`, `related` | no | come negli altri record |
+| `updatedAt` | si | data ISO |
+| `reviewedAt` | no | data ISO, vedi sopra |
+
+### Quote
+
+Citazione con fonte verificabile. `originalText` contiene l'originale inglese e compare solo nei bundle non inglesi.
+
+```json
+{
+  "id": "quote.genesis-headline",
+  "slug": "genesis-headline",
+  "language": "it",
+  "text": "Testo tradotto della citazione.",
+  "originalText": "Original quote text.",
+  "author": "Satoshi Nakamoto",
+  "date": "2009-01-03",
+  "sourceTitle": "Genesis block",
+  "sourceUrl": "https://example.com/genesis",
+  "topics": ["Genesis"],
+  "related": ["history.bitcoin-whitepaper"],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `quote.<slug>` |
+| `slug` | si | stringa non vuota |
+| `text` | si | testo della citazione |
+| `originalText` | no | originale inglese, solo nei bundle non inglesi |
+| `author`, `sourceTitle` | si | stringhe non vuote |
+| `date` | si | data ISO |
+| `sourceUrl` | si | URI assoluto; il validatore richiede `http` o `https` |
+| `topics` | no | lista di stringhe |
+| `related` | no | come negli altri record |
+| `updatedAt` | si | data ISO |
+
+`Quote` non ha `reviewedAt` in questa versione.
+
+### LearningPath
+
+Percorso di lettura ordinato: ogni passo punta a un record esistente e ha una nota di una frase.
+
+```json
+{
+  "id": "path.first-steps",
+  "slug": "first-steps",
+  "language": "en",
+  "title": "First steps",
+  "description": "A short route through the basics.",
+  "estimatedMinutes": 30,
+  "steps": [
+    {"id": "wiki.proof-of-work", "note": "Start with how blocks are secured."},
+    {"id": "glossary.utxo", "note": "Then learn the transaction model."}
+  ],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `path.<slug>` |
+| `slug` | si | stringa non vuota |
+| `title`, `description` | si | stringhe non vuote |
+| `estimatedMinutes` | si | intero |
+| `steps` | si | lista non vuota di `{ "id", "note" }`; `id` e un id di record esistente, `note` una frase |
+| `updatedAt` | si | data ISO |
+
+`LearningPath` non ha `reviewedAt` in questa versione.
+
+### Product
+
+Software o hardware descritto per la sezione prodotti. `reviewedAt` e obbligatorio: un prodotto senza data di revisione viene saltato dal parser.
+
+```json
+{
+  "id": "product.sparrow-wallet",
+  "slug": "sparrow-wallet",
+  "language": "en",
+  "name": "Sparrow Wallet",
+  "summary": "Desktop wallet focused on coin control.",
+  "bodyMarkdown": "...",
+  "category": "software",
+  "subcategory": "software-wallets",
+  "maker": "Sparrow Developers",
+  "website": "https://sparrowwallet.com",
+  "sourceUrl": "https://github.com/sparrowwallet/sparrow",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "platforms": ["macOS", "Windows", "Linux"],
+  "status": "active",
+  "reviewedAt": "2026-06-20",
+  "sources": [],
+  "related": ["wiki.software-wallets"],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `product.<slug>` |
+| `slug`, `name`, `summary`, `bodyMarkdown` | si | stringhe non vuote |
+| `category` | si | `software` o `hardware` |
+| `subcategory` | si | uno dei valori di "Sottocategorie wiki"; un valore diverso produce un warning del validatore |
+| `maker` | si | stringa non vuota |
+| `website` | si | URI assoluto; il validatore richiede `http` o `https` |
+| `sourceUrl` | no | URI assoluto; il validatore richiede `http` o `https` |
+| `openSource` | si | booleano. Per il software: il codice del prodotto è pubblico con una licenza open source. Per l'hardware: lo è il firmware del dispositivo; schemi, secure element e app collegate si descrivono nel testo |
+| `license` | no | stringa |
+| `platforms` | no | lista di stringhe |
+| `status` | si | `active` o `discontinued`; un altro valore fa saltare il record con warning |
+| `reviewedAt` | si | data ISO; un valore mancante o malformato fa saltare il record |
+| `sources`, `related` | no | come negli altri record |
+| `updatedAt` | si | data ISO |
+
+`ProductStatus` ha solo questi due valori: il parser non accetta alias.
+
+### LibraryWork
+
+Biblioteca: una fonte primaria o un testo classico, con una nostra introduzione. L'app non contiene il testo integrale dell'opera: il record rimanda all'opera sul sito dell'autore o dell'editore, o su un archivio stabile. Il testo integrale non va incluso nel bundle, a meno che la licenza dell'opera lo consenta e il diritto di riuso sia stato verificato per quella specifica opera.
+
+```json
+{
+  "id": "library.blind-signatures",
+  "slug": "blind-signatures",
+  "language": "en",
+  "title": "Blind Signatures for Untraceable Payments",
+  "author": "David Chaum",
+  "year": 1982,
+  "summary": "The paper that introduced blind signatures for payments.",
+  "introduction": "Our own introduction in Markdown, 80 to 150 words.",
+  "originalLanguage": "en",
+  "kind": "paper",
+  "topics": ["cryptography", "digital cash", "privacy"],
+  "url": "https://example.com/chaum-1982",
+  "archiveUrl": "https://web.archive.org/web/2026/https://example.com/chaum-1982",
+  "licenseNote": "No license stated; linked, not reproduced",
+  "sources": [],
+  "related": ["history.hashcash"],
+  "updatedAt": "2026-06-20T00:00:00Z",
+  "reviewedAt": "2026-06-20"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `library.<slug>` |
+| `slug` | si | stringa non vuota |
+| `title` | si | titolo originale dell'opera |
+| `author` | si | autore (o autori) dell'opera |
+| `year` | si | intero tra 1900 e l'anno corrente; il validatore segnala un errore fuori intervallo |
+| `summary` | si | una frase |
+| `introduction` | si | nostro testo in Markdown, da 80 a 150 parole |
+| `originalLanguage` | si | codice ISO della lingua originale, per esempio `en` |
+| `kind` | si | `paper`, `essay`, `post`, `email`, `book` o `manifesto`; un valore diverso viene conservato così com'è |
+| `topics` | no | lista di stringhe |
+| `url` | si | URI assoluto `http` o `https` verso l'opera sul sito dell'autore, dell'editore o su un archivio stabile |
+| `archiveUrl` | no | URI assoluto `http` o `https`, copia di archivio |
+| `licenseNote` | si | stringa non vuota: cosa si sa dei diritti di riuso, in una frase |
+| `sources`, `related` | no | come negli altri record |
+| `updatedAt` | si | data ISO |
+| `reviewedAt` | no | data ISO, vedi sopra |
+
+`listLibraryWorksByAuthor` e `listLibraryWorksByTopic` confrontano autore e argomento senza distinguere maiuscole e minuscole.
+
+### Validazione delle collezioni opzionali
+
+Il validatore (`tool/validate_content.dart`) segnala come errori:
+
+- id senza il prefisso della collezione, o id duplicato in tutto il bundle;
+- `reviewedAt` malformato su qualunque record, o mancante su un `Product`;
+- una chiave di `cells` che non e una colonna dichiarata;
+- un `link` di riga, un `related` o un `steps.id` di un percorso che non corrisponde a nessun record;
+- `sourceUrl` di una citazione, o `website` e `sourceUrl` di un prodotto, che non sono URL assoluti `http` o `https`;
+- `url` o `archiveUrl` di un'opera della biblioteca che non sono URL assoluti `http` o `https`, un `year` non intero o fuori dall'intervallo 1900 - anno corrente, un `licenseNote` vuoto.
+
+Segnala come warning:
+
+- un `Product` la cui `reviewedAt` e piu vecchia di 365 giorni rispetto alla data di validazione;
+- un `Product` con `subcategory` non documentata.
+
+Il riepilogo finale riporta anche i conteggi `glossary=`, `references=`, `quotes=`, `paths=`, `products=` e `library=`.
 
 ## Differenze note
 

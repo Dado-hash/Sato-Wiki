@@ -18,6 +18,8 @@ final class AppSettingsController extends ChangeNotifier {
     required Map<String, double> readingProgress,
     required List<String> lastRead,
     required List<String> recentSearches,
+    required bool explorerEnabled,
+    required String explorerServer,
   }) : _repository = repository,
        _lastTab = lastTab,
        _readingLevel = readingLevel,
@@ -27,14 +29,21 @@ final class AppSettingsController extends ChangeNotifier {
        _bookmarks = bookmarks,
        _readingProgress = readingProgress,
        _lastRead = lastRead,
-       _recentSearches = recentSearches;
+       _recentSearches = recentSearches,
+       _explorerEnabled = explorerEnabled,
+       _explorerServer = explorerServer;
 
   static const readerTextScales = <double>[0.9, 1.0, 1.15, 1.3];
 
   static const _maxRecentSearches = 6;
   static const _maxLastRead = 20;
   static const _minProgressStep = 0.02;
-  static const _finishedProgress = 0.98;
+
+  /// Server used by the explorer until the user points it to another one.
+  static const defaultExplorerServer = 'https://mempool.space/api';
+
+  /// Reading progress from which a record counts as finished.
+  static const finishedProgress = 0.98;
 
   final AppSettingsRepository _repository;
 
@@ -47,6 +56,8 @@ final class AppSettingsController extends ChangeNotifier {
   final Map<String, double> _readingProgress;
   List<String> _lastRead;
   List<String> _recentSearches;
+  bool _explorerEnabled;
+  String _explorerServer;
 
   SatoWikiTab get lastTab => _lastTab;
 
@@ -62,6 +73,13 @@ final class AppSettingsController extends ChangeNotifier {
 
   List<String> get recentSearches => List.unmodifiable(_recentSearches);
 
+  /// The explorer makes network calls only when this is true. It is off at
+  /// install.
+  bool get explorerEnabled => _explorerEnabled;
+
+  /// Base URL of the Esplora server the explorer uses.
+  String get explorerServer => _explorerServer;
+
   bool isBookmarked(String contentId) => _bookmarks.contains(contentId);
 
   double progressFor(String contentId) => _readingProgress[contentId] ?? 0.0;
@@ -70,7 +88,7 @@ final class AppSettingsController extends ChangeNotifier {
   String? get continueReadingId {
     for (final id in _lastRead) {
       final progress = _readingProgress[id];
-      if (progress != null && progress > 0 && progress < _finishedProgress) {
+      if (progress != null && progress > 0 && progress < finishedProgress) {
         return id;
       }
     }
@@ -95,6 +113,9 @@ final class AppSettingsController extends ChangeNotifier {
     final readingProgress = await repository.loadReadingProgress();
     final lastRead = await repository.loadLastRead();
     final recentSearches = await repository.loadRecentSearches();
+    final explorerEnabled = await repository.loadExplorerEnabled() ?? false;
+    final explorerServer =
+        await repository.loadExplorerServer() ?? defaultExplorerServer;
 
     return AppSettingsController._(
       repository: repository,
@@ -107,6 +128,8 @@ final class AppSettingsController extends ChangeNotifier {
       readingProgress: readingProgress,
       lastRead: lastRead,
       recentSearches: recentSearches,
+      explorerEnabled: explorerEnabled,
+      explorerServer: explorerServer,
     );
   }
 
@@ -190,7 +213,7 @@ final class AppSettingsController extends ChangeNotifier {
       // Finishing an entry is always stored once; otherwise only meaningful
       // forward movement is kept.
       final isFinishing =
-          value >= _finishedProgress && current < _finishedProgress;
+          value >= finishedProgress && current < finishedProgress;
       if (!isFinishing && value < current + _minProgressStep) {
         return;
       }
@@ -252,6 +275,28 @@ final class AppSettingsController extends ChangeNotifier {
     _recentSearches = <String>[];
     notifyListeners();
     await _persist(() => _repository.saveRecentSearches(const <String>[]));
+  }
+
+  Future<void> setExplorerEnabled(bool enabled) async {
+    if (_explorerEnabled == enabled) {
+      return;
+    }
+
+    _explorerEnabled = enabled;
+    notifyListeners();
+    await _persist(() => _repository.saveExplorerEnabled(enabled));
+  }
+
+  /// Stores [server] as given. The explorer validates the URL before it
+  /// calls this.
+  Future<void> setExplorerServer(String server) async {
+    if (_explorerServer == server) {
+      return;
+    }
+
+    _explorerServer = server;
+    notifyListeners();
+    await _persist(() => _repository.saveExplorerServer(server));
   }
 
   Future<void> _persist(Future<void> Function() write) async {

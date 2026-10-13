@@ -13,6 +13,12 @@ final class ContentBundle {
     required this.history,
     required this.bips,
     required this.changelogs,
+    this.glossary = const [],
+    this.references = const [],
+    this.quotes = const [],
+    this.paths = const [],
+    this.products = const [],
+    this.library = const [],
   });
 
   final int schemaVersion;
@@ -24,6 +30,17 @@ final class ContentBundle {
   final List<HistoryEvent> history;
   final List<Bip> bips;
   final List<ReleaseNote> changelogs;
+
+  /// Optional collections added after schema version 1. A bundle without
+  /// these keys parses with empty lists.
+  final List<GlossaryTerm> glossary;
+  final List<ReferenceTable> references;
+  final List<Quote> quotes;
+  final List<LearningPath> paths;
+  final List<Product> products;
+
+  /// Optional, like the collections above.
+  final List<LibraryWork> library;
 }
 
 final class SourceReference {
@@ -81,12 +98,15 @@ final class WikiEntry {
     required this.sources,
     required this.related,
     required this.updatedAt,
+    this.subcategory,
+    this.reviewedAt,
   });
 
   final String id;
   final String slug;
   final String language;
   final String category;
+  final String? subcategory;
   final String title;
   final String description;
   final Uri? coverImage;
@@ -97,6 +117,7 @@ final class WikiEntry {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 
   ReadingLevelContent contentFor(ReadingLevel level) {
     return readingLevels[level] ?? readingLevels[ReadingLevel.base]!;
@@ -120,6 +141,7 @@ final class NewsArticle {
     required this.related,
     required this.updatedAt,
     this.coverImage,
+    this.reviewedAt,
   });
 
   final String id;
@@ -137,6 +159,7 @@ final class NewsArticle {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 final class HistoryEvent {
@@ -153,6 +176,7 @@ final class HistoryEvent {
     required this.sources,
     required this.related,
     required this.updatedAt,
+    this.reviewedAt,
   });
 
   final String id;
@@ -167,6 +191,7 @@ final class HistoryEvent {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 enum BipStatus {
@@ -226,6 +251,7 @@ final class Bip {
     required this.related,
     required this.statusHistory,
     required this.updatedAt,
+    this.reviewedAt,
   });
 
   final String id;
@@ -245,6 +271,7 @@ final class Bip {
   final List<RelatedContentLink> related;
   final List<BipStatusChange> statusHistory;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 enum ReleaseImportance {
@@ -260,6 +287,245 @@ enum ReleaseImportance {
       _ => null,
     };
   }
+}
+
+final class GlossaryTerm {
+  const GlossaryTerm({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.term,
+    required this.definition,
+    required this.related,
+    required this.updatedAt,
+    this.aliases = const [],
+    this.reviewedAt,
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+  final String term;
+  final String definition;
+  final List<String> aliases;
+  final List<RelatedContentLink> related;
+  final DateTime updatedAt;
+  final DateTime? reviewedAt;
+}
+
+enum ProductStatus {
+  active,
+  discontinued;
+
+  static ProductStatus? fromJson(String value) {
+    return switch (value) {
+      'active' => ProductStatus.active,
+      'discontinued' => ProductStatus.discontinued,
+      _ => null,
+    };
+  }
+}
+
+final class Product {
+  const Product({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.name,
+    required this.summary,
+    required this.bodyMarkdown,
+    required this.category,
+    required this.subcategory,
+    required this.maker,
+    required this.website,
+    required this.openSource,
+    required this.status,
+    required this.reviewedAt,
+    required this.sources,
+    required this.related,
+    required this.updatedAt,
+    this.sourceUrl,
+    this.license,
+    this.platforms = const [],
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+  final String name;
+  final String summary;
+  final String bodyMarkdown;
+  final String category;
+  final String subcategory;
+  final String maker;
+  final Uri website;
+  final Uri? sourceUrl;
+  final bool openSource;
+  final String? license;
+  final List<String> platforms;
+  final ProductStatus status;
+  final DateTime reviewedAt;
+  final List<SourceReference> sources;
+  final List<RelatedContentLink> related;
+  final DateTime updatedAt;
+}
+
+final class LearningPathStep {
+  const LearningPathStep({required this.id, required this.note});
+
+  /// Content id of the record this step points to.
+  final String id;
+  final String note;
+}
+
+final class LearningPath {
+  const LearningPath({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.title,
+    required this.description,
+    required this.estimatedMinutes,
+    required this.steps,
+    required this.updatedAt,
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+  final String title;
+  final String description;
+  final int estimatedMinutes;
+  final List<LearningPathStep> steps;
+  final DateTime updatedAt;
+}
+
+final class Quote {
+  const Quote({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.text,
+    required this.author,
+    required this.date,
+    required this.sourceTitle,
+    required this.sourceUrl,
+    required this.related,
+    required this.updatedAt,
+    this.originalText,
+    this.topics = const [],
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+  final String text;
+
+  /// English original, present only in non-English bundles.
+  final String? originalText;
+  final String author;
+  final DateTime date;
+  final String sourceTitle;
+  final Uri sourceUrl;
+  final List<String> topics;
+  final List<RelatedContentLink> related;
+  final DateTime updatedAt;
+}
+
+final class ReferenceColumn {
+  const ReferenceColumn({required this.key, required this.label});
+
+  final String key;
+  final String label;
+}
+
+final class ReferenceRow {
+  const ReferenceRow({required this.cells, this.link});
+
+  /// Text per column key.
+  final Map<String, String> cells;
+
+  /// Optional content id this row points to.
+  final String? link;
+}
+
+final class ReferenceTable {
+  const ReferenceTable({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.title,
+    required this.description,
+    required this.columns,
+    required this.rows,
+    required this.sources,
+    required this.related,
+    required this.updatedAt,
+    this.reviewedAt,
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+  final String title;
+  final String description;
+  final List<ReferenceColumn> columns;
+  final List<ReferenceRow> rows;
+  final List<SourceReference> sources;
+  final List<RelatedContentLink> related;
+  final DateTime updatedAt;
+  final DateTime? reviewedAt;
+}
+
+/// A primary source or classic text, with our own introduction. The full
+/// text is not part of the bundle.
+final class LibraryWork {
+  const LibraryWork({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.title,
+    required this.author,
+    required this.year,
+    required this.summary,
+    required this.introduction,
+    required this.originalLanguage,
+    required this.kind,
+    required this.url,
+    required this.licenseNote,
+    required this.sources,
+    required this.related,
+    required this.updatedAt,
+    this.topics = const [],
+    this.archiveUrl,
+    this.reviewedAt,
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+
+  /// Original title of the work.
+  final String title;
+  final String author;
+  final int year;
+  final String summary;
+
+  /// Our own text, Markdown.
+  final String introduction;
+  final String originalLanguage;
+
+  /// One of paper, essay, post, email, book, manifesto. Unknown values are
+  /// kept as they are.
+  final String kind;
+  final List<String> topics;
+  final Uri url;
+  final Uri? archiveUrl;
+  final String licenseNote;
+  final List<SourceReference> sources;
+  final List<RelatedContentLink> related;
+  final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }
 
 final class ReleaseNote {
@@ -280,6 +546,7 @@ final class ReleaseNote {
     required this.sources,
     required this.related,
     required this.updatedAt,
+    this.reviewedAt,
   });
 
   final String id;
@@ -298,4 +565,5 @@ final class ReleaseNote {
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;
+  final DateTime? reviewedAt;
 }

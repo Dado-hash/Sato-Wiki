@@ -2,17 +2,6 @@
   <title id="title">Linked Bitcoin blockchain</title>
   <desc id="desc">Blocks link backward by hash, with a stronger valid branch selected by accumulated work.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
-      <path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-violet" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M2 2L9 5L2 8" fill="none" stroke="#7C5CFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -33,12 +22,14 @@
     <path d="M182 280H274" stroke="#F7931A"/>
     <path d="M372 280H464" stroke="#F7931A"/>
     <path d="M562 280H654" stroke="#F7931A"/>
-    <path d="M752 280H830" stroke="#F7931A" marker-end="url(#arrow-orange)"/>
+    <path d="M752 280H830" stroke="#F7931A"/>
+    <g transform="matrix(4 0 0 4 790 252)"><path d="M2 2L12 7L2 12" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
     <path d="M372 280C430 296 438 386 464 386" stroke="#7C5CFF"/>
-    <path d="M562 386H654" stroke="#7C5CFF" marker-end="url(#arrow-violet)"/>
+    <path d="M562 386H654" stroke="#7C5CFF"/>
+    <g transform="matrix(4 0 0 4 622 366)"><path d="M2 2L9 5L2 8" fill="none" stroke="#7C5CFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
 
-  <g filter="url(#soft)" font-family="Inter" text-anchor="middle">
+  <g font-family="Inter" text-anchor="middle">
     <rect x="86" y="226" width="96" height="108" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="134" y="266" fill="#F4EAD8" font-size="18" font-weight="700">B0</text>
     <text x="134" y="298" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">hash</text>

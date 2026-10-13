@@ -2,20 +2,6 @@
   <title id="title">Proof of Work mining loop</title>
   <desc id="desc">A block candidate is hashed, checked against the target, and changed until the hash is valid.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -33,7 +19,7 @@
   </g>
 
   <g transform="translate(-12 0)">
-  <g filter="url(#soft)">
+  <g>
     <rect x="72" y="180" width="224" height="132" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="184" y="224" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">Block candidate</text>
     <g stroke="#B7B1A8" stroke-linecap="round" opacity="0.82">
@@ -46,9 +32,10 @@
     <circle cx="96" cy="302" r="4" fill="#DBC2AE"/>
   </g>
 
-  <path d="M310 246H382" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M310 246H382" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 374 241)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="398" y="180" width="176" height="132" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="486" y="228" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Hash</text>
     <text x="486" y="260" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="15">SHA-256d</text>
@@ -56,19 +43,22 @@
     <text x="486" y="294" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="14" font-weight="700">0000...</text>
   </g>
 
-  <path d="M588 246H642" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M588 246H642" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 634 241)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <path d="M760 168L854 246L760 324L666 246L760 168Z" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="760" y="238" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="21" font-weight="700">Hash</text>
     <text x="760" y="266" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="21" font-weight="700">&lt; target</text>
   </g>
 
-  <path d="M760 337V383C760 414 735 428 700 428H184C149 428 124 414 124 383V326" stroke="#7C8794" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10" marker-end="url(#arrow-muted)"/>
+  <path d="M760 337V383C760 414 735 428 700 428H184C149 428 124 414 124 383V326" stroke="#7C8794" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10"/>
+  <g transform="matrix(0 -1 1 0 119 334)"><path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <rect x="382" y="406" width="196" height="36" rx="18" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
   <text x="480" y="430" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16" font-weight="600">retry with new nonce</text>
 
-  <path d="M854 246H918" stroke="#22C55E" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+  <path d="M854 246H918" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 910 241)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <rect x="820" y="124" width="78" height="34" rx="17" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
   <text x="859" y="147" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">valid</text>
 

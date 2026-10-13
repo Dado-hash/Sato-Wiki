@@ -7,8 +7,52 @@ import 'package:sato_wiki/src/core/content/domain/content_media.dart';
 import 'package:sato_wiki/src/core/content/domain/content_models.dart';
 
 const _defaultBundlePath = 'assets/content/seed_bundle_en.json';
-const _recordCollections = ['wiki', 'news', 'history', 'bips', 'changelogs'];
+const _recordCollections = [
+  'wiki',
+  'news',
+  'history',
+  'bips',
+  'changelogs',
+  'glossary',
+  'references',
+  'quotes',
+  'paths',
+  'products',
+  'library',
+];
+// Optional collections (schema version 1) and the id prefix each one requires.
+const _idPrefixes = {
+  'glossary': 'glossary.',
+  'references': 'reference.',
+  'quotes': 'quote.',
+  'paths': 'path.',
+  'products': 'product.',
+  'library': 'library.',
+};
+// Fields that must be absolute http(s) URLs when present.
+const _httpUrlFields = {
+  'quotes': ['sourceUrl'],
+  'products': ['website', 'sourceUrl'],
+  'library': ['url', 'archiveUrl'],
+};
+const _libraryFirstYear = 1900;
+// Subcategories documented in docs/content-model.md ("Sottocategorie wiki").
+const _documentedSubcategories = {
+  'nodes',
+  'software-wallets',
+  'lightning',
+  'servers',
+  'node-systems',
+  'mining-software',
+  'developer-tools',
+  'hardware-wallets',
+  'seed-backups',
+  'mining-hardware',
+  'node-hardware',
+};
+const _productReviewMaxAgeDays = 365;
 const _bipStatusTags = {'Draft', 'Complete', 'Deployed', 'Closed'};
+const _subcategoryCategories = {'software', 'hardware'};
 
 // Texts written by tool/sync_code_content.dart when no editorial summary exists.
 const _placeholderTexts = [
@@ -43,7 +87,9 @@ final class ContentValidationResult {
   }
 }
 
-ContentValidationResult validateContentBundle(String path) {
+/// Validates the bundle at [path]. [today] fixes the clock for the review-age
+/// warning; it defaults to the current time.
+ContentValidationResult validateContentBundle(String path, {DateTime? today}) {
   final file = File(path);
   if (!file.existsSync()) {
     return ContentValidationResult(
@@ -66,7 +112,7 @@ ContentValidationResult validateContentBundle(String path) {
       '${warning.path}: ${warning.message}',
   ];
   final data = jsonDecode(source) as Map<String, Object?>;
-  _checkRecords(data, errors, warnings);
+  _checkRecords(data, errors, warnings, today ?? DateTime.now());
   _checkMedia(parsed.bundle, file.parent.path, errors);
 
   final bundle = parsed.bundle;
@@ -87,6 +133,12 @@ ContentValidationResult validateContentBundle(String path) {
         'history=${bundle.history.length} '
         'bips=${bundle.bips.length} '
         'changelogs=${bundle.changelogs.length} '
+        'glossary=${bundle.glossary.length} '
+        'references=${bundle.references.length} '
+        'quotes=${bundle.quotes.length} '
+        'paths=${bundle.paths.length} '
+        'products=${bundle.products.length} '
+        'library=${bundle.library.length} '
         'media=$mediaCount',
   );
 }
@@ -95,12 +147,27 @@ void _checkRecords(
   Map<String, Object?> data,
   List<String> errors,
   List<String> warnings,
+  DateTime today,
 ) {
   final recordIds = <String>{
     for (final collection in _recordCollections)
       for (final record in _records(data, collection))
         if (record['id'] is String) record['id']! as String,
   };
+
+  final seenIds = <String>{};
+  for (final collection in _recordCollections) {
+    for (final record in _records(data, collection)) {
+      final id = record['id'];
+      if (id is String && !seenIds.add(id)) {
+        errors.add('$collection $id: duplicate id across the bundle.');
+      }
+      final prefix = _idPrefixes[collection];
+      if (prefix != null && !(id is String && id.startsWith(prefix))) {
+        errors.add('$collection ${record['id']}: id must start with $prefix.');
+      }
+    }
+  }
 
   for (final collection in _recordCollections) {
     for (final record in _records(data, collection)) {
@@ -109,6 +176,35 @@ void _checkRecords(
         if (!recordIds.contains(target)) {
           errors.add('$where: related id $target matches no record.');
         }
+      }
+      if (!_isValidReviewedAt(record['reviewedAt'])) {
+        errors.add('$where: reviewedAt must be an ISO date.');
+      }
+      if (collection == 'wiki') {
+        _checkWikiSubcategory(record, where, errors, warnings);
+      }
+      if (collection == 'references') {
+        _checkReferenceRows(record, where, recordIds, errors);
+      }
+      if (collection == 'paths') {
+        for (final step in _objectItems(record['steps'])) {
+          final target = step['id'];
+          if (target is String && !recordIds.contains(target)) {
+            errors.add('$where: step id $target matches no record.');
+          }
+        }
+      }
+      for (final field in _httpUrlFields[collection] ?? const <String>[]) {
+        final value = record[field];
+        if (value != null && !_isHttpUrl(value)) {
+          errors.add('$where: $field must be an absolute http(s) URL.');
+        }
+      }
+      if (collection == 'products') {
+        _checkProductReview(record, where, today, errors, warnings);
+      }
+      if (collection == 'library') {
+        _checkLibraryWork(record, where, today, errors);
       }
       if (_needsReview(record)) {
         warnings.add('$where: automation.needsReview is true.');
@@ -143,6 +239,136 @@ void _checkRecords(
       }
     }
   }
+}
+
+void _checkWikiSubcategory(
+  Map<String, Object?> record,
+  String where,
+  List<String> errors,
+  List<String> warnings,
+) {
+  final subcategory = record['subcategory'];
+  if (subcategory != null && subcategory is! String) {
+    errors.add('$where: subcategory must be a string.');
+    return;
+  }
+  final category = record['category'];
+  final needsSubcategory =
+      category is String &&
+      _subcategoryCategories.contains(category.trim().toLowerCase());
+  if (needsSubcategory &&
+      (subcategory is! String || subcategory.trim().isEmpty)) {
+    warnings.add('$where: category $category has no subcategory.');
+  }
+}
+
+void _checkLibraryWork(
+  Map<String, Object?> record,
+  String where,
+  DateTime today,
+  List<String> errors,
+) {
+  final year = record['year'];
+  if (year is! int) {
+    errors.add('$where: year must be an integer.');
+  } else if (year < _libraryFirstYear || year > today.year) {
+    errors.add(
+      '$where: year $year must be between $_libraryFirstYear and '
+      '${today.year}.',
+    );
+  }
+
+  final licenseNote = record['licenseNote'];
+  if (licenseNote is! String || licenseNote.trim().isEmpty) {
+    errors.add('$where: licenseNote must be a non-empty string.');
+  }
+}
+
+void _checkReferenceRows(
+  Map<String, Object?> record,
+  String where,
+  Set<String> recordIds,
+  List<String> errors,
+) {
+  final columnKeys = {
+    for (final column in _objectItems(record['columns']))
+      if (column['key'] is String) column['key']! as String,
+  };
+  for (final row in _objectItems(record['rows'])) {
+    final cells = row['cells'];
+    if (cells is Map<String, Object?>) {
+      for (final key in cells.keys) {
+        if (!columnKeys.contains(key)) {
+          errors.add('$where: row cell $key is not a declared column.');
+        }
+      }
+    }
+    final link = row['link'];
+    if (link is String && !recordIds.contains(link)) {
+      errors.add('$where: row link $link matches no record.');
+    }
+  }
+}
+
+void _checkProductReview(
+  Map<String, Object?> record,
+  String where,
+  DateTime today,
+  List<String> errors,
+  List<String> warnings,
+) {
+  final reviewedAt = record['reviewedAt'];
+  final reviewed = reviewedAt is String ? DateTime.tryParse(reviewedAt) : null;
+  if (reviewedAt == null) {
+    errors.add('$where: reviewedAt is required for products.');
+  } else if (reviewed != null &&
+      _calendarDays(today, reviewed) > _productReviewMaxAgeDays) {
+    warnings.add(
+      '$where: reviewedAt $reviewedAt is more than '
+      '$_productReviewMaxAgeDays days old.',
+    );
+  }
+
+  final subcategory = record['subcategory'];
+  if (subcategory is String &&
+      !_documentedSubcategories.contains(subcategory)) {
+    warnings.add('$where: subcategory $subcategory is not documented.');
+  }
+}
+
+/// Whole calendar days from [from] to [to], ignoring the time of day.
+int _calendarDays(DateTime to, DateTime from) {
+  final end = DateTime.utc(to.year, to.month, to.day);
+  final start = DateTime.utc(from.year, from.month, from.day);
+
+  return end.difference(start).inDays;
+}
+
+bool _isHttpUrl(Object? value) {
+  final uri = value is String ? Uri.tryParse(value) : null;
+
+  return uri != null &&
+      (uri.scheme == 'http' || uri.scheme == 'https') &&
+      uri.host.isNotEmpty;
+}
+
+List<Map<String, Object?>> _objectItems(Object? value) {
+  if (value is! List<Object?>) {
+    return const [];
+  }
+
+  return [
+    for (final item in value)
+      if (item is Map<String, Object?>) item,
+  ];
+}
+
+bool _isValidReviewedAt(Object? value) {
+  if (value == null) {
+    return true;
+  }
+
+  return value is String && DateTime.tryParse(value) != null;
 }
 
 void _checkMedia(

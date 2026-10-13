@@ -2,7 +2,7 @@
 
 Elenco dei contenuti da creare per SatoWiki.
 
-## Wiki (Completato)
+## Wiki: prime quattro categorie (Completato)
 
 Tutte le voci delle sezioni Protocol, Cryptography, Lightning Network ed Economics
 sono state create con template `content/templates/wiki_entry.md`, in inglese e
@@ -350,6 +350,125 @@ centrale da aggiungere subito alla timeline principale. Continuare a monitorare
 eventuali sviluppi su reserve policy, ETF/market structure, hashrate/difficulty
 e release Bitcoin Core, ma inserirli solo se diventano chiaramente storici e non
 solo metriche temporanee.
+
+---
+
+## Espansione 2026 (da fare)
+
+Backlog del piano in `docs/plan.md`. Ogni voce esce in inglese e in italiano.
+Le voci wiki hanno i tre livelli `base`, `medium` e `advanced`. Gli slug sono
+proposte: prima di scrivere, controllare che una voce esistente non copra già
+l'argomento. Le voci vanno aggiunte ai seed a mano (vedi "Seed Rebuild" in
+`CLAUDE.md`).
+
+### Software (`software`)
+
+Una voce wiki per sottocategoria. Elenco confermato il 2026-10-13.
+
+- [x] Nodi: implementazioni di full node - `wiki.node-software`
+- [x] Software wallet - `wiki.software-wallets`
+- [x] Software Lightning: nodi e wallet - `wiki.lightning-software`
+- [x] Server e infrastruttura - `wiki.server-software`
+- [x] Sistemi per nodo domestico - `wiki.node-operating-systems`
+- [x] Software di mining: firmware, pool, Stratum - `wiki.mining-software`
+- [x] Librerie e strumenti per sviluppatori - `wiki.developer-tools`
+
+### Hardware (`hardware`)
+
+- [x] Hardware wallet - `wiki.hardware-wallets`
+- [x] Backup del seed - `wiki.seed-backups`
+- [x] Hardware di mining: ASIC e dispositivi domestici - `wiki.mining-hardware`
+- [x] Hardware per nodi - `wiki.node-hardware`
+
+### Schede prodotto (`products`)
+
+Dipendono dal tipo di record `products`, non ancora implementato. Il criterio di
+inclusione è in `docs/plan.md`, sezione A1. Stato e licenza di ogni prodotto si
+verificano quando si scrive la scheda.
+
+- [x] Nodi: Bitcoin Core, Bitcoin Knots, btcd
+- [x] Software wallet: Sparrow, Electrum, BlueWallet, Nunchuk
+- [x] Lightning: LND, Core Lightning, Eclair, LDK, Phoenix
+- [x] Server e infrastruttura: electrs, Fulcrum, BTCPay Server
+- [x] Sistemi per nodo domestico: Umbrel, StartOS, RaspiBlitz
+- [x] Software di mining: Braiins OS, Stratum V2 Reference Implementation, DATUM
+- [x] Librerie e strumenti: BDK, rust-bitcoin, bitcoinjs-lib
+- [x] Hardware wallet: Trezor, Ledger, Coldcard, BitBox02, Jade
+- [ ] Hardware di mining: Antminer serie S, Whatsminer serie M, Bitaxe (fatte Whatsminer e Bitaxe; Antminer manca: sito ufficiale non leggibile)
+
+### Privacy e sicurezza
+
+- [x] Modello di minaccia - `wiki.threat-model`
+- [x] Euristica common-input-ownership - `wiki.common-input-ownership`
+- [x] Riuso degli indirizzi - `wiki.address-reuse`
+- [x] CoinJoin - `wiki.coinjoin`
+- [x] Tor e Bitcoin - `wiki.tor`
+- [x] Dandelion - `wiki.dandelion`
+- [x] Custodia e self-custody - `wiki.self-custody`
+- [x] Cold storage - `wiki.cold-storage`
+- [x] Attacco fisico ("5 dollar wrench") - `wiki.physical-attacks`
+- [x] Passphrase - `wiki.passphrase`
+
+### Miti
+
+- [x] Bitcoin è anonimo - `wiki.myth-anonymous`
+- [x] Non è garantito da nulla - `wiki.myth-backed-by-nothing`
+- [x] Spreca energia - `wiki.myth-energy-waste`
+- [x] Serve soprattutto ai criminali - `wiki.myth-criminal-use`
+- [x] I governi possono spegnerlo - `wiki.myth-can-be-shut-down`
+- [x] Il limite dei 21 milioni può cambiare - `wiki.myth-supply-can-change`
+- [x] È troppo lento - `wiki.myth-too-slow`
+- [x] I computer quantistici lo romperanno - `wiki.myth-quantum`
+- [x] I miner controllano Bitcoin - `wiki.myth-miners-control`
+- [x] Bitcoin è stato hackerato - `wiki.myth-was-hacked`
+- [x] È uno schema Ponzi - `wiki.myth-ponzi`
+- [x] Serve comprare un bitcoin intero - `wiki.myth-whole-coin`
+
+### Protocol: voci mancanti
+
+- [x] Transazione coinbase e maturità - `wiki.coinbase-transaction`
+- [x] Header del blocco e codifica bits/target - `wiki.block-header`
+- [x] Sighash - `wiki.sighash`
+- [x] RBF e CPFP - `wiki.fee-bumping`
+- [x] Output di resto e coin selection - `wiki.coin-selection`
+- [x] Limite dust e OP_RETURN - `wiki.dust-and-op-return`
+- [x] PSBT - `wiki.psbt`
+- [x] Output descriptor - `wiki.output-descriptors`
+- [x] Riorganizzazioni e blocchi orfani - `wiki.reorganizations`
+- [x] SPV e pruning - `wiki.spv-and-pruning`
+- [x] Segnalazione dei soft fork (BIP9) - `wiki.soft-fork-signalling`
+- [x] Mining pool e Stratum - `wiki.mining-pools`
+- [x] P2SH - `wiki.p2sh`
+- [x] MuSig - `wiki.musig`
+- [x] Weight unit e vbyte - `wiki.weight-units`
+- [x] Malleabilità delle transazioni - `wiki.transaction-malleability`
+- [x] Testnet e signet - `wiki.test-networks`
+- [x] Base58Check e bech32 - `wiki.address-encodings`
+
+### History: prima di Bitcoin e incidenti
+
+- [x] Hashcash - `history.hashcash`
+- [x] b-money - `history.b-money`
+- [x] bit gold - `history.bit-gold`
+- [x] RPOW - `history.rpow`
+- [x] Manifesto cypherpunk - `history.cypherpunk-manifesto`
+- [x] Value overflow, 15 agosto 2010 - `history.value-overflow-incident`
+- [ ] Altri incidenti di consenso documentati
+
+### Diagrammi
+
+- [ ] Transazione byte per byte, con colore ed etichetta per campo
+- [ ] Header di blocco byte per byte
+
+### Dati strutturati
+
+Dipendono dai tipi di record nuovi descritti in `docs/plan.md`.
+
+- [x] Glossario: primo elenco di termini
+- [x] Tabelle di riferimento: opcode, campi di transazione, campi di header, messaggi P2P, unità
+- [x] Citazioni di Satoshi, con data, fonte e link
+- [x] Percorso guidato "Inizia qui"
+- [ ] Biblioteca: fonti primarie e testi cypherpunk, con licenza verificata opera per opera
 
 ---
 

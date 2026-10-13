@@ -1,0 +1,14 @@
+{
+  "id": "quote.genesis-headline",
+  "slug": "genesis-headline",
+  "language": "it",
+  "text": "Testo tradotto della citazione.",
+  "originalText": "Original quote text.",
+  "author": "Satoshi Nakamoto",
+  "date": "2009-01-03",
+  "sourceTitle": "Genesis block",
+  "sourceUrl": "https://example.com/genesis",
+  "topics": ["Genesis"],
+  "related": ["history.bitcoin-whitepaper"],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}

@@ -1,0 +1,33 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Peers and a shared ledger</title>
+  <desc id="desc">Equal peers exchanging bitcoin, with the blocks of the ledger shared by all of them.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(0 12)">
+
+  <!-- Ring of equal peers, no hub -->
+  <path d="M480 100L593 165L593 295L480 360L367 295L367 165Z" stroke="#343A44" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="536.5" cy="132.5" r="5" fill="#F7931A"/>
+  <circle cx="593" cy="230" r="5" fill="#F7931A"/>
+  <circle cx="536.5" cy="327.5" r="5" fill="#F7931A"/>
+  <circle cx="423.5" cy="327.5" r="5" fill="#F7931A"/>
+  <circle cx="367" cy="230" r="5" fill="#F7931A"/>
+  <circle cx="423.5" cy="132.5" r="5" fill="#F7931A"/>
+  <circle cx="480" cy="100" r="26" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <circle cx="593" cy="165" r="26" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <circle cx="593" cy="295" r="26" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <circle cx="480" cy="360" r="26" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <circle cx="367" cy="295" r="26" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <circle cx="367" cy="165" r="26" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <text x="480" y="237" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="20" font-weight="700">BTC</text>
+
+  <!-- Shared chain of blocks -->
+  <rect x="190" y="404" width="100" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="310" y="404" width="100" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="430" y="404" width="100" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="550" y="404" width="100" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="670" y="404" width="100" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <path d="M290 428H310M410 428H430M530 428H550M650 428H670" stroke="#8E96A4" stroke-width="2"/>
+  <text x="480" y="434" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16">block</text>
+</g>
+</svg>

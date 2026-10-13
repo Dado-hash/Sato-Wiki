@@ -65,6 +65,7 @@ Per schemi tecnici:
 
 - preferire SVG quando possibile;
 - nel testo degli SVG usare un solo nome di famiglia, `font-family="Inter"` oppure `font-family="JetBrains Mono"`: l'app non interpreta le liste di fallback (`Inter, Arial, sans-serif`) e mostrerebbe un font di sistema;
+- non usare `<filter>`, `<marker>`, `<style>`, `<mask>` ne entita HTML (`&rarr;`, `&bull;`): l'app le ignora o non apre il file. Disegnare le punte delle frecce come `<path>` espliciti e scrivere i simboli come caratteri (`→`, `•`);
 - se generati come raster, usare PNG o WebP;
 - ratio consigliato: 16:9;
 - dimensione sorgente consigliata: 1600x900 o 1920x1080;

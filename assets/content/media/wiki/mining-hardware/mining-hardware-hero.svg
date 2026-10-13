@@ -1,0 +1,45 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ASIC miner hashboards</title>
+  <desc id="desc">A front view of an ASIC miner with three hashboards of chips, labelled with its efficiency unit and the SHA-256 algorithm.</desc>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(29 -14)">
+
+  <!-- Miner body -->
+  <rect x="280" y="116" width="400" height="308" rx="22" fill="#1C2128" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Hashboards -->
+  <rect x="310" y="140" width="340" height="68" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="310" y="226" width="340" height="68" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+  <rect x="310" y="312" width="340" height="68" rx="8" fill="#20252D" stroke="#343A44" stroke-width="1.5"/>
+
+  <!-- Chips on the top board -->
+  <rect x="336" y="156" width="48" height="36" rx="4" fill="#2A303A" stroke="#F7931A" stroke-width="2"/>
+  <rect x="408" y="156" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="480" y="156" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="552" y="156" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+
+  <!-- Chips on the middle board -->
+  <rect x="336" y="242" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="408" y="242" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="480" y="242" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="552" y="242" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+
+  <!-- Chips on the bottom board -->
+  <rect x="336" y="328" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="408" y="328" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="480" y="328" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="552" y="328" width="48" height="36" rx="4" fill="#2A303A" stroke="#46505C" stroke-width="1.5"/>
+
+  <!-- Efficiency label with leader -->
+  <path d="M650 260H738" stroke="#7C8794" stroke-width="2" stroke-linecap="round"/>
+  <text x="748" y="268" fill="#F4EAD8" font-family="JetBrains Mono" font-size="22">J/TH</text>
+
+  <!-- Chip label with leader -->
+  <text x="110" y="182" fill="#F7931A" font-family="Inter" font-size="22" font-weight="700">ASIC</text>
+  <path d="M172 174H334" stroke="#F7931A" stroke-width="2" stroke-linecap="round"/>
+
+  <text x="480" y="462" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono" font-size="18">SHA-256</text>
+</g>
+</svg>

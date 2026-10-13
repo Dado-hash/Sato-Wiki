@@ -1,0 +1,38 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Seed split into shares</title>
+  <desc id="desc">A seed is split into three shares, and any two of them are enough to rebuild it.</desc>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Seed at the top -->
+  <rect x="380" y="110" width="200" height="70" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+  <text x="480" y="140" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="22" font-weight="700">seed</text>
+  <text x="480" y="166" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">2-of-3</text>
+
+  <!-- Share 1, used -->
+  <rect x="150" y="250" width="180" height="110" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <text x="240" y="300" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="40">1</text>
+  <rect x="180" y="316" width="120" height="8" rx="4" fill="#2A303A"/>
+  <rect x="180" y="332" width="120" height="8" rx="4" fill="#2A303A"/>
+
+  <!-- Share 2, used -->
+  <rect x="390" y="250" width="180" height="110" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <text x="480" y="300" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="40">2</text>
+  <rect x="420" y="316" width="120" height="8" rx="4" fill="#2A303A"/>
+  <rect x="420" y="332" width="120" height="8" rx="4" fill="#2A303A"/>
+
+  <!-- Share 3, not needed -->
+  <rect x="630" y="250" width="180" height="110" rx="8" fill="#1C2128" stroke="#46505C" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="720" y="300" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono" font-size="40">3</text>
+  <rect x="660" y="316" width="120" height="8" rx="4" fill="#2A303A"/>
+  <rect x="660" y="332" width="120" height="8" rx="4" fill="#2A303A"/>
+
+  <!-- Connectors from shares 1 and 2 to the seed -->
+  <path d="M240 250V145H372" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="380,145 370,140 370,150" fill="#22C55E"/>
+  <path d="M480 250V188" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="480,180 474,190 486,190" fill="#22C55E"/>
+
+  <text x="480" y="430" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono" font-size="18">SLIP-0039</text>
+</svg>

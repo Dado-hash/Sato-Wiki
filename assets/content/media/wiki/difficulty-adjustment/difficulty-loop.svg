@@ -2,20 +2,6 @@
   <title id="title">Difficulty Adjustment Loop</title>
   <desc id="desc">The feedback loop of Bitcoin's difficulty adjustment. More miners → faster blocks → difficulty increases → fewer blocks → miners leave → slower blocks → difficulty decreases → more miners, stabilizing around 10-minute block intervals.</desc>
 
-  <defs>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -30,60 +16,65 @@
 
   <!-- Feedback loop -->
   <!-- Center: Target 10 min -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="330" y="306" width="300" height="56" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2.5"/>
     <text x="480" y="330" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="14" font-weight="700">Target: 10 minutes per block</text>
     <text x="480" y="350" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">2016 blocks per adjustment period</text>
   </g>
 
   <!-- Top: Hash rate up -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="130" y="170" width="300" height="56" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
     <text x="280" y="193" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="700">Hash rate increases</text>
     <text x="280" y="214" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">More miners / better hardware</text>
   </g>
 
-  <path d="M280 226V252H208V298" stroke="#F7931A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+  <path d="M280 226V252H208V298" stroke="#F7931A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="matrix(0 1 -1 0 213 290)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Left: Blocks too fast -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="130" y="306" width="156" height="56" rx="16" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
     <text x="208" y="330" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">Blocks too fast</text>
     <text x="208" y="350" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">&lt; 10 min average</text>
   </g>
 
-  <path d="M208 362V398H752V370" stroke="#F7931A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+  <path d="M208 362V398H752V370" stroke="#F7931A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="matrix(0 -1 1 0 747 378)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Right: Difficulty up -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="674" y="306" width="156" height="56" rx="16" fill="#20252D" stroke="#7C8794" stroke-width="2"/>
     <text x="752" y="330" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="15" font-weight="700">Difficulty ↑</text>
     <text x="752" y="350" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">Target ↓</text>
   </g>
 
-  <path d="M674 334H638" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <path d="M674 334H638" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round"/>
+  <g transform="matrix(-1 0 0 -1 646 339)"><path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Bottom: Blocks slower -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="474" y="170" width="156" height="56" rx="16" fill="#203327" stroke="#22C55E" stroke-width="2"/>
     <text x="552" y="193" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="15" font-weight="700">Blocks too slow</text>
     <text x="552" y="214" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">&gt; 10 min average</text>
   </g>
 
   <!-- Loop arrows -->
-  <path d="M630 198H750V234" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+  <path d="M630 198H750V234" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="matrix(0 1 -1 0 755 226)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Result box -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="640" y="170" width="220" height="56" rx="16" fill="#201A2E" stroke="#7C5CFF" stroke-width="2"/>
     <text x="750" y="193" text-anchor="middle" fill="#7C5CFF" font-family="Inter" font-size="15" font-weight="700">Difficulty ↓</text>
     <text x="750" y="214" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">Target ↑</text>
   </g>
 
-  <path d="M750 226V268H600V298" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+  <path d="M750 226V268H600V298" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="matrix(0 1 -1 0 605 290)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Formula -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="64" y="440" width="832" height="60" rx="14" fill="#171B21" stroke="#343A44" stroke-width="1.5"/>
     <text x="480" y="466" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16">
       New Target = Old Target × (actual time of last 2016 blocks) / (2,016 × 10 min)

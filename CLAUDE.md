@@ -116,6 +116,8 @@ lib/
       code/                         # domain/repositories, presentation (BIPs and releases)
       search/presentation/          # search screen
       settings/presentation/        # Settings and Bookmarks
+      learn/presentation/           # learning path, glossary, library screens
+      tools/                        # domain (pure logic), data (Esplora client), presentation (offline tools, reference tables, blockchain lab, Script stepper, opt-in explorer)
 ```
 
 Feature `domain/` holds repository interfaces; the data layer for content lives in `core/content/data/`. Feature `presentation/` holds screens and widgets.
@@ -138,7 +140,7 @@ Feature `domain/` holds repository interfaces; the data layer for content lives 
 
 **Localization:** Languages resolved via `AppLocale.resolveLanguageCode()` using app preference + system locales. Supported seeds: `en`, `it`. Fallback is English.
 
-**Search:** `SearchIndex` covers wiki, news, history, BIPs and release notes. Body text is not indexed.
+**Search:** `SearchIndex` covers wiki, news, history, BIPs, release notes, glossary, products, reference tables and library works. Body text is not indexed.
 
 ### Styling & Theme
 
@@ -155,6 +157,7 @@ Common entities:
 - `SourceReference`, `RelatedContentLink`, `Contributor`, `ReadingLevelContent` — metadata
 - Record ids are plain strings: `wiki.slug`, `news.slug`, `history.slug`, `code.bip.341`, `release.project.version`
 - Feature models: `WikiEntry`, `NewsArticle`, `HistoryEvent`, `Bip`, `ReleaseNote`
+- Optional collections: `GlossaryTerm` (`glossary.slug`), `ReferenceTable` (`reference.slug`), `Quote`, `LearningPath` (`path.slug`), `Product` (`product.slug`), `LibraryWork` (`library.slug`)
 
 Full schema in `docs/content-model.md`.
 
@@ -164,6 +167,8 @@ Full schema in `docs/content-model.md`.
 - Prefer readable, localized code over premature abstraction
 - Offline-first: no central UI should block on a runtime call for already-downloaded content
 - Privacy by default: no invasive analytics, no unnecessary third-party calls
+- The block explorer is the only feature that calls a third-party server. It is off at install, creates no client while off, and saves no searches. Its tests use a fake API: never call mempool.space or another live explorer from tests or scripts
+- No tool generates or handles private keys. A pasted WIF or extended key is recognised only to clear the field and show a warning
 - Keep `flutter analyze` clean; this is non-negotiable
 
 **Dart Style:**
@@ -192,6 +197,7 @@ Full schema in `docs/content-model.md`.
 - Widget tests for shell, tabs, reading level selector
 - Unit tests for bundle parsing, search, filters, content validation and sync logic
 - Golden tests for cards, chips, status badges, reader header, timeline items
+- Smoke test on the real seeds (`test/seed_smoke_test.dart`): opens every new screen, every product, library work and reference table in both languages, both themes and two phone sizes, and fails on any layout exception
 - Integration tests for vertical slices (e.g., Wiki offline flow): not implemented yet, there is no `integration_test/` directory
 
 Test files in `test/`: `app_settings_controller_test.dart`, `code_screens_test.dart`, `content_bundle_parser_test.dart`, `content_media_test.dart`, `content_seed_media_assets_test.dart`, `content_update_test.dart`, `content_version_test.dart`, `core_new_widgets_test.dart`, `core_widgets_golden_test.dart`, `generate_bundle_test.dart`, `markdown_text_test.dart`, `reader_screens_test.dart`, `search_and_store_test.dart`, `search_screen_test.dart`, `settings_screen_test.dart`, `shell_navigation_test.dart`, `sync_code_content_test.dart`, `today_screen_test.dart`, `validate_content_test.dart`, `widget_test.dart`. Golden images are in `test/goldens/`.
@@ -257,4 +263,7 @@ flutter run -v
 - `docs/design-system.md` — Material 3 tokens, components, theming rules
 - `docs/image-generation-guidelines.md` — media asset style and guidelines
 - `docs/contributing-content.md` — content contributor workflow
+- `docs/plan.md` — current expansion plan and the reasons behind it
+- `docs/roadmap.md` — ordered task list, including inherited open work
+- `docs/content-todo.md` — content backlog
 - `AGENTS.md` — quick guide for AI agents working on the repository

@@ -115,6 +115,11 @@ Sezione dedicata al monitoraggio tecnico dell'ecosistema di sviluppo Bitcoin: BI
 - Evidenziazione delle modifiche con impatto per l'utente finale vs. modifiche interne
 - Link al tag GitHub ufficiale e alle release notes originali
 
+**Strumenti ed explorer (pianificati, vedi `docs/plan.md`):**
+- Strumenti che funzionano offline: hash, convertitori, analisi di indirizzi, decoder di transazioni
+- Demo interattive: laboratorio blockchain in sei passi (compreso "Mina un blocco") e Script passo per passo
+- Explorer di blocchi, transazioni e indirizzi, spento all'installazione e con server configurabile
+
 **Governance del contenuto:**
 - I sommari dei BIP e i changelog riscritti vengono proposti via PR e revisionati dai maintainer tecnici
 
@@ -206,6 +211,7 @@ L'app non mostra pubblicità. I contenuti non sono influenzati dagli sponsor.
 - Funzionalità social (commenti, upvote in-app)
 - Wallet Bitcoin integrato
 - Prezzi e dati di mercato in real-time
+- Generazione o gestione di chiavi private negli strumenti
 - Versione web (potenziale v2)
 - App desktop
 

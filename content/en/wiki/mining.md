@@ -52,7 +52,7 @@ Miners can work alone (solo mining) or combine their hash power through a mining
 
 Miners do not build a block from scratch on every attempt. They construct a block template from their local mempool by selecting transactions based on fee rate (satoshis per vbyte). Higher-fee transactions are included first, up to the block's size or weight limit. The template is rebuilt periodically as new transactions arrive or existing ones expire.
 
-The first transaction in every block is the coinbase transaction, which is created by the miner. It collects the block subsidy (6.25 BTC as of the 2024 halving, halving every 210,000 blocks) plus all fees from the included transactions. The coinbase also carries the miner's witness commitment (for SegWit validation) and optionally an extranonce field that gives the miner extra search space.
+The first transaction in every block is the coinbase transaction, which is created by the miner. It collects the block subsidy (3.125 BTC since the April 2024 halving, halving every 210,000 blocks) plus all fees from the included transactions. The coinbase also carries the miner's witness commitment (for SegWit validation) and optionally an extranonce field that gives the miner extra search space.
 
 The block header is assembled from six fields:
 

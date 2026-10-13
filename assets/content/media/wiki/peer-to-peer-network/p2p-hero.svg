@@ -2,21 +2,6 @@
   <title id="title">Decentralized peer-to-peer network</title>
   <desc id="desc">A mesh of Bitcoin nodes connected without a central server, showing block and transaction relay across the network.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-    <filter id="glow-orange">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -53,20 +38,27 @@
 
   <!-- Relay path highlight -->
   <g stroke="#F7931A" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.85">
-    <path d="M215 302L330 238" marker-end="url(#arrow-orange)"/>
-    <path d="M330 238L530 228" marker-end="url(#arrow-orange)"/>
-    <path d="M530 228L720 174" marker-end="url(#arrow-orange)"/>
-    <path d="M720 174L830 314" marker-end="url(#arrow-orange)"/>
+    <path d="M215 302L330 238"/>
+    <g transform="matrix(0.874 -0.486 0.486 0.874 320.578 237.521)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M330 238L530 228"/>
+    <g transform="matrix(0.999 -0.05 0.05 0.999 521.76 223.406)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M530 228L720 174"/>
+    <g transform="matrix(0.962 -0.273 0.273 0.962 710.938 171.378)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M720 174L830 314"/>
+    <g transform="matrix(0.618 0.786 -0.786 0.618 828.989 304.62)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
 
   <g stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.65">
-    <path d="M215 302L255 422" marker-end="url(#arrow-green)"/>
-    <path d="M255 422L400 450" marker-end="url(#arrow-green)"/>
-    <path d="M580 364L690 420" marker-end="url(#arrow-green)"/>
+    <path d="M215 302L255 422"/>
+    <g transform="matrix(0.316 0.949 -0.949 0.316 257.214 412.829)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M255 422L400 450"/>
+    <g transform="matrix(0.982 0.19 -0.19 0.982 393.093 443.574)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M580 364L690 420"/>
+    <g transform="matrix(0.891 0.454 -0.454 0.891 685.139 411.915)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   </g>
 
   <!-- Node groups -->
-  <g filter="url(#soft)">
+  <g>
     <circle cx="215" cy="302" r="28" fill="#20252D" stroke="#46505C" stroke-width="2.5"/>
     <text x="215" y="308" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="15" font-weight="700">N1</text>
 
@@ -99,7 +91,7 @@
   </g>
 
   <!-- Annotations -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="60" y="310" width="120" height="72" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
     <text x="120" y="338" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="700">Block relay</text>
     <text x="120" y="364" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="12">mesh propagation</text>

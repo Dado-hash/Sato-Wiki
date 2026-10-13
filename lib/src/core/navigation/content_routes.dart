@@ -15,6 +15,21 @@ String? routeForContentId(String id) {
   if (id.startsWith('history.')) {
     return _slugRoute(id, 'history.', AppRoutes.historyEvent);
   }
+  if (id.startsWith('product.')) {
+    return _slugRoute(id, 'product.', AppRoutes.product);
+  }
+  if (id.startsWith('glossary.')) {
+    return _slugRoute(id, 'glossary.', AppRoutes.glossaryTerm);
+  }
+  if (id.startsWith('path.')) {
+    return _slugRoute(id, 'path.', AppRoutes.learningPath);
+  }
+  if (id.startsWith('reference.')) {
+    return _slugRoute(id, 'reference.', AppRoutes.reference);
+  }
+  if (id.startsWith('library.')) {
+    return _slugRoute(id, 'library.', AppRoutes.libraryWork);
+  }
   if (id.startsWith('code.bip.')) {
     final number = int.tryParse(id.substring('code.bip.'.length));
     return number == null ? null : AppRoutes.codeBip(number);

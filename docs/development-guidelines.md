@@ -28,7 +28,7 @@
   - spaziature e raggi da `AppSpacing` e `AppRadii` in `lib/src/core/theme/app_tokens.dart`.
 - Nei widget non si scrivono hex e `Colors.*`. Fanno eccezione `Colors.transparent` e i valori in `lib/src/core/theme/`.
 - Scaffolding delle schermate:
-  - schermate a tab: nessuno `Scaffold` proprio; iniziano con `ScreenHeader` e chiudono con padding inferiore `AppSpacing.tabBarClearance`;
+  - schermate a tab: nessuno `Scaffold` proprio; iniziano con `ScreenHeader` e chiudono con padding inferiore `SatoScaffold.bottomClearanceOf(context)` (altezza della tab bar più `AppSpacing.tabBarGap`); la tab bar fluttua `AppSpacing.tabBarLift` sopra l'inset di sistema con margine laterale `gutter`;
   - schermate push: `DetailScaffold`, con pulsante indietro e titolo opzionale;
   - nessun `AppBar`.
 ## Frontend

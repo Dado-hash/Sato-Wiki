@@ -1,0 +1,31 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">One bitcoin in satoshi</title>
+  <desc id="desc">One bitcoin drawn as a bar of 100,000,000 satoshi, with a single satoshi magnified below.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(-8 0)">
+
+  <!-- One whole bitcoin -->
+  <text x="120" y="158" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">1 BTC</text>
+  <text x="840" y="158" text-anchor="end" fill="#B7B1A8" font-family="Inter" font-size="18">100,000,000 sat</text>
+  <rect x="120" y="170" width="720" height="60" rx="8" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="120" y="170" width="4" height="60" fill="#F7931A"/>
+
+  <!-- Magnified single satoshi -->
+  <path d="M120 230V338M124 230L168 338" stroke="#8E96A4" stroke-width="2" stroke-dasharray="6 5"/>
+  <rect x="120" y="340" width="48" height="48" rx="6" fill="#F7931A"/>
+  <rect x="180" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="240" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="300" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="360" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="420" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="480" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="540" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="600" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="660" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="720" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <rect x="780" y="340" width="48" height="48" rx="6" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="144" y="412" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="16" font-weight="600">sat</text>
+  <text x="850" y="372" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="22">...</text>
+</g>
+</svg>

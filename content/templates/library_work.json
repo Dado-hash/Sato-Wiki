@@ -1,0 +1,20 @@
+{
+  "id": "library.example-paper",
+  "slug": "example-paper",
+  "language": "en",
+  "title": "Original title of the work",
+  "author": "Author Name",
+  "year": 1982,
+  "summary": "One sentence on what the work is.",
+  "introduction": "Our own introduction in Markdown, 80 to 150 words.",
+  "originalLanguage": "en",
+  "kind": "paper",
+  "topics": ["cryptography", "privacy"],
+  "url": "https://example.com/original-work",
+  "archiveUrl": "https://web.archive.org/web/2026/https://example.com/original-work",
+  "licenseNote": "No license stated; linked, not reproduced",
+  "sources": [{"title": "Original title of the work", "url": "https://example.com/original-work", "author": "Author Name"}],
+  "related": ["history.hashcash"],
+  "updatedAt": "2026-06-20T00:00:00Z",
+  "reviewedAt": "2026-06-20"
+}

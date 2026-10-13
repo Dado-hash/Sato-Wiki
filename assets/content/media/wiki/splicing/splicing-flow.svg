@@ -1,20 +1,6 @@
 <svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Channel Splicing</title>
   <desc id="desc">Diagram showing how splicing adds or removes funds from an open Lightning channel. Center: open channel between Alice and Bob (1.0 BTC). Top: splice-in arrow adds 0.5 BTC resulting in 1.5 BTC capacity. Bottom: splice-out arrow removes 0.3 BTC resulting in 0.7 BTC capacity. Channel stays open during both operations. Comparison callout shows without splicing requires close and reopen with 2 on-chain transactions.</desc>
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
   <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Channel Splicing</text>
@@ -27,18 +13,19 @@
   <text x="64" y="172" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">SPLICE-IN</text>
   <text x="64" y="192" fill="#7C8794" font-family="Inter" font-size="13">Alice adds funds to the open channel</text>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="64" y="210" width="170" height="80" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="1"/>
     <text x="149" y="240" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="15" font-weight="600">Alice's Wallet</text>
     <text x="149" y="262" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="13">+ 0.5 BTC</text>
   </g>
 
-  <path d="M246 250H316" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <path d="M246 250H316" stroke="#22C55E" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 308 245)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="281" y="240" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="12">Splice-in tx</text>
   <text x="281" y="258" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="10">on-chain</text>
 
   <!-- Center: Channel Card -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="326" y="194" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
     <rect x="346" y="210" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="363" y="225" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">&#x26A1;</text>
@@ -51,11 +38,12 @@
     <text x="466" y="296" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">Stays open during splice</text>
   </g>
 
-  <path d="M617 250H687" stroke="#22C55E" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <path d="M617 250H687" stroke="#22C55E" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 679 245)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="652" y="240" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="10">confirmed</text>
 
   <!-- Splice-in result -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="696" y="210" width="200" height="80" rx="14" fill="#203327" stroke="#22C55E" stroke-width="1"/>
     <text x="796" y="240" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="15" font-weight="700">1.5 BTC</text>
     <text x="796" y="262" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">New channel capacity</text>
@@ -63,7 +51,7 @@
   </g>
 
   <!-- Comparison callout -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="64" y="308" width="412" height="44" rx="10" fill="#2A2116" stroke="#F7931A" stroke-width="1" stroke-dasharray="4 3"/>
     <text x="80" y="324" fill="#F7931A" font-family="Inter" font-size="13" font-weight="600">Without splicing:</text>
     <text x="80" y="342" fill="#B7B1A8" font-family="Inter" font-size="13">Close channel &#x2192; reopen new channel (2 on-chain txs)</text>
@@ -81,21 +69,22 @@
   <text x="64" y="372" fill="#F7931A" font-family="Inter" font-size="16" font-weight="700">SPLICE-OUT</text>
   <text x="64" y="392" fill="#7C8794" font-family="Inter" font-size="13">Alice removes funds, channel stays open</text>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="64" y="410" width="170" height="80" rx="14" fill="#20252D" stroke="#7C8794" stroke-width="1"/>
     <text x="149" y="440" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="15" font-weight="600">Alice's Wallet</text>
     <text x="149" y="462" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13">- 0.3 BTC</text>
   </g>
 
-  <path d="M246 450H316" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <path d="M246 450H316" stroke="#F7931A" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 308 445)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
   <text x="281" y="440" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">Splice-out tx</text>
   <text x="281" y="458" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="10">on-chain</text>
 
   <!-- Channel (same center) -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="326" y="394" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2" opacity="0.4"/>
   </g>
-  <g filter="url(#soft)">
+  <g>
     <rect x="326" y="394" width="280" height="110" rx="16" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
     <rect x="346" y="410" width="34" height="22" rx="6" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="363" y="425" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="12">&#x26A1;</text>
@@ -108,10 +97,11 @@
     <text x="466" y="496" text-anchor="middle" fill="#7C8794" font-family="Inter" font-size="11">Stays open during splice</text>
   </g>
 
-  <path d="M617 450H687" stroke="#F7931A" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <path d="M617 450H687" stroke="#F7931A" stroke-width="3"/>
+  <g transform="matrix(1 0 0 1 679 445)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
   <!-- Splice-out result -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="696" y="410" width="200" height="80" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="1"/>
     <text x="796" y="440" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="15" font-weight="700">0.7 BTC</text>
     <text x="796" y="462" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="13">New channel capacity</text>

@@ -83,6 +83,103 @@ void main() {
     expect(messages.last, 'generated $pagesRoot/index.html');
   });
 
+  test('library works survive generation unchanged', () {
+    final work = {
+      'id': 'library.blind-signatures',
+      'slug': 'blind-signatures',
+      'language': 'en',
+      'title': 'Blind Signatures for Untraceable Payments',
+      'author': 'David Chaum',
+      'year': 1982,
+      'summary': 'Summary.',
+      'introduction': 'Introduction.',
+      'originalLanguage': 'en',
+      'kind': 'paper',
+      'topics': ['cryptography'],
+      'url': 'https://example.com/chaum-1982',
+      'licenseNote': 'No license stated; linked, not reproduced',
+      'sources': <Object?>[],
+      'related': <Object?>[],
+      'updatedAt': '2026-06-20T00:00:00Z',
+    };
+    final source = File('${tempDir.path}/src/with_library.json')
+      ..createSync(recursive: true)
+      ..writeAsStringSync(
+        jsonEncode({
+          'schemaVersion': 1,
+          'version': '2026.06.20.000004',
+          'language': 'en',
+          'generatedAt': '2026-06-20T00:00:00Z',
+          'wiki': <Object?>[],
+          'news': <Object?>[],
+          'history': <Object?>[],
+          'bips': <Object?>[],
+          'changelogs': <Object?>[],
+          'library': [work],
+        }),
+      );
+
+    generateContentBundle(
+      source: source.path,
+      pagesRoot: pagesRoot,
+      baseUrl: 'https://example.test/content',
+    );
+
+    final output =
+        jsonDecode(
+              File(
+                '$pagesRoot/content/en/2026.06.20.000004/bundle.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, Object?>;
+    expect(output['library'], [work]);
+  });
+
+  test('optional collections survive generation unchanged', () {
+    final source = File('${tempDir.path}/src/with_collections.json')
+      ..createSync(recursive: true)
+      ..writeAsStringSync(
+        jsonEncode({
+          'schemaVersion': 1,
+          'version': '2026.06.20.000003',
+          'language': 'en',
+          'generatedAt': '2026-06-20T00:00:00Z',
+          'wiki': <Object?>[],
+          'news': <Object?>[],
+          'history': <Object?>[],
+          'bips': <Object?>[],
+          'changelogs': <Object?>[],
+          'glossary': [
+            {'id': 'glossary.utxo', 'term': 'UTXO'},
+          ],
+          'products': [
+            {'id': 'product.sparrow-wallet', 'status': 'active'},
+          ],
+        }),
+      );
+
+    generateContentBundle(
+      source: source.path,
+      pagesRoot: pagesRoot,
+      baseUrl: 'https://example.test/content',
+    );
+
+    final output =
+        jsonDecode(
+              File(
+                '$pagesRoot/content/en/2026.06.20.000003/bundle.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, Object?>;
+    expect(output['glossary'], [
+      {'id': 'glossary.utxo', 'term': 'UTXO'},
+    ]);
+    expect(output['products'], [
+      {'id': 'product.sparrow-wallet', 'status': 'active'},
+    ]);
+    expect(output['schemaVersion'], 1);
+  });
+
   test('a non-object root is rejected', () {
     final file = File('${tempDir.path}/array.json')..writeAsStringSync('[]');
 

@@ -5,7 +5,7 @@ language: it
 date: 2014-02-01
 title: Crollo di Mt. Gox
 category: security
-summary: Mt. Gox, il più grande exchange Bitcoin del mondo, dichiara bancarotta dopo aver perso circa 850.000 BTC a causa di violazioni della sicurezza e cattiva gestione.
+summary: Mt. Gox, il più grande exchange Bitcoin del mondo, dichiara bancarotta dopo aver comunicato la scomparsa di circa 850.000 BTC, cifra poi rivista a circa 650.000 BTC, a causa di violazioni della sicurezza e cattiva gestione.
 tags:
   - Bitcoin
   - Mt. Gox
@@ -37,7 +37,7 @@ sources:
 updatedAt: 2026-05-28T00:00:00Z
 ---
 
-Nel febbraio 2014, Mt. Gox — un tempo gestiva oltre il 70% di tutti gli scambi di Bitcoin a livello mondiale — crollò in modo spettacolare. L'exchange rivelò di aver perso circa 850.000 bitcoin, per un valore di oltre $450 milioni all'epoca, a causa di una combinazione di violazioni della sicurezza, bug software e grave cattiva gestione. Il crollo fu l'evento più catastrofico nella storia di Bitcoin fino a quel momento e rimane una delle più grandi frodi finanziarie mai registrate.
+Nel febbraio 2014, Mt. Gox — un tempo gestiva oltre il 70% di tutti gli scambi di Bitcoin a livello mondiale — crollò in modo spettacolare. Il 28 febbraio 2014 la società comunicò che erano scomparsi circa 750.000 bitcoin degli utenti e circa 100.000 bitcoin propri, circa 850.000 in totale per un valore di oltre $450 milioni all'epoca, a causa di una combinazione di violazioni della sicurezza, bug software e grave cattiva gestione. Il crollo fu l'evento più catastrofico nella storia di Bitcoin fino a quel momento e rimane una delle più grandi frodi finanziarie mai registrate.
 
 ![Logo Mt. Gox](media/history/mtgox-collapse/mtgox-collapse-logo.webp "Il logo di Mt. Gox, un tempo exchange Bitcoin dominante, ora monito per il settore.")
 
@@ -49,7 +49,7 @@ Il problema tecnico centrale era la malleabilità delle transazioni. Le firme EC
 
 ## La Perdita
 
-Nel corso di diversi anni, gli attaccanti sfruttarono queste vulnerabilità per rubare circa 850.000 BTC da Mt. Gox. Circa 200.000 di quelle monete furono eventualmente recuperate, ma 650.000 — per un valore di miliardi di dollari ai prezzi correnti — non furono mai recuperate. Il furto passò inosservato alla dirigenza di Mt. Gox per anni, in parte a causa della loro mancata riconciliazione dei saldi dei hot wallet con le passività dell'exchange.
+Nel corso di diversi anni, gli attaccanti sfruttarono queste vulnerabilità per sottrarre bitcoin a Mt. Gox. Il 20 marzo 2014 la società comunicò di aver trovato circa 200.000 BTC in un wallet di vecchio formato usato prima del giugno 2011, e rivide a circa 650.000 BTC la stima dei bitcoin scomparsi, precisando che la cifra era ancora oggetto di indagine. Il furto passò inosservato alla dirigenza di Mt. Gox per anni, in parte a causa della loro mancata riconciliazione dei saldi dei hot wallet con le passività dell'exchange.
 
 Alla fine del 2013, quando Mt. Gox tentò finalmente di riconciliare i suoi conti, scoprì discrepanze enormi. L'exchange sospese i prelievi nel febbraio 2014, citando "problemi tecnici". Il 28 febbraio, Mt. Gox presentò istanza di bancarotta in Giappone e negli Stati Uniti, rivelando l'intera portata delle perdite.
 

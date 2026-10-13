@@ -2,17 +2,6 @@
   <title id="title">Hash function diagram</title>
   <desc id="desc">Arbitrary input data is processed by a hash function to produce a fixed-size output fingerprint.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -28,7 +17,7 @@
     <path d="M635 140V448"/>
   </g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="101" y="170" width="248" height="200" rx="18" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="225" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">Arbitrary input</text>
 
@@ -48,9 +37,10 @@
     <text x="225" y="398" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="14">variable size</text>
   </g>
 
-  <path d="M349 270H425" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M349 270H425" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 417 265)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="425" y="170" width="200" height="200" rx="18" fill="#20252D" stroke="#F7931A" stroke-width="1.8"/>
     <text x="525" y="216" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Hash</text>
     <text x="525" y="246" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="24" font-weight="700">Function</text>
@@ -62,9 +52,10 @@
     <text x="525" y="360" text-anchor="middle" fill="#7C8794" font-family="JetBrains Mono" font-size="14">one-way, deterministic</text>
   </g>
 
-  <path d="M625 270H685" stroke="#F7931A" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <path d="M625 270H685" stroke="#F7931A" stroke-width="4" stroke-linecap="round"/>
+  <g transform="matrix(1 0 0 1 677 265)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
 
-  <g filter="url(#soft)">
+  <g>
     <rect x="685" y="170" width="174" height="200" rx="18" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
     <text x="772" y="210" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Fixed-size output</text>
 

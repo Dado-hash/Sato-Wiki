@@ -1,0 +1,44 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Signature hash types</title>
+  <desc id="desc">Four small transaction diagrams show which inputs and outputs each sighash flag covers, in orange.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(-8 -6)">
+
+  <!-- Panel 1: SIGHASH_ALL -->
+  <rect x="96" y="160" width="180" height="240" rx="8" fill="#1C2128" stroke="#343A44" stroke-width="2"/>
+  <text x="186" y="200" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">ALL</text>
+  <rect x="158" y="222" width="56" height="164" rx="6" fill="#171B21" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="118" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="118" y="316" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="214" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="214" y="316" width="40" height="56" rx="4" fill="#F7931A"/>
+
+  <!-- Panel 2: SIGHASH_NONE -->
+  <rect x="298" y="160" width="180" height="240" rx="8" fill="#1C2128" stroke="#343A44" stroke-width="2"/>
+  <text x="388" y="200" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">NONE</text>
+  <rect x="360" y="222" width="56" height="164" rx="6" fill="#171B21" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="320" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="320" y="316" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="416" y="236" width="40" height="56" rx="4" fill="#20252D" stroke="#5B6573" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="416" y="316" width="40" height="56" rx="4" fill="#20252D" stroke="#5B6573" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Panel 3: SIGHASH_SINGLE -->
+  <rect x="500" y="160" width="180" height="240" rx="8" fill="#1C2128" stroke="#343A44" stroke-width="2"/>
+  <text x="590" y="200" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">SINGLE</text>
+  <rect x="562" y="222" width="56" height="164" rx="6" fill="#171B21" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="522" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="522" y="316" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="618" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="618" y="316" width="40" height="56" rx="4" fill="#20252D" stroke="#5B6573" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Panel 4: ANYONECANPAY (with ALL outputs) -->
+  <rect x="702" y="160" width="180" height="240" rx="8" fill="#1C2128" stroke="#343A44" stroke-width="2"/>
+  <text x="792" y="200" text-anchor="middle" fill="#F4EAD8" font-family="JetBrains Mono" font-size="16">ANYONECANPAY</text>
+  <rect x="764" y="222" width="56" height="164" rx="6" fill="#171B21" stroke="#46505C" stroke-width="1.5"/>
+  <rect x="724" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="724" y="316" width="40" height="56" rx="4" fill="#20252D" stroke="#5B6573" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="820" y="236" width="40" height="56" rx="4" fill="#F7931A"/>
+  <rect x="820" y="316" width="40" height="56" rx="4" fill="#F7931A"/>
+</g>
+</svg>

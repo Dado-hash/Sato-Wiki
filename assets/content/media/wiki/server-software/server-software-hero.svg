@@ -1,0 +1,38 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Server layer between node and apps</title>
+  <desc id="desc">A node feeds a server layer that answers requests from wallets, explorers and payment pages.</desc>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Client apps (top row) -->
+  <rect x="170" y="120" width="180" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="260" y="157" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">Electrum</text>
+  <rect x="390" y="120" width="180" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="480" y="157" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">explorer</text>
+  <rect x="610" y="120" width="180" height="60" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="700" y="157" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">BTCPay</text>
+
+  <!-- Arrows up from the server to each client -->
+  <g stroke="#7C8794" stroke-width="2.5" stroke-linecap="round">
+    <path d="M260 250V190"/>
+    <path d="M480 250V190"/>
+    <path d="M700 250V190"/>
+  </g>
+  <polygon points="260,180 254,190 266,190" fill="#7C8794"/>
+  <polygon points="480,180 474,190 486,190" fill="#7C8794"/>
+  <polygon points="700,180 694,190 706,190" fill="#7C8794"/>
+
+  <!-- Server layer -->
+  <rect x="150" y="250" width="660" height="70" rx="8" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="480" y="292" text-anchor="middle" fill="#8B5CF6" font-family="Inter" font-size="24" font-weight="700">server</text>
+
+  <!-- Arrow up from the node to the server -->
+  <path d="M480 360V330" stroke="#7C8794" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="480,320 474,330 486,330" fill="#7C8794"/>
+  <text x="500" y="348" fill="#8E96A4" font-family="JetBrains Mono" font-size="16">RPC</text>
+
+  <!-- Node layer -->
+  <rect x="150" y="360" width="660" height="70" rx="8" fill="#1C2128" stroke="#F7931A" stroke-width="2"/>
+  <text x="480" y="402" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="24" font-weight="700">node</text>
+</svg>

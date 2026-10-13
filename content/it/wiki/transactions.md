@@ -51,6 +51,8 @@ I nodi controllano le transazioni prima di inoltrarle e di nuovo quando un blocc
 
 A livello di dati grezzi, una transazione contiene una versione, una lista di input, una lista di output e un locktime. Ogni input punta a un output precedente tramite un outpoint: l'ID della transazione precedente più l'indice dell'output. Ogni output contiene un valore in satoshi e uno script di blocco, spesso chiamato `scriptPubKey`.
 
+![Diagramma della struttura di una transazione serializzata](media/wiki/transactions/transaction-bytes.svg "Input e output si ripetono in una transazione serializzata, mentre marker, flag e witness esistono solo nelle transazioni SegWit.")
+
 La fee non è scritta in un campo separato. I nodi la calcolano come valore totale degli input spesi meno valore totale dei nuovi output. Se gli input valgono 100.000 sat e gli output sommano 98.500 sat, la fee è 1.500 sat.
 
 I dati di sblocco dipendono dal tipo di output speso. Gli input legacy usano `scriptSig`; gli input SegWit mettono firme e altri dati nella struttura witness separata. Questa separazione cambia il calcolo del peso e degli identificatori, ma l'idea di base resta la stessa: gli input provano autorità, gli output definiscono autorità futura.
@@ -60,6 +62,8 @@ Una transazione può essere valida per consenso ma non essere inoltrata dalla po
 ## advanced
 
 La validazione di una transazione è una transizione di stato sull'insieme UTXO. Per ogni input non coinbase, un full node cerca l'outpoint referenziato, verifica che sia non speso, esegue i controlli di script richiesti e poi marca quella coin come spesa se la transazione viene collegata in un blocco valido. Gli output della transazione diventano nuovi UTXO.
+
+![Diagramma della struttura di una transazione serializzata](media/wiki/transactions/transaction-bytes.svg "Input e output si ripetono in una transazione serializzata, mentre marker, flag e witness esistono solo nelle transazioni SegWit.")
 
 Alcuni campi hanno senso solo nel contesto. `nLockTime` può impedire che una transazione sia finale fino a una certa altezza o soglia temporale. I valori di sequence degli input possono attivare timelock relativi e policy di sostituzione. Questi meccanismi non aggirano le firme; aggiungono vincoli temporali a quando una spesa altrimenti valida può essere accettata.
 

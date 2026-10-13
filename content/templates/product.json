@@ -1,0 +1,21 @@
+{
+  "id": "product.sparrow-wallet",
+  "slug": "sparrow-wallet",
+  "language": "en",
+  "name": "Sparrow Wallet",
+  "summary": "Desktop wallet focused on coin control.",
+  "bodyMarkdown": "Describe what the product does, who it is for and its main trade-offs.",
+  "category": "software",
+  "subcategory": "software-wallets",
+  "maker": "Sparrow Developers",
+  "website": "https://sparrowwallet.com",
+  "sourceUrl": "https://github.com/sparrowwallet/sparrow",
+  "openSource": true,
+  "license": "Apache-2.0",
+  "platforms": ["macOS", "Windows", "Linux"],
+  "status": "active",
+  "reviewedAt": "2026-06-20",
+  "sources": [],
+  "related": ["wiki.software-wallets"],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}

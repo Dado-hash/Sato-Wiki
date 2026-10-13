@@ -1,0 +1,45 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Testnet, signet and regtest block timelines</title>
+  <desc id="desc">Three test networks show irregular testnet block bursts, evenly signed signet blocks and regtest blocks created on demand.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <path d="M110 220H850" stroke="#28313B" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <path d="M110 320H850" stroke="#28313B" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <text x="110" y="176" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">testnet</text>
+  <text x="110" y="200" fill="#8E96A4" font-family="JetBrains Mono" font-size="16">tb1</text>
+  <text x="110" y="276" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">signet</text>
+  <text x="110" y="300" fill="#8E96A4" font-family="JetBrains Mono" font-size="16">tb1</text>
+  <text x="110" y="376" fill="#F4EAD8" font-family="JetBrains Mono" font-size="20">regtest</text>
+  <text x="110" y="400" fill="#8E96A4" font-family="JetBrains Mono" font-size="16">bcrt1</text>
+
+  <path d="M300 170H850" stroke="#343A44" stroke-width="2"/>
+  <path d="M300 270H850" stroke="#343A44" stroke-width="2"/>
+  <path d="M300 370H850" stroke="#343A44" stroke-width="2"/>
+
+  <rect x="309" y="155" width="22" height="30" rx="3" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="333" y="155" width="22" height="30" rx="3" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="357" y="155" width="22" height="30" rx="3" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="381" y="155" width="22" height="30" rx="3" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="669" y="155" width="22" height="30" rx="3" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="819" y="155" width="22" height="30" rx="3" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+
+  <rect x="309" y="255" width="22" height="30" rx="3" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <rect x="409" y="255" width="22" height="30" rx="3" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <rect x="509" y="255" width="22" height="30" rx="3" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <rect x="609" y="255" width="22" height="30" rx="3" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <rect x="709" y="255" width="22" height="30" rx="3" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <rect x="809" y="255" width="22" height="30" rx="3" fill="#20252D" stroke="#F7931A" stroke-width="2"/>
+  <circle cx="320" cy="244" r="4" fill="#22C55E"/>
+  <circle cx="420" cy="244" r="4" fill="#22C55E"/>
+  <circle cx="520" cy="244" r="4" fill="#22C55E"/>
+  <circle cx="620" cy="244" r="4" fill="#22C55E"/>
+  <circle cx="720" cy="244" r="4" fill="#22C55E"/>
+  <circle cx="820" cy="244" r="4" fill="#22C55E"/>
+
+  <rect x="329" y="355" width="22" height="30" rx="3" fill="#20252D" stroke="#B7B1A8" stroke-width="2"/>
+  <rect x="519" y="355" width="22" height="30" rx="3" fill="#20252D" stroke="#B7B1A8" stroke-width="2"/>
+  <rect x="699" y="355" width="22" height="30" rx="3" fill="#20252D" stroke="#B7B1A8" stroke-width="2"/>
+  <rect x="809" y="355" width="22" height="30" rx="3" fill="none" stroke="#46505C" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>

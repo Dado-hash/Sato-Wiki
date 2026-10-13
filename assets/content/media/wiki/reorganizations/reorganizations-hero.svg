@@ -1,0 +1,30 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Chain reorganization</title>
+  <desc id="desc">Two competing blocks at the same height form a fork, and the branch with more proof of work becomes the best chain.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+  <g transform="translate(0 -6)">
+
+  <!-- Shared block where the fork starts -->
+  <rect x="185" y="248" width="130" height="64" rx="8" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <text x="250" y="286" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">h</text>
+
+  <!-- Stale branch, dashed -->
+  <path d="M315 280 H365 V200 H405" stroke="#5B6573" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+  <polygon points="405,194 415,200 405,206" fill="#5B6573"/>
+  <rect x="415" y="168" width="130" height="64" rx="8" fill="#1C2128" stroke="#5B6573" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="480" y="207" text-anchor="middle" fill="#8E96A4" font-family="Inter" font-size="20" font-weight="700">h+1</text>
+
+  <!-- Winning branch, green -->
+  <path d="M315 280 H365 V360 H405" stroke="#22C55E" stroke-width="3.5" stroke-linecap="round"/>
+  <polygon points="405,354 415,360 405,366" fill="#22C55E"/>
+  <rect x="415" y="328" width="130" height="64" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <text x="480" y="367" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">h+1</text>
+
+  <path d="M545 360 H635" stroke="#22C55E" stroke-width="3.5" stroke-linecap="round"/>
+  <polygon points="635,354 645,360 635,366" fill="#22C55E"/>
+  <rect x="645" y="328" width="130" height="64" rx="8" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <text x="710" y="367" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="700">h+2</text>
+  <text x="710" y="316" text-anchor="middle" fill="#22C55E" font-family="Inter" font-size="16" font-weight="700">PoW</text>
+</g>
+</svg>

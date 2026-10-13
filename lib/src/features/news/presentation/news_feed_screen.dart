@@ -16,6 +16,7 @@ import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/meta_line.dart';
 import '../../../core/widgets/related_links_grid.dart';
 import '../../../core/widgets/round_icon_button.dart';
+import '../../../core/widgets/sato_scaffold.dart';
 import '../../../core/widgets/screen_header.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/sources_disclosure.dart';
@@ -98,11 +99,11 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
           )
         else
           SliverPadding(
-            padding: const EdgeInsets.fromLTRB(
+            padding: EdgeInsets.fromLTRB(
               AppSpacing.gutter,
               0,
               AppSpacing.gutter,
-              AppSpacing.tabBarClearance,
+              SatoScaffold.bottomClearanceOf(context),
             ),
             sliver: SliverList.separated(
               itemCount: articles.length,

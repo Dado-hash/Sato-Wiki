@@ -2,20 +2,6 @@
   <title id="title">Peer connection handshake and message flow</title>
   <desc id="desc">Sequence diagram showing version/verack handshake, inventory announcement, data request, and block or transaction relay between two nodes.</desc>
 
-  <defs>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.24"/>
-    </filter>
-  </defs>
 
   <rect width="960" height="540" rx="28" fill="#111418"/>
   <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
@@ -30,7 +16,7 @@
   </g>
 
   <!-- Participant boxes -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="100" y="128" width="160" height="48" rx="16" fill="#20252D" stroke="#46505C" stroke-width="2"/>
     <text x="180" y="156" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="700">Initiator</text>
     <text x="180" y="170" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13">Node A</text>
@@ -52,29 +38,33 @@
   <!-- Messages -->
   <g stroke-linecap="round" fill="none">
     <!-- version A -> B -->
-    <path d="M180 220H780" stroke="#F7931A" stroke-width="3.5" marker-end="url(#arrow-orange)"/>
-    <g filter="url(#soft)">
+    <path d="M180 220H780" stroke="#F7931A" stroke-width="3.5"/>
+    <g transform="matrix(1 0 0 1 772 215)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="410" y="206" width="140" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
       <text x="480" y="225" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="700">version</text>
     </g>
 
     <!-- version B -> A -->
-    <path d="M780 255H180" stroke="#F7931A" stroke-width="3.5" marker-end="url(#arrow-orange)"/>
-    <g filter="url(#soft)">
+    <path d="M780 255H180" stroke="#F7931A" stroke-width="3.5"/>
+    <g transform="matrix(-1 0 0 -1 188 260)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="410" y="241" width="140" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
       <text x="480" y="260" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="700">version</text>
     </g>
 
     <!-- verack B -> A -->
-    <path d="M780 290H180" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
-    <g filter="url(#soft)">
+    <path d="M780 290H180" stroke="#22C55E" stroke-width="3.5"/>
+    <g transform="matrix(-1 0 0 -1 188 295)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="430" y="276" width="100" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
       <text x="480" y="295" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">verack</text>
     </g>
 
     <!-- verack A -> B -->
-    <path d="M180 325H780" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
-    <g filter="url(#soft)">
+    <path d="M180 325H780" stroke="#22C55E" stroke-width="3.5"/>
+    <g transform="matrix(1 0 0 1 772 320)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="430" y="311" width="100" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
       <text x="480" y="330" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">verack</text>
     </g>
@@ -86,29 +76,32 @@
 
   <g stroke-linecap="round" fill="none">
     <!-- inv / headers B -> A -->
-    <path d="M780 405H180" stroke="#7C8794" stroke-width="3.5" marker-end="url(#arrow-gray)"/>
-    <g filter="url(#soft)">
+    <path d="M780 405H180" stroke="#7C8794" stroke-width="3.5"/>
+    <g transform="matrix(-1 0 0 -1 188 410)"><path d="M2 2L8 5L2 8" fill="none" stroke="#7C8794" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="390" y="391" width="180" height="28" rx="14" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
       <text x="480" y="410" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="13" font-weight="700">inv / headers</text>
     </g>
 
     <!-- getdata A -> B -->
-    <path d="M180 445H780" stroke="#F7931A" stroke-width="3.5" marker-end="url(#arrow-orange)"/>
-    <g filter="url(#soft)">
+    <path d="M180 445H780" stroke="#F7931A" stroke-width="3.5"/>
+    <g transform="matrix(1 0 0 1 772 440)"><path d="M2 2L8 5L2 8" fill="none" stroke="#F7931A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="430" y="431" width="100" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.5"/>
       <text x="480" y="450" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="13" font-weight="700">getdata</text>
     </g>
 
     <!-- tx / block B -> A -->
-    <path d="M780 485H180" stroke="#22C55E" stroke-width="3.5" marker-end="url(#arrow-green)"/>
-    <g filter="url(#soft)">
+    <path d="M780 485H180" stroke="#22C55E" stroke-width="3.5"/>
+    <g transform="matrix(-1 0 0 -1 188 490)"><path d="M2 2L8 5L2 8" fill="none" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g>
       <rect x="400" y="471" width="160" height="28" rx="14" fill="#14251A" stroke="#22C55E" stroke-width="1.5"/>
       <text x="480" y="490" text-anchor="middle" fill="#22C55E" font-family="JetBrains Mono" font-size="13" font-weight="700">tx / block</text>
     </g>
   </g>
 
   <!-- Legend -->
-  <g filter="url(#soft)">
+  <g>
     <rect x="790" y="390" width="120" height="28" rx="14" fill="#1D1F12" stroke="#F7931A" stroke-width="1.2"/>
     <text x="850" y="409" text-anchor="middle" fill="#F7931A" font-family="Inter" font-size="12" font-weight="600">Requests</text>
 

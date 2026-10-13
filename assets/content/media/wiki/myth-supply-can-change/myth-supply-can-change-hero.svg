@@ -1,0 +1,37 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">A chain split</title>
+  <desc id="desc">Two branches split from a common block: nodes that keep the 21,000,000 rule and nodes that accept more coins.</desc>
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Common history -->
+  <rect x="140" y="236" width="80" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="260" y="236" width="80" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <rect x="380" y="236" width="80" height="48" rx="6" fill="#20252D" stroke="#8E96A4" stroke-width="2"/>
+  <text x="180" y="265" text-anchor="middle" fill="#B7B1A8" font-family="Inter" font-size="16">block</text>
+  <path d="M220 260H260M340 260H380" stroke="#8E96A4" stroke-width="2"/>
+  <text x="320" y="220" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="18" font-weight="600">21,000,000</text>
+
+  <!-- Split -->
+  <path d="M460 260H480V204H500M480 260V364H500" stroke="#8E96A4" stroke-width="2"/>
+
+  <!-- Upper branch: old rules -->
+  <rect x="500" y="180" width="80" height="48" rx="6" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <rect x="620" y="180" width="80" height="48" rx="6" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <rect x="740" y="180" width="80" height="48" rx="6" fill="#20252D" stroke="#22C55E" stroke-width="2"/>
+  <path d="M580 204H620M700 204H740" stroke="#22C55E" stroke-width="2"/>
+  <path d="M540 146V180M660 146V180M780 146V180" stroke="#22C55E" stroke-width="2"/>
+  <circle cx="540" cy="130" r="16" fill="#20252D" stroke="#22C55E" stroke-width="2.5"/>
+  <circle cx="660" cy="130" r="16" fill="#20252D" stroke="#22C55E" stroke-width="2.5"/>
+  <circle cx="780" cy="130" r="16" fill="#20252D" stroke="#22C55E" stroke-width="2.5"/>
+
+  <!-- Lower branch: larger supply -->
+  <rect x="500" y="340" width="80" height="48" rx="6" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="620" y="340" width="80" height="48" rx="6" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="740" y="340" width="80" height="48" rx="6" fill="#20252D" stroke="#8B5CF6" stroke-width="2"/>
+  <path d="M580 364H620M700 364H740" stroke="#8B5CF6" stroke-width="2"/>
+  <path d="M540 388V404M660 388V404M780 388V404" stroke="#8B5CF6" stroke-width="2"/>
+  <circle cx="540" cy="420" r="16" fill="#20252D" stroke="#8B5CF6" stroke-width="2.5"/>
+  <circle cx="660" cy="420" r="16" fill="#20252D" stroke="#8B5CF6" stroke-width="2.5"/>
+  <circle cx="780" cy="420" r="16" fill="#20252D" stroke="#8B5CF6" stroke-width="2.5"/>
+</svg>

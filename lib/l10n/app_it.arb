@@ -254,5 +254,752 @@
   "categoryInformational": "Informativo",
   "categoryProcess": "Processo",
   "categoryApiRpc": "API/RPC",
-  "categorySpecification": "Specifica"
+  "categorySpecification": "Specifica",
+  "categorySoftware": "Software",
+  "categoryHardware": "Hardware",
+  "categoryPrivacySecurity": "Privacy e sicurezza",
+  "subcategoryNodes": "Nodi",
+  "subcategorySoftwareWallets": "Software wallet",
+  "subcategoryLightning": "Lightning",
+  "subcategoryServers": "Server e infrastruttura",
+  "subcategoryNodeSystems": "Sistemi per nodo domestico",
+  "subcategoryMiningSoftware": "Software di mining",
+  "subcategoryDeveloperTools": "Librerie e strumenti per sviluppatori",
+  "subcategoryHardwareWallets": "Hardware wallet",
+  "subcategorySeedBackups": "Backup del seed",
+  "subcategoryMiningHardware": "Hardware di mining",
+  "subcategoryNodeHardware": "Hardware per nodi",
+  "learnStartHere": "Inizia qui",
+  "learnQuote": "Citazione",
+  "learnSource": "Fonte",
+  "learnStepsRead": "{read} di {total} letti",
+  "@learnStepsRead": {
+    "placeholders": {
+      "read": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "learnNextStep": "Prossima: {title}",
+  "@learnNextStep": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "learnAllStepsRead": "Hai letto tutti i passi",
+  "learnStepRead": "Letto",
+  "learnStepNumber": "Passo {number}",
+  "@learnStepNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "learnPathNotFound": "Percorso non trovato",
+  "learnGlossaryTitle": "Glossario",
+  "learnGlossaryFilterHint": "Filtra i termini",
+  "learnGlossaryNoMatch": "Nessun termine corrisponde a \"{query}\".",
+  "@learnGlossaryNoMatch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "learnGlossaryEmpty": "Nessun termine nel glossario.",
+  "learnAlsoCalled": "Detto anche",
+  "learnGlossaryNotFound": "Termine non trovato",
+  "wikiTreeCategoryMyths": "Miti",
+  "wikiTreeSubcategoriesCount": "{count, plural, =1{1 sottocategoria} other{{count} sottocategorie}}",
+  "@wikiTreeSubcategoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeGlossary": "Glossario",
+  "wikiTreeGlossaryCount": "Definizioni brevi · {count, plural, =1{1 termine} other{{count} termini}}",
+  "@wikiTreeGlossaryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeOtherEntries": "Altre voci",
+  "wikiTreeGuideMinutes": "Guida · {minutes} min",
+  "@wikiTreeGuideMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeProductsCount": "Prodotti · {count}",
+  "@wikiTreeProductsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeStatusActive": "Attivo",
+  "wikiTreeStatusDiscontinued": "Dismesso",
+  "wikiTreeOpenSource": "Open source",
+  "wikiTreeSourceNotOpen": "Codice non aperto",
+  "wikiTreeYes": "Sì",
+  "wikiTreeNo": "No",
+  "wikiTreeLicense": "Licenza",
+  "wikiTreeMaker": "Produttore",
+  "wikiTreePlatforms": "Piattaforme",
+  "wikiTreeCheckedOn": "Verificato il {date}",
+  "@wikiTreeCheckedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "wikiTreeWebsite": "Sito web",
+  "wikiTreeSourceCode": "Codice sorgente",
+  "wikiTreeProductNotice": "SatoWiki non vende e non raccomanda prodotti e non usa link di affiliazione.",
+  "wikiTreeStatus": "Stato",
+  "wikiTreeProductNotFound": "Prodotto non trovato",
+  "toolsSectionTools": "Strumenti",
+  "toolsSectionLearn": "Impara facendo",
+  "toolsSectionNetwork": "Rete",
+  "toolsTileHashName": "Hash",
+  "toolsTileHashCaption": "SHA-256 · HASH160",
+  "toolsTileAddressName": "Indirizzo",
+  "toolsTileAddressCaption": "Tipo e checksum",
+  "toolsTileTransactionName": "Transazione",
+  "toolsTileTransactionCaption": "Decoder esadecimale",
+  "toolsTileTargetName": "Target",
+  "toolsTileTargetCaption": "Bits e difficoltà",
+  "toolsTileUnitsName": "Unità",
+  "toolsTileUnitsCaption": "sat · BTC · vB",
+  "toolsTileTablesName": "Tabelle",
+  "toolsTileTablesCaption": "Opcode, campi, messaggi",
+  "toolsLabName": "Laboratorio blockchain",
+  "toolsLabCaption": "Sette passi: hash, blocco, catena, rete, transazioni, coinbase, un header reale.",
+  "toolsScriptName": "Script passo per passo",
+  "toolsScriptCaption": "Guarda lo stack dopo ogni opcode.",
+  "toolsExplorerName": "Explorer",
+  "toolsCopy": "Copia",
+  "toolsCopied": "Copiato",
+  "toolsReadMore": "Approfondisci nella wiki",
+  "toolsHashTitle": "Hash",
+  "toolsHashModeText": "Testo",
+  "toolsHashModeHex": "Hex",
+  "toolsHashTextHint": "Scrivi un testo",
+  "toolsHashHexHint": "Incolla byte in esadecimale",
+  "toolsHashSha256": "SHA-256",
+  "toolsHashDoubleSha256": "Doppio SHA-256",
+  "toolsHashHash160": "HASH160",
+  "toolsHashInvalidHex": "Non è esadecimale valido. Usa coppie di cifre 0-9 e a-f, senza spazi.",
+  "toolsHashEmptyHex": "Inserisci byte in esadecimale per vedere i loro hash.",
+  "toolsHashNote": "SHA-256 è la funzione hash su cui si basano il proof of work e la maggior parte degli identificativi Bitcoin. Il doppio SHA-256 la applica due volte, come fanno gli header dei blocchi e i txid. HASH160 è RIPEMD-160 di SHA-256 e produce i valori di 20 byte dentro gli indirizzi.",
+  "toolsAddressTitle": "Indirizzo",
+  "toolsAddressHint": "Incolla un indirizzo",
+  "toolsAddressChecksumValid": "Checksum valido",
+  "toolsAddressChecksumInvalid": "Checksum non valido",
+  "toolsAddressNetworkMainnet": "Mainnet",
+  "toolsAddressNetworkTestnet": "Testnet",
+  "toolsAddressNetworkRegtest": "Regtest",
+  "toolsAddressKindP2pkh": "P2PKH",
+  "toolsAddressKindP2sh": "P2SH",
+  "toolsAddressKindP2wpkh": "P2WPKH",
+  "toolsAddressKindP2wsh": "P2WSH",
+  "toolsAddressKindP2tr": "P2TR (Taproot)",
+  "toolsAddressKindUnknownWitness": "Programma witness sconosciuto",
+  "toolsAddressKindInvalid": "Non è un indirizzo valido",
+  "toolsAddressDescP2pkh": "Paga all'hash di una chiave pubblica. È il formato classico, usato dal 2009.",
+  "toolsAddressDescP2sh": "Paga all'hash di uno script, quindi le condizioni di spesa restano nascoste fino all'uso.",
+  "toolsAddressDescP2wpkh": "Paga all'hash di una chiave pubblica, nel formato SegWit versione 0.",
+  "toolsAddressDescP2wsh": "Paga all'hash di uno script, nel formato SegWit versione 0.",
+  "toolsAddressDescP2tr": "Paga a una chiave di output taproot, nel formato SegWit versione 1.",
+  "toolsAddressDescUnknownWitness": "Un indirizzo SegWit con una versione o una lunghezza che l'app non analizza nel dettaglio.",
+  "toolsAddressErrorEmpty": "Incolla un indirizzo per controllarlo.",
+  "toolsAddressErrorBadCharacter": "Un carattere non è ammesso in questa codifica.",
+  "toolsAddressErrorBadChecksum": "Il checksum non corrisponde. Il testo è stato cambiato o ha un errore di battitura.",
+  "toolsAddressErrorBadLength": "La lunghezza non è corretta per questo tipo di indirizzo.",
+  "toolsAddressErrorUnknownVersion": "La versione o la versione witness non è una di quelle che l'app conosce.",
+  "toolsAddressErrorMixedCase": "Maiuscole e minuscole sono mescolate. Bech32 usa un solo tipo di lettere.",
+  "toolsAddressErrorWrongVariant": "Il tipo di checksum non corrisponde alla versione witness.",
+  "toolsAddressErrorMissingSeparator": "Una stringa Bech32 richiede il separatore 1.",
+  "toolsAddressErrorEmptyHrp": "Il prefisso di rete prima dell'1 è vuoto.",
+  "toolsAddressErrorUnknownHrp": "Il prefisso non è bc, tb o bcrt, quindi non è un indirizzo Bitcoin.",
+  "toolsAddressErrorEmptyData": "Un indirizzo SegWit non ha dati witness.",
+  "toolsAddressErrorInvalidPadding": "I dati witness hanno un padding non valido.",
+  "toolsAddressSecretWifTitle": "Sembra una chiave privata",
+  "toolsAddressSecretExtendedTitle": "Sembra una chiave estesa",
+  "toolsAddressSecretBody": "Non incollare mai una chiave privata o una chiave estesa in un'app o in un sito. Il campo è stato svuotato e non è stato analizzato.",
+  "toolsAddressBuiltTitle": "Come è fatto",
+  "toolsPartPrefix": "Prefisso di rete",
+  "toolsPartSeparator": "Separatore",
+  "toolsPartWitnessVersion": "Versione witness",
+  "toolsPartProgram": "Programma (hash)",
+  "toolsPartChecksum": "Checksum, ultimi 6 caratteri",
+  "toolsPartVersionByte": "Byte di versione",
+  "toolsPartPayloadHash": "Hash del payload",
+  "toolsPartBase58Checksum": "Checksum, ultimi 4 byte",
+  "toolsAddressBase58Note": "I caratteri Base58 non corrispondono ai byte, quindi la stringa è mostrata senza colori. Le sue parti sono elencate sotto.",
+  "toolsTxTitle": "Transazione",
+  "toolsTxSummary": "Riepilogo",
+  "toolsTxHint": "Incolla una transazione grezza in esadecimale",
+  "toolsTxEmpty": "Incolla una transazione grezza per decodificarla.",
+  "toolsTxLoadExample": "Carica esempio",
+  "toolsTxExampleNote": "Esempio: la transazione coinbase del genesis, dal blocco 0.",
+  "toolsTxTapHint": "Tocca un campo con la freccia per leggere la sua voce wiki.",
+  "toolsTxTxid": "txid",
+  "toolsTxWtxid": "wtxid",
+  "toolsTxType": "Tipo",
+  "toolsTxTypeCoinbase": "Coinbase",
+  "toolsTxTypeRegular": "Normale",
+  "toolsTxFormat": "Formato",
+  "toolsTxFormatSegwit": "SegWit",
+  "toolsTxFormatLegacy": "Legacy",
+  "toolsTxSize": "Dimensione",
+  "toolsTxWeight": "Peso",
+  "toolsTxVsize": "Dimensione virtuale",
+  "toolsTxBytes": "{count} byte",
+  "@toolsTxBytes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxWeightUnits": "{count} WU",
+  "@toolsTxWeightUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxVbytes": "{count} vB",
+  "@toolsTxVbytes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxFieldsTitle": "Campi",
+  "toolsTxHexTitle": "Hex serializzato",
+  "toolsTxInputLabel": "Input {index}",
+  "@toolsTxInputLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxOutputLabel": "Output {index}",
+  "@toolsTxOutputLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxWitnessLabel": "Input {index}, elemento witness {item}",
+  "@toolsTxWitnessLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "item": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxCoinbaseTag": "coinbase",
+  "toolsTxValueBoth": "{btc} BTC · {sat} sat",
+  "@toolsTxValueBoth": {
+    "placeholders": {
+      "btc": {
+        "type": "String"
+      },
+      "sat": {
+        "type": "String"
+      }
+    }
+  },
+  "toolsTxHiddenFields": "Altri {count} campi non sono mostrati.",
+  "@toolsTxHiddenFields": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxErrorNotHex": "L'input è vuoto, ha un numero dispari di cifre o non è esadecimale.",
+  "toolsTxErrorTruncated": "I dati finiscono prima che un campo sia completo. La transazione potrebbe essere troncata.",
+  "toolsTxErrorTrailing": "Ci sono byte dopo l'ultimo campo. Controlla che la transazione sia completa e non abbia dati in più.",
+  "toolsTxErrorTooLarge": "La transazione supera 400000 byte, il limite di questo strumento.",
+  "toolsTxErrorInvalid": "Un valore è fuori dai limiti di una transazione, oppure il flag segwit non è riconosciuto.",
+  "toolsFieldVersion": "Versione",
+  "toolsFieldMarker": "Marker",
+  "toolsFieldFlag": "Flag",
+  "toolsFieldInputCount": "Numero di input",
+  "toolsFieldPreviousTxid": "Txid precedente",
+  "toolsFieldPreviousIndex": "Indice dell'output precedente",
+  "toolsFieldScriptSigLength": "Lunghezza di scriptSig",
+  "toolsFieldScriptSig": "scriptSig",
+  "toolsFieldSequence": "Sequence",
+  "toolsFieldOutputCount": "Numero di output",
+  "toolsFieldValue": "Valore",
+  "toolsFieldScriptPubKeyLength": "Lunghezza di scriptPubKey",
+  "toolsFieldScriptPubKey": "scriptPubKey",
+  "toolsFieldWitnessItemCount": "Numero di elementi witness",
+  "toolsFieldWitnessItemLength": "Lunghezza elemento witness",
+  "toolsFieldWitnessItem": "Elemento witness",
+  "toolsFieldLockTime": "Lock time",
+  "toolsScriptP2pk": "P2PK",
+  "toolsScriptP2pkh": "P2PKH",
+  "toolsScriptP2sh": "P2SH",
+  "toolsScriptP2wpkh": "P2WPKH",
+  "toolsScriptP2wsh": "P2WSH",
+  "toolsScriptP2tr": "P2TR",
+  "toolsScriptWitnessUnknown": "Programma witness sconosciuto",
+  "toolsScriptBareMultisig": "Multisig nudo",
+  "toolsScriptOpReturn": "Dati OP_RETURN",
+  "toolsScriptNonStandard": "Non standard",
+  "toolsTargetTitle": "Target",
+  "toolsTargetHint": "Bits, 8 cifre esadecimali, per esempio 1d00ffff",
+  "toolsTargetInvalid": "Inserisci esattamente 8 cifre esadecimali, con il prefisso 0x facoltativo.",
+  "toolsTargetTargetLabel": "Target",
+  "toolsTargetDifficulty": "Difficoltà",
+  "toolsTargetExpected": "Hash attesi per blocco",
+  "toolsTargetScientific": "Circa {mantissa} × 10^{exponent}",
+  "@toolsTargetScientific": {
+    "placeholders": {
+      "mantissa": {
+        "type": "String"
+      },
+      "exponent": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTargetNote": "Il target è il numero che l'hash di un blocco deve restare sotto. La difficoltà lo confronta con il target massimo, 1d00ffff. Gli hash attesi sono il numero medio di tentativi necessari per trovare un blocco valido.",
+  "toolsUnitsTitle": "Unità",
+  "toolsUnitsBtcSatTitle": "BTC e satoshi",
+  "toolsUnitsBtcLabel": "BTC",
+  "toolsUnitsSatLabel": "Satoshi",
+  "toolsUnitsDecimalsError": "Gli importi bitcoin hanno al massimo 8 decimali.",
+  "toolsUnitsInvalidAmount": "Inserisci un importo decimale, per esempio 0,001.",
+  "toolsUnitsInvalidWhole": "Inserisci un numero intero, zero o più.",
+  "toolsUnitsWeightTitle": "Weight unit in byte virtuali",
+  "toolsUnitsWeightLabel": "Weight unit (WU)",
+  "toolsUnitsVbytesResult": "{vbytes} vB",
+  "@toolsUnitsVbytesResult": {
+    "placeholders": {
+      "vbytes": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsUnitsRateFromFeeTitle": "Fee rate dalla fee",
+  "toolsUnitsFeeLabel": "Fee (satoshi)",
+  "toolsUnitsVsizeLabel": "Dimensione virtuale (vB)",
+  "toolsUnitsRateResult": "{rate} sat/vB",
+  "@toolsUnitsRateResult": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "toolsUnitsFeeFromRateTitle": "Fee dalla fee rate",
+  "toolsUnitsRateLabel": "Fee rate (sat/vB)",
+  "toolsUnitsFeeResult": "{sat} sat",
+  "@toolsUnitsFeeResult": {
+    "placeholders": {
+      "sat": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsUnitsRateInvalid": "Inserisci una fee rate di zero o più, per esempio 2,5.",
+  "toolsUnitsVsizePositive": "La dimensione virtuale deve essere maggiore di zero.",
+  "toolsUnitsResult": "Risultato",
+  "toolsUnitsNote": "Solo unità, nessun prezzo né valuta. Gli importi usano aritmetica intera, quindi non c'è arrotondamento.",
+  "toolsReferencesTitle": "Tabelle di riferimento",
+  "toolsReferencesEmpty": "Nessuna tabella di riferimento per ora.",
+  "toolsRowCount": "{count, plural, =1{1 riga} other{{count} righe}}",
+  "@toolsRowCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsReferenceFilterHint": "Filtra le righe",
+  "toolsReferenceNoMatch": "Nessuna riga corrisponde al filtro.",
+  "libraryTitle": "Biblioteca",
+  "libraryEmpty": "Nessuna opera in biblioteca per ora.",
+  "libraryNoMatch": "Nessuna opera corrisponde al filtro.",
+  "libraryAuthorLabel": "Autore",
+  "libraryTopicLabel": "Argomento",
+  "libraryYearLabel": "Anno",
+  "libraryKindLabel": "Tipo",
+  "libraryOriginalLanguageLabel": "Lingua originale",
+  "libraryLicenseLabel": "Licenza",
+  "libraryKindPaper": "Paper",
+  "libraryKindEssay": "Saggio",
+  "libraryKindPost": "Post",
+  "libraryKindEmail": "Email",
+  "libraryKindBook": "Libro",
+  "libraryKindManifesto": "Manifesto",
+  "libraryNotFound": "Opera non trovata",
+  "libraryReadOriginal": "Leggi l'originale",
+  "libraryArchivedCopy": "Copia archiviata",
+  "libraryIntroduction": "La nostra introduzione",
+  "libraryNotice": "SatoWiki non ospita il testo integrale. L'originale si apre nel browser.",
+  "librarySearchTypeGlossary": "Glossario",
+  "librarySearchTypeProduct": "Prodotto",
+  "librarySearchTypeReference": "Riferimento",
+  "librarySearchTypeLibrary": "Biblioteca",
+  "connectTryIt": "Prova",
+  "connectQuotesTitle": "Con le loro parole",
+  "connectLibraryTitle": "Biblioteca",
+  "connectLibraryCount": "{count, plural, =1{1 opera} other{{count} opere}}",
+  "@connectLibraryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "connectHashTitle": "Strumento hash",
+  "connectHashCaption": "Calcola SHA-256 e HASH160 di un testo",
+  "connectAddressTitle": "Strumento indirizzo",
+  "connectAddressCaption": "Verifica tipo e checksum di un indirizzo",
+  "connectTransactionTitle": "Strumento transazione",
+  "connectTransactionCaption": "Decodifica una transazione grezza campo per campo",
+  "connectTargetTitle": "Strumento target",
+  "connectTargetCaption": "Converti bit, target e difficoltà",
+  "connectUnitsTitle": "Strumento unità",
+  "connectUnitsCaption": "Converti sat, BTC e vB",
+  "connectScriptTitle": "Script passo per passo",
+  "connectScriptCaption": "Guarda lo stack dopo ogni opcode",
+  "connectLabTitle": "Laboratorio blockchain",
+  "connectLabCaption": "Costruisci e rompi una piccola blockchain, passo per passo",
+  "connectLabStepTitle": "Laboratorio blockchain, passo {step}",
+  "@connectLabStepTitle": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  },
+  "connectLabStep1Caption": "Scrivi un testo e guarda cambiare il suo hash",
+  "connectLabStep2Caption": "Mina un blocco: trova un nonce che lo renda valido",
+  "connectLabStep3Caption": "Cambia un blocco e guarda rompersi quelli successivi",
+  "connectLabStep6Caption": "Esamina la transazione coinbase che paga il miner",
+  "connectLabStep7Caption": "Leggi l'header di 80 byte che ogni blocco contiene",
+  "explorerTitle": "Explorer",
+  "explorerStateOn": "Attivo",
+  "explorerStateOff": "Spento",
+  "explorerStateOnServer": "Attivo · {host}",
+  "@explorerStateOnServer": {"placeholders": {"host": {"type": "String"}}},
+  "explorerSetupTitle": "Prima di attivare",
+  "explorerSetupIntro": "L'explorer chiede i dati a un server su internet. Il resto dell'app funziona senza rete.",
+  "explorerSetupWhatServerSees": "Ogni ricerca viene inviata al server qui sotto. Chi gestisce il server può vedere il tuo indirizzo IP e cosa cerchi.",
+  "explorerSetupOwnAddresses": "Se cerchi i tuoi indirizzi, il server può collegarli al tuo indirizzo IP.",
+  "explorerSetupNothingSent": "Non parte nulla finché non premi Cerca. Le ricerche non vengono salvate sul dispositivo. L'explorer non usa Tor né proxy.",
+  "explorerServerLabel": "Server",
+  "explorerServerField": "Indirizzo del server",
+  "explorerServerHelp": "Usa https. Http semplice funziona solo per localhost e per indirizzi .onion e .local.",
+  "explorerServerInvalid": "Questo indirizzo non è ammesso. Usa https, o http solo per localhost, .onion o .local. Non è stato salvato.",
+  "explorerTurnOn": "Attiva l'explorer",
+  "explorerTurnOff": "Spegni l'explorer",
+  "explorerTurnOffNote": "Puoi riattivarlo dalle Impostazioni.",
+  "explorerSaveServer": "Salva server",
+  "explorerServerSaved": "Server salvato.",
+  "explorerOffTitle": "L'explorer è spento",
+  "explorerOffBody": "Finché è spento non viene inviato nulla a nessun server.",
+  "explorerSearchHint": "Altezza, hash del blocco, txid o indirizzo",
+  "explorerSearchButton": "Cerca",
+  "explorerSearchNote": "Ogni ricerca invia una richiesta per passo. Le ricerche non vengono salvate.",
+  "explorerServerInUse": "Server: {server}",
+  "@explorerServerInUse": {"placeholders": {"server": {"type": "String"}}},
+  "explorerSecretWifTitle": "Sembra una chiave privata",
+  "explorerSecretExtendedTitle": "Sembra una chiave estesa",
+  "explorerSecretBody": "Non è stato inviato nulla e il campo è stato svuotato. Non incollare mai una chiave privata in app o siti.",
+  "explorerInvalidInput": "Inserisci un’altezza di blocco, un hash o un txid di 64 caratteri, oppure un indirizzo.",
+  "explorerLookingUp": "Ricerca in corso…",
+  "explorerNotFound": "Il server non conosce questo blocco, questa transazione o questo indirizzo.",
+  "explorerNetworkError": "Non è stato possibile raggiungere il server. Controlla la connessione e riprova.",
+  "explorerBadResponse": "Il server ha inviato una risposta che l'explorer non sa leggere.",
+  "explorerRateLimited": "Troppe richieste. Il server ha chiesto di rallentare. {seconds, plural, =1{Riprova tra 1 secondo.} other{Riprova tra {seconds} secondi.}}",
+  "@explorerRateLimited": {"placeholders": {"seconds": {"type": "int"}}},
+  "explorerNoAutoRetry": "L'explorer non riprova da solo.",
+  "explorerRetry": "Riprova",
+  "explorerBlockTitle": "Blocco",
+  "explorerTransactionTitle": "Transazione",
+  "explorerAddressTitle": "Indirizzo",
+  "explorerHeight": "Altezza",
+  "explorerHash": "Hash",
+  "explorerTxid": "Txid",
+  "explorerTime": "Ora",
+  "explorerTransactionCount": "Transazioni",
+  "explorerSize": "Dimensione",
+  "explorerWeight": "Peso",
+  "explorerMerkleRoot": "Merkle root",
+  "explorerPreviousBlock": "Blocco precedente",
+  "explorerNonce": "Nonce",
+  "explorerBits": "Bits",
+  "explorerDifficulty": "Difficulty",
+  "explorerVersion": "Versione",
+  "explorerStatus": "Stato",
+  "explorerConfirmed": "Confermata",
+  "explorerUnconfirmed": "Non confermata",
+  "explorerBlockOfTransaction": "Blocco",
+  "explorerFee": "Fee",
+  "explorerFeeRate": "Fee rate",
+  "explorerFeeRateValue": "{rate} sat/vB",
+  "@explorerFeeRateValue": {"placeholders": {"rate": {"type": "String"}}},
+  "explorerInputs": "Input",
+  "explorerOutputs": "Output",
+  "explorerInputNumber": "Input {index}",
+  "@explorerInputNumber": {"placeholders": {"index": {"type": "int"}}},
+  "explorerOutputNumber": "Output {index}",
+  "@explorerOutputNumber": {"placeholders": {"index": {"type": "int"}}},
+  "explorerCoinbase": "Coinbase, nessun output precedente",
+  "explorerAmount": "{btc} BTC · {sat} sat",
+  "@explorerAmount": {"placeholders": {"btc": {"type": "String"}, "sat": {"type": "String"}}},
+  "explorerScriptType": "Tipo di script",
+  "explorerBlockUnknown": "Non ancora in un blocco",
+  "explorerAddressReceived": "Ricevuto",
+  "explorerAddressSpent": "Speso",
+  "explorerAddressBalance": "Saldo",
+  "explorerAddressMempool": "Mempool",
+  "explorerAddressTransactions": "Ultime transazioni",
+  "explorerAddressFirstPage": "Viene mostrata solo la prima pagina del server.",
+  "explorerNoTransactions": "Nessuna transazione trovata per questo indirizzo.",
+  "explorerLoading": "Caricamento…",
+  "labTitle": "Laboratorio blockchain",
+  "labIntro": "Una piccola blockchain che puoi cambiare e riparare, un'idea alla volta. I blocchi qui sono un modello didattico, non il protocollo reale.",
+  "labIndexSteps": "Passi",
+  "labStepCounter": "Passo {current} di {total}",
+  "@labStepCounter": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "labStepOptional": "Facoltativo",
+  "labStepTitle1": "Hash",
+  "labStepDesc1": "Scrivi un testo e guarda cambiare la sua impronta.",
+  "labStepTitle2": "Mina un blocco",
+  "labStepDesc2": "Cambia i dati, poi cerca un nonce che faccia iniziare l'hash con gli zeri.",
+  "labStepTitle3": "Catena",
+  "labStepDesc3": "Cambia un blocco e guarda spezzarsi tutti quelli dopo.",
+  "labStepTitle4": "Rete",
+  "labStepDesc4": "Più copie della catena. Un nodo tiene solo una copia valida.",
+  "labStepTitle5": "Transazioni",
+  "labStepDesc5": "Trasforma i trasferimenti nei dati di un blocco.",
+  "labStepTitle6": "Coinbase",
+  "labStepDesc6": "La prima transazione di un blocco paga il miner.",
+  "labStepTitle7": "Un header reale",
+  "labStepDesc7": "Decodifica gli 80 byte del blocco genesi e calcolane l'hash.",
+  "labDifference": "In Bitcoin è diverso",
+  "labDiff1": "Un vero hash di blocco è SHA-256 applicato due volte a un header di 80 byte, non a una riga di testo.",
+  "labDiff2": "L'header è di 80 byte, l'hash è un doppio SHA-256 e la regola è un target numerico, non un numero di zeri.",
+  "labDiff3": "I nodi reali seguono la catena con più lavoro accumulato, non una regola che conta gli zeri. Ogni blocco è verificato contro il target nel suo header.",
+  "labDiff4": "I nodi reali controllano anche ogni transazione e ogni firma, e inoltrano i blocchi ai peer. Questo laboratorio controlla solo i blocchi, su questo dispositivo.",
+  "labDiff5": "Le transazioni reali spendono output precedenti, e ogni input porta una firma. Qui un trasferimento è solo una riga di testo.",
+  "labDiff6": "Il sussidio si dimezza ogni 210.000 blocchi, circa ogni quattro anni, e gli output della coinbase non si possono spendere per 100 blocchi.",
+  "labDiff7": "Questo è il formato reale dell'header. Il target deriva da bits, e l'hash è un doppio SHA-256 di questi 80 byte.",
+  "labPreviousStep": "Passo precedente",
+  "labNextStep": "Passo successivo",
+  "labValid": "Valido",
+  "labNotValid": "Non valido",
+  "labBlockNumber": "Blocco {number}",
+  "@labBlockNumber": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "labHashHint": "Scrivi un testo qualsiasi",
+  "labHashIntro": "Scrivi nel campo. Ogni tasto produce una nuova impronta del testo.",
+  "labHashLabel": "SHA-256 del testo",
+  "labHashNote": "Cambia una lettera, una maiuscola o uno spazio e l'hash cambia del tutto. Lo stesso testo dà sempre lo stesso hash.",
+  "labMineIntro": "Cambia i dati, poi cerca un nonce che faccia iniziare l'hash con degli zeri. Modificare i dati rende di nuovo il blocco non valido.",
+  "labBlockData": "Dati",
+  "labBlockPrevious": "Hash precedente",
+  "labBlockNonce": "Nonce",
+  "labBlockHash": "Hash",
+  "labMineRule": "Regola: l'hash inizia con {zeros} zeri",
+  "@labMineRule": {
+    "placeholders": {
+      "zeros": {"type": "int"}
+    }
+  },
+  "labMineButton": "Mina",
+  "labMineCancel": "Annulla",
+  "labMineRunning": "Mining in corso. Annulla ferma la ricerca.",
+  "labMineAttempts": "Tentativi",
+  "labMineSpeed": "Velocità",
+  "labMineSpeedValue": "{rate} hash/s",
+  "@labMineSpeedValue": {
+    "placeholders": {
+      "rate": {"type": "String"}
+    }
+  },
+  "labMineFound": "Nonce trovato dopo {attempts} tentativi.",
+  "@labMineFound": {
+    "placeholders": {
+      "attempts": {"type": "int"}
+    }
+  },
+  "labMineStopped": "Ricerca fermata. Il nonce non cambia.",
+  "labMineGaveUp": "Nessun nonce trovato in questa prova. Cambia i dati o riprova.",
+  "labChainIntro": "Tre blocchi, ognuno collegato all'hash del precedente. Cambia i dati di un blocco e guarda cosa succede a quelli dopo.",
+  "labChainRemine": "Mina di nuovo",
+  "labChainWhy": "Il blocco 3 contiene l'hash vecchio del blocco 2. Per sistemare la catena bisogna minare di nuovo il 2 e tutti i successivi.",
+  "labNetworkIntro": "Tre nodi, ognuno con la sua copia della catena. Un nodo tiene una copia solo se ogni suo blocco è valido.",
+  "labNetworkNode": "Nodo {name}",
+  "@labNetworkNode": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "labNetworkKeeps": "Tiene questa copia",
+  "labNetworkRejects": "Rifiuta questa copia",
+  "labNetworkTamper": "Cambia i dati sul nodo B",
+  "labNetworkRestore": "Ripristina il nodo B",
+  "labTxIntro": "Ogni riga è un trasferimento. I dati del blocco sono l'elenco delle righe, e l'hash del blocco dipende da ogni carattere.",
+  "labTxFrom": "Da",
+  "labTxTo": "A",
+  "labTxAmount": "Importo",
+  "labTxAdd": "Aggiungi trasferimento",
+  "labTxRemove": "Rimuovi trasferimento",
+  "labTxAmountError": "Inserisci un numero intero, zero o più.",
+  "labTxNameError": "I nomi non possono essere vuoti.",
+  "labTxEmpty": "Nessun trasferimento. Aggiungine uno per costruire il blocco.",
+  "labTxData": "Dati del blocco",
+  "labTxBlockHash": "Hash del blocco",
+  "labCoinbaseIntro": "La prima riga di ogni blocco è la coinbase: unità nuove pagate al miner, senza mittente. Cambia il nome del miner e mina di nuovo.",
+  "labCoinbaseMiner": "Nome del miner",
+  "labCoinbaseReward": "Ricompensa: {amount} unità",
+  "@labCoinbaseReward": {
+    "placeholders": {
+      "amount": {"type": "String"}
+    }
+  },
+  "labHeaderIntro": "Questo è il blocco genesi di Bitcoin, minato nel gennaio 2009. Il suo header è di 80 byte, e ogni campo qui sotto si legge da questi byte.",
+  "labHeaderVersion": "Versione",
+  "labHeaderMerkle": "Radice di Merkle",
+  "labHeaderTime": "Tempo",
+  "labHeaderBits": "Bits",
+  "labHeaderFields": "Campi decodificati",
+  "labHeaderBytes": "80 byte, serializzati",
+  "labHeaderDoubleHash": "Doppio SHA-256",
+  "labHeaderTarget": "Target",
+  "labHeaderBelowTarget": "Hash sotto il target",
+  "labScriptTitle": "Script passo per passo",
+  "labScriptIntro": "Esegui uno script un opcode alla volta. Lo stack mostra cosa lascia ogni opcode.",
+  "labScriptSimulated": "I controlli delle firme sono simulati in questo interprete didattico. Una firma è valida solo se l'esempio la elenca come valida. Non si controllano chiavi o firme reali. Non è codice di consenso.",
+  "labScriptExampleLabel": "Esempio",
+  "labScriptCustomChip": "Il tuo script",
+  "labScriptCustomHint": "Scrivi ASM, per esempio 2 3 OP_ADD 5 OP_EQUAL",
+  "labScriptCustomNote": "Uno script scritto a mano non ha transazione né firme simulate: gli opcode di firma e di timelock non possono riuscire.",
+  "labScriptSourceLabel": "Script",
+  "labScriptStep": "Passo",
+  "labScriptRunToEnd": "Esegui fino in fondo",
+  "labScriptReset": "Azzera",
+  "labScriptNotStarted": "Non avviato",
+  "labScriptRunCount": "{count, plural, =1{1 opcode eseguito} other{{count} opcodi eseguiti}}",
+  "@labScriptRunCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "labScriptRemaining": "Script rimanente",
+  "labScriptNextLabel": "Prossimo",
+  "labScriptNothingLeft": "Non resta nulla da eseguire.",
+  "labScriptStack": "Stack",
+  "labScriptAltStack": "Alt stack",
+  "labScriptTopLabel": "Cima",
+  "labScriptEmptyStack": "Lo stack è vuoto.",
+  "labScriptEmptyItem": "vuoto",
+  "labScriptResult": "Esito",
+  "labScriptSucceeds": "Lo script riesce",
+  "labScriptFails": "Lo script fallisce: {reason}",
+  "@labScriptFails": {
+    "placeholders": {
+      "reason": {"type": "String"}
+    }
+  },
+  "labScriptParseError": "Il token {index} non si legge: {reason}",
+  "@labScriptParseError": {
+    "placeholders": {
+      "index": {"type": "int"},
+      "reason": {"type": "String"}
+    }
+  },
+  "labScriptFalseTop": "l'elemento in cima è falso o lo stack è vuoto",
+  "labScriptParseUnknown": "non è un opcode, un numero, hex o testo tra apici",
+  "labScriptParseInvalidHex": "non è hex valido",
+  "labScriptParseInvalidNumber": "non è un numero valido",
+  "labScriptParseUnterminated": "il testo tra apici non si chiude",
+  "labScriptParseTruncated": "un push supera la fine dello script",
+  "labScriptNoteSignature": "Questa firma è stata controllata sull'insieme simulato.",
+  "labScriptNoteTimelockOk": "Il timelock è soddisfatto.",
+  "labScriptNoteTimelockNo": "Il timelock non è soddisfatto.",
+  "labScriptNoteTimelockOff": "Il timelock relativo è disattivato, quindi questo opcode non fa nulla.",
+  "labScriptNoteContext": "Questo opcode richiede una transazione, e questa demo non ne ha.",
+  "labScriptErrStackUnderflow": "un opcode richiedeva più elementi di quanti ne ha lo stack",
+  "labScriptErrAltStackUnderflow": "FROMALTSTACK è stato eseguito con l'alt stack vuoto",
+  "labScriptErrVerifyFailed": "un opcode VERIFY ha trovato un valore falso",
+  "labScriptErrEqualVerifyFailed": "EQUALVERIFY ha trovato due elementi diversi",
+  "labScriptErrNumEqualVerifyFailed": "NUMEQUALVERIFY ha trovato due numeri diversi",
+  "labScriptErrOpReturn": "OP_RETURN rende l'output non spendibile",
+  "labScriptErrDisabledOpcode": "nello script c'è un opcode disattivato",
+  "labScriptErrUnsupportedOpcode": "questo opcode non è implementato qui",
+  "labScriptErrUnbalancedConditional": "IF, ELSE e ENDIF non corrispondono",
+  "labScriptErrNumberOverflow": "un numero è più lungo di 4 byte",
+  "labScriptErrNonMinimalNumber": "un numero non è codificato in modo minimo",
+  "labScriptErrPushTooLarge": "un push è più lungo di 520 byte",
+  "labScriptErrStackTooLarge": "gli stack contengono più di 1000 elementi",
+  "labScriptErrOpCountExceeded": "sono stati eseguiti più di 201 opcode",
+  "labScriptErrBadPickIndex": "PICK o ROLL chiedono una profondità che lo stack non ha",
+  "labScriptErrKeyCountOutOfRange": "CHECKMULTISIG chiede meno di 0 o più di 20 chiavi",
+  "labScriptErrSigCountOutOfRange": "CHECKMULTISIG chiede più firme delle chiavi",
+  "labScriptErrNegativeLockTime": "l'operando di un timelock è negativo",
+  "labScriptErrLockTimeNotReached": "il lock time della transazione è troppo presto",
+  "labScriptErrLockTimeTypeMismatch": "il timelock conta blocchi ma la transazione conta tempo, o il contrario",
+  "labScriptErrInputSequenceFinal": "la sequence dell'input è finale, quindi il lock time non si può usare",
+  "labScriptErrInputSequenceDisabled": "la sequence dell'input disattiva i timelock relativi",
+  "labScriptErrTxVersionTooLow": "i timelock relativi richiedono la versione di transazione 2 o superiore",
+  "labScriptErrMissingContext": "un opcode di timelock richiede una transazione, e non ce n'è una",
+  "labScriptErrScriptTooLarge": "lo script è più lungo di 10.000 byte",
+  "labScriptExArithmeticName": "Aritmetica",
+  "labScriptExArithmeticDesc": "Somma due numeri e controlla il risultato.",
+  "labScriptExP2pkhName": "Pagamento a hash di chiave pubblica",
+  "labScriptExP2pkhDesc": "Il blocco classico: una chiave pubblica, una firma e il controllo di un hash.",
+  "labScriptExMultisigName": "Multisig 2 di 3",
+  "labScriptExMultisigDesc": "Servono due delle tre firme simulate.",
+  "labScriptExHashlockName": "Hashlock",
+  "labScriptExHashlockDesc": "Il segreto è il testo di cui è bloccato l'SHA-256.",
+  "labScriptExCltvName": "Timelock assoluto",
+  "labScriptExCltvDesc": "CHECKLOCKTIMEVERIFY: la spesa attende un'altezza di blocco.",
+  "labScriptExCsvName": "Timelock relativo",
+  "labScriptExCsvDesc": "CHECKSEQUENCEVERIFY: l'input deve avere un'età sufficiente.",
+  "labScriptExHtlcName": "HTLC, reclamato",
+  "labScriptExHtlcDesc": "Il ricevente rivela il segreto prima del timeout.",
+  "labScriptExHtlcRefundName": "HTLC, rimborso",
+  "labScriptExHtlcRefundDesc": "Dopo il timeout il mittente riprende i fondi."
 }

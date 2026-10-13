@@ -1,0 +1,13 @@
+{
+  "id": "path.first-steps",
+  "slug": "first-steps",
+  "language": "en",
+  "title": "First steps",
+  "description": "A short route through the basics.",
+  "estimatedMinutes": 30,
+  "steps": [
+    { "id": "wiki.proof-of-work", "note": "Start with how blocks are secured." },
+    { "id": "glossary.utxo", "note": "Then learn the transaction model." }
+  ],
+  "updatedAt": "2026-06-20T00:00:00Z"
+}

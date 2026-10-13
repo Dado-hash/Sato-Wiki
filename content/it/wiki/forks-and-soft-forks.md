@@ -62,7 +62,7 @@ I soft fork modificano le regole di consenso in modo retrocompatibile. Un blocco
 
 L'attivazione dei soft fork si è evoluta attraverso diversi standard BIP:
 
-**BIP-9** ha introdotto il signaling tramite version bits. I miner impostano un bit nel campo version dell'header del blocco per segnalare prontezza. Una volta che 1914 blocchi su 2016 (95% di un periodo di difficoltà) segnalano, il soft fork si blocca e si attiva dopo un periodo di grazia. BIP-9 è ora ritirato.
+**BIP-9** ha introdotto il signaling tramite version bits. I miner impostano un bit nel campo version dell'header del blocco per segnalare prontezza. Una volta che 1916 blocchi su 2016 (95% di un periodo di difficoltà) segnalano, il soft fork si blocca e si attiva dopo un periodo di grazia. BIP-9 è ora ritirato.
 
 **BIP-8** ha migliorato BIP-9 aggiungendo un'altezza di blocco obbligatoria per l'attivazione. Se il signaling non raggiunge la soglia, il soft fork si attiva comunque a un'altezza di blocco predefinita. Questo aggiunge una scadenza garantita.
 
@@ -128,11 +128,11 @@ Questo è il principio della maggioranza economica: le regole di Bitcoin sono in
 
 ### Dettagli dei meccanismi di attivazione
 
-BIP-9 usava il campo version dell'header del blocco come bitfield. I miner impostavano il bit N per segnalare supporto al BIP N. Durante ogni periodo di difficoltà (2016 blocchi), se 1914 blocchi su 2016 (95%) avevano il bit impostato, il soft fork si bloccava. Dopo un periodo di grazia di altri 2016 blocchi, si attivava. Se la soglia non veniva raggiunta prima di un timeout, il bit veniva marcato come FALLITO.
+BIP-9 usava il campo version dell'header del blocco come bitfield. I miner impostavano il bit N per segnalare supporto al BIP N. Durante ogni periodo di difficoltà (2016 blocchi), se 1916 blocchi su 2016 (95%) avevano il bit impostato, il soft fork si bloccava. Dopo un periodo di grazia di altri 2016 blocchi, si attivava. Se la soglia non veniva raggiunta prima di un timeout, il bit veniva marcato come FALLITO.
 
 BIP-8 ha aggiunto un meccanismo chiamato "lock-in by height." Se la soglia di signaling viene raggiunta prima dell'altezza di timeout, il soft fork si attiva come in BIP-9. Se la soglia non viene raggiunta, il soft fork si attiva comunque all'altezza di timeout — i miner non possono più bloccare l'attivazione. Il parametro LOT (Lock-in On Timeout) controlla questo comportamento.
 
-Speedy Trial, usato per Taproot, ha compresso significativamente la tempistica. Il periodo di signaling era di soli 2016 blocchi (circa due settimane) con una soglia del 90% (1816 su 2016). La soglia è stata raggiunta in un singolo periodo, attivando il blocco e l'attivazione mesi dopo al blocco 709.632.
+Speedy Trial, usato per Taproot, ha compresso significativamente la tempistica. Il periodo di signaling era di soli 2016 blocchi (circa due settimane) con una soglia del 90% (1815 su 2016). La soglia è stata raggiunta in un singolo periodo, attivando il blocco e l'attivazione mesi dopo al blocco 709.632.
 
 ### Rischio di riorganizzazione durante l'attivazione
 

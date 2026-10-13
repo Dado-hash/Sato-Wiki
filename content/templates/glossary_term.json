@@ -1,0 +1,11 @@
+{
+  "id": "glossary.utxo",
+  "slug": "utxo",
+  "language": "en",
+  "term": "UTXO",
+  "definition": "Unspent transaction output: an output of a past transaction that has not been spent yet.",
+  "aliases": ["Unspent output"],
+  "related": ["wiki.transactions"],
+  "updatedAt": "2026-06-20T00:00:00Z",
+  "reviewedAt": "2026-06-20"
+}

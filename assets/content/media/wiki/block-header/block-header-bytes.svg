@@ -1,0 +1,71 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Block header byte layout</title>
+  <desc id="desc">The 80-byte block header is a strip of six fields: version (4 bytes), previous block hash (32), merkle root (32), time (4), bits (4) and nonce (4), with byte offsets 0, 4, 36, 68, 72, 76 and 80.</desc>
+
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="28" width="904" height="484" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <text x="64" y="82" fill="#F4EAD8" font-family="Inter" font-size="34" font-weight="700">Block header: six fields</text>
+  <text x="64" y="116" fill="#B7B1A8" font-family="Inter" font-size="22">Fixed layout, the same bytes are hashed for proof of work</text>
+
+  <g>
+    <rect x="76" y="200" width="110" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="131" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">version</text>
+    <text x="131" y="318" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">4 bytes</text>
+  </g>
+
+  <g>
+    <rect x="192" y="200" width="169" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="276.5" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">previous</text>
+    <text x="276.5" y="274" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">block hash</text>
+    <text x="276.5" y="318" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">32 bytes</text>
+  </g>
+
+  <g>
+    <rect x="367" y="200" width="169" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="451.5" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">merkle root</text>
+    <text x="451.5" y="318" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">32 bytes</text>
+  </g>
+
+  <g>
+    <rect x="542" y="200" width="110" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="597" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">time</text>
+    <text x="597" y="318" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">4 bytes</text>
+  </g>
+
+  <g>
+    <rect x="658" y="200" width="110" height="150" rx="14" fill="#20252D" stroke="#46505C" stroke-width="2"/>
+    <text x="713" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">bits</text>
+    <text x="713" y="318" text-anchor="middle" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">4 bytes</text>
+  </g>
+
+  <g>
+    <rect x="774" y="200" width="110" height="150" rx="14" fill="#2A2116" stroke="#F7931A" stroke-width="2"/>
+    <text x="829" y="244" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">nonce</text>
+    <text x="829" y="318" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="18" font-weight="700">4 bytes</text>
+  </g>
+
+  <g stroke="#7C8794" stroke-width="2" stroke-linecap="round">
+    <path d="M76 356V368"/>
+    <path d="M189 356V368"/>
+    <path d="M364 356V368"/>
+    <path d="M539 356V368"/>
+    <path d="M655 356V368"/>
+    <path d="M771 356V368"/>
+    <path d="M884 356V368"/>
+  </g>
+  <g fill="#B7B1A8" font-family="JetBrains Mono" font-size="20" font-weight="500" text-anchor="middle">
+    <text x="76" y="398">0</text>
+    <text x="189" y="398">4</text>
+    <text x="364" y="398">36</text>
+    <text x="539" y="398">68</text>
+    <text x="655" y="398">72</text>
+    <text x="771" y="398">76</text>
+    <text x="884" y="398">80</text>
+  </g>
+  <text x="76" y="428" fill="#B7B1A8" font-family="JetBrains Mono" font-size="18">byte offset</text>
+
+  <rect x="250" y="448" width="460" height="44" rx="22" fill="#20252D" stroke="#46505C" stroke-width="1.5"/>
+  <text x="480" y="477" text-anchor="middle" fill="#F4EAD8" font-family="Inter" font-size="20" font-weight="600">80 bytes, hashed twice with SHA-256</text>
+</svg>

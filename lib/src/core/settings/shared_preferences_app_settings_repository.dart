@@ -21,6 +21,8 @@ final class SharedPreferencesAppSettingsRepository
   static const _readingProgressKey = 'settings.readingProgress';
   static const _lastReadKey = 'settings.lastRead';
   static const _recentSearchesKey = 'settings.recentSearches';
+  static const _explorerEnabledKey = 'settings.explorerEnabled';
+  static const _explorerServerKey = 'settings.explorerServer';
 
   final SharedPreferences _preferences;
 
@@ -147,6 +149,30 @@ final class SharedPreferencesAppSettingsRepository
   @override
   Future<void> saveRecentSearches(List<String> queries) async {
     await _preferences.setStringList(_recentSearchesKey, queries);
+  }
+
+  @override
+  Future<bool?> loadExplorerEnabled() async {
+    try {
+      return _preferences.getBool(_explorerEnabledKey);
+    } on Object {
+      return null;
+    }
+  }
+
+  @override
+  Future<void> saveExplorerEnabled(bool enabled) async {
+    await _preferences.setBool(_explorerEnabledKey, enabled);
+  }
+
+  @override
+  Future<String?> loadExplorerServer() async {
+    return _readString(_explorerServerKey);
+  }
+
+  @override
+  Future<void> saveExplorerServer(String server) async {
+    await _preferences.setString(_explorerServerKey, server);
   }
 
   List<String> _readStringList(String key) {

@@ -7,8 +7,11 @@ abstract final class AppSpacing {
       xl = 24,
       section = 28;
 
-  /// Bottom padding for scrollable tab bodies so content clears the floating tab bar.
-  static const double tabBarClearance = 120;
+  /// Gap between the last content of a tab screen and the floating tab bar.
+  static const double tabBarGap = 24;
+
+  /// Space between the floating tab bar and the bottom system inset.
+  static const double tabBarLift = 12;
 }
 
 abstract final class AppRadii {

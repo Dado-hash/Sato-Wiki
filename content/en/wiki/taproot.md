@@ -86,7 +86,7 @@ The Merkle tree is a binary tree where each leaf is a script version tag concate
 
 **BIP 343 — Bech32m.** The native SegWit address format Bech32 had a design limitation: when the data portion expanded beyond a certain length, error detection degraded significantly. Bech32m modifies the constant modulus used in the checksum from 1 to 0x3bc6a, restoring robust error detection for all address lengths. Taproot addresses always use Bech32m, not Bech32.
 
-**Activation.** Taproot activated through a Speedy Trial mechanism (BIP 9-style signaling with a 90% threshold within a 2-week mining difficulty period). Miners signaled readiness by setting bit 2 in the block version. After reaching the threshold on block 687,408, the rules locked in and activated on block 709,632 in November 2021.
+**Activation.** Taproot activated through a Speedy Trial mechanism (BIP 9-style signaling with a 90% threshold within a 2-week mining difficulty period). Miners signaled readiness by setting bit 2 in the block version. After the threshold was reached in June 2021, the rules locked in and activated at block 709,632 in November 2021.
 
 **Advanced contracts enabled by Taproot.**
 

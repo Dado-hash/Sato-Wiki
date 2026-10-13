@@ -1,0 +1,31 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Software wallet and signer</title>
+  <desc id="desc">A networked wallet passes an unsigned PSBT to a signer that holds the seed and returns the signed result.</desc>
+
+  <rect width="960" height="540" rx="28" fill="#111418"/>
+  <rect x="28" y="24" width="904" height="500" rx="22" fill="#171B21" stroke="#343A44" stroke-width="2"/>
+
+  <!-- Wallet panel (online) -->
+  <rect x="110" y="170" width="300" height="200" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="134" y="208" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">wallet</text>
+  <rect x="134" y="236" width="252" height="18" rx="4" fill="#2A303A"/>
+  <rect x="134" y="264" width="200" height="18" rx="4" fill="#2A303A"/>
+  <rect x="134" y="292" width="230" height="18" rx="4" fill="#2A303A"/>
+
+  <!-- Signer panel (offline) -->
+  <rect x="550" y="170" width="300" height="200" rx="8" fill="#20252D" stroke="#343A44" stroke-width="2"/>
+  <text x="574" y="208" fill="#F4EAD8" font-family="Inter" font-size="22" font-weight="700">signer</text>
+  <rect x="574" y="236" width="252" height="52" rx="8" fill="#2A2116" stroke="#F7931A" stroke-width="1.8"/>
+  <text x="700" y="268" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="22">seed</text>
+  <rect x="574" y="312" width="252" height="8" rx="4" fill="#22C55E"/>
+
+  <!-- PSBT out -->
+  <path d="M420 236H528" stroke="#F7931A" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="538,236 528,231 528,241" fill="#F7931A"/>
+  <text x="480" y="222" text-anchor="middle" fill="#F7931A" font-family="JetBrains Mono" font-size="16">PSBT</text>
+
+  <!-- Signed result back -->
+  <path d="M540 284H422" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="412,284 422,279 422,289" fill="#22C55E"/>
+  <text x="480" y="318" text-anchor="middle" fill="#8E96A4" font-family="JetBrains Mono" font-size="16">BIP 174</text>
+</svg>

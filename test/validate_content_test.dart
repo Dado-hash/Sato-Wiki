@@ -145,6 +145,470 @@ void main() {
     expect(result.warnings.single, contains('placeholder'));
   });
 
+  test('wiki subcategory and reviewedAt validate without warnings', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord()
+            ..['category'] = 'software'
+            ..['subcategory'] = 'software-wallets'
+            ..['reviewedAt'] = '2026-05-01',
+        ],
+        bips: [_bipRecord()..['reviewedAt'] = '2026-06-02T10:30:00Z'],
+      ),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, isEmpty);
+    expect(result.warnings, isEmpty);
+  });
+
+  test('software and hardware wiki without subcategory warn', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord()..['category'] = 'software',
+          _wikiRecord(id: 'wiki.beta')..['category'] = 'Hardware',
+          _wikiRecord(id: 'wiki.gamma')..['category'] = 'protocol',
+        ],
+      ),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, isEmpty);
+    expect(result.warnings, hasLength(2));
+    expect(result.warnings[0], contains('wiki wiki.alpha'));
+    expect(result.warnings[0], contains('no subcategory'));
+    expect(result.warnings[1], contains('wiki wiki.beta'));
+    expect(result.failsWith(strict: false), isFalse);
+    expect(result.failsWith(strict: true), isTrue);
+  });
+
+  test('non-string subcategory fails', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord()
+            ..['category'] = 'software'
+            ..['subcategory'] = 3,
+        ],
+      ),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, hasLength(1));
+    expect(result.errors.single, contains('subcategory must be a string'));
+    expect(result.failsWith(strict: false), isTrue);
+  });
+
+  test('malformed reviewedAt fails', () {
+    final path = writeBundle(
+      _bundle(bips: [_bipRecord()..['reviewedAt'] = 'not a date']),
+    );
+
+    final result = validateContentBundle(path);
+
+    expect(result.errors, hasLength(1));
+    expect(result.errors.single, contains('reviewedAt must be an ISO date'));
+    expect(result.failsWith(strict: false), isTrue);
+  });
+
+  test('all optional collections together validate without warnings', () {
+    final path = writeBundle(
+      _bundle(
+        wiki: [
+          _wikiRecord(related: ['glossary.utxo']),
+        ],
+        glossary: [_glossaryRecord()],
+        references: [
+          _referenceRecord(
+            rows: [
+              {
+                'cells': {'size': '250 vB', 'fee': '2500 sat'},
+                'link': 'quote.genesis',
+              },
+            ],
+          ),
+        ],
+        quotes: [_quoteRecord()],
+        paths: [
+          _pathRecord(stepIds: ['wiki.alpha', 'product.sparrow-wallet']),
+        ],
+        products: [_productRecord()],
+      ),
+    );
+
+    final result = validateContentBundle(path, today: _validationDay);
+
+    expect(result.errors, isEmpty);
+    expect(result.warnings, isEmpty);
+    expect(
+      result.summary,
+      contains('glossary=1 references=1 quotes=1 paths=1 products=1'),
+    );
+  });
+
+  group('glossary', () {
+    test('valid glossary term can be a related target', () {
+      final path = writeBundle(
+        _bundle(
+          wiki: [
+            _wikiRecord(related: ['glossary.utxo']),
+          ],
+          glossary: [_glossaryRecord()],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('glossary=1'));
+    });
+
+    test('glossary id without the glossary prefix fails', () {
+      final path = writeBundle(
+        _bundle(glossary: [_glossaryRecord(id: 'wiki.utxo')]),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('must start with glossary.'));
+      expect(result.failsWith(strict: false), isTrue);
+    });
+
+    test('duplicate id across the bundle fails', () {
+      final path = writeBundle(
+        _bundle(glossary: [_glossaryRecord(), _glossaryRecord()]),
+      );
+
+      final result = validateContentBundle(path);
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('duplicate id'));
+    });
+
+    test('malformed reviewedAt on a glossary term fails', () {
+      final path = writeBundle(
+        _bundle(glossary: [_glossaryRecord(reviewedAt: 'not a date')]),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors.single, contains('reviewedAt must be an ISO date'));
+    });
+  });
+
+  group('products', () {
+    test('recent product with documented subcategory passes', () {
+      final path = writeBundle(_bundle(products: [_productRecord()]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('products=1'));
+    });
+
+    test('product without reviewedAt fails', () {
+      final path = writeBundle(
+        _bundle(products: [_productRecord(reviewedAt: null)]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('reviewedAt is required'));
+    });
+
+    test('review older than 365 days warns, exactly 365 does not', () {
+      final stale = writeBundle(
+        _bundle(products: [_productRecord(reviewedAt: '2025-10-11')]),
+      );
+      final staleResult = validateContentBundle(stale, today: _validationDay);
+      expect(staleResult.errors, isEmpty);
+      expect(staleResult.warnings.single, contains('365 days old'));
+
+      final boundary = writeBundle(
+        _bundle(products: [_productRecord(reviewedAt: '2025-10-13')]),
+      );
+      final boundaryResult = validateContentBundle(
+        boundary,
+        today: _validationDay,
+      );
+      expect(boundaryResult.warnings, isEmpty);
+    });
+
+    test('undocumented subcategory warns', () {
+      final path = writeBundle(
+        _bundle(products: [_productRecord(subcategory: 'wallets')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings.single, contains('subcategory wallets'));
+      expect(result.failsWith(strict: false), isFalse);
+      expect(result.failsWith(strict: true), isTrue);
+    });
+
+    test('website that is not an absolute http(s) URL fails', () {
+      final path = writeBundle(
+        _bundle(products: [_productRecord(website: 'javascript:alert(1)')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('website must be an absolute'));
+    });
+
+    test('id without the product prefix fails', () {
+      final path = writeBundle(
+        _bundle(products: [_productRecord(id: 'wiki.sparrow')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('must start with product.'));
+    });
+  });
+
+  group('paths', () {
+    test('valid path with existing steps passes and is counted', () {
+      final path = writeBundle(
+        _bundle(
+          wiki: [_wikiRecord()],
+          paths: [
+            _pathRecord(stepIds: ['wiki.alpha']),
+          ],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('paths=1'));
+    });
+
+    test('step id matching no record fails', () {
+      final path = writeBundle(
+        _bundle(
+          wiki: [_wikiRecord()],
+          paths: [
+            _pathRecord(stepIds: ['wiki.alpha', 'wiki.missing']),
+          ],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('step id wiki.missing'));
+    });
+
+    test('id without the path prefix fails', () {
+      final path = writeBundle(
+        _bundle(
+          wiki: [_wikiRecord()],
+          paths: [_pathRecord(id: 'wiki.start')],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors.single, contains('must start with path.'));
+    });
+  });
+
+  group('quotes', () {
+    test('valid quote passes and is counted in the summary', () {
+      final path = writeBundle(_bundle(quotes: [_quoteRecord()]));
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('quotes=1'));
+    });
+
+    test('sourceUrl that is not http(s) fails', () {
+      final path = writeBundle(
+        _bundle(quotes: [_quoteRecord(sourceUrl: 'ftp://example.com/genesis')]),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('sourceUrl must be an absolute'));
+    });
+
+    test('id without the quote prefix fails', () {
+      final path = writeBundle(
+        _bundle(quotes: [_quoteRecord(id: 'wiki.genesis')]),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors.single, contains('must start with quote.'));
+    });
+  });
+
+  group('references', () {
+    test('valid table with a row link and summary count', () {
+      final path = writeBundle(
+        _bundle(wiki: [_wikiRecord()], references: [_referenceRecord()]),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('references=1'));
+    });
+
+    test('row cell with an undeclared column key fails', () {
+      final path = writeBundle(
+        _bundle(
+          wiki: [_wikiRecord()],
+          references: [
+            _referenceRecord(
+              rows: [
+                {
+                  'cells': {'size': '250 vB', 'weight': '1 kg'},
+                },
+              ],
+            ),
+          ],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('weight is not a declared column'));
+    });
+
+    test('row link to a missing record fails', () {
+      final path = writeBundle(
+        _bundle(
+          references: [
+            _referenceRecord(
+              rows: [
+                {
+                  'cells': {'size': '250 vB', 'fee': '1 sat'},
+                  'link': 'wiki.missing',
+                },
+              ],
+            ),
+          ],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors, hasLength(1));
+      expect(result.errors.single, contains('wiki.missing matches no record'));
+    });
+
+    test('id without the reference prefix fails', () {
+      final path = writeBundle(
+        _bundle(
+          wiki: [_wikiRecord()],
+          references: [_referenceRecord(id: 'wiki.fees')],
+        ),
+      );
+
+      final result = validateContentBundle(path);
+
+      expect(result.errors.single, contains('must start with reference.'));
+    });
+  });
+
+  group('library', () {
+    test('valid work passes and is counted in the summary', () {
+      final path = writeBundle(_bundle(library: [_libraryRecord()]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('library=1'));
+    });
+
+    test('url that is not http(s) fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(url: 'ftp://example.com/chaum')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('url must be an absolute'));
+    });
+
+    test('archiveUrl that is not http(s) fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(archiveUrl: 'archive.org/x')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('archiveUrl must be an absolute'));
+    });
+
+    test('year before 1900 fails', () {
+      final path = writeBundle(_bundle(library: [_libraryRecord(year: 1899)]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('year 1899 must be between'));
+    });
+
+    test('year after the current year fails', () {
+      final path = writeBundle(_bundle(library: [_libraryRecord(year: 2027)]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('year 2027 must be between'));
+    });
+
+    test('non-integer year fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(year: 1982.5)]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('year must be an integer'));
+    });
+
+    test('blank licenseNote fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(licenseNote: '  ')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(
+        result.errors,
+        contains(contains('licenseNote must be a non-empty string')),
+      );
+    });
+
+    test('id without the library prefix fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(id: 'quote.blind-signatures')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('must start with library.'));
+    });
+  });
+
   test('missing bundle fails', () {
     final result = validateContentBundle('${tempDir.path}/absent.json');
 
@@ -173,6 +637,12 @@ Map<String, Object?> _bundle({
   List<Map<String, Object?>> wiki = const [],
   List<Map<String, Object?>> bips = const [],
   List<Map<String, Object?>> changelogs = const [],
+  List<Map<String, Object?>> glossary = const [],
+  List<Map<String, Object?>> references = const [],
+  List<Map<String, Object?>> quotes = const [],
+  List<Map<String, Object?>> paths = const [],
+  List<Map<String, Object?>> products = const [],
+  List<Map<String, Object?>> library = const [],
 }) {
   return {
     'schemaVersion': 1,
@@ -184,6 +654,153 @@ Map<String, Object?> _bundle({
     'history': <Object?>[],
     'bips': bips,
     'changelogs': changelogs,
+    'glossary': glossary,
+    'references': references,
+    'quotes': quotes,
+    'paths': paths,
+    'products': products,
+    'library': library,
+  };
+}
+
+Map<String, Object?> _libraryRecord({
+  String id = 'library.blind-signatures',
+  Object? year = 1982,
+  String url = 'https://example.com/chaum-1982',
+  String archiveUrl = 'https://web.archive.org/web/2026/https://example.com',
+  Object? licenseNote = 'No license stated; linked, not reproduced',
+}) {
+  return {
+    'id': id,
+    'slug': 'blind-signatures',
+    'language': 'en',
+    'title': 'Blind Signatures for Untraceable Payments',
+    'author': 'David Chaum',
+    'year': year,
+    'summary': 'The paper that introduced blind signatures for payments.',
+    'introduction': 'Our introduction.',
+    'originalLanguage': 'en',
+    'kind': 'paper',
+    'topics': <Object?>['cryptography'],
+    'url': url,
+    'archiveUrl': archiveUrl,
+    'licenseNote': licenseNote,
+    'sources': <Object?>[],
+    'related': <Object?>[],
+    'updatedAt': '2026-06-20T00:00:00Z',
+  };
+}
+
+final _validationDay = DateTime.utc(2026, 10, 13);
+
+Map<String, Object?> _productRecord({
+  String id = 'product.sparrow-wallet',
+  String subcategory = 'software-wallets',
+  String website = 'https://sparrowwallet.com',
+  String? reviewedAt = '2026-09-01',
+}) {
+  return {
+    'id': id,
+    'slug': 'sparrow-wallet',
+    'language': 'en',
+    'name': 'Sparrow Wallet',
+    'summary': 'Desktop wallet.',
+    'bodyMarkdown': 'Details.',
+    'category': 'software',
+    'subcategory': subcategory,
+    'maker': 'Sparrow Developers',
+    'website': website,
+    'openSource': true,
+    'status': 'active',
+    if (reviewedAt != null) 'reviewedAt': reviewedAt,
+    'sources': <Object?>[],
+    'related': <Object?>[],
+    'updatedAt': '2026-09-01T00:00:00Z',
+  };
+}
+
+Map<String, Object?> _pathRecord({
+  String id = 'path.start',
+  List<Object?> stepIds = const ['wiki.alpha'],
+}) {
+  return {
+    'id': id,
+    'slug': 'start',
+    'language': 'en',
+    'title': 'Start',
+    'description': 'Where to begin.',
+    'estimatedMinutes': 10,
+    'steps': [
+      for (final stepId in stepIds) {'id': stepId, 'note': 'Read it.'},
+    ],
+    'updatedAt': '2026-06-20T00:00:00Z',
+  };
+}
+
+Map<String, Object?> _quoteRecord({
+  String id = 'quote.genesis',
+  String sourceUrl = 'https://example.com/genesis',
+}) {
+  return {
+    'id': id,
+    'slug': 'genesis',
+    'language': 'en',
+    'text': 'The Times 03/Jan/2009 Chancellor on brink of second bailout.',
+    'author': 'Satoshi Nakamoto',
+    'date': '2009-01-03',
+    'sourceTitle': 'Genesis block',
+    'sourceUrl': sourceUrl,
+    'topics': <Object?>['Genesis'],
+    'related': <Object?>[],
+    'updatedAt': '2026-06-20T00:00:00Z',
+  };
+}
+
+Map<String, Object?> _referenceRecord({
+  String id = 'reference.fees',
+  List<Object?>? columns,
+  List<Object?>? rows,
+}) {
+  return {
+    'id': id,
+    'slug': 'fees',
+    'language': 'en',
+    'title': 'Fees',
+    'description': 'Fee examples.',
+    'columns':
+        columns ??
+        [
+          {'key': 'size', 'label': 'Size'},
+          {'key': 'fee', 'label': 'Fee'},
+        ],
+    'rows':
+        rows ??
+        [
+          {
+            'cells': {'size': '250 vB', 'fee': '2500 sat'},
+            'link': 'wiki.alpha',
+          },
+        ],
+    'sources': <Object?>[],
+    'related': <Object?>[],
+    'updatedAt': '2026-06-20T00:00:00Z',
+  };
+}
+
+Map<String, Object?> _glossaryRecord({
+  String id = 'glossary.utxo',
+  String? reviewedAt,
+}) {
+  return {
+    'id': id,
+    'slug': id.substring('glossary.'.length),
+    'language': 'en',
+    'term': 'UTXO',
+    'definition': 'Unspent transaction output.',
+    'aliases': <Object?>['UTXOs'],
+    'related': <Object?>[],
+    'updatedAt': '2026-06-20T00:00:00Z',
+    if (reviewedAt != null) 'reviewedAt': reviewedAt,
   };
 }
 

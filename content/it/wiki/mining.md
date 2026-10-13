@@ -52,7 +52,7 @@ I miner possono lavorare da soli (solo mining) o combinare la loro potenza di ha
 
 I miner non costruiscono un blocco da zero a ogni tentativo. Costruiscono un template di blocco dal loro mempool locale, selezionando le transazioni in base al fee rate (satoshis per vbyte). Le transazioni con commissioni più alte vengono incluse per prime, fino al limite di dimensione o peso del blocco. Il template viene ricostruito periodicamente man mano che arrivano nuove transazioni o quelle esistenti scadono.
 
-La prima transazione di ogni blocco è la transazione coinbase, creata dal miner. Questa raccoglie la ricompensa di blocco (6,25 BTC a partire dall'halving del 2024, dimezzamento ogni 210.000 blocchi) più tutte le commissioni delle transazioni incluse. La coinbase contiene anche l'impegno witness del miner (per la validazione SegWit) e opzionalmente un campo extranonce che offre al miner maggiore spazio di ricerca.
+La prima transazione di ogni blocco è la transazione coinbase, creata dal miner. Questa raccoglie la ricompensa di blocco (3,125 BTC dall'halving di aprile 2024, dimezzamento ogni 210.000 blocchi) più tutte le commissioni delle transazioni incluse. La coinbase contiene anche l'impegno witness del miner (per la validazione SegWit) e opzionalmente un campo extranonce che offre al miner maggiore spazio di ricerca.
 
 L'header del blocco è composto da sei campi:
 

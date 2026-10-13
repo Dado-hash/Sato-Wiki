@@ -60,6 +60,21 @@ String? recordTitleFor(ContentStore store, String id) {
   final release = bundle.changelogs.where((item) => item.id == id).firstOrNull;
   if (release != null) return release.title;
 
+  final product = bundle.products.where((item) => item.id == id).firstOrNull;
+  if (product != null) return product.name;
+
+  final term = bundle.glossary.where((item) => item.id == id).firstOrNull;
+  if (term != null) return term.term;
+
+  final table = bundle.references.where((item) => item.id == id).firstOrNull;
+  if (table != null) return table.title;
+
+  final path = bundle.paths.where((item) => item.id == id).firstOrNull;
+  if (path != null) return path.title;
+
+  final work = bundle.library.where((item) => item.id == id).firstOrNull;
+  if (work != null) return work.title;
+
   return null;
 }
 

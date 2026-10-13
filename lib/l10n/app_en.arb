@@ -254,5 +254,752 @@
   "categoryInformational": "Informational",
   "categoryProcess": "Process",
   "categoryApiRpc": "API/RPC",
-  "categorySpecification": "Specification"
+  "categorySpecification": "Specification",
+  "categorySoftware": "Software",
+  "categoryHardware": "Hardware",
+  "categoryPrivacySecurity": "Privacy and security",
+  "subcategoryNodes": "Nodes",
+  "subcategorySoftwareWallets": "Software wallets",
+  "subcategoryLightning": "Lightning",
+  "subcategoryServers": "Servers and infrastructure",
+  "subcategoryNodeSystems": "Home node systems",
+  "subcategoryMiningSoftware": "Mining software",
+  "subcategoryDeveloperTools": "Libraries and developer tools",
+  "subcategoryHardwareWallets": "Hardware wallets",
+  "subcategorySeedBackups": "Seed backups",
+  "subcategoryMiningHardware": "Mining hardware",
+  "subcategoryNodeHardware": "Node hardware",
+  "wikiTreeCategoryMyths": "Myths",
+  "wikiTreeSubcategoriesCount": "{count, plural, =1{1 subcategory} other{{count} subcategories}}",
+  "@wikiTreeSubcategoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeGlossary": "Glossary",
+  "wikiTreeGlossaryCount": "Short definitions · {count, plural, =1{1 term} other{{count} terms}}",
+  "@wikiTreeGlossaryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeOtherEntries": "Other entries",
+  "wikiTreeGuideMinutes": "Guide · {minutes} min",
+  "@wikiTreeGuideMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeProductsCount": "Products · {count}",
+  "@wikiTreeProductsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wikiTreeStatusActive": "Active",
+  "wikiTreeStatusDiscontinued": "Discontinued",
+  "wikiTreeOpenSource": "Open source",
+  "wikiTreeSourceNotOpen": "Source not open",
+  "wikiTreeYes": "Yes",
+  "wikiTreeNo": "No",
+  "wikiTreeLicense": "License",
+  "wikiTreeMaker": "Maker",
+  "wikiTreePlatforms": "Platforms",
+  "wikiTreeCheckedOn": "Checked on {date}",
+  "@wikiTreeCheckedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "wikiTreeWebsite": "Website",
+  "wikiTreeSourceCode": "Source code",
+  "wikiTreeProductNotice": "SatoWiki does not sell or recommend products and has no affiliate links.",
+  "wikiTreeStatus": "Status",
+  "wikiTreeProductNotFound": "Product not found",
+  "learnStartHere": "Start here",
+  "learnQuote": "Quote",
+  "learnSource": "Source",
+  "learnStepsRead": "{read} of {total} read",
+  "@learnStepsRead": {
+    "placeholders": {
+      "read": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "learnNextStep": "Next: {title}",
+  "@learnNextStep": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "learnAllStepsRead": "All steps read",
+  "learnStepRead": "Read",
+  "learnStepNumber": "Step {number}",
+  "@learnStepNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "learnPathNotFound": "Path not found",
+  "learnGlossaryTitle": "Glossary",
+  "learnGlossaryFilterHint": "Filter terms",
+  "learnGlossaryNoMatch": "No terms match \"{query}\".",
+  "@learnGlossaryNoMatch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "learnGlossaryEmpty": "No glossary terms yet.",
+  "learnAlsoCalled": "Also called",
+  "learnGlossaryNotFound": "Term not found",
+  "toolsSectionTools": "Tools",
+  "toolsSectionLearn": "Learn by doing",
+  "toolsSectionNetwork": "Network",
+  "toolsTileHashName": "Hash",
+  "toolsTileHashCaption": "SHA-256 · HASH160",
+  "toolsTileAddressName": "Address",
+  "toolsTileAddressCaption": "Type and checksum",
+  "toolsTileTransactionName": "Transaction",
+  "toolsTileTransactionCaption": "Raw hex decoder",
+  "toolsTileTargetName": "Target",
+  "toolsTileTargetCaption": "Bits and difficulty",
+  "toolsTileUnitsName": "Units",
+  "toolsTileUnitsCaption": "sat · BTC · vB",
+  "toolsTileTablesName": "Tables",
+  "toolsTileTablesCaption": "Opcodes, fields, messages",
+  "toolsLabName": "Blockchain lab",
+  "toolsLabCaption": "Seven steps: hash, block, chain, network, transactions, coinbase, a real header.",
+  "toolsScriptName": "Script step by step",
+  "toolsScriptCaption": "See the stack after each opcode.",
+  "toolsExplorerName": "Explorer",
+  "toolsCopy": "Copy",
+  "toolsCopied": "Copied",
+  "toolsReadMore": "Read more in the wiki",
+  "toolsHashTitle": "Hash",
+  "toolsHashModeText": "Text",
+  "toolsHashModeHex": "Hex",
+  "toolsHashTextHint": "Type any text",
+  "toolsHashHexHint": "Paste bytes in hex",
+  "toolsHashSha256": "SHA-256",
+  "toolsHashDoubleSha256": "Double SHA-256",
+  "toolsHashHash160": "HASH160",
+  "toolsHashInvalidHex": "Not valid hex. Use pairs of digits 0-9 and a-f, with no spaces.",
+  "toolsHashEmptyHex": "Enter hex bytes to see their hashes.",
+  "toolsHashNote": "SHA-256 is the hash that proof of work and most Bitcoin identifiers rely on. Double SHA-256 applies it twice, as block headers and transaction ids do. HASH160 is RIPEMD-160 of SHA-256 and gives the 20-byte values inside addresses.",
+  "toolsAddressTitle": "Address",
+  "toolsAddressHint": "Paste an address",
+  "toolsAddressChecksumValid": "Checksum valid",
+  "toolsAddressChecksumInvalid": "Checksum not valid",
+  "toolsAddressNetworkMainnet": "Mainnet",
+  "toolsAddressNetworkTestnet": "Testnet",
+  "toolsAddressNetworkRegtest": "Regtest",
+  "toolsAddressKindP2pkh": "P2PKH",
+  "toolsAddressKindP2sh": "P2SH",
+  "toolsAddressKindP2wpkh": "P2WPKH",
+  "toolsAddressKindP2wsh": "P2WSH",
+  "toolsAddressKindP2tr": "P2TR (Taproot)",
+  "toolsAddressKindUnknownWitness": "Unknown witness program",
+  "toolsAddressKindInvalid": "Not a valid address",
+  "toolsAddressDescP2pkh": "Pays to the hash of a public key. This is the classic format, used since 2009.",
+  "toolsAddressDescP2sh": "Pays to the hash of a script, so the spending conditions stay hidden until they are used.",
+  "toolsAddressDescP2wpkh": "Pays to the hash of a public key, in the SegWit version 0 format.",
+  "toolsAddressDescP2wsh": "Pays to the hash of a script, in the SegWit version 0 format.",
+  "toolsAddressDescP2tr": "Pays to a taproot output key, in the SegWit version 1 format.",
+  "toolsAddressDescUnknownWitness": "A SegWit address with a witness version or length that this app does not analyse in detail.",
+  "toolsAddressErrorEmpty": "Paste an address to check it.",
+  "toolsAddressErrorBadCharacter": "A character is not allowed in this encoding.",
+  "toolsAddressErrorBadChecksum": "The checksum does not match. The text was changed or mistyped.",
+  "toolsAddressErrorBadLength": "The length is wrong for this type of address.",
+  "toolsAddressErrorUnknownVersion": "The version or witness version is not one this app knows.",
+  "toolsAddressErrorMixedCase": "Upper and lower case are mixed. Bech32 uses one case only.",
+  "toolsAddressErrorWrongVariant": "The checksum type does not match the witness version.",
+  "toolsAddressErrorMissingSeparator": "A Bech32 string needs the 1 separator.",
+  "toolsAddressErrorEmptyHrp": "The network prefix before the 1 is empty.",
+  "toolsAddressErrorUnknownHrp": "The prefix is not bc, tb or bcrt, so this is not a Bitcoin address.",
+  "toolsAddressErrorEmptyData": "A SegWit address has no witness data.",
+  "toolsAddressErrorInvalidPadding": "The witness data has invalid padding.",
+  "toolsAddressSecretWifTitle": "This looks like a private key",
+  "toolsAddressSecretExtendedTitle": "This looks like an extended key",
+  "toolsAddressSecretBody": "Never paste a private key or an extended key into any app or website. The field was cleared and nothing was analysed.",
+  "toolsAddressBuiltTitle": "How it is built",
+  "toolsPartPrefix": "Network prefix",
+  "toolsPartSeparator": "Separator",
+  "toolsPartWitnessVersion": "Witness version",
+  "toolsPartProgram": "Program (hash)",
+  "toolsPartChecksum": "Checksum, last 6 characters",
+  "toolsPartVersionByte": "Version byte",
+  "toolsPartPayloadHash": "Payload hash",
+  "toolsPartBase58Checksum": "Checksum, last 4 bytes",
+  "toolsAddressBase58Note": "Base58 characters do not line up with bytes, so the string is shown without colours. Its parts are listed below.",
+  "toolsTxTitle": "Transaction",
+  "toolsTxSummary": "Summary",
+  "toolsTxHint": "Paste a raw transaction in hex",
+  "toolsTxEmpty": "Paste a raw transaction to decode it.",
+  "toolsTxLoadExample": "Load example",
+  "toolsTxExampleNote": "Example: the genesis coinbase transaction, from block 0.",
+  "toolsTxTapHint": "Tap a field with an arrow to read its wiki entry.",
+  "toolsTxTxid": "txid",
+  "toolsTxWtxid": "wtxid",
+  "toolsTxType": "Type",
+  "toolsTxTypeCoinbase": "Coinbase",
+  "toolsTxTypeRegular": "Regular",
+  "toolsTxFormat": "Format",
+  "toolsTxFormatSegwit": "SegWit",
+  "toolsTxFormatLegacy": "Legacy",
+  "toolsTxSize": "Size",
+  "toolsTxWeight": "Weight",
+  "toolsTxVsize": "Virtual size",
+  "toolsTxBytes": "{count} bytes",
+  "@toolsTxBytes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxWeightUnits": "{count} WU",
+  "@toolsTxWeightUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxVbytes": "{count} vB",
+  "@toolsTxVbytes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxFieldsTitle": "Fields",
+  "toolsTxHexTitle": "Serialized hex",
+  "toolsTxInputLabel": "Input {index}",
+  "@toolsTxInputLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxOutputLabel": "Output {index}",
+  "@toolsTxOutputLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxWitnessLabel": "Input {index}, witness item {item}",
+  "@toolsTxWitnessLabel": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "item": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxCoinbaseTag": "coinbase",
+  "toolsTxValueBoth": "{btc} BTC · {sat} sat",
+  "@toolsTxValueBoth": {
+    "placeholders": {
+      "btc": {
+        "type": "String"
+      },
+      "sat": {
+        "type": "String"
+      }
+    }
+  },
+  "toolsTxHiddenFields": "{count} more fields are not shown.",
+  "@toolsTxHiddenFields": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTxErrorNotHex": "The input is empty, has an odd number of digits, or is not hexadecimal.",
+  "toolsTxErrorTruncated": "The data ends before a field is complete. The transaction may be cut short.",
+  "toolsTxErrorTrailing": "There are bytes after the last field. Check that the transaction is complete and has nothing extra.",
+  "toolsTxErrorTooLarge": "The transaction is larger than 400000 bytes, the limit of this tool.",
+  "toolsTxErrorInvalid": "A value is outside what a transaction can hold, or the segwit flag is unknown.",
+  "toolsFieldVersion": "Version",
+  "toolsFieldMarker": "Marker",
+  "toolsFieldFlag": "Flag",
+  "toolsFieldInputCount": "Input count",
+  "toolsFieldPreviousTxid": "Previous txid",
+  "toolsFieldPreviousIndex": "Previous output index",
+  "toolsFieldScriptSigLength": "scriptSig length",
+  "toolsFieldScriptSig": "scriptSig",
+  "toolsFieldSequence": "Sequence",
+  "toolsFieldOutputCount": "Output count",
+  "toolsFieldValue": "Value",
+  "toolsFieldScriptPubKeyLength": "scriptPubKey length",
+  "toolsFieldScriptPubKey": "scriptPubKey",
+  "toolsFieldWitnessItemCount": "Witness item count",
+  "toolsFieldWitnessItemLength": "Witness item length",
+  "toolsFieldWitnessItem": "Witness item",
+  "toolsFieldLockTime": "Lock time",
+  "toolsScriptP2pk": "P2PK",
+  "toolsScriptP2pkh": "P2PKH",
+  "toolsScriptP2sh": "P2SH",
+  "toolsScriptP2wpkh": "P2WPKH",
+  "toolsScriptP2wsh": "P2WSH",
+  "toolsScriptP2tr": "P2TR",
+  "toolsScriptWitnessUnknown": "Unknown witness program",
+  "toolsScriptBareMultisig": "Bare multisig",
+  "toolsScriptOpReturn": "OP_RETURN data",
+  "toolsScriptNonStandard": "Non-standard",
+  "toolsTargetTitle": "Target",
+  "toolsTargetHint": "Bits, 8 hex digits, for example 1d00ffff",
+  "toolsTargetInvalid": "Enter exactly 8 hex digits, with an optional 0x prefix.",
+  "toolsTargetTargetLabel": "Target",
+  "toolsTargetDifficulty": "Difficulty",
+  "toolsTargetExpected": "Expected hashes per block",
+  "toolsTargetScientific": "About {mantissa} × 10^{exponent}",
+  "@toolsTargetScientific": {
+    "placeholders": {
+      "mantissa": {
+        "type": "String"
+      },
+      "exponent": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTargetNote": "The target is the number a block hash must stay below. Difficulty compares it with the maximum target, 1d00ffff. Expected hashes is the average number of attempts needed to find a valid block.",
+  "toolsUnitsTitle": "Units",
+  "toolsUnitsBtcSatTitle": "BTC and satoshi",
+  "toolsUnitsBtcLabel": "BTC",
+  "toolsUnitsSatLabel": "Satoshi",
+  "toolsUnitsDecimalsError": "Bitcoin amounts have at most 8 decimals.",
+  "toolsUnitsInvalidAmount": "Enter a decimal amount, for example 0.001.",
+  "toolsUnitsInvalidWhole": "Enter a whole number, zero or more.",
+  "toolsUnitsWeightTitle": "Weight units to virtual bytes",
+  "toolsUnitsWeightLabel": "Weight units (WU)",
+  "toolsUnitsVbytesResult": "{vbytes} vB",
+  "@toolsUnitsVbytesResult": {
+    "placeholders": {
+      "vbytes": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsUnitsRateFromFeeTitle": "Fee rate from fee",
+  "toolsUnitsFeeLabel": "Fee (satoshi)",
+  "toolsUnitsVsizeLabel": "Virtual size (vB)",
+  "toolsUnitsRateResult": "{rate} sat/vB",
+  "@toolsUnitsRateResult": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "toolsUnitsFeeFromRateTitle": "Fee from fee rate",
+  "toolsUnitsRateLabel": "Fee rate (sat/vB)",
+  "toolsUnitsFeeResult": "{sat} sat",
+  "@toolsUnitsFeeResult": {
+    "placeholders": {
+      "sat": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsUnitsRateInvalid": "Enter a fee rate of zero or more, for example 2.5.",
+  "toolsUnitsVsizePositive": "Virtual size must be more than zero.",
+  "toolsUnitsResult": "Result",
+  "toolsUnitsNote": "Only units, no prices or fiat. Bitcoin amounts use integer math, so nothing is rounded.",
+  "toolsReferencesTitle": "Reference tables",
+  "toolsReferencesEmpty": "No reference tables yet.",
+  "toolsRowCount": "{count, plural, =1{1 row} other{{count} rows}}",
+  "@toolsRowCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsReferenceFilterHint": "Filter rows",
+  "toolsReferenceNoMatch": "No rows match this filter.",
+  "libraryTitle": "Library",
+  "libraryEmpty": "No works in the library yet.",
+  "libraryNoMatch": "No works match this filter.",
+  "libraryAuthorLabel": "Author",
+  "libraryTopicLabel": "Topic",
+  "libraryYearLabel": "Year",
+  "libraryKindLabel": "Type",
+  "libraryOriginalLanguageLabel": "Original language",
+  "libraryLicenseLabel": "License",
+  "libraryKindPaper": "Paper",
+  "libraryKindEssay": "Essay",
+  "libraryKindPost": "Post",
+  "libraryKindEmail": "Email",
+  "libraryKindBook": "Book",
+  "libraryKindManifesto": "Manifesto",
+  "libraryNotFound": "Work not found",
+  "libraryReadOriginal": "Read the original",
+  "libraryArchivedCopy": "Archived copy",
+  "libraryIntroduction": "Our introduction",
+  "libraryNotice": "SatoWiki does not host the full text. The original opens in your browser.",
+  "librarySearchTypeGlossary": "Glossary",
+  "librarySearchTypeProduct": "Product",
+  "librarySearchTypeReference": "Reference",
+  "librarySearchTypeLibrary": "Library",
+  "connectTryIt": "Try it",
+  "connectQuotesTitle": "In their words",
+  "connectLibraryTitle": "Library",
+  "connectLibraryCount": "{count, plural, =1{1 work} other{{count} works}}",
+  "@connectLibraryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "connectHashTitle": "Hash tool",
+  "connectHashCaption": "Compute SHA-256 and HASH160 of any text",
+  "connectAddressTitle": "Address tool",
+  "connectAddressCaption": "Check the type and checksum of an address",
+  "connectTransactionTitle": "Transaction tool",
+  "connectTransactionCaption": "Decode a raw transaction field by field",
+  "connectTargetTitle": "Target tool",
+  "connectTargetCaption": "Convert bits, target and difficulty",
+  "connectUnitsTitle": "Units tool",
+  "connectUnitsCaption": "Convert sat, BTC and vB",
+  "connectScriptTitle": "Script step by step",
+  "connectScriptCaption": "See the stack after each opcode",
+  "connectLabTitle": "Blockchain lab",
+  "connectLabCaption": "Build and break a small blockchain, step by step",
+  "connectLabStepTitle": "Blockchain lab, step {step}",
+  "@connectLabStepTitle": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  },
+  "connectLabStep1Caption": "Type text and watch its hash change",
+  "connectLabStep2Caption": "Mine a block: find a nonce that makes it valid",
+  "connectLabStep3Caption": "Change one block and see the next ones break",
+  "connectLabStep6Caption": "Inspect the coinbase transaction that pays the miner",
+  "connectLabStep7Caption": "Read the 80-byte header that every block contains",
+  "explorerTitle": "Explorer",
+  "explorerStateOn": "On",
+  "explorerStateOff": "Off",
+  "explorerStateOnServer": "On · {host}",
+  "@explorerStateOnServer": {"placeholders": {"host": {"type": "String"}}},
+  "explorerSetupTitle": "Before you turn it on",
+  "explorerSetupIntro": "The explorer asks a server on the internet for data. The rest of the app works without a network.",
+  "explorerSetupWhatServerSees": "Every search is sent to the server shown below. The server operator can see your IP address and what you search.",
+  "explorerSetupOwnAddresses": "If you look up your own addresses, the server can link them to your IP address.",
+  "explorerSetupNothingSent": "Nothing is sent until you press Search. Searches are not saved on this device. The explorer does not use Tor or any proxy.",
+  "explorerServerLabel": "Server",
+  "explorerServerField": "Server address",
+  "explorerServerHelp": "Use https. Plain http works only for localhost, .onion and .local addresses.",
+  "explorerServerInvalid": "This address is not allowed. Use https, or http only for localhost, .onion or .local. It was not saved.",
+  "explorerTurnOn": "Turn on the explorer",
+  "explorerTurnOff": "Turn off the explorer",
+  "explorerTurnOffNote": "You can turn it on again from Settings.",
+  "explorerSaveServer": "Save server",
+  "explorerServerSaved": "Server saved.",
+  "explorerOffTitle": "The explorer is off",
+  "explorerOffBody": "Nothing is sent to any server while it is off.",
+  "explorerSearchHint": "Height, block hash, txid or address",
+  "explorerSearchButton": "Search",
+  "explorerSearchNote": "One search sends one request per step. Searches are not saved.",
+  "explorerServerInUse": "Server: {server}",
+  "@explorerServerInUse": {"placeholders": {"server": {"type": "String"}}},
+  "explorerSecretWifTitle": "This looks like a private key",
+  "explorerSecretExtendedTitle": "This looks like an extended key",
+  "explorerSecretBody": "Nothing was sent. The field was cleared. Never paste a private key into any app or website.",
+  "explorerInvalidInput": "Enter a block height, a 64-character hash or txid, or an address.",
+  "explorerLookingUp": "Looking up…",
+  "explorerNotFound": "The server does not know this block, transaction or address.",
+  "explorerNetworkError": "The server could not be reached. Check the connection and try again.",
+  "explorerBadResponse": "The server sent an answer the explorer cannot read.",
+  "explorerRateLimited": "Too many requests. The server asked to slow down. {seconds, plural, =1{Try again in 1 second.} other{Try again in {seconds} seconds.}}",
+  "@explorerRateLimited": {"placeholders": {"seconds": {"type": "int"}}},
+  "explorerNoAutoRetry": "The explorer does not retry on its own.",
+  "explorerRetry": "Try again",
+  "explorerBlockTitle": "Block",
+  "explorerTransactionTitle": "Transaction",
+  "explorerAddressTitle": "Address",
+  "explorerHeight": "Height",
+  "explorerHash": "Hash",
+  "explorerTxid": "Txid",
+  "explorerTime": "Time",
+  "explorerTransactionCount": "Transactions",
+  "explorerSize": "Size",
+  "explorerWeight": "Weight",
+  "explorerMerkleRoot": "Merkle root",
+  "explorerPreviousBlock": "Previous block",
+  "explorerNonce": "Nonce",
+  "explorerBits": "Bits",
+  "explorerDifficulty": "Difficulty",
+  "explorerVersion": "Version",
+  "explorerStatus": "Status",
+  "explorerConfirmed": "Confirmed",
+  "explorerUnconfirmed": "Unconfirmed",
+  "explorerBlockOfTransaction": "Block",
+  "explorerFee": "Fee",
+  "explorerFeeRate": "Fee rate",
+  "explorerFeeRateValue": "{rate} sat/vB",
+  "@explorerFeeRateValue": {"placeholders": {"rate": {"type": "String"}}},
+  "explorerInputs": "Inputs",
+  "explorerOutputs": "Outputs",
+  "explorerInputNumber": "Input {index}",
+  "@explorerInputNumber": {"placeholders": {"index": {"type": "int"}}},
+  "explorerOutputNumber": "Output {index}",
+  "@explorerOutputNumber": {"placeholders": {"index": {"type": "int"}}},
+  "explorerCoinbase": "Coinbase, no previous output",
+  "explorerAmount": "{btc} BTC · {sat} sat",
+  "@explorerAmount": {"placeholders": {"btc": {"type": "String"}, "sat": {"type": "String"}}},
+  "explorerScriptType": "Script type",
+  "explorerBlockUnknown": "Not yet in a block",
+  "explorerAddressReceived": "Received",
+  "explorerAddressSpent": "Spent",
+  "explorerAddressBalance": "Balance",
+  "explorerAddressMempool": "Mempool",
+  "explorerAddressTransactions": "Latest transactions",
+  "explorerAddressFirstPage": "Only the first page from the server is shown.",
+  "explorerNoTransactions": "No transactions found for this address.",
+  "explorerLoading": "Loading…",
+  "labTitle": "Blockchain lab",
+  "labIntro": "A small blockchain you can change and repair, one idea at a time. The blocks here are a teaching model, not the real protocol.",
+  "labIndexSteps": "Steps",
+  "labStepCounter": "Step {current} of {total}",
+  "@labStepCounter": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "labStepOptional": "Optional",
+  "labStepTitle1": "Hash",
+  "labStepDesc1": "Type text and watch its fingerprint change.",
+  "labStepTitle2": "Mine a block",
+  "labStepDesc2": "Change the data, then search for a nonce that makes the hash start with zeros.",
+  "labStepTitle3": "Chain",
+  "labStepDesc3": "Change one block and see every block after it break.",
+  "labStepTitle4": "Network",
+  "labStepDesc4": "Several copies of the chain. A node keeps only a valid one.",
+  "labStepTitle5": "Transactions",
+  "labStepDesc5": "Turn transfers into the data of a block.",
+  "labStepTitle6": "Coinbase",
+  "labStepDesc6": "The first transaction of a block pays the miner.",
+  "labStepTitle7": "A real header",
+  "labStepDesc7": "Decode the 80 bytes of the genesis block and hash them.",
+  "labDifference": "In Bitcoin it is different",
+  "labDiff1": "A real block hash is SHA-256 applied twice to an 80-byte header, not to a line of text.",
+  "labDiff2": "The header is 80 bytes, the hash is double SHA-256, and the rule is a numeric target, not a count of zeros.",
+  "labDiff3": "Real nodes follow the chain with the most accumulated work, not a rule that counts zeros. Each block is checked against the target in its header.",
+  "labDiff4": "Real nodes also check every transaction and signature, and relay blocks to peers. This lab checks only the blocks, on this device.",
+  "labDiff5": "Real transactions spend earlier outputs, and each input carries a signature. Here a transfer is only a line of text.",
+  "labDiff6": "The subsidy halves every 210,000 blocks, about every four years, and coinbase outputs cannot be spent for 100 blocks.",
+  "labDiff7": "This is the real header format. The target comes from bits, and the hash is double SHA-256 of these 80 bytes.",
+  "labPreviousStep": "Previous step",
+  "labNextStep": "Next step",
+  "labValid": "Valid",
+  "labNotValid": "Not valid",
+  "labBlockNumber": "Block {number}",
+  "@labBlockNumber": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "labHashHint": "Type any text",
+  "labHashIntro": "Type in the box. Every key press gives a new fingerprint of the text.",
+  "labHashLabel": "SHA-256 of the text",
+  "labHashNote": "Change one letter, one capital or one space and the hash changes completely. The same text always gives the same hash.",
+  "labMineIntro": "Change the data, then search for a nonce that makes the hash start with zeros. Editing the data makes the block not valid again.",
+  "labBlockData": "Data",
+  "labBlockPrevious": "Previous hash",
+  "labBlockNonce": "Nonce",
+  "labBlockHash": "Hash",
+  "labMineRule": "Rule: the hash starts with {zeros} zeros",
+  "@labMineRule": {
+    "placeholders": {
+      "zeros": {"type": "int"}
+    }
+  },
+  "labMineButton": "Mine",
+  "labMineCancel": "Cancel",
+  "labMineRunning": "Mining. Cancel stops the search.",
+  "labMineAttempts": "Attempts",
+  "labMineSpeed": "Speed",
+  "labMineSpeedValue": "{rate} hash/s",
+  "@labMineSpeedValue": {
+    "placeholders": {
+      "rate": {"type": "String"}
+    }
+  },
+  "labMineFound": "Nonce found after {attempts} attempts.",
+  "@labMineFound": {
+    "placeholders": {
+      "attempts": {"type": "int"}
+    }
+  },
+  "labMineStopped": "Search stopped. The nonce is unchanged.",
+  "labMineGaveUp": "No nonce found in this run. Change the data or try again.",
+  "labChainIntro": "Three blocks, each linked to the hash of the one before. Change the data of a block and see what happens to the blocks after it.",
+  "labChainRemine": "Mine again",
+  "labChainWhy": "Block 3 stores the old hash of block 2. Fixing the chain means mining block 2 again, and then every block after it.",
+  "labNetworkIntro": "Three nodes, each with its own copy of the chain. A node keeps a copy only when every block in it is valid.",
+  "labNetworkNode": "Node {name}",
+  "@labNetworkNode": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "labNetworkKeeps": "Keeps this copy",
+  "labNetworkRejects": "Rejects this copy",
+  "labNetworkTamper": "Change data on node B",
+  "labNetworkRestore": "Restore node B",
+  "labTxIntro": "Each line is one transfer. The block data is the list of lines, and the block hash depends on every character.",
+  "labTxFrom": "From",
+  "labTxTo": "To",
+  "labTxAmount": "Amount",
+  "labTxAdd": "Add transfer",
+  "labTxRemove": "Remove transfer",
+  "labTxAmountError": "Enter a whole number, zero or more.",
+  "labTxNameError": "Names cannot be empty.",
+  "labTxEmpty": "No transfers yet. Add one to build the block.",
+  "labTxData": "Block data",
+  "labTxBlockHash": "Block hash",
+  "labCoinbaseIntro": "The first line of every block is the coinbase: new units paid to the miner, with no sender. Change the miner name and mine again.",
+  "labCoinbaseMiner": "Miner name",
+  "labCoinbaseReward": "Reward: {amount} units",
+  "@labCoinbaseReward": {
+    "placeholders": {
+      "amount": {"type": "String"}
+    }
+  },
+  "labHeaderIntro": "This is the genesis block of Bitcoin, mined in January 2009. Its header is 80 bytes, and each field below is read from them.",
+  "labHeaderVersion": "Version",
+  "labHeaderMerkle": "Merkle root",
+  "labHeaderTime": "Time",
+  "labHeaderBits": "Bits",
+  "labHeaderFields": "Decoded fields",
+  "labHeaderBytes": "80 bytes, serialized",
+  "labHeaderDoubleHash": "Double SHA-256",
+  "labHeaderTarget": "Target",
+  "labHeaderBelowTarget": "Hash below target",
+  "labScriptTitle": "Script step by step",
+  "labScriptIntro": "Run a script one opcode at a time. The stack shows what each opcode leaves behind.",
+  "labScriptSimulated": "Signature checks are simulated in this teaching interpreter. A signature counts as valid only when the example lists it as valid. No real keys or signatures are checked. This is not consensus code.",
+  "labScriptExampleLabel": "Example",
+  "labScriptCustomChip": "Your script",
+  "labScriptCustomHint": "Type ASM, for example 2 3 OP_ADD 5 OP_EQUAL",
+  "labScriptCustomNote": "A typed script has no transaction and no simulated signatures, so signature and timelock opcodes cannot pass.",
+  "labScriptSourceLabel": "Script",
+  "labScriptStep": "Step",
+  "labScriptRunToEnd": "Run to end",
+  "labScriptReset": "Reset",
+  "labScriptNotStarted": "Not started",
+  "labScriptRunCount": "{count, plural, =1{1 opcode run} other{{count} opcodes run}}",
+  "@labScriptRunCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "labScriptRemaining": "Remaining script",
+  "labScriptNextLabel": "Next",
+  "labScriptNothingLeft": "Nothing left to run.",
+  "labScriptStack": "Stack",
+  "labScriptAltStack": "Alt stack",
+  "labScriptTopLabel": "Top",
+  "labScriptEmptyStack": "The stack is empty.",
+  "labScriptEmptyItem": "empty",
+  "labScriptResult": "Result",
+  "labScriptSucceeds": "Script succeeds",
+  "labScriptFails": "Script fails: {reason}",
+  "@labScriptFails": {
+    "placeholders": {
+      "reason": {"type": "String"}
+    }
+  },
+  "labScriptParseError": "Token {index} cannot be read: {reason}",
+  "@labScriptParseError": {
+    "placeholders": {
+      "index": {"type": "int"},
+      "reason": {"type": "String"}
+    }
+  },
+  "labScriptFalseTop": "the top item is false or the stack is empty",
+  "labScriptParseUnknown": "not an opcode, number, hex or quoted text",
+  "labScriptParseInvalidHex": "not valid hex",
+  "labScriptParseInvalidNumber": "not a valid number",
+  "labScriptParseUnterminated": "the quoted text has no closing quote",
+  "labScriptParseTruncated": "a push runs past the end of the script",
+  "labScriptNoteSignature": "This signature was checked against the simulated set.",
+  "labScriptNoteTimelockOk": "The timelock is satisfied.",
+  "labScriptNoteTimelockNo": "The timelock is not satisfied.",
+  "labScriptNoteTimelockOff": "The relative timelock is disabled, so this opcode does nothing.",
+  "labScriptNoteContext": "This opcode needs a transaction, and this demo has none.",
+  "labScriptErrStackUnderflow": "an opcode needed more items than the stack has",
+  "labScriptErrAltStackUnderflow": "FROMALTSTACK ran with an empty alt stack",
+  "labScriptErrVerifyFailed": "a VERIFY opcode found a false value",
+  "labScriptErrEqualVerifyFailed": "EQUALVERIFY found two different items",
+  "labScriptErrNumEqualVerifyFailed": "NUMEQUALVERIFY found two different numbers",
+  "labScriptErrOpReturn": "OP_RETURN marks the output as unspendable",
+  "labScriptErrDisabledOpcode": "a disabled opcode is in the script",
+  "labScriptErrUnsupportedOpcode": "this opcode is not implemented here",
+  "labScriptErrUnbalancedConditional": "IF, ELSE and ENDIF do not match",
+  "labScriptErrNumberOverflow": "a number is longer than 4 bytes",
+  "labScriptErrNonMinimalNumber": "a number is not minimally encoded",
+  "labScriptErrPushTooLarge": "a push is longer than 520 bytes",
+  "labScriptErrStackTooLarge": "the stacks hold more than 1000 items",
+  "labScriptErrOpCountExceeded": "more than 201 opcodes ran",
+  "labScriptErrBadPickIndex": "PICK or ROLL asked for a depth the stack does not have",
+  "labScriptErrKeyCountOutOfRange": "CHECKMULTISIG asked for fewer than 0 or more than 20 keys",
+  "labScriptErrSigCountOutOfRange": "CHECKMULTISIG asked for more signatures than keys",
+  "labScriptErrNegativeLockTime": "a timelock operand is negative",
+  "labScriptErrLockTimeNotReached": "the transaction lock time is too early",
+  "labScriptErrLockTimeTypeMismatch": "the timelock counts blocks but the transaction counts time, or the reverse",
+  "labScriptErrInputSequenceFinal": "the input sequence is final, so the lock time cannot be used",
+  "labScriptErrInputSequenceDisabled": "the input sequence disables relative timelocks",
+  "labScriptErrTxVersionTooLow": "relative timelocks need transaction version 2 or higher",
+  "labScriptErrMissingContext": "a timelock opcode needs a transaction, and none is set",
+  "labScriptErrScriptTooLarge": "the script is longer than 10,000 bytes",
+  "labScriptExArithmeticName": "Arithmetic",
+  "labScriptExArithmeticDesc": "Adds two numbers and checks the sum.",
+  "labScriptExP2pkhName": "Pay to public key hash",
+  "labScriptExP2pkhDesc": "The classic lock: a public key, a signature and a hash check.",
+  "labScriptExMultisigName": "Multisig 2 of 3",
+  "labScriptExMultisigDesc": "Two of the three simulated signatures are needed.",
+  "labScriptExHashlockName": "Hashlock",
+  "labScriptExHashlockDesc": "The secret is the text whose SHA-256 is locked.",
+  "labScriptExCltvName": "Absolute timelock",
+  "labScriptExCltvDesc": "CHECKLOCKTIMEVERIFY: the spend waits for a block height.",
+  "labScriptExCsvName": "Relative timelock",
+  "labScriptExCsvDesc": "CHECKSEQUENCEVERIFY: the input must be old enough.",
+  "labScriptExHtlcName": "HTLC, claimed",
+  "labScriptExHtlcDesc": "The receiver reveals the secret before the timeout.",
+  "labScriptExHtlcRefundName": "HTLC, refund",
+  "labScriptExHtlcRefundDesc": "After the timeout the sender takes the funds back."
 }
