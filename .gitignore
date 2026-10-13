@@ -50,3 +50,5 @@ app.*.map.json
 release.jks
 google-services.json
 satowiki-78378-f6c277ee90f6.json
+# graphify AST cache (rebuilt locally)
+graphify-out/cache/
