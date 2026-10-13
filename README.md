@@ -37,7 +37,7 @@ Learning Bitcoin usually means jumping between a wiki, a mailing list archive, t
 
 Everything you read is stored on the device. The app opens and works with no connection, has no account, and ships no analytics. The content itself lives in this repository, so every entry can be reviewed, corrected and improved with a pull request.
 
-> **Status:** beta. The app is not on the App Store or Google Play yet. You can build it from source in a few minutes.
+> **Status:** beta. The app is not on the App Store or Google Play yet. On Android you can install the APK from the [latest release](https://github.com/Dado-hash/Sato-Wiki/releases/latest); on iOS, build it from source.
 
 ## Features
 

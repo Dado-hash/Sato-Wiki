@@ -1,26 +1,41 @@
 name: Android App Distribution
 
-# Builds a signed release APK and sends it to the Firebase App Distribution
-# testers on every push to main or develop that touches the app.
+# Builds a signed release APK.
+#
+# - A push to main that touches the app sends the APK to the Firebase App
+#   Distribution testers. develop is not built: every change reaches main
+#   through a pull request, and building both sent testers the same change
+#   twice.
+# - Publishing a GitHub release attaches the APK to that release instead.
+# - A manual run sends the chosen branch to the testers, or, with
+#   `release_tag` set, attaches the APK to that existing release.
 on:
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Attach the APK to this existing release instead of sending it to testers
+        required: false
+        type: string
   push:
     branches:
       - main
-      - develop
     paths:
       - 'lib/**'
       - 'android/**'
       - 'assets/**'
       - 'pubspec.yaml'
       - 'pubspec.lock'
-      - '.github/workflows/android-distribution.yml'
+  release:
+    types:
+      - published
 
 permissions:
   contents: read
 
+# Grouped by event and ref, so a release build never cancels the tester
+# build of the same commit.
 concurrency:
-  group: android-distribution
+  group: android-distribution-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
@@ -30,10 +45,18 @@ jobs:
   distribute:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      # Needed to attach the APK to a release.
+      contents: write
+    env:
+      # Empty for tester builds.
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.release_tag || github.sha }}
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -76,9 +99,11 @@ jobs:
         run: flutter build apk --release --build-number "${{ github.run_number }}"
 
       - name: Write release notes
+        if: env.RELEASE_TAG == ''
         run: git log -1 --pretty=format:'%h %s' > release-notes.txt
 
       - name: Upload to Firebase App Distribution
+        if: env.RELEASE_TAG == ''
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
@@ -91,3 +116,12 @@ jobs:
             --app "$FIREBASE_ANDROID_APP_ID" \
             --groups "$FIREBASE_TESTER_GROUPS" \
             --release-notes-file release-notes.txt
+
+      - name: Attach APK to the GitHub release
+        if: env.RELEASE_TAG != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          apk="satowiki-${RELEASE_TAG}.apk"
+          cp build/app/outputs/flutter-apk/app-release.apk "$apk"
+          gh release upload "$RELEASE_TAG" "$apk" --clobber
