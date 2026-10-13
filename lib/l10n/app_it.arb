@@ -257,6 +257,7 @@
   "categorySpecification": "Specifica",
   "categorySoftware": "Software",
   "categoryHardware": "Hardware",
+  "categoryPrivacySecurity": "Privacy e sicurezza",
   "subcategoryNodes": "Nodi",
   "subcategorySoftwareWallets": "Software wallet",
   "subcategoryLightning": "Lightning",

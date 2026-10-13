@@ -14,6 +14,7 @@ String contentCategoryLabel(String category, AppLocalizations l10n) {
     'economics' => l10n.categoryEconomics,
     'software' => l10n.categorySoftware,
     'hardware' => l10n.categoryHardware,
+    'privacy-security' => l10n.categoryPrivacySecurity,
     'market' => l10n.market,
     'regulatory' => l10n.regulatory,
     'culture' => l10n.culture,

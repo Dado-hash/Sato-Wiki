@@ -1,0 +1,18 @@
+{
+  "id": "reference.block-subsidy",
+  "slug": "block-subsidy",
+  "language": "en",
+  "title": "Block subsidy by halving era",
+  "description": "Subsidy paid per block in each era.",
+  "columns": [
+    { "key": "era", "label": "Era" },
+    { "key": "subsidy", "label": "Subsidy" }
+  ],
+  "rows": [
+    { "cells": { "era": "1", "subsidy": "50 BTC" }, "link": "wiki.proof-of-work" }
+  ],
+  "sources": [],
+  "related": [],
+  "updatedAt": "2026-06-20T00:00:00Z",
+  "reviewedAt": "2026-06-20"
+}

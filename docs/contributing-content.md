@@ -42,6 +42,10 @@ Optional frontmatter: `subcategory` (wiki only) groups entries inside `software`
 
 `--strict` turns warnings into errors. CI runs without it.
 
+## Collezioni opzionali
+
+Glossary terms, reference tables, quotes, learning paths and products are optional top-level collections of the same bundle (schema version stays 1). Templates for one record of each are in `content/templates/glossary_term.json`, `reference_table.json`, `quote.json`, `learning_path.json` and `product.json`; the field tables are in `docs/content-model.md`. A product needs a `reviewedAt` date, and the validator warns when it is older than 365 days.
+
 ## Immagini inline
 
 Nei corpi Markdown puoi inserire schemi e immagini con la sintassi standard:

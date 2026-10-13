@@ -72,7 +72,198 @@ abstract final class ContentBundleParser {
           warnings,
           (record, path) => _release(record, path, language),
         ),
+        glossary: _optionalRecords(
+          data,
+          'glossary',
+          warnings,
+          (record, path) => _glossaryTerm(record, path, language),
+        ),
+        references: _optionalRecords(
+          data,
+          'references',
+          warnings,
+          (record, path) => _referenceTable(record, path, language),
+        ),
+        quotes: _optionalRecords(
+          data,
+          'quotes',
+          warnings,
+          (record, path) => _quote(record, path, language),
+        ),
+        paths: _optionalRecords(
+          data,
+          'paths',
+          warnings,
+          (record, path) => _learningPath(record, path, language),
+        ),
+        products: _optionalRecords(
+          data,
+          'products',
+          warnings,
+          (record, path) => _product(record, path, language),
+        ),
       ),
+    );
+  }
+
+  static Product _product(JsonMap data, String path, String bundleLanguage) {
+    final status = ProductStatus.fromJson(_string(data, 'status', path));
+    if (status == null) {
+      throw ContentBundleParseException('$path.status is not supported.');
+    }
+
+    return Product(
+      id: _string(data, 'id', path),
+      slug: _string(data, 'slug', path),
+      language: _string(data, 'language', path, fallback: bundleLanguage),
+      name: _string(data, 'name', path),
+      summary: _string(data, 'summary', path),
+      bodyMarkdown: _string(data, 'bodyMarkdown', path),
+      category: _string(data, 'category', path),
+      subcategory: _string(data, 'subcategory', path),
+      maker: _string(data, 'maker', path),
+      website: _uri(data, 'website', path),
+      sourceUrl: _optionalUri(data, 'sourceUrl', path),
+      openSource: _bool(data, 'openSource', path),
+      license: _optionalString(data, 'license'),
+      platforms: _stringList(data, 'platforms', path),
+      status: status,
+      reviewedAt: _requiredReviewedAt(data, path),
+      sources: _sources(data, '$path.sources'),
+      related: _related(data, '$path.related'),
+      updatedAt: _dateTime(data, 'updatedAt', path),
+    );
+  }
+
+  static LearningPath _learningPath(
+    JsonMap data,
+    String path,
+    String bundleLanguage,
+  ) {
+    return LearningPath(
+      id: _string(data, 'id', path),
+      slug: _string(data, 'slug', path),
+      language: _string(data, 'language', path, fallback: bundleLanguage),
+      title: _string(data, 'title', path),
+      description: _string(data, 'description', path),
+      estimatedMinutes: _int(data, 'estimatedMinutes', path),
+      steps: _learningPathSteps(data, '$path.steps'),
+      updatedAt: _dateTime(data, 'updatedAt', path),
+    );
+  }
+
+  static List<LearningPathStep> _learningPathSteps(JsonMap data, String path) {
+    final list = _objectList(data, 'steps', path);
+    if (list.isEmpty) {
+      throw ContentBundleParseException('$path must be a non-empty list.');
+    }
+
+    return List.unmodifiable(
+      list.map(
+        (step) => LearningPathStep(
+          id: _string(step, 'id', '$path[]'),
+          note: _string(step, 'note', '$path[]'),
+        ),
+      ),
+    );
+  }
+
+  static Quote _quote(JsonMap data, String path, String bundleLanguage) {
+    return Quote(
+      id: _string(data, 'id', path),
+      slug: _string(data, 'slug', path),
+      language: _string(data, 'language', path, fallback: bundleLanguage),
+      text: _string(data, 'text', path),
+      originalText: _optionalString(data, 'originalText'),
+      author: _string(data, 'author', path),
+      date: _dateTime(data, 'date', path),
+      sourceTitle: _string(data, 'sourceTitle', path),
+      sourceUrl: _uri(data, 'sourceUrl', path),
+      topics: _stringList(data, 'topics', path),
+      related: _related(data, '$path.related'),
+      updatedAt: _dateTime(data, 'updatedAt', path),
+    );
+  }
+
+  static ReferenceTable _referenceTable(
+    JsonMap data,
+    String path,
+    String bundleLanguage,
+  ) {
+    return ReferenceTable(
+      id: _string(data, 'id', path),
+      slug: _string(data, 'slug', path),
+      language: _string(data, 'language', path, fallback: bundleLanguage),
+      title: _string(data, 'title', path),
+      description: _string(data, 'description', path),
+      columns: _referenceColumns(data, '$path.columns'),
+      rows: _referenceRows(data, '$path.rows'),
+      sources: _sources(data, '$path.sources'),
+      related: _related(data, '$path.related'),
+      updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
+    );
+  }
+
+  static List<ReferenceColumn> _referenceColumns(JsonMap data, String path) {
+    final list = _objectList(data, 'columns', path);
+    if (list.isEmpty) {
+      throw ContentBundleParseException('$path must be a non-empty list.');
+    }
+
+    return List.unmodifiable(
+      list.map(
+        (column) => ReferenceColumn(
+          key: _string(column, 'key', '$path[]'),
+          label: _string(column, 'label', '$path[]'),
+        ),
+      ),
+    );
+  }
+
+  static List<ReferenceRow> _referenceRows(JsonMap data, String path) {
+    final list = _objectList(data, 'rows', path);
+
+    return List.unmodifiable(
+      list.map((row) {
+        final cellsValue = row['cells'];
+        if (cellsValue is! JsonMap) {
+          throw ContentBundleParseException('$path[].cells must be an object.');
+        }
+        final cells = <String, String>{};
+        for (final entry in cellsValue.entries) {
+          final text = entry.value;
+          if (text is! String) {
+            throw ContentBundleParseException(
+              '$path[].cells.${entry.key} must be a string.',
+            );
+          }
+          cells[entry.key] = text;
+        }
+
+        return ReferenceRow(
+          cells: Map.unmodifiable(cells),
+          link: _optionalString(row, 'link'),
+        );
+      }),
+    );
+  }
+
+  static GlossaryTerm _glossaryTerm(
+    JsonMap data,
+    String path,
+    String bundleLanguage,
+  ) {
+    return GlossaryTerm(
+      id: _string(data, 'id', path),
+      slug: _string(data, 'slug', path),
+      language: _string(data, 'language', path, fallback: bundleLanguage),
+      term: _string(data, 'term', path),
+      definition: _string(data, 'definition', path),
+      aliases: _stringList(data, 'aliases', path),
+      related: _related(data, '$path.related'),
+      updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 
@@ -276,6 +467,21 @@ abstract final class ContentBundleParser {
     return List.unmodifiable(records);
   }
 
+  /// Like [_records] for collections added after schema version 1: a missing
+  /// key gives an empty list without a warning, so older bundles stay clean.
+  static List<T> _optionalRecords<T>(
+    JsonMap data,
+    String key,
+    List<ContentBundleWarning> warnings,
+    T Function(JsonMap record, String path) build,
+  ) {
+    if (!data.containsKey(key) || data[key] == null) {
+      return const [];
+    }
+
+    return _records(data, key, warnings, build);
+  }
+
   static Contributor _contributor(JsonMap data, String path) {
     return Contributor(
       displayName: _string(data, 'displayName', path),
@@ -432,6 +638,24 @@ abstract final class ContentBundleParser {
     }
 
     return parsed;
+  }
+
+  /// `reviewedAt` for records that must carry one (products).
+  static DateTime _requiredReviewedAt(JsonMap data, String path) {
+    final value = _reviewedAt(data, path);
+    if (value == null) {
+      throw ContentBundleParseException('$path.reviewedAt is required.');
+    }
+
+    return value;
+  }
+
+  static bool _bool(JsonMap data, String key, String path) {
+    final value = data[key];
+    if (value is bool) {
+      return value;
+    }
+    throw ContentBundleParseException('$path.$key must be a boolean.');
   }
 
   /// Optional wiki `subcategory`. Missing, null or blank gives null; any

@@ -137,4 +137,53 @@ final class ContentStore
         .where((release) => release.project == project)
         .toList(growable: false);
   }
+
+  Future<List<GlossaryTerm>> listGlossaryTerms() async => bundle.glossary;
+
+  Future<GlossaryTerm?> findGlossaryTermById(String id) async {
+    return bundle.glossary.where((term) => term.id == id).firstOrNull;
+  }
+
+  Future<List<ReferenceTable>> listReferenceTables() async => bundle.references;
+
+  Future<ReferenceTable?> findReferenceTableById(String id) async {
+    return bundle.references.where((table) => table.id == id).firstOrNull;
+  }
+
+  Future<List<Quote>> listQuotes() async => bundle.quotes;
+
+  Future<Quote?> findQuoteById(String id) async {
+    return bundle.quotes.where((quote) => quote.id == id).firstOrNull;
+  }
+
+  Future<List<LearningPath>> listLearningPaths() async => bundle.paths;
+
+  Future<LearningPath?> findLearningPathById(String id) async {
+    return bundle.paths.where((path) => path.id == id).firstOrNull;
+  }
+
+  Future<List<Product>> listProducts() async => bundle.products;
+
+  Future<Product?> findProductById(String id) async {
+    return bundle.products.where((product) => product.id == id).firstOrNull;
+  }
+
+  Future<List<Product>> listProductsBySubcategory(String subcategory) async {
+    return bundle.products
+        .where((product) => product.subcategory == subcategory)
+        .toList(growable: false);
+  }
+
+  /// Matches [termOrAlias] against the term or any alias, ignoring case.
+  Future<GlossaryTerm?> findGlossaryTerm(String termOrAlias) async {
+    final needle = termOrAlias.trim().toLowerCase();
+
+    return bundle.glossary
+        .where(
+          (term) =>
+              term.term.toLowerCase() == needle ||
+              term.aliases.any((alias) => alias.toLowerCase() == needle),
+        )
+        .firstOrNull;
+  }
 }

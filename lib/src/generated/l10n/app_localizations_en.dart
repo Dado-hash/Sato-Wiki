@@ -500,6 +500,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categoryHardware => 'Hardware';
 
   @override
+  String get categoryPrivacySecurity => 'Privacy and security';
+
+  @override
   String get subcategoryNodes => 'Nodes';
 
   @override

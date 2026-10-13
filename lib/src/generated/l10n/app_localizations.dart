@@ -1028,6 +1028,12 @@ abstract class AppLocalizations {
   /// **'Hardware'**
   String get categoryHardware;
 
+  /// No description provided for @categoryPrivacySecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy and security'**
+  String get categoryPrivacySecurity;
+
   /// No description provided for @subcategoryNodes.
   ///
   /// In en, this message translates to:

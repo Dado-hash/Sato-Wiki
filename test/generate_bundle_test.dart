@@ -83,6 +83,51 @@ void main() {
     expect(messages.last, 'generated $pagesRoot/index.html');
   });
 
+  test('optional collections survive generation unchanged', () {
+    final source = File('${tempDir.path}/src/with_collections.json')
+      ..createSync(recursive: true)
+      ..writeAsStringSync(
+        jsonEncode({
+          'schemaVersion': 1,
+          'version': '2026.06.20.000003',
+          'language': 'en',
+          'generatedAt': '2026-06-20T00:00:00Z',
+          'wiki': <Object?>[],
+          'news': <Object?>[],
+          'history': <Object?>[],
+          'bips': <Object?>[],
+          'changelogs': <Object?>[],
+          'glossary': [
+            {'id': 'glossary.utxo', 'term': 'UTXO'},
+          ],
+          'products': [
+            {'id': 'product.sparrow-wallet', 'status': 'active'},
+          ],
+        }),
+      );
+
+    generateContentBundle(
+      source: source.path,
+      pagesRoot: pagesRoot,
+      baseUrl: 'https://example.test/content',
+    );
+
+    final output =
+        jsonDecode(
+              File(
+                '$pagesRoot/content/en/2026.06.20.000003/bundle.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, Object?>;
+    expect(output['glossary'], [
+      {'id': 'glossary.utxo', 'term': 'UTXO'},
+    ]);
+    expect(output['products'], [
+      {'id': 'product.sparrow-wallet', 'status': 'active'},
+    ]);
+    expect(output['schemaVersion'], 1);
+  });
+
   test('a non-object root is rejected', () {
     final file = File('${tempDir.path}/array.json')..writeAsStringSync('[]');
 

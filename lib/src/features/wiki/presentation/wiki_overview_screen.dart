@@ -37,6 +37,7 @@ const _leadingCategoryKeys = [
   'cryptography',
   'lightning network',
   'economics',
+  'privacy-security',
   'software',
   'hardware',
 ];
@@ -726,6 +727,7 @@ IconData _iconForCategory(String category) {
     'cryptography' => Icons.key_outlined,
     'lightning network' => Icons.bolt_outlined,
     'economics' => Icons.trending_up_rounded,
+    'privacy-security' => Icons.shield_outlined,
     'software' => Icons.terminal_outlined,
     'hardware' => Icons.developer_board_outlined,
     _ => Icons.menu_book_outlined,
