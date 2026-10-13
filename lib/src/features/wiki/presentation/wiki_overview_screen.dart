@@ -20,6 +20,7 @@ import '../../../core/widgets/meta_line.dart';
 import '../../../core/widgets/reading_level_selector.dart';
 import '../../../core/widgets/related_links_grid.dart';
 import '../../../core/widgets/round_icon_button.dart';
+import '../../../core/widgets/sato_scaffold.dart';
 import '../../../core/widgets/screen_header.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/sources_disclosure.dart';
@@ -71,7 +72,7 @@ class WikiOverviewScreen extends StatelessWidget {
         : _dailySelection(entries, DateTime.now());
 
     return ListView(
-      padding: const EdgeInsets.only(bottom: AppSpacing.tabBarClearance),
+      padding: EdgeInsets.only(bottom: SatoScaffold.bottomClearanceOf(context)),
       children: [
         ScreenHeader(
           title: l10n.wikiTab,

@@ -30,10 +30,10 @@ class SatoTabBar extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: theme.shadowColor.withValues(
-              alpha: theme.brightness == Brightness.dark ? 0.5 : 0.14,
+              alpha: theme.brightness == Brightness.dark ? 0.6 : 0.18,
             ),
-            blurRadius: 32,
-            offset: const Offset(0, 12),
+            blurRadius: 28,
+            offset: const Offset(0, 10),
           ),
         ],
       ),

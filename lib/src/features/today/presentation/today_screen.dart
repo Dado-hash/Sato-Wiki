@@ -16,6 +16,7 @@ import '../../../core/widgets/meta_line.dart';
 import '../../../core/widgets/round_icon_button.dart';
 import '../../../core/widgets/sato_group_card.dart';
 import '../../../core/widgets/sato_progress_bar.dart';
+import '../../../core/widgets/sato_scaffold.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/status_pill.dart';
 import '../../../generated/l10n/app_localizations.dart';
@@ -89,7 +90,9 @@ class TodayScreen extends StatelessWidget {
               );
 
         return ListView(
-          padding: const EdgeInsets.only(bottom: AppSpacing.tabBarClearance),
+          padding: EdgeInsets.only(
+            bottom: SatoScaffold.bottomClearanceOf(context),
+          ),
           children: [
             const _TopBar(),
             _Headline(date: todayDate),

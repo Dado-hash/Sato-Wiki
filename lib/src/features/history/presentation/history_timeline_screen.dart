@@ -15,6 +15,7 @@ import '../../../core/widgets/markdown_text.dart';
 import '../../../core/widgets/meta_line.dart';
 import '../../../core/widgets/related_links_grid.dart';
 import '../../../core/widgets/round_icon_button.dart';
+import '../../../core/widgets/sato_scaffold.dart';
 import '../../../core/widgets/screen_header.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/sources_disclosure.dart';
@@ -150,8 +151,10 @@ class _HistoryTimelineScreenState extends State<HistoryTimelineScreen> {
               },
             ),
           ),
-        const SliverPadding(
-          padding: EdgeInsets.only(bottom: AppSpacing.tabBarClearance),
+        SliverPadding(
+          padding: EdgeInsets.only(
+            bottom: SatoScaffold.bottomClearanceOf(context),
+          ),
           sliver: SliverToBoxAdapter(child: SizedBox.shrink()),
         ),
       ],

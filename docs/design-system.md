@@ -82,7 +82,7 @@ Token in `lib/src/core/theme/app_tokens.dart`:
 - `AppSpacing`: `xs` 4, `sm` 8, `md` 12, `lg` 16, `gutter` 20, `xl` 24, `section` 28.
 - `AppSpacing.gutter` (20) è il margine laterale delle schermate.
 - `AppSpacing.section` (28) è la distanza tra i blocchi di una schermata.
-- `AppSpacing.tabBarClearance` (120) è il padding inferiore delle schermate a tab, così il contenuto resta sopra la tab bar.
+- Le schermate a tab chiudono con padding inferiore `SatoScaffold.bottomClearanceOf(context)`, cioè l'altezza coperta dalla tab bar più `AppSpacing.tabBarGap` (24), così il contenuto resta sopra la tab bar. La tab bar fluttua `AppSpacing.tabBarLift` (12) sopra l'inset di sistema, con margine laterale `gutter`.
 - `AppRadii`: `thumb` 12, `tile` 14, `card` 20, `media` 24, `pill` 999.
 - `thumb` per le miniature, `tile` per le tile e le SnackBar, `card` per `ContentCard`, `media` per immagini principali, bottom sheet e dialog, `pill` per chip, tag, pillole di stato, segmented control e barra di progresso.
 - La tab bar usa un raggio fisso di 28.
@@ -98,7 +98,7 @@ Forme e dimensioni da `AppTheme`:
 
 Layout delle schermate:
 
-- Schermate a tab (`ScreenHeader`): titolo in alto, padding superiore uguale al padding di sistema più 16, margine laterale `gutter`, padding inferiore `tabBarClearance`.
+- Schermate a tab (`ScreenHeader`): titolo in alto, padding superiore uguale al padding di sistema più 16, margine laterale `gutter`, padding inferiore `SatoScaffold.bottomClearanceOf(context)`.
 - Schermate di dettaglio (`DetailScaffold`): riga con pulsante indietro di 44 px, barra di progresso opzionale sotto la riga, corpo con margine laterale `gutter` e padding inferiore 32 più il margine di sistema.
 - Tab bar: flottante, con margine di 16 su tre lati e padding interno `sm`.
 

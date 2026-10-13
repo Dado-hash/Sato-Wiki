@@ -10,6 +10,7 @@ import '../../../core/theme/app_tokens.dart';
 import '../../../core/widgets/filter_chip_bar.dart';
 import '../../../core/widgets/round_icon_button.dart';
 import '../../../core/widgets/sato_group_card.dart';
+import '../../../core/widgets/sato_scaffold.dart';
 import '../../../core/widgets/screen_header.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/status_pill.dart';
@@ -40,7 +41,7 @@ class CodeDashboardScreen extends StatelessWidget {
     final recentReleases = _sortReleases(releases).take(3);
 
     return ListView(
-      padding: const EdgeInsets.only(bottom: AppSpacing.tabBarClearance),
+      padding: EdgeInsets.only(bottom: SatoScaffold.bottomClearanceOf(context)),
       children: [
         ScreenHeader(
           title: l10n.codeTab,
