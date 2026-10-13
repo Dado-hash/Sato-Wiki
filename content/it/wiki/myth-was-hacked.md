@@ -38,6 +38,10 @@ sources:
   - title: Bitcoin Wiki - Mt. Gox
     url: https://en.bitcoin.it/wiki/Mt._Gox
     author: Bitcoin Wiki contributors
+  - title: Announcement regarding the balance of bitcoins held by MtGox Co., Ltd.
+    url: https://www.mtgox.com/img/pdf/20140320-btc-announce.pdf
+    author: MtGox Co., Ltd.
+    publishedAt: 2014-03-20
 reviewedAt: 2026-10-13
 updatedAt: 2026-10-13T00:00:00Z
 ---
@@ -50,7 +54,7 @@ Pensa a tre livelli. Il protocollo è l'insieme delle regole. Il software è il 
 
 ## medium
 
-I tre livelli richiedono risposte separate. Il protocollo è ciò che i full node applicano: struttura dei blocchi, proof of work, firme, script e limite di emissione. Una transazione con una firma falsificata viene rifiutata, e nel protocollo nulla sposta monete senza la presentazione delle chiavi. Exchange e wallet custodiali sono diversi. Quando una società detiene le chiavi, un attaccante che compromette la società può prenderle, e il cliente ha un diritto solo verso la società. Mt. Gox è un caso noto. Nel giugno 2011 un attaccante ha usato credenziali sottratte dal computer compromesso di un revisore e ha usato il software stesso dell'exchange per vendere bitcoin che non possedeva, facendo scendere per un certo tempo il prezzo visualizzato. L'exchange è poi collassato nel febbraio 2014.
+I tre livelli richiedono risposte separate. Il protocollo è ciò che i full node applicano: struttura dei blocchi, proof of work, firme, script e limite di emissione. Una transazione con una firma falsificata viene rifiutata, e nel protocollo nulla sposta monete senza la presentazione delle chiavi. Exchange e wallet custodiali sono diversi. Quando una società detiene le chiavi, un attaccante che compromette la società può prenderle, e il cliente ha un diritto solo verso la società. Mt. Gox è un caso noto. Nel giugno 2011 un attaccante ha usato credenziali sottratte dal computer compromesso di un revisore e ha usato il software stesso dell'exchange per vendere bitcoin che non possedeva, facendo scendere per un certo tempo il prezzo visualizzato. L'exchange è poi collassato nel febbraio 2014, quando la società comunicò la scomparsa di circa 850.000 bitcoin, cifra rivista a circa 650.000 il mese successivo.
 
 Il secondo livello è quello dei bug software. Nel marzo 2013 un blocco con più input di transazione di quanti alcuni nodi più vecchi sapessero gestire ha causato uno split della chain. I nodi con software precedente alla 0.8 hanno rifiutato il blocco, mentre i nodi 0.8 lo hanno accettato. BIP 50, scritta in seguito, spiega che la causa era un limite di lock di un database che era diventato di fatto una regola di consenso. Miner e pool sono tornati a versioni precedenti e lo split si è risolto.
 

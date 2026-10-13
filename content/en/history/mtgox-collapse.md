@@ -5,7 +5,7 @@ language: en
 date: 2014-02-01
 title: Mt. Gox Collapse
 category: security
-summary: Mt. Gox, the world's largest Bitcoin exchange, files for bankruptcy after losing approximately 850,000 BTC due to security breaches and mismanagement.
+summary: Mt. Gox, the world's largest Bitcoin exchange, files for bankruptcy after reporting that approximately 850,000 BTC had disappeared, a figure later revised to about 650,000 BTC, due to security breaches and mismanagement.
 tags:
   - Bitcoin
   - Mt. Gox
@@ -37,7 +37,7 @@ sources:
 updatedAt: 2026-05-28T00:00:00Z
 ---
 
-In February 2014, Mt. Gox — once handling over 70% of all Bitcoin trades worldwide — collapsed in spectacular fashion. The exchange revealed that it had lost approximately 850,000 bitcoin, worth over $450 million at the time, due to a combination of security breaches, software bugs, and gross mismanagement. The collapse was the single most catastrophic event in Bitcoin's history up to that point and remains one of the largest financial frauds ever recorded.
+In February 2014, Mt. Gox — once handling over 70% of all Bitcoin trades worldwide — collapsed in spectacular fashion. On February 28, 2014, the company announced that approximately 750,000 bitcoin belonging to users and approximately 100,000 bitcoin of its own had disappeared, about 850,000 in total and worth over $450 million at the time, due to a combination of security breaches, software bugs, and gross mismanagement. The collapse was the single most catastrophic event in Bitcoin's history up to that point and remains one of the largest financial frauds ever recorded.
 
 ![Mt. Gox logo](media/history/mtgox-collapse/mtgox-collapse-logo.webp "The Mt. Gox logo, once the dominant Bitcoin exchange, now a cautionary tale.")
 
@@ -49,7 +49,7 @@ The core technical problem was transaction malleability. Bitcoin's ECDSA signatu
 
 ## The Leak
 
-Over several years, attackers exploited these vulnerabilities to steal approximately 850,000 BTC from Mt. Gox. Approximately 200,000 of those coins were eventually recovered, but 650,000 — worth billions of dollars at current prices — were never recovered. The theft went undetected by Mt. Gox's management for years, partly due to their failure to reconcile hot wallet balances against exchange liabilities.
+Over several years, attackers exploited these vulnerabilities to steal bitcoin from Mt. Gox. On March 20, 2014, the company announced that it had found approximately 200,000 BTC in an old-format wallet used before June 2011, and it revised its estimate of the bitcoin that had disappeared to approximately 650,000 BTC, noting that the figure was still under investigation. The theft went undetected by Mt. Gox's management for years, partly due to their failure to reconcile hot wallet balances against exchange liabilities.
 
 In late 2013, when Mt. Gox finally attempted to reconcile its accounts, it discovered massive discrepancies. The exchange suspended withdrawals in February 2014, citing "technical issues." On February 28, Mt. Gox filed for bankruptcy protection in Japan and the United States, revealing the full extent of the losses.
 

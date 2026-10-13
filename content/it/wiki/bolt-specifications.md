@@ -26,7 +26,7 @@ sources:
     url: https://github.com/lightning/bolts
     author: Lightning Network Community
   - title: "BOLT #1 — Base Protocol"
-    url: https://github.com/lightning/bolts/blob/master/01-protocol.md
+    url: https://github.com/lightning/bolts/blob/master/01-messaging.md
     author: Lightning Network Specifications
   - title: "Mastering the Lightning Network — Appendix: BOLT Reference"
     url: https://github.com/lnbook/lnbook

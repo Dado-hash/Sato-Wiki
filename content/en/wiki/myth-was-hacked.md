@@ -38,6 +38,10 @@ sources:
   - title: Bitcoin Wiki - Mt. Gox
     url: https://en.bitcoin.it/wiki/Mt._Gox
     author: Bitcoin Wiki contributors
+  - title: Announcement regarding the balance of bitcoins held by MtGox Co., Ltd.
+    url: https://www.mtgox.com/img/pdf/20140320-btc-announce.pdf
+    author: MtGox Co., Ltd.
+    publishedAt: 2014-03-20
 reviewedAt: 2026-10-13
 updatedAt: 2026-10-13T00:00:00Z
 ---
@@ -50,7 +54,7 @@ Think of three layers. The protocol is the set of rules. The software is the pro
 
 ## medium
 
-The three layers need separate answers. The protocol is what full nodes enforce: block structure, proof of work, signatures, script and the supply limit. A transaction with a forged signature is rejected, and nothing in the protocol moves coins whose keys are not presented. Exchanges and custodial wallets are different. When a company holds the keys, an attacker who compromises the company can take them, and the customer's claim is against the company. Mt. Gox is a known case. In June 2011 an attacker used credentials taken from an auditor's compromised computer and used the exchange's own software to sell bitcoins it did not hold, which briefly pushed the displayed price down. The exchange later collapsed in February 2014, and the Bitcoin Wiki records heavy losses for its customers.
+The three layers need separate answers. The protocol is what full nodes enforce: block structure, proof of work, signatures, script and the supply limit. A transaction with a forged signature is rejected, and nothing in the protocol moves coins whose keys are not presented. Exchanges and custodial wallets are different. When a company holds the keys, an attacker who compromises the company can take them, and the customer's claim is against the company. Mt. Gox is a known case. In June 2011 an attacker used credentials taken from an auditor's compromised computer and used the exchange's own software to sell bitcoins it did not hold, which briefly pushed the displayed price down. The exchange later collapsed in February 2014, when the company announced that about 850,000 bitcoin had disappeared, a figure it revised to about 650,000 the following month.
 
 Software bugs form the second layer. In March 2013 a block with more transaction inputs than some older nodes could handle caused a chain split. Nodes running pre-0.8 software rejected the block, while 0.8 nodes accepted it. BIP 50, written afterwards, explains that the root cause was a database lock limit that had effectively become a consensus rule. Miners and pools downgraded their nodes to restore the older chain, and the split was resolved.
 
