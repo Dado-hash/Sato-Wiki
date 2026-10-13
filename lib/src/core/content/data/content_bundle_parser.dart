@@ -102,7 +102,40 @@ abstract final class ContentBundleParser {
           warnings,
           (record, path) => _product(record, path, language),
         ),
+        library: _optionalRecords(
+          data,
+          'library',
+          warnings,
+          (record, path) => _libraryWork(record, path, language),
+        ),
       ),
+    );
+  }
+
+  static LibraryWork _libraryWork(
+    JsonMap data,
+    String path,
+    String bundleLanguage,
+  ) {
+    return LibraryWork(
+      id: _string(data, 'id', path),
+      slug: _string(data, 'slug', path),
+      language: _string(data, 'language', path, fallback: bundleLanguage),
+      title: _string(data, 'title', path),
+      author: _string(data, 'author', path),
+      year: _int(data, 'year', path),
+      summary: _string(data, 'summary', path),
+      introduction: _string(data, 'introduction', path),
+      originalLanguage: _string(data, 'originalLanguage', path),
+      kind: _string(data, 'kind', path),
+      topics: _stringList(data, 'topics', path),
+      url: _uri(data, 'url', path),
+      archiveUrl: _optionalUri(data, 'archiveUrl', path),
+      licenseNote: _string(data, 'licenseNote', path),
+      sources: _sources(data, '$path.sources'),
+      related: _related(data, '$path.related'),
+      updatedAt: _dateTime(data, 'updatedAt', path),
+      reviewedAt: _reviewedAt(data, path),
     );
   }
 

@@ -26,11 +26,11 @@ Regole:
 - `language` del bundle e il fallback per i record che non dichiarano `language`.
 - Una collezione mancante o non lista diventa lista vuota con warning.
 - I campi extra sono ignorati. I seed contengono anche `historyCount` e `totalRecords`, che il parser non legge.
-- Le collezioni `glossary`, `references`, `quotes`, `paths` e `products` sono opzionali (vedi "Collezioni opzionali"). Restano nello schema versione `1`: un bundle che non le contiene viene letto con liste vuote, senza warning.
+- Le collezioni `glossary`, `references`, `quotes`, `paths`, `products` e `library` sono opzionali (vedi "Collezioni opzionali"). Restano nello schema versione `1`: un bundle che non le contiene viene letto con liste vuote, senza warning.
 
 ## Campi per tipo
 
-Ogni record ha un `id` stringa non vuota. Gli id sono `wiki.slug`, `news.slug`, `history.slug`, `code.bip.<numero>`, `release.<project>.<version>`, `glossary.<slug>`, `reference.<slug>`, `quote.<slug>`, `path.<slug>` e `product.<slug>`.
+Ogni record ha un `id` stringa non vuota. Gli id sono `wiki.slug`, `news.slug`, `history.slug`, `code.bip.<numero>`, `release.<project>.<version>`, `glossary.<slug>`, `reference.<slug>`, `quote.<slug>`, `path.<slug>`, `product.<slug>` e `library.<slug>`.
 
 Sotto: campi che il parser richiede (obbligatori) e campi opzionali. Un record con un campo obbligatorio mancante o non valido viene saltato con warning; non blocca il bundle.
 
@@ -46,6 +46,7 @@ Sotto: campi che il parser richiede (obbligatori) e campi opzionali. Un record c
 | `Quote` (collezione `quotes`) | `id`, `slug`, `text`, `author`, `date`, `sourceTitle`, `sourceUrl`, `updatedAt` | `language`, `originalText`, `topics`, `related` |
 | `LearningPath` (collezione `paths`) | `id`, `slug`, `title`, `description`, `estimatedMinutes`, `steps`, `updatedAt` | `language` |
 | `Product` (collezione `products`) | `id`, `slug`, `name`, `summary`, `bodyMarkdown`, `category`, `subcategory`, `maker`, `website`, `openSource`, `status`, `reviewedAt`, `updatedAt` | `language`, `sourceUrl`, `license`, `platforms`, `sources`, `related` |
+| `LibraryWork` (collezione `library`) | `id`, `slug`, `title`, `author`, `year`, `summary`, `introduction`, `originalLanguage`, `kind`, `url`, `licenseNote`, `updatedAt` | `language`, `topics`, `archiveUrl`, `sources`, `related`, `reviewedAt` |
 
 Tipi e formati letti dal parser:
 
@@ -325,7 +326,7 @@ Per proteggere un testo revisionato dalla rigenerazione: portare `needsReview` a
 
 ## Collezioni opzionali
 
-Cinque collezioni top-level sono aggiunte allo schema versione `1`: `glossary`, `references`, `quotes`, `paths` e `products`. Sono opzionali: un bundle senza queste chiavi viene letto con liste vuote e senza warning. Un record malformato viene saltato con warning, come per wiki e history; i campi extra sono ignorati. Nessuna schermata le legge ancora: il parser, lo store (`ContentStore`) e il validatore le conoscono, l'app non le mostra.
+Sei collezioni top-level sono aggiunte allo schema versione `1`: `glossary`, `references`, `quotes`, `paths`, `products` e `library`. Sono opzionali: un bundle senza queste chiavi viene letto con liste vuote e senza warning. Un record malformato viene saltato con warning, come per wiki e history; i campi extra sono ignorati. Nessuna schermata le legge ancora: il parser, lo store (`ContentStore`) e il validatore le conoscono, l'app non le mostra.
 
 Regole comuni:
 
@@ -514,6 +515,54 @@ Software o hardware descritto per la sezione prodotti. `reviewedAt` e obbligator
 
 `ProductStatus` ha solo questi due valori: il parser non accetta alias.
 
+### LibraryWork
+
+Biblioteca: una fonte primaria o un testo classico, con una nostra introduzione. L'app non contiene il testo integrale dell'opera: il record rimanda all'opera sul sito dell'autore o dell'editore, o su un archivio stabile. Il testo integrale non va incluso nel bundle, a meno che la licenza dell'opera lo consenta e il diritto di riuso sia stato verificato per quella specifica opera.
+
+```json
+{
+  "id": "library.blind-signatures",
+  "slug": "blind-signatures",
+  "language": "en",
+  "title": "Blind Signatures for Untraceable Payments",
+  "author": "David Chaum",
+  "year": 1982,
+  "summary": "The paper that introduced blind signatures for payments.",
+  "introduction": "Our own introduction in Markdown, 80 to 150 words.",
+  "originalLanguage": "en",
+  "kind": "paper",
+  "topics": ["cryptography", "digital cash", "privacy"],
+  "url": "https://example.com/chaum-1982",
+  "archiveUrl": "https://web.archive.org/web/2026/https://example.com/chaum-1982",
+  "licenseNote": "No license stated; linked, not reproduced",
+  "sources": [],
+  "related": ["history.hashcash"],
+  "updatedAt": "2026-06-20T00:00:00Z",
+  "reviewedAt": "2026-06-20"
+}
+```
+
+| Campo | Obbligatorio | Regola |
+|---|---|---|
+| `id` | si | `library.<slug>` |
+| `slug` | si | stringa non vuota |
+| `title` | si | titolo originale dell'opera |
+| `author` | si | autore (o autori) dell'opera |
+| `year` | si | intero tra 1900 e l'anno corrente; il validatore segnala un errore fuori intervallo |
+| `summary` | si | una frase |
+| `introduction` | si | nostro testo in Markdown, da 80 a 150 parole |
+| `originalLanguage` | si | codice ISO della lingua originale, per esempio `en` |
+| `kind` | si | `paper`, `essay`, `post`, `email`, `book` o `manifesto`; un valore diverso viene conservato così com'è |
+| `topics` | no | lista di stringhe |
+| `url` | si | URI assoluto `http` o `https` verso l'opera sul sito dell'autore, dell'editore o su un archivio stabile |
+| `archiveUrl` | no | URI assoluto `http` o `https`, copia di archivio |
+| `licenseNote` | si | stringa non vuota: cosa si sa dei diritti di riuso, in una frase |
+| `sources`, `related` | no | come negli altri record |
+| `updatedAt` | si | data ISO |
+| `reviewedAt` | no | data ISO, vedi sopra |
+
+`listLibraryWorksByAuthor` e `listLibraryWorksByTopic` confrontano autore e argomento senza distinguere maiuscole e minuscole.
+
 ### Validazione delle collezioni opzionali
 
 Il validatore (`tool/validate_content.dart`) segnala come errori:
@@ -522,14 +571,15 @@ Il validatore (`tool/validate_content.dart`) segnala come errori:
 - `reviewedAt` malformato su qualunque record, o mancante su un `Product`;
 - una chiave di `cells` che non e una colonna dichiarata;
 - un `link` di riga, un `related` o un `steps.id` di un percorso che non corrisponde a nessun record;
-- `sourceUrl` di una citazione, o `website` e `sourceUrl` di un prodotto, che non sono URL assoluti `http` o `https`.
+- `sourceUrl` di una citazione, o `website` e `sourceUrl` di un prodotto, che non sono URL assoluti `http` o `https`;
+- `url` o `archiveUrl` di un'opera della biblioteca che non sono URL assoluti `http` o `https`, un `year` non intero o fuori dall'intervallo 1900 - anno corrente, un `licenseNote` vuoto.
 
 Segnala come warning:
 
 - un `Product` la cui `reviewedAt` e piu vecchia di 365 giorni rispetto alla data di validazione;
 - un `Product` con `subcategory` non documentata.
 
-Il riepilogo finale riporta anche i conteggi `glossary=`, `references=`, `quotes=`, `paths=` e `products=`.
+Il riepilogo finale riporta anche i conteggi `glossary=`, `references=`, `quotes=`, `paths=`, `products=` e `library=`.
 
 ## Differenze note
 

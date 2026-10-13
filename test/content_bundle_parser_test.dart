@@ -504,6 +504,69 @@ void main() {
     });
   });
 
+  group('library', () {
+    test('parses a work with its optional fields', () {
+      final result = ContentBundleParser.parseJson(
+        _bundleJson(library: [_libraryRecord()]),
+      );
+
+      expect(result.warnings, isEmpty);
+      final work = result.bundle.library.single;
+      expect(work.id, 'library.blind-signatures');
+      expect(work.title, 'Blind Signatures for Untraceable Payments');
+      expect(work.year, 1982);
+      expect(work.url, Uri.parse('https://example.com/chaum-1982'));
+      expect(work.archiveUrl, isNotNull);
+      expect(work.topics, ['cryptography', 'digital cash']);
+      expect(work.related.single.id, 'history.hashcash');
+      expect(work.reviewedAt, DateTime(2026, 6, 20));
+      expect(work.language, 'en');
+    });
+
+    test('an unknown kind is kept as it is', () {
+      final result = ContentBundleParser.parseJson(
+        _bundleJson(library: [_libraryRecord(kind: 'thread')]),
+      );
+
+      expect(result.warnings, isEmpty);
+      expect(result.bundle.library.single.kind, 'thread');
+    });
+
+    test('bundle without the library key has an empty list', () {
+      final result = ContentBundleParser.parseJson(_bundleJson());
+
+      expect(result.warnings, isEmpty);
+      expect(result.bundle.library, isEmpty);
+    });
+
+    test('a record without licenseNote is skipped with a warning', () {
+      final result = ContentBundleParser.parseJson(
+        _bundleJson(library: [_libraryRecord(licenseNote: null)]),
+      );
+
+      expect(result.bundle.library, isEmpty);
+      expect(result.warnings.single.path, contains('library'));
+    });
+
+    test('a non-integer year is skipped with a warning', () {
+      final result = ContentBundleParser.parseJson(
+        _bundleJson(library: [_libraryRecord(year: '1982')]),
+      );
+
+      expect(result.bundle.library, isEmpty);
+      expect(result.warnings.single.message, contains('year'));
+    });
+
+    test('a relative url is skipped with a warning', () {
+      final result = ContentBundleParser.parseJson(
+        _bundleJson(library: [_libraryRecord(url: 'chaum-1982')]),
+      );
+
+      expect(result.bundle.library, isEmpty);
+      expect(result.warnings.single.message, contains('url'));
+    });
+  });
+
   test('unsupported future schema is fatal', () {
     const json = '''
 {
@@ -535,6 +598,7 @@ String _bundleJson({
   Object? quotes,
   Object? paths,
   Object? products,
+  Object? library,
 }) {
   return jsonEncode({
     'schemaVersion': 1,
@@ -551,7 +615,36 @@ String _bundleJson({
     if (quotes != null) 'quotes': quotes,
     if (paths != null) 'paths': paths,
     if (products != null) 'products': products,
+    if (library != null) 'library': library,
   });
+}
+
+Map<String, Object?> _libraryRecord({
+  String id = 'library.blind-signatures',
+  Object? year = 1982,
+  Object? url = 'https://example.com/chaum-1982',
+  Object? licenseNote = 'No license stated; linked, not reproduced',
+  Object? kind = 'paper',
+}) {
+  return {
+    'id': id,
+    'slug': 'blind-signatures',
+    'title': 'Blind Signatures for Untraceable Payments',
+    'author': 'David Chaum',
+    'year': year,
+    'summary': 'The paper that introduced blind signatures for payments.',
+    'introduction': 'Our introduction.',
+    'originalLanguage': 'en',
+    'kind': kind,
+    'topics': <Object?>['cryptography', 'digital cash'],
+    'url': url,
+    'archiveUrl': 'https://web.archive.org/web/2026/https://example.com/chaum',
+    'licenseNote': licenseNote,
+    'sources': <Object?>[],
+    'related': <Object?>['history.hashcash'],
+    'updatedAt': '2026-06-20T00:00:00Z',
+    'reviewedAt': '2026-06-20',
+  };
 }
 
 Map<String, Object?> _productRecord({

@@ -186,4 +186,30 @@ final class ContentStore
         )
         .firstOrNull;
   }
+
+  Future<List<LibraryWork>> listLibraryWorks() async => bundle.library;
+
+  Future<LibraryWork?> findLibraryWorkById(String id) async {
+    return bundle.library.where((work) => work.id == id).firstOrNull;
+  }
+
+  /// Works by [author], ignoring case and surrounding spaces.
+  Future<List<LibraryWork>> listLibraryWorksByAuthor(String author) async {
+    final needle = author.trim().toLowerCase();
+
+    return bundle.library
+        .where((work) => work.author.toLowerCase() == needle)
+        .toList(growable: false);
+  }
+
+  /// Works tagged with [topic], ignoring case and surrounding spaces.
+  Future<List<LibraryWork>> listLibraryWorksByTopic(String topic) async {
+    final needle = topic.trim().toLowerCase();
+
+    return bundle.library
+        .where(
+          (work) => work.topics.any((item) => item.toLowerCase() == needle),
+        )
+        .toList(growable: false);
+  }
 }

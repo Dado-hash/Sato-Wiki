@@ -225,4 +225,69 @@ void main() {
       expect(await empty.findGlossaryTerm('utxo'), isNull);
     });
   });
+
+  group('library store methods', () {
+    Map<String, Object?> work(String slug, String author, List<String> topics) {
+      return {
+        'id': 'library.$slug',
+        'slug': slug,
+        'language': 'en',
+        'title': 'Title $slug',
+        'author': author,
+        'year': 1990,
+        'summary': 'Summary.',
+        'introduction': 'Introduction.',
+        'originalLanguage': 'en',
+        'kind': 'paper',
+        'topics': topics,
+        'url': 'https://example.com/$slug',
+        'licenseNote': 'No license stated; linked, not reproduced',
+        'sources': <Object?>[],
+        'related': <Object?>[],
+        'updatedAt': '2026-06-20T00:00:00Z',
+      };
+    }
+
+    final store = storeFrom({
+      'library': [
+        work('chaum', 'David Chaum', ['cryptography', 'digital cash']),
+        work('merkle', 'Ralph Merkle', ['cryptography']),
+        work('szabo', 'Nick Szabo', ['money']),
+      ],
+    });
+
+    test('lists works and finds one by id', () async {
+      expect(await store.listLibraryWorks(), hasLength(3));
+      expect(
+        (await store.findLibraryWorkById('library.merkle'))?.author,
+        'Ralph Merkle',
+      );
+      expect(await store.findLibraryWorkById('library.none'), isNull);
+    });
+
+    test('filters works by author, ignoring case and spaces', () async {
+      final chaum = await store.listLibraryWorksByAuthor('  david CHAUM ');
+
+      expect(chaum.map((work) => work.id), ['library.chaum']);
+      expect(await store.listLibraryWorksByAuthor('Hal Finney'), isEmpty);
+    });
+
+    test('filters works by topic, ignoring case', () async {
+      final crypto = await store.listLibraryWorksByTopic('Cryptography');
+
+      expect(crypto.map((work) => work.id), [
+        'library.chaum',
+        'library.merkle',
+      ]);
+      expect(await store.listLibraryWorksByTopic('lightning'), isEmpty);
+    });
+
+    test('empty collection gives empty lists and no matches', () async {
+      final empty = storeFrom({});
+
+      expect(await empty.listLibraryWorks(), isEmpty);
+      expect(await empty.findLibraryWorkById('library.chaum'), isNull);
+      expect(await empty.listLibraryWorksByTopic('money'), isEmpty);
+    });
+  });
 }

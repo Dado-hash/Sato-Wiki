@@ -18,6 +18,7 @@ const _recordCollections = [
   'quotes',
   'paths',
   'products',
+  'library',
 ];
 // Optional collections (schema version 1) and the id prefix each one requires.
 const _idPrefixes = {
@@ -26,12 +27,15 @@ const _idPrefixes = {
   'quotes': 'quote.',
   'paths': 'path.',
   'products': 'product.',
+  'library': 'library.',
 };
 // Fields that must be absolute http(s) URLs when present.
 const _httpUrlFields = {
   'quotes': ['sourceUrl'],
   'products': ['website', 'sourceUrl'],
+  'library': ['url', 'archiveUrl'],
 };
+const _libraryFirstYear = 1900;
 // Subcategories documented in docs/content-model.md ("Sottocategorie wiki").
 const _documentedSubcategories = {
   'nodes',
@@ -134,6 +138,7 @@ ContentValidationResult validateContentBundle(String path, {DateTime? today}) {
         'quotes=${bundle.quotes.length} '
         'paths=${bundle.paths.length} '
         'products=${bundle.products.length} '
+        'library=${bundle.library.length} '
         'media=$mediaCount',
   );
 }
@@ -198,6 +203,9 @@ void _checkRecords(
       if (collection == 'products') {
         _checkProductReview(record, where, today, errors, warnings);
       }
+      if (collection == 'library') {
+        _checkLibraryWork(record, where, today, errors);
+      }
       if (_needsReview(record)) {
         warnings.add('$where: automation.needsReview is true.');
       }
@@ -251,6 +259,28 @@ void _checkWikiSubcategory(
   if (needsSubcategory &&
       (subcategory is! String || subcategory.trim().isEmpty)) {
     warnings.add('$where: category $category has no subcategory.');
+  }
+}
+
+void _checkLibraryWork(
+  Map<String, Object?> record,
+  String where,
+  DateTime today,
+  List<String> errors,
+) {
+  final year = record['year'];
+  if (year is! int) {
+    errors.add('$where: year must be an integer.');
+  } else if (year < _libraryFirstYear || year > today.year) {
+    errors.add(
+      '$where: year $year must be between $_libraryFirstYear and '
+      '${today.year}.',
+    );
+  }
+
+  final licenseNote = record['licenseNote'];
+  if (licenseNote is! String || licenseNote.trim().isEmpty) {
+    errors.add('$where: licenseNote must be a non-empty string.');
   }
 }
 

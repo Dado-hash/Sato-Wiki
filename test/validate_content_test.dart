@@ -528,6 +528,87 @@ void main() {
     });
   });
 
+  group('library', () {
+    test('valid work passes and is counted in the summary', () {
+      final path = writeBundle(_bundle(library: [_libraryRecord()]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors, isEmpty);
+      expect(result.warnings, isEmpty);
+      expect(result.summary, contains('library=1'));
+    });
+
+    test('url that is not http(s) fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(url: 'ftp://example.com/chaum')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('url must be an absolute'));
+    });
+
+    test('archiveUrl that is not http(s) fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(archiveUrl: 'archive.org/x')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('archiveUrl must be an absolute'));
+    });
+
+    test('year before 1900 fails', () {
+      final path = writeBundle(_bundle(library: [_libraryRecord(year: 1899)]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('year 1899 must be between'));
+    });
+
+    test('year after the current year fails', () {
+      final path = writeBundle(_bundle(library: [_libraryRecord(year: 2027)]));
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('year 2027 must be between'));
+    });
+
+    test('non-integer year fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(year: 1982.5)]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('year must be an integer'));
+    });
+
+    test('blank licenseNote fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(licenseNote: '  ')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(
+        result.errors,
+        contains(contains('licenseNote must be a non-empty string')),
+      );
+    });
+
+    test('id without the library prefix fails', () {
+      final path = writeBundle(
+        _bundle(library: [_libraryRecord(id: 'quote.blind-signatures')]),
+      );
+
+      final result = validateContentBundle(path, today: _validationDay);
+
+      expect(result.errors.single, contains('must start with library.'));
+    });
+  });
+
   test('missing bundle fails', () {
     final result = validateContentBundle('${tempDir.path}/absent.json');
 
@@ -561,6 +642,7 @@ Map<String, Object?> _bundle({
   List<Map<String, Object?>> quotes = const [],
   List<Map<String, Object?>> paths = const [],
   List<Map<String, Object?>> products = const [],
+  List<Map<String, Object?>> library = const [],
 }) {
   return {
     'schemaVersion': 1,
@@ -577,6 +659,35 @@ Map<String, Object?> _bundle({
     'quotes': quotes,
     'paths': paths,
     'products': products,
+    'library': library,
+  };
+}
+
+Map<String, Object?> _libraryRecord({
+  String id = 'library.blind-signatures',
+  Object? year = 1982,
+  String url = 'https://example.com/chaum-1982',
+  String archiveUrl = 'https://web.archive.org/web/2026/https://example.com',
+  Object? licenseNote = 'No license stated; linked, not reproduced',
+}) {
+  return {
+    'id': id,
+    'slug': 'blind-signatures',
+    'language': 'en',
+    'title': 'Blind Signatures for Untraceable Payments',
+    'author': 'David Chaum',
+    'year': year,
+    'summary': 'The paper that introduced blind signatures for payments.',
+    'introduction': 'Our introduction.',
+    'originalLanguage': 'en',
+    'kind': 'paper',
+    'topics': <Object?>['cryptography'],
+    'url': url,
+    'archiveUrl': archiveUrl,
+    'licenseNote': licenseNote,
+    'sources': <Object?>[],
+    'related': <Object?>[],
+    'updatedAt': '2026-06-20T00:00:00Z',
   };
 }
 

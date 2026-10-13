@@ -18,6 +18,7 @@ final class ContentBundle {
     this.quotes = const [],
     this.paths = const [],
     this.products = const [],
+    this.library = const [],
   });
 
   final int schemaVersion;
@@ -37,6 +38,9 @@ final class ContentBundle {
   final List<Quote> quotes;
   final List<LearningPath> paths;
   final List<Product> products;
+
+  /// Optional, like the collections above.
+  final List<LibraryWork> library;
 }
 
 final class SourceReference {
@@ -467,6 +471,57 @@ final class ReferenceTable {
   final String description;
   final List<ReferenceColumn> columns;
   final List<ReferenceRow> rows;
+  final List<SourceReference> sources;
+  final List<RelatedContentLink> related;
+  final DateTime updatedAt;
+  final DateTime? reviewedAt;
+}
+
+/// A primary source or classic text, with our own introduction. The full
+/// text is not part of the bundle.
+final class LibraryWork {
+  const LibraryWork({
+    required this.id,
+    required this.slug,
+    required this.language,
+    required this.title,
+    required this.author,
+    required this.year,
+    required this.summary,
+    required this.introduction,
+    required this.originalLanguage,
+    required this.kind,
+    required this.url,
+    required this.licenseNote,
+    required this.sources,
+    required this.related,
+    required this.updatedAt,
+    this.topics = const [],
+    this.archiveUrl,
+    this.reviewedAt,
+  });
+
+  final String id;
+  final String slug;
+  final String language;
+
+  /// Original title of the work.
+  final String title;
+  final String author;
+  final int year;
+  final String summary;
+
+  /// Our own text, Markdown.
+  final String introduction;
+  final String originalLanguage;
+
+  /// One of paper, essay, post, email, book, manifesto. Unknown values are
+  /// kept as they are.
+  final String kind;
+  final List<String> topics;
+  final Uri url;
+  final Uri? archiveUrl;
+  final String licenseNote;
   final List<SourceReference> sources;
   final List<RelatedContentLink> related;
   final DateTime updatedAt;

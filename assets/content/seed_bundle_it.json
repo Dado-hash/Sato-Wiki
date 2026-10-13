@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.170000",
+  "version": "2026.10.13.173000",
   "language": "it",
-  "generatedAt": "2026-10-13T17:00:00.000000Z",
+  "generatedAt": "2026-10-13T17:30:00.000000Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -24590,6 +24590,607 @@
         }
       ],
       "updatedAt": "2026-10-13T00:00:00Z"
+    }
+  ],
+  "library": [
+    {
+      "id": "library.blind-signatures",
+      "slug": "blind-signatures",
+      "language": "it",
+      "title": "Blind Signatures for Untraceable Payments",
+      "author": "David Chaum",
+      "year": 1982,
+      "summary": "Il primo articolo sulle firme cieche, che permettono di certificare un messaggio senza vederne il contenuto.",
+      "introduction": "Questo articolo del 1982, presentato alla conferenza CRYPTO, introduce le firme cieche: un modo per certificare un messaggio senza conoscerne il contenuto. Chaum mostra come una banca possa firmare monete digitali che il cliente ha reso cieche in anticipo, così che le monete possano essere spese in seguito senza che la banca riesca a collegare ogni pagamento al prelievo che lo ha generato. È il primo passo verso un contante digitale che tutela la privacy di chi paga. Bitcoin non usa firme cieche e il suo registro è pubblico, quindi il suo modello di privacy è diverso. Il testo resta un riferimento per i lavori successivi sul denaro elettronico che unisce le garanzie di una banca all'anonimato dell'utente.",
+      "originalLanguage": "en",
+      "kind": "paper",
+      "topics": [
+        "crittografia",
+        "contante digitale",
+        "privacy"
+      ],
+      "url": "https://doi.org/10.1007/978-1-4757-0602-4_18",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Blind Signatures for Untraceable Payments",
+          "url": "https://nakamotoinstitute.org/library/blind-signatures",
+          "author": "David Chaum"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        },
+        {
+          "id": "history.cypherpunk-manifesto",
+          "title": "Pubblicato il Manifesto Cypherpunk"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.protocols-public-key-cryptosystems",
+      "slug": "protocols-public-key-cryptosystems",
+      "language": "it",
+      "title": "Protocols for Public Key Cryptosystems",
+      "author": "Ralph C. Merkle",
+      "year": 1980,
+      "summary": "L'articolo del 1980 di Ralph Merkle sui protocolli di crittografia a chiave pubblica, da cui deriva l'idea dell'albero di hash oggi chiamato albero di Merkle.",
+      "introduction": "L'articolo di Ralph Merkle, pubblicato negli atti del simposio IEEE su sicurezza e privacy del 1980, raccoglie protocolli costruiti sulla crittografia a chiave pubblica. Il suo contributo più noto per Bitcoin è la struttura ad albero di hash, oggi detta albero di Merkle, che permette di verificare che un valore appartiene a un insieme confrontandolo con una sola radice corta. Bitcoin usa gli alberi di Merkle per riassumere le transazioni di ogni blocco, così un client leggero può verificare che una transazione sia inclusa senza scaricare l'intero blocco. Il white paper di Bitcoin cita questo lavoro. Il testo è tecnico, quindi conviene leggerlo dopo una prima introduzione alle funzioni di hash e alle firme a chiave pubblica.",
+      "originalLanguage": "en",
+      "kind": "paper",
+      "topics": [
+        "crittografia"
+      ],
+      "url": "https://nakamotoinstitute.org/library/public-key-cryptosystems",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (reference list, item 7)",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.merkle-trees",
+          "title": "Merkle Trees"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.time-stamp-digital-document",
+      "slug": "time-stamp-digital-document",
+      "language": "it",
+      "title": "How to Time-Stamp a Digital Document",
+      "author": "Stuart Haber and W. Scott Stornetta",
+      "year": 1991,
+      "summary": "L'articolo del 1991 che propone una marcatura temporale pratica dei documenti digitali, con una catena di hash che impedisce di retrodatarli.",
+      "introduction": "Pubblicato nel 1991 sul Journal of Cryptology, questo articolo di due ricercatori di Bellcore chiede come dimostrare quando un documento digitale è stato creato o modificato per l'ultima volta. La risposta è una procedura pratica di marcatura temporale: i documenti vengono sottoposti a hash e gli hash vengono collegati in una catena, così che un utente non può retrodatare o anticipare un documento, nemmeno con la collaborazione del servizio che appone la marca. I documenti restano riservati, perché si registrano solo le loro impronte. Il white paper di Bitcoin cita questo lavoro. Bitcoin si basa su un principio simile, dato che ogni blocco contiene l'hash del blocco precedente, e questo rende costosa la riscrittura della storia del registro.",
+      "originalLanguage": "en",
+      "kind": "paper",
+      "topics": [
+        "marcatura temporale",
+        "crittografia"
+      ],
+      "url": "https://doi.org/10.1007/BF00196791",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "How to Time-Stamp a Digital Document (PDF copy)",
+          "url": "https://www.gwern.net/doc/bitcoin/1991-haber.pdf",
+          "author": "Stuart Haber and W. Scott Stornetta"
+        },
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (reference list, item 3)",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.blockchain",
+          "title": "Blockchain"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.crypto-anarchist-manifesto",
+      "slug": "crypto-anarchist-manifesto",
+      "language": "it",
+      "title": "The Crypto Anarchist Manifesto",
+      "author": "Timothy C. May",
+      "year": 1988,
+      "summary": "Il manifesto del 1988 di Timothy May sull'anarchia crittografica, una comunità di transazioni private e non tracciabili fuori dal controllo dello Stato.",
+      "introduction": "Timothy May scrisse questo testo nel 1988, e circolò per qualche tempo tra un piccolo gruppo di tecnologi prima che la mailing list cypherpunk lo pubblicasse nel 1992. Descrive un'anarchia crittografica: una comunità in cui la cifratura e le transazioni digitali non tracciabili permettono alle persone di scambiare e collaborare senza che lo Stato possa fermarle. Secondo May, queste comunità sarebbero molto difficili da reprimere e i mercati basati su denaro non tracciabile sposterebbero il potere dai governi agli individui. Il testo è una dichiarazione fondativa del movimento cypherpunk. Non descrive un sistema specifico, ma gli obiettivi che enuncia sono vicini a quelli che i progetti di contante digitale, e poi Bitcoin, hanno perseguito in pratica.",
+      "originalLanguage": "en",
+      "kind": "manifesto",
+      "topics": [
+        "crittografia",
+        "contante digitale",
+        "privacy"
+      ],
+      "url": "https://www.activism.net/cypherpunk/crypto-anarchy.html",
+      "archiveUrl": "https://web.archive.org/web/2026/https://www.activism.net/cypherpunk/crypto-anarchy.html",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "The Crypto Anarchist Manifesto (archived copy)",
+          "url": "https://web.archive.org/web/2026/https://www.activism.net/cypherpunk/crypto-anarchy.html",
+          "author": "Timothy C. May"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.cypherpunk-manifesto",
+          "title": "Pubblicato il Manifesto Cypherpunk"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.cypherpunks-manifesto",
+      "slug": "cypherpunks-manifesto",
+      "language": "it",
+      "title": "A Cypherpunk's Manifesto",
+      "author": "Eric Hughes",
+      "year": 1993,
+      "summary": "Il manifesto del 1993 di Eric Hughes, secondo cui la privacy è necessaria a una società aperta nell'era elettronica.",
+      "introduction": "Eric Hughes scrisse questo breve manifesto nel 1993. La sua tesi centrale è che la privacy è necessaria a una società aperta nell'era elettronica, e che privacy non significa segretezza: è il potere di scegliere che cosa rivelare e a chi. Secondo Hughes le persone devono proteggersi con la crittografia e con altri strumenti, perché non lo faranno per loro le istituzioni. Il testo è uno dei documenti fondativi del movimento cypherpunk, i cui membri discutevano molte delle idee che poi sono confluite nel contante digitale e in Bitcoin. Il manifesto non descrive Bitcoin, che arrivò molto più tardi, ma enuncia i valori di privacy che hanno dato forma alla comunità intorno al progetto.",
+      "originalLanguage": "en",
+      "kind": "manifesto",
+      "topics": [
+        "privacy",
+        "crittografia"
+      ],
+      "url": "https://www.activism.net/cypherpunk/manifesto.html",
+      "archiveUrl": "https://web.archive.org/web/2026/https://www.activism.net/cypherpunk/manifesto.html",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "A Cypherpunk's Manifesto (archived copy)",
+          "url": "https://web.archive.org/web/2026/https://www.activism.net/cypherpunk/manifesto.html",
+          "author": "Eric Hughes"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.cypherpunk-manifesto",
+          "title": "Pubblicato il Manifesto Cypherpunk"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.hashcash",
+      "slug": "hashcash",
+      "language": "it",
+      "title": "Hashcash - A Denial of Service Counter-Measure",
+      "author": "Adam Back",
+      "year": 2002,
+      "summary": "L'articolo del 2002 di Adam Back su hashcash, un token di proof of work che rende costoso lo spam di massa per chi lo invia.",
+      "introduction": "L'articolo di Adam Back del 2002 raccoglie il lavoro su hashcash, una funzione di costo proposta per la prima volta nel 1997 per limitare l'abuso di risorse gratuite di internet come la posta elettronica e i remailer anonimi. Chi invia deve calcolare un token difficile da produrre ma facile da verificare, così che l'invio in massa richieda un vero sforzo di calcolo. L'articolo descrive versioni interattive e non interattive dello schema e riporta le prime sperimentazioni. Il token è una proof of work nel senso che Bitcoin ha usato in seguito, dove i miner devono trovare un hash di blocco al di sotto di un obiettivo. Il white paper di Bitcoin cita questo lavoro. È una buona prima lettura per capire perché la proof of work sia stata attraente come modo per rendere costosa un'azione abusiva.",
+      "originalLanguage": "en",
+      "kind": "paper",
+      "topics": [
+        "proof of work"
+      ],
+      "url": "http://www.hashcash.org/papers/hashcash.pdf",
+      "archiveUrl": "https://web.archive.org/web/2026/http://www.hashcash.org/papers/hashcash.pdf",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (reference list, item 6)",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.hashcash",
+          "title": "Hashcash proposto sulla mailing list cypherpunk"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.b-money",
+      "slug": "b-money",
+      "language": "it",
+      "title": "b-money",
+      "author": "Wei Dai",
+      "year": 1998,
+      "summary": "La proposta del 1998 di Wei Dai per un denaro digitale anonimo, in cui le nuove unità nascono dalla soluzione di problemi di calcolo.",
+      "introduction": "Wei Dai pubblicò questa breve proposta sul suo sito personale, e il white paper di Bitcoin la cita nella sua bibliografia con l'anno 1998. Descrive un sistema di denaro digitale anonimo in cui chiunque crea nuovo denaro diffondendo la soluzione di un problema di calcolo, e in cui dei server depositano denaro come garanzia contro multe o ricompense per comportamenti scorretti. I partecipanti tengono i registri di chi possiede che cosa, quindi non serve fidarsi di una banca. Il testo è breve e somiglia più a una nota di progetto che a un protocollo completo. Bitcoin condivide l'obiettivo di un denaro i cui registri sono tenuti dagli utenti e le cui nuove unità nascono dal lavoro di calcolo, anche se i dettagli sono diversi.",
+      "originalLanguage": "en",
+      "kind": "essay",
+      "topics": [
+        "contante digitale",
+        "moneta"
+      ],
+      "url": "http://www.weidai.com/bmoney.txt",
+      "archiveUrl": "https://web.archive.org/web/2026/http://www.weidai.com/bmoney.txt",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (reference list, item 1)",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.b-money",
+          "title": "Wei Dai descrive b-money"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.shelling-out",
+      "slug": "shelling-out",
+      "language": "it",
+      "title": "Shelling Out: The Origins of Money",
+      "author": "Nick Szabo",
+      "year": 2002,
+      "summary": "Il saggio del 2002 di Nick Szabo su come il denaro possa essere nato dal modo in cui i primi esseri umani cooperavano e risolvevano problemi di fiducia.",
+      "introduction": "Il saggio di Nick Szabo, pubblicato per la prima volta nel 2002, ricostruisce come il denaro possa essere emerso dal modo in cui i primi esseri umani cooperavano e risolvevano problemi di fiducia. Szabo considera il denaro una tecnologia sociale, le cui proprietà dipendono da ciò che le persone possono verificare e da ciò di cui devono fidarsi negli altri. Il saggio è una lunga argomentazione storica più che un protocollo tecnico. Il suo interesse per Bitcoin sta nel mostrare perché il denaro abbia bisogno di una riserva di valore durevole e verificabile e di un modo per mantenere onesti i suoi registri. È un utile sfondo alle idee di sound money e di contante digitale che attraversano la storia di Bitcoin.",
+      "originalLanguage": "en",
+      "kind": "essay",
+      "topics": [
+        "moneta"
+      ],
+      "url": "https://nakamotoinstitute.org/shelling-out/",
+      "licenseNote": "Copyright di Nick Szabo; il testo concede il permesso di ridistribuirlo senza modifiche.",
+      "sources": [
+        {
+          "title": "Shelling Out: The Origins of Money (Nakamoto Institute)",
+          "url": "https://nakamotoinstitute.org/shelling-out/",
+          "author": "Nick Szabo"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.sound-money",
+          "title": "Moneta Solida"
+        },
+        {
+          "id": "history.bit-gold",
+          "title": "Nick Szabo pubblica Bit Gold"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.trusted-third-parties-are-security-holes",
+      "slug": "trusted-third-parties-are-security-holes",
+      "language": "it",
+      "title": "Trusted Third Parties Are Security Holes",
+      "author": "Nick Szabo",
+      "year": 2001,
+      "summary": "Il saggio del 2001 di Nick Szabo, secondo cui ogni terza parte fidata è un punto debole in un progetto di sicurezza.",
+      "introduction": "Il saggio di Nick Szabo, pubblicato per la prima volta nel 2001, sostiene che una terza parte fidata è un punto debole in un progetto di sicurezza: più un sistema dipende da un intermediario di cui occorre fidarsi, più sono i modi in cui può guastarsi o essere abusato. Szabo usa esempi tratti dalle autorità di certificazione e dalla gestione delle chiavi per mostrare dove si aprono questi varchi. Il saggio non descrive Bitcoin, ma enuncia un principio che Bitcoin applica ai pagamenti: convalidare le transazioni con regole pubbliche e prove computazionali, invece di fidarsi di una banca o di un operatore centrale. È un utile sfondo per capire perché il progetto di Bitcoin evita gli intermediari, ed è breve e scritto per un pubblico tecnico.",
+      "originalLanguage": "en",
+      "kind": "essay",
+      "topics": [
+        "crittografia"
+      ],
+      "url": "https://nakamotoinstitute.org/trusted-third-parties/",
+      "licenseNote": "Copyright di Nick Szabo; il testo concede il permesso di ridistribuirlo senza modifiche.",
+      "sources": [
+        {
+          "title": "Trusted Third Parties are Security Holes (Nakamoto Institute)",
+          "url": "https://nakamotoinstitute.org/trusted-third-parties/",
+          "author": "Nick Szabo"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.bit-gold",
+      "slug": "bit-gold",
+      "language": "it",
+      "title": "Bit gold",
+      "author": "Nick Szabo",
+      "year": 2005,
+      "summary": "La proposta del 2005 di Nick Szabo per il bit gold, un bene digitale al portatore creato risolvendo enigmi e concatenato ai token precedenti.",
+      "introduction": "In questo saggio del 2005 Nick Szabo descrive il bit gold, un bene digitale al portatore. L'idea è che i partecipanti creino token scarsi risolvendo enigmi computazionali, e poi colleghino ogni token a quelli precedenti, così che la registrazione della proprietà sia pubblica e difficile da falsificare. Szabo lo presenta come un modo per costruire una riserva di valore digitale che non dipenda da un emittente centrale. Il saggio descrive un progetto, non un sistema compiuto. Combinando proof of work, una catena pubblica di registrazioni e l'assenza di un'autorità centrale, il bit gold viene spesso confrontato con Bitcoin, ed è un testo utile per capire come queste idee fossero discusse prima del 2008.",
+      "originalLanguage": "en",
+      "kind": "essay",
+      "topics": [
+        "contante digitale",
+        "moneta"
+      ],
+      "url": "https://nakamotoinstitute.org/bit-gold/",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Bit Gold (Nakamoto Institute)",
+          "url": "https://nakamotoinstitute.org/bit-gold/",
+          "author": "Nick Szabo"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bit-gold",
+          "title": "Nick Szabo pubblica Bit Gold"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.rpow",
+      "slug": "rpow",
+      "language": "it",
+      "title": "RPOW - Reusable Proofs of Work",
+      "author": "Hal Finney",
+      "year": 2004,
+      "summary": "L'email del 2004 di Hal Finney sulle proof of work riutilizzabili, emesse e verificate da un server in modo che il token possa passare di mano.",
+      "introduction": "L'email di Hal Finney del 2004, inviata alla mailing list cypherpunk, propone proof of work riutilizzabili. Una proof of work è un token che costa calcolo per essere creato. Nella proposta di Finney un server emette il token e lo verifica, così che il token possa passare da un utente all'altro invece di essere speso una sola volta. L'idea affronta un limite pratico dello schema di base, in cui la proof of work si consuma al primo uso. Bitcoin usa la proof of work per proteggere il proprio registro e non per emettere token riutilizzabili, ma l'approccio alla scarsità basato sul costo è presente in entrambi. L'email è una breve nota di progetto e mostra un primo tentativo di far valere il lavoro computazionale come valore.",
+      "originalLanguage": "en",
+      "kind": "email",
+      "topics": [
+        "proof of work"
+      ],
+      "url": "https://nakamotoinstitute.org/rpow/",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "RPOW - Reusable Proofs of Work (Nakamoto Institute)",
+          "url": "https://nakamotoinstitute.org/rpow/",
+          "author": "Hal Finney"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.rpow",
+          "title": "Hal Finney annuncia RPOW"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.bitcoin-whitepaper",
+      "slug": "bitcoin-whitepaper",
+      "language": "it",
+      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+      "author": "Satoshi Nakamoto",
+      "year": 2008,
+      "summary": "Il documento del 2008 che descrive Bitcoin, un sistema di contante elettronico peer-to-peer basato su proof of work e su una catena di blocchi.",
+      "introduction": "Il white paper di Bitcoin, datato 31 ottobre 2008 nella biblioteca del Nakamoto Institute, descrive un sistema di contante elettronico peer-to-peer in cui i pagamenti sono firmati e registrati in una catena di blocchi protetta dalla proof of work. I nodi accettano come registro dei fatti la catena più lunga, cioè quella con il lavoro accumulato maggiore. Il documento affronta il problema della doppia spesa senza una terza parte fidata. È breve e definisce il progetto che Bitcoin realizza. La sua bibliografia cita lavori precedenti sulla marcatura temporale, su hashcash, su b-money e sugli alberi di Merkle, e molti di questi testi sono in questa biblioteca. Va letto insieme alle pagine della wiki dedicate a Bitcoin per i dettagli dell'implementazione.",
+      "originalLanguage": "en",
+      "kind": "paper",
+      "topics": [
+        "bitcoin",
+        "digital cash"
+      ],
+      "url": "https://bitcoin.org/bitcoin.pdf",
+      "licenseNote": "La pagina di bitcoin.org che ospita il documento dichiara che il sito è rilasciato con licenza MIT; per il documento stesso non è indicata una licenza separata.",
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (Nakamoto Institute library, dated October 31, 2008)",
+          "url": "https://nakamotoinstitute.org/library/bitcoin",
+          "author": "Satoshi Nakamoto"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        },
+        {
+          "id": "wiki.proof-of-work",
+          "title": "Proof of Work"
+        },
+        {
+          "id": "history.hashcash",
+          "title": "Hashcash proposto sulla mailing list cypherpunk"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.p2p-foundation-post",
+      "slug": "p2p-foundation-post",
+      "language": "it",
+      "title": "Bitcoin open source implementation of P2P currency",
+      "author": "Satoshi Nakamoto",
+      "year": 2009,
+      "summary": "Il messaggio del febbraio 2009 di Satoshi Nakamoto sul forum della P2P Foundation, con cui Bitcoin viene annunciato come sistema di contante elettronico peer-to-peer open source.",
+      "introduction": "Il 11 febbraio 2009 Satoshi Nakamoto pubblicò sul forum della P2P Foundation un messaggio che annunciava Bitcoin come sistema di contante elettronico peer-to-peer open source. Il messaggio dice che il sistema è decentralizzato e che la prova crittografica prende il posto della fiducia nelle banche. Rimanda il lettore al documento di progetto e alla prima versione del software. Le risposte successive nella stessa discussione riguardano lo stato del software e della rete. È una descrizione pubblica e precoce del progetto, una fonte primaria per i primi mesi di Bitcoin, ma non è la specifica del protocollo.",
+      "originalLanguage": "en",
+      "kind": "post",
+      "topics": [
+        "bitcoin"
+      ],
+      "url": "https://satoshi.nakamotoinstitute.org/posts/p2pfoundation/1/",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (the post points readers to this paper)",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "author": "Satoshi Nakamoto"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bitcoin-v01",
+          "title": "Rilasciato Bitcoin v0.1"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.bitcoin-and-me",
+      "slug": "bitcoin-and-me",
+      "language": "it",
+      "title": "Bitcoin and me",
+      "author": "Hal Finney",
+      "year": 2013,
+      "summary": "La retrospettiva del marzo 2013 di Hal Finney su quattro anni del suo coinvolgimento con Bitcoin, scritta per il forum bitcointalk.",
+      "introduction": "Il messaggio di Hal Finney del marzo 2013 ripercorre quattro anni del suo coinvolgimento con Bitcoin, a partire dall'annuncio del progetto nel 2008. Finney lavorava da anni sulla crittografia e nella comunità cypherpunk, e il messaggio racconta la sua prima reazione al progetto e la comunità che si formò intorno a esso. Il testo è personale e storico più che tecnico. È utile come testimonianza diretta di come chi aveva già lavorato sul denaro digitale abbia accolto Bitcoin, e parla anche della sua situazione personale in quel periodo. Va letto come un ricordo personale, non come fonte di dettagli tecnici.",
+      "originalLanguage": "en",
+      "kind": "post",
+      "topics": [
+        "bitcoin"
+      ],
+      "url": "https://nakamotoinstitute.org/bitcoin-and-me/",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "Bitcoin and Me (Nakamoto Institute)",
+          "url": "https://nakamotoinstitute.org/bitcoin-and-me/",
+          "author": "Hal Finney"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        },
+        {
+          "id": "history.cypherpunk-manifesto",
+          "title": "Pubblicato il Manifesto Cypherpunk"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.denationalisation-of-money",
+      "slug": "denationalisation-of-money",
+      "language": "it",
+      "title": "Denationalisation of Money",
+      "author": "Friedrich A. Hayek",
+      "year": 1976,
+      "summary": "Il libro del 1976 di Friedrich Hayek, che sostiene come valute private in concorrenza potrebbero sostituire il monopolio statale sul denaro.",
+      "introduction": "Friedrich A. Hayek pubblicò per la prima volta questo libro nel 1976, come Hobart Paper 70 dell'Institute of Economic Affairs. Sostiene che il monopolio statale sul denaro debba finire e che valute private in concorrenza tra loro potrebbero contenere l'inflazione meglio di un monopolio centrale. Hayek spiega come queste valute potrebbero circolare affiancate e come le persone sceglierebbero quale usare. È una delle opere economiche più note nel dibattito sulle monete alternative, e spesso le discussioni su Bitcoin tornano a essa. Il libro non parla di Bitcoin, che arrivò decenni dopo, ma delinea la tesi a favore di un denaro che nessuno Stato controlla in modo esclusivo.",
+      "originalLanguage": "en",
+      "kind": "book",
+      "topics": [
+        "moneta"
+      ],
+      "url": "https://iea.org.uk/publications/denationalisation-of-money",
+      "licenseNote": "Avviso di copyright dell'Institute of Economic Affairs sul suo sito; non è indicata una licenza di riuso, quindi il testo è collegato e non riprodotto.",
+      "sources": [
+        {
+          "title": "Denationalisation of Money (Institute of Economic Affairs)",
+          "url": "https://iea.org.uk/publications/denationalisation-of-money",
+          "author": "Friedrich A. Hayek"
+        }
+      ],
+      "related": [
+        {
+          "id": "history.b-money",
+          "title": "Wei Dai descrive b-money"
+        },
+        {
+          "id": "wiki.sound-money",
+          "title": "Moneta Solida"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
+    },
+    {
+      "id": "library.lightning-network-paper",
+      "slug": "lightning-network-paper",
+      "language": "it",
+      "title": "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments",
+      "author": "Joseph Poon and Thaddeus Dryja",
+      "year": 2016,
+      "summary": "La bozza del 2016 di Joseph Poon e Thaddeus Dryja che propone la Lightning Network, uno strato di canali di pagamento sopra Bitcoin.",
+      "introduction": "L'articolo di Joseph Poon e Thaddeus Dryja, diffuso come bozza datata 14 gennaio 2016, propone la Lightning Network, un secondo livello per i pagamenti Bitcoin. Gli utenti aprono un canale di pagamento con una transazione sulla catena principale, scambiano aggiornamenti firmati fuori catena e chiudono il canale quando hanno finito. I pagamenti possono essere instradati attraverso canali collegati, il che permette molti pagamenti piccoli senza riempire la blockchain. L'articolo discute come rendere i canali resistenti alle frodi, usando penali e time lock. È il riferimento tecnico per il modo in cui Lightning sposta i pagamenti fuori catena, ma è una bozza, quindi il protocollo descritto può essere cambiato da allora.",
+      "originalLanguage": "en",
+      "kind": "paper",
+      "topics": [
+        "lightning",
+        "bitcoin"
+      ],
+      "url": "https://lightning.network/lightning-network-paper.pdf",
+      "licenseNote": "Nessuna licenza indicata; collegato, non riprodotto.",
+      "sources": [
+        {
+          "title": "The Bitcoin Lightning Network (draft version 0.5.9.2, January 14, 2016)",
+          "url": "https://lightning.network/lightning-network-paper.pdf",
+          "author": "Joseph Poon and Thaddeus Dryja"
+        }
+      ],
+      "related": [
+        {
+          "id": "wiki.lightning-network",
+          "title": "Lightning Network"
+        },
+        {
+          "id": "history.bitcoin-whitepaper",
+          "title": "Pubblicato il Whitepaper di Bitcoin"
+        },
+        {
+          "id": "wiki.payment-channels",
+          "title": "Canali di Pagamento"
+        }
+      ],
+      "updatedAt": "2026-10-13T00:00:00Z",
+      "reviewedAt": "2026-10-13"
     }
   ]
 }

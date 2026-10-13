@@ -46,6 +46,8 @@ Optional frontmatter: `subcategory` (wiki only) groups entries inside `software`
 
 Glossary terms, reference tables, quotes, learning paths and products are optional top-level collections of the same bundle (schema version stays 1). Templates for one record of each are in `content/templates/glossary_term.json`, `reference_table.json`, `quote.json`, `learning_path.json` and `product.json`; the field tables are in `docs/content-model.md`. A product needs a `reviewedAt` date, and the validator warns when it is older than 365 days.
 
+Library works (`library`) point to a primary source or classic text with our own introduction; the template is `content/templates/library_work.json`. Never copy the full text of a work into the bundle: link it, and include the text only when its license allows it and you have verified that license for that specific work. Fill `licenseNote` with what you actually know about reuse rights, and write "No license stated; linked, not reproduced" when the source states none.
+
 ## Immagini inline
 
 Nei corpi Markdown puoi inserire schemi e immagini con la sintassi standard:
