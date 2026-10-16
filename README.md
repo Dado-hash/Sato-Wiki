@@ -12,7 +12,7 @@ wiki, history timeline, BIP tracker and Bitcoin Core release notes, in English a
 [![Flutter CI](https://github.com/Dado-hash/Sato-Wiki/actions/workflows/flutter.yml/badge.svg)](https://github.com/Dado-hash/Sato-Wiki/actions/workflows/flutter.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-f7931a.svg)](LICENSE)
 [![Content: CC BY-SA 4.0](https://img.shields.io/badge/content-CC%20BY--SA%204.0-f7931a.svg)](LICENSE-CONTENT)
-![Flutter 3.32](https://img.shields.io/badge/Flutter-3.32-02569B.svg?logo=flutter)
+![Flutter 3.47](https://img.shields.io/badge/Flutter-3.47-02569B.svg?logo=flutter)
 ![Platforms: iOS and Android](https://img.shields.io/badge/platforms-iOS%20%7C%20Android-lightgrey.svg)
 
 [Features](#features) ·
@@ -71,7 +71,7 @@ flutter test tool/readme_screenshots_test.dart
 
 ## Getting started
 
-You need [Flutter](https://docs.flutter.dev/get-started/install) 3.32 or later (Dart 3.8), plus Xcode for iOS or Android Studio for Android.
+You need [Flutter](https://docs.flutter.dev/get-started/install) 3.47 or later (Dart 3.13), plus Xcode for iOS or Android Studio for Android.
 
 ```bash
 git clone https://github.com/Dado-hash/Sato-Wiki.git
