@@ -116,7 +116,7 @@ Voci della roadmap e del piano precedenti, ricontrollate sul repository il 2026-
 - [ ] Pass con screen reader su dispositivi iOS e Android fisici, e verifica con testo ingrandito.
 - [ ] Pass di performance su Android di fascia bassa.
 - [ ] Test di integrazione: la cartella `integration_test/` non esiste.
-- [ ] Aggiornare Flutter: i workflow fissano ancora la 3.32.6.
+- [x] Aggiornare Flutter: i workflow usano la 3.47.7.
 - [ ] Android: `applicationId` è `org.satowiki.sato_wiki` con il TODO del template, diverso dal bundle id iOS `org.satowiki.satoWiki`.
 - [ ] iOS: `IPHONEOS_DEPLOYMENT_TARGET` è `12.0`.
 - [ ] News: un solo articolo, con un indirizzo `example.com` nel seed.

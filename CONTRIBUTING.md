@@ -16,7 +16,7 @@ For anything larger than a small fix, please open an issue first so we can agree
 
 ## Setup
 
-You need Flutter 3.32 or later (Dart 3.8).
+You need Flutter 3.47 or later (Dart 3.13).
 
 ```bash
 git clone https://github.com/Dado-hash/Sato-Wiki.git

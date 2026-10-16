@@ -12,7 +12,7 @@ The project is documented comprehensively in `docs/`. Refer to `docs/app-archite
 
 ### Environment Setup
 
-The project needs Flutter 3.32 or later (Dart 3.8), with `flutter` and `dart` on the PATH.
+The project needs Flutter 3.47 or later (Dart 3.13), with `flutter` and `dart` on the PATH.
 
 **Initial setup:**
 ```bash

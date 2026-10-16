@@ -16,7 +16,7 @@ La direzione prodotto e:
 
 ## Comandi
 
-Serve Flutter 3.32 o successivo (Dart 3.8), con `flutter` e `dart` nel PATH:
+Serve Flutter 3.47 o successivo (Dart 3.13), con `flutter` e `dart` nel PATH:
 
 ```bash
 flutter pub get

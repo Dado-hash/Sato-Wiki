@@ -41,6 +41,6 @@ Stato verificato sul repository il 2026-10-12. Le voci sotto dicono cosa e verif
 
 - Android: la build di release e firmata con la chiave di debug (`android/app/build.gradle.kts`), e `applicationId` e ancora `org.satowiki.sato_wiki` con il TODO del template. Il bundle id iOS e `org.satowiki.satoWiki`: l'id definitivo va scelto e allineato prima della prima pubblicazione.
 - iOS: `IPHONEOS_DEPLOYMENT_TARGET` e `12.0` (`ios/Runner.xcodeproj/project.pbxproj`). Va alzato al valore del template Flutter corrente.
-- Toolchain: Flutter 3.32.6 (Dart 3.8.1), fissato in `.github/workflows/`. La revisione risale all'8 luglio 2025. L'aggiornamento va fatto in un cambio separato.
+- Toolchain: Flutter 3.47.7 (Dart 3.13.5), fissato in `.github/workflows/`.
 - Test: il golden test `core_editorial_components` fallisce. La differenza di rendering e di pochi pixel, ma non e ancora stato escluso che sia una regressione.
 - Test: non ci sono test di integrazione (`integration_test/` non esiste).
