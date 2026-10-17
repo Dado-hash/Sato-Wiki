@@ -1460,7 +1460,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get explorerSetupNothingSent =>
-      'Nothing is sent until you press Search. Searches are not saved on this device. The explorer does not use Tor or any proxy.';
+      'When the explorer screen is open, it asks the server for blocks, fees and the mempool every 60 seconds. Searches are sent only when you press Search and are not saved on this device. The explorer does not use Tor or any proxy.';
 
   @override
   String get explorerServerLabel => 'Server';
@@ -1483,6 +1483,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get explorerTurnOff => 'Turn off the explorer';
 
   @override
+  String get explorerTurnOffShort => 'Turn off';
+
+  @override
   String get explorerTurnOffNote => 'You can turn it on again from Settings.';
 
   @override
@@ -1503,15 +1506,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get explorerSearchButton => 'Search';
-
-  @override
-  String get explorerSearchNote =>
-      'One search sends one request per step. Searches are not saved.';
-
-  @override
-  String explorerServerInUse(String server) {
-    return 'Server: $server';
-  }
 
   @override
   String get explorerSecretWifTitle => 'This looks like a private key';
@@ -1627,7 +1621,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String explorerFeeRateValue(String rate) {
-    return '$rate sat/vB';
+    return '$rate sat/vB';
   }
 
   @override
@@ -1685,6 +1679,196 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get explorerLoading => 'Loading…';
+
+  @override
+  String explorerDashLive(String host) {
+    return 'Live · $host';
+  }
+
+  @override
+  String explorerDashLivePaused(String host) {
+    return 'Paused · $host';
+  }
+
+  @override
+  String get explorerDashBlocks => 'Blocks';
+
+  @override
+  String get explorerDashBlocksHint => 'Queued ← · → confirmed';
+
+  @override
+  String get explorerDashNow => 'Now';
+
+  @override
+  String get explorerDashNext => 'Next';
+
+  @override
+  String get explorerDashQueued => 'Queued';
+
+  @override
+  String explorerDashMinutes(int minutes) {
+    return '~$minutes min';
+  }
+
+  @override
+  String explorerDashMoreBlocks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '+$count blocks',
+      one: '+1 block',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String explorerDashBlockAgo(int minutes) {
+    return '$minutes min fa';
+  }
+
+  @override
+  String explorerDashMedianRate(String rate) {
+    return '~$rate sat/vB';
+  }
+
+  @override
+  String explorerDashRange(String min, String max) {
+    return '$min–$max sat/vB';
+  }
+
+  @override
+  String explorerDashBtc(String btc) {
+    return '$btc BTC';
+  }
+
+  @override
+  String explorerDashTxCount(String count) {
+    return '$count tx';
+  }
+
+  @override
+  String explorerDashSizeMb(String size) {
+    return '$size MB';
+  }
+
+  @override
+  String explorerDashWeightMwu(String weight) {
+    return '$weight MWU';
+  }
+
+  @override
+  String get explorerDashFeesTitle => 'Recommended fees';
+
+  @override
+  String get explorerDashFeeNoPriority => 'No priority';
+
+  @override
+  String get explorerDashFeeLow => 'Low';
+
+  @override
+  String get explorerDashFeeMedium => 'Medium';
+
+  @override
+  String get explorerDashFeeHigh => 'High';
+
+  @override
+  String get explorerDashFeeDay => '~1 day';
+
+  @override
+  String get explorerDashFeeHour => '~1 hour';
+
+  @override
+  String explorerDashTypicalTx(String sats) {
+    return 'Typical 140 vB transaction at high priority: ~$sats sat';
+  }
+
+  @override
+  String get explorerDashMempoolTitle => 'Mempool';
+
+  @override
+  String explorerDashBandsLabel(String bands) {
+    return 'Share of vbytes by fee rate: $bands';
+  }
+
+  @override
+  String explorerDashVsizeMb(String size) {
+    return '$size vMB';
+  }
+
+  @override
+  String get explorerDashTotalFees => 'Total fees';
+
+  @override
+  String get explorerDashToClear => 'To clear';
+
+  @override
+  String explorerDashBlocksToClear(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '~$count blocks',
+      one: '~1 block',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get explorerDashEstimate => 'Estimate';
+
+  @override
+  String get explorerDashEpoch => 'Epoch';
+
+  @override
+  String explorerDashEpochProgress(String done, String total) {
+    return '$done of $total blocks in this epoch';
+  }
+
+  @override
+  String get explorerDashRemaining => 'Remaining';
+
+  @override
+  String explorerDashRemainingDays(String blocks, String days) {
+    return '$blocks · ~$days d';
+  }
+
+  @override
+  String explorerDashRemainingHours(String blocks, String hours) {
+    return '$blocks · ~$hours h';
+  }
+
+  @override
+  String get explorerDashAverageBlock => 'Average block';
+
+  @override
+  String get explorerDashLatestTxs => 'Latest transactions';
+
+  @override
+  String explorerDashTxVsize(String vsize) {
+    return '$vsize vB';
+  }
+
+  @override
+  String explorerDashFooterUpdated(String time, int interval) {
+    return 'Updated at $time · every $interval s while open';
+  }
+
+  @override
+  String get explorerDashPaused => 'Paused';
+
+  @override
+  String get explorerDashUpdateFailed =>
+      'The last update failed. The data shown is from before.';
+
+  @override
+  String get explorerDashPause => 'Pause updates';
+
+  @override
+  String get explorerDashResume => 'Resume updates';
+
+  @override
+  String explorerDashPrivacy(String host) {
+    return 'Each refresh sends 4 requests to $host. The server sees your IP address. Searches are not saved.';
+  }
 
   @override
   String get labTitle => 'Blockchain lab';

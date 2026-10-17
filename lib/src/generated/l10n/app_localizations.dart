@@ -2705,7 +2705,7 @@ abstract class AppLocalizations {
   /// No description provided for @explorerSetupNothingSent.
   ///
   /// In en, this message translates to:
-  /// **'Nothing is sent until you press Search. Searches are not saved on this device. The explorer does not use Tor or any proxy.'**
+  /// **'When the explorer screen is open, it asks the server for blocks, fees and the mempool every 60 seconds. Searches are sent only when you press Search and are not saved on this device. The explorer does not use Tor or any proxy.'**
   String get explorerSetupNothingSent;
 
   /// No description provided for @explorerServerLabel.
@@ -2743,6 +2743,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Turn off the explorer'**
   String get explorerTurnOff;
+
+  /// Short header action. The full label is the tooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off'**
+  String get explorerTurnOffShort;
 
   /// No description provided for @explorerTurnOffNote.
   ///
@@ -2785,18 +2791,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search'**
   String get explorerSearchButton;
-
-  /// No description provided for @explorerSearchNote.
-  ///
-  /// In en, this message translates to:
-  /// **'One search sends one request per step. Searches are not saved.'**
-  String get explorerSearchNote;
-
-  /// No description provided for @explorerServerInUse.
-  ///
-  /// In en, this message translates to:
-  /// **'Server: {server}'**
-  String explorerServerInUse(String server);
 
   /// No description provided for @explorerSecretWifTitle.
   ///
@@ -2999,7 +2993,7 @@ abstract class AppLocalizations {
   /// No description provided for @explorerFeeRateValue.
   ///
   /// In en, this message translates to:
-  /// **'{rate} sat/vB'**
+  /// **'{rate} sat/vB'**
   String explorerFeeRateValue(String rate);
 
   /// No description provided for @explorerInputs.
@@ -3097,6 +3091,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading…'**
   String get explorerLoading;
+
+  /// No description provided for @explorerDashLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live · {host}'**
+  String explorerDashLive(String host);
+
+  /// No description provided for @explorerDashLivePaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused · {host}'**
+  String explorerDashLivePaused(String host);
+
+  /// No description provided for @explorerDashBlocks.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocks'**
+  String get explorerDashBlocks;
+
+  /// No description provided for @explorerDashBlocksHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Queued ← · → confirmed'**
+  String get explorerDashBlocksHint;
+
+  /// No description provided for @explorerDashNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get explorerDashNow;
+
+  /// No description provided for @explorerDashNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get explorerDashNext;
+
+  /// No description provided for @explorerDashQueued.
+  ///
+  /// In en, this message translates to:
+  /// **'Queued'**
+  String get explorerDashQueued;
+
+  /// No description provided for @explorerDashMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'~{minutes} min'**
+  String explorerDashMinutes(int minutes);
+
+  /// No description provided for @explorerDashMoreBlocks.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{+1 block} other{+{count} blocks}}'**
+  String explorerDashMoreBlocks(int count);
+
+  /// No description provided for @explorerDashBlockAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min fa'**
+  String explorerDashBlockAgo(int minutes);
+
+  /// No description provided for @explorerDashMedianRate.
+  ///
+  /// In en, this message translates to:
+  /// **'~{rate} sat/vB'**
+  String explorerDashMedianRate(String rate);
+
+  /// No description provided for @explorerDashRange.
+  ///
+  /// In en, this message translates to:
+  /// **'{min}–{max} sat/vB'**
+  String explorerDashRange(String min, String max);
+
+  /// No description provided for @explorerDashBtc.
+  ///
+  /// In en, this message translates to:
+  /// **'{btc} BTC'**
+  String explorerDashBtc(String btc);
+
+  /// No description provided for @explorerDashTxCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} tx'**
+  String explorerDashTxCount(String count);
+
+  /// No description provided for @explorerDashSizeMb.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} MB'**
+  String explorerDashSizeMb(String size);
+
+  /// No description provided for @explorerDashWeightMwu.
+  ///
+  /// In en, this message translates to:
+  /// **'{weight} MWU'**
+  String explorerDashWeightMwu(String weight);
+
+  /// No description provided for @explorerDashFeesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended fees'**
+  String get explorerDashFeesTitle;
+
+  /// No description provided for @explorerDashFeeNoPriority.
+  ///
+  /// In en, this message translates to:
+  /// **'No priority'**
+  String get explorerDashFeeNoPriority;
+
+  /// No description provided for @explorerDashFeeLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get explorerDashFeeLow;
+
+  /// No description provided for @explorerDashFeeMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get explorerDashFeeMedium;
+
+  /// No description provided for @explorerDashFeeHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get explorerDashFeeHigh;
+
+  /// No description provided for @explorerDashFeeDay.
+  ///
+  /// In en, this message translates to:
+  /// **'~1 day'**
+  String get explorerDashFeeDay;
+
+  /// No description provided for @explorerDashFeeHour.
+  ///
+  /// In en, this message translates to:
+  /// **'~1 hour'**
+  String get explorerDashFeeHour;
+
+  /// No description provided for @explorerDashTypicalTx.
+  ///
+  /// In en, this message translates to:
+  /// **'Typical 140 vB transaction at high priority: ~{sats} sat'**
+  String explorerDashTypicalTx(String sats);
+
+  /// No description provided for @explorerDashMempoolTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mempool'**
+  String get explorerDashMempoolTitle;
+
+  /// No description provided for @explorerDashBandsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Share of vbytes by fee rate: {bands}'**
+  String explorerDashBandsLabel(String bands);
+
+  /// No description provided for @explorerDashVsizeMb.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} vMB'**
+  String explorerDashVsizeMb(String size);
+
+  /// No description provided for @explorerDashTotalFees.
+  ///
+  /// In en, this message translates to:
+  /// **'Total fees'**
+  String get explorerDashTotalFees;
+
+  /// No description provided for @explorerDashToClear.
+  ///
+  /// In en, this message translates to:
+  /// **'To clear'**
+  String get explorerDashToClear;
+
+  /// No description provided for @explorerDashBlocksToClear.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{~1 block} other{~{count} blocks}}'**
+  String explorerDashBlocksToClear(int count);
+
+  /// No description provided for @explorerDashEstimate.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimate'**
+  String get explorerDashEstimate;
+
+  /// No description provided for @explorerDashEpoch.
+  ///
+  /// In en, this message translates to:
+  /// **'Epoch'**
+  String get explorerDashEpoch;
+
+  /// No description provided for @explorerDashEpochProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} blocks in this epoch'**
+  String explorerDashEpochProgress(String done, String total);
+
+  /// No description provided for @explorerDashRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Remaining'**
+  String get explorerDashRemaining;
+
+  /// No description provided for @explorerDashRemainingDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{blocks} · ~{days} d'**
+  String explorerDashRemainingDays(String blocks, String days);
+
+  /// No description provided for @explorerDashRemainingHours.
+  ///
+  /// In en, this message translates to:
+  /// **'{blocks} · ~{hours} h'**
+  String explorerDashRemainingHours(String blocks, String hours);
+
+  /// No description provided for @explorerDashAverageBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Average block'**
+  String get explorerDashAverageBlock;
+
+  /// No description provided for @explorerDashLatestTxs.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest transactions'**
+  String get explorerDashLatestTxs;
+
+  /// No description provided for @explorerDashTxVsize.
+  ///
+  /// In en, this message translates to:
+  /// **'{vsize} vB'**
+  String explorerDashTxVsize(String vsize);
+
+  /// No description provided for @explorerDashFooterUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated at {time} · every {interval} s while open'**
+  String explorerDashFooterUpdated(String time, int interval);
+
+  /// No description provided for @explorerDashPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused'**
+  String get explorerDashPaused;
+
+  /// No description provided for @explorerDashUpdateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The last update failed. The data shown is from before.'**
+  String get explorerDashUpdateFailed;
+
+  /// No description provided for @explorerDashPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause updates'**
+  String get explorerDashPause;
+
+  /// No description provided for @explorerDashResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume updates'**
+  String get explorerDashResume;
+
+  /// No description provided for @explorerDashPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Each refresh sends 4 requests to {host}. The server sees your IP address. Searches are not saved.'**
+  String explorerDashPrivacy(String host);
 
   /// No description provided for @labTitle.
   ///

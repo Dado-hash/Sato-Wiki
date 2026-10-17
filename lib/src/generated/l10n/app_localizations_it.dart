@@ -1470,7 +1470,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get explorerSetupNothingSent =>
-      'Non parte nulla finché non premi Cerca. Le ricerche non vengono salvate sul dispositivo. L\'explorer non usa Tor né proxy.';
+      'Quando la schermata dell\'explorer è aperta, chiede al server blocchi, commissioni e mempool ogni 60 secondi. Le ricerche partono solo quando premi Cerca e non vengono salvate sul dispositivo. L\'explorer non usa Tor né proxy.';
 
   @override
   String get explorerServerLabel => 'Server';
@@ -1493,6 +1493,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get explorerTurnOff => 'Spegni l\'explorer';
 
   @override
+  String get explorerTurnOffShort => 'Spegni';
+
+  @override
   String get explorerTurnOffNote => 'Puoi riattivarlo dalle Impostazioni.';
 
   @override
@@ -1513,15 +1516,6 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get explorerSearchButton => 'Cerca';
-
-  @override
-  String get explorerSearchNote =>
-      'Ogni ricerca invia una richiesta per passo. Le ricerche non vengono salvate.';
-
-  @override
-  String explorerServerInUse(String server) {
-    return 'Server: $server';
-  }
 
   @override
   String get explorerSecretWifTitle => 'Sembra una chiave privata';
@@ -1612,7 +1606,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get explorerBits => 'Bits';
 
   @override
-  String get explorerDifficulty => 'Difficulty';
+  String get explorerDifficulty => 'Difficoltà';
 
   @override
   String get explorerVersion => 'Versione';
@@ -1637,7 +1631,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String explorerFeeRateValue(String rate) {
-    return '$rate sat/vB';
+    return '$rate sat/vB';
   }
 
   @override
@@ -1695,6 +1689,196 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get explorerLoading => 'Caricamento…';
+
+  @override
+  String explorerDashLive(String host) {
+    return 'Live · $host';
+  }
+
+  @override
+  String explorerDashLivePaused(String host) {
+    return 'In pausa · $host';
+  }
+
+  @override
+  String get explorerDashBlocks => 'Blocchi';
+
+  @override
+  String get explorerDashBlocksHint => 'In coda ← · → confermati';
+
+  @override
+  String get explorerDashNow => 'Ora';
+
+  @override
+  String get explorerDashNext => 'Prossimo';
+
+  @override
+  String get explorerDashQueued => 'In coda';
+
+  @override
+  String explorerDashMinutes(int minutes) {
+    return '~$minutes min';
+  }
+
+  @override
+  String explorerDashMoreBlocks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '+$count blocchi',
+      one: '+1 blocco',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String explorerDashBlockAgo(int minutes) {
+    return '$minutes min fa';
+  }
+
+  @override
+  String explorerDashMedianRate(String rate) {
+    return '~$rate sat/vB';
+  }
+
+  @override
+  String explorerDashRange(String min, String max) {
+    return '$min–$max sat/vB';
+  }
+
+  @override
+  String explorerDashBtc(String btc) {
+    return '$btc BTC';
+  }
+
+  @override
+  String explorerDashTxCount(String count) {
+    return '$count tx';
+  }
+
+  @override
+  String explorerDashSizeMb(String size) {
+    return '$size MB';
+  }
+
+  @override
+  String explorerDashWeightMwu(String weight) {
+    return '$weight MWU';
+  }
+
+  @override
+  String get explorerDashFeesTitle => 'Commissioni consigliate';
+
+  @override
+  String get explorerDashFeeNoPriority => 'Senza fretta';
+
+  @override
+  String get explorerDashFeeLow => 'Bassa';
+
+  @override
+  String get explorerDashFeeMedium => 'Media';
+
+  @override
+  String get explorerDashFeeHigh => 'Alta';
+
+  @override
+  String get explorerDashFeeDay => '~1 giorno';
+
+  @override
+  String get explorerDashFeeHour => '~1 ora';
+
+  @override
+  String explorerDashTypicalTx(String sats) {
+    return 'Tx tipica da 140 vB con priorità alta: ~$sats sat';
+  }
+
+  @override
+  String get explorerDashMempoolTitle => 'Mempool';
+
+  @override
+  String explorerDashBandsLabel(String bands) {
+    return 'Quota dei vbyte per commissione: $bands';
+  }
+
+  @override
+  String explorerDashVsizeMb(String size) {
+    return '$size vMB';
+  }
+
+  @override
+  String get explorerDashTotalFees => 'Commissioni totali';
+
+  @override
+  String get explorerDashToClear => 'Da svuotare';
+
+  @override
+  String explorerDashBlocksToClear(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '~$count blocchi',
+      one: '~1 blocco',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get explorerDashEstimate => 'Stima';
+
+  @override
+  String get explorerDashEpoch => 'Epoca';
+
+  @override
+  String explorerDashEpochProgress(String done, String total) {
+    return '$done blocchi su $total in questa epoca';
+  }
+
+  @override
+  String get explorerDashRemaining => 'Mancano';
+
+  @override
+  String explorerDashRemainingDays(String blocks, String days) {
+    return '$blocks · ~$days g';
+  }
+
+  @override
+  String explorerDashRemainingHours(String blocks, String hours) {
+    return '$blocks · ~$hours h';
+  }
+
+  @override
+  String get explorerDashAverageBlock => 'Blocco medio';
+
+  @override
+  String get explorerDashLatestTxs => 'Ultime transazioni';
+
+  @override
+  String explorerDashTxVsize(String vsize) {
+    return '$vsize vB';
+  }
+
+  @override
+  String explorerDashFooterUpdated(String time, int interval) {
+    return 'Aggiornato alle $time · ogni $interval s mentre la schermata è aperta';
+  }
+
+  @override
+  String get explorerDashPaused => 'In pausa';
+
+  @override
+  String get explorerDashUpdateFailed =>
+      'L\'ultimo aggiornamento non è riuscito. Restano i dati precedenti.';
+
+  @override
+  String get explorerDashPause => 'Metti in pausa';
+
+  @override
+  String get explorerDashResume => 'Riprendi';
+
+  @override
+  String explorerDashPrivacy(String host) {
+    return 'Ogni aggiornamento invia 4 richieste a $host. Il server vede il tuo indirizzo IP. Le ricerche non vengono salvate.';
+  }
 
   @override
   String get labTitle => 'Laboratorio blockchain';

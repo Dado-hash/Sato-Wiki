@@ -10,13 +10,19 @@ import '../../../generated/l10n/app_localizations.dart';
 import '../data/esplora_client.dart';
 import '../data/explorer_query.dart';
 import '../domain/address_analyzer.dart';
+import 'explorer_dashboard_controller.dart';
+import 'explorer_dashboard_widgets.dart';
 import 'explorer_session.dart';
 import 'explorer_widgets.dart';
 import 'tool_widgets.dart';
 
-/// Explorer search. One input for a block height, a block hash, a txid or an
-/// address. The search sends only what the query needs, then opens the screen
-/// for the result. Keys and private data are never sent.
+/// Explorer home. A live dashboard of blocks, fees, the mempool and recent
+/// transactions sits below the search. The search input for a block height, a
+/// block hash, a txid or an address sends only what the query needs, then opens
+/// the screen for the result. Keys and private data are never sent.
+///
+/// The dashboard polls only while this screen is visible and the app is in the
+/// foreground. A route pushed over it pauses it.
 class ExplorerSearchScreen extends StatefulWidget {
   const ExplorerSearchScreen({
     required this.settings,
@@ -34,6 +40,17 @@ class ExplorerSearchScreen extends StatefulWidget {
 class _ExplorerSearchScreenState extends State<ExplorerSearchScreen> {
   final _controller = TextEditingController();
   final _cooldown = ExplorerCooldown();
+  late final ExplorerDashboardController _dashboard;
+  late final AppLifecycleListener _lifecycle;
+
+  /// The animation of the route that is pushed over this one.
+  Animation<double>? _covering;
+
+  /// True while the app is in the background.
+  bool _appHidden = false;
+
+  /// True while another route is pushed over this screen.
+  bool _covered = false;
 
   bool _loading = false;
 
@@ -44,7 +61,66 @@ class _ExplorerSearchScreenState extends State<ExplorerSearchScreen> {
   AddressKind? _secretKind;
 
   @override
+  void initState() {
+    super.initState();
+    _dashboard = ExplorerDashboardController(
+      api: () => widget.session.activeApi(),
+    );
+    _lifecycle = AppLifecycleListener(
+      onHide: () {
+        _appHidden = true;
+        _updateVisibility();
+      },
+      onShow: () {
+        _appHidden = false;
+        _updateVisibility();
+      },
+    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _dashboard.start();
+      }
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final animation = ModalRoute.of(context)?.secondaryAnimation;
+    if (identical(animation, _covering)) {
+      return;
+    }
+    _covering?.removeStatusListener(_onCoverChanged);
+    _covering = animation;
+    animation?.addStatusListener(_onCoverChanged);
+    _covered =
+        animation != null && animation.status != AnimationStatus.dismissed;
+    _updateVisibility();
+  }
+
+  /// A route is pushed over this one (not dismissed), or it is gone again.
+  void _onCoverChanged(AnimationStatus status) {
+    _covered = status != AnimationStatus.dismissed;
+    _updateVisibility();
+  }
+
+  void _updateVisibility() {
+    _dashboard.setVisible(!_appHidden && !_covered);
+  }
+
+  void _togglePause() {
+    if (_dashboard.paused) {
+      _dashboard.resume();
+    } else {
+      _dashboard.pause();
+    }
+  }
+
+  @override
   void dispose() {
+    _covering?.removeStatusListener(_onCoverChanged);
+    _lifecycle.dispose();
+    _dashboard.dispose();
     _cooldown.dispose();
     _controller.dispose();
     super.dispose();
@@ -212,20 +288,27 @@ class _ExplorerSearchScreenState extends State<ExplorerSearchScreen> {
     final l10n = AppLocalizations.of(context);
     final error = _error;
     final secretKind = _secretKind;
+    final host = Uri.tryParse(widget.settings.explorerServer)?.host ?? '';
 
     return DetailScaffold(
       title: l10n.explorerTitle,
+      shrinkTitle: true,
+      onRefresh: _dashboard.refresh,
       actions: [
-        TextButton(
-          style: TextButton.styleFrom(minimumSize: const Size(44, 44)),
-          onPressed: _turnOff,
-          child: Text(l10n.explorerTurnOff),
+        Tooltip(
+          message: l10n.explorerTurnOff,
+          child: TextButton(
+            style: TextButton.styleFrom(minimumSize: const Size(44, 44)),
+            onPressed: _turnOff,
+            child: Text(l10n.explorerTurnOffShort),
+          ),
         ),
       ],
       children: [
-        Text(
-          l10n.explorerServerInUse(widget.settings.explorerServer),
-          style: toolMonoStyle(context, size: 12),
+        ListenableBuilder(
+          listenable: _dashboard,
+          builder: (context, _) =>
+              ExplorerLiveLine(host: host, paused: _dashboard.paused),
         ),
         const SizedBox(height: AppSpacing.lg),
         ToolTextField(
@@ -265,9 +348,17 @@ class _ExplorerSearchScreenState extends State<ExplorerSearchScreen> {
           ],
         ],
         const SizedBox(height: AppSpacing.xl),
-        Text(
-          l10n.explorerSearchNote,
-          style: Theme.of(context).textTheme.bodySmall,
+        ListenableBuilder(
+          listenable: _dashboard,
+          builder: (context, _) => ExplorerDashboardBody(
+            state: _dashboard.state,
+            paused: _dashboard.paused,
+            interval: _dashboard.interval,
+            now: _dashboard.now(),
+            host: host,
+            onRefresh: _dashboard.refresh,
+            onTogglePause: _togglePause,
+          ),
         ),
       ],
     );

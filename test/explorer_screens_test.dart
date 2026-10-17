@@ -25,6 +25,35 @@ Finder _selectable(String value) {
 
 Finder _searchButton() => find.widgetWithText(FilledButton, 'Search');
 
+/// Calls that the dashboard on the search screen makes when it opens.
+const _dashboardCalls = ['blocks', 'mempool', 'fees', 'recent'];
+
+/// A fake that answers the dashboard calls too, so the dashboard shows data
+/// and adds no error text to the search messages.
+FakeExplorerApi _dashboardFake() {
+  final api = FakeExplorerApi();
+  fillDashboard(api);
+
+  return api;
+}
+
+/// Pumps the search screen with the explorer on. The calls the dashboard makes
+/// on open are cleared, so each test checks only the calls it makes itself.
+Future<ExplorerHarness> _pumpSearch(
+  WidgetTester tester, {
+  FakeExplorerApi? api,
+}) async {
+  final harness = await pumpExplorer(
+    tester,
+    route: AppRoutes.explorer,
+    enabled: true,
+    api: api ?? _dashboardFake(),
+  );
+  harness.api.calls.clear();
+
+  return harness;
+}
+
 Finder _searchField() => find.byType(TextField);
 
 void main() {
@@ -132,8 +161,9 @@ void main() {
 
       expect(harness.settings.explorerEnabled, isTrue);
       expect(_searchField(), findsOneWidget);
-      expect(find.text('Turn off the explorer'), findsOneWidget);
-      expect(harness.api.calls, isEmpty);
+      expect(find.byTooltip('Turn off the explorer'), findsOneWidget);
+      // Opening the search loads the dashboard, and nothing else.
+      expect(harness.api.calls, _dashboardCalls);
     });
   });
 
@@ -141,20 +171,16 @@ void main() {
     testWidgets('search shows the server in use and a turn off action', (
       tester,
     ) async {
-      await pumpExplorer(tester, route: AppRoutes.explorer, enabled: true);
+      await _pumpSearch(tester);
 
-      expect(find.text('Server: https://mempool.space/api'), findsOneWidget);
-      expect(find.text('Turn off the explorer'), findsOneWidget);
+      expect(find.text('Live · mempool.space'), findsOneWidget);
+      expect(find.byTooltip('Turn off the explorer'), findsOneWidget);
     });
 
     testWidgets('a height opens the block screen with its fields', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       harness.api
         ..heightToHash[850000] = blockHash850000
         ..blocks[blockHash850000] = cannedBlock();
@@ -173,11 +199,7 @@ void main() {
     testWidgets('a txid opens the transaction screen with fee and status', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       harness.api.transactions[txHash] = cannedTransaction();
 
       await tester.enterText(_searchField(), txHash);
@@ -194,11 +216,7 @@ void main() {
     testWidgets('a block hash with leading zeros opens the block first', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       harness.api.blocks[blockHash850000] = cannedBlock();
 
       await tester.enterText(_searchField(), blockHash850000);
@@ -213,11 +231,7 @@ void main() {
     testWidgets('a hash that is not a txid falls back to the block lookup', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       harness.api.blocks[_neutralHash] = cannedBlock(id: _neutralHash);
 
       await tester.enterText(_searchField(), _neutralHash);
@@ -236,11 +250,7 @@ void main() {
     testWidgets('an address opens the address screen with balances', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       harness.api
         ..addresses[addressValue] = cannedAddress()
         ..addressTxs[addressValue] = [cannedTransaction()];
@@ -258,7 +268,7 @@ void main() {
     testWidgets('a hash found nowhere shows the not found message', (
       tester,
     ) async {
-      await pumpExplorer(tester, route: AppRoutes.explorer, enabled: true);
+      await _pumpSearch(tester);
 
       await tester.enterText(_searchField(), txHash);
       await tester.pump();
@@ -276,11 +286,7 @@ void main() {
     testWidgets('text that is not an id is refused without a request', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
 
       await tester.enterText(_searchField(), 'hello world');
       await tester.pump();
@@ -299,11 +305,7 @@ void main() {
     testWidgets('a pasted private key shows the warning and sends nothing', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       final wif = base58CheckEncode(0x80, List<int>.filled(32, 1));
 
       await tester.enterText(_searchField(), wif);
@@ -319,18 +321,14 @@ void main() {
       );
       expect(tester.widget<TextField>(_searchField()).controller!.text, '');
       expect(find.textContaining(wif), findsNothing);
+      // The dashboard opened the client. The key itself was not sent.
       expect(harness.api.calls, isEmpty);
-      expect(harness.clientsCreated, isEmpty);
     });
 
     testWidgets('a pasted extended key shows the warning and sends nothing', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
 
       await tester.enterText(_searchField(), _xpub);
       await tester.pumpAndSettle();
@@ -342,11 +340,7 @@ void main() {
     testWidgets('429 shows the wait and disables search until it passes', (
       tester,
     ) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
       harness.api.failure = const ExplorerException(
         ExplorerFailure.rateLimited,
         'The explorer server returned HTTP 429. Calls are paused.',
@@ -376,24 +370,23 @@ void main() {
       await tester.pump();
       expect(harness.api.calls, ['tx:$txHash']);
 
-      // The wait ends with a timer, not a request.
+      // The wait ends with a timer, not a request. The dashboard refreshes
+      // once a minute on its own, so only the search calls are checked.
       await tester.pump(const Duration(seconds: 61));
       expect(tester.widget<FilledButton>(_searchButton()).onPressed, isNotNull);
-      expect(harness.api.calls, ['tx:$txHash']);
+      expect(harness.api.calls.where((call) => call.startsWith('tx:')), [
+        'tx:$txHash',
+      ]);
     });
 
     testWidgets('turn off returns to the activation screen', (tester) async {
-      final harness = await pumpExplorer(
-        tester,
-        route: AppRoutes.explorer,
-        enabled: true,
-      );
+      final harness = await _pumpSearch(tester);
 
-      await tester.tap(find.text('Turn off the explorer'));
+      await tester.tap(find.byTooltip('Turn off the explorer'));
       await tester.pumpAndSettle();
 
       expect(harness.settings.explorerEnabled, isFalse);
-      expect(harness.api.closed, isFalse, reason: 'no client was created');
+      expect(harness.api.closed, isTrue, reason: 'the client is dropped');
       expect(find.text('Turn on the explorer'), findsOneWidget);
     });
   });

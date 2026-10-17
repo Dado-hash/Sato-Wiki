@@ -17,6 +17,18 @@ abstract interface class ExplorerApi {
 
   Future<List<EsploraTransaction>> addressTransactions(String address);
 
+  /// Recent confirmed blocks, newest first.
+  Future<List<EsploraBlock>> recentBlocks();
+
+  /// Mempool count, size, fees and fee histogram.
+  Future<EsploraMempoolInfo> mempoolInfo();
+
+  /// Fee rates by confirmation target.
+  Future<EsploraFeeEstimates> feeEstimates();
+
+  /// The last transactions that entered the mempool.
+  Future<List<EsploraRecentTransaction>> recentMempoolTransactions();
+
   /// Drops the client and its cache. Later calls fail.
   void close();
 }
@@ -45,6 +57,19 @@ final class EsploraExplorerApi implements ExplorerApi {
   @override
   Future<List<EsploraTransaction>> addressTransactions(String address) =>
       _client.addressTransactions(address);
+
+  @override
+  Future<List<EsploraBlock>> recentBlocks() => _client.recentBlocks();
+
+  @override
+  Future<EsploraMempoolInfo> mempoolInfo() => _client.mempoolInfo();
+
+  @override
+  Future<EsploraFeeEstimates> feeEstimates() => _client.feeEstimates();
+
+  @override
+  Future<List<EsploraRecentTransaction>> recentMempoolTransactions() =>
+      _client.recentMempoolTransactions();
 
   @override
   void close() => _client.close();

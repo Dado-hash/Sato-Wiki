@@ -1090,4 +1090,152 @@ void main() {
       }
     });
   });
+
+  group('live dashboard calls', () {
+    Map<String, Object?> mempoolJson() => <String, Object?>{
+      'count': 48213,
+      'vsize': 11550000,
+      'total_fee': 2345678,
+      'fee_histogram': <Object?>[
+        <Object?>[120.5, 150000],
+        <Object?>[1, 3000000],
+      ],
+    };
+
+    test('recentBlocks reads GET /blocks', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route('/api/blocks', _json(<Object?>[_blockJson(_genesisId)]));
+
+      final blocks = await _client(server).recentBlocks();
+
+      expect(blocks.single.id, _genesisId);
+      expect(server.requested, ['/api/blocks']);
+    });
+
+    test('mempoolInfo reads GET /mempool', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route('/api/mempool', _json(mempoolJson()));
+
+      final info = await _client(server).mempoolInfo();
+
+      expect(info.count, 48213);
+      expect(info.feeHistogram.first.feeRate, 120.5);
+      expect(server.requested, ['/api/mempool']);
+    });
+
+    test('feeEstimates reads GET /fee-estimates', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route(
+        '/api/fee-estimates',
+        _json(<String, Object?>{'1': 8.0, '144': 2}),
+      );
+
+      final fees = await _client(server).feeEstimates();
+
+      expect(fees.forTarget(1), 8.0);
+      expect(fees.forTarget(144), 2.0);
+      expect(server.requested, ['/api/fee-estimates']);
+    });
+
+    test('recentMempoolTransactions reads GET /mempool/recent', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route(
+        '/api/mempool/recent',
+        _json(<Object?>[
+          <String, Object?>{
+            'txid': _segwitTxid,
+            'fee': 1500,
+            'vsize': 141,
+            'value': 98500,
+          },
+        ]),
+      );
+
+      final txs = await _client(server).recentMempoolTransactions();
+
+      expect(txs.single.txid, _segwitTxid);
+      expect(server.requested, ['/api/mempool/recent']);
+    });
+
+    test('the four live answers are cached for 15 seconds', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route('/api/blocks', _json(<Object?>[]));
+      server.route('/api/mempool', _json(mempoolJson()));
+      server.route('/api/fee-estimates', _json(<String, Object?>{'1': 8.0}));
+      server.route('/api/mempool/recent', _json(<Object?>[]));
+      final clock = _Clock();
+      final client = _client(server, now: clock.read);
+
+      Future<void> callAll() async {
+        await client.recentBlocks();
+        await client.mempoolInfo();
+        await client.feeEstimates();
+        await client.recentMempoolTransactions();
+      }
+
+      await callAll();
+      clock.advance(const Duration(seconds: 14));
+      await callAll();
+      expect(server.requested, hasLength(4));
+
+      clock.advance(const Duration(seconds: 2));
+      await callAll();
+      expect(server.requested, hasLength(8));
+    });
+
+    test('a malformed mempool histogram is badResponse', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route(
+        '/api/mempool',
+        _json(<String, Object?>{
+          ...mempoolJson(),
+          'fee_histogram': <Object?>[
+            <Object?>[1],
+          ],
+        }),
+      );
+
+      await expectLater(
+        _client(server).mempoolInfo(),
+        _failure(ExplorerFailure.badResponse),
+      );
+    });
+
+    test('a recent list with a non-object item is badResponse', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route('/api/blocks', _json(<Object?>[42]));
+
+      await expectLater(
+        _client(server).recentBlocks(),
+        _failure(ExplorerFailure.badResponse),
+      );
+    });
+
+    test('a 429 on the mempool call pauses the other live calls', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route(
+        '/api/mempool',
+        _Reply('{}', status: HttpStatus.tooManyRequests),
+      );
+      final client = _client(server);
+
+      await expectLater(
+        client.mempoolInfo(),
+        _failure(ExplorerFailure.rateLimited),
+      );
+      await expectLater(
+        client.feeEstimates(),
+        _failure(ExplorerFailure.lockedOut),
+      );
+      expect(server.requested, ['/api/mempool']);
+    });
+  });
 }

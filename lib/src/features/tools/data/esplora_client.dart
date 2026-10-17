@@ -59,6 +59,7 @@ final class ExplorerException implements Exception {
 const _maxBodyBytes = 2 * 1024 * 1024;
 const _maxCacheEntries = 200;
 const _volatileTtl = Duration(seconds: 60);
+const _liveTtl = Duration(seconds: 15);
 const _baseLockout = Duration(seconds: 60);
 const _maxLockout = Duration(minutes: 15);
 const _maxLockoutDoublings = 20;
@@ -72,7 +73,8 @@ final _hexPattern = RegExp(r'^(?:[0-9a-fA-F]{2})+$');
 ///
 /// Every call validates its input before it touches the network. Responses
 /// are cached in memory for the session only. A 429 pauses all calls with
-/// [lockoutRemaining] set. Nothing is retried, polled or logged.
+/// [lockoutRemaining] set. The client never retries, polls or logs; the live
+/// dashboard decides when to call it.
 final class EsploraClient {
   /// Creates a client for the server at [baseUrl].
   ///
@@ -215,6 +217,48 @@ final class EsploraClient {
         _decodeObjectList(body).map(EsploraTransaction.fromJson),
       ),
       ttl: _volatile,
+    );
+  }
+
+  /// Recent confirmed blocks, newest first (`/blocks`). Cached for 15 seconds.
+  Future<List<EsploraBlock>> recentBlocks() {
+    return _get<List<EsploraBlock>>(
+      path: '/blocks',
+      parse: (body) =>
+          List.unmodifiable(_decodeObjectList(body).map(EsploraBlock.fromJson)),
+      ttl: _live,
+    );
+  }
+
+  /// Summary of the mempool: count, size and fees (`/mempool`). Cached for 15
+  /// seconds.
+  Future<EsploraMempoolInfo> mempoolInfo() {
+    return _get<EsploraMempoolInfo>(
+      path: '/mempool',
+      parse: (body) => EsploraMempoolInfo.fromJson(_decodeObject(body)),
+      ttl: _live,
+    );
+  }
+
+  /// Fee rates by confirmation target (`/fee-estimates`). Cached for 15
+  /// seconds.
+  Future<EsploraFeeEstimates> feeEstimates() {
+    return _get<EsploraFeeEstimates>(
+      path: '/fee-estimates',
+      parse: (body) => EsploraFeeEstimates.fromJson(_decodeObject(body)),
+      ttl: _live,
+    );
+  }
+
+  /// The last transactions that entered the mempool (`/mempool/recent`).
+  /// Cached for 15 seconds.
+  Future<List<EsploraRecentTransaction>> recentMempoolTransactions() {
+    return _get<List<EsploraRecentTransaction>>(
+      path: '/mempool/recent',
+      parse: (body) => List.unmodifiable(
+        _decodeObjectList(body).map(EsploraRecentTransaction.fromJson),
+      ),
+      ttl: _live,
     );
   }
 
@@ -589,6 +633,8 @@ final class EsploraClient {
   static Duration? _volatile(Object? _) => _volatileTtl;
 
   static Duration? _forever(Object? _) => null;
+
+  static Duration? _live(Object? _) => _liveTtl;
 }
 
 /// LRU map of successful responses. Entries past their expiry count as

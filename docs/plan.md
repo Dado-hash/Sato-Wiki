@@ -232,7 +232,7 @@ Ricerca per altezza o hash di blocco, txid e indirizzo. I dati arrivano da un se
 Regole di privacy, da scrivere in `docs/privacy-policy.md` prima del rilascio:
 
 - spento all'installazione; si accende dalle Impostazioni dopo un avviso che spiega cosa vede il server (indirizzo IP e ogni ricerca);
-- nessuna chiamata parte senza un'azione dell'utente;
+- nessuna chiamata parte senza un'azione dell'utente: aprire la schermata dell'explorer conta come azione e avvia la dashboard live (decisione del 2026-10-17, vedi sotto);
 - il server è configurabile, così chi ha un nodo proprio usa quello;
 - l'app non salva le ricerche fatte nell'explorer;
 - nessun prezzo e nessun dato di mercato, come previsto dal PRD;
@@ -241,7 +241,7 @@ Regole di privacy, da scrivere in `docs/privacy-policy.md` prima del rilascio:
 Note tecniche:
 
 - il server predefinito è l'API pubblica di mempool.space, con base `https://mempool.space/api`. Non serve una chiave;
-- endpoint usati: `/blocks/tip/height`, `/block-height/:height`, `/block/:hash`, `/block/:hash/txids`, `/tx/:txid`, `/tx/:txid/hex`, `/address/:address`, `/address/:address/txs`. Sono gli stessi dello schema Esplora, quindi un server dell'utente con quello schema funziona senza modifiche;
+- endpoint usati: `/blocks`, `/mempool`, `/mempool/recent`, `/fee-estimates`, `/blocks/tip/height`, `/block-height/:height`, `/block/:hash`, `/block/:hash/txids`, `/tx/:txid`, `/tx/:txid/hex`, `/address/:address`, `/address/:address/txs`. Sono gli stessi dello schema Esplora, quindi un server dell'utente con quello schema funziona senza modifiche;
 - il client HTTP è `HttpClient` di `dart:io`, già usato da `content_bundle_repository.dart`, con gli stessi limiti di tempo di `content_http_deadline.dart`;
 - la vista della transazione riusa il decoder di C1;
 - ogni campo mostrato (input, output, witness, fee rate, tipo di script) porta alla voce wiki al livello di lettura scelto: è questo che distingue l'explorer da quelli esistenti;
@@ -255,10 +255,11 @@ Limiti d'uso di mempool.space, letti sulla documentazione dell'API il 2026-10-13
 
 Regole per il client, che seguono da questi limiti:
 
-- una ricerca dell'utente produce il minimo di chiamate; nessun aggiornamento automatico e nessun polling;
+- una ricerca dell'utente produce il minimo di chiamate;
+- l'unico aggiornamento automatico è la dashboard live della schermata explorer (decisione del 2026-10-17, prima il polling era escluso): 4 chiamate (`/blocks`, `/mempool`, `/fee-estimates`, `/mempool/recent`) all'apertura e poi ogni 60 secondi, solo mentre la schermata è visibile e l'app in primo piano, con un pulsante pausa. Le risposte valgono 15 secondi in cache. Il blocco di inizio del periodo di difficoltà si chiede una volta per periodo;
 - le risposte restano in memoria per la sessione, così tornare indietro non ripete la chiamata. I dati di un blocco confermato non cambiano;
 - le transazioni di un indirizzo si caricano una pagina alla volta, su richiesta;
-- con HTTP 429 l'app mostra un messaggio, non riprova da sola e blocca nuove ricerche per un tempo crescente;
+- con HTTP 429 l'app mostra un messaggio, non riprova da sola, mette in pausa la dashboard finché l'utente non la riprende e blocca nuove ricerche per un tempo crescente;
 - l'app nomina mempool.space solo come testo e non ne usa il logo: "Mempool" è un marchio registrato.
 
 I termini di servizio di mempool.space sono stati letti da Davide in un browser il 2026-10-13.

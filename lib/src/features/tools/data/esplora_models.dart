@@ -407,3 +407,176 @@ bool _bool(Map<String, Object?> json, String key) {
 
   throw FormatException('Esplora field "$key" must be a boolean.');
 }
+
+/// One entry of the mempool fee histogram: [vsize] vbytes pay at least
+/// [feeRate] sat/vB and less than the fee rate of the entry before it.
+/// Entries come highest fee rate first.
+final class EsploraFeeBucket {
+  /// Creates a histogram entry.
+  const EsploraFeeBucket({required this.feeRate, required this.vsize});
+
+  /// Fee rate in sat/vB.
+  final double feeRate;
+
+  /// Total size of the transactions in this bucket, in vbytes.
+  final int vsize;
+}
+
+/// Mempool summary from `GET /mempool`.
+final class EsploraMempoolInfo {
+  /// Creates a mempool summary.
+  const EsploraMempoolInfo({
+    required this.count,
+    required this.vsize,
+    required this.totalFee,
+    required this.feeHistogram,
+  });
+
+  /// Reads a mempool summary from its JSON object.
+  factory EsploraMempoolInfo.fromJson(Map<String, Object?> json) {
+    final histogram = <EsploraFeeBucket>[];
+    for (final entry in _list(json, 'fee_histogram')) {
+      if (entry is! List<Object?> || entry.length != 2) {
+        throw const FormatException(
+          'Esplora field "fee_histogram" must hold [feerate, vsize] pairs.',
+        );
+      }
+      histogram.add(
+        EsploraFeeBucket(
+          feeRate: _numValue(entry[0], 'fee_histogram'),
+          vsize: _wholeValue(entry[1], 'fee_histogram'),
+        ),
+      );
+    }
+
+    return EsploraMempoolInfo(
+      count: _int(json, 'count'),
+      vsize: _int(json, 'vsize'),
+      totalFee: _int(json, 'total_fee'),
+      feeHistogram: List.unmodifiable(histogram),
+    );
+  }
+
+  /// Number of transactions in the mempool.
+  final int count;
+
+  /// Total size of the mempool, in vbytes.
+  final int vsize;
+
+  /// Sum of the fees of the mempool transactions, in satoshi.
+  final int totalFee;
+
+  /// Fee histogram, highest fee rate first (`fee_histogram` in the API).
+  final List<EsploraFeeBucket> feeHistogram;
+}
+
+/// Fee estimates from `GET /fee-estimates`: confirmation target in blocks
+/// mapped to a fee rate in sat/vB.
+final class EsploraFeeEstimates {
+  /// Creates fee estimates. [byTarget] should not be changed afterwards.
+  const EsploraFeeEstimates(this.byTarget);
+
+  /// Reads fee estimates from their JSON object. Keys are strings such as
+  /// `"1"` or `"144"`.
+  factory EsploraFeeEstimates.fromJson(Map<String, Object?> json) {
+    final byTarget = <int, double>{};
+    for (final entry in json.entries) {
+      final target = int.tryParse(entry.key);
+      if (target == null || target < 1) {
+        throw FormatException(
+          'Fee estimate key "${entry.key}" must be a block target.',
+        );
+      }
+      byTarget[target] = _numValue(entry.value, 'fee-estimates');
+    }
+
+    return EsploraFeeEstimates(Map.unmodifiable(byTarget));
+  }
+
+  /// Fee rate in sat/vB for each confirmation target, in blocks.
+  final Map<int, double> byTarget;
+
+  /// Fee rate for [target] blocks. When the server gave no such target, the
+  /// rate of the nearest larger target. Null when there is none.
+  double? forTarget(int target) {
+    final exact = byTarget[target];
+    if (exact != null) {
+      return exact;
+    }
+
+    int? nearest;
+    for (final key in byTarget.keys) {
+      if (key > target && (nearest == null || key < nearest)) {
+        nearest = key;
+      }
+    }
+
+    return nearest == null ? null : byTarget[nearest];
+  }
+}
+
+/// A transaction from `GET /mempool/recent`.
+final class EsploraRecentTransaction {
+  /// Creates a recent transaction.
+  const EsploraRecentTransaction({
+    required this.txid,
+    required this.fee,
+    required this.vsize,
+    required this.value,
+  });
+
+  /// Reads a recent transaction from its JSON object.
+  factory EsploraRecentTransaction.fromJson(Map<String, Object?> json) {
+    return EsploraRecentTransaction(
+      txid: _string(json, 'txid'),
+      fee: _int(json, 'fee'),
+      vsize: _int(json, 'vsize'),
+      value: _int(json, 'value'),
+    );
+  }
+
+  /// Transaction id, as hex.
+  final String txid;
+
+  /// Fee in satoshi.
+  final int fee;
+
+  /// Virtual size in vbytes.
+  final int vsize;
+
+  /// Sum of the outputs, in satoshi.
+  final int value;
+
+  /// Fee rate in sat/vB, or 0 when [vsize] is 0.
+  double get feeRate => vsize == 0 ? 0 : fee / vsize;
+}
+
+/// Returns the list at [key], or throws a [FormatException] when it is not one.
+List<Object?> _list(Map<String, Object?> json, String key) {
+  final value = json[key];
+  if (value is List<Object?>) {
+    return value;
+  }
+
+  throw FormatException('Esplora field "$key" must be a list.');
+}
+
+/// Returns [value] as a non-negative, finite number, or throws a
+/// [FormatException] naming [key].
+double _numValue(Object? value, String key) {
+  if (value is num && value.isFinite && value >= 0) {
+    return value.toDouble();
+  }
+
+  throw FormatException('Esplora field "$key" must hold non-negative numbers.');
+}
+
+/// Returns [value] as a whole, non-negative number, or throws a
+/// [FormatException] naming [key]. Accepts `1` and `1.0` alike.
+int _wholeValue(Object? value, String key) {
+  if (value is num && value.isFinite && value >= 0 && value % 1 == 0) {
+    return value.toInt();
+  }
+
+  throw FormatException('Esplora field "$key" must hold whole numbers.');
+}
