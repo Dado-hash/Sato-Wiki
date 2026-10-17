@@ -359,8 +359,27 @@ void main() {
     testWidgets('a fee failure other than notFound is not an error', (
       tester,
     ) async {
+      final api = _filled()
+        ..feesFailure = const ExplorerException(
+          ExplorerFailure.network,
+          'The explorer server could not be reached.',
+        );
+      final harness = await _pumpDashboard(tester, api: api);
+
+      expect(find.text('Estimated from the mempool'), findsOneWidget);
+      expect(find.textContaining('could not be reached'), findsNothing);
+      expect(find.text('Try again'), findsNothing);
+
+      // Any failure but a rate limit stops the call for the session.
+      await tester.pump(const Duration(seconds: 60));
+      expect(harness.api.calls, ['blocks', 'mempool', 'recent']);
+    });
+
+    testWidgets('a bad fee response stops the call like notFound', (
+      tester,
+    ) async {
       // Mempool.space answers /fee-estimates with HTTP 203, which the client
-      // reports as a bad response.
+      // reports as a bad response when it is not a 2xx it accepts.
       final api = _filled()
         ..feesFailure = const ExplorerException(
           ExplorerFailure.badResponse,
@@ -372,9 +391,8 @@ void main() {
       expect(find.textContaining('Unexpected HTTP'), findsNothing);
       expect(find.text('Try again'), findsNothing);
 
-      // Only a notFound stops the call, so the fee call is still made.
       await tester.pump(const Duration(seconds: 60));
-      expect(harness.api.calls, _dashboardCalls);
+      expect(harness.api.calls, ['blocks', 'mempool', 'recent']);
     });
 
     testWidgets('a finished round without fee data shows dashes', (

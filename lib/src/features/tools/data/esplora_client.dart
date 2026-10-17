@@ -389,7 +389,10 @@ final class EsploraClient {
     final response = await request.close();
     final status = response.statusCode;
 
-    if (status == HttpStatus.ok) {
+    // 203 (Non-Authoritative Information) is a success that carries the body.
+    // mempool.space answers /fee-estimates with it.
+    if (status == HttpStatus.ok ||
+        status == HttpStatus.nonAuthoritativeInformation) {
       _consecutiveRateLimits = 0;
       _lockedUntil = null;
 

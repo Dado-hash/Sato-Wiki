@@ -90,8 +90,8 @@ final class ExplorerDashboardState {
 /// Loads the live dashboard data and refreshes it on a timer.
 ///
 /// A round makes four calls in parallel: recent blocks, mempool, fee
-/// estimates and recent mempool transactions. Once the server has answered
-/// notFound for fee estimates, the fee call is skipped for the session and a
+/// estimates and recent mempool transactions. Once a fee estimates call fails
+/// for any reason but a rate limit, the call is skipped for the session and a
 /// round makes three. Fees the server does not give are derived from the
 /// mempool histogram. The start block of the difficulty epoch is looked up
 /// once per epoch and cached for the session.
@@ -125,8 +125,8 @@ final class ExplorerDashboardController extends ChangeNotifier {
   /// True after [pause] or after a rate limit, until [resume].
   bool get paused => _paused;
 
-  /// True once the server answered notFound for `/fee-estimates`. Later
-  /// rounds then derive the fees and skip that call.
+  /// True once `/fee-estimates` failed for a reason other than a rate limit.
+  /// Later rounds then derive the fees and skip that call.
   bool _feesUnavailable = false;
 
   /// Calls each refresh makes now: 3 once `/fee-estimates` is skipped.
@@ -233,12 +233,11 @@ final class ExplorerDashboardController extends ChangeNotifier {
     final serverFees = await feesCall;
     final recent = await recentCall;
 
-    // Other fee failures are expected on some servers, so only a rate limit
-    // is reported. A notFound counts as "no /fee-estimates" only when the
-    // server answered the other calls of the round.
+    // Any fee failure except a rate limit stops the call for the session, as
+    // long as the server answered the other calls of the round. A rate limit
+    // is reported and retried later.
     final answered = blocks != null || mempool != null || recent != null;
-    if (answered &&
-        feeErrors.any((error) => error.failure == ExplorerFailure.notFound)) {
+    if (answered && feeErrors.any((error) => !explorerIsRateLimit(error))) {
       _feesUnavailable = true;
     }
     errors.addAll(feeErrors.where(explorerIsRateLimit));
