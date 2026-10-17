@@ -1866,8 +1866,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get explorerDashResume => 'Resume updates';
 
   @override
-  String explorerDashPrivacy(String host) {
-    return 'Each refresh sends 4 requests to $host. The server sees your IP address. Searches are not saved.';
+  String get explorerDashFeesDerived => 'Estimated from the mempool';
+
+  @override
+  String explorerDashPrivacy(int count, String host) {
+    return 'Each refresh sends $count requests to $host. The server sees your IP address. Searches are not saved.';
   }
 
   @override

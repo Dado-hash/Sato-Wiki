@@ -254,4 +254,83 @@ void main() {
       expect(epoch.estimatedChange, -0.75);
     });
   });
+
+  group('feeEstimatesFromProjection', () {
+    ProjectedBlock block(double min, double median, double max) {
+      return ProjectedBlock(
+        minFeeRate: min,
+        maxFeeRate: max,
+        medianFeeRate: median,
+        vsize: projectedBlockVsize,
+        estimatedFees: 0,
+      );
+    }
+
+    test('an empty projection gives no estimates', () {
+      final fees = feeEstimatesFromProjection(const <ProjectedBlock>[], [
+        _bucket(5, 1000),
+      ]);
+
+      expect(fees.byTarget, isEmpty);
+    });
+
+    test('targets take the medians of the first, third and sixth block', () {
+      final projected = [
+        block(10, 12, 20),
+        block(8, 9, 10),
+        block(5, 6, 7),
+        block(4, 4.5, 5),
+        block(3, 3.5, 4),
+        block(2, 2.5, 3),
+        block(1, 1.5, 2),
+      ];
+      final fees = feeEstimatesFromProjection(projected, [
+        _bucket(20, 100),
+        _bucket(1.2, 100),
+      ]);
+
+      expect(fees.byTarget, {1: 12, 3: 6, 6: 2.5, 144: 1.2});
+    });
+
+    test('short projections fall back to the last block', () {
+      final projected = [block(10, 12, 20), block(8, 9, 10)];
+      final fees = feeEstimatesFromProjection(projected, [_bucket(3, 100)]);
+
+      // Target 3 uses the last block's median; target 6 its minimum.
+      expect(fees.forTarget(1), 12);
+      expect(fees.forTarget(3), 9);
+      expect(fees.forTarget(6), 8);
+      expect(fees.forTarget(144), 3);
+    });
+
+    test(
+      'target 144 falls back to the last block minimum without a histogram',
+      () {
+        final projected = [block(10, 12, 20), block(4, 5, 6)];
+        final fees = feeEstimatesFromProjection(
+          projected,
+          const <EsploraFeeBucket>[],
+        );
+
+        expect(fees.forTarget(144), 4);
+      },
+    );
+
+    test('later targets are forced not to exceed earlier ones', () {
+      final projected = [
+        block(1, 2, 3),
+        block(1, 9, 9),
+        block(1, 9, 9),
+        block(1, 9, 9),
+        block(1, 9, 9),
+        block(1, 9, 9),
+      ];
+      final fees = feeEstimatesFromProjection(projected, [_bucket(50, 100)]);
+
+      expect(fees.forTarget(1), 2);
+      expect(fees.forTarget(3), 2);
+      expect(fees.forTarget(6), 2);
+      expect(fees.forTarget(144), 2);
+    });
+  });
 }

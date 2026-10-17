@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sato_wiki/src/core/navigation/app_routes.dart';
 import 'package:sato_wiki/src/features/tools/data/esplora_client.dart';
 import 'package:sato_wiki/src/features/tools/data/esplora_models.dart';
+import 'package:sato_wiki/src/features/tools/domain/mempool_projection.dart';
+import 'package:sato_wiki/src/features/tools/presentation/explorer_dashboard_controller.dart';
 import 'package:sato_wiki/src/features/tools/presentation/explorer_dashboard_widgets.dart';
 import 'package:sato_wiki/src/features/tools/presentation/explorer_search_screen.dart';
 
@@ -306,6 +308,86 @@ void main() {
       await tester.pump(const Duration(minutes: 5));
       expect(harness.api.calls, isEmpty);
       expect(harness.clientsCreated, isEmpty);
+    });
+  });
+
+  group('fee estimates', () {
+    testWidgets('without /fee-estimates the fees come from the mempool', (
+      tester,
+    ) async {
+      final api = _filled()..feesAnswer = null;
+      final harness = await _pumpDashboard(tester, api: api);
+
+      // The fee card shows the rates derived from the canned histogram.
+      final histogram = cannedMempool().feeHistogram;
+      final derived = feeEstimatesFromProjection(
+        projectMempoolBlocks(histogram, maxBlocks: dashboardProjectedBlocks),
+        histogram,
+      );
+      expect(find.text('RECOMMENDED FEES'), findsOneWidget);
+      expect(
+        find.text(formatFeeRate(derived.forTarget(1)!, 'en')),
+        findsWidgets,
+      );
+      expect(
+        find.text(formatFeeRate(derived.forTarget(144)!, 'en')),
+        findsWidgets,
+      );
+      expect(find.text('Estimated from the mempool'), findsOneWidget);
+
+      // No error notice: the missing endpoint is not a failure.
+      expect(
+        find.text(
+          'The server does not know this block, transaction or address.',
+        ),
+        findsNothing,
+      );
+      expect(find.text('Try again'), findsNothing);
+
+      // Later rounds skip /fee-estimates.
+      await tester.pump(const Duration(seconds: 60));
+      expect(harness.api.calls, ['blocks', 'mempool', 'recent']);
+      expect(
+        find.text(
+          'Each refresh sends 3 requests to mempool.space. The server sees '
+          'your IP address. Searches are not saved.',
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('a fee failure other than notFound is not an error', (
+      tester,
+    ) async {
+      // Mempool.space answers /fee-estimates with HTTP 203, which the client
+      // reports as a bad response.
+      final api = _filled()
+        ..feesFailure = const ExplorerException(
+          ExplorerFailure.badResponse,
+          'Unexpected HTTP status 203.',
+        );
+      final harness = await _pumpDashboard(tester, api: api);
+
+      expect(find.text('Estimated from the mempool'), findsOneWidget);
+      expect(find.textContaining('Unexpected HTTP'), findsNothing);
+      expect(find.text('Try again'), findsNothing);
+
+      // Only a notFound stops the call, so the fee call is still made.
+      await tester.pump(const Duration(seconds: 60));
+      expect(harness.api.calls, _dashboardCalls);
+    });
+
+    testWidgets('a finished round without fee data shows dashes', (
+      tester,
+    ) async {
+      final api = _filled()
+        ..feesAnswer = null
+        ..mempoolAnswer = null;
+      await _pumpDashboard(tester, api: api);
+
+      expect(find.text('RECOMMENDED FEES'), findsOneWidget);
+      expect(find.text('Estimated from the mempool'), findsNothing);
+      expect(find.text('—'), findsWidgets);
     });
   });
 

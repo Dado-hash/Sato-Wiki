@@ -3356,11 +3356,17 @@ abstract class AppLocalizations {
   /// **'Resume updates'**
   String get explorerDashResume;
 
+  /// No description provided for @explorerDashFeesDerived.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated from the mempool'**
+  String get explorerDashFeesDerived;
+
   /// No description provided for @explorerDashPrivacy.
   ///
   /// In en, this message translates to:
-  /// **'Each refresh sends 4 requests to {host}. The server sees your IP address. Searches are not saved.'**
-  String explorerDashPrivacy(String host);
+  /// **'Each refresh sends {count} requests to {host}. The server sees your IP address. Searches are not saved.'**
+  String explorerDashPrivacy(int count, String host);
 
   /// No description provided for @labTitle.
   ///
