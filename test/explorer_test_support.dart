@@ -119,9 +119,19 @@ final class FakeExplorerApi implements ExplorerApi {
   Future<EsploraMempoolInfo> mempoolInfo() async =>
       _answer('mempool', mempoolAnswer);
 
+  /// When set, only the fee call fails with this exception.
+  ExplorerException? feesFailure;
+
   @override
-  Future<EsploraFeeEstimates> feeEstimates() async =>
-      _answer('fees', feesAnswer);
+  Future<EsploraFeeEstimates> feeEstimates() async {
+    final error = feesFailure;
+    if (error != null) {
+      calls.add('fees');
+      throw error;
+    }
+
+    return _answer('fees', feesAnswer);
+  }
 
   @override
   Future<List<EsploraRecentTransaction>> recentMempoolTransactions() async =>

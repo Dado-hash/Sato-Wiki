@@ -1876,8 +1876,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get explorerDashResume => 'Riprendi';
 
   @override
-  String explorerDashPrivacy(String host) {
-    return 'Ogni aggiornamento invia 4 richieste a $host. Il server vede il tuo indirizzo IP. Le ricerche non vengono salvate.';
+  String get explorerDashFeesDerived => 'Stime dalla mempool';
+
+  @override
+  String explorerDashPrivacy(int count, String host) {
+    return 'Ogni aggiornamento invia $count richieste a $host. Il server vede il tuo indirizzo IP. Le ricerche non vengono salvate.';
   }
 
   @override

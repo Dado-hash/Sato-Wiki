@@ -1140,6 +1140,25 @@ void main() {
       expect(server.requested, ['/api/fee-estimates']);
     });
 
+    test('feeEstimates accepts HTTP 203 with a deprecation header', () async {
+      final server = await _FakeServer.start();
+      addTearDown(server.close);
+      server.route(
+        '/api/fee-estimates',
+        _Reply(
+          jsonEncode(<String, Object?>{'1': 8.0, '144': 2}),
+          status: HttpStatus.nonAuthoritativeInformation,
+          headers: const {'Deprecation': 'true'},
+        ),
+      );
+
+      final fees = await _client(server).feeEstimates();
+
+      expect(fees.forTarget(1), 8.0);
+      expect(fees.forTarget(144), 2.0);
+      expect(server.requested, ['/api/fee-estimates']);
+    });
+
     test('recentMempoolTransactions reads GET /mempool/recent', () async {
       final server = await _FakeServer.start();
       addTearDown(server.close);

@@ -21,9 +21,11 @@ final class ExplorerDashboardState {
     this.mempool,
     this.projected = const <ProjectedBlock>[],
     this.fees,
+    this.feesDerived = false,
     this.epoch,
     this.recent,
     this.updatedAt,
+    this.requestsPerRound = 4,
     this.loading = false,
     this.error,
   });
@@ -40,6 +42,10 @@ final class ExplorerDashboardState {
   /// Fee estimates by confirmation target.
   final EsploraFeeEstimates? fees;
 
+  /// True when [fees] were derived from the mempool because the server gave
+  /// no usable `/fee-estimates` answer.
+  final bool feesDerived;
+
   /// Progress of the difficulty epoch.
   final DifficultyEpoch? epoch;
 
@@ -48,6 +54,10 @@ final class ExplorerDashboardState {
 
   /// When the last round got at least one answer. Null before that.
   final DateTime? updatedAt;
+
+  /// Calls each refresh makes: 4, or 3 once the server has no
+  /// `/fee-estimates`.
+  final int requestsPerRound;
 
   /// True while a round runs.
   final bool loading;
@@ -66,9 +76,11 @@ final class ExplorerDashboardState {
       mempool: mempool,
       projected: projected,
       fees: fees,
+      feesDerived: feesDerived,
       epoch: epoch,
       recent: recent,
       updatedAt: updatedAt,
+      requestsPerRound: requestsPerRound,
       loading: loading,
       error: error,
     );
@@ -78,8 +90,11 @@ final class ExplorerDashboardState {
 /// Loads the live dashboard data and refreshes it on a timer.
 ///
 /// A round makes four calls in parallel: recent blocks, mempool, fee
-/// estimates and recent mempool transactions. The start block of the
-/// difficulty epoch is looked up once per epoch and cached for the session.
+/// estimates and recent mempool transactions. Once a fee estimates call fails
+/// for any reason but a rate limit, the call is skipped for the session and a
+/// round makes three. Fees the server does not give are derived from the
+/// mempool histogram. The start block of the difficulty epoch is looked up
+/// once per epoch and cached for the session.
 ///
 /// Refreshes run only while the controller is started, visible and not
 /// paused. A rate limit pauses the controller, and only [resume] or
@@ -109,6 +124,13 @@ final class ExplorerDashboardController extends ChangeNotifier {
 
   /// True after [pause] or after a rate limit, until [resume].
   bool get paused => _paused;
+
+  /// True once `/fee-estimates` failed for a reason other than a rate limit.
+  /// Later rounds then derive the fees and skip that call.
+  bool _feesUnavailable = false;
+
+  /// Calls each refresh makes now: 3 once `/fee-estimates` is skipped.
+  int get requestsPerRound => _feesUnavailable ? 3 : 4;
 
   bool _started = false;
   bool _visible = true;
@@ -199,19 +221,56 @@ final class ExplorerDashboardController extends ChangeNotifier {
     _notify();
 
     final errors = <ExplorerException>[];
+    final feeErrors = <ExplorerException>[];
     final blocksCall = _try(api.recentBlocks, errors);
     final mempoolCall = _try(api.mempoolInfo, errors);
-    final feesCall = _try(api.feeEstimates, errors);
+    final feesCall = _feesUnavailable
+        ? Future<EsploraFeeEstimates?>.value()
+        : _try(api.feeEstimates, feeErrors);
     final recentCall = _try(api.recentMempoolTransactions, errors);
     final blocks = await blocksCall;
     final mempool = await mempoolCall;
-    final fees = await feesCall;
+    final serverFees = await feesCall;
     final recent = await recentCall;
+
+    // Any fee failure except a rate limit stops the call for the session, as
+    // long as the server answered the other calls of the round. A rate limit
+    // is reported and retried later.
+    final answered = blocks != null || mempool != null || recent != null;
+    if (answered && feeErrors.any((error) => !explorerIsRateLimit(error))) {
+      _feesUnavailable = true;
+    }
+    errors.addAll(feeErrors.where(explorerIsRateLimit));
 
     final previous = _state;
     final epoch = blocks == null || blocks.isEmpty
         ? previous.epoch
         : await _epochFor(api, blocks.first, errors) ?? previous.epoch;
+
+    // The mempool of this round, or else the last one, gives the fees when
+    // the server gave none.
+    final histogramMempool = mempool ?? previous.mempool;
+    final projected = mempool == null
+        ? previous.projected
+        : projectMempoolBlocks(
+            mempool.feeHistogram,
+            maxBlocks: dashboardProjectedBlocks,
+          );
+    final EsploraFeeEstimates? fees;
+    final bool feesDerived;
+    if (serverFees != null) {
+      fees = serverFees;
+      feesDerived = false;
+    } else if (histogramMempool != null) {
+      fees = feeEstimatesFromProjection(
+        projected,
+        histogramMempool.feeHistogram,
+      );
+      feesDerived = true;
+    } else {
+      fees = previous.fees;
+      feesDerived = previous.feesDerived;
+    }
 
     _inFlight = false;
     if (_disposed) {
@@ -220,19 +279,19 @@ final class ExplorerDashboardController extends ChangeNotifier {
     _state = ExplorerDashboardState(
       blocks: blocks ?? previous.blocks,
       mempool: mempool ?? previous.mempool,
-      projected: mempool == null
-          ? previous.projected
-          : projectMempoolBlocks(
-              mempool.feeHistogram,
-              maxBlocks: dashboardProjectedBlocks,
-            ),
-      fees: fees ?? previous.fees,
+      projected: projected,
+      fees: fees,
+      feesDerived: feesDerived,
       epoch: epoch,
       recent: recent ?? previous.recent,
       updatedAt:
-          blocks != null || mempool != null || fees != null || recent != null
+          blocks != null ||
+              mempool != null ||
+              serverFees != null ||
+              recent != null
           ? _now()
           : previous.updatedAt,
+      requestsPerRound: requestsPerRound,
       error: errors.isEmpty ? null : errors.first,
     );
     if (errors.any(explorerIsRateLimit)) {

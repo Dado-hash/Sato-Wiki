@@ -1,6 +1,8 @@
 // Projects the mempool onto the next blocks from its fee histogram. Pure Dart,
 // no Flutter imports.
 
+import 'dart:math';
+
 import '../data/esplora_models.dart';
 
 /// Vbytes in a full block, the consensus limit used for projections.
@@ -138,5 +140,46 @@ ProjectedBlock _build(List<_Slice> slices, int vsize) {
     medianFeeRate: medianRate,
     vsize: vsize,
     estimatedFees: fees.round(),
+  );
+}
+
+/// Fee estimates for targets 1, 3, 6 and 144 blocks, derived from the mempool
+/// when the server has no `/fee-estimates`.
+///
+/// Target 1 is the median rate of the next block, target 3 the median of the
+/// third block and target 6 the median of the sixth block. Each falls back to
+/// the last projected block when there are fewer blocks (target 6 uses that
+/// block's lowest rate). Target 144 is the lowest rate in [histogram]. The
+/// targets are forced to be non-increasing. An empty projection gives no
+/// estimates.
+EsploraFeeEstimates feeEstimatesFromProjection(
+  List<ProjectedBlock> projected,
+  List<EsploraFeeBucket> histogram,
+) {
+  if (projected.isEmpty) {
+    return const EsploraFeeEstimates(<int, double>{});
+  }
+
+  final last = projected.last;
+  final next = projected.first.medianFeeRate;
+  final third = (projected.length > 2 ? projected[2] : last).medianFeeRate;
+  final sixth = projected.length >= 6
+      ? projected[5].medianFeeRate
+      : last.minFeeRate;
+  final lowest = histogram.isEmpty
+      ? last.minFeeRate
+      : histogram.map((bucket) => bucket.feeRate).reduce(min);
+
+  final target3 = min(third, next);
+  final target6 = min(sixth, target3);
+  final target144 = min(lowest, target6);
+
+  return EsploraFeeEstimates(
+    Map.unmodifiable(<int, double>{
+      1: next,
+      3: target3,
+      6: target6,
+      144: target144,
+    }),
   );
 }

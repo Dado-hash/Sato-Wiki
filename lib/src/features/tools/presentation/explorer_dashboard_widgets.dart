@@ -190,7 +190,11 @@ class ExplorerDashboardBody extends StatelessWidget {
           const SizedBox(height: AppSpacing.section),
           _DashSection(
             title: l10n.explorerDashFeesTitle,
-            child: ExplorerFeesCard(fees: state.fees),
+            child: ExplorerFeesCard(
+              fees: state.fees,
+              derived: state.feesDerived,
+              pending: state.updatedAt == null,
+            ),
           ),
           const SizedBox(height: AppSpacing.section),
           ExplorerStatsRow(
@@ -699,9 +703,21 @@ class _DashedLinePainter extends CustomPainter {
 /// Four recommended fee rates in one card, with a bar that runs from fast
 /// (red) to slow (green), and a line with the cost of a typical transaction.
 class ExplorerFeesCard extends StatelessWidget {
-  const ExplorerFeesCard({required this.fees, super.key});
+  const ExplorerFeesCard({
+    required this.fees,
+    this.derived = false,
+    this.pending = false,
+    super.key,
+  });
 
+  /// The estimates, or null when the server gave none.
   final EsploraFeeEstimates? fees;
+
+  /// True when [fees] were derived from the mempool.
+  final bool derived;
+
+  /// True until a refresh round has finished. Only then is the skeleton shown.
+  final bool pending;
 
   @override
   Widget build(BuildContext context) {
@@ -710,13 +726,14 @@ class ExplorerFeesCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final sato = context.sato;
-    final current = fees;
-    if (current == null) {
+    if (fees == null && pending) {
       return ExplorerSkeleton(height: 120);
     }
+    // A finished round without fee data shows dashes.
+    final estimates = fees ?? const EsploraFeeEstimates(<int, double>{});
 
     String rate(int target) {
-      final value = current.forTarget(target);
+      final value = estimates.forTarget(target);
 
       return value == null ? '—' : formatFeeRate(value, locale);
     }
@@ -727,7 +744,7 @@ class ExplorerFeesCard extends StatelessWidget {
       (l10n.explorerDashFeeMedium, rate(3), l10n.explorerDashMinutes(30)),
       (l10n.explorerDashFeeHigh, rate(1), l10n.explorerDashMinutes(10)),
     ];
-    final high = current.forTarget(1);
+    final high = estimates.forTarget(1);
     final typical = high == null
         ? '—'
         : NumberFormat.decimalPattern(locale).format((high * 140).round());
@@ -848,6 +865,15 @@ class ExplorerFeesCard extends StatelessWidget {
             color: colorScheme.onSurfaceVariant,
           ),
         ),
+        if (derived) ...[
+          const SizedBox(height: AppSpacing.xs),
+          Text(
+            l10n.explorerDashFeesDerived,
+            style: textTheme.labelSmall?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
       ],
     );
   }
@@ -1508,7 +1534,7 @@ class ExplorerDashboardFooter extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.md),
         Text(
-          l10n.explorerDashPrivacy(host),
+          l10n.explorerDashPrivacy(state.requestsPerRound, host),
           style: textTheme.bodySmall?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),

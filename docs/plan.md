@@ -256,7 +256,7 @@ Limiti d'uso di mempool.space, letti sulla documentazione dell'API il 2026-10-13
 Regole per il client, che seguono da questi limiti:
 
 - una ricerca dell'utente produce il minimo di chiamate;
-- l'unico aggiornamento automatico è la dashboard live della schermata explorer (decisione del 2026-10-17, prima il polling era escluso): 4 chiamate (`/blocks`, `/mempool`, `/fee-estimates`, `/mempool/recent`) all'apertura e poi ogni 60 secondi, solo mentre la schermata è visibile e l'app in primo piano, con un pulsante pausa. Le risposte valgono 15 secondi in cache. Il blocco di inizio del periodo di difficoltà si chiede una volta per periodo;
+- l'unico aggiornamento automatico è la dashboard live della schermata explorer (decisione del 2026-10-17, prima il polling era escluso): fino a 4 chiamate (`/blocks`, `/mempool`, `/fee-estimates`, `/mempool/recent`) all'apertura e poi ogni 60 secondi; se il server non ha `/fee-estimates` (risposta notFound) la chiamata viene saltata e le commissioni si ricavano dall'istogramma della mempool (3 chiamate per aggiornamento), solo mentre la schermata è visibile e l'app in primo piano, con un pulsante pausa. Le risposte valgono 15 secondi in cache. Il blocco di inizio del periodo di difficoltà si chiede una volta per periodo;
 - le risposte restano in memoria per la sessione, così tornare indietro non ripete la chiamata. I dati di un blocco confermato non cambiano;
 - le transazioni di un indirizzo si caricano una pagina alla volta, su richiesta;
 - con HTTP 429 l'app mostra un messaggio, non riprova da sola, mette in pausa la dashboard finché l'utente non la riprende e blocca nuove ricerche per un tempo crescente;
