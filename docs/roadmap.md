@@ -91,6 +91,7 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 6. [x] Client Esplora con limiti di tempo, cache in memoria e gestione di HTTP 429.
 7. [x] Schermate blocco, transazione e indirizzo, con link alle voci wiki.
 8. [x] Test con server finto: rete assente, risposta malformata, timeout, HTTP 429.
+9. [x] Dashboard live in stile mempool.space sulla schermata di ricerca (mockup approvato il 2026-10-17): aggiornamento ogni 60 secondi con pausa. Da provare su simulatore con il server vero.
 
 ## 9. Schede prodotto e Biblioteca
 

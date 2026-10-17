@@ -1,3 +1,4 @@
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -33,6 +34,15 @@ const addressValue = '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa';
 const blockHash850000 =
     '00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054';
 
+/// Tip height and time of the canned dashboard data.
+const int cannedTipHeight = 971412;
+const int cannedTipTime = 1792250000;
+
+/// Epoch start height of [cannedTipHeight], and the time span of the epoch so
+/// far. The span gives an average block time of about 9:46.
+const int cannedEpochStartHeight = 969696;
+const int cannedEpochSpanSeconds = 1006350;
+
 /// Canned answers for the explorer, plus the list of calls made.
 final class FakeExplorerApi implements ExplorerApi {
   /// Every call, as `kind:value`, in the order it was made.
@@ -46,6 +56,12 @@ final class FakeExplorerApi implements ExplorerApi {
       <String, EsploraAddressStats>{};
   final Map<String, List<EsploraTransaction>> addressTxs =
       <String, List<EsploraTransaction>>{};
+
+  /// Answers for the dashboard calls. Null means notFound.
+  List<EsploraBlock>? recentBlocksAnswer;
+  EsploraMempoolInfo? mempoolAnswer;
+  EsploraFeeEstimates? feesAnswer;
+  List<EsploraRecentTransaction>? recentAnswer;
 
   /// When set, every call fails with this exception.
   ExplorerException? failure;
@@ -96,9 +112,129 @@ final class FakeExplorerApi implements ExplorerApi {
   }
 
   @override
+  Future<List<EsploraBlock>> recentBlocks() async =>
+      _answer('blocks', recentBlocksAnswer);
+
+  @override
+  Future<EsploraMempoolInfo> mempoolInfo() async =>
+      _answer('mempool', mempoolAnswer);
+
+  @override
+  Future<EsploraFeeEstimates> feeEstimates() async =>
+      _answer('fees', feesAnswer);
+
+  @override
+  Future<List<EsploraRecentTransaction>> recentMempoolTransactions() async =>
+      _answer('recent', recentAnswer);
+
+  @override
   void close() {
     closed = true;
   }
+}
+
+/// A 64-character hex id derived from [seed], so each seed gives its own id.
+String cannedHash(String seed) => sha256.convert(seed.codeUnits).toString();
+
+/// A confirmed block at [height] with the given header [timestamp].
+EsploraBlock _cannedBlockAt(int height, {required int timestamp}) {
+  return EsploraBlock.fromJson({
+    'id': cannedHash('block $height'),
+    'height': height,
+    'version': 536870912,
+    'timestamp': timestamp,
+    'tx_count': 3000 + height % 500,
+    'size': 1500000 + height % 1000 * 100,
+    'weight': 3990000 - height % 7 * 1000,
+    'merkle_root': cannedHash('merkle $height'),
+    'previousblockhash': cannedHash('block ${height - 1}'),
+    'nonce': 12345,
+    'bits': 386089497,
+    'difficulty': 1.2e14,
+  });
+}
+
+/// The [count] newest confirmed blocks, newest first. Timestamps are 600 s
+/// apart, ending at [cannedTipTime] for the tip.
+List<EsploraBlock> cannedRecentBlocks({
+  int tipHeight = cannedTipHeight,
+  int count = 10,
+}) {
+  return [
+    for (var i = 0; i < count; i++)
+      _cannedBlockAt(tipHeight - i, timestamp: cannedTipTime - i * 600),
+  ];
+}
+
+/// Mempool summary with a fee histogram that holds about 12 blocks of
+/// vbytes, highest fee rate first.
+EsploraMempoolInfo cannedMempool() {
+  return EsploraMempoolInfo.fromJson({
+    'count': 48213,
+    'vsize': 11550000,
+    'total_fee': 2345678,
+    'fee_histogram': <Object?>[
+      <Object?>[120.0, 150000],
+      <Object?>[45.5, 400000],
+      <Object?>[22.0, 600000],
+      <Object?>[12.0, 900000],
+      <Object?>[6.0, 1200000],
+      <Object?>[3.0, 1800000],
+      <Object?>[2.5, 1000000],
+      <Object?>[1.5, 2500000],
+      <Object?>[1, 3000000],
+    ],
+  });
+}
+
+/// Fee estimates by confirmation target, as `GET /fee-estimates` sends them.
+EsploraFeeEstimates cannedFees() {
+  return EsploraFeeEstimates.fromJson({
+    '1': 8.0,
+    '2': 6.1,
+    '3': 5.0,
+    '6': 3.0,
+    '144': 2.0,
+    '1008': 1.0,
+  });
+}
+
+/// Four recent mempool transactions.
+List<EsploraRecentTransaction> cannedRecent() {
+  return [
+    for (var i = 0; i < 4; i++)
+      EsploraRecentTransaction.fromJson({
+        'txid': cannedHash('recent tx $i'),
+        'fee': 2000 + i * 750,
+        'vsize': 141 + i * 37,
+        'value': 25000000 + i * 1234567,
+      }),
+  ];
+}
+
+/// Fills [api] with canned answers for every dashboard call. It also adds the
+/// recent blocks and the epoch start block, so that a tap on a block or the
+/// difficulty card can open its block.
+void fillDashboard(FakeExplorerApi api) {
+  final blocks = cannedRecentBlocks();
+  api
+    ..recentBlocksAnswer = blocks
+    ..mempoolAnswer = cannedMempool()
+    ..feesAnswer = cannedFees()
+    ..recentAnswer = cannedRecent();
+  for (final block in blocks) {
+    api
+      ..heightToHash[block.height] = block.id
+      ..blocks[block.id] = block;
+  }
+
+  final epochStart = _cannedBlockAt(
+    cannedEpochStartHeight,
+    timestamp: cannedTipTime - cannedEpochSpanSeconds,
+  );
+  api
+    ..heightToHash[cannedEpochStartHeight] = epochStart.id
+    ..blocks[epochStart.id] = epochStart;
 }
 
 /// A block as the Esplora server sends it, using the real JSON field names.

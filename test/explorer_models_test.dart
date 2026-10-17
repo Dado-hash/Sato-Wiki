@@ -352,4 +352,196 @@ void main() {
       );
     });
   });
+
+  group('EsploraMempoolInfo', () {
+    Map<String, Object?> mempoolJson({Object? histogram}) => <String, Object?>{
+      'count': 48213,
+      'vsize': 11550000,
+      'total_fee': 2345678,
+      'fee_histogram':
+          histogram ??
+          <Object?>[
+            <Object?>[120.5, 150000],
+            <Object?>[1, 3000000],
+          ],
+    };
+
+    test('parses the summary and keeps the histogram order', () {
+      final info = EsploraMempoolInfo.fromJson(mempoolJson());
+
+      expect(info.count, 48213);
+      expect(info.vsize, 11550000);
+      expect(info.totalFee, 2345678);
+      expect(info.feeHistogram, hasLength(2));
+      expect(info.feeHistogram.first.feeRate, 120.5);
+      expect(info.feeHistogram.first.vsize, 150000);
+      expect(info.feeHistogram.last.feeRate, 1);
+      expect(info.feeHistogram.last.vsize, 3000000);
+    });
+
+    test('accepts a whole fee rate or vsize written as a double', () {
+      final info = EsploraMempoolInfo.fromJson(
+        mempoolJson(
+          histogram: <Object?>[
+            <Object?>[2.0, 1000.0],
+          ],
+        ),
+      );
+
+      expect(info.feeHistogram.single.feeRate, 2.0);
+      expect(info.feeHistogram.single.vsize, 1000);
+    });
+
+    test('the histogram cannot be changed', () {
+      final info = EsploraMempoolInfo.fromJson(mempoolJson());
+
+      expect(
+        () =>
+            info.feeHistogram.add(const EsploraFeeBucket(feeRate: 1, vsize: 1)),
+        throwsUnsupportedError,
+      );
+    });
+
+    test('a bucket that is not a pair is a FormatException', () {
+      expect(
+        () => EsploraMempoolInfo.fromJson(
+          mempoolJson(
+            histogram: <Object?>[
+              <Object?>[1, 2, 3],
+            ],
+          ),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('a negative or fractional vsize is a FormatException', () {
+      expect(
+        () => EsploraMempoolInfo.fromJson(
+          mempoolJson(
+            histogram: <Object?>[
+              <Object?>[1, -5],
+            ],
+          ),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => EsploraMempoolInfo.fromJson(
+          mempoolJson(
+            histogram: <Object?>[
+              <Object?>[1, 2.5],
+            ],
+          ),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('a string fee rate is a FormatException', () {
+      expect(
+        () => EsploraMempoolInfo.fromJson(
+          mempoolJson(
+            histogram: <Object?>[
+              <Object?>['1', 2],
+            ],
+          ),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('a missing total_fee is a FormatException', () {
+      final json = mempoolJson()..remove('total_fee');
+
+      expect(
+        () => EsploraMempoolInfo.fromJson(json),
+        throwsA(isA<FormatException>()),
+      );
+    });
+  });
+
+  group('EsploraFeeEstimates', () {
+    final estimates = EsploraFeeEstimates.fromJson(<String, Object?>{
+      '1': 8.0,
+      '3': 5,
+      '6': 3.0,
+      '144': 2.0,
+      '1008': 1.0,
+    });
+
+    test('parses the targets and their rates', () {
+      expect(estimates.byTarget, {1: 8.0, 3: 5.0, 6: 3.0, 144: 2.0, 1008: 1.0});
+    });
+
+    test('forTarget returns the exact target when the server gave it', () {
+      expect(estimates.forTarget(6), 3.0);
+      expect(estimates.forTarget(1), 8.0);
+    });
+
+    test('forTarget falls back to the nearest larger target', () {
+      expect(estimates.forTarget(2), 5.0);
+      expect(estimates.forTarget(7), 2.0);
+    });
+
+    test('forTarget is null past the largest target', () {
+      expect(estimates.forTarget(2000), isNull);
+    });
+
+    test('a key that is not a target is a FormatException', () {
+      expect(
+        () => EsploraFeeEstimates.fromJson(<String, Object?>{'fast': 8.0}),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => EsploraFeeEstimates.fromJson(<String, Object?>{'0': 8.0}),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('a rate that is not a number is a FormatException', () {
+      expect(
+        () => EsploraFeeEstimates.fromJson(<String, Object?>{'1': '8'}),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('byTarget cannot be changed', () {
+      expect(() => estimates.byTarget[2] = 1, throwsUnsupportedError);
+    });
+  });
+
+  group('EsploraRecentTransaction', () {
+    Map<String, Object?> recentJson() => <String, Object?>{
+      'txid': _segwitTxid,
+      'fee': 1500,
+      'vsize': 141,
+      'value': 98500,
+    };
+
+    test('parses the fields and computes the fee rate', () {
+      final tx = EsploraRecentTransaction.fromJson(recentJson());
+
+      expect(tx.txid, _segwitTxid);
+      expect(tx.fee, 1500);
+      expect(tx.vsize, 141);
+      expect(tx.value, 98500);
+      expect(tx.feeRate, closeTo(1500 / 141, 1e-9));
+    });
+
+    test('a zero vsize gives a fee rate of 0', () {
+      final tx = EsploraRecentTransaction.fromJson(recentJson()..['vsize'] = 0);
+
+      expect(tx.feeRate, 0);
+    });
+
+    test('a missing value is a FormatException', () {
+      final json = recentJson()..remove('value');
+
+      expect(
+        () => EsploraRecentTransaction.fromJson(json),
+        throwsA(isA<FormatException>()),
+      );
+    });
+  });
 }

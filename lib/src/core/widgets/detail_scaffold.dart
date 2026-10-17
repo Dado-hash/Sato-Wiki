@@ -11,8 +11,10 @@ class DetailScaffold extends StatelessWidget {
     required this.children,
     this.actions = const [],
     this.title,
+    this.shrinkTitle = false,
     this.progress,
     this.controller,
+    this.onRefresh,
     super.key,
   });
 
@@ -20,9 +22,16 @@ class DetailScaffold extends StatelessWidget {
   final List<Widget> actions;
   final String? title;
 
+  /// Shrinks a title that does not fit beside the actions, instead of
+  /// breaking it inside a word. For short titles such as one word.
+  final bool shrinkTitle;
+
   /// Reading progress from 0 to 1. Hidden when null.
   final double? progress;
   final ScrollController? controller;
+
+  /// Pull-to-refresh action. No refresh control when null.
+  final Future<void> Function()? onRefresh;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +39,17 @@ class DetailScaffold extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final mediaPadding = MediaQuery.paddingOf(context);
     final currentProgress = progress;
+    final list = ListView(
+      controller: controller,
+      physics: onRefresh == null ? null : const AlwaysScrollableScrollPhysics(),
+      padding: EdgeInsets.fromLTRB(
+        AppSpacing.gutter,
+        AppSpacing.gutter,
+        AppSpacing.gutter,
+        32 + mediaPadding.bottom,
+      ),
+      children: children,
+    );
 
     return Scaffold(
       body: SafeArea(
@@ -54,12 +74,22 @@ class DetailScaffold extends StatelessWidget {
                   if (title != null) ...[
                     const SizedBox(width: 14),
                     Expanded(
-                      child: Text(
-                        title!,
-                        style: textTheme.headlineMedium,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      child: shrinkTitle
+                          ? FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: AlignmentDirectional.centerStart,
+                              child: Text(
+                                title!,
+                                style: textTheme.headlineMedium,
+                                softWrap: false,
+                              ),
+                            )
+                          : Text(
+                              title!,
+                              style: textTheme.headlineMedium,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                     ),
                   ] else
                     const Spacer(),
@@ -87,16 +117,9 @@ class DetailScaffold extends StatelessWidget {
                 ),
               ),
             Expanded(
-              child: ListView(
-                controller: controller,
-                padding: EdgeInsets.fromLTRB(
-                  AppSpacing.gutter,
-                  AppSpacing.gutter,
-                  AppSpacing.gutter,
-                  32 + mediaPadding.bottom,
-                ),
-                children: children,
-              ),
+              child: onRefresh == null
+                  ? list
+                  : RefreshIndicator(onRefresh: onRefresh!, child: list),
             ),
           ],
         ),
