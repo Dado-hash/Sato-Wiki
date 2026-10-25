@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.220000",
+  "version": "2026.10.25.082943",
   "language": "en",
-  "generatedAt": "2026-10-13T22:00:00.000000Z",
+  "generatedAt": "2026-10-25T08:29:43.434130Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -9956,11 +9956,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-10-25T08:29:43.434130Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "fc2216002dc1c366573be6658b920a65a4a83e4f",
+        "upstreamSha": "63186043797cd4121c6fbf0ddb3b0bcf38719b43",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0003.md"
       }
     },
@@ -14249,6 +14249,46 @@
       }
     },
     {
+      "id": "code.bip.139",
+      "number": 139,
+      "language": "en",
+      "title": "Wallet Metadata Export Format",
+      "summary": "BIP 139 defines a standardized JSON-based format for exporting and importing wallet metadata, including accounts, descriptors, signers, labels, transactions, and coins.",
+      "status": "draft",
+      "category": "applications",
+      "authors": [
+        "Pyth"
+      ],
+      "createdAt": "2026-05-11",
+      "summaryMarkdown": "BIP 139 specifies a portable JSON-based format for exporting wallet metadata. It aims to reduce vendor lock-in by providing a common structure for accounts, descriptors, key information, signers, labels, transactions, and coins. The specification utilizes a companion [field registry](https://github.com/bitcoin/bips/blob/master/bip-0139/field-registry.md) to manage field definitions and extensibility.",
+      "impactMarkdown": "The proposal provides a standardized mechanism for users to migrate wallet state between different applications. By defining a common schema for non-chain data, it enables interoperability for wallet-specific metadata that is otherwise lost during migration.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0139.md",
+      "tags": [
+        "BIP",
+        "Applications",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 139",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0139.md",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-10-25T08:29:43.434130Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "1a96f0e8fb1dba29667fb3df3cb106d56bfa8da1",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0139.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-10-25T08:29:43.434130Z",
+        "needsReview": true
+      }
+    },
+    {
       "id": "code.bip.140",
       "number": 140,
       "language": "en",
@@ -15637,11 +15677,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-10-25T08:29:43.434130Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "66fd047f6783c76e9e6ec938218349f4fb967c60",
+        "upstreamSha": "f41f2334516819b7b824c21231f987449630f105",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki"
       }
     },
@@ -16905,11 +16945,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-10-25T08:29:43.434130Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "7e3bdffbf0a8787293a094388cc7d32082a0f40e",
+        "upstreamSha": "50a9b583f018573423f079c718b35b32bb941b33",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki"
       }
     },
@@ -18056,6 +18096,47 @@
   ],
   "changelogs": [
     {
+      "id": "release.bitcoin-core.32.0",
+      "slug": "bitcoin-core-32-0",
+      "language": "en",
+      "project": "bitcoin-core",
+      "version": "32.0",
+      "title": "Bitcoin Core 32.0",
+      "summary": "Bitcoin Core 32.0 is a major release introducing significant P2P networking optimizations, enhanced fee estimation, and expanded RPC functionality.",
+      "releasedAt": "2026-10-25",
+      "importance": "major",
+      "userImpactMarkdown": "### For Users\n- **Fee Estimation:** `estimatesmartfee` now combines block-policy and mempool-based estimators, providing more accurate and potentially lower fee recommendations.\n- **Wallet:** `getbalances` now includes a `nonmempool` field to prevent balance discrepancies caused by transactions stuck outside the mempool.\n- **Connectivity:** The default `-maxconnections` has increased to 200, improving network capacity.\n- **Deprecations:** Several RPC fields related to BIP125 and full-RBF have been deprecated and now require `-deprecatedrpc` flags to access.",
+      "technicalChangesMarkdown": "### Technical Changes\n- **P2P Networking:** Introduced a global transaction backlog for relay rate-limiting and a new bandwidth limit of 12MB per 10 minutes. Fixed a potential IP leak in `sendrawtransaction` when using `-privatebroadcast` with v2 P2P protocol.\n- **RPC Updates:** \n    - Added `getopenrpcinfo` for machine-readable API documentation.\n    - `createpsbt` and related wallet RPCs now default to PSBT version 2.\n    - `dumptxoutset` now supports writing to named pipes (UNIX).\n    - Added `vsize_adjusted` and `vsize_bip141` fields to mempool RPCs to clarify sigop-adjusted vs. BIP141 virtual sizes.\n- **Build System:** Removed `BITCOIN_GENBUILD_NO_GIT` in favor of automatic detection; signaled intent to drop MSVC support in future releases.",
+      "officialUrl": "https://bitcoincore.org/en/releases/32.0/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 32.0 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-32.0.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 32.0",
+          "url": "https://bitcoincore.org/en/releases/32.0/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-10-25T08:29:43.434130Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "b511b12db94d326b410f9662c534c1edd573d34b",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-32.0.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-10-25T08:29:43.434130Z",
+        "needsReview": true
+      }
+    },
+    {
       "id": "release.bitcoin-core.31.1",
       "slug": "bitcoin-core-31-1",
       "language": "en",
@@ -18480,45 +18561,6 @@
         "source": "sync_code_content.dart",
         "upstreamSha": "582cc7e885fb2c5af7b79fc8799a3c95df764f2a",
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.0.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
-      }
-    },
-    {
-      "id": "release.bitcoin-core.28.4",
-      "slug": "bitcoin-core-28-4",
-      "language": "en",
-      "project": "bitcoin-core",
-      "version": "28.4",
-      "title": "Bitcoin Core 28.4",
-      "summary": "Bitcoin Core 28.4 is a maintenance release that includes bug fixes for wallet migration and wallettool, updates to P2P chain parameters, and various build and CI improvements.",
-      "releasedAt": "2026-04-06",
-      "importance": "minor",
-      "userImpactMarkdown": "Users may experience improved reliability when migrating legacy wallets or using `wallettool`.",
-      "technicalChangesMarkdown": "### Wallet\n- Fixed a failure in unnamed legacy wallet migration (#34156).\n- Resolved a `wallettool` issue causing unintended `walletsdir` deletion during `createfromdump` (#34215).\n- Addressed backport bugs related to wallet testing and migration cleanup (#34226, #34370).\n\n### P2P\n- Removed a specific DNS seed from chain parameters (#33723).\n\n### Build and CI\n- Updated `osslsigncode` tests in Guix (#34227).\n- Updated GitHub Actions versions and migrated to the `macos-14` image (#34344, #34463).\n- Removed third-party JavaScript dependencies from Windows DLL CI jobs (#32513).",
-      "officialUrl": "https://bitcoincore.org/en/releases/28.4/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 28.4 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 28.4",
-          "url": "https://bitcoincore.org/en/releases/28.4/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "b6af01a4b742e9bb77d95891025950ff521ee273",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
         "needsReview": false
       }
