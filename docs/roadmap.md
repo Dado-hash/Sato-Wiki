@@ -68,6 +68,15 @@ La prima roadmap è chiusa, tranne le voci riportate in "Lavoro aperto ereditato
 7. [x] Convertitore di unità.
 8. [x] Analisi di un indirizzo.
 9. [x] Decoder di transazione raw, con link alle voci wiki.
+10. [x] Dadi → Seed: sandbox offline con schermata, controller solo in memoria, velo, cancellazione e canale nativo di Android e iOS.
+11. [x] Dadi → Seed: BIP39 ed entropia da dadi come SeedSigner e Coldcard, con vettori di test (compatibilità confermata sui vettori ufficiali di SeedSigner e sul campione Coldcard).
+12. [x] Dadi → Seed: tastiera a 6 facce, correzione dei lanci e controllo della distribuzione.
+13. [x] Dadi → Seed: codice del riconoscimento (interfaccia, decoder YOLOX-Nano, NMS in Dart, auto-capture).
+14. [ ] Dadi → Seed: verificare la licenza del dataset pubblico, scegliere il dataset e scaricarlo (vedi `tool/dice_model/README.md`). Scelto e scaricato D6DiceSideRecognition v2 (CC BY 4.0 secondo l'export); manca la conferma sulla pagina del dataset.
+15. [x] Dadi → Seed: addestrare il modello, esportarlo e copiare `assets/models/dice_detector.tflite` con lo SHA-256 nel model card (2026-10-27: beta, value accuracy 0.774, sotto la soglia 0.99).
+    - [ ] Migliorare la lettura dei pallini fino alla soglia 0.99 (gli errori sono tra facce vicine).
+16. [ ] Dadi → Seed: test set di foto proprie, con accuratezza per valore di almeno 99%.
+17. [ ] Dadi → Seed: prova su dispositivi fisici iOS e Android (screenshot, velo, auto-capture, seed confrontata con SeedSigner; facoltativo, non bloccante, perché la compatibilità è già confermata dai vettori).
 
 ## 7. Demo interattive
 

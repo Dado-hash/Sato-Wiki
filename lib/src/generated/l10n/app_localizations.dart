@@ -4333,6 +4333,510 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'After the timeout the sender takes the funds back.'**
   String get labScriptExHtlcRefundDesc;
+
+  /// No description provided for @toolsDiceTileName.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice → Seed'**
+  String get toolsDiceTileName;
+
+  /// No description provided for @toolsDiceTileCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll real dice, get a BIP39 seed offline'**
+  String get toolsDiceTileCaption;
+
+  /// No description provided for @toolsDiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice → Seed'**
+  String get toolsDiceTitle;
+
+  /// No description provided for @toolsDiceEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'OFFLINE TOOL'**
+  String get toolsDiceEyebrow;
+
+  /// No description provided for @toolsDiceIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll real dice, the camera reads them on the phone and SatoWiki turns the rolls into a BIP39 seed. No network, nothing saved: when you leave, everything is erased.'**
+  String get toolsDiceIntro;
+
+  /// No description provided for @toolsDiceLengthLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Seed length'**
+  String get toolsDiceLengthLabel;
+
+  /// No description provided for @toolsDiceWords.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} words'**
+  String toolsDiceWords(int count);
+
+  /// No description provided for @toolsDiceLengthSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{rolls} rolls · {bits} bits of entropy · ~{throws} throws of 5 dice'**
+  String toolsDiceLengthSummary(int rolls, int bits, int throws);
+
+  /// No description provided for @toolsDiceChecklistTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'BEFORE YOU START'**
+  String get toolsDiceChecklistTitle;
+
+  /// No description provided for @toolsDiceCheckAirplane.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on airplane mode'**
+  String get toolsDiceCheckAirplane;
+
+  /// No description provided for @toolsDiceCheckAirplaneCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'The sandbox works without network, so no data can leave.'**
+  String get toolsDiceCheckAirplaneCaption;
+
+  /// No description provided for @toolsDiceCheckPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Find a private place'**
+  String get toolsDiceCheckPrivate;
+
+  /// No description provided for @toolsDiceCheckPrivateCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Nobody behind you, no camera pointed at the paper.'**
+  String get toolsDiceCheckPrivateCaption;
+
+  /// No description provided for @toolsDiceCheckPaper.
+  ///
+  /// In en, this message translates to:
+  /// **'Get pen and paper'**
+  String get toolsDiceCheckPaper;
+
+  /// No description provided for @toolsDiceCheckPaperCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'You will write the words by hand. There is no copy and no screenshot.'**
+  String get toolsDiceCheckPaperCaption;
+
+  /// No description provided for @toolsDiceCheckDice.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice clearly visible on a light surface'**
+  String get toolsDiceCheckDice;
+
+  /// No description provided for @toolsDiceCheckDiceCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Works best with high-contrast dice on white paper.'**
+  String get toolsDiceCheckDiceCaption;
+
+  /// No description provided for @toolsDiceSandboxInfoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What the sandbox does'**
+  String get toolsDiceSandboxInfoTitle;
+
+  /// No description provided for @toolsDiceSandboxInfo1.
+  ///
+  /// In en, this message translates to:
+  /// **'Screenshots and screen recording blocked'**
+  String get toolsDiceSandboxInfo1;
+
+  /// No description provided for @toolsDiceSandboxInfo2.
+  ///
+  /// In en, this message translates to:
+  /// **'Images stay in memory, never on disk'**
+  String get toolsDiceSandboxInfo2;
+
+  /// No description provided for @toolsDiceSandboxInfo3.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaving or closing the app erases rolls and words'**
+  String get toolsDiceSandboxInfo3;
+
+  /// No description provided for @toolsDiceEnter.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the sandbox'**
+  String get toolsDiceEnter;
+
+  /// No description provided for @toolsDiceHowMath.
+  ///
+  /// In en, this message translates to:
+  /// **'How the math works'**
+  String get toolsDiceHowMath;
+
+  /// No description provided for @toolsDiceSandboxActive.
+  ///
+  /// In en, this message translates to:
+  /// **'SANDBOX ON'**
+  String get toolsDiceSandboxActive;
+
+  /// No description provided for @toolsDiceOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'OFFLINE'**
+  String get toolsDiceOffline;
+
+  /// No description provided for @toolsDiceOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'ONLINE'**
+  String get toolsDiceOnline;
+
+  /// No description provided for @toolsDiceOnlineWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'You are online. Turn on airplane mode for maximum safety.'**
+  String get toolsDiceOnlineWarning;
+
+  /// No description provided for @toolsDiceExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit and erase'**
+  String get toolsDiceExit;
+
+  /// No description provided for @toolsDiceExitConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase this session?'**
+  String get toolsDiceExitConfirmTitle;
+
+  /// No description provided for @toolsDiceExitConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Rolls and words will be erased and cannot be recovered.'**
+  String get toolsDiceExitConfirmBody;
+
+  /// No description provided for @toolsDiceExitConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Erase'**
+  String get toolsDiceExitConfirm;
+
+  /// No description provided for @toolsDiceCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get toolsDiceCancel;
+
+  /// No description provided for @toolsDiceLive.
+  ///
+  /// In en, this message translates to:
+  /// **'LIVE · ON-DEVICE'**
+  String get toolsDiceLive;
+
+  /// No description provided for @toolsDiceHoldStill.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice still: capturing…'**
+  String get toolsDiceHoldStill;
+
+  /// No description provided for @toolsDiceAimCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Point the camera at the dice'**
+  String get toolsDiceAimCamera;
+
+  /// No description provided for @toolsDiceCameraUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Dice recognition is not available on this device. Enter the rolls with the keypad.'**
+  String get toolsDiceCameraUnavailable;
+
+  /// No description provided for @toolsDiceBitsOf.
+  ///
+  /// In en, this message translates to:
+  /// **'/ {max} bits'**
+  String toolsDiceBitsOf(int max);
+
+  /// No description provided for @toolsDiceThrowLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'THROW'**
+  String get toolsDiceThrowLabel;
+
+  /// No description provided for @toolsDiceRollsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'ROLLS'**
+  String get toolsDiceRollsLabel;
+
+  /// No description provided for @toolsDiceBitsPerRoll.
+  ///
+  /// In en, this message translates to:
+  /// **'Each roll is worth ~2.58 bits'**
+  String get toolsDiceBitsPerRoll;
+
+  /// No description provided for @toolsDiceCountOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} / {total}'**
+  String toolsDiceCountOf(int count, int total);
+
+  /// No description provided for @toolsDiceRecordedRolls.
+  ///
+  /// In en, this message translates to:
+  /// **'RECORDED ROLLS'**
+  String get toolsDiceRecordedRolls;
+
+  /// No description provided for @toolsDiceDistributionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Face distribution'**
+  String get toolsDiceDistributionTitle;
+
+  /// No description provided for @toolsDiceDistributionOk.
+  ///
+  /// In en, this message translates to:
+  /// **'Distribution looks fair'**
+  String get toolsDiceDistributionOk;
+
+  /// No description provided for @toolsDiceDistributionBiased.
+  ///
+  /// In en, this message translates to:
+  /// **'Unusual distribution: check the dice and the readings'**
+  String get toolsDiceDistributionBiased;
+
+  /// No description provided for @toolsDiceUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo last'**
+  String get toolsDiceUndo;
+
+  /// No description provided for @toolsDiceKeypad.
+  ///
+  /// In en, this message translates to:
+  /// **'Keypad'**
+  String get toolsDiceKeypad;
+
+  /// No description provided for @toolsDiceConfirmThrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm throw'**
+  String get toolsDiceConfirmThrow;
+
+  /// No description provided for @toolsDiceCorrectTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct throw {number}'**
+  String toolsDiceCorrectTitle(int number);
+
+  /// No description provided for @toolsDiceCorrectBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a die to change its value. The order follows the position on the paper, left to right.'**
+  String get toolsDiceCorrectBody;
+
+  /// No description provided for @toolsDiceNewValueFor.
+  ///
+  /// In en, this message translates to:
+  /// **'NEW VALUE FOR DIE {number}'**
+  String toolsDiceNewValueFor(int number);
+
+  /// No description provided for @toolsDiceCheckReading.
+  ///
+  /// In en, this message translates to:
+  /// **'verify'**
+  String get toolsDiceCheckReading;
+
+  /// No description provided for @toolsDiceValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value {value}'**
+  String toolsDiceValue(int value);
+
+  /// No description provided for @toolsDiceDie.
+  ///
+  /// In en, this message translates to:
+  /// **'Die {number}: value {value}'**
+  String toolsDiceDie(int number, int value);
+
+  /// No description provided for @toolsDiceSaveThrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Save throw'**
+  String get toolsDiceSaveThrow;
+
+  /// No description provided for @toolsDiceManualTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter rolls'**
+  String get toolsDiceManualTitle;
+
+  /// No description provided for @toolsDiceClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get toolsDiceClose;
+
+  /// No description provided for @toolsDiceDone.
+  ///
+  /// In en, this message translates to:
+  /// **'COMPLETE'**
+  String get toolsDiceDone;
+
+  /// No description provided for @toolsDiceResultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your seed is ready'**
+  String get toolsDiceResultTitle;
+
+  /// No description provided for @toolsDiceResultMeta.
+  ///
+  /// In en, this message translates to:
+  /// **'{words} words · {rolls} rolls · {bits} bits + {checksum} checksum'**
+  String toolsDiceResultMeta(int words, int rolls, int bits, int checksum);
+
+  /// No description provided for @toolsDiceResultWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Write it down by hand, now. When you leave the sandbox it is erased and cannot be recovered.'**
+  String get toolsDiceResultWarning;
+
+  /// No description provided for @toolsDiceWordsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'WORDS · ENGLISH BIP39'**
+  String get toolsDiceWordsLabel;
+
+  /// No description provided for @toolsDiceHoldToReveal.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to reveal'**
+  String get toolsDiceHoldToReveal;
+
+  /// No description provided for @toolsDiceReleaseToHide.
+  ///
+  /// In en, this message translates to:
+  /// **'Release to hide'**
+  String get toolsDiceReleaseToHide;
+
+  /// No description provided for @toolsDiceHoldToRevealBits.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to see the bits'**
+  String get toolsDiceHoldToRevealBits;
+
+  /// No description provided for @toolsDiceRevealCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'No copy, no screenshot: the words disappear when you release.'**
+  String get toolsDiceRevealCaption;
+
+  /// No description provided for @toolsDiceBitsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{bits} BITS IN {groups} GROUPS OF 11'**
+  String toolsDiceBitsLabel(int bits, int groups);
+
+  /// No description provided for @toolsDiceLegendChecksum.
+  ///
+  /// In en, this message translates to:
+  /// **'checksum ({bits} bits)'**
+  String toolsDiceLegendChecksum(int bits);
+
+  /// No description provided for @toolsDiceLegendEntropy.
+  ///
+  /// In en, this message translates to:
+  /// **'entropy ({bits} bits)'**
+  String toolsDiceLegendEntropy(int bits);
+
+  /// No description provided for @toolsDiceTapWordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a word to see its 11 bits.'**
+  String get toolsDiceTapWordHint;
+
+  /// No description provided for @toolsDiceMathTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the math'**
+  String get toolsDiceMathTitle;
+
+  /// No description provided for @toolsDiceMathStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'{rolls} rolls, in order'**
+  String toolsDiceMathStep1(int rolls);
+
+  /// No description provided for @toolsDiceMathStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'SHA-256 of the roll string = entropy ({bits} bits)'**
+  String toolsDiceMathStep2(int bits);
+
+  /// No description provided for @toolsDiceMathStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'SHA-256 of the entropy: the first {bits} bits are the checksum'**
+  String toolsDiceMathStep3(int bits);
+
+  /// No description provided for @toolsDiceMathStep4.
+  ///
+  /// In en, this message translates to:
+  /// **'{total} bits, split into {groups} groups of 11'**
+  String toolsDiceMathStep4(int total, int groups);
+
+  /// No description provided for @toolsDiceMathStep5.
+  ///
+  /// In en, this message translates to:
+  /// **'Each group is an index (0–2047) in the English wordlist'**
+  String get toolsDiceMathStep5;
+
+  /// No description provided for @toolsDiceMathNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Same method as SeedSigner and Coldcard: you can verify the seed by entering the same rolls on a separate device.'**
+  String get toolsDiceMathNote;
+
+  /// No description provided for @toolsDiceMathHidden.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold a reveal button to see the values'**
+  String get toolsDiceMathHidden;
+
+  /// No description provided for @toolsDiceWipeDone.
+  ///
+  /// In en, this message translates to:
+  /// **'I wrote it down, erase'**
+  String get toolsDiceWipeDone;
+
+  /// No description provided for @toolsDiceNewSession.
+  ///
+  /// In en, this message translates to:
+  /// **'New session'**
+  String get toolsDiceNewSession;
+
+  /// No description provided for @toolsDiceWipedNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Session erased.'**
+  String get toolsDiceWipedNotice;
+
+  /// No description provided for @toolsDiceScreenshotTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Screenshot detected'**
+  String get toolsDiceScreenshotTitle;
+
+  /// No description provided for @toolsDiceScreenshotBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The session was erased. A seed that appears in a screenshot is not safe: start again.'**
+  String get toolsDiceScreenshotBody;
+
+  /// No description provided for @toolsDiceVeil.
+  ///
+  /// In en, this message translates to:
+  /// **'Sandbox hidden'**
+  String get toolsDiceVeil;
 }
 
 class _AppLocalizationsDelegate

@@ -1067,5 +1067,228 @@
   "labScriptExHtlcName": "HTLC, reclamato",
   "labScriptExHtlcDesc": "Il ricevente rivela il segreto prima del timeout.",
   "labScriptExHtlcRefundName": "HTLC, rimborso",
-  "labScriptExHtlcRefundDesc": "Dopo il timeout il mittente riprende i fondi."
+  "labScriptExHtlcRefundDesc": "Dopo il timeout il mittente riprende i fondi.",
+  "toolsDiceTileName": "Dadi → Seed",
+  "toolsDiceTileCaption": "Tira dadi veri, ottieni una seed BIP39 offline",
+  "toolsDiceTitle": "Dadi → Seed",
+  "toolsDiceEyebrow": "STRUMENTO OFFLINE",
+  "toolsDiceIntro": "Tira dei dadi veri, la fotocamera li legge sul telefono e SatoWiki trasforma i tiri in una seed BIP39. Niente rete, niente salvataggi: quando esci, tutto viene cancellato.",
+  "toolsDiceLengthLabel": "Lunghezza della seed",
+  "toolsDiceWords": "{count} parole",
+  "@toolsDiceWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceLengthSummary": "{rolls} tiri · {bits} bit di entropia · ~{throws} lanci da 5 dadi",
+  "@toolsDiceLengthSummary": {
+    "placeholders": {
+      "rolls": {
+        "type": "int"
+      },
+      "bits": {
+        "type": "int"
+      },
+      "throws": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceChecklistTitle": "PRIMA DI INIZIARE",
+  "toolsDiceCheckAirplane": "Attiva la modalità aereo",
+  "toolsDiceCheckAirplaneCaption": "La sandbox funziona senza rete. Così nessun dato può uscire.",
+  "toolsDiceCheckPrivate": "Scegli un posto riservato",
+  "toolsDiceCheckPrivateCaption": "Nessuno alle spalle, nessuna telecamera puntata sul foglio.",
+  "toolsDiceCheckPaper": "Prepara carta e penna",
+  "toolsDiceCheckPaperCaption": "Trascriverai le parole a mano. Non c'è copia né screenshot.",
+  "toolsDiceCheckDice": "Dadi ben visibili su fondo chiaro",
+  "toolsDiceCheckDiceCaption": "Funziona meglio con dadi contrastati su un foglio bianco.",
+  "toolsDiceSandboxInfoTitle": "Cosa succede nella sandbox",
+  "toolsDiceSandboxInfo1": "Screenshot e registrazione schermo bloccati",
+  "toolsDiceSandboxInfo2": "Le immagini restano in memoria, mai su disco",
+  "toolsDiceSandboxInfo3": "Uscendo o chiudendo l'app, tiri e parole vengono cancellati",
+  "toolsDiceEnter": "Entra nella sandbox",
+  "toolsDiceHowMath": "Come funziona la matematica",
+  "toolsDiceSandboxActive": "SANDBOX ATTIVA",
+  "toolsDiceOffline": "OFFLINE",
+  "toolsDiceOnline": "ONLINE",
+  "toolsDiceOnlineWarning": "Sei online. Attiva la modalità aereo per la massima sicurezza.",
+  "toolsDiceExit": "Esci e cancella",
+  "toolsDiceExitConfirmTitle": "Cancellare la sessione?",
+  "toolsDiceExitConfirmBody": "Tiri e parole verranno cancellati e non si possono recuperare.",
+  "toolsDiceExitConfirm": "Cancella",
+  "toolsDiceCancel": "Annulla",
+  "toolsDiceLive": "LIVE · ON-DEVICE",
+  "toolsDiceHoldStill": "Dadi fermi: cattura in corso…",
+  "toolsDiceAimCamera": "Inquadra i dadi",
+  "toolsDiceCameraUnavailable": "Il riconoscimento dei dadi non è disponibile su questo dispositivo. Inserisci i tiri con la tastiera.",
+  "toolsDiceBitsOf": "/ {max} bit",
+  "@toolsDiceBitsOf": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceThrowLabel": "LANCIO",
+  "toolsDiceRollsLabel": "TIRI",
+  "toolsDiceBitsPerRoll": "Ogni tiro vale ~2,58 bit",
+  "toolsDiceCountOf": "{count} / {total}",
+  "@toolsDiceCountOf": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceRecordedRolls": "TIRI REGISTRATI",
+  "toolsDiceDistributionTitle": "Distribuzione delle facce",
+  "toolsDiceDistributionOk": "Distribuzione regolare",
+  "toolsDiceDistributionBiased": "Distribuzione insolita: controlla i dadi e le letture",
+  "toolsDiceUndo": "Annulla ultimo",
+  "toolsDiceKeypad": "Tastiera",
+  "toolsDiceConfirmThrow": "Conferma lancio",
+  "toolsDiceCorrectTitle": "Correggi lancio {number}",
+  "@toolsDiceCorrectTitle": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceCorrectBody": "Tocca un dado per cambiarne il valore. L'ordine segue la posizione sul foglio, da sinistra a destra.",
+  "toolsDiceNewValueFor": "NUOVO VALORE PER IL DADO {number}",
+  "@toolsDiceNewValueFor": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceCheckReading": "verifica",
+  "toolsDiceValue": "Valore {value}",
+  "@toolsDiceValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceDie": "Dado {number}: valore {value}",
+  "@toolsDiceDie": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceSaveThrow": "Salva lancio",
+  "toolsDiceManualTitle": "Inserisci i tiri",
+  "toolsDiceClose": "Chiudi",
+  "toolsDiceDone": "COMPLETATA",
+  "toolsDiceResultTitle": "La tua seed è pronta",
+  "toolsDiceResultMeta": "{words} parole · {rolls} tiri · {bits} bit + {checksum} checksum",
+  "@toolsDiceResultMeta": {
+    "placeholders": {
+      "words": {
+        "type": "int"
+      },
+      "rolls": {
+        "type": "int"
+      },
+      "bits": {
+        "type": "int"
+      },
+      "checksum": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceResultWarning": "Scrivila a mano, ora. Quando esci dalla sandbox viene cancellata e non si può recuperare.",
+  "toolsDiceWordsLabel": "PAROLE · INGLESE BIP39",
+  "toolsDiceHoldToReveal": "Tieni premuto per rivelare",
+  "toolsDiceReleaseToHide": "Rilascia per nascondere",
+  "toolsDiceHoldToRevealBits": "Tieni premuto per vedere i bit",
+  "toolsDiceRevealCaption": "Niente copia, niente screenshot: le parole spariscono quando rilasci.",
+  "toolsDiceBitsLabel": "{bits} BIT IN {groups} GRUPPI DA 11",
+  "@toolsDiceBitsLabel": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      },
+      "groups": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceLegendChecksum": "checksum ({bits} bit)",
+  "@toolsDiceLegendChecksum": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceLegendEntropy": "entropia ({bits} bit)",
+  "@toolsDiceLegendEntropy": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceTapWordHint": "Tocca una parola per vedere i suoi 11 bit.",
+  "toolsDiceMathTitle": "Mostra la matematica",
+  "toolsDiceMathStep1": "{rolls} tiri, in ordine",
+  "@toolsDiceMathStep1": {
+    "placeholders": {
+      "rolls": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep2": "SHA-256 della stringa dei tiri = entropia ({bits} bit)",
+  "@toolsDiceMathStep2": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep3": "SHA-256 dell'entropia: i primi {bits} bit sono il checksum",
+  "@toolsDiceMathStep3": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep4": "{total} bit, divisi in {groups} gruppi da 11",
+  "@toolsDiceMathStep4": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      },
+      "groups": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep5": "Ogni gruppo è un indice (0–2047) nella wordlist inglese",
+  "toolsDiceMathNote": "Stesso metodo di SeedSigner e Coldcard: puoi verificare la seed inserendo gli stessi tiri su un dispositivo separato.",
+  "toolsDiceMathHidden": "Tieni premuto un pulsante per vedere i valori",
+  "toolsDiceWipeDone": "Ho trascritto la seed, cancella",
+  "toolsDiceNewSession": "Nuova sessione",
+  "toolsDiceWipedNotice": "Sessione cancellata.",
+  "toolsDiceScreenshotTitle": "Screenshot rilevato",
+  "toolsDiceScreenshotBody": "La sessione è stata cancellata. Una seed finita in uno screenshot non è sicura: ricomincia.",
+  "toolsDiceVeil": "Sandbox nascosta"
 }

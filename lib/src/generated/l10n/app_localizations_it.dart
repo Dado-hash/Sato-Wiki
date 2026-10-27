@@ -2453,4 +2453,309 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get labScriptExHtlcRefundDesc =>
       'Dopo il timeout il mittente riprende i fondi.';
+
+  @override
+  String get toolsDiceTileName => 'Dadi → Seed';
+
+  @override
+  String get toolsDiceTileCaption =>
+      'Tira dadi veri, ottieni una seed BIP39 offline';
+
+  @override
+  String get toolsDiceTitle => 'Dadi → Seed';
+
+  @override
+  String get toolsDiceEyebrow => 'STRUMENTO OFFLINE';
+
+  @override
+  String get toolsDiceIntro =>
+      'Tira dei dadi veri, la fotocamera li legge sul telefono e SatoWiki trasforma i tiri in una seed BIP39. Niente rete, niente salvataggi: quando esci, tutto viene cancellato.';
+
+  @override
+  String get toolsDiceLengthLabel => 'Lunghezza della seed';
+
+  @override
+  String toolsDiceWords(int count) {
+    return '$count parole';
+  }
+
+  @override
+  String toolsDiceLengthSummary(int rolls, int bits, int throws) {
+    return '$rolls tiri · $bits bit di entropia · ~$throws lanci da 5 dadi';
+  }
+
+  @override
+  String get toolsDiceChecklistTitle => 'PRIMA DI INIZIARE';
+
+  @override
+  String get toolsDiceCheckAirplane => 'Attiva la modalità aereo';
+
+  @override
+  String get toolsDiceCheckAirplaneCaption =>
+      'La sandbox funziona senza rete. Così nessun dato può uscire.';
+
+  @override
+  String get toolsDiceCheckPrivate => 'Scegli un posto riservato';
+
+  @override
+  String get toolsDiceCheckPrivateCaption =>
+      'Nessuno alle spalle, nessuna telecamera puntata sul foglio.';
+
+  @override
+  String get toolsDiceCheckPaper => 'Prepara carta e penna';
+
+  @override
+  String get toolsDiceCheckPaperCaption =>
+      'Trascriverai le parole a mano. Non c\'è copia né screenshot.';
+
+  @override
+  String get toolsDiceCheckDice => 'Dadi ben visibili su fondo chiaro';
+
+  @override
+  String get toolsDiceCheckDiceCaption =>
+      'Funziona meglio con dadi contrastati su un foglio bianco.';
+
+  @override
+  String get toolsDiceSandboxInfoTitle => 'Cosa succede nella sandbox';
+
+  @override
+  String get toolsDiceSandboxInfo1 =>
+      'Screenshot e registrazione schermo bloccati';
+
+  @override
+  String get toolsDiceSandboxInfo2 =>
+      'Le immagini restano in memoria, mai su disco';
+
+  @override
+  String get toolsDiceSandboxInfo3 =>
+      'Uscendo o chiudendo l\'app, tiri e parole vengono cancellati';
+
+  @override
+  String get toolsDiceEnter => 'Entra nella sandbox';
+
+  @override
+  String get toolsDiceHowMath => 'Come funziona la matematica';
+
+  @override
+  String get toolsDiceSandboxActive => 'SANDBOX ATTIVA';
+
+  @override
+  String get toolsDiceOffline => 'OFFLINE';
+
+  @override
+  String get toolsDiceOnline => 'ONLINE';
+
+  @override
+  String get toolsDiceOnlineWarning =>
+      'Sei online. Attiva la modalità aereo per la massima sicurezza.';
+
+  @override
+  String get toolsDiceExit => 'Esci e cancella';
+
+  @override
+  String get toolsDiceExitConfirmTitle => 'Cancellare la sessione?';
+
+  @override
+  String get toolsDiceExitConfirmBody =>
+      'Tiri e parole verranno cancellati e non si possono recuperare.';
+
+  @override
+  String get toolsDiceExitConfirm => 'Cancella';
+
+  @override
+  String get toolsDiceCancel => 'Annulla';
+
+  @override
+  String get toolsDiceLive => 'LIVE · ON-DEVICE';
+
+  @override
+  String get toolsDiceHoldStill => 'Dadi fermi: cattura in corso…';
+
+  @override
+  String get toolsDiceAimCamera => 'Inquadra i dadi';
+
+  @override
+  String get toolsDiceCameraUnavailable =>
+      'Il riconoscimento dei dadi non è disponibile su questo dispositivo. Inserisci i tiri con la tastiera.';
+
+  @override
+  String toolsDiceBitsOf(int max) {
+    return '/ $max bit';
+  }
+
+  @override
+  String get toolsDiceThrowLabel => 'LANCIO';
+
+  @override
+  String get toolsDiceRollsLabel => 'TIRI';
+
+  @override
+  String get toolsDiceBitsPerRoll => 'Ogni tiro vale ~2,58 bit';
+
+  @override
+  String toolsDiceCountOf(int count, int total) {
+    return '$count / $total';
+  }
+
+  @override
+  String get toolsDiceRecordedRolls => 'TIRI REGISTRATI';
+
+  @override
+  String get toolsDiceDistributionTitle => 'Distribuzione delle facce';
+
+  @override
+  String get toolsDiceDistributionOk => 'Distribuzione regolare';
+
+  @override
+  String get toolsDiceDistributionBiased =>
+      'Distribuzione insolita: controlla i dadi e le letture';
+
+  @override
+  String get toolsDiceUndo => 'Annulla ultimo';
+
+  @override
+  String get toolsDiceKeypad => 'Tastiera';
+
+  @override
+  String get toolsDiceConfirmThrow => 'Conferma lancio';
+
+  @override
+  String toolsDiceCorrectTitle(int number) {
+    return 'Correggi lancio $number';
+  }
+
+  @override
+  String get toolsDiceCorrectBody =>
+      'Tocca un dado per cambiarne il valore. L\'ordine segue la posizione sul foglio, da sinistra a destra.';
+
+  @override
+  String toolsDiceNewValueFor(int number) {
+    return 'NUOVO VALORE PER IL DADO $number';
+  }
+
+  @override
+  String get toolsDiceCheckReading => 'verifica';
+
+  @override
+  String toolsDiceValue(int value) {
+    return 'Valore $value';
+  }
+
+  @override
+  String toolsDiceDie(int number, int value) {
+    return 'Dado $number: valore $value';
+  }
+
+  @override
+  String get toolsDiceSaveThrow => 'Salva lancio';
+
+  @override
+  String get toolsDiceManualTitle => 'Inserisci i tiri';
+
+  @override
+  String get toolsDiceClose => 'Chiudi';
+
+  @override
+  String get toolsDiceDone => 'COMPLETATA';
+
+  @override
+  String get toolsDiceResultTitle => 'La tua seed è pronta';
+
+  @override
+  String toolsDiceResultMeta(int words, int rolls, int bits, int checksum) {
+    return '$words parole · $rolls tiri · $bits bit + $checksum checksum';
+  }
+
+  @override
+  String get toolsDiceResultWarning =>
+      'Scrivila a mano, ora. Quando esci dalla sandbox viene cancellata e non si può recuperare.';
+
+  @override
+  String get toolsDiceWordsLabel => 'PAROLE · INGLESE BIP39';
+
+  @override
+  String get toolsDiceHoldToReveal => 'Tieni premuto per rivelare';
+
+  @override
+  String get toolsDiceReleaseToHide => 'Rilascia per nascondere';
+
+  @override
+  String get toolsDiceHoldToRevealBits => 'Tieni premuto per vedere i bit';
+
+  @override
+  String get toolsDiceRevealCaption =>
+      'Niente copia, niente screenshot: le parole spariscono quando rilasci.';
+
+  @override
+  String toolsDiceBitsLabel(int bits, int groups) {
+    return '$bits BIT IN $groups GRUPPI DA 11';
+  }
+
+  @override
+  String toolsDiceLegendChecksum(int bits) {
+    return 'checksum ($bits bit)';
+  }
+
+  @override
+  String toolsDiceLegendEntropy(int bits) {
+    return 'entropia ($bits bit)';
+  }
+
+  @override
+  String get toolsDiceTapWordHint =>
+      'Tocca una parola per vedere i suoi 11 bit.';
+
+  @override
+  String get toolsDiceMathTitle => 'Mostra la matematica';
+
+  @override
+  String toolsDiceMathStep1(int rolls) {
+    return '$rolls tiri, in ordine';
+  }
+
+  @override
+  String toolsDiceMathStep2(int bits) {
+    return 'SHA-256 della stringa dei tiri = entropia ($bits bit)';
+  }
+
+  @override
+  String toolsDiceMathStep3(int bits) {
+    return 'SHA-256 dell\'entropia: i primi $bits bit sono il checksum';
+  }
+
+  @override
+  String toolsDiceMathStep4(int total, int groups) {
+    return '$total bit, divisi in $groups gruppi da 11';
+  }
+
+  @override
+  String get toolsDiceMathStep5 =>
+      'Ogni gruppo è un indice (0–2047) nella wordlist inglese';
+
+  @override
+  String get toolsDiceMathNote =>
+      'Stesso metodo di SeedSigner e Coldcard: puoi verificare la seed inserendo gli stessi tiri su un dispositivo separato.';
+
+  @override
+  String get toolsDiceMathHidden =>
+      'Tieni premuto un pulsante per vedere i valori';
+
+  @override
+  String get toolsDiceWipeDone => 'Ho trascritto la seed, cancella';
+
+  @override
+  String get toolsDiceNewSession => 'Nuova sessione';
+
+  @override
+  String get toolsDiceWipedNotice => 'Sessione cancellata.';
+
+  @override
+  String get toolsDiceScreenshotTitle => 'Screenshot rilevato';
+
+  @override
+  String get toolsDiceScreenshotBody =>
+      'La sessione è stata cancellata. Una seed finita in uno screenshot non è sicura: ricomincia.';
+
+  @override
+  String get toolsDiceVeil => 'Sandbox nascosta';
 }

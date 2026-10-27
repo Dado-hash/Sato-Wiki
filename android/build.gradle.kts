@@ -1,3 +1,8 @@
+plugins {
+    // Puts the Android Gradle Plugin classes on the root build classpath.
+    id("com.android.application") apply false
+}
+
 allprojects {
     repositories {
         google()
@@ -14,6 +19,21 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+}
+
+// tflite_flutter compiles Java for 11 while Kotlin targets 17, which fails the
+// JVM target validation. Align its Java target with the app (17), without
+// touching the plugin copy in the pub cache.
+subprojects {
+    if (name == "tflite_flutter") {
+        afterEvaluate {
+            extensions.findByType(com.android.build.gradle.LibraryExtension::class.java)
+                ?.compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_17
+                    targetCompatibility = JavaVersion.VERSION_17
+                }
+        }
+    }
 }
 
 tasks.register<Delete>("clean") {

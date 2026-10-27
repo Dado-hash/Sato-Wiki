@@ -9,7 +9,7 @@ SatoWiki is privacy-first.
 - Followed BIPs, when implemented, stay local unless the user enables notifications.
 - Lightning tips remain mock-only until payment privacy and consent UX are finalized.
 - The block explorer is off by default. It contacts a server only after the user turns it on, while its screen is open or when the user searches. See the section below.
-- The tools that work offline (hashing, converters, decoders, demos) make no network calls.
+- The tools that work offline (hashing, converters, decoders, demos, the Dice → Seed sandbox) make no network calls.
 
 Data stored locally:
 
@@ -19,6 +19,16 @@ Data stored locally:
 - latest valid content bundle and its media;
 - future followed BIP IDs;
 - block explorer settings (on or off, server address).
+
+## Camera and the Dice to Seed sandbox
+
+The camera is used only inside the Dice → Seed sandbox, and only if you choose to read the dice with it. You can always enter the rolls by hand instead.
+
+- The phone reads the dice on the device. Frames are processed in memory and are never sent anywhere.
+- Frames are never saved, to the photo library, to files or to the app's storage. The app does not take photos.
+- The sandbox makes no network calls and stores nothing. It keeps no preferences, files, logs or analytics about the session.
+- Rolls, words and the seed are erased when you leave the sandbox, when the app goes to the background, or when a screenshot is taken.
+- Your operating system may show its own camera indicator while the sandbox is open.
 
 ## Block explorer
 
