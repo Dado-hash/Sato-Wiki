@@ -207,7 +207,7 @@ Full schema in `docs/content-model.md`.
 
 Test files in `test/`: `app_settings_controller_test.dart`, `code_screens_test.dart`, `content_bundle_parser_test.dart`, `content_media_test.dart`, `content_seed_media_assets_test.dart`, `content_update_test.dart`, `content_version_test.dart`, `core_new_widgets_test.dart`, `core_widgets_golden_test.dart`, `generate_bundle_test.dart`, `markdown_text_test.dart`, `reader_screens_test.dart`, `search_and_store_test.dart`, `search_screen_test.dart`, `settings_screen_test.dart`, `shell_navigation_test.dart`, `sync_code_content_test.dart`, `today_screen_test.dart`, `validate_content_test.dart`, `widget_test.dart`. Golden images are in `test/goldens/`.
 
-Dice-to-seed tests: `tools_bip39_test.dart`, `tools_dice_entropy_test.dart`, `tools_dice_detection_test.dart`, `tools_dice_detector_test.dart`, `tools_dice_session_controller_test.dart`, `tools_secure_screen_test.dart`. Widget tests: `tools_dice_screen_test.dart`, using the fakes in `tools_dice_fakes.dart`.
+Dice-to-seed tests: `tools_bip39_test.dart`, `tools_dice_entropy_test.dart`, `tools_dice_detection_test.dart`, `tools_dice_detector_test.dart`, `tools_dice_model_licenses_test.dart`, `tools_dice_session_controller_test.dart`, `tools_secure_screen_test.dart`. Widget tests: `tools_dice_screen_test.dart`, using the fakes in `tools_dice_fakes.dart`.
 
 All tests use the standard Flutter test harness. See `test/` for examples.
 

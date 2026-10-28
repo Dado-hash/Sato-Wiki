@@ -8,9 +8,11 @@ import 'src/core/content/data/content_media_store.dart';
 import 'src/core/localization/app_locale.dart';
 import 'src/core/settings/app_settings_controller.dart';
 import 'src/core/settings/shared_preferences_app_settings_repository.dart';
+import 'src/features/tools/data/dice_model_licenses.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  registerDiceModelLicenses();
 
   final preferences = await SharedPreferences.getInstance();
   final settingsRepository = SharedPreferencesAppSettingsRepository(

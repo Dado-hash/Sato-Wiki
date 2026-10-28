@@ -94,8 +94,9 @@ The 8400 rows are the anchors at strides 8, 16 and 32 for a 640 input:
   from YOLOX-Nano (Apache-2.0). The Poly Haven assets used in the synthetic scenes
   are CC0 and need no attribution.
 - Scripts: MIT, same as the repository.
-- Attribution to show in the app's licence screen: YOLOX (Apache-2.0), and the
-  dataset attribution line above (CC BY 4.0).
+- The app's licence page (Settings, open source licenses) lists YOLOX with its
+  Apache-2.0 text (`assets/models/yolox_license.txt`) and the dataset attribution
+  line above (CC BY 4.0), registered by `dice_model_licenses.dart`.
 
 ## Training command
 
