@@ -2440,4 +2440,305 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get labScriptExHtlcRefundDesc =>
       'After the timeout the sender takes the funds back.';
+
+  @override
+  String get toolsDiceTileName => 'Dice → Seed';
+
+  @override
+  String get toolsDiceTileCaption => 'Roll real dice, get a BIP39 seed offline';
+
+  @override
+  String get toolsDiceTitle => 'Dice → Seed';
+
+  @override
+  String get toolsDiceEyebrow => 'OFFLINE TOOL';
+
+  @override
+  String get toolsDiceIntro =>
+      'Roll real dice, the camera reads them on the phone and SatoWiki turns the rolls into a BIP39 seed. No network, nothing saved: when you leave, everything is erased.';
+
+  @override
+  String get toolsDiceLengthLabel => 'Seed length';
+
+  @override
+  String toolsDiceWords(int count) {
+    return '$count words';
+  }
+
+  @override
+  String toolsDiceLengthSummary(int rolls, int bits, int throws) {
+    return '$rolls rolls · $bits bits of entropy · ~$throws throws of 5 dice';
+  }
+
+  @override
+  String get toolsDiceChecklistTitle => 'BEFORE YOU START';
+
+  @override
+  String get toolsDiceCheckAirplane => 'Turn on airplane mode';
+
+  @override
+  String get toolsDiceCheckAirplaneCaption =>
+      'The sandbox works without network, so no data can leave.';
+
+  @override
+  String get toolsDiceCheckPrivate => 'Find a private place';
+
+  @override
+  String get toolsDiceCheckPrivateCaption =>
+      'Nobody behind you, no camera pointed at the paper.';
+
+  @override
+  String get toolsDiceCheckPaper => 'Get pen and paper';
+
+  @override
+  String get toolsDiceCheckPaperCaption =>
+      'You will write the words by hand. There is no copy and no screenshot.';
+
+  @override
+  String get toolsDiceCheckDice => 'Dice clearly visible on a light surface';
+
+  @override
+  String get toolsDiceCheckDiceCaption =>
+      'Works best with high-contrast dice on white paper.';
+
+  @override
+  String get toolsDiceSandboxInfoTitle => 'What the sandbox does';
+
+  @override
+  String get toolsDiceSandboxInfo1 =>
+      'Screenshots and screen recording blocked';
+
+  @override
+  String get toolsDiceSandboxInfo2 => 'Images stay in memory, never on disk';
+
+  @override
+  String get toolsDiceSandboxInfo3 =>
+      'Leaving or closing the app erases rolls and words';
+
+  @override
+  String get toolsDiceEnter => 'Enter the sandbox';
+
+  @override
+  String get toolsDiceHowMath => 'How the math works';
+
+  @override
+  String get toolsDiceSandboxActive => 'SANDBOX ON';
+
+  @override
+  String get toolsDiceOffline => 'OFFLINE';
+
+  @override
+  String get toolsDiceOnline => 'ONLINE';
+
+  @override
+  String get toolsDiceOnlineWarning =>
+      'You are online. Turn on airplane mode for maximum safety.';
+
+  @override
+  String get toolsDiceExit => 'Exit and erase';
+
+  @override
+  String get toolsDiceExitConfirmTitle => 'Erase this session?';
+
+  @override
+  String get toolsDiceExitConfirmBody =>
+      'Rolls and words will be erased and cannot be recovered.';
+
+  @override
+  String get toolsDiceExitConfirm => 'Erase';
+
+  @override
+  String get toolsDiceCancel => 'Cancel';
+
+  @override
+  String get toolsDiceLive => 'LIVE · ON-DEVICE';
+
+  @override
+  String get toolsDiceHoldStill => 'Dice still: capturing…';
+
+  @override
+  String get toolsDiceAimCamera => 'Point the camera at the dice';
+
+  @override
+  String get toolsDiceCameraUnavailable =>
+      'Dice recognition is not available on this device. Enter the rolls with the keypad.';
+
+  @override
+  String toolsDiceBitsOf(int max) {
+    return '/ $max bits';
+  }
+
+  @override
+  String get toolsDiceThrowLabel => 'THROW';
+
+  @override
+  String get toolsDiceRollsLabel => 'ROLLS';
+
+  @override
+  String get toolsDiceBitsPerRoll => 'Each roll is worth ~2.58 bits';
+
+  @override
+  String toolsDiceCountOf(int count, int total) {
+    return '$count / $total';
+  }
+
+  @override
+  String get toolsDiceRecordedRolls => 'RECORDED ROLLS';
+
+  @override
+  String get toolsDiceDistributionTitle => 'Face distribution';
+
+  @override
+  String get toolsDiceDistributionOk => 'Distribution looks fair';
+
+  @override
+  String get toolsDiceDistributionBiased =>
+      'Unusual distribution: check the dice and the readings';
+
+  @override
+  String get toolsDiceUndo => 'Undo last';
+
+  @override
+  String get toolsDiceKeypad => 'Keypad';
+
+  @override
+  String get toolsDiceConfirmThrow => 'Confirm throw';
+
+  @override
+  String toolsDiceCorrectTitle(int number) {
+    return 'Check throw $number';
+  }
+
+  @override
+  String get toolsDiceCorrectBody =>
+      'Compare the values with the dice and tap a die to change it. Nothing is recorded until you save. The order follows the position on the paper, left to right.';
+
+  @override
+  String toolsDiceNewValueFor(int number) {
+    return 'NEW VALUE FOR DIE $number';
+  }
+
+  @override
+  String get toolsDiceCheckReading => 'verify';
+
+  @override
+  String toolsDiceValue(int value) {
+    return 'Value $value';
+  }
+
+  @override
+  String toolsDiceDie(int number, int value) {
+    return 'Die $number: value $value';
+  }
+
+  @override
+  String get toolsDiceSaveThrow => 'Save throw';
+
+  @override
+  String get toolsDiceManualTitle => 'Enter rolls';
+
+  @override
+  String get toolsDiceClose => 'Close';
+
+  @override
+  String get toolsDiceDone => 'COMPLETE';
+
+  @override
+  String get toolsDiceResultTitle => 'Your seed is ready';
+
+  @override
+  String toolsDiceResultMeta(int words, int rolls, int bits, int checksum) {
+    return '$words words · $rolls rolls · $bits bits + $checksum checksum';
+  }
+
+  @override
+  String get toolsDiceResultWarning =>
+      'Write it down by hand, now. When you leave the sandbox it is erased and cannot be recovered.';
+
+  @override
+  String get toolsDiceWordsLabel => 'WORDS · ENGLISH BIP39';
+
+  @override
+  String get toolsDiceHoldToReveal => 'Hold to reveal';
+
+  @override
+  String get toolsDiceReleaseToHide => 'Release to hide';
+
+  @override
+  String get toolsDiceHoldToRevealBits => 'Hold to see the bits';
+
+  @override
+  String get toolsDiceRevealCaption =>
+      'No copy, no screenshot: the words disappear when you release.';
+
+  @override
+  String toolsDiceBitsLabel(int bits, int groups) {
+    return '$bits BITS IN $groups GROUPS OF 11';
+  }
+
+  @override
+  String toolsDiceLegendChecksum(int bits) {
+    return 'checksum ($bits bits)';
+  }
+
+  @override
+  String toolsDiceLegendEntropy(int bits) {
+    return 'entropy ($bits bits)';
+  }
+
+  @override
+  String get toolsDiceTapWordHint => 'Tap a word to see its 11 bits.';
+
+  @override
+  String get toolsDiceMathTitle => 'Show the math';
+
+  @override
+  String toolsDiceMathStep1(int rolls) {
+    return '$rolls rolls, in order';
+  }
+
+  @override
+  String toolsDiceMathStep2(int bits) {
+    return 'SHA-256 of the roll string = entropy ($bits bits)';
+  }
+
+  @override
+  String toolsDiceMathStep3(int bits) {
+    return 'SHA-256 of the entropy: the first $bits bits are the checksum';
+  }
+
+  @override
+  String toolsDiceMathStep4(int total, int groups) {
+    return '$total bits, split into $groups groups of 11';
+  }
+
+  @override
+  String get toolsDiceMathStep5 =>
+      'Each group is an index (0–2047) in the English wordlist';
+
+  @override
+  String get toolsDiceMathNote =>
+      'Same method as SeedSigner and Coldcard: you can verify the seed by entering the same rolls on a separate device.';
+
+  @override
+  String get toolsDiceMathHidden => 'Hold a reveal button to see the values';
+
+  @override
+  String get toolsDiceWipeDone => 'I wrote it down, erase';
+
+  @override
+  String get toolsDiceNewSession => 'New session';
+
+  @override
+  String get toolsDiceWipedNotice => 'Session erased.';
+
+  @override
+  String get toolsDiceScreenshotTitle => 'Screenshot detected';
+
+  @override
+  String get toolsDiceScreenshotBody =>
+      'The session was erased. A seed that appears in a screenshot is not safe: start again.';
+
+  @override
+  String get toolsDiceVeil => 'Sandbox hidden';
 }

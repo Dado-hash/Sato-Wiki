@@ -15,6 +15,7 @@ import '../../../core/widgets/screen_header.dart';
 import '../../../core/widgets/section_title.dart';
 import '../../../core/widgets/status_pill.dart';
 import '../../../generated/l10n/app_localizations.dart';
+import '../../tools/presentation/dice_widgets.dart';
 import 'release_list_screen.dart';
 
 export 'bip_detail_screen.dart';
@@ -157,6 +158,11 @@ class _ToolsSection extends StatelessWidget {
       children: [
         SectionTitle(title: l10n.toolsSectionTools),
         const SizedBox(height: AppSpacing.md),
+        _DiceToolCard(
+          name: l10n.toolsDiceTileName,
+          caption: l10n.toolsDiceTileCaption,
+        ),
+        const SizedBox(height: AppSpacing.md),
         for (var start = 0; start < tiles.length; start += 2) ...[
           if (start > 0) const SizedBox(height: AppSpacing.md),
           IntrinsicHeight(
@@ -171,6 +177,67 @@ class _ToolsSection extends StatelessWidget {
           ),
         ],
       ],
+    );
+  }
+}
+
+/// Featured full-width tool above the tile pairs: three dice on the left.
+class _DiceToolCard extends StatelessWidget {
+  const _DiceToolCard({required this.name, required this.caption});
+
+  final String name;
+  final String caption;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
+    return Material(
+      color: colorScheme.surfaceContainerLow,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadii.card),
+        side: BorderSide(color: colorScheme.outlineVariant),
+      ),
+      child: InkWell(
+        onTap: () => Navigator.of(context).pushNamed(AppRoutes.toolDice),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.lg),
+          child: Row(
+            children: [
+              ExcludeSemantics(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    DieFace(value: 6, size: 28),
+                    SizedBox(width: AppSpacing.xs),
+                    DieFace(value: 3, size: 28),
+                    SizedBox(width: AppSpacing.xs),
+                    DieFace(value: 5, size: 28),
+                  ],
+                ),
+              ),
+              const SizedBox(width: AppSpacing.lg),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(name, style: textTheme.titleMedium),
+                    const SizedBox(height: AppSpacing.sm),
+                    Text(caption, style: textTheme.labelMedium),
+                  ],
+                ),
+              ),
+              const SizedBox(width: AppSpacing.sm),
+              Icon(
+                Icons.chevron_right_rounded,
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

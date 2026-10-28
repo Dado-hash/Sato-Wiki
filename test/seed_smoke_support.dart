@@ -204,6 +204,7 @@ List<SmokeRoute> fullSmokeRoutes(SmokeSeed seed) {
     ),
     const SmokeRoute(AppRoutes.toolTarget),
     const SmokeRoute(AppRoutes.toolUnits),
+    const SmokeRoute(AppRoutes.toolDice),
     const SmokeRoute(AppRoutes.references),
     for (final table in bundle.references)
       SmokeRoute(AppRoutes.reference(table.slug)),
@@ -268,6 +269,7 @@ List<SmokeRoute> reducedSmokeRoutes(SmokeSeed seed) {
       AppRoutes.toolTransaction,
       interaction: SmokeInteraction.transactionExample,
     ),
+    const SmokeRoute(AppRoutes.toolDice),
     const SmokeRoute(AppRoutes.references),
     if (tables.isNotEmpty) SmokeRoute(AppRoutes.reference(tables.last.slug)),
     const SmokeRoute(AppRoutes.lab),

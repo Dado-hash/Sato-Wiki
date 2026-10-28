@@ -1067,5 +1067,228 @@
   "labScriptExHtlcName": "HTLC, claimed",
   "labScriptExHtlcDesc": "The receiver reveals the secret before the timeout.",
   "labScriptExHtlcRefundName": "HTLC, refund",
-  "labScriptExHtlcRefundDesc": "After the timeout the sender takes the funds back."
+  "labScriptExHtlcRefundDesc": "After the timeout the sender takes the funds back.",
+  "toolsDiceTileName": "Dice → Seed",
+  "toolsDiceTileCaption": "Roll real dice, get a BIP39 seed offline",
+  "toolsDiceTitle": "Dice → Seed",
+  "toolsDiceEyebrow": "OFFLINE TOOL",
+  "toolsDiceIntro": "Roll real dice, the camera reads them on the phone and SatoWiki turns the rolls into a BIP39 seed. No network, nothing saved: when you leave, everything is erased.",
+  "toolsDiceLengthLabel": "Seed length",
+  "toolsDiceWords": "{count} words",
+  "@toolsDiceWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceLengthSummary": "{rolls} rolls · {bits} bits of entropy · ~{throws} throws of 5 dice",
+  "@toolsDiceLengthSummary": {
+    "placeholders": {
+      "rolls": {
+        "type": "int"
+      },
+      "bits": {
+        "type": "int"
+      },
+      "throws": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceChecklistTitle": "BEFORE YOU START",
+  "toolsDiceCheckAirplane": "Turn on airplane mode",
+  "toolsDiceCheckAirplaneCaption": "The sandbox works without network, so no data can leave.",
+  "toolsDiceCheckPrivate": "Find a private place",
+  "toolsDiceCheckPrivateCaption": "Nobody behind you, no camera pointed at the paper.",
+  "toolsDiceCheckPaper": "Get pen and paper",
+  "toolsDiceCheckPaperCaption": "You will write the words by hand. There is no copy and no screenshot.",
+  "toolsDiceCheckDice": "Dice clearly visible on a light surface",
+  "toolsDiceCheckDiceCaption": "Works best with high-contrast dice on white paper.",
+  "toolsDiceSandboxInfoTitle": "What the sandbox does",
+  "toolsDiceSandboxInfo1": "Screenshots and screen recording blocked",
+  "toolsDiceSandboxInfo2": "Images stay in memory, never on disk",
+  "toolsDiceSandboxInfo3": "Leaving or closing the app erases rolls and words",
+  "toolsDiceEnter": "Enter the sandbox",
+  "toolsDiceHowMath": "How the math works",
+  "toolsDiceSandboxActive": "SANDBOX ON",
+  "toolsDiceOffline": "OFFLINE",
+  "toolsDiceOnline": "ONLINE",
+  "toolsDiceOnlineWarning": "You are online. Turn on airplane mode for maximum safety.",
+  "toolsDiceExit": "Exit and erase",
+  "toolsDiceExitConfirmTitle": "Erase this session?",
+  "toolsDiceExitConfirmBody": "Rolls and words will be erased and cannot be recovered.",
+  "toolsDiceExitConfirm": "Erase",
+  "toolsDiceCancel": "Cancel",
+  "toolsDiceLive": "LIVE · ON-DEVICE",
+  "toolsDiceHoldStill": "Dice still: capturing…",
+  "toolsDiceAimCamera": "Point the camera at the dice",
+  "toolsDiceCameraUnavailable": "Dice recognition is not available on this device. Enter the rolls with the keypad.",
+  "toolsDiceBitsOf": "/ {max} bits",
+  "@toolsDiceBitsOf": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceThrowLabel": "THROW",
+  "toolsDiceRollsLabel": "ROLLS",
+  "toolsDiceBitsPerRoll": "Each roll is worth ~2.58 bits",
+  "toolsDiceCountOf": "{count} / {total}",
+  "@toolsDiceCountOf": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceRecordedRolls": "RECORDED ROLLS",
+  "toolsDiceDistributionTitle": "Face distribution",
+  "toolsDiceDistributionOk": "Distribution looks fair",
+  "toolsDiceDistributionBiased": "Unusual distribution: check the dice and the readings",
+  "toolsDiceUndo": "Undo last",
+  "toolsDiceKeypad": "Keypad",
+  "toolsDiceConfirmThrow": "Confirm throw",
+  "toolsDiceCorrectTitle": "Check throw {number}",
+  "@toolsDiceCorrectTitle": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceCorrectBody": "Compare the values with the dice and tap a die to change it. Nothing is recorded until you save. The order follows the position on the paper, left to right.",
+  "toolsDiceNewValueFor": "NEW VALUE FOR DIE {number}",
+  "@toolsDiceNewValueFor": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceCheckReading": "verify",
+  "toolsDiceValue": "Value {value}",
+  "@toolsDiceValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceDie": "Die {number}: value {value}",
+  "@toolsDiceDie": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceSaveThrow": "Save throw",
+  "toolsDiceManualTitle": "Enter rolls",
+  "toolsDiceClose": "Close",
+  "toolsDiceDone": "COMPLETE",
+  "toolsDiceResultTitle": "Your seed is ready",
+  "toolsDiceResultMeta": "{words} words · {rolls} rolls · {bits} bits + {checksum} checksum",
+  "@toolsDiceResultMeta": {
+    "placeholders": {
+      "words": {
+        "type": "int"
+      },
+      "rolls": {
+        "type": "int"
+      },
+      "bits": {
+        "type": "int"
+      },
+      "checksum": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceResultWarning": "Write it down by hand, now. When you leave the sandbox it is erased and cannot be recovered.",
+  "toolsDiceWordsLabel": "WORDS · ENGLISH BIP39",
+  "toolsDiceHoldToReveal": "Hold to reveal",
+  "toolsDiceReleaseToHide": "Release to hide",
+  "toolsDiceHoldToRevealBits": "Hold to see the bits",
+  "toolsDiceRevealCaption": "No copy, no screenshot: the words disappear when you release.",
+  "toolsDiceBitsLabel": "{bits} BITS IN {groups} GROUPS OF 11",
+  "@toolsDiceBitsLabel": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      },
+      "groups": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceLegendChecksum": "checksum ({bits} bits)",
+  "@toolsDiceLegendChecksum": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceLegendEntropy": "entropy ({bits} bits)",
+  "@toolsDiceLegendEntropy": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceTapWordHint": "Tap a word to see its 11 bits.",
+  "toolsDiceMathTitle": "Show the math",
+  "toolsDiceMathStep1": "{rolls} rolls, in order",
+  "@toolsDiceMathStep1": {
+    "placeholders": {
+      "rolls": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep2": "SHA-256 of the roll string = entropy ({bits} bits)",
+  "@toolsDiceMathStep2": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep3": "SHA-256 of the entropy: the first {bits} bits are the checksum",
+  "@toolsDiceMathStep3": {
+    "placeholders": {
+      "bits": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep4": "{total} bits, split into {groups} groups of 11",
+  "@toolsDiceMathStep4": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      },
+      "groups": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsDiceMathStep5": "Each group is an index (0–2047) in the English wordlist",
+  "toolsDiceMathNote": "Same method as SeedSigner and Coldcard: you can verify the seed by entering the same rolls on a separate device.",
+  "toolsDiceMathHidden": "Hold a reveal button to see the values",
+  "toolsDiceWipeDone": "I wrote it down, erase",
+  "toolsDiceNewSession": "New session",
+  "toolsDiceWipedNotice": "Session erased.",
+  "toolsDiceScreenshotTitle": "Screenshot detected",
+  "toolsDiceScreenshotBody": "The session was erased. A seed that appears in a screenshot is not safe: start again.",
+  "toolsDiceVeil": "Sandbox hidden"
 }

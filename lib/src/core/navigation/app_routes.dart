@@ -36,6 +36,7 @@ abstract final class AppRoutes {
   static const toolTransaction = '/code/tools/transaction';
   static const toolTarget = '/code/tools/target';
   static const toolUnits = '/code/tools/units';
+  static const toolDice = '/code/tools/dice';
   static const references = '/code/references';
   static const referencePattern = '/code/references/:slug';
   static const lab = '/code/lab';

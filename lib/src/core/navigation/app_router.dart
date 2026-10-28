@@ -12,6 +12,8 @@ import '../../features/search/presentation/search_screen.dart';
 import '../../features/settings/presentation/bookmarks_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/shell/presentation/sato_wiki_shell.dart';
+import '../../features/tools/data/secure_screen_channel.dart';
+import '../../features/tools/data/tflite_dice_detector.dart';
 import '../../features/tools/presentation/reference_list_screen.dart';
 import '../../features/tools/presentation/explorer_routes.dart';
 import '../../features/tools/presentation/reference_table_screen.dart';
@@ -20,6 +22,7 @@ import '../../features/tools/presentation/lab_step_screen.dart';
 import '../../features/tools/presentation/lab_steps.dart';
 import '../../features/tools/presentation/script_stepper_screen.dart';
 import '../../features/tools/presentation/tool_address_screen.dart';
+import '../../features/tools/presentation/tool_dice_screen.dart';
 import '../../features/tools/presentation/tool_hash_screen.dart';
 import '../../features/tools/presentation/tool_target_screen.dart';
 import '../../features/tools/presentation/tool_transaction_screen.dart';
@@ -193,6 +196,7 @@ abstract final class AppRouter {
     AppRoutes.toolTransaction,
     AppRoutes.toolTarget,
     AppRoutes.toolUnits,
+    AppRoutes.toolDice,
   };
 
   static Widget _toolScreenFor(String routeName, ContentStore store) {
@@ -202,6 +206,11 @@ abstract final class AppRouter {
       AppRoutes.toolTransaction => ToolTransactionScreen(store: store),
       AppRoutes.toolTarget => ToolTargetScreen(store: store),
       AppRoutes.toolUnits => ToolUnitsScreen(store: store),
+      AppRoutes.toolDice => ToolDiceScreen(
+        store: store,
+        detectorFactory: TfliteDiceDetector.new,
+        secureScreen: SecureScreen(),
+      ),
       _ => UnknownRouteScreen(routeName: routeName),
     };
   }

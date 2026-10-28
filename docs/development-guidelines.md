@@ -7,6 +7,18 @@
 - Le schermate devono rimanere offline-first: nessuna UI centrale deve dipendere da una chiamata runtime per mostrare contenuti gia scaricati.
 - Privacy by default: niente analytics invasivi, niente chiamate terze parti non necessarie, font e asset preferibilmente bundled.
 
+## Segreti nell'interfaccia
+
+Vale per chiavi, seed e parole. La sandbox Dadi → Seed (`features/tools/presentation/dice_sandbox_screen.dart`) è l'unico punto dove si genera un segreto: segue queste regole, che valgono anche per ogni schermata futura che mostri dati sensibili.
+
+- Nessun segreto viene salvato, loggato, copiato o condiviso: niente `shared_preferences`, file, `print` o `debugPrint`, analytics, clipboard.
+- Niente `TextField` o `TextFormField` (la tastiera di sistema può imparare le parole), niente `SelectableText` o `SelectionArea`, nessuna azione di copia o condivisione. Non usare `ToolCopyValue` o `ToolMonoBlock` di `tool_widgets.dart`: sono selezionabili.
+- Le parole restano nascoste finché non si tiene premuto il controllo di rivelazione. Finché sono nascoste, i widget `Text` delle parole non vengono costruiti: niente `Opacity` o sfocature sopra un testo già presente.
+- Tiri in `Uint8List`, indici in `Uint16List`, entropia in `Uint8List`: `wipe()` li azzera. Le parole sono riferimenti alla wordlist costante. `bitString()` e le etichette di accessibilità creano stringhe che non si possono azzerare: è il limite dichiarato sotto.
+- La sessione viene cancellata all'uscita, al passaggio in background (`paused`, `hidden`, `detached`) e allo screenshot. In `inactive` un velo copre lo schermo, così il contenuto non compare nell'app switcher.
+- La fotocamera usa solo `startImageStream`, mai `takePicture`: i fotogrammi restano in memoria e non vengono salvati.
+- Limite dichiarato: Dart non garantisce di cancellare le stringhe dalla memoria. Vedi `docs/dice-seed.md`.
+
 ## Stile Dart e Flutter
 
 - Usare `flutter_lints` come base e mantenere `flutter analyze` pulito.

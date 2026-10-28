@@ -18,7 +18,19 @@ import 'package:sato_wiki/src/core/widgets/status_badge.dart';
 import 'package:sato_wiki/src/core/theme/app_theme.dart';
 import 'package:sato_wiki/src/generated/l10n/app_localizations.dart';
 
+import 'support/tolerant_golden_comparator.dart';
+
 void main() {
+  // The golden was rasterised on another machine/SDK: icon anti-aliasing differs by a few pixels.
+  setUpAll(() {
+    goldenFileComparator = TolerantGoldenComparator(
+      Uri.parse(
+        '${(goldenFileComparator as LocalFileComparator).basedir}core_widgets_golden_test.dart',
+      ),
+      tolerance: 0.0005,
+    );
+  });
+
   testWidgets('core editorial components match golden', (tester) async {
     await tester.pumpWidget(
       MaterialApp(

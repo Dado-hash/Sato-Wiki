@@ -75,6 +75,10 @@ Output published to `build/pages/content/{language}/{version}/bundle.json` (bund
 
 `tool/build_seed_bundle.dart <lang>` rebuilds the `wiki` and `history` arrays of `assets/content/seed_bundle_<lang>.json` from `content/<lang>/`. It is not run in CI, and the seeds contain hand edits that are not in the Markdown sources (history summaries and wiki source lists). Running it today would revert them. Until the two are reconciled, treat the seed bundles as the source of truth for wiki and history.
 
+### Dice Model
+
+`tool/dice_model/` is the Python pipeline (Python 3.12, not run in CI, not part of the app build) that produces `assets/models/dice_detector.tflite` and its labels: YOLOX-Nano (Apache-2.0) trained on a public dice dataset plus synthetic scenes rendered in Blender (`tool/dice_model/synth/`, CC0 Poly Haven textures), exported to TFLite, then evaluated on the held-out split and on the maintainer's own photos (`evaluate_throws.py`, faces only, no boxes; value accuracy gate 0.99). Steps are in `tool/dice_model/README.md`. The bundled model is a 640 px beta below the gate (value accuracy 0.959 on the held-out split of the public dataset, 0.776 on the maintainer's own dice). The app reads the input size from the model; the Python scripts read it from `DICE_INPUT_SIZE` (default 416). The model card `assets/models/dice_detector.md` records the dataset license, the SHA-256 of the `.tflite` (check with `shasum -a 256`) and the metrics. On a Mac, train with `train_mac.py --device cpu`.
+
 ### Content Templates
 
 Templates live in `content/templates/`:
@@ -117,7 +121,7 @@ lib/
       search/presentation/          # search screen
       settings/presentation/        # Settings and Bookmarks
       learn/presentation/           # learning path, glossary, library screens
-      tools/                        # domain (pure logic), data (Esplora client), presentation (offline tools, reference tables, blockchain lab, Script stepper, opt-in explorer)
+      tools/                        # domain (pure logic, incl. BIP39 and dice entropy), data (Esplora client, dice camera detector, native secure_screen channel), presentation (offline tools, reference tables, blockchain lab, Script stepper, opt-in explorer, Dice → Seed sandbox)
 ```
 
 Feature `domain/` holds repository interfaces; the data layer for content lives in `core/content/data/`. Feature `presentation/` holds screens and widgets.
@@ -168,7 +172,8 @@ Full schema in `docs/content-model.md`.
 - Offline-first: no central UI should block on a runtime call for already-downloaded content
 - Privacy by default: no invasive analytics, no unnecessary third-party calls
 - The block explorer is the only feature that calls a third-party server. It is off at install, creates no client while off, and saves no searches. Its tests use a fake API: never call mempool.space or another live explorer from tests or scripts
-- No tool generates or handles private keys. A pasted WIF or extended key is recognised only to clear the field and show a warning
+- No tool generates or handles private keys, except the Dice → Seed sandbox. A pasted WIF or extended key is recognised only to clear the field and show a warning. The sandbox generates a BIP39 seed from physical dice, offline and in memory only, with these safeguards: nothing is persisted or logged; no clipboard, text selection or `TextField`; screenshots and recording blocked where the platform allows it; the session is wiped on leaving, on app background and on a screenshot; words, bits and math values are hidden until held (holding either hold control reveals all three together, releasing hides them). See `docs/dice-seed.md`
+- The camera is used only by the dice sandbox. Frames are processed in memory and never saved (`startImageStream` only, never `takePicture`). The dice tests never open a camera: they cover pure functions, the native channel with mock handlers, and the sandbox screens with fakes (`FakeDiceDetector`, `FakeSecureScreen` in `test/tools_dice_fakes.dart`)
 - Keep `flutter analyze` clean; this is non-negotiable
 
 **Dart Style:**
@@ -202,6 +207,8 @@ Full schema in `docs/content-model.md`.
 
 Test files in `test/`: `app_settings_controller_test.dart`, `code_screens_test.dart`, `content_bundle_parser_test.dart`, `content_media_test.dart`, `content_seed_media_assets_test.dart`, `content_update_test.dart`, `content_version_test.dart`, `core_new_widgets_test.dart`, `core_widgets_golden_test.dart`, `generate_bundle_test.dart`, `markdown_text_test.dart`, `reader_screens_test.dart`, `search_and_store_test.dart`, `search_screen_test.dart`, `settings_screen_test.dart`, `shell_navigation_test.dart`, `sync_code_content_test.dart`, `today_screen_test.dart`, `validate_content_test.dart`, `widget_test.dart`. Golden images are in `test/goldens/`.
 
+Dice-to-seed tests: `tools_bip39_test.dart`, `tools_dice_entropy_test.dart`, `tools_dice_detection_test.dart`, `tools_dice_detector_test.dart`, `tools_dice_model_licenses_test.dart`, `tools_dice_session_controller_test.dart`, `tools_secure_screen_test.dart`. Widget tests: `tools_dice_screen_test.dart`, using the fakes in `tools_dice_fakes.dart`.
+
 All tests use the standard Flutter test harness. See `test/` for examples.
 
 ## Key Dependencies
@@ -215,6 +222,8 @@ Core dependencies (see `pubspec.yaml` for versions):
 - `path_provider` — platform-specific paths
 - `url_launcher` — opening external links
 - `intl` — internationalization utilities
+- `camera` — camera preview and image stream for the Dice → Seed sandbox only (frames never saved)
+- `tflite_flutter` — on-device TFLite inference for the dice detector, run in an isolate
 
 Dev: `flutter_lints` (required; keep clean), `flutter_launcher_icons` (app icon generation), standard Flutter test SDK.
 

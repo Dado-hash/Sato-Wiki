@@ -97,6 +97,7 @@ Regole pratiche:
 - Il layer data dei contenuti sta in `lib/src/core/content/data/`; le feature espongono interfacce in `domain/repositories/`.
 - Usare enum per stati noti come reading level e BIP status.
 - Aggiornare docs quando si cambiano architettura, data model o design system.
+- Regola sulle chiavi: nessuno strumento genera o gestisce chiavi private, tranne la sandbox Dadi → Seed (`tool_dice_screen.dart`, `dice_sandbox_screen.dart`). Un WIF o una chiave estesa incollata viene riconosciuto solo per svuotare il campo e mostrare un avviso. La sandbox genera una seed BIP39 da dadi fisici, offline e solo in memoria: niente salvataggi, log, clipboard, selezione o `TextField`; screenshot e registrazione bloccati dove la piattaforma lo permette; sessione cancellata all'uscita, al passaggio in background e allo screenshot; parole, bit e valori della matematica nascosti finché non si tiene premuto. Dettagli in `docs/dice-seed.md`. La fotocamera è usata solo dalla sandbox: i fotogrammi non vengono mai salvati, e i test dei dadi non aprono la fotocamera.
 
 ## Contenuti
 
