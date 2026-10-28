@@ -2621,12 +2621,12 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String toolsDiceCorrectTitle(int number) {
-    return 'Correggi lancio $number';
+    return 'Controlla lancio $number';
   }
 
   @override
   String get toolsDiceCorrectBody =>
-      'Tocca un dado per cambiarne il valore. L\'ordine segue la posizione sul foglio, da sinistra a destra.';
+      'Confronta i valori con i dadi e tocca un dado per cambiarlo. Niente viene registrato finché non salvi. L\'ordine segue la posizione sul foglio, da sinistra a destra.';
 
   @override
   String toolsDiceNewValueFor(int number) {

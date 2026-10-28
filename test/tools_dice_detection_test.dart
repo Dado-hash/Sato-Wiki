@@ -89,22 +89,6 @@ void main() {
       ]);
       expect(candidate.values, [4, 1]);
     });
-
-    test('needsReview is false when every die is at least 0.85', () {
-      final candidate = DiceThrowCandidate([
-        _die(2, 0.1, 0.5, confidence: 0.85),
-        _die(6, 0.5, 0.5, confidence: 0.99),
-      ]);
-      expect(candidate.needsReview, isFalse);
-    });
-
-    test('needsReview is true when any die is below 0.85', () {
-      final candidate = DiceThrowCandidate([
-        _die(2, 0.1, 0.5, confidence: 0.99),
-        _die(6, 0.5, 0.5, confidence: 0.7),
-      ]);
-      expect(candidate.needsReview, isTrue);
-    });
   });
 
   group('DiceStabilityTracker', () {
@@ -137,17 +121,81 @@ void main() {
       }
     });
 
-    test('re-arms after the value of a die changes', () {
+    test(
+      'a value read differently on dice left in place is not a new throw',
+      () {
+        final tracker = DiceStabilityTracker();
+        for (var i = 0; i < 4; i++) {
+          tracker.addFrame(frame(still));
+        }
+
+        final misread = [
+          _die(4, 0.2, 0.3),
+          _die(5, 0.5, 0.3),
+          _die(1, 0.8, 0.7),
+        ];
+        for (var i = 0; i < 10; i++) {
+          expect(tracker.addFrame(frame(misread)), isNull);
+        }
+      },
+    );
+
+    test('a die missed for a few frames is not a new throw', () {
       final tracker = DiceStabilityTracker();
       for (var i = 0; i < 4; i++) {
         tracker.addFrame(frame(still));
       }
 
-      final moved = [_die(4, 0.2, 0.3), _die(5, 0.5, 0.3), _die(1, 0.8, 0.7)];
-      for (var i = 0; i < 3; i++) {
-        expect(tracker.addFrame(frame(moved)), isNull);
+      for (var i = 0; i < 6; i++) {
+        expect(tracker.addFrame(frame(still.sublist(1))), isNull);
       }
-      expect(tracker.addFrame(frame(moved))!.values, [4, 5, 1]);
+      expect(tracker.addFrame(frame(const [])), isNull);
+      for (var i = 0; i < 6; i++) {
+        expect(tracker.addFrame(frame(still)), isNull);
+      }
+    });
+
+    test('moving the phone over the same dice is not a new throw', () {
+      final tracker = DiceStabilityTracker();
+      for (var i = 0; i < 4; i++) {
+        tracker.addFrame(frame(still));
+      }
+
+      final panned = [
+        for (final die in still)
+          _die(die.value, die.box.centerX + 0.15, die.box.centerY - 0.1),
+      ];
+      for (var i = 0; i < 6; i++) {
+        expect(tracker.addFrame(frame(panned)), isNull);
+      }
+    });
+
+    test('dice thrown again to new places are a new throw', () {
+      final tracker = DiceStabilityTracker();
+      for (var i = 0; i < 4; i++) {
+        tracker.addFrame(frame(still));
+      }
+
+      final thrown = [_die(3, 0.6, 0.2), _die(5, 0.3, 0.8), _die(1, 0.7, 0.6)];
+      for (var i = 0; i < 3; i++) {
+        expect(tracker.addFrame(frame(thrown)), isNull);
+      }
+      expect(tracker.addFrame(frame(thrown))!.values, [3, 1, 5]);
+    });
+
+    test('markRecorded blocks the dice in view, forgetRecorded frees them', () {
+      final tracker = DiceStabilityTracker()..markRecorded(still);
+      for (var i = 0; i < 6; i++) {
+        expect(tracker.addFrame(frame(still)), isNull);
+      }
+
+      tracker
+        ..forgetRecorded()
+        ..reset();
+      for (var i = 0; i < 3; i++) {
+        expect(tracker.addFrame(frame(still)), isNull);
+      }
+      expect(tracker.addFrame(frame(still)), isNotNull);
     });
 
     test('re-arms after a centre moves more than maxCenterShift', () {
@@ -237,7 +285,7 @@ void main() {
       expect(tracker.progress, 1);
     });
 
-    test('reset clears the count and the emitted flag', () {
+    test('reset clears the count but keeps the recorded throw', () {
       final tracker = DiceStabilityTracker();
       for (var i = 0; i < 4; i++) {
         tracker.addFrame(frame(still));
@@ -245,13 +293,12 @@ void main() {
       tracker.reset();
 
       expect(tracker.progress, 0);
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 6; i++) {
         expect(tracker.addFrame(frame(still)), isNull);
       }
-      expect(tracker.addFrame(frame(still)), isNotNull);
     });
 
-    test('a low-confidence reading that needs review still emits', () {
+    test('a low-confidence reading still emits', () {
       final tracker = DiceStabilityTracker();
       final unsure = [_die(2, 0.3, 0.4, confidence: 0.7), _die(4, 0.6, 0.4)];
       DiceThrowCandidate? candidate;
@@ -260,7 +307,7 @@ void main() {
       }
 
       expect(candidate, isNotNull);
-      expect(candidate!.needsReview, isTrue);
+      expect(candidate!.dice.first.confidence, 0.7);
     });
   });
 }

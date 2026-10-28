@@ -1153,7 +1153,7 @@
   "toolsDiceUndo": "Annulla ultimo",
   "toolsDiceKeypad": "Tastiera",
   "toolsDiceConfirmThrow": "Conferma lancio",
-  "toolsDiceCorrectTitle": "Correggi lancio {number}",
+  "toolsDiceCorrectTitle": "Controlla lancio {number}",
   "@toolsDiceCorrectTitle": {
     "placeholders": {
       "number": {
@@ -1161,7 +1161,7 @@
       }
     }
   },
-  "toolsDiceCorrectBody": "Tocca un dado per cambiarne il valore. L'ordine segue la posizione sul foglio, da sinistra a destra.",
+  "toolsDiceCorrectBody": "Confronta i valori con i dadi e tocca un dado per cambiarlo. Niente viene registrato finché non salvi. L'ordine segue la posizione sul foglio, da sinistra a destra.",
   "toolsDiceNewValueFor": "NUOVO VALORE PER IL DADO {number}",
   "@toolsDiceNewValueFor": {
     "placeholders": {

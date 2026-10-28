@@ -99,7 +99,7 @@ final class DiceThrowCandidate {
   /// Creates a throw from dice that are already ordered by position.
   const DiceThrowCandidate(this.dice);
 
-  /// Confidence below this value asks the user to check the reading.
+  /// Confidence below this value is flagged in the sheet that confirms the throw.
   static const reviewThreshold = 0.85;
 
   /// The dice, in position order.
@@ -107,12 +107,14 @@ final class DiceThrowCandidate {
 
   /// Face values in position order.
   List<int> get values => [for (final die in dice) die.value];
-
-  /// True when any die was read with confidence below [reviewThreshold].
-  bool get needsReview => dice.any((die) => die.confidence < reviewThreshold);
 }
 
 /// Emits a throw when the same dice stay still for [requiredStableFrames] frames.
+///
+/// A throw already emitted or marked with [markRecorded] is not emitted again
+/// while its dice lie where they were: the scene can flicker (a die missed for
+/// a frame, a value read differently, the phone moved), but only a new layout
+/// of dice is a new throw.
 final class DiceStabilityTracker {
   /// Creates a tracker. Defaults match the dice sandbox.
   DiceStabilityTracker({
@@ -120,6 +122,7 @@ final class DiceStabilityTracker {
     this.minConfidence = 0.5,
     this.maxCenterShift = 0.04,
     this.maxDice = 5,
+    this.maxLayoutShift = 0.05,
   });
 
   /// Consecutive identical frames needed before a throw is emitted.
@@ -134,14 +137,20 @@ final class DiceStabilityTracker {
   /// Frames with more dice than this reset the count.
   final int maxDice;
 
+  /// Largest movement of a die, in frame units and after the whole scene is
+  /// shifted to line up, that still counts as the recorded throw.
+  final double maxLayoutShift;
+
   List<DetectedDie>? _scene;
+  List<DetectedDie>? _recorded;
   int _stableFrames = 0;
   bool _emitted = false;
 
   /// Feed one frame; returns a candidate once per still scene. Dice under
   /// [minConfidence] are dropped; frames with 0 or more than [maxDice] dice reset the count.
   /// After emitting, nothing is emitted again until the scene changes (count,
-  /// a value, or a centre moving more than [maxCenterShift]).
+  /// a value, or a centre moving more than [maxCenterShift]), and never for
+  /// the dice of the recorded throw left where they are.
   DiceThrowCandidate? addFrame(List<DetectedDie> frame) {
     final dice = [
       for (final die in frame)
@@ -165,6 +174,11 @@ final class DiceStabilityTracker {
 
     if (!_emitted && _stableFrames >= requiredStableFrames) {
       _emitted = true;
+      final recorded = _recorded;
+      if (recorded != null && _sameLayout(recorded, dice)) {
+        return null;
+      }
+      _recorded = dice;
 
       return DiceThrowCandidate(orderByPosition(dice));
     }
@@ -182,11 +196,65 @@ final class DiceStabilityTracker {
     return fraction.clamp(0.0, 1.0);
   }
 
-  /// Forgets the current scene and starts counting again.
+  /// Forgets the current scene and starts counting again. The recorded throw
+  /// is kept: dice missed for a frame are not a new throw.
   void reset() {
     _scene = null;
     _stableFrames = 0;
     _emitted = false;
+  }
+
+  /// Records [dice] as a throw already handled outside the tracker (for
+  /// example confirmed by hand), so the same dice are not emitted again.
+  void markRecorded(List<DetectedDie> dice) {
+    final kept = [
+      for (final die in dice)
+        if (die.confidence >= minConfidence) die,
+    ];
+    _recorded = kept.isEmpty ? null : kept;
+  }
+
+  /// Forgets the recorded throw, so the dice in view can be emitted again.
+  void forgetRecorded() {
+    _recorded = null;
+  }
+
+  /// True when every die of [current] lies on a distinct die of [recorded]
+  /// once the whole scene is shifted by one offset (the phone may have moved).
+  /// Values are ignored: the same dice in the same place are the same throw.
+  bool _sameLayout(List<DetectedDie> recorded, List<DetectedDie> current) {
+    if (current.length > recorded.length) {
+      return false;
+    }
+    final anchor = current.first.box;
+    for (final candidate in recorded) {
+      final dx = candidate.box.centerX - anchor.centerX;
+      final dy = candidate.box.centerY - anchor.centerY;
+      final used = List<bool>.filled(recorded.length, false);
+      var matchedAll = true;
+      for (final die in current) {
+        var matched = false;
+        for (var i = 0; i < recorded.length; i++) {
+          final other = recorded[i].box;
+          if (!used[i] &&
+              (other.centerX - die.box.centerX - dx).abs() <= maxLayoutShift &&
+              (other.centerY - die.box.centerY - dy).abs() <= maxLayoutShift) {
+            used[i] = true;
+            matched = true;
+            break;
+          }
+        }
+        if (!matched) {
+          matchedAll = false;
+          break;
+        }
+      }
+      if (matchedAll) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   bool _sameScene(List<DetectedDie> reference, List<DetectedDie> current) {

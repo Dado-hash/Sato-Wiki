@@ -2606,12 +2606,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String toolsDiceCorrectTitle(int number) {
-    return 'Correct throw $number';
+    return 'Check throw $number';
   }
 
   @override
   String get toolsDiceCorrectBody =>
-      'Tap a die to change its value. The order follows the position on the paper, left to right.';
+      'Compare the values with the dice and tap a die to change it. Nothing is recorded until you save. The order follows the position on the paper, left to right.';
 
   @override
   String toolsDiceNewValueFor(int number) {

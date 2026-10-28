@@ -509,7 +509,7 @@ void main() {
 
   group('automatic capture', () {
     testWidgets(
-      'a still scene is recorded once, identical frames add nothing',
+      'a still scene opens the sheet, and only saving records the throw',
       (tester) async {
         final detector = FakeDiceDetector();
         final secure = FakeSecureScreen();
@@ -523,21 +523,72 @@ void main() {
           detector.push(_frame(const [2, 2, 2, 2, 2]));
           await tester.pump();
         }
+        await _settle(tester);
+
+        // Every die is above 0.85, and the throw still waits for the sheet.
+        expect(find.byType(DiceCorrectionSheet), findsOneWidget);
+        expect(find.text(_en.toolsDiceCountOf(0, 99)), findsNWidgets(2));
+
+        await tester.tap(find.text(_en.toolsDiceSaveThrow));
+        await _settle(tester);
 
         // Rolls and throws both show "5 / 99" and "1 / 20" once each.
         expect(find.text(_en.toolsDiceCountOf(5, 99)), findsNWidgets(2));
         expect(find.text(_en.toolsDiceCountOf(1, 20)), findsOneWidget);
 
-        for (var i = 0; i < 4; i++) {
-          detector.push(_frame(const [2, 2, 2, 2, 2]));
+        // The same dice, with a die missed and a frame without dice, are
+        // not asked again.
+        for (final values in const [
+          [2, 2, 2, 2, 2],
+          [2, 2, 2, 2],
+          <int>[],
+          [2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2],
+          [2, 2, 2, 2, 2],
+        ]) {
+          detector.push(_frame(values));
           await tester.pump();
         }
+        await _settle(tester);
 
+        expect(find.byType(DiceCorrectionSheet), findsNothing);
         expect(find.text(_en.toolsDiceCountOf(5, 99)), findsNWidgets(2));
         expect(find.text(_en.toolsDiceCountOf(10, 99)), findsNothing);
-        expect(find.text(_en.toolsDiceCountOf(1, 20)), findsOneWidget);
       },
     );
+
+    testWidgets('closing the sheet records nothing and does not ask again', (
+      tester,
+    ) async {
+      final detector = FakeDiceDetector();
+      final secure = FakeSecureScreen();
+      addTearDown(() async => detector.close());
+      addTearDown(() async => secure.close());
+
+      await _openSandbox(tester, detector: detector, secure: secure);
+      await _waitForListener(tester, detector);
+
+      for (var i = 0; i < 4; i++) {
+        detector.push(_frame(const [1, 2, 3, 4, 5]));
+        await tester.pump();
+      }
+      await _settle(tester);
+      expect(find.byType(DiceCorrectionSheet), findsOneWidget);
+
+      await tester.tap(find.byTooltip(_en.toolsDiceClose));
+      await _settle(tester);
+
+      for (var i = 0; i < 6; i++) {
+        detector.push(_frame(const [1, 2, 3, 4, 5]));
+        await tester.pump();
+      }
+      await _settle(tester);
+
+      expect(find.byType(DiceCorrectionSheet), findsNothing);
+      expect(find.text(_en.toolsDiceCountOf(0, 99)), findsNWidgets(2));
+    });
 
     testWidgets(
       'a low-confidence die opens the correction sheet, and saving records it',

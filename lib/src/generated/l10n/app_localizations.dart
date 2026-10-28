@@ -4625,13 +4625,13 @@ abstract class AppLocalizations {
   /// No description provided for @toolsDiceCorrectTitle.
   ///
   /// In en, this message translates to:
-  /// **'Correct throw {number}'**
+  /// **'Check throw {number}'**
   String toolsDiceCorrectTitle(int number);
 
   /// No description provided for @toolsDiceCorrectBody.
   ///
   /// In en, this message translates to:
-  /// **'Tap a die to change its value. The order follows the position on the paper, left to right.'**
+  /// **'Compare the values with the dice and tap a die to change it. Nothing is recorded until you save. The order follows the position on the paper, left to right.'**
   String get toolsDiceCorrectBody;
 
   /// No description provided for @toolsDiceNewValueFor.

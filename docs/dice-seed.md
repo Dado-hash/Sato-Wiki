@@ -86,8 +86,8 @@ The camera is an alternative to typing the rolls. It works only in the sandbox, 
 - **Output:** `[1, 8400, 11]`, decoded by the export. Each row is `cx, cy, w, h`, objectness, and six class probabilities.
 - **Decoding in the app:** score = objectness × best class probability. Rows below 0.3 are dropped. Overlapping boxes are removed with class-agnostic NMS at IoU 0.45, keeping at most 10 detections.
 - **Frames:** the back camera at medium resolution, through `startImageStream` only. At most one frame every 200 ms is processed. Android frames are converted from YUV420 and rotated by the sensor orientation; iOS frames are BGRA and are not rotated. Conversion and inference run in isolates.
-- **Auto-capture:** a throw is read when the same dice stay still for 4 consecutive frames (about 0.8 s). "Still" means the same count, the same values, and centres moving no more than 4% of the frame. Dice below 0.5 confidence are ignored. A frame with no dice, or with more than 5, resets the count. A still scene is recorded once: the dice must leave the frame or move before the next throw is read.
-- **Review:** if any die of the throw has confidence below 0.85, the throw is not recorded. A correction sheet opens with the values and their confidence, and you tap a die to change it. The Confirm throw button and the keypad are always available.
+- **Auto-capture:** a throw is read when the same dice stay still for 4 consecutive frames (about 0.8 s). "Still" means the same count, the same values, and centres moving no more than 4% of the frame. Dice below 0.5 confidence are ignored. A frame with no dice, or with more than 5, resets the count. A throw is read once: the same dice left where they are (allowing for a die missed for a frame, a value read differently, or the phone moving) are not read again, so the dice must be thrown again before the next throw is read.
+- **Confirmation:** a throw read by the camera is never recorded on its own. A sheet opens with the values and their confidence (below 0.85 is flagged), you tap a die to change it, and the throw is recorded only when you save. Closing the sheet records nothing. The Confirm throw button opens the same sheet for the dice in view, and the keypad is always available.
 - **Frames are not kept.** Nothing is saved, logged or sent, and the app never calls `takePicture`.
 
 Accuracy on the held-out test split of the public dataset (95 images, 731 dice): 99.7% of the dice found, value accuracy 0.959. On 17 photos of the maintainer's own throws (85 dice): every die found, 77.6% read right, 5 throws of 17 fully right; most errors are a 2 read as a 3. The release gate is at least 0.99 value accuracy, measured last on the maintainer's own photos, which are never used for training (`tool/dice_model/evaluate.py`, `tool/dice_model/evaluate_throws.py`).
@@ -151,7 +151,7 @@ To run on physical devices. The simulator has no camera and does not reproduce t
 - [ ] iOS: screen recording or mirroring covers the sandbox until it stops.
 - [ ] iOS: the app switcher shows the cover, not the words, and leaving the app wipes the session.
 - [ ] iOS: after leaving the sandbox, the rest of the app draws normally (the shield is removed).
-- [ ] Both: auto-capture reads five dice on a light surface, shows the values above the dice, and opens the correction sheet when a reading is below 0.85. This needs the trained model.
+- [ ] Both: auto-capture reads five dice on a light surface, shows the values above the dice, and opens the sheet to check every throw before it is recorded; dice left in place are not read twice. This needs the trained model.
 - [ ] Both: with airplane mode off, the online warning shows; with it on, it goes away.
 - [ ] Both: the words are hidden until held, and hidden again on release. There is no selection, copy or share action on long press.
 - [ ] Both: with camera permission denied, the sandbox says the camera is not available and the keypad works.

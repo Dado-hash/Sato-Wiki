@@ -55,10 +55,6 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
   /// Dice in the latest camera frame, in position order.
   List<DetectedDie> _latest = const [];
 
-  /// Values of a throw recorded by hand. Automatic capture skips this exact
-  /// scene until the dice change, so the same dice are not recorded twice.
-  List<int>? _suppressed;
-
   bool _inactive = false;
   bool _captured = false;
   bool _online = false;
@@ -221,8 +217,8 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
   void _wipe() {
     _stopCamera();
     _latest = const [];
-    _suppressed = null;
     _tracker.reset();
+    _tracker.forgetRecorded();
     _controller.wipe();
   }
 
@@ -314,10 +310,6 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
       return;
     }
     final dice = orderByPosition(frame);
-    final values = [for (final die in dice) die.value];
-    if (values.isEmpty || !_sameValues(values, _suppressed)) {
-      _suppressed = null;
-    }
     _latest = dice;
     final candidate = _tracker.addFrame(dice);
     setState(() {});
@@ -325,19 +317,13 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
     if (candidate == null) {
       return;
     }
-    if (_sameValues(candidate.values, _suppressed)) {
-      return;
-    }
-    if (candidate.needsReview) {
-      unawaited(
-        _openSheet(
-          values: candidate.values,
-          confidences: [for (final die in candidate.dice) die.confidence],
-        ),
-      );
-    } else {
-      _controller.addThrow(candidate.values);
-    }
+    // A camera reading is never recorded on its own: the sheet asks first.
+    unawaited(
+      _openSheet(
+        values: candidate.values,
+        confidences: [for (final die in candidate.dice) die.confidence],
+      ),
+    );
   }
 
   /// Dice of the latest frame that the tracker would also accept.
@@ -353,24 +339,17 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
     if (dice.isEmpty || dice.length > DiceSessionController.dicePerThrow) {
       return;
     }
-    final candidate = DiceThrowCandidate(dice);
-    _suppressed = candidate.values;
-    if (candidate.needsReview) {
-      unawaited(
-        _openSheet(
-          values: candidate.values,
-          confidences: [for (final die in dice) die.confidence],
-        ),
-      );
-    } else {
-      _controller.addThrow(candidate.values);
-    }
+    _tracker.markRecorded(dice);
+    unawaited(
+      _openSheet(
+        values: [for (final die in dice) die.value],
+        confidences: [for (final die in dice) die.confidence],
+      ),
+    );
   }
 
   Future<void> _openManual() async {
-    if (_latest.isNotEmpty) {
-      _suppressed = [for (final die in _latest) die.value];
-    }
+    _tracker.markRecorded(_latest);
     await _openSheet(values: const []);
   }
 
@@ -398,7 +377,7 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
   }
 
   void _undo() {
-    _suppressed = null;
+    _tracker.forgetRecorded();
     _controller.undoLastThrow();
   }
 
@@ -655,19 +634,6 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
       ),
     );
   }
-}
-
-/// True when [values] equals [other], both in order.
-bool _sameValues(List<int> values, List<int>? other) {
-  if (other == null || other.length != values.length) {
-    return false;
-  }
-  for (var index = 0; index < values.length; index++) {
-    if (values[index] != other[index]) {
-      return false;
-    }
-  }
-  return true;
 }
 
 /// Box drawn over one detected die: corner brackets and a value and confidence chip.

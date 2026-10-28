@@ -1153,7 +1153,7 @@
   "toolsDiceUndo": "Undo last",
   "toolsDiceKeypad": "Keypad",
   "toolsDiceConfirmThrow": "Confirm throw",
-  "toolsDiceCorrectTitle": "Correct throw {number}",
+  "toolsDiceCorrectTitle": "Check throw {number}",
   "@toolsDiceCorrectTitle": {
     "placeholders": {
       "number": {
@@ -1161,7 +1161,7 @@
       }
     }
   },
-  "toolsDiceCorrectBody": "Tap a die to change its value. The order follows the position on the paper, left to right.",
+  "toolsDiceCorrectBody": "Compare the values with the dice and tap a die to change it. Nothing is recorded until you save. The order follows the position on the paper, left to right.",
   "toolsDiceNewValueFor": "NEW VALUE FOR DIE {number}",
   "@toolsDiceNewValueFor": {
     "placeholders": {
