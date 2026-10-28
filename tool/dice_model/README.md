@@ -3,13 +3,13 @@
 This folder reproduces `assets/models/dice_detector.tflite`, the model the Dice
 tool uses to read die faces from the camera. The detector is **YOLOX-Nano**
 (Megvii, Apache-2.0), trained on a public dice dataset (D6DiceSideRecognition v2,
-CC BY 4.0) and checked on a held-out split of it. The maintainer's own photos are
-to be added later as the final test.
+CC BY 4.0) plus synthetic scenes rendered in Blender (`synth/`), and checked on a
+held-out split of the public dataset and on the maintainer's own photos.
 
-Status: **beta model, below the release gate.** The first model (2026-10-27,
-70 epochs on a Mac CPU) finds 98.5% of the dice on the held-out test split but
-reads the right face on 77.4% of them (gate: 0.99). Metrics, SHA-256 and the
-confusion matrix are in `assets/models/dice_detector.md`.
+Status: **beta model, below the release gate.** The second model (2026-10-28,
+640 px, 80 epochs on an RTX 4060) reads the right face on 95.9% of the dice of
+the held-out test split (gate: 0.99) and on 77.6% of the maintainer's own dice.
+Metrics, SHA-256 and the confusion matrix are in `assets/models/dice_detector.md`.
 
 ## Why YOLOX-Nano
 
@@ -17,9 +17,9 @@ confusion matrix are in `assets/models/dice_detector.md`.
   "Copyright (c) 2021-2022 Megvii Inc."). The weights and the dataset license are
   separate and are recorded in the model card.
 - **Size and speed:** YOLOX-Nano is the smallest YOLOX variant (`depth 0.33`,
-  `width 0.25`, depthwise convolutions) and is built for 416 px input. It was
-  chosen for a small model that fits in the app. Its actual file size and
-  on-device speed are not measured yet and go in the model card.
+  `width 0.25`, depthwise convolutions) and is built for 416 px input. The
+  shipped model uses 640 px, which reads small dice better (see below). The
+  file is 3.6 MiB; on-device speed is not measured yet and goes in the model card.
 - **Export without a post-process graph:** `export.py` repeats the steps of YOLOX `tools/export_onnx.py --decode_in_inference` in process (that script calls `torch.onnx._export`, which torch 2.5 removed) and
   writes the decoded boxes and probabilities, so the app does one NMS in Dart.
 - **Why not MediaPipe Model Maker:** the earlier plan used Model Maker. It is no
@@ -32,18 +32,22 @@ confusion matrix are in `assets/models/dice_detector.md`.
 | --- | --- |
 | File | `assets/models/dice_detector.tflite` (float32, about 3.5 MB; onnx2tf's float16 file uses float16 activations, which the TFLite CPU kernels reject; int8 is not implemented) |
 | Labels | `assets/models/dice_detector_labels.txt`: `1` to `6`, one per line, class index 0 to 5 |
-| Input | one float32 tensor, NHWC `[1, 416, 416, 3]` |
+| Input | one float32 tensor, NHWC `[1, S, S, 3]`; S is 640 for the shipped model (`DICE_INPUT_SIZE`, default 416) |
 | Channel order | **BGR** |
 | Values | raw 0 to 255, no mean or std |
-| Letterbox | resize keeping the aspect ratio so the image fits 416 x 416 (`r = min(416/h, 416/w)`, size `int(w*r) x int(h*r)`), placed at the top-left, pad value **114**; the resize is bilinear with OpenCV `INTER_LINEAR` semantics in the app, the evaluation and the training preprocessing |
-| Output | one float32 tensor `[1, 3549, 11]`, already decoded (`--decode_in_inference`) |
-| Output row | `cx, cy, w, h` in input pixels (416 space), then objectness (sigmoid applied), then 6 class probabilities (sigmoid applied) |
+| Letterbox | resize keeping the aspect ratio so the image fits S x S (`r = min(S/h, S/w)`, size `int(w*r) x int(h*r)`), placed at the top-left, pad value **114**; the resize is bilinear with OpenCV `INTER_LINEAR` semantics in the app, the evaluation and the training preprocessing |
+| Output | one float32 tensor `[1, N, 11]`, already decoded (`--decode_in_inference`); N is the anchor count at strides 8, 16 and 32: 8400 at 640, 3549 at 416 |
+| Output row | `cx, cy, w, h` in input pixels (S space), then objectness (sigmoid applied), then 6 class probabilities (sigmoid applied) |
 | Score | objectness x max class probability |
 | NMS | done in the app (`evaluate.py` uses score 0.3 and class-agnostic IoU 0.45) |
 
 `dice_contract.py` holds these constants and the reference letterbox,
 decoding and NMS. `export.py` and `evaluate.py` use it, so the export is checked
-against the same numbers the app uses.
+against the same numbers the app uses. The input size comes from the
+environment variable `DICE_INPUT_SIZE` (default 416): set it to the size of the
+model for `export.py` and `evaluate.py`. `train.py --input-size` sets it for
+training. The app reads the size from the model file, so changing it needs no
+Dart change.
 
 The export checks the final `.tflite` with the TFLite interpreter. The shapes,
 dtypes and the numeric result must match ONNX Runtime, or the export stops. If
@@ -54,11 +58,15 @@ onnx2tf changes tensor layout or names, the export fails and nothing is copied.
 | File | Purpose |
 | --- | --- |
 | `prepare_dataset.py` | Converts a COCO, YOLO or Pascal VOC source to the COCO layout YOLOX reads (`train2017/`, `val2017/`, `test2017/`, `annotations/`). `--group-split` splits Roboflow exports by source photo (train/val/test), so augmented copies never cross splits. Refuses to run if a test photo is also in the training pool. |
-| `dice_exp.py` | YOLOX experiment: 6 classes, YOLOX-Nano scale, 416 px, augmentation for dice. Reads paths and settings from environment variables set by `train.py`. |
-| `train.py` | Thin wrapper around `python -m yolox.tools.train -f dice_exp.py`. |
+| `dice_exp.py` | YOLOX experiment: 6 classes, YOLOX-Nano scale, 416 px by default, augmentation for dice. Reads paths and settings from environment variables set by `train.py`. |
+| `train.py` | Thin wrapper around `python -m yolox.tools.train -f dice_exp.py`. `--input-size` and `--mosaic-scale` change the input size and the mosaic scale range. |
 | `export.py` | YOLOX ONNX export with `--decode_in_inference`, onnx2tf to float32 TFLite, contract and numeric checks, copies the model and labels to `build/dice_model/export/`. Prints the SHA-256. |
 | `evaluate.py` | Runs the `.tflite` on the test split with the app's exact pre- and post-processing. Per-class precision and recall, value accuracy, confusion matrix. Exit 1 if value accuracy is below 0.99. |
+| `evaluate_throws.py` | Runs the `.tflite` on own photos labelled only with the faces up (no boxes) and counts dice read right and throws fully right. |
 | `dice_contract.py` | Shared contract: constants, letterbox, decoding, NMS, interpreter shape check. |
+| `synth/fetch_polyhaven.py` | Downloads CC0 floor textures and HDRIs from Poly Haven for the synthetic scenes. |
+| `synth/render_dice.py` | Blender script: renders dice scenes with exact labels in COCO layout. |
+| `synth/merge_coco.py` | Merges synthetic scenes with the real dataset into the layout `train.py` reads. The test split stays real only. |
 | `requirements.txt` | Pinned Python dependencies (Python 3.12). |
 
 Outputs go to `build/dice_model/` at the repository root, which is git-ignored
@@ -113,15 +121,78 @@ photos count as one image each and the augmented photos count as three.
 - The test split is the held-out 15% of source photos of this dataset (37
   groups, 95 images, 731 boxes). It is evaluated only, and its photos are never
   used for training.
-- **No own photos yet.** The maintainer's phone photos are not in the dataset.
-  Until they are added, the test score measures generalisation to new photos of
-  the same dataset, not to the dice and camera the app will use.
-- When own photos exist, label them (Label Studio or CVAT, COCO export), pass
-  them with `--test-source`, and do not put them in `--source` or `--extra-dir`.
+- **Own photos.** 17 photos of the maintainer's throws (85 dice) are labelled
+  with the faces up only and measured with `evaluate_throws.py` (see "Own
+  photos"). They are not in the repository and never used for training.
+- Own photos labelled with boxes (Label Studio or CVAT, COCO export) can be
+  passed with `--test-source`; do not put them in `--source` or `--extra-dir`.
   `prepare_dataset.py` stops if a test image has the same bytes as a training
-  image. Then the own-photo set is the release test.
+  image.
 - The test set is used only to evaluate. If a model is changed because of its
   test results, a new, fresh test set is needed before the next release.
+
+## Synthetic scenes
+
+The public dataset has small coloured dice on a white tray. The first model,
+trained only on it, saw dice in wood knots and fabric folds and misread dice
+under other light. Synthetic scenes fix the domain: any floor, any light, any
+dice, with exact labels and no hand labelling.
+
+`synth/render_dice.py` runs inside Blender (tested with 4.2 LTS, Cycles on an
+NVIDIA GPU). Each scene has a floor with a random Poly Haven texture or a plain
+colour, a random HDRI and sometimes a lamp, 0 to 6 dice of a random style seen
+from 7 to 35 cm like a phone, and sometimes distractors (coins, buttons, blank
+cubes), so the model learns that a dark dot on its own is not a die. About 8% of
+the scenes have no dice. The face up is set in the scene and the box is the
+projection of the die mesh, so the labels are exact. The dice styles include one
+that matches the maintainer's dice (white, red 1 and 4 with a larger 1, blue or
+black pips on the other faces).
+
+```bash
+python tool/dice_model/synth/fetch_polyhaven.py --out build/dice_model/polyhaven
+blender -b -P tool/dice_model/synth/render_dice.py -- \
+  --assets build/dice_model/polyhaven --out build/dice_model/synth_v1 --count 3000 --seed 1
+python tool/dice_model/synth/merge_coco.py --synth build/dice_model/synth_v1 \
+  --real build/dice_model/dataset --out build/dice_model/dataset_v1
+```
+
+Rendering is limited more by the CPU (building each scene) than by the GPU, so
+two or three Blender processes with different `--seed`
+values and output folders use the machine better. `--synth` can be repeated in
+`merge_coco.py`.
+
+The shipped model used 4498 scenes and this training command:
+
+```bash
+python tool/dice_model/train.py --yolox-dir ~/src/YOLOX \
+  --data-dir build/dice_model/dataset_v1 --pretrained build/dice_model/yolox_nano.pth \
+  --epochs 80 --batch-size 16 --input-size 640 --mosaic-scale 0.7,1.6 --fp16
+```
+
+`--mosaic-scale 0.7,1.6` keeps the dice of the synthetic scenes from being
+shrunk too far by mosaic. A 416 px model trained the same way read faces worse
+on both test sets (0.867 against 0.959 on the public test split), because a die
+in a phone frame covers only 10 to 17 px at 416.
+
+## Own photos
+
+The release test is a set of the maintainer's own photos, never used for
+training. Labelling boxes is slow, so `evaluate_throws.py` needs only the faces
+up of each photo, in any order:
+
+```json
+{"IMG_0001.jpg": [4, 5, 2, 6, 2]}
+```
+
+```bash
+python tool/dice_model/evaluate_throws.py --model assets/models/dice_detector.tflite \
+  --photos <photo folder> --truth truth.json --frame-short-side 480
+```
+
+`--frame-short-side 480` scales each photo to the app's camera stream
+(`ResolutionPreset.medium`). `--modes full,center` compares the whole frame with
+a centred square crop. A throw counts as right only when every die is found and
+read right, which is what a seed needs.
 
 ## Reproduce
 
@@ -169,6 +240,7 @@ python tool/dice_model/train.py --yolox-dir ~/src/YOLOX \
   --epochs 150 --batch-size 32 --devices 1 --seed 42 --fp16
 
 # 3. Export: YOLOX ONNX (decoded), onnx2tf float32 TFLite, contract and numeric checks
+#    (prefix DICE_INPUT_SIZE=640 here and in step 4 for a 640 px model)
 python tool/dice_model/export.py --yolox-dir ~/src/YOLOX \
   --ckpt build/dice_model/yolox_outputs/dice_exp/best_ckpt.pth \
   --out-dir build/dice_model/export
@@ -193,7 +265,9 @@ The pretrained checkpoint URL is the release used in YOLOX's own weight links
 
 ### Settings worth knowing
 
-- `dice_exp.py` sets: 6 classes, depth 0.33, width 0.25, depthwise, 416 px input,
+- `dice_exp.py` sets: 6 classes, depth 0.33, width 0.25, depthwise, 416 px input
+  by default (multi-scale training from 320 to 640 px at 416, and from 0.75 to
+  1.25 times the input size otherwise),
   mosaic on (scale 0.5 to 1.5), mixup off, horizontal flips 0.5, rotation
   +-15 degrees, shear 2, HSV jitter on, 150 epochs, seed 42. YOLOX's defaults
   are used for everything else (for example warmup and LR schedule).

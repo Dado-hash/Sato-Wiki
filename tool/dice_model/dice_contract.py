@@ -12,6 +12,8 @@ Score = objectness * max class probability. NMS is done by the app.
 
 from __future__ import annotations
 
+import os
+
 from dataclasses import dataclass
 from typing import List, Tuple
 
@@ -19,10 +21,13 @@ import cv2
 import numpy as np
 from PIL import Image
 
-INPUT_SIZE = 416
+# 416 is the shipped contract; DICE_INPUT_SIZE (same variable as dice_exp.py) selects
+# another square size, for example 640. The app reads the size from the model.
+INPUT_SIZE = int(os.environ.get("DICE_INPUT_SIZE", "416"))
 PAD_VALUE = 114
 NUM_CLASSES = 6
-NUM_ANCHORS = 3549  # 52*52 + 26*26 + 13*13 at strides 8, 16, 32
+# Anchors at strides 8, 16 and 32: 3549 for 416 (52*52 + 26*26 + 13*13), 8400 for 640.
+NUM_ANCHORS = sum((INPUT_SIZE // stride) ** 2 for stride in (8, 16, 32))
 OUTPUT_DIM = 5 + NUM_CLASSES
 LABELS = ["1", "2", "3", "4", "5", "6"]  # class index 0..5
 SCORE_THRESHOLD = 0.3

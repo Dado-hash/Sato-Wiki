@@ -46,6 +46,8 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument("--devices", type=int, default=1, help="GPUs (YOLOX -d).")
     parser.add_argument("--seed", type=int, default=42, help="Random seed (DICE_SEED).")
     parser.add_argument("--fp16", action="store_true", help="Mixed precision training.")
+    parser.add_argument("--input-size", type=int, default=416, help="Square input size (DICE_INPUT_SIZE).")
+    parser.add_argument("--mosaic-scale", default="0.5,1.5", help="Mosaic scale range low,high (DICE_MOSAIC_SCALE).")
     parser.add_argument("--dry-run", action="store_true", help="Print the command and exit.")
     return parser.parse_args(argv)
 
@@ -108,6 +110,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         DICE_OUTPUT_DIR=str(args.output_dir.resolve()),
         DICE_MAX_EPOCH=str(args.epochs),
         DICE_SEED=str(args.seed),
+        DICE_INPUT_SIZE=str(args.input_size),
+        DICE_MOSAIC_SCALE=args.mosaic_scale,
     )
     cmd = build_command(args)
     print("Running:", " ".join(cmd), flush=True)

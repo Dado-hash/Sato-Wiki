@@ -11,17 +11,27 @@ works from any working directory:
     DICE_OUTPUT_DIR  where YOLOX writes checkpoints and logs
     DICE_MAX_EPOCH   number of training epochs
     DICE_SEED        random seed (YOLOX reads it from exp.seed)
-
-Input size is 416x416 for training, testing and export, matching the app contract
-(see dice_contract.py).
+    DICE_INPUT_SIZE  square input size for training, testing and export (default 416,
+                     the shipped app contract; dice_contract.py reads the same variable)
+    DICE_MOSAIC_SCALE  "low,high" scale range of mosaic augmentation (default 0.5,1.5)
 """
 
 import os
+import sys
 
 import torch.nn as nn
 
+import yolox.layers
 from yolox.exp import Exp as MyExp
 from yolox.models import YOLOX, YOLOPAFPN, YOLOXHead
+
+if sys.platform == "win32":
+    # YOLOX's COCOeval_opt JIT-compiles a C++ op, which needs MSVC and ninja on
+    # Windows. Its fallback catches only ImportError, so evaluation would crash
+    # with a RuntimeError. pycocotools' COCOeval gives the same numbers, slower.
+    from pycocotools.cocoeval import COCOeval
+
+    yolox.layers.COCOeval_opt = COCOeval
 
 
 def _env_int(name: str, default: int) -> int:
@@ -38,14 +48,17 @@ class Exp(MyExp):
         self.width = 0.25
         self.act = "silu"
         self.depthwise = True
-        self.input_size = (416, 416)
-        self.test_size = (416, 416)
-        # Multi-scale training in steps of 32 px (320 to 640). Export is fixed at 416.
-        self.random_size = (10, 20)
+        size = _env_int("DICE_INPUT_SIZE", 416)
+        self.input_size = (size, size)
+        self.test_size = (size, size)
+        # Multi-scale training in steps of 32 px: 320 to 640 for 416, and about
+        # 0.75x to 1.25x of the input size otherwise. Export uses test_size.
+        self.random_size = (10, 20) if size == 416 else (round(size * 0.75 / 32), round(size * 1.25 / 32))
 
         # Augmentation for dice: mosaic and flips on, mixup off, rotation +-15 degrees.
         self.mosaic_prob = 1.0
-        self.mosaic_scale = (0.5, 1.5)
+        low, high = os.environ.get("DICE_MOSAIC_SCALE", "0.5,1.5").split(",")
+        self.mosaic_scale = (float(low), float(high))
         self.enable_mixup = False
         self.mixup_prob = 0.0
         self.flip_prob = 0.5
