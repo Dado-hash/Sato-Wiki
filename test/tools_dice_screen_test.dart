@@ -193,6 +193,16 @@ Future<void> _enterThrow(WidgetTester tester, List<int> values) async {
   await _settle(tester);
 }
 
+/// Enters every roll of [_vectorRolls] by keypad, five rolls per throw.
+Future<void> _enterVectorRolls(WidgetTester tester) async {
+  for (var start = 0; start < _vectorRolls.length; start += 5) {
+    final end = start + 5 < _vectorRolls.length
+        ? start + 5
+        : _vectorRolls.length;
+    await _enterThrow(tester, _vectorRolls.sublist(start, end));
+  }
+}
+
 /// Subscribes the test to the fake's frames: waits until the sandbox listens.
 Future<void> _waitForListener(
   WidgetTester tester,
@@ -436,13 +446,7 @@ void main() {
         addTearDown(() async => secure.close());
 
         await _openSandbox(tester, detector: detector, secure: secure);
-
-        for (var start = 0; start < _vectorRolls.length; start += 5) {
-          final end = start + 5 < _vectorRolls.length
-              ? start + 5
-              : _vectorRolls.length;
-          await _enterThrow(tester, _vectorRolls.sublist(start, end));
-        }
+        await _enterVectorRolls(tester);
 
         expect(find.byType(DiceResultView), findsOneWidget);
         expect(find.text(_en.toolsDiceDone), findsOneWidget);
@@ -489,8 +493,8 @@ void main() {
         final gesture = await tester.startGesture(tester.getCenter(hold));
         await tester.pump();
 
-        // Both reveal controls share one flag, so both cards read the same.
-        expect(find.text(_en.toolsDiceReleaseToHide), findsWidgets);
+        // One pinned control: while it is held the label changes.
+        expect(find.text(_en.toolsDiceReleaseToHide), findsOneWidget);
         for (final word in _vectorWords) {
           expect(find.text(word), findsOneWidget, reason: 'revealed $word');
         }
@@ -503,6 +507,102 @@ void main() {
         expect(find.text('garden'), findsNothing);
         expect(find.text('uphold'), findsNothing);
         expect(find.text('wave'), findsNothing);
+      },
+    );
+  });
+
+  group('result layout', () {
+    testWidgets('the hold control stays pinned and reveals the math values', (
+      tester,
+    ) async {
+      final detector = FakeDiceDetector(available: false);
+      final secure = FakeSecureScreen();
+      addTearDown(() async => detector.close());
+      addTearDown(() async => secure.close());
+
+      await _openSandbox(tester, detector: detector, secure: secure);
+      await _enterVectorRolls(tester);
+
+      // The math card is the last one; scroll the cards down to it.
+      await _scrollTo(
+        tester,
+        _en.toolsDiceMathHidden,
+        within: find.byType(DiceResultView),
+      );
+      expect(find.text(_en.toolsDiceMathHidden), findsOneWidget);
+
+      final hold = find.text(_en.toolsDiceHoldToReveal);
+      expect(hold.hitTestable(), findsOneWidget);
+
+      final gesture = await tester.startGesture(tester.getCenter(hold));
+      await tester.pump();
+
+      expect(find.text(_en.toolsDiceMathHidden), findsNothing);
+
+      await gesture.up();
+      await tester.pump();
+      await _settle(tester);
+
+      expect(find.text(_en.toolsDiceMathHidden), findsOneWidget);
+      expect(find.text(_en.toolsDiceHoldToReveal), findsOneWidget);
+    });
+
+    testWidgets(
+      'the correction sheet keeps its save button above the navigation bar',
+      (tester) async {
+        tester.view.physicalSize = const Size(800, 600);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(
+          MaterialApp(
+            locale: const Locale('en'),
+            supportedLocales: AppLocale.supportedLocales,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            theme: AppTheme.dark(),
+            // Edge to edge: the system bars take 48 px at the bottom.
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                viewPadding: const EdgeInsets.only(bottom: 48),
+                padding: const EdgeInsets.only(bottom: 48),
+              ),
+              child: child!,
+            ),
+            home: Scaffold(
+              body: Builder(
+                builder: (context) => TextButton(
+                  onPressed: () => DiceCorrectionSheet.show(
+                    context,
+                    values: const [1, 2, 3, 4, 5],
+                    throwNumber: 1,
+                  ),
+                  child: const Text('open'),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.tap(find.text('open'));
+        await _settle(tester);
+
+        // The sheet is taller than the screen allows, so the save button
+        // is at the end of its scroll view. Scroll there and measure.
+        final sheetScroll = find.descendant(
+          of: find.byType(DiceCorrectionSheet),
+          matching: find.byType(SingleChildScrollView),
+        );
+        await tester.drag(sheetScroll, const Offset(0, -1000));
+        await _settle(tester);
+
+        final save = find.text(_en.toolsDiceSaveThrow);
+        expect(save, findsOneWidget);
+        expect(tester.getRect(save).bottom, lessThanOrEqualTo(600 - 48));
       },
     );
   });

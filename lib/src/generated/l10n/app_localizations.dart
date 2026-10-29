@@ -4400,6 +4400,30 @@ abstract class AppLocalizations {
   /// **'The sandbox works without network, so no data can leave.'**
   String get toolsDiceCheckAirplaneCaption;
 
+  /// No description provided for @toolsDiceCheckAirplaneOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'No network detected. You are ready.'**
+  String get toolsDiceCheckAirplaneOffline;
+
+  /// No description provided for @toolsDiceCheckAirplaneOpenSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Still online. Tap to open the airplane mode settings.'**
+  String get toolsDiceCheckAirplaneOpenSettings;
+
+  /// No description provided for @toolsDiceCheckAirplaneOpenSettingsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Opens the system settings'**
+  String get toolsDiceCheckAirplaneOpenSettingsHint;
+
+  /// No description provided for @toolsDiceCheckAirplaneControlCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Still online. Turn on airplane mode from Control Center.'**
+  String get toolsDiceCheckAirplaneControlCenter;
+
   /// No description provided for @toolsDiceCheckPrivate.
   ///
   /// In en, this message translates to:
@@ -4718,12 +4742,6 @@ abstract class AppLocalizations {
   /// **'Release to hide'**
   String get toolsDiceReleaseToHide;
 
-  /// No description provided for @toolsDiceHoldToRevealBits.
-  ///
-  /// In en, this message translates to:
-  /// **'Hold to see the bits'**
-  String get toolsDiceHoldToRevealBits;
-
   /// No description provided for @toolsDiceRevealCaption.
   ///
   /// In en, this message translates to:
@@ -4799,7 +4817,7 @@ abstract class AppLocalizations {
   /// No description provided for @toolsDiceMathHidden.
   ///
   /// In en, this message translates to:
-  /// **'Hold a reveal button to see the values'**
+  /// **'Hold the button at the bottom to see the values'**
   String get toolsDiceMathHidden;
 
   /// No description provided for @toolsDiceWipeDone.

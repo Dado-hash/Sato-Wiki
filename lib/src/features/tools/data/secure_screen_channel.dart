@@ -13,15 +13,15 @@ enum SecureScreenEvent {
 /// the platform allows it, keeps the screen on, reports network state.
 ///
 /// Every call degrades quietly when the native side is missing (tests,
-/// desktop): enable and disable do nothing, [isOnline] returns false and
-/// [events] is empty.
+/// desktop): enable and disable do nothing, [isOnline] and
+/// [openAirplaneModeSettings] return false and [events] is empty.
 class SecureScreen {
   /// Creates the guard. The channels can be replaced in tests.
   SecureScreen({MethodChannel? methods, EventChannel? events})
     : _methods = methods ?? const MethodChannel(methodChannelName),
       _events = events ?? const EventChannel(eventChannelName);
 
-  /// Method channel used for enable, disable and isOnline.
+  /// Method channel used for enable, disable, isOnline and openAirplaneModeSettings.
   static const methodChannelName = 'org.satowiki/secure_screen';
 
   /// Event channel used for screenshot, capture and connectivity events.
@@ -49,6 +49,19 @@ class SecureScreen {
   Future<bool> isOnline() async {
     try {
       return await _methods.invokeMethod<bool>('isOnline') ?? false;
+    } on MissingPluginException {
+      return false;
+    } on PlatformException {
+      return false;
+    }
+  }
+
+  /// Opens the system airplane mode settings. Returns true when a settings
+  /// screen was opened. On iOS there is no such screen, so this returns false.
+  Future<bool> openAirplaneModeSettings() async {
+    try {
+      return await _methods.invokeMethod<bool>('openAirplaneModeSettings') ??
+          false;
     } on MissingPluginException {
       return false;
     } on PlatformException {

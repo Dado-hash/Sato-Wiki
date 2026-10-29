@@ -113,7 +113,7 @@ The threats the sandbox is built against:
 | Network | Warning when a network with internet access is active. Connectivity callbacks update it. | Warning from `NWPathMonitor`. | The sandbox starts no request. The warning does not block the session. |
 | Keyboard, clipboard, selection | Not applicable | Not applicable | No `TextField`, no `SelectableText`, no `SelectionArea`, no copy or share action. |
 | Storage and logs | None | None | Nothing is written; no `shared_preferences`, files, `print`, `debugPrint` or analytics. |
-| Words hidden | Same | Same | Words are not built while hidden. The reveal control is a press-and-hold, or a toggle when a screen reader is on. The words card and the bits card share one reveal state: holding either one reveals words, bits and math values together, and releasing hides all of them. |
+| Words hidden | Same | Same | Words are not built while hidden. The reveal control is a press-and-hold, or a toggle when a screen reader is on. One hold control is pinned at the bottom of the result: holding it reveals words, bits and math values together, and releasing hides all of them. |
 | Screen awake | `FLAG_KEEP_SCREEN_ON` | `isIdleTimerDisabled` | Set on enter, cleared on exit. |
 
 The Dart side also keeps the state in typed buffers: rolls in `Uint8List`, word indices in `Uint16List`, entropy in `Uint8List`. `wipe()` fills them with zeros, and it runs when:

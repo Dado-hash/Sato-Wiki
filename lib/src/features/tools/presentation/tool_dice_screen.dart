@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/content/domain/content_store.dart';
@@ -38,15 +39,54 @@ class ToolDiceScreen extends StatefulWidget {
   State<ToolDiceScreen> createState() => _ToolDiceScreenState();
 }
 
-class _ToolDiceScreenState extends State<ToolDiceScreen> {
+class _ToolDiceScreenState extends State<ToolDiceScreen>
+    with WidgetsBindingObserver {
   /// Faces and tilts of the three dice in the hero row.
   static const _heroValues = [6, 3, 5];
   static const _heroTilts = [-8.0, 4.0, -3.0];
 
   DiceSeedLength _length = DiceSeedLength.words24;
 
-  /// Checklist ticks. Only for the user to see: the sandbox does not read them.
-  final _checked = [true, true, false, false];
+  /// Checklist ticks of the manual rows, only for the user to see: the sandbox
+  /// does not read them. The airplane row follows the device network when the
+  /// native guard is present, so its tick is not stored here.
+  final _checked = [false, false, false, false];
+
+  /// Whether the device has no network, from the native guard. Null when the
+  /// guard is missing, then the airplane row is ticked by hand.
+  bool? _offline;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _refreshNetwork();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  /// Coming back from the settings, or from Control Center, rechecks the
+  /// network so the airplane row updates by itself.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) _refreshNetwork();
+  }
+
+  Future<void> _refreshNetwork() async {
+    final secure = widget.secureScreen;
+    if (secure == null) return;
+    final online = await secure.isOnline();
+    if (!mounted) return;
+    setState(() => _offline = !online);
+  }
+
+  Future<void> _openAirplaneSettings() async {
+    await widget.secureScreen?.openAirplaneModeSettings();
+  }
 
   /// The sandbox is pushed as a plain route, not a named one, so no deep link
   /// can open it. The detector is created for this session; the sandbox
@@ -63,6 +103,7 @@ class _ToolDiceScreenState extends State<ToolDiceScreen> {
         ),
       ),
     );
+    _refreshNetwork();
   }
 
   Future<void> _showMath() {
@@ -150,14 +191,7 @@ class _ToolDiceScreenState extends State<ToolDiceScreen> {
           padding: EdgeInsets.zero,
           child: Column(
             children: [
-              for (var i = 0; i < _checked.length; i++)
-                _CheckRow(
-                  title: _checkTitle(l10n, i),
-                  caption: _checkCaption(l10n, i),
-                  checked: _checked[i],
-                  showTopBorder: i > 0,
-                  onTap: () => setState(() => _checked[i] = !_checked[i]),
-                ),
+              for (var i = 0; i < _checked.length; i++) _checkRow(l10n, i),
             ],
           ),
         ),
@@ -226,6 +260,59 @@ class _ToolDiceScreenState extends State<ToolDiceScreen> {
           child: Text(l10n.toolsDiceHowMath),
         ),
       ],
+    );
+  }
+
+  /// One checklist row. The airplane row follows the device network when the
+  /// native guard reports it; the other rows are ticked by hand.
+  Widget _checkRow(AppLocalizations l10n, int index) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final title = _checkTitle(l10n, index);
+    final offline = _offline;
+
+    if (index != 0 || offline == null) {
+      return _CheckRow(
+        title: title,
+        caption: _checkCaption(l10n, index),
+        checked: _checked[index],
+        showTopBorder: index > 0,
+        onTap: () => setState(() => _checked[index] = !_checked[index]),
+      );
+    }
+    if (offline) {
+      return _CheckRow(
+        title: title,
+        caption: l10n.toolsDiceCheckAirplaneOffline,
+        checked: true,
+        showTopBorder: false,
+        onTap: _refreshNetwork,
+      );
+    }
+    // Android can open the airplane mode screen. Elsewhere the user has to
+    // use Control Center, so a tap only rechecks the network.
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return _CheckRow(
+        title: title,
+        caption: l10n.toolsDiceCheckAirplaneOpenSettings,
+        checked: false,
+        showTopBorder: false,
+        hint: l10n.toolsDiceCheckAirplaneOpenSettingsHint,
+        trailing: ExcludeSemantics(
+          child: Icon(
+            Icons.open_in_new_rounded,
+            size: 18,
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+        onTap: _openAirplaneSettings,
+      );
+    }
+    return _CheckRow(
+      title: title,
+      caption: l10n.toolsDiceCheckAirplaneControlCenter,
+      checked: false,
+      showTopBorder: false,
+      onTap: _refreshNetwork,
     );
   }
 
@@ -303,6 +390,8 @@ class _CheckRow extends StatelessWidget {
     required this.checked,
     required this.showTopBorder,
     required this.onTap,
+    this.hint,
+    this.trailing,
   });
 
   final String title;
@@ -310,6 +399,12 @@ class _CheckRow extends StatelessWidget {
   final bool checked;
   final bool showTopBorder;
   final VoidCallback onTap;
+
+  /// Extra screen reader hint, for rows that do something when tapped.
+  final String? hint;
+
+  /// Icon shown after the text, for rows that open another screen.
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -319,6 +414,8 @@ class _CheckRow extends StatelessWidget {
     return Semantics(
       checked: checked,
       label: '$title. $caption',
+      hint: hint,
+      onTap: onTap,
       excludeSemantics: true,
       child: InkWell(
         onTap: onTap,
@@ -376,6 +473,13 @@ class _CheckRow extends StatelessWidget {
                   ],
                 ),
               ),
+              if (trailing != null) ...[
+                const SizedBox(width: AppSpacing.md),
+                Padding(
+                  padding: const EdgeInsets.only(top: 2),
+                  child: trailing,
+                ),
+              ],
             ],
           ),
         ),
@@ -411,11 +515,11 @@ class _MathSheet extends StatelessWidget {
 
     return SafeArea(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(
+        padding: EdgeInsets.fromLTRB(
           AppSpacing.gutter,
           0,
           AppSpacing.gutter,
-          AppSpacing.xl,
+          AppSpacing.xl + MediaQuery.viewPaddingOf(context).bottom,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -39,51 +39,59 @@ class DiceResultView extends StatelessWidget {
         }
         final l10n = AppLocalizations.of(context);
 
-        return SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(
-            AppSpacing.gutter,
-            AppSpacing.sm,
-            AppSpacing.gutter,
-            AppSpacing.gutter,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _ResultHeader(
-                title: l10n.toolsDiceResultTitle,
-                done: l10n.toolsDiceDone,
-                meta: l10n.toolsDiceResultMeta(
-                  mnemonic.wordCount,
-                  controller.requiredRolls,
-                  mnemonic.entropyBitLength,
-                  mnemonic.checksumBitLength,
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(
+                  AppSpacing.gutter,
+                  AppSpacing.sm,
+                  AppSpacing.gutter,
+                  AppSpacing.gutter,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _ResultHeader(
+                      title: l10n.toolsDiceResultTitle,
+                      done: l10n.toolsDiceDone,
+                      meta: l10n.toolsDiceResultMeta(
+                        mnemonic.wordCount,
+                        controller.requiredRolls,
+                        mnemonic.entropyBitLength,
+                        mnemonic.checksumBitLength,
+                      ),
+                    ),
+                    const SizedBox(height: AppSpacing.lg),
+                    _WarningCard(text: l10n.toolsDiceResultWarning),
+                    const SizedBox(height: AppSpacing.lg),
+                    _WordsCard(controller: controller, mnemonic: mnemonic),
+                    const SizedBox(height: AppSpacing.lg),
+                    _BitsCard(controller: controller, mnemonic: mnemonic),
+                    const SizedBox(height: AppSpacing.lg),
+                    _MathCard(controller: controller, mnemonic: mnemonic),
+                    const SizedBox(height: AppSpacing.xl),
+                    FilledButton.icon(
+                      onPressed: onWipe,
+                      icon: const Icon(Icons.delete_outline, size: 20),
+                      label: Text(l10n.toolsDiceWipeDone),
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+                    OutlinedButton(
+                      onPressed: onNewSession,
+                      style: OutlinedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(52),
+                        shape: const StadiumBorder(),
+                      ),
+                      child: Text(l10n.toolsDiceNewSession),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: AppSpacing.lg),
-              _WarningCard(text: l10n.toolsDiceResultWarning),
-              const SizedBox(height: AppSpacing.lg),
-              _WordsCard(controller: controller, mnemonic: mnemonic),
-              const SizedBox(height: AppSpacing.lg),
-              _BitsCard(controller: controller, mnemonic: mnemonic),
-              const SizedBox(height: AppSpacing.lg),
-              _MathCard(controller: controller, mnemonic: mnemonic),
-              const SizedBox(height: AppSpacing.xl),
-              FilledButton.icon(
-                onPressed: onWipe,
-                icon: const Icon(Icons.delete_outline, size: 20),
-                label: Text(l10n.toolsDiceWipeDone),
-              ),
-              const SizedBox(height: AppSpacing.sm),
-              OutlinedButton(
-                onPressed: onNewSession,
-                style: OutlinedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(52),
-                  shape: const StadiumBorder(),
-                ),
-                child: Text(l10n.toolsDiceNewSession),
-              ),
-            ],
-          ),
+            ),
+            _HoldBar(controller: controller),
+          ],
         );
       },
     );
@@ -270,11 +278,6 @@ class _WordsCard extends StatelessWidget {
             ),
           ],
           const SizedBox(height: AppSpacing.md),
-          _HoldToReveal(
-            controller: controller,
-            holdText: l10n.toolsDiceHoldToReveal,
-          ),
-          const SizedBox(height: AppSpacing.md),
           Text(
             l10n.toolsDiceRevealCaption,
             style: TextStyle(
@@ -383,25 +386,49 @@ class _WordCell extends StatelessWidget {
   }
 }
 
-/// Reveals the secret while the pointer is down. With a screen reader on,
-/// holding is not possible, so it becomes a toggle button instead.
-/// The words card and the bits card both use this control and the same
-/// `controller.revealed` flag: holding either one reveals words, bits and math
-/// values together, and releasing it hides all of them.
-class _HoldToReveal extends StatelessWidget {
-  const _HoldToReveal({required this.controller, required this.holdText});
+/// Pinned bar at the bottom of the result with the one reveal control. It
+/// stays in view while the cards scroll. Holding it reveals the words, bits
+/// and math values together, and releasing it hides them all.
+class _HoldBar extends StatelessWidget {
+  const _HoldBar({required this.controller});
 
   final DiceSessionController controller;
 
-  /// Visible label while hidden, for example "Hold to reveal".
-  final String holdText;
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
+        border: Border(top: BorderSide(color: colorScheme.outlineVariant)),
+      ),
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.gutter,
+        AppSpacing.md,
+        AppSpacing.gutter,
+        AppSpacing.md,
+      ),
+      child: _HoldToReveal(controller: controller),
+    );
+  }
+}
+
+/// Reveals the secret while the pointer is down. With a screen reader on,
+/// holding is not possible, so it becomes a toggle button instead.
+class _HoldToReveal extends StatelessWidget {
+  const _HoldToReveal({required this.controller});
+
+  final DiceSessionController controller;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final colorScheme = Theme.of(context).colorScheme;
     final revealed = controller.revealed;
-    final visibleLabel = revealed ? l10n.toolsDiceReleaseToHide : holdText;
+    final visibleLabel = revealed
+        ? l10n.toolsDiceReleaseToHide
+        : l10n.toolsDiceHoldToReveal;
 
     final visual = Container(
       height: 52,
@@ -480,10 +507,9 @@ String _hiddenDots(int count) => '·' * count;
 const _hiddenLine = '· · · · · · · ·';
 
 /// One row per 11-bit group, with its index. The bits and indices are hidden
-/// until a hold control is pressed. The words and bits hold controls share one
-/// reveal state: holding either reveals the words, bits and math values
-/// together, and releasing hides all of them. The structure (row numbers,
-/// checksum width) stays visible. The row of the selected word is highlighted.
+/// until the hold control at the bottom of the result is pressed. The
+/// structure (row numbers, checksum width) stays visible. The row of the
+/// selected word is highlighted.
 class _BitsCard extends StatelessWidget {
   const _BitsCard({required this.controller, required this.mnemonic});
 
@@ -512,11 +538,6 @@ class _BitsCard extends StatelessWidget {
               mnemonic.wordCount,
             ),
             style: diceLabelStyle(context),
-          ),
-          const SizedBox(height: AppSpacing.md),
-          _HoldToReveal(
-            controller: controller,
-            holdText: l10n.toolsDiceHoldToRevealBits,
           ),
           const SizedBox(height: AppSpacing.md),
           for (var index = 0; index < rowCount; index++)
@@ -563,7 +584,7 @@ const _groupBits = 11;
 class _BitRow extends StatelessWidget {
   /// [bits] and [wordIndex] are null while hidden; the row then shows only
   /// placeholder dots, sized from the structure. They are passed only while
-  /// the shared reveal flag is on, the same flag as the words and math values.
+  /// the reveal flag is on, the same flag as the words and math values.
   const _BitRow({
     required this.position,
     required this.checksumBits,
