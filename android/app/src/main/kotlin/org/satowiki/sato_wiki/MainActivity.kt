@@ -1,7 +1,9 @@
 package org.satowiki.sato_wiki
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
@@ -9,6 +11,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.view.WindowManager
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -37,6 +40,7 @@ class MainActivity : FlutterActivity() {
                     result.success(null)
                 }
                 "isOnline" -> result.success(isOnline())
+                "openAirplaneModeSettings" -> result.success(openAirplaneModeSettings())
                 else -> result.notImplemented()
             }
         }
@@ -73,6 +77,22 @@ class MainActivity : FlutterActivity() {
         val network = connectivity.activeNetwork ?: return false
         val capabilities = connectivity.getNetworkCapabilities(network) ?: return false
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    /// Opens the airplane mode settings, or the wireless settings when the
+    /// device has no such screen. Returns false when neither can be opened.
+    private fun openAirplaneModeSettings(): Boolean {
+        return try {
+            startActivity(Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS))
+            true
+        } catch (_: ActivityNotFoundException) {
+            try {
+                startActivity(Intent(Settings.ACTION_WIRELESS_SETTINGS))
+                true
+            } catch (_: ActivityNotFoundException) {
+                false
+            }
+        }
     }
 
     private fun registerNetworkCallback() {

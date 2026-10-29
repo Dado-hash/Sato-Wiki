@@ -61,6 +61,9 @@ private final class SecureScreenChannel: NSObject, FlutterStreamHandler {
       result(nil)
     case "isOnline":
       result(pathMonitor.currentPath.status == .satisfied)
+    case "openAirplaneModeSettings":
+      // iOS has no public URL for the airplane mode setting; the user turns it on from Control Center.
+      result(false)
     default:
       result(FlutterMethodNotImplemented)
     }

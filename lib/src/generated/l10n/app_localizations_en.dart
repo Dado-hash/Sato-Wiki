@@ -2481,6 +2481,22 @@ class AppLocalizationsEn extends AppLocalizations {
       'The sandbox works without network, so no data can leave.';
 
   @override
+  String get toolsDiceCheckAirplaneOffline =>
+      'No network detected. You are ready.';
+
+  @override
+  String get toolsDiceCheckAirplaneOpenSettings =>
+      'Still online. Tap to open the airplane mode settings.';
+
+  @override
+  String get toolsDiceCheckAirplaneOpenSettingsHint =>
+      'Opens the system settings';
+
+  @override
+  String get toolsDiceCheckAirplaneControlCenter =>
+      'Still online. Turn on airplane mode from Control Center.';
+
+  @override
   String get toolsDiceCheckPrivate => 'Find a private place';
 
   @override
@@ -2665,9 +2681,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toolsDiceReleaseToHide => 'Release to hide';
 
   @override
-  String get toolsDiceHoldToRevealBits => 'Hold to see the bits';
-
-  @override
   String get toolsDiceRevealCaption =>
       'No copy, no screenshot: the words disappear when you release.';
 
@@ -2721,7 +2734,8 @@ class AppLocalizationsEn extends AppLocalizations {
       'Same method as SeedSigner and Coldcard: you can verify the seed by entering the same rolls on a separate device.';
 
   @override
-  String get toolsDiceMathHidden => 'Hold a reveal button to see the values';
+  String get toolsDiceMathHidden =>
+      'Hold the button at the bottom to see the values';
 
   @override
   String get toolsDiceWipeDone => 'I wrote it down, erase';

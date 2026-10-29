@@ -56,16 +56,22 @@ final class FakeDiceDetector implements DiceDetector {
 
 /// Native guard double: counts enable and disable, and emits events on demand.
 final class FakeSecureScreen implements SecureScreen {
-  FakeSecureScreen({this.online = false});
+  FakeSecureScreen({this.online = false, this.canOpenSettings = true});
 
   /// What [isOnline] answers.
   bool online;
+
+  /// What [openAirplaneModeSettings] answers.
+  bool canOpenSettings;
 
   /// Number of [enable] calls.
   int enables = 0;
 
   /// Number of [disable] calls.
   int disables = 0;
+
+  /// Number of [openAirplaneModeSettings] calls.
+  int settingsOpens = 0;
 
   final _events = StreamController<SecureScreenEvent>.broadcast();
 
@@ -83,6 +89,12 @@ final class FakeSecureScreen implements SecureScreen {
 
   @override
   Future<bool> isOnline() async => online;
+
+  @override
+  Future<bool> openAirplaneModeSettings() async {
+    settingsOpens++;
+    return canOpenSettings;
+  }
 
   @override
   Stream<SecureScreenEvent> get events => _events.stream;

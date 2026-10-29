@@ -9813,33 +9813,228 @@
   ],
   "news": [
     {
-      "id": "news.taproot-retrospective",
-      "slug": "taproot-retrospective",
+      "id": "news.bitcoin-red-team-ai-audit",
+      "slug": "bitcoin-red-team-ai-audit",
       "language": "en",
-      "title": "The Activation of Taproot: A Retrospective",
-      "summary": "A look back at Taproot activation and its long-term impact.",
-      "category": "protocol",
+      "title": "The Bitcoin Red Team: volunteers turn AI on Bitcoin's open-source code",
+      "summary": "After the Coldcard attack, a volunteer group scanned hundreds of Bitcoin projects with AI models in little more than a day. Its reports reached BTCPay Server and changed how Bitcoin Core discloses bugs.",
+      "category": "security",
       "author": {
-        "github": "andreas-m",
-        "displayName": "Andreas M.",
-        "lightningAddress": "andreas@example.com"
+        "github": "Dado-hash",
+        "displayName": "SatoWiki Editorial"
       },
-      "publishedAt": "2023-11-14",
-      "readTimeMinutes": 12,
-      "bodyMarkdown": "Taproot activated at block 709,632 after Speedy Trial lock-in.",
+      "publishedAt": "2026-10-29",
+      "readTimeMinutes": 3,
+      "bodyMarkdown": "## Why the group formed\n\nThe Bitcoin Red Team formed after the Coldcard exploit in July 2026. It is co-led by Calle, a software engineer who created the Android version of Bitchat and develops Cashu, and by Rob Hamilton, CEO of AnchorWatch, a Bitcoin self-custody insurance company. Calle said the group had grown to 16 people working around the clock across several countries.\n\nExpenses were covered by OpenSats, a nonprofit that funds open-source Bitcoin development. At the last tally, more than $40,000 had been spent on AI tokens.\n\nHamilton called the Coldcard exploit a \"spiritual attack\" on Bitcoin and on self-custody. \"There is no Bitcoin without self-custody,\" he said.\n\n## How the harness works\n\nThe team uses a custom harness. It downloads a project's code, flags risky areas and tries to reproduce an attack in a local environment. It then packages the findings into reports.\n\nRed teaming means testing whether a flaw can actually be used to compromise a product, not only whether an error exists. The models named by the group include Kimi K3, GPT Sol, Fable, Opus and GLM5.2.\n\nHamilton said human experts are still needed. The harness can \"smell out something is wrong\", but it may miss niche context.\n\n## The numbers\n\nThe sprint ran on 4 and 5 August 2026. After about 27.5 hours it had produced 4,962 findings across 390 projects. Of these, 85 were rated critical and 635 high.\n\nIn the first 29.8 hours, participants had reproduced 21.4% of the findings. The rest were not yet confirmed vulnerabilities. These should be read as potential issues, not confirmed bugs.\n\n## How findings are disclosed\n\nCritical findings are reproduced with a working example and then reported privately to the developers. The affected projects have not been named publicly. Hamilton said the hardest part is coordinating disclosure and reaching the right people.\n\nThe team plans to open-source the harness so that companies can run it on their own code.\n\n## Reports that led to a fix\n\nThe group's reports reached BTCPay Server. A flaw reported privately was exploited on live merchant servers within days.\n\nOn 7 August 2026 BTCPay published an advisory and version 2.4.2. A critical vulnerability in all earlier versions let an attacker obtain LND admin macaroon credentials from affected instances and use them to access connected LND wallets. Only deployments using LND were at risk. Updating to 2.4.2 also updates LND and regenerates its admin macaroon.\n\nThe project did not state the total lost. The BTCPay Server Foundation donated 0.21 BTC each to Craig Raw and to the Bitcoin Red Team fund for responsible disclosure. Supporters offered a recovery bounty of 10% of recovered funds, up to 3 BTC.\n\nBTCPay said it will prioritise security patches and hardening over new features. It will adopt stronger code scanning with external organisations, and review reports from the Bitcoin Red Team, Project Loupe, Magic Grants and independent researchers. Its advice is to keep funds in cold storage when possible and to move excess hot-wallet funds to cold storage regularly.\n\n## Bitcoin Core\n\nOn 22 October 2026 Bitcoin Core changed its disclosure policy so that bugs that are easy to rediscover are fixed and announced quickly. The full story is in a separate article.\n\n## What it means\n\nAI makes finding bugs faster and cheaper for defenders and attackers alike. So far the response is faster fixes, private disclosure and more review.\n\nFor users, the practical steps are the same as ever. Keep wallet and node software updated, prefer cold storage for savings, and follow the advisories of the software you run.",
       "tags": [
-        "Taproot",
-        "Upgrades"
+        "Security",
+        "AI",
+        "Open source"
       ],
       "sources": [
         {
-          "title": "BIP 341: Taproot",
-          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
-          "author": "Bitcoin BIPs"
+          "title": "4,962 vulnerabilities in 27.5 hours: Bitcoin Red Team's AI blitz",
+          "url": "https://bitcoinmagazine.com/business/bitcoin-red-team-finds-85-critical-flaws-across-390-open-source-repos-after-coldcard-exploit",
+          "author": "Bitcoin Magazine"
+        },
+        {
+          "title": "Bitcoin Red Team identifies thousands of issues in 390 Bitcoin projects",
+          "url": "https://forklog.com/en/bitcoin-red-team-identifies-thousands-of-issues-in-390-bitcoin-projects/",
+          "author": "ForkLog"
+        },
+        {
+          "title": "Security advisory: update BTCPay Server to 2.4.2 immediately",
+          "url": "https://blog.btcpayserver.org/security-advisory-btcpay-server-2-4-2/",
+          "author": "BTCPay Server"
+        },
+        {
+          "title": "BTCPay Server security incident: our response and next steps",
+          "url": "https://blog.btcpayserver.org/btcpay-server-security-incident-response-and-next-steps/",
+          "author": "BTCPay Server"
+        },
+        {
+          "title": "Bitcoin will now stop hiding bugs an AI can find in one prompt",
+          "url": "https://www.coindesk.com/tech/2026/10/23/bitcoin-will-now-stop-hiding-bugs-an-ai-can-find-in-one-prompt",
+          "author": "CoinDesk"
         }
       ],
-      "related": [],
-      "updatedAt": "2026-05-25T00:00:00Z"
+      "related": [
+        "news.coldcard-weak-entropy",
+        "news.bitcoin-core-ai-bug-disclosure",
+        "product.btcpay-server",
+        "product.bitcoin-core",
+        "wiki.lightning-network",
+        "wiki.threat-model"
+      ],
+      "updatedAt": "2026-10-29T00:00:00Z"
+    },
+    {
+      "id": "news.coldcard-weak-entropy",
+      "slug": "coldcard-weak-entropy",
+      "language": "en",
+      "title": "Coldcard's weak seeds: how a build error left keys guessable for five years",
+      "summary": "A 2021 firmware change made Coldcard devices generate seeds from a predictable software generator. Attackers rebuilt keys offline and emptied wallets in July 2026.",
+      "category": "security",
+      "author": {
+        "github": "Dado-hash",
+        "displayName": "SatoWiki Editorial"
+      },
+      "publishedAt": "2026-10-29",
+      "readTimeMinutes": 4,
+      "bodyMarkdown": "## What happened\n\nOn 30 July 2026 Coldcard users found that funds had been taken from their wallets in transactions they had not made. Bitcoin Optech reported it in its newsletter 416 on 31 July. Coinkite, the Toronto company that makes Coldcard, published an advisory on 30 July and updated it on 1 August with criteria for which seeds are at risk.\n\nThe devices were not hacked, and nobody reached them remotely. Attackers regenerated private keys offline. Coinkite said: \"A build and link integration error meant that setting did not have the intended effect.\"\n\n## The cause\n\nSeed generation was meant to use the hardware true random number generator, or TRNG. Since a March 2021 change, shipped in firmware 4.0.1 with the move to the libNgU library, seed generation fell back to Yasmarang. That is the general-purpose pseudorandom generator of MicroPython, and it was seeded from predictable device-unique values.\n\nThe fallback was selected by a preprocessor check. It tested whether a configuration flag was defined, not whether it was enabled. The build therefore picked the fallback without any warning. The hardware TRNG itself never failed. Block's engineering team reached the same conclusion in its own analysis.\n\n## How much randomness was left\n\nCoinkite's preliminary figures put the effective entropy at about 40 bits for Mk2 and Mk3, where the intended figure is 128. Mk4, Mk5 and Q reach about 72 bits, because values from their secure elements are mixed into the generator state. Block found that only 32 bits of those values reach the state. Even the higher figure is far below 128.\n\nEntropy measures how many values a secret could take. Each bit doubles the number of possibilities. 128 bits is far beyond any search. 40 bits is about a trillion possibilities, a search a computer can finish. That is why attackers could rebuild keys from public blockchain data without touching any device.\n\n## Which devices and seeds are affected\n\n- Mk2 and Mk3 running firmware 4.0.1 to 4.1.9.\n- Seeds made by Mk4 and Mk5 on firmware before 5.6.0.\n- Seeds made by Q on firmware before 1.5.0Q.\n- Paper-wallet keys and ephemeral seeds made on affected firmware, according to Block.\n\nTapsigner, Opendime and Satscard are not affected, because they run different code.\n\n## Fixed firmware\n\nThe fixed releases are 4.2.0 for Mk2 and Mk3, 5.6.0 for Mk4 and Mk5, and 1.5.0Q for Q. On the Edge track the fixes are 6.6.0X for Mk4 and Mk5, and 6.6.0QX for Q. Coinkite warns not to assume that an older Edge 6.x release is fixed just because its number is higher.\n\n## Updating is not enough\n\nUpdating the firmware does not fix a seed that already exists. Bitcoin Optech put it plainly: \"Upgrading alone does not make an existing seed safe.\" Owners must generate a new seed on fixed firmware and move the funds to it.\n\nCoinkite's steps are:\n\n1. Update the firmware.\n2. Generate a new seed.\n3. Record and verify the backup, the fingerprint and a receive address.\n4. Send a test transaction.\n5. Move the funds.\n\nKeep the old backup until the move is confirmed.\n\nAccording to Coinkite, seeds created with at least 50 independent, private dice rolls are not considered at risk from this issue alone. A strong, unique passphrase kept apart from the backup reduces immediate exposure, but it does not repair the seed.\n\n## Scale of the losses\n\nReports describe several waves of theft. In one, on 31 July, about 594 BTC left roughly 500 single-signature wallets in about 25 minutes. Galaxy Research counted at least 15 different attackers. Bitcoin Optech estimated losses above 1,000 BTC and said they could rise.\n\n## Who found the flaw, and how\n\nAccording to Optech, several developers reproduced the attack quickly with frontier AI models. Coinkite believes the attacker used AI to find the flaw in the open-source firmware. That has not been verified, and some researchers say this type of bug is well known.\n\nThe Coldcard attack also triggered the Bitcoin Red Team audit described in a separate article.\n\n## The lesson\n\nOpen-source firmware let outsiders find and explain the bug quickly. The same openness let attackers find it too. The safety of a seed depends on where its randomness comes from. Adding your own physical entropy, such as dice rolls, is a defence that does not depend on the device.\n\nSatoWiki's Dice → Seed sandbox builds the seed only from physical dice rolls for this reason.",
+      "tags": [
+        "Hardware wallets",
+        "Entropy",
+        "Security"
+      ],
+      "sources": [
+        {
+          "title": "COLDCARD Mk3 seed generation warning",
+          "url": "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+          "author": "Coinkite"
+        },
+        {
+          "title": "Entropy technical backgrounder",
+          "url": "https://blog.coinkite.com/entropy-technical-backgrounder/",
+          "author": "Coinkite"
+        },
+        {
+          "title": "Predictable RNG fallback and 32-bit reseed in COLDCARD firmware",
+          "url": "https://engineering.block.xyz/blog/predictable-rng-fallback-and-32-bit-reseed-in-coldcard-firmware",
+          "author": "Block Engineering"
+        },
+        {
+          "title": "Bitcoin Optech Newsletter #416",
+          "url": "https://bitcoinops.org/en/newsletters/2026/07/31/",
+          "author": "Bitcoin Optech"
+        },
+        {
+          "title": "A build error in Coldcard's firmware drained bitcoin in 25 minutes",
+          "url": "https://crypto.news/coldcard-firmware-bug-drains-38-million-bitcoin/",
+          "author": "crypto.news"
+        }
+      ],
+      "related": [
+        "product.coldcard",
+        "wiki.wallet-seeds",
+        "wiki.hardware-wallets",
+        "wiki.passphrase",
+        "wiki.private-keys",
+        "wiki.self-custody",
+        "news.bitcoin-red-team-ai-audit"
+      ],
+      "updatedAt": "2026-10-29T00:00:00Z"
+    },
+    {
+      "id": "news.bitcoin-core-ai-bug-disclosure",
+      "slug": "bitcoin-core-ai-bug-disclosure",
+      "language": "en",
+      "title": "Bitcoin Core stops waiting on bugs an AI can find",
+      "summary": "A new disclosure rule ships fixes and advisories at once for easily discoverable bugs. Three AI-found flaws were the first to use it.",
+      "category": "development",
+      "author": {
+        "github": "Dado-hash",
+        "displayName": "SatoWiki Editorial"
+      },
+      "publishedAt": "2026-10-28",
+      "readTimeMinutes": 4,
+      "bodyMarkdown": "## What changed\n\nOn 22 October 2026 Bitcoin Core merged a change to its security policy. The pull request, number 1281 on the bitcoincore.org repository, was written by Antoine Poinsot of Chaincode Labs. It adds a new category called \"easily discoverable\". The category covers flaws that \"can be discovered with minimal effort, such as through a simple LLM prompt\".\n\nThe label depends on how little effort rediscovery takes. It does not depend on which tool found the bug.\n\n## The old schedule\n\nUntil now the disclosure schedule followed severity. Low-severity flaws were disclosed two weeks after the next major version shipped. Medium and high severity flaws stayed under embargo until two weeks after the last affected version reached end of life. A medium bug normally stayed private for about a year after its fix first shipped.\n\n## The new rule\n\nFor easily discoverable flaws, the fix is backported to every maintained major version. It ships in a point release as soon as possible, together with a security advisory. Other bugs keep the severity-based schedule.\n\nPoinsot's reason is short: \"This is largely due to LLMs drastically reducing the bar to find certain classes of issues.\" He argued that the embargo on easy-to-find issues mostly delays a fixed release without protecting much.\n\n## The objection\n\nSecurity researcher Antoine Riard wanted Core to keep the option of shipping a fix with no advisory. Poinsot rejected that option: \"Alerting users of a security vulnerability without any details could create more risk unnecessarily.\" The trade-off is acknowledged. Fixes get less testing time, the \"bake time\" before release.\n\n## Why the timing matters\n\nIn early August 2026 a volunteer group of 16 developers, the Bitcoin Red Team, ran AI models over 390 Bitcoin projects in about a day. They logged 4,962 findings, 85 of them critical. That scan is the background to the new rule.\n\n## The first use\n\nPatched releases 29.5, 30.4, 31.2 and 32.1 shipped on 27 and 28 October 2026. Three advisories were published on 28 October, the day the last patched release went out. All three are labelled easily discoverable. The 32.1 release notes say that 32.0, \"although tagged, was never fully announced or released\".\n\n### TCP urgent data\n\nUrgent data in TCP bypasses the cap on queued incoming data. The advisory rates it medium: \"a malicious peer can trivially crash any Windows, macOS or BSD node it is connected to\". Linux uses a different socket backend and is not affected.\n\n### Unanswered BIP 31 pings\n\nA peer can claim that it does not support BIP 31 nonced pings. The node never drops such a peer, so the outgoing queue keeps growing. The advisory rates it medium. Memory grows by up to 2 MB per hour for each inbound peer and up to 5 MB per hour for each outbound peer.\n\n### Undo files\n\nA miner can corrupt the undo files that other nodes keep. The advisory rates it low. The attack can shut a node down after a precisely placed reorg, or with no reorg at all on Windows and 32-bit systems. On 64-bit systems the advisory calls the attack impractical. It would take several thousand mined blocks with nonstandard transactions, roughly a month of the network's block production. The patch does not cover 32-bit systems or block data stored on FAT32.\n\n## Who found them\n\nAll three came from an automated LLM scan by Project Loupe, led by Elias Rohrer at Spiral. Spiral and Block launched Loupe in May 2026 as a free scanner for open-source Bitcoin projects. Developer Gregory Sanders validated the findings and brought them to Core's security team. The advisories do not name the AI model that was used. The sources for this article do not say whether any of these bugs was exploited.\n\n## What node operators should do\n\nUpdate to the patched point release of your major version: 29.5, 30.4, 31.2 or 32.1. Linux nodes are not affected by the TCP bug, but they are affected by the ping one.\n\n## What comes next\n\nCore says it will disclose three more medium and high severity vulnerabilities, fixed in version 30.0, in two weeks on its regular schedule.",
+      "tags": [
+        "Bitcoin Core",
+        "Security",
+        "AI"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core security advisories",
+          "url": "https://bitcoincore.org/en/security-advisories/",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Disclosure: TCP urgent data bypasses the queued-data cap",
+          "url": "https://bitcoincore.org/en/2026/10/28/disclose-tcp-oom/",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Disclosure: unanswered BIP 31 pings",
+          "url": "https://bitcoincore.org/en/2026/10/28/disclose-fpausesend-oom/",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Disclosure: miner can corrupt undo files",
+          "url": "https://bitcoincore.org/en/2026/10/28/disclose-undo-overflow/",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin will now stop hiding bugs an AI can find in one prompt",
+          "url": "https://www.coindesk.com/tech/2026/10/23/bitcoin-will-now-stop-hiding-bugs-an-ai-can-find-in-one-prompt",
+          "author": "CoinDesk"
+        },
+        {
+          "title": "Bitcoin Core skips usual embargo to disclose three bugs an AI scan found",
+          "url": "https://unchainedcrypto.com/bitcoin-core-skips-usual-embargo-to-disclose-three-bugs-an-ai-scan-found/",
+          "author": "Unchained"
+        }
+      ],
+      "related": [
+        "product.bitcoin-core",
+        "wiki.full-nodes",
+        "wiki.node-software",
+        "wiki.peer-to-peer-network",
+        "news.bitcoin-red-team-ai-audit",
+        "news.coldcard-weak-entropy"
+      ],
+      "updatedAt": "2026-10-29T00:00:00Z"
+    },
+    {
+      "id": "news.keystone-webauth-key-theft",
+      "slug": "keystone-webauth-key-theft",
+      "language": "en",
+      "title": "Keystone's stolen verification key: what it means for hardware wallet buyers",
+      "summary": "An attacker took the factory key Keystone uses to prove its devices are genuine. Funds are not at risk, but counterfeits could now pass the official check.",
+      "category": "security",
+      "author": {
+        "github": "Dado-hash",
+        "displayName": "SatoWiki Editorial"
+      },
+      "publishedAt": "2026-10-27",
+      "readTimeMinutes": 3,
+      "bodyMarkdown": "## What happened\n\nOn 20 October 2026 Keystone's monitoring detected unusual access to its website. The company disabled sensitive website functions, blocked the access points and fixed the vulnerability the same day. According to reports, the attacker exploited a vulnerability in a third-party data monitoring tool on the website to escalate privileges. Keystone has not identified the attacker or said when the access started.\n\nOn Saturday 24 October Keystone disclosed that a third party had obtained customer shipping information. On Monday 26 October it disclosed that the attacker had also stolen its WebAuth key.\n\n## Why the key matters\n\nThe WebAuth key is written into each device at the factory. A page on Keystone's website uses it to confirm that the hardware is genuine. The key cannot be erased or rewritten on devices that already exist. Keystone warns: \"If it is exposed, an attacker could use it to produce counterfeit devices that pass authentication checks.\" No counterfeit device using the key has been confirmed.\n\nAn authenticity check shows that a device came from the factory. It does not protect a seed by itself. Its job is to tell a buyer whether the hardware is genuine, so a buyer who trusts a fake that passes the check is exposed.\n\nThe recovery phrase is what restores a wallet on any compatible device. Whoever holds it controls the funds, which is why the phrase, not the device, is the asset to protect.\n\n## What Keystone is doing\n\nKeystone will destroy 18,835 unsold devices that carry the key. It has suspended shipping of website orders and moved website sales to preorders until devices with a new key are produced.\n\n## Customer data\n\nKeystone says 25,964 buyer records from its Shopify store, covering 2024 to 2026, were taken. The records include names, contact details, shipping addresses and order information. The company says 51,083 records were involved, but 25,119 of them had already been erased.\n\nAutomated deletion tasks under a 180-day retention policy had failed. The retention period is now 90 days. Keystone said: \"We failed to fulfill our commitment to erase customer data on time, and we accept responsibility for this failure.\" On 24 October it asked Shopify to erase the overdue data. That process has a 10-day wait and is expected to finish on 3 November. Amazon and other sales channels were not affected. The incident has been reported to authorities in the EU, the UK and other jurisdictions.\n\n## What was not affected\n\nRecovery phrases, private keys and other wallet credentials are not affected. Devices delivered before 20 October are not affected either.\n\n## What to do\n\nKeystone will never ask customers to return a device. Treat any \"recall\", \"asset migration\", \"wallet verification\" or \"investigation assistance\" offer as a scam.\n\n- Buy only from the manufacturer or from authorised resellers.\n- Never use a device that arrives with a recovery phrase already filled in. Generate the seed on the device yourself.\n- Never type a recovery phrase into a website or app because someone asked you to.\n- Be wary of emails, text messages and calls about your wallet. If in doubt, contact the company through the address on its official website, never through a link in the message.\n- If your details were on the leaked buyer list, expect targeted phishing. A list with home addresses also raises the risk of physical threats, so treat any unexpected contact with care.",
+      "tags": [
+        "Hardware wallets",
+        "Supply chain",
+        "Security"
+      ],
+      "sources": [
+        {
+          "title": "Keystone statement on X",
+          "url": "https://x.com/KeystoneWallet/status/2114719318722404578",
+          "author": "Keystone"
+        },
+        {
+          "title": "Keystone to destroy devices after stolen key",
+          "url": "https://decrypt.co/381983/bitcoin-wallet-keystone-devices-destroyed-stolen-key",
+          "author": "Decrypt"
+        },
+        {
+          "title": "Keystone breach deepens: hackers stole key used to verify wallets as genuine",
+          "url": "https://cointelegraph.com/news/keystone-breach-deepens-hackers-stole-key-used-to-verify-wallets-as-genuine",
+          "author": "Cointelegraph"
+        },
+        {
+          "title": "Keystone to destroy 18,835 hardware wallets after hackers steal device verification key",
+          "url": "https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html",
+          "author": "The Hacker News"
+        }
+      ],
+      "related": [
+        "wiki.hardware-wallets",
+        "wiki.self-custody",
+        "wiki.seed-backups",
+        "wiki.threat-model",
+        "wiki.physical-attacks"
+      ],
+      "updatedAt": "2026-10-29T00:00:00Z"
     }
   ],
   "bips": [
@@ -18524,7 +18719,7 @@
       }
     }
   ],
-  "totalRecords": 382,
+  "totalRecords": 385,
   "historyCount": 44,
   "glossary": [
     {

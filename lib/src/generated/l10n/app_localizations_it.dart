@@ -2495,6 +2495,22 @@ class AppLocalizationsIt extends AppLocalizations {
       'La sandbox funziona senza rete. Così nessun dato può uscire.';
 
   @override
+  String get toolsDiceCheckAirplaneOffline =>
+      'Nessuna rete rilevata. Sei pronto.';
+
+  @override
+  String get toolsDiceCheckAirplaneOpenSettings =>
+      'Ancora online. Tocca per aprire le impostazioni della modalità aereo.';
+
+  @override
+  String get toolsDiceCheckAirplaneOpenSettingsHint =>
+      'Apre le impostazioni di sistema';
+
+  @override
+  String get toolsDiceCheckAirplaneControlCenter =>
+      'Ancora online. Attiva la modalità aereo dal Centro di Controllo.';
+
+  @override
   String get toolsDiceCheckPrivate => 'Scegli un posto riservato';
 
   @override
@@ -2680,9 +2696,6 @@ class AppLocalizationsIt extends AppLocalizations {
   String get toolsDiceReleaseToHide => 'Rilascia per nascondere';
 
   @override
-  String get toolsDiceHoldToRevealBits => 'Tieni premuto per vedere i bit';
-
-  @override
   String get toolsDiceRevealCaption =>
       'Niente copia, niente screenshot: le parole spariscono quando rilasci.';
 
@@ -2738,7 +2751,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get toolsDiceMathHidden =>
-      'Tieni premuto un pulsante per vedere i valori';
+      'Tieni premuto il pulsante in basso per vedere i valori';
 
   @override
   String get toolsDiceWipeDone => 'Ho trascritto la seed, cancella';

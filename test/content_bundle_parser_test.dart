@@ -29,7 +29,8 @@ void main() {
       proofOfWork.coverImage,
       Uri.parse('media/wiki/proof-of-work/pow-mining-loop.svg'),
     );
-    expect(bundle.news.single.author.github, 'andreas-m');
+    expect(bundle.news, hasLength(4));
+    expect(bundle.news.first.id, 'news.bitcoin-red-team-ai-audit');
     expect(bundle.history.first.date, DateTime(1993, 3, 9));
     expect(bundle.bips, hasLength(greaterThanOrEqualTo(200)));
     expect(bundle.bips.first.number, 1);

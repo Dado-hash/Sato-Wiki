@@ -957,11 +957,13 @@ class _DiceCorrectionSheetState extends State<DiceCorrectionSheet> {
         maxHeight: MediaQuery.sizeOf(context).height * 0.9,
       ),
       child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(
+        // The bottom inset keeps the save button above the navigation bar
+        // when the app draws edge to edge.
+        padding: EdgeInsets.fromLTRB(
           AppSpacing.gutter,
           0,
           AppSpacing.gutter,
-          AppSpacing.xl,
+          AppSpacing.xl + MediaQuery.viewPaddingOf(context).bottom,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

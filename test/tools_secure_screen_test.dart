@@ -60,6 +60,38 @@ void main() {
     expect(await SecureScreen().isOnline(), isFalse);
   });
 
+  test('openAirplaneModeSettings returns the native boolean', () async {
+    messenger.setMockMethodCallHandler(methods, (call) async {
+      expect(call.method, 'openAirplaneModeSettings');
+      return true;
+    });
+    expect(await SecureScreen().openAirplaneModeSettings(), isTrue);
+
+    messenger.setMockMethodCallHandler(methods, (call) async => false);
+    expect(await SecureScreen().openAirplaneModeSettings(), isFalse);
+  });
+
+  test('openAirplaneModeSettings returns false from native null', () async {
+    messenger.setMockMethodCallHandler(methods, (call) async => null);
+    expect(await SecureScreen().openAirplaneModeSettings(), isFalse);
+  });
+
+  test('openAirplaneModeSettings returns false when the call fails', () async {
+    messenger.setMockMethodCallHandler(
+      methods,
+      (call) async => throw PlatformException(code: 'boom'),
+    );
+    expect(await SecureScreen().openAirplaneModeSettings(), isFalse);
+  });
+
+  test(
+    'openAirplaneModeSettings returns false without a native side',
+    () async {
+      // No mock handler registered: the binding reports MissingPluginException.
+      expect(await SecureScreen().openAirplaneModeSettings(), isFalse);
+    },
+  );
+
   test('calls degrade when the native plugin is missing', () async {
     // No mock handler registered: the binding reports MissingPluginException.
     final secure = SecureScreen();
