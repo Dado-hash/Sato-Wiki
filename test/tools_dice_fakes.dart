@@ -56,10 +56,17 @@ final class FakeDiceDetector implements DiceDetector {
 
 /// Native guard double: counts enable and disable, and emits events on demand.
 final class FakeSecureScreen implements SecureScreen {
-  FakeSecureScreen({this.online = false, this.canOpenSettings = true});
+  FakeSecureScreen({
+    this.online = false,
+    this.airplaneMode,
+    this.canOpenSettings = true,
+  });
 
   /// What [isOnline] answers.
   bool online;
+
+  /// What [isAirplaneModeOn] answers. Null means the platform cannot tell.
+  bool? airplaneMode;
 
   /// What [openAirplaneModeSettings] answers.
   bool canOpenSettings;
@@ -89,6 +96,9 @@ final class FakeSecureScreen implements SecureScreen {
 
   @override
   Future<bool> isOnline() async => online;
+
+  @override
+  Future<bool?> isAirplaneModeOn() async => airplaneMode;
 
   @override
   Future<bool> openAirplaneModeSettings() async {

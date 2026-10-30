@@ -4424,6 +4424,12 @@ abstract class AppLocalizations {
   /// **'Still online. Turn on airplane mode from Control Center.'**
   String get toolsDiceCheckAirplaneControlCenter;
 
+  /// No description provided for @toolsDiceCheckAirplaneWifiStillOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Airplane mode is on, but Wi-Fi or another network is still connected. Turn it off, then tap to check again.'**
+  String get toolsDiceCheckAirplaneWifiStillOn;
+
   /// No description provided for @toolsDiceCheckPrivate.
   ///
   /// In en, this message translates to:
@@ -4519,6 +4525,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You are online. Turn on airplane mode for maximum safety.'**
   String get toolsDiceOnlineWarning;
+
+  /// No description provided for @toolsDiceOnlineWarningWifi.
+  ///
+  /// In en, this message translates to:
+  /// **'Airplane mode is on, but Wi-Fi or another network is still connected. Turn it off for maximum safety.'**
+  String get toolsDiceOnlineWarningWifi;
 
   /// No description provided for @toolsDiceExit.
   ///

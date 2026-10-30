@@ -24,6 +24,10 @@ class MainActivity : FlutterActivity() {
     private var eventSink: EventChannel.EventSink? = null
     private var networkCallback: ConnectivityManager.NetworkCallback? = null
     private var screenCaptureCallback: Activity.ScreenCaptureCallback? = null
+    /// Networks that currently have INTERNET capability. Only touched on the main thread.
+    private val internetNetworks = mutableSetOf<Network>()
+    /// Last connectivity state sent to Dart, used to skip duplicate events.
+    private var lastOnline: Boolean? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -40,6 +44,7 @@ class MainActivity : FlutterActivity() {
                     result.success(null)
                 }
                 "isOnline" -> result.success(isOnline())
+                "isAirplaneModeOn" -> result.success(isAirplaneModeOn())
                 "openAirplaneModeSettings" -> result.success(openAirplaneModeSettings())
                 else -> result.notImplemented()
             }
@@ -50,6 +55,8 @@ class MainActivity : FlutterActivity() {
                 eventSink = events
                 registerNetworkCallback()
                 startScreenCaptureDetection()
+                // Report the current state once, so a new listener does not wait for a change.
+                mainHandler.post { reportConnectivity(isOnline()) }
             }
 
             override fun onCancel(arguments: Any?) {
@@ -79,6 +86,11 @@ class MainActivity : FlutterActivity() {
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
+    /// Reads the airplane mode switch from the system settings.
+    private fun isAirplaneModeOn(): Boolean {
+        return Settings.Global.getInt(contentResolver, Settings.Global.AIRPLANE_MODE_ON, 0) != 0
+    }
+
     /// Opens the airplane mode settings, or the wireless settings when the
     /// device has no such screen. Returns false when neither can be opened.
     private fun openAirplaneModeSettings(): Boolean {
@@ -98,9 +110,15 @@ class MainActivity : FlutterActivity() {
     private fun registerNetworkCallback() {
         if (networkCallback != null) return
         val connectivity = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager ?: return
+        // Callbacks run on a ConnectivityThread: hop to the main thread before touching state.
         val callback = object : ConnectivityManager.NetworkCallback() {
-            override fun onAvailable(network: Network) = send("online")
-            override fun onLost(network: Network) = send("offline")
+            override fun onAvailable(network: Network) {
+                mainHandler.post { networkChanged(network, available = true) }
+            }
+
+            override fun onLost(network: Network) {
+                mainHandler.post { networkChanged(network, available = false) }
+            }
         }
         val request = NetworkRequest.Builder()
             .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
@@ -114,6 +132,8 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun unregisterNetworkCallback() {
+        internetNetworks.clear()
+        lastOnline = null
         val callback = networkCallback ?: return
         networkCallback = null
         val connectivity = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager ?: return
@@ -122,6 +142,21 @@ class MainActivity : FlutterActivity() {
         } catch (_: IllegalArgumentException) {
             // Already unregistered.
         }
+    }
+
+    /// Adds or removes one network, then reports the overall state if it changed.
+    /// Runs on the main thread. Ignored after the callback has been unregistered.
+    private fun networkChanged(network: Network, available: Boolean) {
+        if (networkCallback == null) return
+        if (available) internetNetworks.add(network) else internetNetworks.remove(network)
+        reportConnectivity(internetNetworks.isNotEmpty())
+    }
+
+    /// Sends "online" or "offline" to Dart, but only when the state differs from the last one sent.
+    private fun reportConnectivity(online: Boolean) {
+        if (online == lastOnline) return
+        lastOnline = online
+        eventSink?.success(if (online) "online" else "offline")
     }
 
     /// Screenshot detection exists from Android 14 (API 34). Older versions only get FLAG_SECURE.

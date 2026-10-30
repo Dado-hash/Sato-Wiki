@@ -61,6 +61,9 @@ private final class SecureScreenChannel: NSObject, FlutterStreamHandler {
       result(nil)
     case "isOnline":
       result(pathMonitor.currentPath.status == .satisfied)
+    case "isAirplaneModeOn":
+      // iOS has no public API to read airplane mode; Dart treats nil as unknown.
+      result(nil)
     case "openAirplaneModeSettings":
       // iOS has no public URL for the airplane mode setting; the user turns it on from Control Center.
       result(false)
@@ -96,6 +99,10 @@ private final class SecureScreenChannel: NSObject, FlutterStreamHandler {
 
   func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
     eventSink = events
+    // Report the current connectivity once, so a new listener does not wait for a change.
+    let online = lastOnline ?? (pathMonitor.currentPath.status == .satisfied)
+    lastOnline = online
+    events(online ? "online" : "offline")
     let center = NotificationCenter.default
     observers = [
       center.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: .main) { [weak self] _ in
