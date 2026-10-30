@@ -725,6 +725,81 @@ void main() {
     );
   });
 
+  group('network check', () {
+    testWidgets('the checklist follows a network event to offline', (
+      tester,
+    ) async {
+      final secure = FakeSecureScreen(online: true);
+      addTearDown(() async => secure.close());
+
+      await _pumpIntro(tester, detector: null, secure: secure);
+      expect(find.text(_en.toolsDiceCheckAirplaneOffline), findsNothing);
+
+      secure.online = false;
+      secure.emit(SecureScreenEvent.wentOffline);
+      await _settle(tester);
+
+      expect(find.text(_en.toolsDiceCheckAirplaneOffline), findsOneWidget);
+    });
+
+    testWidgets('resume rechecks the network, and again after a short delay', (
+      tester,
+    ) async {
+      final secure = FakeSecureScreen(online: true);
+      addTearDown(() async => secure.close());
+
+      await _pumpIntro(tester, detector: null, secure: secure);
+
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+      await tester.pump();
+      expect(find.text(_en.toolsDiceCheckAirplaneOffline), findsNothing);
+
+      // The OS still reports the old network right after resume; the change
+      // shows up only in the delayed recheck.
+      secure.online = false;
+      await tester.pump(const Duration(seconds: 2));
+
+      expect(find.text(_en.toolsDiceCheckAirplaneOffline), findsOneWidget);
+    });
+
+    testWidgets('airplane mode with Wi-Fi still on leaves the row unticked', (
+      tester,
+    ) async {
+      final secure = FakeSecureScreen(online: true, airplaneMode: true);
+      addTearDown(() async => secure.close());
+
+      await _pumpIntro(tester, detector: null, secure: secure);
+
+      expect(find.text(_en.toolsDiceCheckAirplaneWifiStillOn), findsOneWidget);
+      expect(find.text(_en.toolsDiceCheckAirplaneOffline), findsNothing);
+      expect(find.text(_en.toolsDiceCheckAirplaneOpenSettings), findsNothing);
+    });
+
+    testWidgets(
+      'the sandbox warns about Wi-Fi in airplane mode, then clears when offline',
+      (tester) async {
+        final detector = FakeDiceDetector();
+        final secure = FakeSecureScreen(online: true, airplaneMode: true);
+        addTearDown(() async => detector.close());
+        addTearDown(() async => secure.close());
+
+        await _openSandbox(tester, detector: detector, secure: secure);
+
+        expect(find.text(_en.toolsDiceOnlineWarningWifi), findsOneWidget);
+        expect(find.text(_en.toolsDiceOnlineWarning), findsNothing);
+        expect(find.text(_en.toolsDiceOnline), findsOneWidget);
+
+        secure.online = false;
+        secure.emit(SecureScreenEvent.wentOffline);
+        await _settle(tester);
+
+        expect(find.text(_en.toolsDiceOnlineWarningWifi), findsNothing);
+        expect(find.text(_en.toolsDiceOnlineWarning), findsNothing);
+        expect(find.text(_en.toolsDiceOffline), findsOneWidget);
+      },
+    );
+  });
+
   group('lifecycle', () {
     testWidgets(
       'inactive shows the veil, paused erases and returns to the intro',

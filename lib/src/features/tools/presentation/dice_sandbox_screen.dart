@@ -58,6 +58,9 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
   bool _inactive = false;
   bool _captured = false;
   bool _online = false;
+
+  /// Airplane mode from the native guard; null when the platform cannot tell.
+  bool? _airplaneOn;
   bool _cameraChecked = false;
   bool _cameraReady = false;
   bool _cameraRunning = false;
@@ -105,6 +108,9 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
         setState(() => _inactive = true);
       case AppLifecycleState.resumed:
         setState(() => _inactive = false);
+        // The network can change while the app is in the settings, and the
+        // events may not arrive, so the banner is checked again here.
+        unawaited(_loadNetwork());
       case AppLifecycleState.paused:
       case AppLifecycleState.hidden:
       case AppLifecycleState.detached:
@@ -114,8 +120,12 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
 
   Future<void> _loadNetwork() async {
     final online = await _secure.isOnline();
+    final airplaneOn = await _secure.isAirplaneModeOn();
     if (mounted) {
-      setState(() => _online = online);
+      setState(() {
+        _online = online;
+        _airplaneOn = airplaneOn;
+      });
     }
   }
 
@@ -132,8 +142,10 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
         setState(() => _captured = false);
       case SecureScreenEvent.wentOnline:
         setState(() => _online = true);
+        unawaited(_loadNetwork());
       case SecureScreenEvent.wentOffline:
         setState(() => _online = false);
+        unawaited(_loadNetwork());
     }
   }
 
@@ -407,7 +419,11 @@ class _DiceSandboxScreenState extends State<DiceSandboxScreen>
                         onExit: () => unawaited(_confirmExit()),
                       ),
                       if (_online)
-                        _OnlineBanner(text: l10n.toolsDiceOnlineWarning),
+                        _OnlineBanner(
+                          text: _airplaneOn == true
+                              ? l10n.toolsDiceOnlineWarningWifi
+                              : l10n.toolsDiceOnlineWarning,
+                        ),
                       Expanded(
                         child: _controller.isComplete
                             ? DiceResultView(

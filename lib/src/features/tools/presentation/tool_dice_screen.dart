@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
@@ -56,16 +57,29 @@ class _ToolDiceScreenState extends State<ToolDiceScreen>
   /// guard is missing, then the airplane row is ticked by hand.
   bool? _offline;
 
+  /// Whether airplane mode is on, from the native guard. Null when the
+  /// platform cannot tell. It can be on while Wi-Fi is still connected.
+  bool? _airplaneOn;
+
+  StreamSubscription<SecureScreenEvent>? _eventSub;
+
+  /// One more network check after resume: the OS can still report the old
+  /// network for a moment after the user returns from the settings.
+  Timer? _recheckTimer;
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _refreshNetwork();
+    _eventSub = widget.secureScreen?.events.listen(_onSecureEvent);
+    unawaited(_refreshNetwork());
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _eventSub?.cancel();
+    _recheckTimer?.cancel();
     super.dispose();
   }
 
@@ -73,15 +87,34 @@ class _ToolDiceScreenState extends State<ToolDiceScreen>
   /// network so the airplane row updates by itself.
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) _refreshNetwork();
+    if (state != AppLifecycleState.resumed) return;
+    unawaited(_refreshNetwork());
+    _recheckTimer?.cancel();
+    _recheckTimer = Timer(const Duration(milliseconds: 1500), _refreshNetwork);
+  }
+
+  void _onSecureEvent(SecureScreenEvent event) {
+    switch (event) {
+      case SecureScreenEvent.wentOnline:
+      case SecureScreenEvent.wentOffline:
+        unawaited(_refreshNetwork());
+      case SecureScreenEvent.screenshotTaken:
+      case SecureScreenEvent.captureStarted:
+      case SecureScreenEvent.captureStopped:
+        break;
+    }
   }
 
   Future<void> _refreshNetwork() async {
     final secure = widget.secureScreen;
     if (secure == null) return;
     final online = await secure.isOnline();
+    final airplaneOn = await secure.isAirplaneModeOn();
     if (!mounted) return;
-    setState(() => _offline = !online);
+    setState(() {
+      _offline = !online;
+      _airplaneOn = airplaneOn;
+    });
   }
 
   Future<void> _openAirplaneSettings() async {
@@ -284,6 +317,17 @@ class _ToolDiceScreenState extends State<ToolDiceScreen>
         title: title,
         caption: l10n.toolsDiceCheckAirplaneOffline,
         checked: true,
+        showTopBorder: false,
+        onTap: _refreshNetwork,
+      );
+    }
+    // Airplane mode is on, but Wi-Fi still connects: the user has to turn
+    // Wi-Fi off too, so the row stays unticked and a tap rechecks.
+    if (_airplaneOn == true) {
+      return _CheckRow(
+        title: title,
+        caption: l10n.toolsDiceCheckAirplaneWifiStillOn,
+        checked: false,
         showTopBorder: false,
         onTap: _refreshNetwork,
       );

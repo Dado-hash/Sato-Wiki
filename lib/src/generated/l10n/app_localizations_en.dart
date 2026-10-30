@@ -2497,6 +2497,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Still online. Turn on airplane mode from Control Center.';
 
   @override
+  String get toolsDiceCheckAirplaneWifiStillOn =>
+      'Airplane mode is on, but Wi-Fi or another network is still connected. Turn it off, then tap to check again.';
+
+  @override
   String get toolsDiceCheckPrivate => 'Find a private place';
 
   @override
@@ -2549,6 +2553,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get toolsDiceOnlineWarning =>
       'You are online. Turn on airplane mode for maximum safety.';
+
+  @override
+  String get toolsDiceOnlineWarningWifi =>
+      'Airplane mode is on, but Wi-Fi or another network is still connected. Turn it off for maximum safety.';
 
   @override
   String get toolsDiceExit => 'Exit and erase';

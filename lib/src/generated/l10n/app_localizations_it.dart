@@ -2511,6 +2511,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Ancora online. Attiva la modalità aereo dal Centro di Controllo.';
 
   @override
+  String get toolsDiceCheckAirplaneWifiStillOn =>
+      'La modalità aereo è attiva, ma il Wi-Fi o un\'altra rete è ancora connesso. Spegnilo, poi tocca per ricontrollare.';
+
+  @override
   String get toolsDiceCheckPrivate => 'Scegli un posto riservato';
 
   @override
@@ -2564,6 +2568,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get toolsDiceOnlineWarning =>
       'Sei online. Attiva la modalità aereo per la massima sicurezza.';
+
+  @override
+  String get toolsDiceOnlineWarningWifi =>
+      'La modalità aereo è attiva, ma il Wi-Fi o un\'altra rete è ancora connesso. Spegnilo per la massima sicurezza.';
 
   @override
   String get toolsDiceExit => 'Esci e cancella';

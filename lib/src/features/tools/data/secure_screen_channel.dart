@@ -14,14 +14,16 @@ enum SecureScreenEvent {
 ///
 /// Every call degrades quietly when the native side is missing (tests,
 /// desktop): enable and disable do nothing, [isOnline] and
-/// [openAirplaneModeSettings] return false and [events] is empty.
+/// [openAirplaneModeSettings] return false, [isAirplaneModeOn] returns null
+/// and [events] is empty.
 class SecureScreen {
   /// Creates the guard. The channels can be replaced in tests.
   SecureScreen({MethodChannel? methods, EventChannel? events})
     : _methods = methods ?? const MethodChannel(methodChannelName),
       _events = events ?? const EventChannel(eventChannelName);
 
-  /// Method channel used for enable, disable, isOnline and openAirplaneModeSettings.
+  /// Method channel used for enable, disable, isOnline, isAirplaneModeOn and
+  /// openAirplaneModeSettings.
   static const methodChannelName = 'org.satowiki/secure_screen';
 
   /// Event channel used for screenshot, capture and connectivity events.
@@ -56,6 +58,22 @@ class SecureScreen {
     }
   }
 
+  /// Whether airplane mode is on. Null when the platform cannot tell (iOS has
+  /// no public API for it) or the native side is missing or fails.
+  ///
+  /// Airplane mode can be on while Wi-Fi is still connected: both iOS and
+  /// Android remember Wi-Fi turned back on in airplane mode. [isOnline] is the
+  /// value that says whether data can leave.
+  Future<bool?> isAirplaneModeOn() async {
+    try {
+      return await _methods.invokeMethod<bool>('isAirplaneModeOn');
+    } on MissingPluginException {
+      return null;
+    } on PlatformException {
+      return null;
+    }
+  }
+
   /// Opens the system airplane mode settings. Returns true when a settings
   /// screen was opened. On iOS there is no such screen, so this returns false.
   Future<bool> openAirplaneModeSettings() async {
@@ -70,7 +88,13 @@ class SecureScreen {
   }
 
   /// Guard events. Unknown names from the native side are ignored.
-  Stream<SecureScreenEvent> get events {
+  ///
+  /// The stream is built once per instance and shared: each call to
+  /// `receiveBroadcastStream` replaces the previous native listener, so the
+  /// checklist and the sandbox must listen to the same stream.
+  late final Stream<SecureScreenEvent> events = _buildEvents();
+
+  Stream<SecureScreenEvent> _buildEvents() {
     final Stream<Object?> raw;
     try {
       raw = _events.receiveBroadcastStream();
