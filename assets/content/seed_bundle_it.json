@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026.10.13.220000",
+  "version": "2026.11.22.113137",
   "language": "it",
-  "generatedAt": "2026-10-13T22:00:00.000000Z",
+  "generatedAt": "2026-11-22T11:31:37.807760Z",
   "history": [
     {
       "id": "history.cypherpunk-manifesto",
@@ -10151,11 +10151,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "fc2216002dc1c366573be6658b920a65a4a83e4f",
+        "upstreamSha": "f89febdbf52fc110706773cd74b2426b23552e74",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0003.md"
       }
     },
@@ -11016,11 +11016,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "b7bfb45f0a66abdffe698ba053f91dc5641e4826",
+        "upstreamSha": "2924fdb920a7c80d40a6a065f22c130ae97642a1",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki"
       }
     },
@@ -12896,7 +12896,7 @@
       "language": "it",
       "title": "Testnet 5",
       "summary": "Il BIP 95 definisce il \"Testnet 5\", una nuova rete di test progettata per sostituire il Testnet 4, eliminando l'eccezione sulla difficoltà di mining e imponendo le regole di consenso del BIP 54 fin dal blocco 1.",
-      "status": "draft",
+      "status": "deployed",
       "category": "applications",
       "authors": [
         "Pol Espinasa",
@@ -12909,7 +12909,7 @@
       "tags": [
         "BIP",
         "Applications",
-        "Draft"
+        "Deployed"
       ],
       "sources": [
         {
@@ -12919,11 +12919,17 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "statusHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "deployed",
+          "note": "Status observed as Deployed in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "12dc04a1eb7c3a85f9471506e8f23692d7d2ed79",
+        "upstreamSha": "d8f1b7957e6a429669ccdca21c88decf786c94c2",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0095.md",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
         "needsReview": false
@@ -14444,6 +14450,46 @@
       }
     },
     {
+      "id": "code.bip.139",
+      "number": 139,
+      "language": "it",
+      "title": "Wallet Metadata Export Format",
+      "summary": "Il BIP 139 definisce un formato standard basato su JSON per l'esportazione e l'importazione di metadati del wallet, inclusi account, descrittori, chiavi, etichette e transazioni.",
+      "status": "draft",
+      "category": "applications",
+      "authors": [
+        "Pyth"
+      ],
+      "createdAt": "2026-05-11",
+      "summaryMarkdown": "Il **BIP 139** propone un formato standardizzato basato su JSON per l'esportazione dei metadati dei wallet Bitcoin. L'obiettivo è facilitare la migrazione tra diverse applicazioni wallet, permettendo il trasferimento di informazioni non recuperabili direttamente dalla blockchain, come etichette, stati delle transazioni, configurazioni degli account e informazioni sui firmatari.",
+      "impactMarkdown": "L'adozione di questo formato riduce il lock-in verso specifici fornitori di wallet, consentendo agli utenti di trasferire le proprie preferenze e lo storico dei metadati tra software diversi senza dover reinserire manualmente i dati.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0139.md",
+      "tags": [
+        "BIP",
+        "Applications",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 139",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0139.md",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "1a96f0e8fb1dba29667fb3df3cb106d56bfa8da1",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0139.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
       "id": "code.bip.140",
       "number": 140,
       "language": "it",
@@ -15300,11 +15346,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "ecaa5d127fdcd257dde8b119f78729841946121b",
+        "upstreamSha": "f33541b47dfbb9dc895895bf9fa391767f486ab2",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki"
       }
     },
@@ -15832,11 +15878,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "66fd047f6783c76e9e6ec938218349f4fb967c60",
+        "upstreamSha": "f41f2334516819b7b824c21231f987449630f105",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0322.mediawiki"
       }
     },
@@ -16023,11 +16069,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "117d6c7b6363514723928655fed2aabf75f18dfc",
+        "upstreamSha": "9e80b2e268378ec18ad01609b5935dbf9deb0d6a",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki"
       }
     },
@@ -16218,6 +16264,46 @@
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0332.md",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
         "needsReview": false
+      }
+    },
+    {
+      "id": "code.bip.333",
+      "number": 333,
+      "language": "it",
+      "title": "BIP324 One-Byte Message Type ID Alias Assignment",
+      "summary": "Il BIP 333 introduce il messaggio 'set324alias' per consentire ai peer che utilizzano il trasporto crittografato BIP-324 di definire alias dinamici a un byte per i tipi di messaggio standard a 12 byte.",
+      "status": "draft",
+      "category": "peer-services",
+      "authors": [
+        "Anthony Towns"
+      ],
+      "createdAt": "2026-10-28",
+      "summaryMarkdown": "Il **BIP 333** definisce il messaggio `set324alias`, che permette ai nodi che utilizzano il protocollo di trasporto crittografato [BIP-324](https://github.com/bitcoin/bips/blob/master/bip-0324.mediawiki) di assegnare alias a un byte per i tipi di messaggio ASCII a 12 byte. Questo meccanismo mira a ridurre l'overhead di banda per i messaggi inviati frequentemente, eliminando la necessità di coordinamento globale per l'assegnazione degli ID.",
+      "impactMarkdown": "L'implementazione del BIP 333 consente una maggiore flessibilità nel protocollo peer-to-peer, permettendo ai nodi di ottimizzare l'uso della larghezza di banda in base ai messaggi scambiati più frequentemente. Il sistema è progettato per essere retrocompatibile: i nodi che non implementano il BIP 333 continuano a utilizzare la mappatura predefinita del BIP-324 senza interruzioni.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0333.md",
+      "tags": [
+        "BIP",
+        "Peer Services",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 333",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0333.md",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "f1c4c07a3337d0fb9a943c0cb936775a7de81696",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0333.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
       }
     },
     {
@@ -16794,11 +16880,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "a369555d831ae5b409eb5dfa8f12d17851703fef",
+        "upstreamSha": "8ac0719def3d96736e6a65e01633b1c841fbf4ec",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki"
       }
     },
@@ -17061,11 +17147,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "bf490d69977d74a4d788edccf2eaece12d4bfc6a",
+        "upstreamSha": "caea786579817202f9a9f6816ea2cd897c1e2710",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0373.mediawiki"
       }
     },
@@ -17100,11 +17186,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "7e3bdffbf0a8787293a094388cc7d32082a0f40e",
+        "upstreamSha": "e76df3baf7a899eb447d060abf075521acfe55ee",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0374.mediawiki"
       }
     },
@@ -17139,11 +17225,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "28c0a3cf39bc39ce37bc063dcc0893c87c22dc2d",
+        "upstreamSha": "b663449f589044a1911c28b88f6adeab03c27638",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0375.mediawiki"
       }
     },
@@ -17190,7 +17276,7 @@
       "language": "it",
       "title": "Miniscript",
       "summary": "Definisce Miniscript, un linguaggio per scrivere script Bitcoin in modo strutturato e analizzabile.",
-      "status": "draft",
+      "status": "deployed",
       "category": "applications",
       "authors": [
         "Pieter Wuille",
@@ -17206,7 +17292,7 @@
       "tags": [
         "BIP",
         "Applications",
-        "Draft"
+        "Deployed"
       ],
       "sources": [
         {
@@ -17216,12 +17302,18 @@
         }
       ],
       "related": [],
-      "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "statusHistory": [
+        {
+          "date": "2026-11-22",
+          "status": "deployed",
+          "note": "Status observed as Deployed in bitcoin/bips."
+        }
+      ],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "cace8f859aa643f02c105e319d39e3b773fb60dd",
+        "upstreamSha": "ce3baa7171fa57edd617dc2a94c3a2f03191fb70",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0379.md"
       }
     },
@@ -17255,11 +17347,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "88fd273a186a916a04ae3f3f48c2ba05396db494",
+        "upstreamSha": "bfb40fe736ebb5945575ed5a52d44a2d67d9190e",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0380.mediawiki"
       }
     },
@@ -17706,11 +17798,11 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-06-20T07:10:41.226435Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
         "needsReview": false,
-        "upstreamSha": "c1424bfdd23263ec26cc9f90cfc755d3ed92252e",
+        "upstreamSha": "2da1392b8e0b6a2381c1c1f550ef265ccacd8151",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0392.mediawiki"
       }
     },
@@ -17749,6 +17841,46 @@
         "needsReview": false,
         "upstreamSha": "f3a338b71d44acad69504e06bf0b53c251c9703d",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0393.mediawiki"
+      }
+    },
+    {
+      "id": "code.bip.394",
+      "number": 394,
+      "language": "it",
+      "title": "rawtr() Output Script Descriptors",
+      "summary": "BIP 394 definisce il descrittore di script di output rawtr(), che permette di esprimere un output Pay-to-Taproot (P2TR) direttamente tramite la sua chiave di output, senza specificare una chiave interna o un albero di script.",
+      "status": "draft",
+      "category": "applications",
+      "authors": [
+        "jeanpablojp"
+      ],
+      "createdAt": "2026-09-09",
+      "summaryMarkdown": "Il BIP 394 introduce il descrittore `rawtr(KEY)`, progettato per rappresentare un output Pay-to-Taproot (P2TR) utilizzando direttamente la chiave di output. A differenza del descrittore `tr()` (BIP 386), `rawtr()` non richiede una chiave interna o un albero di script, rendendolo adatto a scenari in cui la struttura interna dell'output non è nota o non deve essere rivelata.",
+      "impactMarkdown": "L'adozione di `rawtr()` standardizza la gestione di output P2TR la cui struttura interna è ignota o privata. Poiché `rawtr()` non applica alcuna modifica (tweak) alla chiave fornita, esso permette di descrivere con precisione output P2TR esistenti che non seguono la costruzione standard `tr()`.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0394.mediawiki",
+      "tags": [
+        "BIP",
+        "Applications",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 394",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0394.mediawiki",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "5591c9fc799b16d3a53c13c8d6eedc10cf77bac8",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0394.mediawiki",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
       }
     },
     {
@@ -18211,6 +18343,128 @@
       }
     },
     {
+      "id": "code.bip.458",
+      "number": 458,
+      "language": "it",
+      "title": "Half-Aggregation of BIP 340 Signatures",
+      "summary": "Il BIP 458 definisce la 'half-aggregation' (semi-aggregazione) delle firme BIP 340, un processo non interattivo per combinare più firme in un'unica firma aggregata di dimensioni ridotte.",
+      "status": "draft",
+      "category": "applications",
+      "authors": [
+        "Tim Ruffing",
+        "Jonas Nick",
+        "Fabian Jahr"
+      ],
+      "createdAt": "2026-07-02",
+      "summaryMarkdown": "Il **BIP 458** introduce la *half-aggregation* delle firme Schnorr (BIP 340). Si tratta di un metodo non interattivo che permette di comprimere una collezione di firme in un'unica firma aggregata, riducendo significativamente lo spazio occupato rispetto alla somma delle singole firme originali.",
+      "impactMarkdown": "L'adozione della half-aggregation consente di ridurre il peso dei dati nelle transazioni o nei protocolli di comunicazione (come il gossip di Lightning Network). A differenza di schemi come MuSig2, non richiede cooperazione tra i firmatari, rendendola adatta a scenari in cui le firme vengono generate indipendentemente.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0458.mediawiki",
+      "tags": [
+        "BIP",
+        "Applications",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 458",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0458.mediawiki",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "b3217e1e15ce8280c9e7d1458bd97bc6d3519d60",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0458.mediawiki",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "code.bip.459",
+      "number": 459,
+      "language": "it",
+      "title": "DahLIAS fully aggregated signatures for secp256k1",
+      "summary": "Il BIP 459 definisce lo standard DahLIAS per firme aggregate interattive basate su Schnorr, progettato per secp256k1. Consente di combinare più firme in un'unica firma di 64 byte, indipendentemente dal numero di firmatari.",
+      "status": "draft",
+      "category": "applications",
+      "authors": [
+        "Fabian Jahr"
+      ],
+      "createdAt": "2026-07-10",
+      "summaryMarkdown": "Il **BIP 459** introduce lo standard **DahLIAS** (*Discrete Logarithm-Based Interactive Aggregate Signatures*) per la creazione di firme aggregate interattive su curva ellittica secp256k1. Il protocollo permette a un gruppo di firmatari di produrre una singola firma di 64 byte, mantenendo la stessa sicurezza di una firma BIP 340 individuale, indipendentemente dal numero di chiavi pubbliche e messaggi coinvolti.",
+      "impactMarkdown": "L'adozione di questo schema mira a ridurre significativamente la dimensione dei dati nelle transazioni multi-input, come CoinJoin o consolidamenti. Sebbene il protocollo richieda un processo interattivo in due round tra i firmatari, esso offre una riduzione del peso dei dati che scala linearmente con il numero di input, migliorando l'efficienza complessiva della rete.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0459.mediawiki",
+      "tags": [
+        "BIP",
+        "Applications",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 459",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0459.mediawiki",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "ebcfba4e2b86f136a464247814a795e25ea4bdae",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0459.mediawiki",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "code.bip.460",
+      "number": 460,
+      "language": "it",
+      "title": "CISA for Taproot Key Path Spends in SegWit v2",
+      "summary": "Il BIP 460 propone l'aggregazione delle firme tra input (CISA) per le transazioni Bitcoin, introducendo una nuova versione di witness (v2) per le spese tramite percorso chiave (key path) di Taproot.",
+      "status": "draft",
+      "category": "consensus",
+      "authors": [
+        "Fabian Jahr"
+      ],
+      "createdAt": "2026-07-28",
+      "summaryMarkdown": "Il **BIP 460** introduce l'aggregazione delle firme tra input (CISA - *Cross-Input Signature Aggregation*) per le transazioni Bitcoin. Attraverso una nuova versione di witness (v2), il BIP abilita due schemi di aggregazione per le spese tramite percorso chiave (*key path*) di Taproot: la **half-aggregation** (non interattiva) e la **full-aggregation** (interattiva). Il meccanismo permette di ridurre significativamente il peso delle transazioni che contengono molteplici input, ottimizzando lo spazio nei blocchi e riducendo le commissioni.",
+      "impactMarkdown": "L'adozione del BIP 460 comporterebbe una riduzione del peso delle transazioni con più input, favorendo protocolli come CoinJoin, PayJoin e la gestione dei canali Lightning. L'aggregazione consente di risparmiare spazio su blockchain, rendendo le transazioni collaborative più economiche e incentivando pratiche che migliorano la privacy degli utenti.",
+      "officialUrl": "https://github.com/bitcoin/bips/blob/master/bip-0460.mediawiki",
+      "tags": [
+        "BIP",
+        "Consensus",
+        "Draft"
+      ],
+      "sources": [
+        {
+          "title": "BIP 460",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0460.mediawiki",
+          "author": "Bitcoin BIPs"
+        }
+      ],
+      "related": [],
+      "statusHistory": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "cdcaf1bd3064dba9eaf3ddb72086b7c81c8d511a",
+        "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0460.mediawiki",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
       "id": "code.bip.461",
       "number": 461,
       "language": "it",
@@ -18239,10 +18493,10 @@
       ],
       "related": [],
       "statusHistory": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "608e0939354b1e994aa7ec62ae435b6868d6a716",
+        "upstreamSha": "f12ec7238ac43c5965e678707230277bb0c3f362",
         "upstreamUrl": "https://github.com/bitcoin/bips/blob/master/bip-0461.md",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
         "needsReview": false
@@ -18250,6 +18504,123 @@
     }
   ],
   "changelogs": [
+    {
+      "id": "release.bitcoin-core.32.1",
+      "slug": "bitcoin-core-32-1",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "32.1",
+      "title": "Bitcoin Core 32.1",
+      "summary": "Release Bitcoin Core 32.1.",
+      "releasedAt": "2026-10-28",
+      "importance": "minor",
+      "userImpactMarkdown": "Bozza generata dalle note ufficiali. Richiede review.",
+      "technicalChangesMarkdown": "Modifiche tecniche da sintetizzare durante la review.",
+      "officialUrl": "https://bitcoincore.org/en/releases/32.1/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 32.1 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-32.1.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 32.1",
+          "url": "https://bitcoincore.org/en/releases/32.1/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-32.1.md",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "release.bitcoin-core.31.3",
+      "slug": "bitcoin-core-31-3",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "31.3",
+      "title": "Bitcoin Core 31.3",
+      "summary": "Release Bitcoin Core 31.3.",
+      "releasedAt": "2026-11-20",
+      "importance": "minor",
+      "userImpactMarkdown": "Bozza generata dalle note ufficiali. Richiede review.",
+      "technicalChangesMarkdown": "Modifiche tecniche da sintetizzare durante la review.",
+      "officialUrl": "https://bitcoincore.org/en/releases/31.3/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 31.3 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.3.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 31.3",
+          "url": "https://bitcoincore.org/en/releases/31.3/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.3.md",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "release.bitcoin-core.31.2",
+      "slug": "bitcoin-core-31-2",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "31.2",
+      "title": "Bitcoin Core 31.2",
+      "summary": "Bitcoin Core 31.2 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
+      "releasedAt": "2026-10-28",
+      "importance": "minor",
+      "userImpactMarkdown": "Per la maggior parte degli utenti, l'aggiornamento non comporta cambiamenti operativi significativi. Gli utenti che utilizzano la funzionalità `-privatebroadcast` devono notare che ora è previsto un limite di 10.000 transazioni in coda; il superamento di tale limite comporterà il rifiuto di nuove sottomissioni.",
+      "technicalChangesMarkdown": "Le modifiche principali includono: 1) Implementazione del BIP 323: i bit di versione da 5 a 28 sono ora ignorati per la segnalazione di soft fork, riservandoli come spazio extra per i nonce. 2) Introduzione di un limite di 10.000 voci per la coda di trasmissione privata (`private-broadcast`). 3) Aggiornamento del file `asmap` integrato. 4) Miglioramenti nella validazione e gestione della rete, inclusa la correzione di errori di avvio legati a configurazioni Tor obsolete e il trattamento del range IPv6 RFC 9637 come non valido.",
+      "officialUrl": "https://bitcoincore.org/en/releases/31.2/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 31.2 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.2.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 31.2",
+          "url": "https://bitcoincore.org/en/releases/31.2/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "40bf05ffc5769d6877433a1762ee9c1553bd5e53",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.2.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
     {
       "id": "release.bitcoin-core.31.1",
       "slug": "bitcoin-core-31-1",
@@ -18326,6 +18697,88 @@
         "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.0.md",
         "generatedAt": "2026-10-13T00:08:19.961321Z",
         "needsReview": false
+      }
+    },
+    {
+      "id": "release.bitcoin-core.30.5",
+      "slug": "bitcoin-core-30-5",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "30.5",
+      "title": "Bitcoin Core 30.5",
+      "summary": "Bitcoin Core 30.5 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
+      "releasedAt": "2026-11-20",
+      "importance": "minor",
+      "userImpactMarkdown": "Gli utenti sono incoraggiati ad aggiornare per beneficiare delle correzioni di bug e dei miglioramenti prestazionali. Il processo di aggiornamento segue la procedura standard di sostituzione dei file binari dopo aver arrestato correttamente il nodo.",
+      "technicalChangesMarkdown": "La modifica principale riguarda `net_processing` (PR #35878), che ora elabora esclusivamente gli inventari di transazioni (INV) univoci. Sono stati inoltre apportati diversi miglioramenti all'infrastruttura di integrazione continua (CI), inclusi l'aggiornamento di `pycapnp` alla versione 2.2.1 e l'ottimizzazione della cache dei runner GitHub.",
+      "officialUrl": "https://bitcoincore.org/en/releases/30.5/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 30.5 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.5.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 30.5",
+          "url": "https://bitcoincore.org/en/releases/30.5/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "955614dfb80d9b589631d0090823093f9036d896",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.5.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
+      }
+    },
+    {
+      "id": "release.bitcoin-core.30.4",
+      "slug": "bitcoin-core-30-4",
+      "language": "it",
+      "project": "bitcoin-core",
+      "version": "30.4",
+      "title": "Bitcoin Core 30.4",
+      "summary": "Bitcoin Core 30.4 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e l'implementazione del BIP 323.",
+      "releasedAt": "2026-10-28",
+      "importance": "minor",
+      "userImpactMarkdown": "Gli utenti non noteranno cambiamenti funzionali diretti nell'interfaccia. L'aggiornamento garantisce una migliore compatibilità con le specifiche di rete aggiornate e una maggiore stabilità operativa del nodo.",
+      "technicalChangesMarkdown": "Le modifiche tecniche principali includono: implementazione del **BIP 323** (i bit 5-28 sono ora ignorati per il signaling dei soft fork), rimozione di un DNS seed obsoleto, miglioramenti nella gestione dei timeout P2P, refactoring della gestione dei file flat (interi a 64 bit) e correzioni specifiche per il sistema di build su macOS.",
+      "officialUrl": "https://bitcoincore.org/en/releases/30.4/",
+      "tags": [
+        "Bitcoin Core",
+        "Release"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Core 30.4 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.4.md",
+          "author": "Bitcoin Core"
+        },
+        {
+          "title": "Bitcoin Core 30.4",
+          "url": "https://bitcoincore.org/en/releases/30.4/",
+          "author": "Bitcoin Core"
+        }
+      ],
+      "related": [],
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
+      "automation": {
+        "source": "sync_code_content.dart",
+        "upstreamSha": "0097f16804e0ba8d476ac961f25747408b882503",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.4.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
       }
     },
     {
@@ -18485,237 +18938,44 @@
       }
     },
     {
-      "id": "release.bitcoin-core.29.4",
-      "slug": "bitcoin-core-29-4",
+      "id": "release.bitcoin-core.29.5",
+      "slug": "bitcoin-core-29-5",
       "language": "it",
       "project": "bitcoin-core",
-      "version": "29.4",
-      "title": "Bitcoin Core 29.4",
-      "summary": "Bitcoin Core 29.4 è una release di manutenzione che corregge un problema di I/O del database chainstate e include vari miglioramenti tecnici e di compilazione.",
-      "releasedAt": "2026-07-10",
+      "version": "29.5",
+      "title": "Bitcoin Core 29.5",
+      "summary": "Bitcoin Core 29.5 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alla documentazione.",
+      "releasedAt": "2026-10-28",
       "importance": "minor",
-      "userImpactMarkdown": "Gli utenti noteranno una riduzione dell'attività di I/O su disco. L'aggiornamento è consigliato per migliorare la stabilità operativa e l'efficienza delle risorse del nodo.",
-      "technicalChangesMarkdown": "### Modifiche principali\n- **Validazione:** Implementata la compattazione regolare del `chainstate` (PR #35465) e corretta la gestione del ciclo di vita dei dati precalcolati delle transazioni (PR #35209).\n- **LevelDB:** Disabilitata la compattazione durante le operazioni di `seek` (PR bitcoin-core/leveldb #61).\n- **Wallet:** Migliorata la stima della dimensione degli input utilizzando l'outpoint (PR #35228).\n- **Build:** Migrazione da target SQLite3 deprecati in CMake e rimozione di `SOURCE_DATE_EPOCH` negli script di generazione ID.\n- **Compatibilità:** Risolto un errore di compilazione con Boost >= 1.91.",
-      "officialUrl": "https://bitcoincore.org/en/releases/29.4/",
+      "userImpactMarkdown": "Gli utenti sono invitati ad aggiornare per beneficiare delle correzioni di bug e dei miglioramenti prestazionali. Il processo di aggiornamento segue la procedura standard: arrestare il nodo, attendere la chiusura completa e sostituire i file binari.",
+      "technicalChangesMarkdown": "Le modifiche tecniche principali includono: rimozione di un seed DNS obsoleto, implementazione di `Assume v2transport` per gli indirizzi provenienti dai seed, allineamento del monitoraggio delle eccezioni nei backend `poll()` e `select()`, e l'imposizione di timeout per i peer in pausa. È stato inoltre eseguito un refactoring per l'archiviazione delle posizioni come interi a 64 bit nei file flat e aggiornata la documentazione BIP per includere il BIP 433 (Pay to Anchor) e il BIP 461 (Deterministic ECDSA signatures).",
+      "officialUrl": "https://bitcoincore.org/en/releases/29.5/",
       "tags": [
         "Bitcoin Core",
         "Release"
       ],
       "sources": [
         {
-          "title": "Bitcoin Core 29.4 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.4.md",
+          "title": "Bitcoin Core 29.5 release notes",
+          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.5.md",
           "author": "Bitcoin Core"
         },
         {
-          "title": "Bitcoin Core 29.4",
-          "url": "https://bitcoincore.org/en/releases/29.4/",
+          "title": "Bitcoin Core 29.5",
+          "url": "https://bitcoincore.org/en/releases/29.5/",
           "author": "Bitcoin Core"
         }
       ],
       "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
+      "updatedAt": "2026-11-22T11:31:37.807760Z",
       "automation": {
         "source": "sync_code_content.dart",
-        "upstreamSha": "3ff905db0573e4d96721766e63bf692b212cb86a",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.4.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
-      }
-    },
-    {
-      "id": "release.bitcoin-core.29.3",
-      "slug": "bitcoin-core-29-3",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "29.3",
-      "title": "Bitcoin Core 29.3",
-      "summary": "Bitcoin Core 29.3 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
-      "releasedAt": "2026-02-11",
-      "importance": "minor",
-      "userImpactMarkdown": "Per gli utenti, questa versione risolve bug specifici legati alla migrazione dei wallet e migliora la gestione delle transazioni. Le modifiche riguardano soprattutto migrazione dei wallet, validazione e gestione dei peer.",
-      "technicalChangesMarkdown": "Le modifiche tecniche principali includono:\n\n* **Validazione:** Introdotta una cache per il midstate sighash per script legacy/P2SH/SegWitV0 e migliorata la rilevazione dello stripping dei witness.\n* **P2P:** Rimosso un seed DNS obsoleto e modificata la gestione delle penalità per i peer che inviano transazioni non valide per il consenso.\n* **Wallet:** Risolti diversi problemi relativi alla migrazione dei wallet legacy, inclusi errori con wallet senza nome e wallet di sola lettura (watch-only).\n* **Mining:** Corretto un overflow di interi senza segno nella funzione `addPackageTxs`.\n* **Build/CI:** Aggiornamenti alle dipendenze di build e miglioramenti alla pipeline di integrazione continua.",
-      "officialUrl": "https://bitcoincore.org/en/releases/29.3/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 29.3 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.3.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 29.3",
-          "url": "https://bitcoincore.org/en/releases/29.3/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "98713c6ceaa407bc58fb92bffb25dc73a0881082",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.3.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
-      }
-    },
-    {
-      "id": "release.bitcoin-core.29.2",
-      "slug": "bitcoin-core-29-2",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "29.2",
-      "title": "Bitcoin Core 29.2",
-      "summary": "Bitcoin Core 29.2 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
-      "releasedAt": "2025-10-14",
-      "importance": "minor",
-      "userImpactMarkdown": "Le modifiche riguardano soprattutto correzioni di bug e aggiornamenti interni. Si raccomanda di seguire la procedura standard di arresto e sostituzione dei binari per l'aggiornamento.",
-      "technicalChangesMarkdown": "### Modifiche tecniche principali\n\n* **P2P:** Aggiunto controllo per la mutazione dei witness in `FillBlock` e corretta la gestione dei permessi whitelist per le connessioni onion in entrata.\n* **Mempool:** Disabilitata l'applicazione dei controlli TRUC durante le riorganizzazioni della blockchain.\n* **RPC:** Corretto il valore di ritorno di `getblock` (header) per il tip della catena.\n* **Altro:** Risolti bug minori nella compilazione, migliorata l'output dei benchmark CSV e aggiornata l'infrastruttura di integrazione continua (CI).",
-      "officialUrl": "https://bitcoincore.org/en/releases/29.2/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 29.2 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.2.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 29.2",
-          "url": "https://bitcoincore.org/en/releases/29.2/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "b981b8a7f54609be828167e5ce551a1689ac148d",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.2.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
-      }
-    },
-    {
-      "id": "release.bitcoin-core.29.1",
-      "slug": "bitcoin-core-29-1",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "29.1",
-      "title": "Bitcoin Core 29.1",
-      "summary": "Bitcoin Core 29.1 è una release di manutenzione che introduce correzioni di bug, miglioramenti delle prestazioni e aggiornamenti alle policy di mempool e logging.",
-      "releasedAt": "2025-09-05",
-      "importance": "minor",
-      "userImpactMarkdown": "Alcuni valori di default delle fee sono cambiati, quindi conviene verificare la configurazione. Si segnala tuttavia che i valori di default per `-minrelaytxfee` e `-incrementalrelayfee` sono stati ridotti a 100 sat/kvB. È importante notare che, sebbene il software permetta fee più basse, la propagazione e la conferma delle transazioni con fee più basse non sono garantite finché questi parametri non sono adottati dalla rete.",
-      "technicalChangesMarkdown": "### Modifiche principali\n- **Policy Mempool**: Introdotto un limite di 2500 operazioni di firma legacy per transazione standard. Ridotti i valori di default per `-blockmintxfee` (1 sat/kvB), `-minrelaytxfee` e `-incrementalrelayfee` (100 sat/kvB).\n- **Logging**: Implementato un limite di quota (1MiB/ora) per i log non condizionali (info, warning, error) per prevenire l'eccessivo consumo di spazio su disco.\n- **Sistemi 32-bit**: Introdotti limiti massimi per `-maxmempool` (500MB) e `-dbcache` (1GiB).\n- **RPC**: Il comando `dumptxoutset` ora richiede obbligatoriamente il parametro `type`.",
-      "officialUrl": "https://bitcoincore.org/en/releases/29.1/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 29.1 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.1.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 29.1",
-          "url": "https://bitcoincore.org/en/releases/29.1/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "2c66622795e5c15a07070c871d4c6e3af96615fc",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.1.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
-      }
-    },
-    {
-      "id": "release.bitcoin-core.29.0",
-      "slug": "bitcoin-core-29-0",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "29.0",
-      "title": "Bitcoin Core 29.0",
-      "summary": "Bitcoin Core 29.0 è una release che introduce miglioramenti alla rete P2P, nuove funzionalità per il mempool, aggiornamenti alle API RPC/REST e la migrazione del sistema di build da Autotools a CMake.",
-      "releasedAt": "2025-04-15",
-      "importance": "major",
-      "userImpactMarkdown": "Gli utenti che utilizzano configurazioni di rete personalizzate (come Tor o port forwarding) potrebbero dover aggiornare i propri file di configurazione. Al posto di UPnP, per il port forwarding automatico si consiglia `-natpmp`. Il comportamento di `full-RBF` è ora predefinito e non più disattivabile.",
-      "technicalChangesMarkdown": "### Principali novità tecniche\n- **Rete P2P:** Rimozione di UPnP; implementazione nativa di NAT-PMP/PCP. La porta di ascolto Onion è ora con `-port` impostato, derivata come `-port` + 1.\n- **Mempool e Mining:** Introduzione del concetto di 'ephemeral dust' e correzione del calcolo del peso riservato dei blocchi (`-blockreservedweight`).\n- **RPC/REST:** Nuovi campi `target` in diverse chiamate (es. `getmininginfo`, `getblock`) e introduzione di `getdescriptoractivity`.\n- **Sistema di Build:** Migrazione completa da Autotools a CMake. Se si usavano CPPFLAGS, CFLAGS, CXXFLAGS o LDFLAGS, usare le variabili CMake APPEND_CPPFLAGS, APPEND_CFLAGS, APPEND_CXXFLAGS e APPEND_LDFLAGS.\n- **Configurazione:** Aumento dei default per `-rpcthreads` (da 4 a 16) e `-rpcworkqueue` (da 16 a 64).",
-      "officialUrl": "https://bitcoincore.org/en/releases/29.0/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 29.0 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.0.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 29.0",
-          "url": "https://bitcoincore.org/en/releases/29.0/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "582cc7e885fb2c5af7b79fc8799a3c95df764f2a",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.0.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
-      }
-    },
-    {
-      "id": "release.bitcoin-core.28.4",
-      "slug": "bitcoin-core-28-4",
-      "language": "it",
-      "project": "bitcoin-core",
-      "version": "28.4",
-      "title": "Bitcoin Core 28.4",
-      "summary": "Bitcoin Core 28.4 è una release di manutenzione che introduce correzioni di bug, miglioramenti alle prestazioni e aggiornamenti alle traduzioni.",
-      "releasedAt": "2026-04-06",
-      "importance": "minor",
-      "userImpactMarkdown": "Gli utenti che utilizzano wallet legacy potrebbero beneficiare delle correzioni apportate alla migrazione dei wallet.",
-      "technicalChangesMarkdown": "### Wallet\n- Risolto un errore nella migrazione dei wallet legacy senza nome (#34156).\n- Corretto un errore in `wallettool` relativo alla cancellazione della directory dei wallet durante `createfromdump` (#34215).\n\n### P2P\n- Rimosso `dnsseed.bitcoin.dashjr-list-of-p2p-nodes.us` dai parametri di rete (#33723).\n\n### Build e CI\n- Aggiornamenti minori alle pipeline di integrazione continua (CI) e correzioni ai test `osslsigncode` in ambiente Guix.",
-      "officialUrl": "https://bitcoincore.org/en/releases/28.4/",
-      "tags": [
-        "Bitcoin Core",
-        "Release"
-      ],
-      "sources": [
-        {
-          "title": "Bitcoin Core 28.4 release notes",
-          "url": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md",
-          "author": "Bitcoin Core"
-        },
-        {
-          "title": "Bitcoin Core 28.4",
-          "url": "https://bitcoincore.org/en/releases/28.4/",
-          "author": "Bitcoin Core"
-        }
-      ],
-      "related": [],
-      "updatedAt": "2026-10-13T00:08:19.961321Z",
-      "automation": {
-        "source": "sync_code_content.dart",
-        "upstreamSha": "b6af01a4b742e9bb77d95891025950ff521ee273",
-        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md",
-        "generatedAt": "2026-10-13T00:08:19.961321Z",
-        "needsReview": false
+        "upstreamSha": "420cf0190aa72d1547b0eea412fa7738ae423569",
+        "upstreamUrl": "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.5.md",
+        "aiModel": "gemini-3.1-flash-lite",
+        "aiPromptVersion": "code-sync-v1",
+        "generatedAt": "2026-11-22T11:31:37.807760Z",
+        "needsReview": true
       }
     }
   ],
